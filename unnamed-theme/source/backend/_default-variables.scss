@@ -1,0 +1,41 @@
+/* Default Variables */
+:root {
+  --background-image: url(https://images4.alphacoders.com/628/628927.png); /* unsure */
+  // --background-image: url(https://images3.alphacoders.com/112/thumb-1920-112347.jpg);
+  --user-modal-image: var(--background-image);
+  --user-popout-image: var(--background-image);
+  --background-attachment: fixed;
+  --user-modal-attachment: var(--background-attachment);
+  --user-popout-attachment: var(--background-attachment);
+  --tooltip-color: blue; /* unsure */
+  --primary-color: #1133ff; /* unsure */
+  --button-text-color: #dcddde; /* unsure */
+  --hover-color: pink; /* unsure */
+  --active-color: red; /* unsure */
+  --spotify-color: #1db954;
+  --live-color: #593695;
+  --text-color: #dcddde;
+  --online-color: #43b581;
+  --idle-color: #faa61a;
+  --dnd-color: #f04747;
+  --invis-color: #808080;
+  --green-color: #43b581;
+  --yellow-color: #faa61a;
+  --red-color: #f04747;
+  --background-filters: none;
+  --user-modal-filters: blur(3px);
+  --user-popout-filters: blur(3px);
+  --graident-colors: var(--primary-color); /* unsure */
+  --gradient-direction: to bottom right; /* unsure */
+  --code-font: Monaco, Consolas, Courier, monospace;
+  --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
+  --body-filters: none;
+}
+
+//shorthands
+$primary: var(--primary-color);
+$button-text: var(--button-text-color);
+$hover: var(--hover-color);
+$active: var(--active-color);
+$spotify: var(--spotify-color);
+$live: var(--live-color);

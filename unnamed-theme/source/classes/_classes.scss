@@ -1,0 +1,58 @@
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+// @use "map" as *;
+
+/// Get a class from the Classes Map. Code stolen entirely from Zerthox.
+/// changes to Zerthox's code: `map.get` -> `map-get`, adds a dot at end.
+@function class($query) {
+	$class: $classes;
+	@each $el in $query {
+		$class: map-get($class, "#{$el}");
+		@if not $class {
+			@error "Unknown class \"#{$el}\" in category: #{$query}";
+		}
+	}
+	@return "." + $class;
+}
+
+///extreme lazy shorthand
+@function c($query) {
+  @return class($query);
+}
+
+$classes: (
+	"button": (
+	),
+	"chat": (
+		"app": "bg-h5JY_x",
+	),
+	"userModal": (
+		"modal": "modal-3c3bKg",
+		"root": "root-SR8cQa",
+		"topSection": "topSectionNormal-2-vo2m",
+		"topPlaying": "topSectionPlaying-1J5E4n",
+		"topSpotify": "topSectionSpotify-1lI0-P",
+		"topStreaming": "topSectionStreaming-1Tpf5X",
+		"topXbox": "topSectionXbox-3fWLjS",
+		"top": "top-28JiJ-",
+		"tabBarContainer": "tabBarContainer-1s1u-z",
+		"tabBar": "tabBar-2MuP6-",
+		"tabBarItem": "tabBarItem-1b8RUP",
+		"tabBarItemSelected": "selected-3s45Ha",
+		"tabBarThemed": "themed-OHr7kt",
+		"tabBarItemNoPrefix": "item-PXvHYJ",
+		"header": "header-QKLPzZ",
+		"headerInfo": "headerInfo-30uryT",
+		"activityProfile": "activityProfile-2bJRaP",
+		"activity": "activity-1ythUs",
+		"body": "body-3ND3kc",
+		"userInfoSection": "userInfoSection-2acyCx",
+		"userInfoSectionHeader": "userInfoSectionHeader-CBvMDh",
+		"noteTextArea": "textarea-2r0oV8",
+		"note": "note-QfFU8y",
+		"connectedAccounts": "connectedAccounts-repVzS",
+		"connectedAccount": "connectedAccount-36nQx7",
+		"connectedAccountVerifiedIcon": "connectedAccountVerifiedIcon-3aZz_K",
+	)
+)

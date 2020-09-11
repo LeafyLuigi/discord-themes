@@ -1,0 +1,68 @@
+/**
+ * @name Unnamed Theme
+ * @author LeafyLuigi
+ * @version 0.0.1
+ * @description Currently Indev Unnamed Theme - BD
+ * @source https://github.com/ClearVision/ClearVision-v7
+ * @website https://clearvision.gitlab.io/join
+ * @invite W976FZS
+ */
+
+/* Import Base */
+/* @import url(); */
+
+/* Import BD Only Features */
+/* @import url(); */
+
+/* Theme Base */
+:root {
+  /* Backgrounds */
+    /* Can be the following formats without any plugins: JPEG, JPEG2000, PNG, GIF, TIFF, SVG. */
+    /* Links **MUST** be HTTPS. Raw file pointers on your computer will not work. */
+    --background-image: url(https://images4.alphacoders.com/628/628927.png); /* Main Background Image. Default: [] */
+    --user-modal-image: var(--background-image); /* User Modal Background Image. Default: [var(--background-image)] */
+    --user-popout-image: var(--background-image); /* User Popout Background Image. Default: [var(--background-image)] */
+
+    /* Image Attachment */
+    /* Valid values: "Scroll", "Fixed", "Local". */
+    --background-attachment: fixed; /* Background Image Attachment. Default: [fixed] */
+    --user-modal-attachment: var(--background-attachment); /* User Modal Image Attachment. You might want to set this to "scroll" if the image is different to background. Default: [var(--background-attachment)] */
+    --user-popout-attachment: var(--background-attachment); /* User Popout Image Attachment. You might want to set this to "scroll" if the image is different to background.  Default: [var(--background-attachment)] */
+
+  /* Colors */
+    /* These can be Hex Values or RGB. */
+    --tooltip-color: blue; /* Color used for most tooltips. Full list here: <link>. Default: [] */
+    --button-color: #1133ff; /* Color used for buttons. Default: [] */
+    --hover-color: pink; /* Color used for buttons when hovered. Default: [] */
+    --active-color: red; /* Color used for buttons when clicked. This one might be hard to see. Default: [] */
+    --spotify-color: #1db954; /* You ever heard of Spotify? Default: [#1db954] */
+    --live-color: #593695; /* You ever heard of Twitch? Default: [#593695] */
+    --text-color: #dcddde; /* For the one who can't read text due to the background. Also applies to tooltips. Default: [#dcddde] */
+
+    /* Statuses */
+    --online-color: #43b581; /* Used for the Online/Mobile status. Default: [#43b581] */
+    --idle-color: #faa61a; /* Used for the Idle status. Default: [#faa61a] */
+    --dnd-color: #f04747; /* Used for the Do Not Disturb status. Default: [#f04747] */
+    --invis-color: #808080; /* Used for the Invisible/Offline statuses. Default: [#808080] */
+
+    /* Misc Colors */
+    /* The best place to see these is the Privacy & Safety Screen. */
+    --green-color: #43b581; /* "KEEP ME SAFE". Default: [#43b581] */
+    --yellow-color: #faa61a; /* "MY FRIENDS ARE NICE". Default: [#faa61a] */
+    --red-color: #f04747; /* "DO NOT SCAN". Default: [#f04747] */
+
+  /* Advanced Users Only */
+    /* Do not mess with this unless you know what you are doing. No support will be given if this breaks. */
+    /* Filters */
+    --background-filters: none; /* Filters applied to the background image. Default: [none] */
+    --user-modal-filters: blur(3px); /* Filters applied to the user modal image. Default: [blur(3px)] */
+    --user-popout-filters: blur(3px); /* Filters applied to the user popout image. Default: [blur(3px)] */
+    /* Gradients */
+    --graident-colors: var(--button-color); /* Default: [] */
+    --gradient-direction: right; /* Default: [] */
+    /* Fonts */
+    /* The font MUST be installed on your computer or @import'd from a website */
+    --code-font: Monaco, Consolas, Courier, monospace; /* Font(s) used for codeblocks. Should be a list, first used is given preference. Default: [Monaco, Consolas, Courier, monospace] */
+    --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif; /* Fonts used for non-codeblocks. Should be a list, first used is given preference. Whitney is the default for Stock Discord. Default: [Whitney, Helvetica Neue, Helvetica, sans-serif] */
+    --body-filters: none; /* Applied only to body. Allows use of CSS Filters "just in case". Default: [none] */
+}

@@ -1,0 +1,18 @@
+// Mixins
+
+/// Create background using a static, opaque color with the ability to change opacity
+@mixin bg {
+  &:before {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    // What will need to be defined:
+    // opacity
+    // border-radius
+    // background-color
+  }
+}

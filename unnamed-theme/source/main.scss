@@ -1,0 +1,22 @@
+@use "start";
+
+// Import Classes
+@use "classes";
+
+// Import Functions, Variables, Mixins and Default Vars
+@use "backend";
+// @use "backend/_variables.scss"; //needs own vars
+
+@use "backend" as *;
+
+// Contains the theme proper.
+@use "theme";
+
+
+#{c(chat app)} {
+	background: transparent;
+}
+
+.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9 {
+	background-color: var(--active-color);
+}

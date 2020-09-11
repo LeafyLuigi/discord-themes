@@ -1,0 +1,152 @@
+// UNNAMED THEME VARIABLES
+$vars: (
+
+	// CONSTANTS
+	constants: (
+		colors: (
+			discord-blurple: #7289da, //used for notice only
+			twitch-purple: #593695, //used for notice only
+			spotify-green: #1db954, //used for notice only
+			xbox-green: #107c10,
+			facebook-blue: #355089 //used for notice only
+		),
+		// text: (
+		// 	titlebar: (
+		// 		main: "UnnamedTheme",
+		// 		version: "#{$version}",
+		// 		short: "UT #{$version-short}" //Mac Version
+		// 	),
+		// 	account: (
+		// 		main: "UnnamedTheme",
+		// 		version: "#{$version}"
+		// 	)
+		// )
+	),
+
+	// SETTINGS
+	root: (
+
+		// COLORS
+		colors: (
+			tooltip: var(--tooltip-color),
+			button: var(--button-color),
+			hover: var(--hover-color),
+			active: var(--active-color),
+			text: var(--text-color),
+			spotify: var(--spotify-color),
+			live: var(--live-color),
+			online: var(--online-color),
+			idle: var(--idle-color),
+			dnd: var(--dnd-color),
+			offline: var(--offline-color),
+			green: var(--green-color),
+			yellow: var(--yellow-color),
+			red: var(--red-color)
+		),
+
+		// FONT
+		font: (
+			body: var(--body-font),
+			code: var(--code-block-font),
+			filters: var(--body-filters)
+		),
+
+		// GENERAL
+		// server-columns: var(--server-columns), //maybe?
+		// channels-width: var(--channels-width), //maybe?
+		// members-width: var(--members-width), //maybe?
+		// avatars: (
+		// 	roundness: var(--avatar-roundness) //maybe?
+		// ),
+		// mention: (
+		// 	opacity: var(--mention-opacity), //maybe?
+		// 	hover: var(--mention-hover-opacity) //maybe?
+		// ),
+		// hide: (
+		// 	active-now: var(--hide-active-now), //maybe?
+		// 	member-list: var(--hide-member-list) //maybe?
+		// ),
+
+		// CHANNEL NAME
+		// channel: (
+		// 	selected: (
+		// 		color: var(--channel-selected-color),
+		// 		bg: var(--channel-selected-bg)
+		// 	),
+		// 	read: (
+		// 		color: var(--channel-read-color),
+		// 		hover-color: var(--channel-read-hover-color),
+		// 		hover-bg: var(--channel-read-hover-bg)
+		// 	),
+		// 	unread: (
+		// 		glow: var(--channel-unread-glow-size),
+		// 		color: var(--channel-unread-color),
+		// 		hover-color: var(--channel-unread-hover-color)
+		// 	),
+		// 	muted: (
+		// 		color: var(--channel-muted-color),
+		// 		hover-color: var(--channel-muted-hover-color),
+		// 		hover-bg: var(--channel-muted-hover-bg)
+		// 	),
+		// 	connected: (
+		// 		color: var(--channel-connected-color),
+		// 		glow: var(--channel-connected-glow-size)
+		// 	)
+		// ),
+
+		// USER IN VC
+		// user: (
+		// 	speaking:	var(--user-speaking-text-color),
+		// 	not-speaking: var(--user-not-speaking-color),
+		// 	speaking-shadow-color: var(--user-speaking-shadow-color),
+		// 	self-mute:	var(--user-self-mute),
+		// 	server-mute:	var(--user-server-mute)
+		// ),
+
+		// BACKGROUNDS
+		bg: (
+
+			// APP BACKGROUND
+			background: (
+				shading: var(--background-shading),
+				overlay: var(--background-overlay),
+				img: var(--background-image),
+				attach: var(--background-attachment),
+				filters: var(--background-filters)
+			),
+
+			// BACKDROP BACKGROUND
+			// backdrop: (
+			// 	overlay: var(--backdrop-overlay),
+			// 	img: var(--backdrop-image),
+			// 	attach: var(--backdrop-attachment),
+			// 	filters: var(--backdrop-filters)
+			// ),
+
+			// USER POPOUT BACKGROUND
+			popout: (
+				img: var(--user-popout-image),
+				attach: var(--user-popout-attachment),
+				filters: var(--user-popout-filters)
+			),
+
+			// USER MODAL BACKGROUND
+			modal: (
+				img: var(--user-modal-image),
+				attach: var(--user-modal-attachment),
+				filters: var(--user-modal-filters)
+			),
+
+			// HOME BUTTON BACKGROUND
+			// home: (
+			// 	icon: var(--home-icon),
+			// 	pos: var(--home-position),
+			// 	size: var(--home-size)
+			// ),
+		)
+	)
+);
+
+// SHORTHANDS
+// $main-color: v("colors.main");
+// $hover-color: v("colors.hover");

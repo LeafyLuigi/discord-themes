@@ -1,0 +1,33 @@
+{
+  "name": "unnamed-theme",
+  "version": "0.0.1-dev",
+  "description": "A Discord Theme for both BetterDiscord and PowerCord",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf {test,public}",
+    "test": "sass source:test --load-path=source --no-source-map",
+    "build": "npm run build-sass && npm run build-prefix",
+    "build-sass": "sass source:public --style=compressed --load-path=source --no-source-map",
+    "build-prefix": "postcss public/*.css --dir=public --use=autoprefixer  -b=\"> 5%\" --no-map",
+    "dev": "sass source/main.scss:public/main.css --watch --load-path=source --no-source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClearVision/v6.git"
+  },
+  "author": "LeafyLuigi",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/LeafyLuigi/discord-themes/issues"
+  },
+  "homepage": "https://github.com/LeafyLuigi/discord-themes#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "postcss-cli": "^6.1.3",
+    "rimraf": "^2.6.3",
+    "sass": "^1.25.0"
+  },
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

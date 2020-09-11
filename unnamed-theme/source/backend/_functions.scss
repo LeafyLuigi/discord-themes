@@ -1,0 +1,38 @@
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+
+/// Get a variable from the Variables Map:tm: (Patent pending)
+/// @param {string} $id : Identification for a variable.
+/// @param $cat : Category ID.
+/// @param $itm : Item ID.
+@function v($id) {
+  $cat: "root";
+  $itm: $id;
+  @if string-index($id, ":") {
+    $cat: string-slice($id, 0, string-index($id, ":") - 1);
+    $itm: string-slice($id, string-index($id, ":") + 1);
+  }
+  @if $cat == "const" or $cat == "con" {
+    $cat: "constants";
+  }
+  @if $cat == "col" or $cat == "color" {
+    $cat: "colors";
+  }
+  $map: map-get($vars, $cat);
+  @if not $map {
+    @error "#{$cat} is not a valid set";
+  }
+  @while string-index($itm, ".") {
+    $map: map-get($map, string-slice($itm, 0, string-index($itm, ".") - 1));
+    @if not $map {
+      @error "Item #{$id} not found in the #{$cat} set";
+    }
+    $itm: string-slice($itm, string-index($itm, ".") + 1);
+  }
+  $map: map-get($map, $itm);
+  @if not $map {
+    @error "Item #{$id} not found in the #{$cat} set";
+  }
+  @return $map;
+}
