@@ -1,7 +1,7 @@
 @use "backend" as *;
 /* Start User Modal */
 #{c(userModal root)} {
-	background-color: transparent;
+	background-color: rgba(0,0,0,0.4);
 	// height: 70vh;
 	// width: 70vh;
   &::before {
@@ -12,7 +12,7 @@
     bottom: 0;
     left: 0;
     background-image: var(--user-modal-image);
-    background-attachment: var(--user-popout-attachment);
+    background-attachment: var(--user-modal-attachment);
     background-size: cover;
     z-index: -1;
   }
@@ -38,6 +38,9 @@
   background-image: linear-gradient(to bottom right, #107c10 0%, transparent 60%);
 }
 
+#{c(userModal headerFill)} {
+	background-color: transparent;
+}
 #{c(userModal tabBar)} {
   height: auto;
 }
@@ -97,7 +100,7 @@
     &:before {
       background-color: $active;
       border-radius: 6px 6px 0 0;
-      opacity: 0.2;
+      opacity: 0.4;
     }
   }
 }
@@ -120,12 +123,16 @@
       color: #fff;
     }
     #{c(userModal connectedAccount)} {
-      border-color: $primary;
+      border-color: rgba(0,0,0,0.4);
       #{c(userModal connectedAccountVerifiedIcon)} {
         > svg > path {
           fill: $primary;
         }
       }
     }
+  }
+  #{c(userModal guildAvatarWithoutIcon)} {
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.05);
   }
 }

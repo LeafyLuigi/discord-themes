@@ -10,7 +10,7 @@
 	@each $el in $query {
 		$class: map-get($class, "#{$el}");
 		@if not $class {
-			@error "Unknown class \"#{$el}\" in category: #{$query}";
+			@error "Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
 		}
 	}
 	@return "." + $class;
@@ -22,10 +22,87 @@
 }
 
 $classes: (
+	// This top one is for things without any spammy suffixes or more important things.
+	"main": (
+		"appMount": "appMount-3lHmkl",
+		"backdrop": "backdrop-1wrmKB",
+		"bg": "bg-h5JY_x",
+		"dark": "theme-dark",
+		"light": "theme-light",
+		"keyboardMode": "keyboard-mode",
+	),
+	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
+	"os": (
+		"titleBar": ".titleBar-AC4pGV",
+		"windows": "platform-win",
+		"typeWindows": "typeWindows-1za-n7",
+		"winButton": "winButton-iRh8-Z",
+		"winButtonClose": "winButtonClose-1HsbF-",
+		"winButtonMinMax": "winButtonMinMax-PBQ2gm",
+		"wordmark": "wordmark-2iDDfm",
+		"osx": "platform-osx",
+		"osxButtonContainer": "typeMacOS-3EmCyP",
+		"focused": "focused-3B0xkw",
+		"unfocused": "unfocused-1QsMU3",
+		"osxButtons": "macButtons-2MuSAC",
+		"osxButton": "macButton-c_Adir",
+
+		"linux": "platform-linux",
+		"web": "platform-web"
+	),
 	"button": (
+		"contents": "contents-18-Yxp",
+		"lookFilled": "lookFilled-1Gx00P",
+		"lookGhost": "lookGhost-2Fn_0-",
+		"lookInverted": "lookInverted-2D7oAl",
+		"lookLink": "lookLink-9FtZy-",
+		"lookOutlined": "lookOutlined-3sRXeN",
+		"hasHover": ".hasHover-3X1-zV",
+
+		//colors / hovers
+		"colorBlack": "colorBlack-1jwPVL",
+		"colorBrand": "colorBrand-3pXr91",
+		"colorGreen": "colorGreen-29iAKY",
+		"colorGrey": "colorGrey-2DXtkV",
+		"colorLink": "colorLink-35jkBc",
+		"colorPrimary": "colorPrimary-3b3xI6",
+		"colorRed": "colorRed-1TFJan",
+		"colorTransparent": "colorTransparent-1ewNp9",
+		"colorWhite": "colorWhite-rEQuAQ",
+		"colorYellow": "colorYellow-2JqYwt",
+		"hoverBlack": "hoverBlack-3jULb8",
+		"hoverBrand": "hoverBrand-1_Fxlk",
+		"hoverGreen": "hoverGreen-1gjdJc",
+		"hoverGrey": "hoverGrey-2CBXu0",
+		"hoverLink": "hoverLink-i1fEKS",
+		"hoverPrimary": "hoverPrimary-2D1j2r",
+		"hoverRed": "hoverRed-2NoOXI",
+		"hoverTransparent": "hoverTransparent-2Lz5CN",
+		"hoverWhite": "hoverWhite-2uUmXw",
+		"hoverYellow": "hoverYellow-171chs",
 	),
 	"chat": (
-		"app": "bg-h5JY_x",
+	),
+	"serverList": (
+		"wrapper": "wrapper-1Rf91z",
+		"scroller": "scroller-2TZvBN",
+		"homeContainer": "tutorialContainer-1v44GL",
+		"listItem": "listItem-2P_4kh",
+		"serverSeparator": "guildSeparator-3s64Iy",
+		"pill": "pill-31IEus",
+		"pillItem": "item-2hkk8m",
+		"iconWrapper": "wrapper-1BJsBx",
+		"iconChildWrapper": "childWrapper-anI2G9",
+		"serverIcon": "icon-27yU2q",
+		"selected": "selected-bZ3Lue",
+		"addServer": "circleIconButton-jET_ig",
+		"addServerSelected": "selected-ugP_am",
+		"lowerBadge": "lowerBadge-29hYVK",
+		"numberBadge": "numberBadge-2s8kKX",
+		"upperBadge": "upperBadge-2XnnGB",
+		"unreadMentionBarTop": "unreadMentionsIndicatorTop-gA6RCh",
+		"unreadMentionBarBottom": "unreadMentionsIndicatorBottom-BXS58x",
+		"mentionBar": "mention-1f5kbO",
 	),
 	"userModal": (
 		"modal": "modal-3c3bKg",
@@ -44,6 +121,7 @@ $classes: (
 		"tabBarItemNoPrefix": "item-PXvHYJ",
 		"header": "header-QKLPzZ",
 		"headerInfo": "headerInfo-30uryT",
+		"headerFill": "headerFill-adLl4x",
 		"activityProfile": "activityProfile-2bJRaP",
 		"activity": "activity-1ythUs",
 		"body": "body-3ND3kc",
@@ -54,5 +132,26 @@ $classes: (
 		"connectedAccounts": "connectedAccounts-repVzS",
 		"connectedAccount": "connectedAccount-36nQx7",
 		"connectedAccountVerifiedIcon": "connectedAccountVerifiedIcon-3aZz_K",
+		"guildAvatarWithoutIcon": "guildAvatarWithoutIcon-1sTmE_",
+	),
+	"userPopout": (
+		"popoutLeft": "popoutLeft-3aViER",
+		"popout": "userPopout-3XzG_A",
+		"headerNormal": "headerNormal-T_seeN",
+		"headerPlaying": "headerPlaying-j0WQBV",
+		"headerSpotify": "headerSpotify-zpWxgT",
+		"headerStreaming": "headerStreaming-2FjmGz",
+		"headerXbox": "headerXbox-3G-4PF",
+		"activity": "activity-11LB_k",
+		"body": "body-3iLsc4",
+		"bodyTitle": "bodyTitle-Y0qMQz",
+		"note": "textarea-2r0oV8",
+		"role": "role-2irmRk",
+		"roleCircle": "roleCircle-3xAZ1j",
+		"addButton": "addButton-pcyyf6",
+		"actionButton": "actionButton-VzECiy",
+		"footer": "footer-1fjuF6",
+		"input": "input-cIJ7To",
+		"focused": "focused-1mmYsC",
 	)
-)
+);

@@ -1,5 +1,4 @@
 @use "start";
-
 // Import Classes
 @use "classes";
 
@@ -7,16 +6,23 @@
 @use "backend";
 // @use "backend/_variables.scss"; //needs own vars
 
+@use "start" as *;
 @use "backend" as *;
 
 // Contains the theme proper.
 @use "theme";
 
 
-#{c(chat app)} {
+#{c(main bg)} {
 	background: transparent;
 }
 
-.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9 {
-	background-color: var(--active-color);
+.appMount-3lHmkl, body, .app-2rEoOp { background: transparent; }
+.appMount-3lHmkl {
+	@include bg;
+	&:before {
+		height: 100%;
+		width: 100%;
+		background: var(--background-image) center/cover no-repeat var(--background-attachment);
+	}
 }

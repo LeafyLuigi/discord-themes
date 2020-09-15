@@ -9,6 +9,7 @@
   --user-popout-attachment: var(--background-attachment);
   --tooltip-color: blue; /* unsure */
   --primary-color: #1133ff; /* unsure */
+  --secondary-color: #0211e8; /* unsure */
   --button-text-color: #dcddde; /* unsure */
   --hover-color: pink; /* unsure */
   --active-color: red; /* unsure */
@@ -19,9 +20,9 @@
   --idle-color: #faa61a;
   --dnd-color: #f04747;
   --invis-color: #808080;
-  --green-color: #43b581;
-  --yellow-color: #faa61a;
-  --red-color: #f04747;
+  // --green-color: #43b581; /* unsure */
+  // --yellow-color: #faa61a; /* unsure */
+  // --red-color: #f04747; /* unsure */
   --background-filters: none;
   --user-modal-filters: blur(3px);
   --user-popout-filters: blur(3px);
@@ -29,13 +30,19 @@
   --gradient-direction: to bottom right; /* unsure */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
-  --body-filters: none;
+  // --body-filters: none; /* unsure */
+  --home-icon: url(https://pbs.twimg.com/profile_images/1300399676303110145/fgjJ_I0M_400x400.png); /* unsure */
 }
 
 //shorthands
 $primary: var(--primary-color);
+$secondary: var(--secondary-color);
 $button-text: var(--button-text-color);
 $hover: var(--hover-color);
 $active: var(--active-color);
 $spotify: var(--spotify-color);
 $live: var(--live-color);
+$home: var(--home-icon);
+// NOTE: secondary : will be similar to primary BUT a shade or two ligter/darker.
+// NOTE: hover : black at 0.2 opacity to get the hover color.
+// NOTE: active : black at 0.3? opacity to get the active color.

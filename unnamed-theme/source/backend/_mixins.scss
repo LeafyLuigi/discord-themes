@@ -1,4 +1,5 @@
 // Mixins
+// Classes in here will likely need to use the "fallback" file.
 
 /// Create background using a static, opaque color with the ability to change opacity
 @mixin bg {
@@ -15,4 +16,38 @@
     // border-radius
     // background-color
   }
+}
+$hover-filter: rgba(0,0,0,0.2); // Can 100% confirm this works with the green.
+$active-filter: rgba(0,0,0,0.4);
+/// Button : (background / border) color will need to be defined.
+@mixin button-base($color: null) {
+  @include bg;
+  > %buttonContents {
+    z-index: 2;
+  }
+  &:before {
+    border-radius: 3px;
+    background: transparent;
+    z-index: 1;
+  }
+  &:hover:not(:disabled) {
+    &:before {
+      background: $hover-filter;
+    }
+  }
+  &:active:not(:disabled) {
+    &:before {
+      background: $active-filter;
+    }
+  }
+}
+
+@mixin button-bg($color: null) {
+  background: $color;
+  @include button-base;
+}
+
+@mixin button-color($color: null) {
+  color: $color;
+  @include button-base;
 }
