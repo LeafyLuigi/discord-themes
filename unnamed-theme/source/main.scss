@@ -11,18 +11,3 @@
 
 // Contains the theme proper.
 @use "theme";
-
-
-#{c(main bg)} {
-	background: transparent;
-}
-
-.appMount-3lHmkl, body, .app-2rEoOp { background: transparent; }
-.appMount-3lHmkl {
-	@include bg;
-	&:before {
-		height: 100%;
-		width: 100%;
-		background: var(--background-image) center/cover no-repeat var(--background-attachment);
-	}
-}

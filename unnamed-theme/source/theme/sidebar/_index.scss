@@ -1,0 +1,39 @@
+@use "backend" as *;
+/* Start Sidebar */
+// Base
+#{c(sidebar sidebar)} {
+  background-color: transparent;
+}
+// Friends List
+#{c(sidebar privateChannels)} {
+  background-color: transparent;
+  #{c(sidebar searchBar)} {
+    background-color: rgba(0,0,0,0.7);
+    box-shadow: none;
+    @debug "search bar mixin needed";
+  }
+  #{c(sidebar scroller)} {
+    background-color: rgba(0,0,0,0.4);
+  }
+  #{c(sidebar privateChannelsHeader)} {
+    @include header-line;
+    text-align: center;
+  }
+  #{c(sidebar privateChannelRecipientsInviteButtonIcon)} {
+    color: #fff;
+    &:hover {
+      color: #fff;
+      filter: drop-shadow(0 0 2px #aaa);
+    }
+    &:active {
+      color: #fff;
+      filter: drop-shadow(0 0 4px #ccc);
+    }
+  }
+}
+#{c(sidebar panels)} {
+  background-color: rgba(0,0,0,0.4);
+  #{c(sidebar panelUsername)} {
+    @include header;
+  }
+}

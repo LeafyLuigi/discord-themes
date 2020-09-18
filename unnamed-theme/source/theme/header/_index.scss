@@ -1,0 +1,40 @@
+@use "backend" as *;
+/* Start Header */
+#{c(main dark)},
+#{c(main light)} {
+  #{c(header akaBadge)} {
+    background-color: $secondary;
+  }
+}
+#{c(header header)}#{c(header themed)} {
+  background: rgba(0,0,0,0.7);
+}
+#{c(header children)} {
+  &:after {
+    content: none;
+  }
+}
+#{c(header divider)} {
+  margin: 0;
+  width: 8px;
+  background: linear-gradient(to right, transparent 0%, $primary 50%, transparent 100%);
+}
+#{c(header title)} {
+  @include header;
+}
+#{c(header icon)} {
+  color: #fff;
+}
+#{c(header iconClickable)} {
+  #{c(header icon)} {
+    color: $primary;
+    &:hover {
+      color: $hover;
+      filter: drop-shadow(0 0 2px currentColor);
+    }
+    &:active {
+      color: $active;
+      filter: drop-shadow(0 0 4px currentColor);
+    }
+  }
+}

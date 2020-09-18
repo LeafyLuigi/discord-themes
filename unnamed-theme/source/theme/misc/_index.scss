@@ -2,9 +2,28 @@
 @use "backend" as *;
 /* Begin Misc */
 
+// Background
+#{c(main appMount)} {
+  background: transparent;
+	@include bg;
+	&:before {
+		height: 100%;
+		width: 100%;
+		background: var(--background-image) center/cover no-repeat var(--background-attachment);
+	}
+}
+
+// Transparency to allow the background to work.
+body,
+#{c(main appInner)},
+#{c(main bg)} {
+  background: transparent;
+}
+
 // Backdrop blur
-#{c(main backdrop)} {
-  background-color: transparent !important;
+#{c(main backdrop)},
+#{c(main backdropWithLayer)} {
+  background-color: transparent !important; // !important usage: element.style
   backdrop-filter: blur(3px);
 }
 
@@ -73,9 +92,21 @@
       }
     }
   }
+  #{c(sidebar sidebar)} {
+    border-radius: 0;
+  }
 }
-// mac needs to be done
+// Mac
+#{c(os mac)} {
+  #{c(os typeMac)} {
+    background-color: rgba(0,0,0,0.7);
+    @debug "do MacOS stuff, future me!";
+    // padding-top: 4px;
+    // margin-top: 0;
+  }
+}
 // Linux / Web
+#{c(os mac)},
 #{c(os linux)},
 #{c(os web)} {
   #{c(serverList homeContainer)} {

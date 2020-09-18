@@ -11,18 +11,63 @@
     left: 0;
     position: absolute;
     z-index: -1;
+    pointer-events: none;
     // What will need to be defined:
     // opacity
     // border-radius
     // background-color
   }
 }
+
+@mixin list {
+
+}
+
+@mixin card-light {
+  border: 1px solid var(--secondary-color);
+  background-color: rgba(255,255,255,0.05);
+}
+@mixin card-dark {
+  border: 1px solid var(--secondary-color);
+  background-color: rgba(0,0,0,0.5);
+}
+
+@mixin header {
+  color: #fff;
+  text-shadow: 2px 2px 2px #aaa;
+}
+@mixin header-line {
+  @include header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:before,
+  &:after {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+  }
+  &:before {
+    background: linear-gradient(to left, currentColor -50%, transparent 50%);
+    margin-right: 5px;
+  }
+  &:after {
+    background: linear-gradient(to right, currentColor -50%, transparent 50%);
+    margin-left: 5px;
+  }
+}
+
+@mixin bar-small {
+
+}
+
 $hover-filter: rgba(0,0,0,0.2); // Can 100% confirm this works with the green.
 $active-filter: rgba(0,0,0,0.4);
 /// Button : (background / border) color will need to be defined.
+@debug ".contents-18-Yxp == button contents. must be manually classed in here for some reason.";
 @mixin button-base($color: null) {
   @include bg;
-  > %buttonContents {
+  > .contents-18-Yxp {
     z-index: 2;
   }
   &:before {

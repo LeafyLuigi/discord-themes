@@ -1,0 +1,75 @@
+@use "backend" as *;
+/* Start Friends Area */
+#{c(main dark)},
+#{c(main light)} {
+  #{c(friends container)} {
+    background-color: transparent;
+  }
+  #{c(friends voiceSectionIconWrapper)},
+  #{c(friends partyMemberOverflow)} {
+    background-color: rgba(0,0,0,0.5);
+  }
+}
+#{c(friends tabBody)} {
+  background-color: rgba(0,0,0,0.3);
+}
+#{c(friends container)} {
+  #{c(friends inviteToolbar)} {
+    #{c(header divider)} {
+      display: none;
+    }
+  }
+}
+#{c(friends peopleColumn)} {
+  #{c(friends peopleListItem)} {
+    height: 50px !important; // !important usage: element.style
+    &:hover {
+      background: rgba(255,255,255,0.05);
+    }
+    #{c(friends peopleListUsername)} {
+      color: #fff;
+    }
+  }
+}
+#{c(friends actionButton)} {
+  color: $primary;
+  border: 1px solid;
+  background-color: rgba(255,255,255,0.05);
+  border-color: currentColor;
+  &:hover {
+    color: $hover;
+  }
+  &:active {
+    color: $active;
+  }
+  &#{c(friends highlight)} {
+    background-color: rgba(255,255,255,0.05);
+  }
+}
+
+#{c(friends nowPlayingColumn)} {
+  background-color: transparent;
+  #{c(friends nowPlayingHeader)} {
+    @include header-line;
+    text-align: center;
+  }
+  #{c(friends consentCard)} {
+    @include card-dark;
+  }
+  #{c(friends emptyCard)} {
+    @include card-light;
+  }
+  #{c(friends itemCard)} {
+    @include card-dark;
+    &#{c(friends itemCardInteractive)}:hover,
+    &#{c(friends itemCardActive)} {
+      background-color: rgba(0,0,0,0.5);
+    }
+    #{c(friends itemCardBody)} {
+      background-color: transparent;
+      #{c(friends itemCardBodySection)} {
+        padding: 0 6px;
+      }
+    }
+  }
+}
