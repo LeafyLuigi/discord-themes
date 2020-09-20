@@ -107,3 +107,4 @@ dist
 # Manual Ignores
 *src/
 *backups/
+buttons-discorddefault

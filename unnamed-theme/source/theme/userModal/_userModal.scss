@@ -1,0 +1,137 @@
+@use "backend" as *;
+/* Start User Modal */
+#{c(userModal root)} {
+	background-color: rgba(0,0,0,0.4);
+	// height: 70vh;
+	// width: 70vh;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: var(--user-modal-image);
+    background-attachment: var(--user-modal-attachment);
+    background-size: cover;
+    z-index: -1;
+  }
+}
+// Top Sections
+#{c(userModal topSection)},
+#{c(userModal topPlaying)},
+#{c(userModal topSpotify)},
+#{c(userModal topStreaming)},
+#{c(userModal topXbox)} {
+  background: rgba(0,0,0,0.2);
+}
+#{c(userModal topPlaying)} {
+  background-image: linear-gradient(to bottom right, $primary 0%, transparent 60%);
+}
+#{c(userModal topSpotify)} {
+  background-image: linear-gradient(to bottom right, $spotify 0%, transparent 60%);
+}
+#{c(userModal topStreaming)} {
+  background-image: linear-gradient(to bottom right, $live 0%, transparent 60%);
+}
+#{c(userModal topXbox)} {
+  background-image: linear-gradient(to bottom right, #107c10 0%, transparent 60%);
+}
+
+#{c(userModal headerFill)} {
+	background-color: transparent;
+}
+#{c(userModal tabBar)} {
+  height: auto;
+}
+#{c(userModal topSection)} #{c(userModal tabBarContainer)},
+#{c(userModal tabBarContainer)} {
+  border-top: none;
+  padding-left: 0;
+}
+#{c(userModal tabBarContainer)} {
+  #{c(userModal top)} #{c(userModal tabBarItem)} {
+    padding: 0 10px;
+    margin: 0 4px;
+    border: 2px solid $primary;
+    color: $button-text;
+    border-radius: 5px 5px 0 0;
+    &:hover {
+      border-color: $hover;
+    }
+    &:active {
+      border-color: $active;
+    }
+    // not hovered nor active while playing/streaming/xbox/spotify
+    // fuck element.style
+    &[style*="border-color: transparent;"] {
+      color: $button-text !important; // !important reason: element.style
+      border: 2px solid $primary !important; // !important reason: element.style
+      &:active {
+        border-color: $active !important; // !important reason: element.style and uniformity
+      }
+    }
+    // hovered while playing/streaming/xbox/spotify
+    // fuck element.style
+    &[style*="border-color: rgba(255, 255, 255, 0.1);"] {
+      color: $button-text !important; // !important reason: element.style
+      border: 2px solid $hover !important; // !important reason: element.style
+      &:active {
+        border-color: $active !important; // !important reason: element.style and uniformity
+      }
+    }
+    // active while playing/streaming/xbox/spotify
+    // fuck element.style
+    &[style*="border-color: rgb(255, 255, 255);"] {
+      color: $button-text !important; // !important reason: element.style
+      border: 2px solid $active !important; // !important reason: element.style
+      @include bg;
+      &:before {
+        background-color: $active;
+        border-radius: 6px 6px 0 0;
+        opacity: 0.2;
+      }
+    }
+  }
+  #{c(userModal top)} #{c(userModal tabBarItem)}#{c(userModal tabBarItemSelected)} {
+    color: $button-text;
+    border: 2px solid $active;
+    @include bg;
+    &:before {
+      background-color: $active;
+      border-radius: 6px 6px 0 0;
+      opacity: 0.4;
+    }
+  }
+}
+
+#{c(userModal body)} {
+  background-color: transparent;
+
+  #{c(userModal noteTextArea)} {
+    &:focus {
+      background-color: transparent;
+      @debug "user modal note text area is an input thing. change it, future me!"
+    }
+  }
+  #{c(userModal userInfoSection)} {
+    padding: 10px 0 0 0;
+    &:not(:first-child) {
+      border-top: none;
+    }
+    #{c(userModal userInfoSectionHeader)} {
+      color: #fff;
+    }
+    #{c(userModal connectedAccount)} {
+      border-color: rgba(0,0,0,0.4);
+      #{c(userModal connectedAccountVerifiedIcon)} {
+        > svg > path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+  #{c(userModal guildAvatarWithoutIcon)} {
+    background-color: rgba(0,0,0,0.5);
+  }
+}

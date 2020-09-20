@@ -18,6 +18,22 @@
     // background-color
   }
 }
+@mixin bg2 {
+  &:after {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    // What will need to be defined:
+    // opacity
+    // border-radius
+    // background-color
+  }
+}
 
 @mixin list {
 
@@ -95,4 +111,67 @@ $active-filter: rgba(0,0,0,0.4);
 @mixin button-color($color: null) {
   color: $color;
   @include button-base;
+}
+
+@mixin button-inverted($color: null) {
+  @include button-color($color);
+  background-color: rgba(255,255,255,0.15);
+}
+
+@mixin button-border($color: null) {
+  border-color: $color;
+  color: $color;
+  background-color: transparent;
+  @include bg;
+  > .contents-18-Yxp {
+    z-index: 2;
+  }
+  &:before {
+    border-radius: 3px;
+    background-color: transparent;
+    z-index: 1;
+  }
+  &:hover:not(:disabled) {
+  background-color: transparent;
+    &:before {
+      background-color: $color;
+      opacity: 0.15;
+    }
+  }
+  &:active:not(:disabled) {
+  background-color: transparent;
+    &:before {
+      background-color: $color;
+      opacity: 0.2;
+    }
+  }
+}
+
+@mixin button-ghost($color: null) {
+  color: $color;
+  background-color: transparent;
+  @include bg;
+  > .contents-18-Yxp {
+    z-index: 2;
+  }
+  &:before {
+    border-radius: 3px;
+    background-color: $color;
+    opacity: 0.1;
+    z-index: 1;
+  }
+  &:hover:not(:disabled) {
+  background-color: transparent;
+    &:before {
+      background-color: $color;
+      opacity: 0.15;
+    }
+  }
+  &:active:not(:disabled) {
+  background-color: transparent;
+    &:before {
+      background-color: $color;
+      opacity: 0.2;
+    }
+  }
 }

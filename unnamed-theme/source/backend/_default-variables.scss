@@ -7,6 +7,12 @@
   --background-attachment: fixed;
   --user-modal-attachment: var(--background-attachment);
   --user-popout-attachment: var(--background-attachment);
+  --left-shading: rgba(0,0,0,0.5);
+  --right-shading: rgba(0,0,0,0.3);
+  --header-shading: rgba(0,0,0,0.7);
+  // --left-shading: red;
+  // --right-shading: green;
+  // --header-shading: yellow;
   --tooltip-color: blue; /* unsure */
   --primary-color: #1133ff; /* unsure */
   --secondary-color: #0211e8; /* unsure */
@@ -43,6 +49,9 @@ $active: var(--active-color);
 $spotify: var(--spotify-color);
 $live: var(--live-color);
 $home: var(--home-icon);
+$left: var(--left-shading);
+$right: var(--right-shading);
+$header: var(--header-shading);
 // NOTE: secondary : will be similar to primary BUT a shade or two ligter/darker.
 // NOTE: hover : black at 0.2 opacity to get the hover color.
 // NOTE: active : black at 0.3? opacity to get the active color.

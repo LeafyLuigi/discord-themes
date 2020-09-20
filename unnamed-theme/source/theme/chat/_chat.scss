@@ -1,0 +1,16 @@
+@use "backend" as *;
+/* Begin Chat */
+#{c(chat chat)},
+#{c(chat chatLoadingWrapper)},
+#{c(chat messageLoadingWrapper)} {
+  background-color: transparent;
+}
+#{c(chat chatContent)} {
+  background-color: $right;
+  &:before {
+    content: none;
+  }
+}
+#{c(chat noChannel)} {
+  background-color: $right;
+}

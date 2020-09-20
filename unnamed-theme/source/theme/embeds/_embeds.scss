@@ -1,0 +1,18 @@
+@use "backend" as *;
+/* Start Embeds */
+#{c(main dark)},
+#{c(main light)} {
+  #{c(embeds gift)} {
+    @include card-dark;
+    &:hover {
+      background-color: rgba(0,0,0,0.5);
+    }
+    #{c(embeds giftInvalidPoop)} {
+      background-color: transparent;
+    }
+  }
+}
+#{c(embeds codeblock)},
+#{c(embeds invite)} {
+  @include card-dark;
+}

@@ -1,0 +1,94 @@
+@use "backend" as *;
+/* Start User Popout */
+#{c(userPopout popout)} {
+	position: relative;
+	box-shadow: none;
+	max-height: 580px;
+	background-color: rgba(0,0,0,0.4);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+		background: var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment);
+    z-index: -1;
+  }
+}
+
+// because discord.
+#{c(main dark)},
+#{c(main light)} {
+	#{c(userPopout body)},
+	#{c(userPopout footer)} {
+		background-color: transparent;
+	}
+	#{c(userPopout actionButton)} {
+		color: $primary;
+		border-color: currentColor;
+		&:before {
+			content: "";
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: currentColor;
+			opacity: 0.2;
+
+		}
+		&:hover {
+			color: $hover;
+		}
+		&:active {
+			color: $active;
+		}
+	}
+}
+
+// Top Sections
+#{c(main dark)},
+#{c(main light)} {
+	#{c(userPopout headerNormal)},
+	#{c(userPopout headerPlaying)},
+	#{c(userPopout headerSpotify)},
+	#{c(userPopout headerStreaming)},
+	#{c(userPopout headerXbox)} {
+	  background: rgba(0,0,0,0.2);
+	}
+	#{c(userPopout headerPlaying)} {
+	  background-image: linear-gradient(to bottom right, $primary 0%, transparent 60%);
+	}
+	#{c(userPopout headerSpotify)} {
+	  background-image: linear-gradient(to bottom right, $spotify 0%, transparent 60%);
+	}
+	#{c(userPopout headerStreaming)} {
+	  background-image: linear-gradient(to bottom right, $live 0%, transparent 60%);
+	}
+	#{c(userPopout headerXbox)} {
+	  background-image: linear-gradient(to bottom right, #107c10 0%, transparent 60%);
+	}
+}
+
+#{c(userPopout activity)} {
+	background-color: transparent;
+}
+#{c(userPopout body)} {
+	#{c(userPopout bodyTitle)} {
+		color: white;
+	}
+	#{c(userPopout note)} {
+		&:focus {
+			background-color: transparent;
+			@debug "user popout note text area is an input thing. change it, future me! align it with the text box if possible."
+		}
+	}
+}
+#{c(userPopout footer)} {
+	#{c(userPopout input)} {
+		&:focus,
+		&#{c(userPopout focused)} {
+			border-color: $primary;
+		}
+	}
+}

@@ -1,0 +1,97 @@
+@use "backend" as *;
+/* Start Sidebar */
+// Base
+#{c(sidebar sidebar)} {
+  background-color: transparent;
+}
+// Friends List
+#{c(sidebar privateChannels)} {
+  background-color: transparent;
+  #{c(sidebar searchBar)} {
+    background-color: $header;
+    box-shadow: none;
+    @debug "search bar mixin needed";
+  }
+  #{c(sidebar scroller)} {
+    background-color: $left;
+    #{c(sidebar privateChannel)}[href="/store"] {
+      display: none;
+    }
+  }
+  #{c(sidebar privateChannelsHeader)} {
+    @include header-line;
+    text-align: center;
+  }
+  #{c(sidebar privateChannelRecipientsInviteButtonIcon)} {
+    color: #fff;
+    &:hover {
+      color: #fff;
+      filter: drop-shadow(0 0 2px #aaa);
+    }
+    &:active {
+      color: #fff;
+      filter: drop-shadow(0 0 4px #ccc);
+    }
+  }
+}
+#{c(sidebar channelsContainer)} {
+  background-color: transparent;
+  #{c(sidebar channelsScroller)} {
+    background-color: $left;
+  }
+  #{c(sidebar channelsHeader)} {
+    background-color: $header;
+    box-shadow: none;
+    &:hover {
+      background-color: $header;
+    }
+    #{c(sidebar serverName)} {
+      @include header;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+#{c(sidebar panels)} {
+  background-color: $left;
+  #{c(sidebar panelUsername)} {
+    @include header;
+  }
+  #{c(sidebar panelContainer)} {
+    #{c(sidebar panelButtonRow)} {
+      transform: skewX(-15deg);
+      border: 1px solid $right;
+      > #{c(sidebar panelButton)} {
+        &:hover {
+          background-color: transparent;
+        }
+        @include bg;
+        &:before {
+          background-color: $primary;
+          opacity: 0.6;
+        }
+        &:hover:before {
+          background-color: $hover;
+        }
+        &:active:before {
+          background-color: $active;
+        }
+        > #{c(button contents)} {
+          transform: skewX(15deg);
+        }
+      }
+    }
+  }
+}
+#{c(sidebar noAccessSidebar)} {
+  background-color: $left;
+  animation: none;
+  #{c(sidebar noAccessCategory)},
+  #{c(sidebar noAccessChannelIcon)},
+  #{c(sidebar noAccessChannelName)} {
+    background-color: $secondary;
+    animation: pulse-w01Wc7 5s ease-in-out infinite alternate;
+  }
+}
