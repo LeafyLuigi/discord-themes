@@ -2,14 +2,7 @@ var colors = ["green", "yellow", "red", "white", "grey", "black", "brand", "prim
 var looks = ["filled", "inverted", "outlined", "ghost", "link"];
 for(i = 0, len = colors.length, text = ""; i < len; i++) {
   for(j = 0, len2 = looks.length; j < len2; j++) {
-  text += "{text:\"";
-  text += looks[j];
-  text += colors[i];
-  text += "\",color:\"";
-  text += colors[i];
-  text += "\",look:\"";
-  text += looks[j];
-  text += "\"},";
+  text += "{text:\""+looks[j]+colors[i]+"\",color:\""+colors[i]+"\",look:\""+looks[j]+"\"},";
   }
 }
 text = text.substr(0,text.length-1);

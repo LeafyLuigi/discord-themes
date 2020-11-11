@@ -9,6 +9,14 @@
 }
 #{c(header header)}#{c(header themed)} {
   background: $header;
+  z-index: 1010;
+}
+#{c(header input)} {
+  @include header;
+  &:focus {
+    background: transparent;
+    text-shadow: none;
+  }
 }
 #{c(header children)} {
   &:after {

@@ -8,6 +8,7 @@
 #{c(sidebar privateChannels)} {
   background-color: transparent;
   #{c(sidebar searchBar)} {
+    z-index: 1010;
     background-color: $header;
     box-shadow: none;
     @debug "search bar mixin needed";
@@ -34,17 +35,18 @@
     }
   }
 }
+// Channels
 #{c(sidebar channelsContainer)} {
-  background-color: transparent;
-  #{c(sidebar channelsScroller)} {
-    background-color: $left;
+  background: transparent;
+  #{c(sidebar channelsContainerContent)} {
+    >div[style="height: 84px;"]{
+      height: 132px !important; // !important usage: element.style
+    }
   }
-  #{c(sidebar channelsHeader)} {
+  #{c(sidebar channelsHeaderContainer)} {
     background-color: $header;
     box-shadow: none;
-    &:hover {
-      background-color: $header;
-    }
+    z-index: 1010;
     #{c(sidebar serverName)} {
       @include header;
       overflow: visible;
@@ -52,6 +54,18 @@
       align-items: center;
       justify-content: center;
     }
+  }
+  #{c(sidebar animatedContainer)} {
+    background-color: transparent;
+    top: 48px;
+    #{c(sidebar bannerImage)} {
+      &:before {
+        content: none;
+      }
+    }
+  }
+  #{c(sidebar channelsScroller)} {
+    background-color: $left;
   }
 }
 #{c(sidebar panels)} {

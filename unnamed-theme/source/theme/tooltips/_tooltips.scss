@@ -1,0 +1,21 @@
+@use "backend" as *;
+/* Begin Tooltips */
+#{c(main layerContainer)} {
+  z-index: 1100;
+}
+#{c(tooltips tooltip)} {
+  z-index: 2000;
+}
+#{c(tooltips pointer)} {
+  display: none;
+}
+#{c(main dark)},
+#{c(main light)} {
+  #{c(tooltips black)},
+  #{c(tooltips brand)},
+  #{c(tooltips grey)} {
+    background: $tooltip;
+    color: #fff;
+    text-shadow: 2px 2px 2px #aaa;
+  }
+}

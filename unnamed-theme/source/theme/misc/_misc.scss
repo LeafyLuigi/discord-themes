@@ -26,6 +26,12 @@ body,
   background-color: transparent !important; // !important usage: element.style
   backdrop-filter: blur(3px);
 }
+#{c(main backdropWithLayer)} {
+  z-index: -1000;
+}
+#{c(os titleBar)} {
+  z-index: 1100;
+}
 
 // defaults:
 // Windows

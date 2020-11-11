@@ -1,6 +1,6 @@
 /* Default Variables */
 :root {
-  --background-image: url(https://images4.alphacoders.com/628/628927.png); /* unsure */
+  --background-image: url(https://leafyluigi.github.io/images/nao.png); /* unsure */
   // --background-image: url(https://images3.alphacoders.com/112/thumb-1920-112347.jpg);
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
@@ -37,10 +37,11 @@
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
   // --body-filters: none; /* unsure */
-  --home-icon: url(https://pbs.twimg.com/profile_images/1300399676303110145/fgjJ_I0M_400x400.png); /* unsure */
+  --home-icon: url(https://leafyluigi.github.io/images/hina.png); /* unsure */
 }
 
 //shorthands
+$tooltip: var(--tooltip-color);
 $primary: var(--primary-color);
 $secondary: var(--secondary-color);
 $button-text: var(--button-text-color);

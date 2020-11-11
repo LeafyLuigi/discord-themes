@@ -16,3 +16,35 @@
 #{c(embeds invite)} {
   @include card-dark;
 }
+
+#{c(embeds invite)} {
+  #{c(embeds inviteServerIcon)},
+  #{c(embeds inviteServerIconExpired)} {
+    background-color: transparent;
+  }
+}
+
+#{c(embeds embedFull)} {
+  background-color: rgba(0,0,0,0.5);
+  border-left-color: $primary;
+  #{c(embeds embedSuppressButton)} {
+    top: 0;
+    right: 0;
+    color: $primary;
+    &:hover {
+      color: $hover;
+      filter: drop-shadow(0 0 2px currentColor);
+    }
+    &:active {
+      color: $active;
+      filter: drop-shadow(0 0 4px currentColor);
+    }
+  }
+}
+
+#{c(embeds mentioned)} {
+  background-color: transparent;
+  &:before {
+    background-color: transparent;
+  }
+}
