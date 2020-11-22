@@ -26,9 +26,9 @@
   --idle-color: #faa61a;
   --dnd-color: #f04747;
   --invis-color: #808080;
-  // --green-color: #43b581; /* unsure */
+  --green-color: #43b581; /* unsure */
   // --yellow-color: #faa61a; /* unsure */
-  // --red-color: #f04747; /* unsure */
+  --red-color: #f04747; /* unsure */
   --background-filters: none;
   --user-modal-filters: blur(3px);
   --user-popout-filters: blur(3px);
@@ -37,7 +37,7 @@
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
   // --body-filters: none; /* unsure */
-  --home-icon: url(https://leafyluigi.github.io/images/hina.png); /* unsure */
+  --home-icon: url(https://leafyluigi.github.io/images/hina2.png); /* unsure */
 }
 
 //shorthands
@@ -55,4 +55,4 @@ $right: var(--right-shading);
 $header: var(--header-shading);
 // NOTE: secondary : will be similar to primary BUT a shade or two ligter/darker.
 // NOTE: hover : black at 0.2 opacity to get the hover color.
-// NOTE: active : black at 0.3? opacity to get the active color.
+// NOTE: active : black at 0.3(?) opacity to get the active color.

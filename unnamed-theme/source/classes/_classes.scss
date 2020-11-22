@@ -94,6 +94,33 @@ $classes: (
 		"noChannel": "noChannel-Z1DQK7",
 		"markup": "markup-2BOw-j",
 	),
+	"chatForm": (
+		"form": "form-2fGMdU",
+		"channelTextAreaBase": "channelTextArea-2VhZ6z", // base being applied to *every* form
+		"channelTextAreaMain": "channelTextArea-rNsIhG", // used at bottom of text channels
+		"channelTextAreaDisabled": "channelTextAreaDisabled-8rmlrp", // you can't type into this channel
+		"scrollableContainer": "scrollableContainer-2NUZem",
+		"inner": "inner-MADQqc",
+		"sansAttachButton": "sansAttachButton-td2irx", // always on the main bar for some reason.
+		"uploadInput": "uploadInput-1XtQef",
+		"attachWrapper": "attachWrapper-2TRKBi",
+		"attachButton": "attachButton-2WznTc",
+		"attachButtonInner": "attachButtonInner-PQjIyk",
+		"attachButtonPlus": "attachButtonPlus-jWVFah",
+		"textArea": "textArea-12jD-V",
+		"textAreaSlate": "textAreaSlate-1ZzRVj",
+		"placeholder": "placeholder-37qJjk",
+		"buttons": "buttons-3JBrkn",
+		"button": "button-38aScr",
+		"lookBlank": "lookBlank-3eh9lL",
+		"operations": "operations-36ENbA",
+		"replyContainer": "container-2fRDfG",
+		"replyActions": "actions-NlfMQc",
+		"replyName": "name-hpTFiv",
+
+		"colorBrand": "colorBrand-2tjs5J",
+		"colorMuted": "colorMuted-HdFt4q",
+	),
 	"embeds": (
 		"codeblock": "markup-2BOw-j code",
 		"codeblockInline": "markup-2BOw-j code.inline",

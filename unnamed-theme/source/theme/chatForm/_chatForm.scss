@@ -1,0 +1,57 @@
+@use "backend" as *;
+/* Begin Chat Form */
+#{c(chatForm form)} {
+  margin-top: 0;
+  &::before {
+    content: none;
+  }
+}
+#{c(chatForm channelTextAreaBase)} {
+  background-color: transparent;
+  backdrop-filter: blur(2px);
+  @include bg;
+  &:before {
+    background-color: rgba(255,255,255,0.1);
+    opacity: 1;
+    border-radius: 8px;
+  }
+  &:focus-within {
+    box-shadow: 0 0 2px 2px $primary;
+    &:before {
+      background-color: rgba(0,0,0,0.5);
+      opacity: 0.5;
+    }
+  }
+  &#{c(chatForm channelTextAreaDisabled)} {
+    display: none;
+    &:before {
+      content: none;
+    }
+  }
+}
+#{c(chatForm scrollableContainer)},
+#{c(chatForm replyContainer)} {
+  background-color: transparent;
+}
+#{c(chatForm replyContainer)} {
+  #{c(chatForm replyName)} {
+    color: $primary;
+    text-shadow: 2px 2px 4px $secondary;
+  }
+  #{c(chatForm replyActions)} {
+    #{c(chatForm colorBrand)} {
+      color: var(--green-color);
+    }
+    #{c(chatForm colorMuted)} {
+      color: var(--red-color);
+    }
+  }
+}
+#{c(chatForm attachButtonPlus)} {
+  fill: #cdcdcd;
+}
+#{c(chatForm textArea)} {
+  #{c(chatForm placeholder)} {
+    color: #cdcdcd;
+  }
+}
