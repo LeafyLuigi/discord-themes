@@ -14,7 +14,7 @@
     @debug "search bar mixin needed";
   }
   #{c(sidebar scroller)} {
-    background-color: $left;
+    background-color: $side;
     #{c(sidebar privateChannel)}[href="/store"] {
       display: none;
     }
@@ -65,18 +65,18 @@
     }
   }
   #{c(sidebar channelsScroller)} {
-    background-color: $left;
+    background-color: $side;
   }
 }
 #{c(sidebar panels)} {
-  background-color: $left;
+  background-color: $side;
   #{c(sidebar panelUsername)} {
     @include header;
   }
   #{c(sidebar panelContainer)} {
     #{c(sidebar panelButtonRow)} {
       transform: skewX(-15deg);
-      border: 1px solid $right;
+      border: 1px solid $middle;
       > #{c(sidebar panelButton)} {
         &:hover {
           background-color: transparent;
@@ -100,12 +100,46 @@
   }
 }
 #{c(sidebar noAccessSidebar)} {
-  background-color: $left;
+  background-color: $side;
   animation: none;
   #{c(sidebar noAccessCategory)},
   #{c(sidebar noAccessChannelIcon)},
   #{c(sidebar noAccessChannelName)} {
     background-color: $secondary;
     animation: pulse-w01Wc7 5s ease-in-out infinite alternate;
+  }
+}
+#{c(sidebar channelsWrapper)} {
+  #{c(sidebar channelsMainContent)} {
+    order: 2;
+    #{c(sidebar channelsName)} {
+      color: #aaa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:before {
+        content: "";
+        height: 2px;
+        flex-grow: 1;
+        background: transparent;
+        margin-right: 5px;
+      }
+    }
+  }
+  #{c(sidebar channelsChildren)} {
+    order: 1;
+  }
+  &:not( #{c(sidebar channelsCollapsed)} ) {
+    #{c(sidebar channelsName)} {
+      color: #fff;
+      &:before {
+        background: linear-gradient(to left, currentColor -50%, transparent 50%);
+      }
+    }
+  }
+  &#{c(sidebar channelsMuted)} {
+    #{c(sidebar channelsName)} {
+      color: var(--interactive-muted);
+    }
   }
 }

@@ -6,6 +6,18 @@
     content: none;
   }
 }
+#{c(chatForm wrapper)} {
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(2px);
+  #{c(chatForm image)} {
+    display: none;
+  }
+  #{c(chatForm text)} {
+    &>div {
+      color: #fff;
+    }
+  }
+}
 #{c(chatForm channelTextAreaBase)} {
   background-color: transparent;
   backdrop-filter: blur(2px);

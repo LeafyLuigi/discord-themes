@@ -6,11 +6,11 @@
   background-color: transparent;
 }
 #{c(chat chatContent)} {
-  background-color: $right;
+  background-color: $middle;
   &:before {
     content: none;
   }
 }
 #{c(chat noChannel)} {
-  background-color: $right;
+  background-color: $middle;
 }

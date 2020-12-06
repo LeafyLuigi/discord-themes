@@ -7,11 +7,11 @@
   --background-attachment: fixed;
   --user-modal-attachment: var(--background-attachment);
   --user-popout-attachment: var(--background-attachment);
-  --left-shading: rgba(0,0,0,0.5);
-  --right-shading: rgba(0,0,0,0.3);
+  --side-shading: rgba(0,0,0,0.5);
+  --middle-shading: rgba(0,0,0,0.3);
   --header-shading: rgba(0,0,0,0.7);
-  // --left-shading: red;
-  // --right-shading: green;
+  // --side-shading: red;
+  // --middle-shading: green;
   // --header-shading: yellow;
   --tooltip-color: blue; /* unsure */
   --primary-color: #1133ff; /* unsure */
@@ -38,6 +38,13 @@
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
   // --body-filters: none; /* unsure */
   --home-icon: url(https://leafyluigi.github.io/images/hina2.png); /* unsure */
+
+  /* toggles. from 0 (disable) to 1 (enable). anything outside of those values have NOT been tested and likely aren't supported. */
+  // --hide-member-list: 1;
+  --hide-member-list: 0;
+
+  /* words. should be somewhat self explainitory. */
+  --member-string: "Members"; /* Used for the member list tab. Can be removed or set to `none` to remove the tag. */
 }
 
 //shorthands
@@ -50,8 +57,8 @@ $active: var(--active-color);
 $spotify: var(--spotify-color);
 $live: var(--live-color);
 $home: var(--home-icon);
-$left: var(--left-shading);
-$right: var(--right-shading);
+$side: var(--side-shading);
+$middle: var(--middle-shading);
 $header: var(--header-shading);
 // NOTE: secondary : will be similar to primary BUT a shade or two ligter/darker.
 // NOTE: hover : black at 0.2 opacity to get the hover color.
