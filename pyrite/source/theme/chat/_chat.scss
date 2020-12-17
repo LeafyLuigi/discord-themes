@@ -1,0 +1,98 @@
+@use "backend" as *;
+/* Begin Chat */
+#{c(chat chat)},
+#{c(chat chatLoadingWrapper)},
+#{c(chat messageLoadingWrapper)} {
+  background-color: transparent;
+}
+#{c(chat chatContent)} {
+  background-color: $middle;
+  &:before {
+    content: none;
+  }
+}
+#{c(chat noChannel)} {
+  background-color: $middle;
+}
+
+#{c(chat mentioned)} {
+  &:before {
+    @include bg;
+    background-color: var(--mention-background);
+    opacity: var(--mention-opacity);
+    transition: all ease-in-out;
+    width: -webkit-fill-available;
+  }
+}
+#{c(chat mentioned)} {
+  &:hover:before {
+    opacity: calc( var(--mention-opacity) + 0.2 );
+  }
+}
+
+#{c(chat buttonWrapper)} {
+  background: transparent;
+  transform: skewX(-15deg);
+  border: 1px solid $middle;
+  #{c(chat button)} {
+    &:hover {
+      background-color: transparent;
+    }
+    @include bg;
+    &:before {
+      background-color: $primary;
+      opacity: 0.6;
+    }
+    &:hover:before {
+      background-color: $hover;
+    }
+    &:active:before {
+      background-color: $active;
+    }
+    > svg {
+      transform: skewX(15deg);
+    }
+  }
+}
+
+#{c(main groupSpacing16)} {
+  #{c(chat divider)} {
+    text-align: center;
+    display: block;
+    &:not(#{c(chat dividerUnread)}) {
+      border-top: none;
+    }
+    #{c(chat dividerContent)} {
+      background-color: rgba(255,255,255,0.05);
+      color: $primary;
+      font-weight: normal;
+      margin-top: 0;
+    }
+    &#{c(chat dividerHasContent)} {
+      margin: 0.5rem auto 1.5rem auto;
+      border-top: none;
+      #{c(chat unreadPill)} {
+        top: 2px;
+      }
+    }
+    &#{c(chat dividerUnread)} {
+      #{c(chat dividerContent)} {
+        color: var(--red-color);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+#{c(chat newMessagesBar)} {
+  background-color: $primary;
+  box-shadow: none;
+  opacity: 0.75;
+  &:hover {
+    opacity: 0.9;
+  }
+  &:active {
+    padding-top: 0;
+    opacity: 1;
+  }
+}

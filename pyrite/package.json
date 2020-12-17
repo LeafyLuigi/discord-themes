@@ -1,6 +1,6 @@
 {
-  "name": "unnamed-theme",
-  "version": "0.0.6",
+  "name": "Pyrite",
+  "version": "0.0.7",
   "description": "A Discord Theme for both BetterDiscord and PowerCord",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LeafyLuigi/discord-themes/unnamed.git"
+    "url": "git+https://github.com/LeafyLuigi/discord-themes/pyrite.git"
   },
   "author": "LeafyLuigi",
   "license": "Apache-2.0",

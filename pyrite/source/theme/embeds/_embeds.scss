@@ -13,7 +13,8 @@
   }
 }
 #{c(embeds codeblock)},
-#{c(embeds invite)} {
+#{c(embeds invite)},
+#{c(embeds attachment)} {
   @include card-dark;
 }
 
@@ -39,12 +40,5 @@
       color: $active;
       filter: drop-shadow(0 0 4px currentColor);
     }
-  }
-}
-
-#{c(embeds mentioned)} {
-  background-color: transparent;
-  &:before {
-    background-color: transparent;
   }
 }

@@ -8,7 +8,7 @@
   transition: .5s all ease-out;
   margin-left: calc( -1 * (( 240px - 60px ) * var(--hide-member-list)));
   &:before {
-    content: var(--member-string, none);
+    content: var(--member-string, none); // should it be unset, it'll not be displayed
     opacity: 1;
     text-align: center;
     position: relative;

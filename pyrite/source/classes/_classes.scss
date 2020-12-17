@@ -32,8 +32,10 @@ $classes: (
 		"bg": "bg-h5JY_x",
 		"dark": "theme-dark",
 		"light": "theme-light",
+		"mouseMode": "mouse-mode",
 		"keyboardMode": "keyboard-mode",
 		"layerContainer": "layerContainer-yqaFcK",
+		"groupSpacing16": "group-spacing-16",
 	),
 	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 	"os": (
@@ -44,6 +46,7 @@ $classes: (
 		"winButtonClose": "winButtonClose-1HsbF-",
 		"winButtonMinMax": "winButtonMinMax-PBQ2gm",
 		"wordmark": "wordmark-2iDDfm",
+
 		"mac": "platform-osx",
 		"typeMac": "typeMacOS-3EmCyP",
 		"macButtonContainer": "typeMacOS-3EmCyP",
@@ -93,6 +96,20 @@ $classes: (
 		"messageLoadingWrapper": "wrapper-1F5TKx",
 		"noChannel": "noChannel-Z1DQK7",
 		"markup": "markup-2BOw-j",
+		"message": "message-2qnXI6",
+		"mentioned": "mentioned-xhSam7",
+		"selected": "selected-2P5D_Z", // relates to message being selected
+		"buttons": "buttons-cl5qTG",
+		"buttonWrapper": "wrapper-2aW0bm",
+		"button": "button-1ZiXG9",
+		"divider": "divider-JfaTT5",
+		"dividerContent": "content-1o0f9g",
+		"dividerHasContent": "hasContent-1cNJDh",
+		"dividerUnread": "isUnread-3Ef-o9",
+		"unreadPill": "unreadPill-2HyYtt",
+		"unreadPillCap": "unreadPillCap-3_K2q2",
+		"unreadPillCapStroke": "unreadPillCapStroke-7rkHbg",
+		"newMessagesBar": "newMessagesBar-265mhP",
 	),
 	"chatForm": (
 		"form": "form-2fGMdU",
@@ -135,7 +152,7 @@ $classes: (
 		"giftInvalidPoop": "invalidPoop-pnUbq7",
 		"embedFull": "embedFull-2tM8--",
 		"embedSuppressButton": "embedSuppressButton-1FonMn",
-		"mentioned": "mentioned-xhSam7"
+		"attachment": "attachment-33OFj0",
 	),
 	"friends": (
 		"container": "container-1D34oG",
@@ -245,10 +262,11 @@ $classes: (
 		"panelContainer": "container-3baos1",
 		"panelButtonRow": "directionRow-3v3tfG",
 		"panelButton": "button-14-BFJ",
-		"noAccessSidebar": "container-36W3SS",
-		"noAccessCategory": "category-2haXBH",
-		"noAccessChannelIcon": "channelIcon-1TvDoP",
-		"noAccessChannelName": "channelName-2wrHHc",
+		// no access == not loaded, not in the server etc
+		"noAccessSidebar": "container-JPloBS",
+		"noAccessCategory": "category-2SZJwK",
+		"noAccessChannelIcon": "channelIcon-CCo35e",
+		"noAccessChannelName": "channelName-3y9uE0",
 		"animatedContainer": "animatedContainer-1NSq4T",
 		"hasBanner": "hasBanner-2SrLR3",
 		"bannerVisible": "bannerVisible-2ZE_qG",

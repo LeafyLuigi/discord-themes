@@ -32,6 +32,8 @@
   --background-filters: none;
   --user-modal-filters: blur(3px);
   --user-popout-filters: blur(3px);
+  --mention-background: var(--primary-color);
+  --mention-opacity: 0.3;
   --graident-colors: var(--primary-color); /* unsure */
   --gradient-direction: to bottom right; /* unsure */
   --code-font: Monaco, Consolas, Courier, monospace;
@@ -45,6 +47,11 @@
 
   /* words. should be somewhat self explainitory. */
   --member-string: "Members"; /* Used for the member list tab. Can be removed or set to `none` to remove the tag. */
+
+  /* forced by theme */
+  --background-message-hover: transparent;
+  --background-mentioned: transparent;
+  --background-mentioned-hover: transparent;
 }
 
 //shorthands
