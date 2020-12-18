@@ -15,6 +15,7 @@
   }
   #{c(sidebar scroller)} {
     background-color: $side;
+    width: 240px;
     #{c(sidebar privateChannel)}[href="/store"] {
       display: none;
     }
@@ -66,10 +67,12 @@
   }
   #{c(sidebar channelsScroller)} {
     background-color: $side;
+    width: 240px;
   }
 }
 #{c(sidebar panels)} {
   background-color: $side;
+  width: 240px;
   #{c(sidebar panelUsername)} {
     @include header;
   }

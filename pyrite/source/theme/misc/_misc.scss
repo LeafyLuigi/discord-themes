@@ -65,13 +65,18 @@ body,
 // Windows
 #{c(os windows)} {
   #{c(os typeWindows)} {
-    background-color: $header;
-    padding-top: 4px;
+    padding-top: 0;
     margin-top: 0;
+    height: 0;
+    @include bg;
+    &:before {
+      -webkit-app-region: drag;
+      height: 12px;
+    }
     & > #{c(os wordmark)} {
       color: $primary;
       position: relative;
-      top: -5px;
+      top: 4px;
       margin-right: auto;
       order: 1;
       display: flex;
@@ -83,6 +88,9 @@ body,
         order: 1;
         white-space: nowrap;
         color: $button-text;
+        position: relative;
+        right: 60px;
+        top: 20px;
       }
       &:before {
         content: $theme-name;
@@ -100,6 +108,27 @@ body,
   }
   #{c(sidebar sidebar)} {
     border-radius: 0;
+  }
+  #{c(serverList servers)} {
+    top: 48px;
+  }
+  #{c(main container)} {
+    @include bg;
+    &:before {
+      z-index: 1050;
+      background-color: $header;
+      width: 72px;
+      height: 48px;
+    }
+  }
+  #{c(header toolbar)} {
+    position: relative;
+    right: 72px;
+  }
+  #{c(os winButton)} {
+    position: relative;
+    top: 0;
+    height: 48px;
   }
 }
 // Mac

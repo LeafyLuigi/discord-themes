@@ -36,6 +36,8 @@ $classes: (
 		"keyboardMode": "keyboard-mode",
 		"layerContainer": "layerContainer-yqaFcK",
 		"groupSpacing16": "group-spacing-16",
+		"container": "container-2lgZY8",
+		"notServerList": "content-98HsJk",
 	),
 	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 	"os": (
@@ -92,6 +94,8 @@ $classes: (
 	"chat": (
 		"chat": "chat-3bRxxu",
 		"chatContent": "content-yTz4x3",
+		"chatScroller": "scroller-2LSbBU",
+		"chatContentInner": "chatContent-a9vAAp",
 		"chatLoadingWrapper": "wrapper-3vR61M",
 		"messageLoadingWrapper": "wrapper-1F5TKx",
 		"noChannel": "noChannel-Z1DQK7",
@@ -154,6 +158,29 @@ $classes: (
 		"embedSuppressButton": "embedSuppressButton-1FonMn",
 		"attachment": "attachment-33OFj0",
 	),
+	//indented as it's a subset of embeds
+		"media": (
+			"barInteraction": "mediaBarInteraction-37i2O4",
+			"barInteractionDragging": "mediaBarInteractionDragging-2QurIZ", // hover required for grabber
+			"barWrapper": "mediaBarWrapper-3D7r67", // needs before + after
+			"barBuffer": "buffer-26XPkd", // needs before + after, secondary color
+			"barPreview": "mediaBarPreview-1jfyFs", // needs before + after
+			"barProgress": "mediaBarProgress-1xaPtl", // needs before + after, primary color
+			"barGrabber": "mediaBarGrabber-1FqnbN", // primary color
+			"barVolume": "mediaBarInteractionVolume-3QZqYd", // card
+			"controlIcon": "controlIcon-3cRbti",
+			"metadataDownload": "metadataDownload-1fk90V",
+			"metadataIcon": "metadataIcon-2FyCKU",
+			"metadataName": "metadataName-14STf-",
+			"metadataSize": "metadataSize-2UOOLK",
+			"durationWrapper": "durationTimeWrapper-OugPFt",
+			"durationDisplay": "durationTimeDisplay-jww5fr",
+			"durationSeparator": "durationTimeSeparator-2_xpJ7",
+			"audioWrapper": "wrapperAudio-1jDe0Q",
+			"audioMetadata": "audioMetadata-3zOuGv",
+			"audioControls": "audioControls-2HsaU6",
+			"bubble": "bubble-3qRl2J",
+		),
 	"friends": (
 		"container": "container-1D34oG",
 		"tabBody": "tabBody-3YRQ8W",
@@ -164,6 +191,7 @@ $classes: (
 		"actionButton": "actionButton-uPB8Fs",
 		"highlight": "highlight-Lf97TE",
 		"nowPlayingColumn": "nowPlayingColumn-2sl4cE",
+		"nowPlayingScroller": "nowPlayingScroller-2XrVUt",
 		"nowPlayingHeader": "header-13Cw0-",
 		"consentCard": "consentCard-1iSxB_",
 		"emptyCard": "emptyCard-1RJw8n",
@@ -207,14 +235,14 @@ $classes: (
 		"offline": "offline-3nJYBR",
 	),
 	"notice": (
-// .notice-3bPHh-{font-size:14px;line-height:36px;font-weight:500;text-align:center;position:relative;padding-left:4px;padding-right:28px;z-index:101;-ms-flex-negative:0;flex-shrink:0;-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;border-radius:8px 0 0;-webkit-box-shadow:var(--elevation-low);box-shadow:var(--elevation-low)}.notice-3bPHh- strong{font-weight:600}.platform-osx .notice-3bPHh-{-webkit-app-region:drag}.colorDefault-22HBa0{background-color:#f26522;color:#fff}.colorDefault-22HBa0 .button-2DhvE9:hover{color:#f26522}.colorNeutral-3uXvGN{background-color:var(--background-accent);color:#fff}.colorNeutral-3uXvGN .button-2DhvE9:hover{color:#222}.colorDownload-3uiTFS{background-color:#7289da;color:#fff}.colorDownload-3uiTFS .button-2DhvE9:hover{color:#7289da}.colorNotification-GG3eAb{background-color:#2e7b58;color:#fff}.colorNotification-GG3eAb .button-2DhvE9{font-weight:600}.colorNotification-GG3eAb .button-2DhvE9:hover{color:#2e7b58}.colorDark-1yVQpk{background-color:#202225;color:#fff}.colorDark-1yVQpk .button-2DhvE9:hover{color:#202225}.colorPremium--X5Fw0{color:#fff}.colorPremiumTier1-3D7SPt{background-image:-webkit-gradient(linear,right top,left top,from(#b3aeff),to(#738ef5));background-image:linear-gradient(270deg,#b3aeff,#738ef5)}.colorPremiumTier1-3D7SPt .button-2DhvE9:hover{color:#7289da}.colorPremiumTier2-dCdap5{background-image:-webkit-gradient(linear,right top,left top,from(#e292aa),to(#b473f5));background-image:linear-gradient(270deg,#e292aa,#b473f5)}.colorPremiumTier2-dCdap5 .button-2DhvE9:hover{color:#e292aa}.colorInfo-2URYW5{background-color:#4a90e2;color:#fff}.colorInfo-2URYW5 .button-2DhvE9:hover{color:#4a90e2}.colorSuccess-1hnbW2{background-color:#43b581;color:#fff}.colorSuccess-1hnbW2 .button-2DhvE9:hover{color:#43b581}.colorDanger-4gmAY0{background-color:#f04747;color:#fff}.colorDanger-4gmAY0 .button-2DhvE9:hover{color:#f04747}.colorStreamerMode-2SJAUN{background-color:#593695;color:#fff}.colorStreamerMode-2SJAUN .button-2DhvE9:hover{color:#593695}.colorSpotify-2L6XRq{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background-color:#1db954;color:#fff}.colorSpotify-2L6XRq .platformIcon-cDJOOu{margin-top:0;width:24px;height:24px}.colorSpotify-2L6XRq .button-2DhvE9{top:0;margin-left:20px}.colorSpotify-2L6XRq .button-2DhvE9:hover{color:#1db954}.colorBrand-2zeG8h{background-color:#7289da;color:#fff}.colorBrand-2zeG8h .button-2DhvE9:hover{color:#7289da}.colorCustom-1ND3UM{}.colorCustom-1ND3UM .button-2DhvE9:hover{color:#222}.closeButton-3cJIM4{position:absolute;top:0;right:0;width:36px;height:36px;background:url(/assets/7731c77d99babca1a8faec204d98c380.svg) no-repeat;background-position:50% 55%;background-size:10px 10px;opacity:.5;-webkit-transition:opacity .2s;transition:opacity .2s;cursor:pointer;-webkit-app-region:no-drag}.closeButton-3cJIM4:hover{opacity:1}.button-2DhvE9{font-size:14px;font-weight:500;position:relative;top:6px;border:1px solid;color:#fff;border-radius:3px;height:24px;padding:0 10px;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;vertical-align:top;margin-left:10px;line-height:22px;-webkit-transition:background-color .2s ease,color .2s ease,border-color .2s ease;transition:background-color .2s ease,color .2s ease,border-color .2s ease;-webkit-app-region:no-drag}.button-2DhvE9.buttonMinor-3mkvIP{border:none;text-decoration:underline}.theme-dark .button-2DhvE9,.theme-light .button-2DhvE9{border-color:hsla(0,0%,100%,.25);background-color:transparent}.theme-dark .button-2DhvE9:hover,.theme-light .button-2DhvE9:hover{border-color:#fff;background-color:#fff}
-
+		"notice": "notice-3bPHh-",
 	),
 	"popout": (
 		"menu": "menu-3sdvDG",
 		"friendsActiveNow": "popout-38lTFE",
 	),
 	"serverList": (
+		"servers": "guilds-1SWlCJ",
 		"wrapper": "wrapper-1Rf91z",
 		"scroller": "scroller-2TZvBN",
 		"homeContainer": "tutorialContainer-1v44GL",
@@ -237,6 +265,7 @@ $classes: (
 	),
 	"sidebar": (
 		"sidebar": "sidebar-2K8pFh",
+		"hasNotice": "hasNotice-1XRy4h",
 		"privateChannels": "privateChannels-1nO12o",
 		"searchBar": "searchBar-6Kv8R2",
 		"scroller": "scroller-1JbKMe",

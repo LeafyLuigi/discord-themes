@@ -1,0 +1,37 @@
+@use "backend" as *;
+/* Start Notices */
+#{c(notice notice)} {
+  z-index: 1100;
+  top: 48px;
+  left: 240px;
+  width: calc(100vw - 240px - 72px); // fit for dms
+  border-radius: 0 0 8px 8px;
+  padding: 0;
+  box-shadow: none;
+    & ~ #{c(main notServerList)} {
+    #{c(sidebar hasNotice)},
+    #{c(chat chat)},
+    #{c(friends container)} {
+      position: relative;
+      top: -36px;
+      height: 100vh;
+    }
+    #{c(chat chat)} {
+      #{c(chat chatScroller)},
+      #{c(chat newMessagesBar)} {
+        top: 36px;
+      }
+      #{c(memberList wrap)} {
+        top: 36px;
+        height: calc(100% - 36px);
+      }
+    }
+    #{c(friends tabBody)} {
+      top: 36px;
+      #{c(friends peopleColumn)},
+      #{c(friends nowPlayingScroller)} {
+        height: calc(100% - 36px);
+      }
+    }
+  }
+}

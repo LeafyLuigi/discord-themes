@@ -2,15 +2,16 @@
 /* Begin Chat */
 #{c(chat chat)},
 #{c(chat chatLoadingWrapper)},
-#{c(chat messageLoadingWrapper)} {
+#{c(chat messageLoadingWrapper)},
+#{c(chat chatContent)} {
   background-color: transparent;
 }
 #{c(chat chatContent)} {
-  background-color: $middle;
   &:before {
     content: none;
   }
 }
+#{c(chat chatContentInner)},
 #{c(chat noChannel)} {
   background-color: $middle;
 }
@@ -22,6 +23,7 @@
     opacity: var(--mention-opacity);
     transition: all ease-in-out;
     width: -webkit-fill-available;
+    z-index: -1;
   }
 }
 #{c(chat mentioned)} {

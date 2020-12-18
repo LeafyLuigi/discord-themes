@@ -86,3 +86,10 @@
     display: none;
   }
 }
+
+// Hide Help icon. Can be accessed by pressing F1.
+#{c(header toolbar)} {
+  &>a[href*="support.discord.com"] {
+    display: none;
+  }
+}

@@ -11,6 +11,10 @@
       background-color: transparent;
     }
   }
+  #{c(media audioWrapper)} {
+    @include card-dark;
+    width: 90% !important; // !important reason: element.style
+  }
 }
 #{c(embeds codeblock)},
 #{c(embeds invite)},
@@ -40,5 +44,28 @@
       color: $active;
       filter: drop-shadow(0 0 4px currentColor);
     }
+  }
+}
+
+#{c(media barGrabber)},
+#{c(media barProgress)}:after,
+#{c(media barProgress)}:before,
+#{c(media barProgress)},
+#{c(media barBuffer)}:after,
+#{c(media barBuffer)}:before,
+#{c(media barBuffer)} {
+  background-color: $primary;
+}
+
+#{c(media barBuffer)}:after,
+#{c(media barBuffer)}:before,
+#{c(media barBuffer)} {
+  opacity: 0.5;
+}
+
+#{c(media barInteractionDragging)},
+#{c(media barInteraction)}:hover {
+   #{c(media barGrabber)} {
+    background-color: $secondary;
   }
 }

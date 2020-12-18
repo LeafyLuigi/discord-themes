@@ -19,6 +19,9 @@
 }
 #{c(friends tabBody)} {
   background-color: $middle;
+  &:before {
+    content: none;
+  }
 }
 #{c(friends container)} {
   #{c(friends inviteToolbar)} {
