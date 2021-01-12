@@ -59,13 +59,29 @@
     }
   }
 }
-#{c(serverList lowerBadge)} {
-  #{c(serverList numberBadge)} {
-    // box-shadow: 0 0 5px $secondary;
-    filter: drop-shadow(0 0 5px $secondary) drop-shadow(0 0 5px $secondary);
-    background-color: $primary !important; // !important usage: element.style
-  }
-}
 #{c(serverList mentionBar)} {
   background-color: $primary;
+}
+
+@debug "Animation: Number Badge Flash";
+@keyframes numberBadgeFlash {
+  0% {
+    background-color: $primary;
+    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
+  }
+  50% {
+    background-color: $secondary;
+    filter: drop-shadow(0 0 3px $primary) drop-shadow(0 0 5px $primary);
+  }
+  100% {
+    background-color: $primary;
+    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
+  }
+}
+#{c(main fullMotion)}#{c(main focused)} #{c(serverList numberBadge)} {
+  animation: numberBadgeFlash 5s linear infinite;
+}
+#{c(serverList numberBadge)} {
+  background-color: $primary !important; //!important usage: element.style.
+  filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
 }

@@ -34,10 +34,14 @@ $classes: (
 		"light": "theme-light",
 		"mouseMode": "mouse-mode",
 		"keyboardMode": "keyboard-mode",
+		"fullMotion": "full-motion",
+		"focused": "app-focused",
 		"layerContainer": "layerContainer-yqaFcK",
 		"groupSpacing16": "group-spacing-16",
 		"container": "container-2lgZY8",
-		"notServerList": "content-98HsJk",
+		"content": "content-98HsJk",
+		"layer": "layer-3QrUeG",
+		"mediaEngineVideo": "media-engine-video",
 	),
 	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 	"os": (
@@ -186,6 +190,7 @@ $classes: (
 		"tabBody": "tabBody-3YRQ8W",
 		"inviteToolbar": "inviteToolbar-3F-l2g",
 		"peopleColumn": "peopleColumn-29fq28",
+		"peopleList": "peopleList-3c4jOR",
 		"peopleListItem": "peopleListItem-2nzedh",
 		"peopleListUsername": "username-31C1TQ",
 		"actionButton": "actionButton-uPB8Fs",
@@ -235,7 +240,9 @@ $classes: (
 		"offline": "offline-3nJYBR",
 	),
 	"notice": (
-		"notice": "notice-3bPHh-",
+		"base": "notice-3bPHh-",
+		"completeSteps": "notice-3uyY6c", // contents: "You must complete a few more steps before you can start talking in this server."
+		"viewServerAsRole": "notice-1tZwqv", // contents: "You are viewing this server as $count role(s)."
 	),
 	"popout": (
 		"menu": "menu-3sdvDG",
@@ -317,6 +324,8 @@ $classes: (
 		"bottom": "tooltipBottom-3ARrEK",
 		"top": "tooltipTop-XDDSxx",
 		"pointer": "tooltipPointer-3ZfirK",
+
+		"primary": "tooltipPrimary-1d1ph4",
 		"black": "tooltipBlack-PPG47z",
 		"grey": "tooltipGrey-1hnvTt",
 		"brand": "tooltipBrand-g03Nz8",
@@ -373,5 +382,104 @@ $classes: (
 		"footer": "footer-1fjuF6",
 		"input": "input-cIJ7To",
 		"focused": "focused-1mmYsC",
+	),
+	"userSettings": (
+		"standardSidebarView": "standardSidebarView-3F1I7i",
+		"sidebarRegion": "sidebarRegion-VFTUkN",
+		"sidebarRegionScroller": "sidebarRegionScroller-3MXcoP",
+		"sidebar": "sidebar-CFHs9e",
+		"sidebarHeader": "header-2RyJ0Y",
+		"sidebarSeparator": "separator-gCa7yv",
+		"sidebarItem": "item-PXvHYJ",
+		"sidebarItemThemed": "themed-OHr7kt",
+		"sidebarSocialLinks": "socialLinks-3jqNFy",
+		"sidebarInfo": "info-1VyQPT",
+
+		"contentRegion": "contentRegion-3nDuYy",
+		"contentRegionScroller": "contentRegionScroller-26nc1e",
+		"contentColumn": "contentColumn-2hrIYH",
+		"contentHeader": "h2-2gWE-o",
+
+		"contentBackground": "background-1QDuV2",
+		"fieldList": "fieldList-21DyL8",
+		"field": "field-1HUseB",
+		"profile": "profile-1eT9hT",
+		"profileDetails": "details-2fkb7l",
+		"profileDetailsInner": "detailsInner-1VPlWl",
+		"username": "username-1fQw19",
+		"usernameRow": "usernameRow-2Lu_-c",
+		"usernameRowInner": "usernameInnerRow-ZlFnET",
+
+		"radioGroupItem": "item-26Dhrx",
+		"cardPrimary": "cardPrimary-1Hv-to",
+		"cardPrimaryEditable": "cardPrimaryEditable-3KtE4g",
+		"cardPrimaryOutline": "cardPrimaryOutline-29Ujqw",
+		"cardPrimaryOutlineEditable": "cardPrimaryOutlineEditable-PEnpzz",
+
+		"accountList": "accountList-33MS45",
+		"accountButton": "accountBtn-2Nozo3",
+		"accountButtonInner": "accountBtnInner-sj5jLs",
+		"connection": "connection-1fbD7X",
+		"connectionHeader": "connectionHeader-2MDqhu",
+		"connectionIcon": "connectionIcon-2ElzVe",
+		"connectionDelete": "connectionDelete-2Odoln",
+
+		"codeRedemptionRedirect": "codeRedemptionRedirect-1wVR4b",
+
+		"nitroPage": "content-2c3hgM",
+		"nitroHero": "hero-EvfTTA",
+		"nitroHeroButtons": "heroButtons-2NvgKB",
+		"nitroFeatureGrid": "featureGrid-3-fNl-",
+		"nitroFeature": "feature-2w65J5",
+		"nitroFeatureImageWrapper": "featureImageWrapper-pPDLjm",
+		"nitroBanner": "banner-WELp4M", // xbox game pass box
+
+		"boostGuildsSection": "guildsSection-3AvK09",
+		"boostCardWrapper": "cardWrapper-2Min21",
+		"boostCardNoIcon": "noIcon-1a_FrS",
+		"boostCardGemContainer": "gemIndicatorContainer-2jdECl",
+		"boostDealWrapper": "wrapper-3nSjSv", // thing at bottom. contains the classic as an svg.
+		"boostDealAction": "action-2cD_qI",
+
+		"closeButton": "closeButton-1tv5uR",
+		"closeButtonKeybind": "keybind-KpFkfr",
+	),
+	// indented as it's a subset
+		"appSettings": (
+			"slider": "slider-1PF9SW",
+			"sliderBar": "bar-2Qqk5Z",
+			"sliderBarFill": "barFill-23-gu-",
+			"sliderGrabber": "grabber-3mFHz2",
+
+			"voicePage": "userSettingsVoice-iwdUCU",
+			"voiceNotches": "notches-1sAcEM.gray-3_LNYR",
+			"voicePreviewContainer": "previewContainer-37c2Si",
+			"voicePreviewOverlay": "previewOverlay-2O7_KC",
+
+			"overlayWrapper": "wrapper-3jrx9n",
+			"overlaySelected": "selected-mKYnfr",
+			"overlayOption": "option-n0icdO",
+
+			"soundRow": "soundRow-7krrdT",
+			"soundRowDividerDefault": "dividerDefault-3rvLe-",
+
+			"keybindDefault": "defaultKeybind-2coG8W",
+			"keybindCard": "card-FDVird",
+			"keybindGroup": "keybindGroup-JQs9x_",
+			"keybindRemove": "removeKeybind-39dSFj",
+			"keybindRemoveFilled": "filled-1iCBCZ",
+			"keybindButton": "keybindShortcut-1BD6Z1 span",
+
+			"gameNotDetected": "notDetected-33MY4s",
+			"gameNowPlaying": "nowPlaying-284llR",
+			"game": "game-1ipmAa",
+			"gameNameLastPlayed": "gameNameLastPlayed-3LJo8n",
+			"gameRemove": "removeGame-2JFGPn",
+		),
+
+	// Client Mods
+	"powercord": (
+		"base": "powercord",
+		"notice": "powercord-notice",
 	)
 );

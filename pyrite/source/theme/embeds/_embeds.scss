@@ -3,23 +3,23 @@
 #{c(main dark)},
 #{c(main light)} {
   #{c(embeds gift)} {
-    @include card-dark;
+    @include card;
     &:hover {
-      background-color: rgba(0,0,0,0.5);
+      background-color: var(--card-background);
     }
     #{c(embeds giftInvalidPoop)} {
       background-color: transparent;
     }
   }
   #{c(media audioWrapper)} {
-    @include card-dark;
+    @include card;
     width: 90% !important; // !important reason: element.style
   }
 }
 #{c(embeds codeblock)},
 #{c(embeds invite)},
 #{c(embeds attachment)} {
-  @include card-dark;
+  @include card;
 }
 
 #{c(embeds invite)} {
@@ -48,19 +48,22 @@
 }
 
 #{c(media barGrabber)},
-#{c(media barProgress)}:after,
-#{c(media barProgress)}:before,
-#{c(media barProgress)},
-#{c(media barBuffer)}:after,
-#{c(media barBuffer)}:before,
-#{c(media barBuffer)} {
+#{c(media barProgress)} {
   background-color: $primary;
 }
 
-#{c(media barBuffer)}:after,
-#{c(media barBuffer)}:before,
 #{c(media barBuffer)} {
   opacity: 0.5;
+}
+
+#{c(media barBuffer)},
+#{c(media barWrapper)},
+#{c(media barPreview)},
+#{c(media barProgress)} {
+  &:before,
+  &:after {
+    content: none;
+  }
 }
 
 #{c(media barInteractionDragging)},

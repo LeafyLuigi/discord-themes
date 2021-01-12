@@ -18,6 +18,7 @@
     // background-color
   }
 }
+
 @mixin bg2 {
   &:after {
     content: "";
@@ -37,6 +38,11 @@
 
 @mixin list {
 
+}
+
+@mixin card {
+  border: 1px solid var(--secondary-color);
+  background-color: var(--card-background);
 }
 
 @mixin card-light {

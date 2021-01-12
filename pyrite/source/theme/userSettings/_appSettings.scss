@@ -1,0 +1,119 @@
+@use "backend" as *;
+/* Start App Settings */
+#{c(main dark)},
+#{c(main light)} {
+  #{c(appSettings sliderBar)} {
+    background-color: rgba(0,0,0,0.5);
+  }
+}
+#{c(appSettings sliderBarFill)} {
+  background-color: $primary;
+}
+
+#{c(main dark)},
+#{c(main light)} {
+  #{c(appSettings voiceNotches)} {
+    background-image: none;
+  }
+}
+
+#{c(main dark)},
+#{c(main light)} {
+  #{c(appSettings voicePage)} {
+    #{c(appSettings voicePreviewOverlay)} {
+      @include card-dark;
+    }
+  }
+}
+#{c(appSettings voicePreviewContainer)} {
+  #{c(main mediaEngineVideo)} {
+    background: transparent;
+  }
+}
+
+#{c(appSettings overlayWrapper)} {
+  border-color: $primary;
+  #{c(appSettings overlayOption)} {
+    &:hover,
+    &#{c(appSettings overlaySelected)} {
+      background-color: $primary;
+    }
+  }
+}
+
+#{c(appSettings soundRow)} {
+  margin-bottom: 10px;
+}
+#{c(appSettings soundRow)} #{c(appSettings soundRowDividerDefault)} {
+  margin-top: 10px;
+}
+
+#{c(appSettings keybindCard)} {
+  padding: 10px 0;
+  &:before {
+    content: none;
+  }
+  #{c(appSettings keybindRemove)} {
+    opacity: 1;
+    top: 8px;
+    right: 0;
+    z-index: 1;
+  }
+  #{c(appSettings keybindRemoveFilled)} {
+    transition: 0.25s background-color ease-in-out;
+    &:not(:hover) {
+      background-color: transparent;
+    }
+  }
+}
+#{c(appSettings keybindDefault)} {
+  height: unset;
+  padding: 9px 0;
+}
+
+#{c(main dark)},
+#{c(main light)} {
+  #{c(appSettings keybindButton)} {
+    color: #fff;
+    font-weight: 600;
+    background-color: $primary;
+    border: 1px solid $secondary;
+    box-shadow: inset 0 -4px 0 $secondary;
+    &:active {
+      color: #ccc;
+      border: 1px solid $secondary;
+      box-shadow: inset 0 -2px 0 $secondary;
+    }
+  }
+}
+
+#{c(main dark)},
+#{c(main light)} {
+  #{c(appSettings gameNotDetected)} {
+    @include card-light;
+  }
+  #{c(appSettings gameNowPlaying)} {
+    @include card-dark;
+    @debug "need to do text when playing";
+  }
+  #{c(appSettings gameRemove)} {
+    background-image: url(/assets/eb69ec9fdd30653a3ade1ab501a7cd3d.svg);
+    &:not(:hover) {
+      background-color: transparent;
+    }
+    &:hover {
+      background-color: #f15454;
+    }
+  }
+}
+#{c(appSettings game)} {
+  #{c(appSettings gameNameLastPlayed)} + div {
+    position: relative;
+    right: 32px;
+  }
+  #{c(appSettings gameRemove)} {
+    opacity: 1;
+    top: 15px;
+    right: 4px;
+  }
+}

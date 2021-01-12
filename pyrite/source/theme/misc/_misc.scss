@@ -33,6 +33,22 @@ body,
   z-index: 1100;
 }
 
+// Light + Dark Differences
+#{c(main dark)} {
+  --card-background: rgba(0,0,0,0.5);
+  --side-shading: rgba(0,0,0,0.5);
+  --middle-shading: rgba(0,0,0,0.3);
+  --header-shading: rgba(0,0,0,0.7);
+}
+#{c(main light)} {
+  --card-background: rgba(255,255,255,0.05);
+  --side-shading: rgba(255,255,255,0.5);
+  --middle-shading: rgba(255,255,255,0.3);
+  --header-shading: rgba(255,255,255,0.7);
+}
+
+
+
 // defaults:
 // Windows
 // .platform-win .splashBackground-1FRCko:before{content:"";position:fixed;top:0;right:0;width:84px;height:22px;background:rgba(0,0,0,.3);border-bottom-left-radius:3px;z-index:1;-webkit-transition:background .4s ease .4s;transition:background .4s ease .4s}
@@ -71,7 +87,7 @@ body,
     @include bg;
     &:before {
       -webkit-app-region: drag;
-      height: 12px;
+      height: 18px;
     }
     & > #{c(os wordmark)} {
       color: $primary;

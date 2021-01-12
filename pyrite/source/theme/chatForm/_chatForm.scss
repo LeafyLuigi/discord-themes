@@ -48,7 +48,7 @@
 #{c(chatForm replyContainer)} {
   #{c(chatForm replyName)} {
     color: $primary;
-    text-shadow: 2px 2px 4px $secondary;
+    text-shadow: 2px 2px 4px currentColor;
   }
   #{c(chatForm replyActions)} {
     #{c(chatForm colorBrand)} {

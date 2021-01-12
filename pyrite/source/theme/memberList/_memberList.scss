@@ -7,19 +7,6 @@
   left: calc( ( 240px - 60px ) * var(--hide-member-list));
   transition: .5s all ease-out;
   margin-left: calc( -1 * (( 240px - 60px ) * var(--hide-member-list)));
-  &:before {
-    content: var(--member-string, none); // should it be unset, it'll not be displayed
-    opacity: 1;
-    text-align: center;
-    position: relative;
-    height: fit-content;
-    background-color: $primary;
-    color: #fff;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    padding: 10px 0;
-    border-radius: 0 10px 10px 0;
-  }
 	&:hover {
 		left: 0;
 	}

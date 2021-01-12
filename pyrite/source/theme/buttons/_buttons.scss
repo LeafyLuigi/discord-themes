@@ -16,6 +16,9 @@
 
 #{c(main appMount)} {
   #{c(button lookFilled)} {
+    &:before {
+      transition: background-color .17s ease;
+    }
     &#{c(button colorGreen)} {
     }
     &#{c(button colorYellow)} {
@@ -38,6 +41,9 @@
     }
   }
   #{c(button lookInverted)} {
+    &:before {
+      transition: background-color .17s ease;
+    }
     &#{c(button colorGreen)} {
     }
     &#{c(button colorYellow)} {
