@@ -7,7 +7,7 @@
     "clean": "rimraf {test,public}",
     "test": "sass source:test --load-path=source --no-source-map",
     "build": "npm run build-sass && npm run build-prefix",
-    "build-sass": "sass source:public --style=compressed --load-path=source --no-source-map",
+    "build-sass": "sass source:build --style=compressed --load-path=source --no-source-map",
     "build-prefix": "postcss public/*.css --dir=public --use=autoprefixer  -b=\"> 5%\" --no-map",
     "dev": "sass source/main.scss:public/main.css --watch --load-path=source --no-source-map"
   },
