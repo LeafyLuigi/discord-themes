@@ -1,0 +1,135 @@
+// what goes in here?
+// - Horizontal Server List support.
+
+@use "start" as *;
+/*! #{$theme-name} v#{$version} - HSL Addon by LeafyLuigi */
+
+@use "classes" as *;
+/* Begin HSL Addon */
+@import url('https://discordstyles.github.io/HorizontalServerList/base.css');
+:root {
+  /* DO NOT CHANGE THIS VALUE. */
+  --horizontal-server-list-enabled: 1;
+
+  /* You are free to change these ones. Defaults are in the import above. */
+  --server-size: var(--HSL-server-icon-size, var(--HSL-size, 35px));
+  --server-spacing: var(--HSL-server-spacing, var(--HSL-spacing, 10px));
+  --server-container: calc(var(--server-size) + 20px);
+}
+
+#app-mount {
+  #{c(serverList servers)} {
+    z-index: 1010;
+  }
+  #{c(serverList scroller)} {
+    background-color: var(--header-shading);
+  }
+}
+
+// Windows
+#{c(os windows)} {
+  #{c(os typeWindows)} {
+    background-color: var(--header-shading);
+    height: 22px;
+    margin-top: 0;
+    &:before {
+      content: none;
+    }
+    & > #{c(os wordmark)} {
+      position: absolute;
+      top: 0;
+      &:before,
+      &:after {
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+  #{c(serverList servers)} {
+    &:before {
+      content: none;
+    }
+  }
+  #{c(header toolbar)} {
+    position: static;
+    right: 0;
+  }
+  #{c(header nicknames)} {
+    padding-right: 0;
+  }
+  #{c(os winButton)} {
+    position: relative;
+    height: 22px;
+    top: 0;
+  }
+}
+
+// Mac
+#{c(os mac)} {
+  #app-mount {
+    #{c(os macButtonClose)},
+    #{c(os macButtonMinimize)},
+    #{c(os macButtonMaximize)} {
+      margin-top: 0;
+    }
+    #{c(os typeMac)} #{c(os macButtons)} {
+      padding: 10px;
+      &:before,
+      &:after {
+        position: unset;
+        top: 0;
+      }
+    }
+  }
+  #{c(os typeMac)} {
+    height: 22px;
+    background-color: var(--header-shading);
+  }
+  #{c(main layer)}:not(#{c(main baseLayer)}) {
+    top: 22px;
+    padding-top: 22px;
+  }
+  #{c(main appMount)} #{c(os typeMac)} #{c(os macButtons)} {
+    height: 12px;
+  }
+  #{c(serverList servers)} {
+    top: calc(var(--server-container) + 22px) !important; // !important reason: import overrides it
+  }
+  #{c(header header)} {
+    -webkit-app-region: unset;
+  }
+  #{c(main layer)}#user-settings {
+    top: 20px;
+    padding-top: 22px;
+  }
+  #{c(serverList servers)} {
+    &:before {
+      content: none;
+    }
+  }
+}
+html#{c(os mac)} #app-mount #{c(main base)} {
+  top: calc(var(--server-container) + 22px) !important; // !important reason: import overrides it
+}
+
+// Linux/Web
+#{c(os linux)},
+#{c(os web)} {
+  #{c(serverList servers)} {
+    &:before {
+      display: none; // !important reason: main overrides it
+    }
+    > #{c(serverList tree)} {
+      top: unset;
+      position: static;
+      height: 100vw;
+    }
+  }
+  #{c(serverList homeContainer)} {
+    &+#{c(serverList listItem)} {
+      &:before {
+        content: none;
+      }
+    }
+  }
+}

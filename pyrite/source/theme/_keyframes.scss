@@ -1,0 +1,32 @@
+// Keyframes. Used for animations.
+// ALWAYS have these for full motion.
+
+// used in: serverlist
+@keyframes numberBadgeFlash {
+  0% {
+    background-color: $primary;
+    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
+  }
+  50% {
+    background-color: $secondary;
+    filter: drop-shadow(0 0 3px $primary) drop-shadow(0 0 5px $primary);
+  }
+  100% {
+    background-color: $primary;
+    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
+  }
+}
+
+// used in: misc
+@keyframes monke {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@debug "on toast";

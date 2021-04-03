@@ -18,11 +18,15 @@
     }
     #{c(memberList offline)} {
       opacity: 0.7;
-      filter: grayscale(100%);
       transition: 0.25s all ease-in-out;
+      #{c(memberList avatar)} {
+        filter: grayscale(100%);
+      }
       &:hover {
         opacity: 1;
-        filter: none;
+        #{c(memberList avatar)} {
+          filter: none;
+        }
       }
     }
 	}

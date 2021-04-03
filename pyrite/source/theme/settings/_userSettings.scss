@@ -23,6 +23,25 @@
     color: #fff;
   }
 }
+#{c(userSettings sidebarItem)} {
+  &[style*="color: rgb(114, 137, 218)"] {
+    color: $primary !important; // !important reason: element.style
+  }
+  &[style*="background-color: rgba(114, 137, 218, 0.1)"] {
+    background-color: transparent !important; // !important reason: element.style
+    color: $primary;
+    @include bg;
+    &:before {
+      background-color: $primary;
+      opacity: 0.1;
+      border-radius: 6px;
+    }
+  }
+  &[style*="background-color: rgb(114, 137, 218)"] {
+    background-color: $primary !important; // !important reason: element.style
+    color: #fff !important; // !important reason: element.style, overlapping rules
+  }
+}
 
 #{c(userSettings contentRegionScroller)} {
   background-color: $middle;
@@ -70,6 +89,9 @@
     background-color: rgba(0,0,0,0.7);
   }
 }
+#{c(userSettings radioIconForeground)} {
+  color: $primary;
+}
 
 #{c(userSettings cardPrimary)},
 #{c(userSettings cardPrimaryEditable)},
@@ -91,6 +113,7 @@
 #{c(userSettings connection)} {
   @include card;
   #{c(userSettings connectionHeader)} {
+    background-color: rgba(0,0,0,0.5);
     padding: 10px 20px;
   }
 }
@@ -173,12 +196,10 @@
   #{c(userSettings closeButton)} {
     color: $primary;
     border-color: currentColor;
-    &:hover {
+    &:hover,
+    &:active {
       color: $hover;
       background-color: transparent;
-    }
-    &:active {
-      color: $active;
     }
   }
   #{c(userSettings closeButton)}>svg>path {

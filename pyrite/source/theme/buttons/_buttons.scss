@@ -8,11 +8,13 @@
 // filled red : pc plugins
 // filled brand : my account
 // filled primary : discord nitro
+// filled grey : add server modal
 // inverted brand : discord nitro, playing user popout modal
 // outlined red : authorized whatever
 // outlined brand : privacy (at bottom)
 // ghost grey : server settings widget (copy buttons)
 // link primary : my account -> edit
+// link brand : reset nickname
 
 #{c(main appMount)} {
   #{c(button lookFilled)} {
@@ -32,7 +34,7 @@
     &#{c(button colorBlack)} {
     }
     &#{c(button colorBrand)} {
-      color: $button-text;
+      color: var(--text-normal);
       @include button-bg($color: $primary);
     }
     &#{c(button colorLink)} {
@@ -126,6 +128,7 @@
     &#{c(button colorBlack)} {
     }
     &#{c(button colorBrand)} {
+      color: $primary;
     }
     &#{c(button colorLink)} {
     }
@@ -139,7 +142,7 @@
   #{c(main appMount)} {
     #{c(button lookFilled)} {
       &#{c(button colorPrimary)} {
-        color: $button-text;
+        color: var(--text-normal);
         @include button-bg($color: $primary);
       }
     }

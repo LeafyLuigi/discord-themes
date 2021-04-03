@@ -1,0 +1,114 @@
+@use "backend" as *;
+/* Start Stages */
+#{c(main dark)},
+#{c(main light)} {
+
+}
+#{c(stage root)} {
+  background-color: $middle;
+  top: 48px;
+  @include bg;
+  &:before {
+    background-color: $header;
+    height: 48px;
+    top: -48px;
+  }
+}
+#{c(stage sidebarVisible)} {
+  margin-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  #{c(stage root)}:before {
+    content: none;
+  }
+}
+#{c(stage container)},
+#{c(stage callContainer)} {
+  background-color: transparent;
+}
+#{c(stage root)} {
+  #{c(stage videoControls)} {
+    #{c(stage videoControlSection)} {
+      position: relative;
+      top: -48px;
+    }
+    #{c(stage gradientContainer)} {
+      background-image: none;
+    }
+  }
+}
+#{c(stage scroller)} {
+  background-color: transparent;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+#{c(stage headerContainer)} {
+  background-color: transparent;
+  padding-top: 16px;
+}
+#{c(stage rowContainer)},
+#{c(stage participants)} {
+  background-color: transparent;
+}
+
+#{c(stage tileContainer)}:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+#{c(stage openTheStageContainer)},
+#{c(stage openTheStageContainer)}:hover {
+  background-color: $card;
+  border: 2px solid $primary;
+}
+
+#{c(stage requestToSpeakContainer)} {
+  height: calc(100vh - 48px);
+  align-self: flex-end;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: $side;
+  @include bg;
+  &:before {
+    background-color: $header;
+    height: 48px;
+  }
+}
+#{c(stage rtsEmptyImage)} {
+  display: none;
+}
+#{c(stage rtsListTitle)} {
+  @include header;
+}
+#{c(stage rtsButtonContainer)},
+#{c(stage rtsButtonContainer)}:hover,
+#{c(stage rtsButtonContainer)}:active {
+  background-color: $primary;
+  color: #fff;
+}
+#{c(stage colorable)} {
+  &#{c(stage primaryDark)},
+  &#{c(stage primaryDark)}:hover,
+  &#{c(stage primaryDark)}:active {
+    background-color: $card;
+  }
+  &#{c(stage white)},
+  &#{c(stage white)}:hover,
+  &#{c(stage white)}#{c(stage active)} {
+    background-color: $primary;
+    color: #fff;
+  }
+}
+#{c(stage audienceVoiceUserIconContainer)} {
+  background-color: $primary;
+  color: #fff;
+}
+#{c(stage speakerRaiseHandBadge)} {
+  background-color: $primary;
+  filter: drop-shadow(0 0 3px var(--secondary-color)) drop-shadow(0 0 5px var(--secondary-color));
+}
+#{c(main fullMotion)}#{c(main focused)} {
+  #{c(stage speakerRaiseHandBadge)} {
+    animation: numberBadgeFlash 5s linear infinite;
+  }
+}

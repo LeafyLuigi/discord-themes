@@ -1,0 +1,59 @@
+@use "backend" as *;
+/* Begin Search */
+#{c(main dark)},
+#{c(main light)} {
+  #{c(search tab)} {
+    &#{c(search selected)} {
+      background-color: $secondary;
+      color: #fff;
+    }
+  }
+  #{c(search searchFilter)},
+  #{c(search searchAnswer)} {
+    background-color: $primary;
+    color: #fff;
+  }
+  #{c(search activeButton)},
+  #{c(search activeButton)}:hover {
+    background-color: $primary;
+  }
+}
+#{c(search header)} {
+  background-color: $header;
+}
+#{c(search wrap)} {
+  background-color: transparent;
+}
+#{c(search scroller)} {
+  background-color: $side;
+}
+#{c(search channel)} {
+  background-color: transparent;
+  @include header-line;
+}
+#{c(search result)} {
+  @include card;
+}
+#{c(search buttonContainer)} {
+  display: flex;
+}
+#{c(search pageButton)}:not(#{c(search endButton)}) {
+  border: 1px solid transparent;
+  &:hover {
+    border-color: $secondary;
+    background-color: $card;
+  }
+}
+#{c(search endButton)} {
+  border: 1px solid transparent;
+  &:hover:disabled {
+    background-color: transparent;
+  }
+  &:hover:not(:disabled) {
+    border-color: $secondary;
+    background-color: $card;
+  }
+}
+#{c(search button)} {
+  background-color: $card;
+}

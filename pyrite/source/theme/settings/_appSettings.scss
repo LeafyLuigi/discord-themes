@@ -94,7 +94,31 @@
   }
   #{c(appSettings gameNowPlaying)} {
     @include card-dark;
-    @debug "need to do text when playing";
+    #{c(appSettings gameName)} {
+      color: var(--text-normal);
+    }
+    #{c(appSettings gameLastPlayed)},
+    #{c(appSettings gameOverlayStatusText)} {
+      color: var(--text-muted);
+    }
+    #{c(appSettings gameOverlayToggleIconOn)} #{c(appSettings gameOverlayToggleIconFill)},
+    #{c(appSettings gameOverlayToggleIconOff)} #{c(appSettings gameOverlayToggleIconFill)} {
+      fill: $primary;
+    }
+    #{c(appSettings gameNameInput)} {
+      &:focus,
+      &:hover {
+        border-color: $primary;
+        background-color: transparent;
+      }
+    }
+  }
+  #{c(appSettings gameNameInput)} {
+    &:focus,
+    &:hover {
+      border-color: $primary;
+      background-color: transparent;
+    }
   }
   #{c(appSettings gameRemove)} {
     background-image: url(/assets/eb69ec9fdd30653a3ade1ab501a7cd3d.svg);
@@ -105,6 +129,9 @@
       background-color: #f15454;
     }
   }
+}
+#{c(appSettings gameFlowerStar)} > path {
+  fill: $primary;
 }
 #{c(appSettings game)} {
   #{c(appSettings gameNameLastPlayed)} + div {

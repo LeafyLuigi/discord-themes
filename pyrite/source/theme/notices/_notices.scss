@@ -1,57 +1,75 @@
 @use "backend" as *;
 /* Start Notices */
-#{c(notice base)} {
-  z-index: 1100;
-  top: 48px;
-  left: 240px;
-  // for below: 240 == channels/dms list | 72 == server list.
-  width: calc(100vw - 240px - 72px); // fits a vertical server list
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  // background-color: transparent;
-  & + #{c(notice base)} {
-    & ~ #{c(main content)} {
-      --notice-count: 2;
+#{c(os windows)},
+#{c(os mac)} {
+  #{c(main base)} #{c(notice base)} ~ #{c(main content)} {
+    #{c(sidebar hasNotice)},
+    #{c(chat chat)},
+    #{c(friends container)},
+    #{c(sidebar sidebar)} {
+      height: calc(100vh - ( ( 22px + var(--server-container, 0px) ) * var(--horizontal-server-list-enabled, 0) ) );
     }
+  }
+}
+#{c(main base)} {
+  #{c(notice base)} {
+    top: 48px;
+    left: 240px;
+    // for below: 240 == channels/dms list | 72 == server list.
+    width: calc(100vw - 240px - (72px * ( 1 - var(--horizontal-server-list-enabled, 0) ) ) ); // fits a vertical server list
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    // background-color: transparent;
     & + #{c(notice base)} {
       & ~ #{c(main content)} {
-        --notice-count: 3;
+        --notice-count: 2;
+      }
+      & + #{c(notice base)} {
+        & ~ #{c(main content)} {
+          --notice-count: 3;
+        }
+      }
+    }
+    & ~ #{c(main content)} {
+      --notice-count: 1;
+      #{c(sidebar hasNotice)},
+      #{c(chat chat)},
+      #{c(friends container)},
+      #{c(sidebar sidebar)} {
+        position: relative;
+        top: calc(-36px * var(--notice-count));
+        // height calc: 77 -> 22, 55 (by default): former being bar at top, latter being server list width
+        height: calc(100vh - ( ( var(--server-container, 0px) ) * var(--horizontal-server-list-enabled, 0) ) );
+      }
+      #{c(chat noChannel)}:before {
+        top: calc(-36px * var(--notice-count));
+      }
+      #{c(chat chat)} {
+        #{c(chat chatScroller)},
+        #{c(chat newMessagesBar)} {
+          top: calc(36px * var(--notice-count));
+        }
+        #{c(memberList wrap)},
+        #{c(search wrap)} {
+          top: calc(36px * var(--notice-count));
+          height: calc(100% - calc(36px * var(--notice-count)));
+        }
+      }
+      #{c(friends tabBody)} {
+        top: calc(36px * var(--notice-count));
+        #{c(friends peopleColumn)},
+        #{c(friends nowPlayingScroller)} {
+          height: calc(100% - calc(36px * var(--notice-count)));
+        }
       }
     }
   }
-  & ~ #{c(main content)} {
-    --notice-count: 1;
-  #{c(sidebar hasNotice)},
-  #{c(chat chat)},
-  #{c(friends container)},
-  #{c(sidebar sidebar)} {
-    position: relative;
-    top: calc(-36px * var(--notice-count));
-    height: 100vh;
-  }
-  #{c(chat chat)} {
-    #{c(chat chatScroller)},
-    #{c(chat newMessagesBar)} {
-      top: calc(36px * var(--notice-count));
-    }
-    #{c(memberList wrap)} {
-      top: calc(36px * var(--notice-count));
-      height: calc(100% - calc(36px * var(--notice-count)));
-    }
-  }
-  #{c(friends tabBody)} {
-    top: calc(36px * var(--notice-count));
-    #{c(friends peopleColumn)},
-    #{c(friends nowPlayingScroller)} {
-      height: calc(100% - calc(36px * var(--notice-count)));
-    }
-  }
-}
 }
 
-// spesific notices
-#{c(notice completeSteps)} {
+// specific notices
+#{c(notice completeSteps)},
+#{c(notice previewServerNotice)} {
   height: 36px;
 }
 

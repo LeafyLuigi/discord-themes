@@ -1,0 +1,95 @@
+@use "backend" as *;
+/* Begin Channel Settings */
+#{c(channelSettings roleScroller)} {
+  background-color: transparent;
+}
+#{c(channelSettings permGroup)} {
+  border: none;
+}
+#{c(channelSettings permItem)} {
+  background-color: $card;
+  border-radius: 50%;
+  width: 28px;
+  > svg {
+    display: none;
+  }
+}
+#{c(channelSettings permDeny)} {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #f04747;
+  &#{c(channelSettings permSelected)} {
+    background-color: #fff;
+    border: 8px solid #f04747;
+  }
+  &:hover:not(#{c(channelSettings permSelected)}) {
+    background-color: #f04747;
+    cursor: pointer;
+  }
+}
+#{c(channelSettings permNoop)} {
+  background-color: #737373;
+  &#{c(channelSettings permSelected)} {
+    background-color: #fff;
+    border: 8px solid #737373;
+  }
+  &:hover:not(#{c(channelSettings permSelected)}) {
+    background-color: #737373;
+    cursor: pointer;
+  }
+}
+#{c(channelSettings permAllow)} {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #43b581;
+  &#{c(channelSettings permSelected)} {
+    background-color: #fff;
+    border: 8px solid #43b581;
+  }
+  &:hover:not(#{c(channelSettings permSelected)}) {
+    background-color: #43b581;
+    cursor: pointer;
+  }
+}
+
+#{c(main dark)},
+#{c(main light)} {
+  #{c(channelSettings inviteRow)} {
+    padding: 10px 0;
+    &:before {
+      content: none;
+    }
+    #{c(channelSettings revokeInvite)} {
+      opacity: 1;
+      top: 8px;
+      right: 0;
+      z-index: 1;
+    }
+    #{c(channelSettings inviteDefault)} {
+      transition: 0.25s background-color ease-in-out;
+      background-image: url(/assets/eb69ec9fdd30653a3ade1ab501a7cd3d.svg);
+      &:not(:hover) {
+        background-color: transparent;
+      }
+      &:hover {
+        background-color: #f15454;
+      }
+    }
+  }
+}
+
+#{c(main dark)},
+#{c(main light)} {
+  #{c(channelSettings webhookCard)},
+  #{c(channelSettings webhookCard2)},
+  #{c(channelSettings webhookCard3)} {
+    border-color: var(--secondary-color);
+  }
+  #{c(channelSettings webhookFooterImage)} {
+    display: none;
+  }
+}
+#{c(channelSettings webhookIconWrapper)},
+#{c(channelSettings webhookAvatarUploader)} {
+  background-color: transparent;
+}

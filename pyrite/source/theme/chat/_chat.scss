@@ -12,11 +12,26 @@
   }
 }
 #{c(chat chatContentInner)},
-#{c(chat noChannel)} {
+#{c(chat chatScrollerNSFW)} {
   background-color: $middle;
 }
 
-#{c(chat mentioned)} {
+#{c(chat noChannel)} {
+  @include bg;
+  @include bg2;
+  &:before {
+    height: 48px;
+    background-color: $header;
+  }
+  &:after {
+    top: 48px;
+    height: calc(100vh - 48px);
+    background-color: $middle;
+  }
+}
+
+#{c(chat mentioned)},
+#{c(chat botMention)} {
   &:before {
     @include bg;
     background-color: var(--mention-background);
@@ -26,10 +41,14 @@
     z-index: -1;
   }
 }
-#{c(chat mentioned)} {
+#{c(chat mentioned)},
+#{c(chat botMention)} {
   &:hover:before {
     opacity: calc( var(--mention-opacity) + 0.2 );
   }
+}
+#{c(chat botMessageBottom)} {
+  color: #fff;
 }
 
 #{c(chat buttonWrapper)} {
@@ -47,9 +66,6 @@
     }
     &:hover:before {
       background-color: $hover;
-    }
-    &:active:before {
-      background-color: $active;
     }
     > svg {
       transform: skewX(15deg);
@@ -79,7 +95,7 @@
     }
     &#{c(chat dividerUnread)} {
       #{c(chat dividerContent)} {
-        color: var(--red-color);
+        color: #f04747;
         font-weight: 600;
       }
     }
@@ -97,4 +113,79 @@
     padding-top: 0;
     opacity: 1;
   }
+}
+
+#{c(chat repliedMessage)} {
+  &:before {
+    border-color: $primary;
+    filter: drop-shadow(2px 2px 2px $secondary);
+  }
+}
+
+#{c(chat chatHeader)} {
+  #{c(chat emptyChannelIcon)} {
+    background-color: var(--card-background);
+  }
+}
+
+#{c(chat spoilerText)}#{c(chat spoilerHidden)}:hover {
+  #{c(chat spoilerContent)} {
+    opacity: 0.7;
+    transition: opacity .5s .5s ease-in-out;
+  }
+}
+
+#{c(main dark)} {
+  #{c(chat spoilerText)} {
+    &#{c(chat spoilerHidden)} {
+      background-color: $card;
+      &:hover {
+        background-color: rgba(0,0,0,0.25);
+      }
+    }
+  }
+}
+
+#{c(main light)} {
+  #{c(chat spoilerText)} {
+    &#{c(chat spoilerHidden)} {
+      background-color: $card;
+      &:hover {
+        background-color: rgba(255,255,255,0.025);
+      }
+    }
+  }
+}
+
+#{c(chat botTag)} {
+  background-color: $primary;
+}
+
+#{c(chat gifFavoriteButton)} {
+  #{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)} #{c(chat gifFavoriteIcon)} {
+    animation: gif-bouce .4s linear;
+  }
+  #{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)}:after {
+    animation: gif-ripple .45s ease;
+  }
+  &:after {
+    border-color: $primary;
+  }
+  &:hover,
+  &#{c(chat gifFavoriteSelected)} {
+    color: $primary;
+  }
+}
+
+
+#{c(chat zalgoBlocker)} #{c(chat messageContent)},
+#{c(chat chatUsername)} {
+  overflow: visible;
+}
+
+#{c(chat blockquoteContainer)} blockquote {
+  background-color: $card;
+}
+#{c(chat blockquoteDivider)} {
+  background-color: $primary;
 }

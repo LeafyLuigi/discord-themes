@@ -40,10 +40,6 @@
       color: $hover;
       filter: drop-shadow(0 0 2px currentColor);
     }
-    &:active {
-      color: $active;
-      filter: drop-shadow(0 0 4px currentColor);
-    }
   }
 }
 
@@ -70,5 +66,26 @@
 #{c(media barInteraction)}:hover {
    #{c(media barGrabber)} {
     background-color: $secondary;
+  }
+}
+
+#{c(embeds textContainerUp)} {
+  @include card;
+}
+#{c(embeds textContainer)} {
+  background-color: transparent;
+  border: none;
+}
+#{c(embeds textFooter)} {
+  background-color: transparent;
+}
+// Enable with Beer
+// confused? https://cdn.discordapp.com/attachments/747040126294687764/827442200094179338/unknown.png
+#{c(embeds textOpenFullPreview)} {
+  &:before {
+    content: "🍺";
+  }
+  > svg {
+    display: none;
   }
 }

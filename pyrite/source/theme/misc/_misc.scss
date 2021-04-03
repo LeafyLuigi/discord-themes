@@ -1,6 +1,98 @@
 @use "start" as *;
 @use "backend" as *;
+/* Begin Keyframes */
+
+// ALWAYS USE FULL MOTION BEFORE ANIMATION.
+
+// used in: sidebar
+@keyframes pulse-07-10 {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+// used in: modals, serverList
+@keyframes numberBadgeFlash {
+  0% {
+    background-color: $primary;
+    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
+  }
+  50% {
+    background-color: $secondary;
+    filter: drop-shadow(0 0 3px $primary) drop-shadow(0 0 5px $primary);
+  }
+  100% {
+    background-color: $primary;
+    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
+  }
+}
+
+// used in: misc
+@keyframes monke {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// used in: chat
+@keyframes gif-ripple {
+  0% {
+    transform:scale(.4);
+    opacity:1;
+  }
+  90% {
+    transform:scale(1.4);
+    opacity:0;
+  }
+  100% {
+    transform:scale(1.6);
+    opacity:0;
+  }
+}
+
+// used in: chat
+@keyframes gif-bounce {
+  25% {
+    transform:scale(.6);
+  }
+  50% {
+    transform:scale(1.2);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+
 /* Begin Misc */
+// Fonts
+// body fonts
+::placeholder,
+::-webkit-input-placeholder,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--body-font);
+}
+#{c(main focused)} body::selection {
+  background-color: red;
+}
+// code fonts
+code,
+#{c(chatForm inlineCode)},
+#{c(chatForm afterInlineCode)},
+#{c(chatForm beforeInlineCode)},
+#{c(chatForm codeLine)},
+#{c(chatForm codeBlockText)} {
+  font-family: var(--code-font);
+}
 
 // Background
 #{c(main appMount)} {
@@ -14,40 +106,21 @@
 }
 
 // Transparency to allow the background to work.
-body,
+body, // this one is here for transparency in bd to work
 #{c(main appInner)},
-#{c(main bg)} {
+#{c(main bg)},
+#{c(main loadingBackground)},
+#{c(main loadingContainer)} {
   background: transparent;
 }
 
 // Backdrop blur
-#{c(main backdrop)},
-#{c(main backdropWithLayer)} {
-  background-color: transparent !important; // !important usage: element.style
-  backdrop-filter: blur(3px);
-}
 #{c(main backdropWithLayer)} {
   z-index: -1000;
 }
 #{c(os titleBar)} {
   z-index: 1100;
 }
-
-// Light + Dark Differences
-#{c(main dark)} {
-  --card-background: rgba(0,0,0,0.5);
-  --side-shading: rgba(0,0,0,0.5);
-  --middle-shading: rgba(0,0,0,0.3);
-  --header-shading: rgba(0,0,0,0.7);
-}
-#{c(main light)} {
-  --card-background: rgba(255,255,255,0.05);
-  --side-shading: rgba(255,255,255,0.5);
-  --middle-shading: rgba(255,255,255,0.3);
-  --header-shading: rgba(255,255,255,0.7);
-}
-
-
 
 // defaults:
 // Windows
@@ -103,7 +176,7 @@ body,
       &:after {
         order: 1;
         white-space: nowrap;
-        color: $button-text;
+        color: var(--text-normal);
         position: relative;
         right: 60px;
         top: 20px;
@@ -118,7 +191,7 @@ body,
         content: $version;
         font-size: 10px;
         margin-left: 2px;
-        font-family: Zapfino, Segoe Script, serif; // Zapfino is here despite it being a Mac font. It's because I like it. That's it.
+        font-family: Segoe Script, serif;
       }
     }
   }
@@ -127,19 +200,27 @@ body,
   }
   #{c(serverList servers)} {
     top: 48px;
-  }
-  #{c(main container)} {
+    overflow: visible;
     @include bg;
     &:before {
       z-index: 1050;
       background-color: $header;
       width: 72px;
       height: 48px;
+      top: -48px;
     }
+  }
+  #{c(os winButton)} {
+    width: var(--win-min-max-close-button-width);
   }
   #{c(header toolbar)} {
     position: relative;
-    right: 72px;
+    right: calc(3 * var(--win-min-max-close-button-width));
+    margin-right: -6px;
+  }
+  #{c(header nicknames)},
+  #{c(header topic)} {
+    padding-right: calc(3 * var(--win-min-max-close-button-width));
   }
   #{c(os winButton)} {
     position: relative;
@@ -147,38 +228,121 @@ body,
     height: 48px;
   }
 }
+
 // Mac
 #{c(os mac)} {
+  #{c(os macButtonClose)},
+  #{c(os macButtonMinimize)},
+  #{c(os macButtonMaximize)} {
+    order: 0;
+    margin-top: 12px;
+  }
+  #{c(os macButtonMinimize)},
+  #{c(os macButtonMaximize)} {
+    margin-left: 7px;
+  }
   #{c(os typeMac)} {
-    background-color: $header;
-    @debug "do MacOS stuff, future me!";
-    // padding-top: 4px;
-    // margin-top: 0;
+    #{c(os macButtons)} {
+      height: 12px;
+      padding-bottom: 38px;
+      &:before,
+      &:after {
+        order: 1;
+        white-space: nowrap;
+        color: var(--text-normal);
+        position: relative;
+        order: 1;
+        left: -56px;
+      }
+      &:before {
+        content: $theme-name;
+        font-size: 14px;
+        margin-left: 4px;
+        font-style: italic;
+        top: 25px;
+      }
+      &:after {
+        content: $version;
+        font-size: 10px;
+        margin-left: 2px;
+        font-family: Segoe Script, serif;
+        top: 23px;
+      }
+    }
+  }
+  #{c(serverList servers)} {
+    top: 48px;
+    margin-top: 0;
+    overflow: visible;
+    @include bg;
+    &:before {
+      z-index: 1050;
+      background-color: $header;
+      width: 72px;
+      height: 48px;
+      top: -48px;
+    }
+  }
+  #{c(serverList scroller)} {
+    padding-top: 4px;
   }
 }
-// Linux / Web
-#{c(os mac)},
+// Linux, Web
 #{c(os linux)},
 #{c(os web)} {
-  #{c(serverList homeContainer)} {
-    &+#{c(serverList listItem)} {
-      &:before {
-        content: $theme-name-short;
-        color: rgba(255,255,255,0.75);
-        font-size: 11px;
-        text-align: center;
+  #{c(serverList scroller)} {
+    padding: 4px 0 0 0;
+  }
+  #{c(serverList servers)} {
+    &:before {
+      content: "";
+      background-color: $header;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 48px;
+      z-index: 1100;
+    }
+    > #{c(serverList tree)} {
+      top: 48px;
+      position: relative;
+      height: calc(100vh - 48px);
+      &:before,
+      &:after {
+        order: 1;
         white-space: nowrap;
+        color: var(--text-normal);
         position: absolute;
+        top: -32px;
+        z-index: 1100;
       }
-      > #{c(serverList serverSeparator)} {
-        margin-top: 12px;
+      &:before {
+        content: $theme-name;
+        font-size: 14px;
+        margin-left: 4px;
+        font-style: italic;
+        right: 30px;
+      }
+      &:after {
+        content: $version;
+        font-size: 10px;
+        margin-left: 2px;
+        right: 4px;
+        font-family: Segoe Script, serif;
       }
     }
   }
 }
 
-
 // EGGS!
+#{c(main focused)}#{c(main fullMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)},
+#{c(main focused)}#{c(main reduceMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)}:hover {
+  animation: monke 6.9s linear infinite;
+}
+
 #{c(store store)} {
    #{c(store scroller)} {
     > #{c(store nitroContainer)} {
@@ -198,10 +362,100 @@ body,
         content: "If you *need* this, go into your user settings.";
         display: block;
         font-size: 20px;
-        color: $button-text;
+        color: var(--text-normal);
         text-align: center;
         margin-top: 10px;
       }
+    }
+  }
+}
+#{c(store libraryContainer)} {
+  background-color: black;
+  >div,
+  >section {
+    display: none;
+  }
+  &:before {
+    padding-top: 60px;
+    content: "People use this?";
+    display: block;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px #aaa;
+    text-align: center;
+  }
+  &:after {
+    content: "If you *need* this, go to a web browser and search \"Steam Download\". Use that instead.";
+    display: block;
+    font-size: 20px;
+    color: var(--text-normal);
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+/* Checkboxes */
+#{c(main light)},
+#{c(main dark)} {
+  #{c(main checkbox)} {
+    border-color: $primary;
+    &#{c(main checkboxChecked)} {
+      &[style*="border-color: rgb(114, 137, 218);"] {
+        box-shadow: inset 0 0 3px 1px $primary;
+        border-color: $primary !important; // !important reason: element.style
+        > svg > path {
+          fill: $primary;
+        }
+      }
+      &[style*="background-color: rgb(114, 137, 218)"] {
+        background-color: transparent !important; // !important reason: element.style
+      }
+      &[style*="rgba(67, 181, 129, 0.15)"],
+      &[style*="rgb(67, 181, 129)"] {
+        box-shadow: inset 0 0 3px 1px $primary;
+        border-color: $primary !important; // !important reason: element.style
+        background-color: transparent !important; // !important reason: element.style
+        > svg > path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+}
+
+/* HLJS */
+#{c(hljs comment)},
+#{c(hljs quote)} {
+  font-style: italic;
+}
+
+/* Tags */
+#{c(chat messageContents)} > #{c(chat chatAvatar)} ~ #{c(chat chatHeaderUsername)} #{c(chat chatUsername)}:after {
+  content: var(--local-tag, none);
+  color: currentcolor;
+  font-size: 11px;
+  display: inline-block;
+  margin-left: 4px;
+  transform: skewX(-15deg);
+}
+
+$dev: (
+  "309976820109803520", // Nao Tomori
+);
+$helper: (
+  "126652966265421824", // Scars
+);
+
+#{c(chat chatAvatar)} {
+  @each $userID in $dev {
+    &[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
+      --local-tag: "Theme Dev";
+    }
+  }
+  @each $userID in $helper {
+    &[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
+      --local-tag: "Theme Helper";
     }
   }
 }

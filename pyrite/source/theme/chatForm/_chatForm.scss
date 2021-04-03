@@ -1,5 +1,38 @@
 @use "backend" as *;
 /* Begin Chat Form */
+#{c(main dark)} {
+  #{c(chatForm channelTextAreaBase)} {
+    background-color: transparent;
+    @include bg;
+    &:before {
+      background-color: rgba(255,255,255,0.1);
+    }
+    &:focus-within {
+      &:before {
+        background-color: rgba(0,0,0,0.5);
+      }
+    }
+    &#{c(chatForm channelTextAreaDisabled)} {
+      background-color: rgba(0,0,0,0.3);
+    }
+  }
+}
+#{c(main light)} {
+  #{c(chatForm channelTextAreaBase)} {
+    &:before {
+      background-color: rgba(255,255,255,0.1);
+    }
+    &:focus-within {
+      &:before {
+        background-color: rgba(255,255,255,0.5);
+      }
+    }
+    &#{c(chatForm channelTextAreaDisabled)} {
+      background-color: rgba(255,255,255,0.3);
+    }
+  }
+}
+
 #{c(chatForm form)} {
   margin-top: 0;
   &::before {
@@ -7,8 +40,8 @@
   }
 }
 #{c(chatForm wrapper)} {
+  z-index: 0;
   background-color: rgba(255,255,255,0.1);
-  backdrop-filter: blur(2px);
   #{c(chatForm image)} {
     display: none;
   }
@@ -18,29 +51,27 @@
     }
   }
 }
+
 #{c(chatForm channelTextAreaBase)} {
   background-color: transparent;
-  backdrop-filter: blur(2px);
   @include bg;
   &:before {
-    background-color: rgba(255,255,255,0.1);
     opacity: 1;
     border-radius: 8px;
   }
   &:focus-within {
     box-shadow: 0 0 2px 2px $primary;
     &:before {
-      background-color: rgba(0,0,0,0.5);
       opacity: 0.5;
     }
   }
   &#{c(chatForm channelTextAreaDisabled)} {
-    display: none;
     &:before {
       content: none;
     }
   }
 }
+
 #{c(chatForm scrollableContainer)},
 #{c(chatForm replyContainer)} {
   background-color: transparent;
@@ -52,10 +83,10 @@
   }
   #{c(chatForm replyActions)} {
     #{c(chatForm colorBrand)} {
-      color: var(--green-color);
+      color: #43b581;
     }
     #{c(chatForm colorMuted)} {
-      color: var(--red-color);
+      color: #f04747;
     }
   }
 }

@@ -1,0 +1,77 @@
+@use "backend" as *;
+/* Start Error Page */
+#{c(main dark)},
+#{c(main light)} {
+  #{c(error wrapper)} {
+    background-image: none;
+    background-color: $middle;
+  }
+}
+html {
+  &[lang*="en"],
+  &[lang*="sv"] {
+    #{c(error errorPage)} {
+      #{c(error image)} {
+        display: none;
+      }
+      #{c(error text)} {
+        width: auto;
+        padding: 100px;
+        background-color: #0078d7;
+        #{c(error title)} {
+          line-height: 120px;
+          font-size: 0;
+          margin-bottom: 0;
+          text-align: left;
+          &:after {
+            content: ":(";
+            font-size: 160px;
+            font-family: Comic Sans MS, cursive;
+          }
+        }
+        #{c(error note)} {
+          text-align: left;
+          white-space: pre-line;
+          > div > p {
+            font-size: 0;
+            margin: 0;
+            &:before,
+            &:after {
+              font-size: 32px;
+              display: block;
+              font-family: Comic Sans MS, cursive;
+              color: #fff;
+            }
+            &:first-child {
+              &:before {
+                content: "Oopsie Woopsie! Uwu We made a fucky wucky!! A wittle";
+              }
+              &:after {
+                content: "fucko boingo! The code monkeys at our headquaters are";
+              }
+            }
+            &:last-child {
+              &:before {
+                content: "working VEWY HAWD to fix this!";
+              }
+              &:after {
+                content: "If you'd like to know more, you can search online later for this error: OOPSIE_WOOPSIE";
+                font-size: 16px;
+                margin-top: 80px;
+              }
+            }
+          }
+        }
+      }
+      #{c(button contents)} {
+        font-size: 0;
+        &:after {
+          content: "please click this";
+          font-size: 14px;
+          top: 1px;
+          position: relative;
+        }
+      }
+    }
+  }
+}

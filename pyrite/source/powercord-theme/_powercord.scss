@@ -1,0 +1,45 @@
+// what goes in here?
+// - things that break with betterdiscord.
+// - powercord plugins
+// - basically just keeps this shit neat.
+
+@use "start" as *;
+/*! #{$theme-name} v#{$version} - Powercord Addon by LeafyLuigi */
+
+@use "classes" as *;
+/* Begin Powercord Addon */
+body#{c(powercord base)} {
+  #{c(chatForm wrapper)},
+  #{c(chatForm channelTextAreaBase)} {
+    backdrop-filter: blur(2px);
+  }
+  #{c(main backdrop)},
+  #{c(main backdropWithLayer)},
+  #{c(modals uploadArea)} {
+    backdrop-filter: blur(3px);
+    background-color: transparent !important; // !important usage: element.style
+  }
+  #{c(modals messagesPopoutWrap)},
+  #{c(modals root)},
+  #{c(modals unreadsWrap)},
+  #{c(modals emojiGifContentWrapper)},
+  #{c(modals searchDropdown)},
+  #{c(modals detachedEmojiPicker)},
+  #{c(modals listModal)} {
+    backdrop-filter: blur(4px);
+  }
+  #{c(main loadingContainer)} {
+    backdrop-filter: blur(5px);
+  }
+  #{c(modals fullImageModal)},
+  #{c(modals notDetachedEmojiPicker)} #{c(modals detachedEmojiPicker)} {
+    backdrop-filter: none;
+  }
+
+  #{c(powercord codeblockCopy)} {
+    background-color: var(--primary-color);
+    &:hover {
+      background-color: var(--hover-color);
+    }
+  }
+}

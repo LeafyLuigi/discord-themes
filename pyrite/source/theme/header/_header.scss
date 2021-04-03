@@ -39,50 +39,58 @@
 #{c(header icon)} {
   color: #fff;
 }
+#{c(header iconBadge)} {
+  filter: drop-shadow($primary 0 0 4px) drop-shadow($primary 0 0 4px);
+  background-color: $secondary;
+}
 #{c(header iconClickable)} {
   #{c(header icon)} {
     color: $primary;
-    &:hover {
-      color: $hover;
-      filter: drop-shadow(0 0 2px currentColor);
-    }
-    &:active {
-      color: $active;
-      filter: drop-shadow(0 0 4px currentColor);
-    }
   }
+  &:hover #{c(header icon)}{
+    color: $hover;
+    filter: drop-shadow(0 0 2px currentColor);
+  }
+}
+#{c(header search)} {
+  order: 1;
+}
+#{c(header searchBar)} {
+  background-color: var(--card-background);
 }
 
 // HIDE MEMBER ICON. REQUIRES ARIA-LABEL.
+@debug "Aria Label list in Header";
 #{c(chat chat)} #{c(header toolbar)} #{c(header iconSelected)} {
-  &[aria-label="Medlemsliste"],
-  &[aria-label="Mitgliederliste"],
-  &[aria-label="Member List"],
-  &[aria-label="Lista de miembros"],
-  &[aria-label="Liste des membres"],
-  &[aria-label="Popis članova"],
-  &[aria-label="Lista dei membri"],
-  &[aria-label="Narių Sąrašas"],
-  &[aria-label="Tagok listája"],
-  &[aria-label="Ledenlijst"],
-  &[aria-label="Medlemsliste"],
-  &[aria-label="Lista członków"],
-  &[aria-label="Lista de membros"],
-  &[aria-label="Lista membrilor"],
-  &[aria-label="Jäsenluettelo"],
-  &[aria-label="Medlemslista"],
-  &[aria-label="Danh sách thành viên"],
-  &[aria-label="Üye Listesi"],
-  &[aria-label="Seznam členů"],
-  &[aria-label="Λίστα μελών"],
-  &[aria-label="Списък с членове"],
-  &[aria-label="Список участников"],
-  &[aria-label="Список учасників"],
-  &[aria-label="รายชื่อสมาชิก"],
-  &[aria-label="成员名单"],
-  &[aria-label="メンバーリスト"],
-  &[aria-label="成員名單"],
-  &[aria-label="멤버 목록"] {
+  &[aria-label="Medlemsliste"], // Danish
+  &[aria-label="Mitgliederliste"], // German
+  &[aria-label="Member List"], // English
+  &[aria-label="Lista de miembros"], // Spanish
+  &[aria-label="Liste des membres"], // French
+  &[aria-label="Popis članova"], // Croatian
+  &[aria-label="Lista dei membri"], // Italian
+  &[aria-label="Narių Sąrašas"], // Lithuanian
+  &[aria-label="Tagok listája"], // Hungarian
+  &[aria-label="Ledenlijst"], // Dutch
+  &[aria-label="Medlemsliste"], // Norwegian
+  &[aria-label="Lista członków"], // Polish
+  &[aria-label="Lista de membros"], // Portuguese
+  &[aria-label="Lista membrilor"], // Romanian
+  &[aria-label="Jäsenluettelo"], // Finnish
+  &[aria-label="Medlemslista"], // Swedish
+  &[aria-label="Danh sách thành viên"], // Vietnamese
+  &[aria-label="Üye Listesi"], // Turkish
+  &[aria-label="Seznam členů"], // Czech
+  &[aria-label="Λίστα μελών"], // Greek
+  &[aria-label="Списък с членове"], // Bulgarian
+  &[aria-label="Список участников"], // Russian
+  &[aria-label="Список учасників"], // Ukranian
+  &[aria-label="รายชื่อสมาชิก"], // Thai
+  &[aria-label="成员名单"], // Chinese (mainland)
+  &[aria-label="メンバーリスト"], // Japanese
+  &[aria-label="成員名單"], // Chinese (Taiwan)
+  &[aria-label="멤버 목록"]  // Korean
+  {
     display: none;
   }
 }

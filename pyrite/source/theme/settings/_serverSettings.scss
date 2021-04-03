@@ -1,0 +1,123 @@
+@use "backend" as *;
+/* Start Server Settings */
+#{c(main dark)},
+#{c(main light)} {
+  #{c(serverSettings emojiRemoveDefault)} {
+    background-image: url(/assets/eb69ec9fdd30653a3ade1ab501a7cd3d.svg);
+    &:not(:hover) {
+      background-color: transparent;
+    }
+    &:hover {
+      background-color: #f15454;
+    }
+  }
+  #{c(serverSettings emojiAliasInput)} #{c(serverSettings emojiInput)} {
+    background-color: $card;
+    border-color: $primary;
+  }
+}
+
+#{c(main appInner)}:not([style*="transform"]) {
+  #{c(serverSettings noticeRegion)} {
+    #{c(serverSettings noticeContainer)} {
+      &:not([style*="240, 71, 71"]) {
+        background-color: transparent !important; // !important reason: element.style
+        @include bg;
+        &:before {
+          right: 20px;
+          left: 20px;
+          bottom: 20px;
+          background-color: $primary;
+          opacity: 0.9;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+#{c(serverSettings roleBannerContainer)} {
+  display: none;
+}
+#{c(serverSettings roleRow)}:hover:not(#{c(serverSettings roleRowDisableHover)}) {
+  #{c(serverSettings roleCircleButton)} {
+    background-color: $primary;
+    &:hover {
+      background-color: $hover;
+    }
+  }
+}
+#{c(serverSettings rolePage)} {
+  #{c(serverSettings roleContentContainer)},
+  #{c(serverSettings roleSidebar)} {
+    background-color: $middle;
+  }
+  #{c(serverSettings roleTitleContainer)},
+  #{c(serverSettings roleHeader)} {
+    background-color: transparent;
+  }
+}
+#{c(serverSettings roleEditButton)} {
+  visibility: visible;
+}
+#{c(serverSettings roleEveryoneContainer)} {
+  background-color: $card;
+  &:hover,
+  &:active {
+    background-color: $card;
+  }
+}
+#{c(serverSettings roleSearch)} {
+  background-color: $card;
+  border: $primary;
+}
+#{c(serverSettings roleEveryoneIcon)} {
+  background-color: $card;
+}
+#{c(serverSettings emojiAliasPlaceholder)} {
+  display: none;
+}
+#{c(serverSettings emojiRow)} {
+  height: 144px;
+  padding: 10px 0;
+  #{c(serverSettings emojiRemoveDefault)} {
+    opacity: 1;
+    top: calc(50% - 12px);
+    right: 4px;
+  }
+  #{c(serverSettings emojiAliasInput)} {
+    width: unset;
+    #{c(serverSettings emojiInput)} {
+      opacity: 1;
+    }
+  }
+  #{c(serverSettings emojiImage)} {
+    min-width: 144px;
+    height: 144px;
+    background-position: 50% 50%;
+  }
+}
+#{c(serverSettings emojiTopRow)} #{c(serverSettings flexChild)}[style="flex: 0 1 40px;"] {
+  flex: 0 1 170px !important; // !important usage: element.style
+}
+
+#{c(serverSettings auditScroller)} {
+  background-color: $middle;
+}
+
+#{c(serverSettings templateDescriptionBox)} {
+  @include card;
+}
+
+#{c(serverSettings enableCommunityFeatureCard)},
+#{c(serverSettings enableCommunityGuildDetails)} {
+  @include card;
+}
+#{c(serverSettings enableCommunityFeatureIcon)} {
+  background-color: transparent;
+}
+
+/* This is only here to debug something. Do not question it. */
+#{c(serverSettings emojiTopRow)} {
+  background-color: transparent;
+}

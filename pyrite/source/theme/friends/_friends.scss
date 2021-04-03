@@ -32,7 +32,6 @@
 #{c(friends peopleColumn)} {
   background-color: $middle;
   #{c(friends peopleListItem)} {
-    height: 50px !important; // !important usage: element.style
     &:hover {
       background: rgba(255,255,255,0.05);
     }
@@ -48,9 +47,6 @@
   border-color: currentColor;
   &:hover {
     color: $hover;
-  }
-  &:active {
-    color: $active;
   }
   &#{c(friends highlight)} {
     background-color: rgba(255,255,255,0.05);
@@ -69,8 +65,18 @@
     left: 0;
   }
   #{c(friends nowPlayingHeader)} {
-    @include header-line;
+    @include header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    &:after {
+      content: "";
+      height: 2px;
+      flex-grow: 1;
+      background: linear-gradient(to right, currentColor -50%, transparent 50%);
+      margin-left: 5px;
+    }
   }
   #{c(friends consentCard)} {
     @include card-dark;
@@ -99,7 +105,7 @@
     height: initial;
     width: initial;
     > g > path {
-      fill: $button-text;
+      fill: var(--text-normal)
     }
   }
 }

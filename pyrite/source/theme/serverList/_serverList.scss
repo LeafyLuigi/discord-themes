@@ -2,10 +2,21 @@
 /* Start Server List */
 #{c(serverList wrapper)} {
   background-color: transparent;
+  &:focus {
+    outline: none;
+  }
 }
 
 #{c(serverList scroller)} {
   background-color: $side;
+}
+
+#{c(serverList folder)},
+#{c(serverList folder)}#{c(serverList folderHover)} {
+  background-color: transparent;
+}
+#{c(serverList expandedFolderBackground)} {
+  background-color: $card;
 }
 
 #{c(serverList iconWrapper)} {
@@ -59,29 +70,20 @@
     }
   }
 }
-#{c(serverList mentionBar)} {
+#{c(serverList unreadMention)},
+#{c(serverList mentionBar)},
+#{c(serverList mentionBar)}:active {
   background-color: $primary;
 }
 
-@debug "Animation: Number Badge Flash";
-@keyframes numberBadgeFlash {
-  0% {
-    background-color: $primary;
-    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
-  }
-  50% {
-    background-color: $secondary;
-    filter: drop-shadow(0 0 3px $primary) drop-shadow(0 0 5px $primary);
-  }
-  100% {
-    background-color: $primary;
-    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
-  }
-}
 #{c(main fullMotion)}#{c(main focused)} #{c(serverList numberBadge)} {
   animation: numberBadgeFlash 5s linear infinite;
 }
 #{c(serverList numberBadge)} {
-  background-color: $primary !important; //!important usage: element.style.
+  background-color: $primary !important; // !important reason: element.style
   filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
+}
+
+#{c(serverList placeholderInner)} {
+  background-color: $card;
 }

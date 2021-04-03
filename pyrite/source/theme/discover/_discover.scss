@@ -1,0 +1,50 @@
+@use "backend" as *;
+/* Start Discovery Page */
+#{c(main light)},
+#{c(main dark)} {
+  #{c(discover pageWrapper)} {
+    background-color: transparent;
+    @include bg;
+    &:before {
+      background-color: $header;
+      height: 48px;
+    }
+  }
+  #{c(discover card)},
+  #{c(discover cardIconMask)},
+  #{c(discover card)}:hover,
+  #{c(discover card)}:hover #{c(discover cardIconMask)},
+  #{c(discover cardIconMask)}:hover {
+    background-color: $card;
+  }
+}
+
+#{c(discover scroller)} {
+  margin-top: 48px;
+  background-color: $middle;
+  height: calc(100% - 48px);
+}
+
+#{c(discover header)} {
+  margin-top: 10px;
+  margin-left: 0;
+  text-align: center;
+  @include header;
+}
+#{c(discover categoryItem)} {
+  &#{c(discover categoryItemSelected)} #{c(discover categoryItemInner)} {
+    background-color: $primary;
+  }
+}
+#{c(discover searchHeader)} {
+  #{c(discover searchHeaderImage)} {
+    display: none;
+  }
+}
+#{c(discover spinner)},
+#{c(discover searchSpinner)} {
+  background-color: $card;
+}
+#{c(discover card)} {
+  border: 2px solid $primary;
+}

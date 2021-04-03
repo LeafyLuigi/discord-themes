@@ -2,8 +2,6 @@
 /* Start User Modal */
 #{c(userModal root)} {
 	background-color: rgba(0,0,0,0.4);
-	// height: 70vh;
-	// width: 70vh;
   &::before {
     content: "";
     position: absolute;
@@ -28,12 +26,18 @@
 }
 #{c(userModal topPlaying)} {
   background-image: linear-gradient(to bottom right, $primary 0%, transparent 60%);
+	#{c(userModal header)} {
+		#{c(button colorBrand)}#{c(button lookInverted)} {
+			background-color: white;
+			color: $primary;
+		}
+	}
 }
 #{c(userModal topSpotify)} {
-  background-image: linear-gradient(to bottom right, $spotify 0%, transparent 60%);
+  background-image: linear-gradient(to bottom right, #1db954 0%, transparent 60%);
 }
 #{c(userModal topStreaming)} {
-  background-image: linear-gradient(to bottom right, $live 0%, transparent 60%);
+  background-image: linear-gradient(to bottom right, #593695 0%, transparent 60%);
 }
 #{c(userModal topXbox)} {
   background-image: linear-gradient(to bottom right, #107c10 0%, transparent 60%);
@@ -50,69 +54,37 @@
   border-top: none;
   padding-left: 0;
 }
-#{c(userModal tabBarContainer)} {
-  #{c(userModal top)} #{c(userModal tabBarItem)} {
-    padding: 0 10px;
-    margin: 0 4px;
-    border: 2px solid $primary;
-    color: $button-text;
-    border-radius: 5px 5px 0 0;
-    &:hover {
-      border-color: $hover;
-    }
-    &:active {
-      border-color: $active;
-    }
-    // not hovered nor active while playing/streaming/xbox/spotify
-    // fuck element.style
-    &[style*="border-color: transparent;"] {
-      color: $button-text !important; // !important reason: element.style
-      border: 2px solid $primary !important; // !important reason: element.style
-      &:active {
-        border-color: $active !important; // !important reason: element.style and uniformity
-      }
-    }
-    // hovered while playing/streaming/xbox/spotify
-    // fuck element.style
-    &[style*="border-color: rgba(255, 255, 255, 0.1);"] {
-      color: $button-text !important; // !important reason: element.style
-      border: 2px solid $hover !important; // !important reason: element.style
-      &:active {
-        border-color: $active !important; // !important reason: element.style and uniformity
-      }
-    }
-    // active while playing/streaming/xbox/spotify
-    // fuck element.style
-    &[style*="border-color: rgb(255, 255, 255);"] {
-      color: $button-text !important; // !important reason: element.style
-      border: 2px solid $active !important; // !important reason: element.style
-      @include bg;
-      &:before {
-        background-color: $active;
-        border-radius: 6px 6px 0 0;
-        opacity: 0.2;
-      }
-    }
+#{c(userModal tabBarContainer)} #{c(userModal top)} #{c(userModal tabBarItem)} {
+  padding: 0 10px;
+  margin: 0 4px;
+  border: 2px solid $primary;
+  border-radius: 0 0 5px 5px;
+  &:hover {
+    border-color: $hover;
   }
-  #{c(userModal top)} #{c(userModal tabBarItem)}#{c(userModal tabBarItemSelected)} {
-    color: $button-text;
-    border: 2px solid $active;
-    @include bg;
-    &:before {
-      background-color: $active;
-      border-radius: 6px 6px 0 0;
-      opacity: 0.4;
-    }
-  }
+	&#{c(userModal tabBarItemSelected)} {
+    color: var(--text-normal);
+    border: 2px solid $hover;
+	}
+	// not selected, not hovered
+	&[style*="transparent"] {
+		border: 2px solid $primary !important; // !important reason: element.style
+	}
+	// not selected, hovered
+	&[style*="(255, 255, 255, 0.6)"],
+	// selected
+	&[style*="(255, 255, 255)"] {
+		border: 2px solid $hover !important; // !important reason: element.style
+	}
 }
 
 #{c(userModal body)} {
   background-color: transparent;
 
   #{c(userModal noteTextArea)} {
-    &:focus {
-      background-color: transparent;
-      @debug "user modal note text area is an input thing. change it, future me!"
+		background-color: transparent;
+    &#{c(chatForm channelTextAreaDisabled)} {
+      background-color: rgba(0,0,0,0.3);
     }
   }
   #{c(userModal userInfoSection)} {
@@ -124,7 +96,7 @@
       color: #fff;
     }
     #{c(userModal connectedAccount)} {
-      border-color: rgba(0,0,0,0.4);
+      border-color: rgba(255,255,255,0.05);
       #{c(userModal connectedAccountVerifiedIcon)} {
         > svg > path {
           fill: $primary;
@@ -134,5 +106,159 @@
   }
   #{c(userModal guildAvatarWithoutIcon)} {
     background-color: rgba(0,0,0,0.5);
+  }
+}
+
+// Theme's User Modal Layout
+#{c(userModal root)} {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 50% 50%;
+  width: 660px;
+  height: 500px;
+}
+
+#{c(userModal topSection)},
+#{c(userModal topPlaying)},
+#{c(userModal topSpotify)},
+#{c(userModal topStreaming)},
+#{c(userModal topXbox)} {
+  display: grid;
+  grid-template-rows: 45% auto;
+}
+
+#{c(userModal header)} {
+  grid-row-start: 1;
+  display: grid;
+  grid-template-columns: auto auto 20px;
+  grid-template-rows: 110px 100px;
+  padding-bottom: 0;
+}
+#{c(userModal avatar)} {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  align-self: start;
+	height: 100px !important; // !important reason: element.style
+	width: 100px !important; // !important reason: element.style
+}
+#{c(userModal headerInfo)} {
+  grid-column-start: 1;
+  grid-column-end: 4;
+	grid-row-start: 2;
+  align-self: start;
+}
+#{c(userModal headerButton)} {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  align-self: start;
+  justify-self: end;
+}
+#{c(userModal headerInfo)}+div[role="button"],
+#{c(userModal headerButton)}+div[role="button"] {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  align-self: start;
+  justify-self: start;
+}
+#{c(userModal additionalActionsIcon)} {
+	height: 32px;
+}
+
+#{c(userModal header)}+div,
+#{c(userModal headerFill)} {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 80px auto 0;
+  grid-row-start: 2;
+}
+#{c(userModal activity)} {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  padding: 5px 20px;
+  max-height: 78px;
+}
+#{c(userModal activity)} ~ #{c(userModal activityProfile)} {
+  grid-row-start: 2;
+  grid-column-start: 1;
+}
+#{c(userModal tabBarContainer)} {
+  grid-row-start: 3;
+  grid-column-start: 1;
+  align-self: end;
+	position: relative;
+	top: -476px;
+	left: 330px;
+	z-index: 1;
+}
+
+#{c(userModal body)} {
+  height: 476px;
+  min-width: 330px;
+}
+#{c(userModal infoScroller)},
+#{c(userModal listScroller)} {
+	margin-top: 24px;
+	padding-top: 8px;
+}
+
+
+#{c(userModal topSpotify)} {
+  #{c(userModal bodyAlignCenter)},
+  #{c(userModal bodyNormal)} {
+    display: grid;
+    grid-template-columns: 80px auto;
+    grid-template-rows: auto 64px;
+  }
+  #{c(userModal assets)} {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  #{c(userModal assetsLargeImageProfile)} {
+    height: 80px;
+    width: 80px;
+  }
+  #{c(userModal bodyNormalContent)} {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    margin-left: 0;
+    padding-top: 25px;
+  }
+  #{c(userModal actionsProfile)} {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+}
+
+
+#{c(userModal topStreaming)} {
+	#{c(userModal steamingButton)} {
+		padding: 2px 15px;
+		align-self: start;
+		height: 32px;
+		min-height: 32px;
+	}
+	#{c(userModal steamingButton)}+div[role="button"] {
+		align-self: start;
+	}
+	#{c(userModal bodyAlignCenter)},
+  #{c(userModal bodyNormal)} {
+    display: grid;
+    grid-template-columns: auto 100px;
+    grid-template-rows: auto 64px;
+  }
+  #{c(userModal assets)} {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  #{c(userModal bodyNormalContent)} {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    margin-left: 0;
+  }
+  #{c(userModal actionsProfile)} {
+    grid-column-start: 2;
+    grid-row-start: 1;
   }
 }
