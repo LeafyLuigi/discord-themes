@@ -9,14 +9,14 @@
  */
 
 /* Import Base */
-@import url(https://leafyluigi.github.io/discord-themes/pyrite/public/base.css);
+@import url(https://leafyluigi.github.io/discord-themes/pyrite/build/base.css);
 
 /* Import BD Only Features */
-@import url(https://leafyluigi.github.io/discord-themes/pyrite/public/better-discord.css);
+@import url(https://leafyluigi.github.io/discord-themes/pyrite/build/better-discord.css);
 
 /* Import for optional things: */
 /* HorizontalServerList. Includes the base for the minitheme. */
-/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/public/horizontal-server-list.css); */
+/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css); */
 
 /* Theme Base */
 :root {
