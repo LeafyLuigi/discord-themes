@@ -1,6 +1,6 @@
 /*! Pyrite v0.1.0 by LeafyLuigi */
-@import url(https://leafyluigi.github.io/discord-themes/pyrite/base.css);
-@import url(https://leafyluigi.github.io/discord-themes/pyrite/powercord.css);
+@import url(https://leafyluigi.github.io/discord-themes/pyrite/build/base.css);
+@import url(https://leafyluigi.github.io/discord-themes/pyrite/build/powercord.css);
 
 /* Optional: Horizontal Server List addon. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/horizontal-server-list.css); */
