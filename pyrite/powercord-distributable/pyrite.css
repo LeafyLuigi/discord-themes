@@ -1,4 +1,11 @@
 /*! Pyrite v0.1.0 by LeafyLuigi */
+@import url(https://leafyluigi.github.io/discord-themes/pyrite/base.css);
+@import url(https://leafyluigi.github.io/discord-themes/pyrite/powercord.css);
+
+/* Optional: Horizontal Server List addon. */
+/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/horizontal-server-list.css); */
+
+
 :root {
   --background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
   --user-modal-image: var(--background-image);
@@ -31,7 +38,16 @@
 
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
+
+
+  /* Using HSL? Uncomment this chunk below. */
+  
+  /* --horizontal-server-list-enabled: 1;
+  --server-size: var(--HSL-server-icon-size, var(--HSL-size, 35px));
+  --server-spacing: var(--HSL-server-spacing, var(--HSL-spacing, 10px));
+  --server-container: calc(var(--server-size) + 20px); */
 }
+
 
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark, .theme-dark .theme-light {
