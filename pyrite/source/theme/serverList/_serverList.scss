@@ -3,6 +3,12 @@
 #{c(serverList wrapper)} {
   background-color: transparent;
   &:focus {
+    outline: 0;
+  }
+}
+
+#{c(serverList tree)} {
+  &:focus {
     outline: none;
   }
 }

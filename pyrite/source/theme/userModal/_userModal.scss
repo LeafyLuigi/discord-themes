@@ -124,7 +124,7 @@
 #{c(userModal topStreaming)},
 #{c(userModal topXbox)} {
   display: grid;
-  grid-template-rows: 45% auto;
+  grid-template-rows: 40% auto;
 }
 
 #{c(userModal header)} {
@@ -201,6 +201,32 @@
 	padding-top: 8px;
 }
 
+#{c(userModal topPlaying)} {
+	#{c(userModal bodyNormal)} {
+		display: grid;
+		grid-template-columns: 80px auto;
+		grid-template-rows: auto 64px;
+	}
+	#{c(userModal assets)} {
+		grid-row-start: 1;
+		grid-column-start: 1;
+	}
+	#{c(userModal bodyNormalContent)} {
+		max-width: 180px;
+  }
+  #{c(userModal actionsProfile)} {
+    grid-column-start: 1;
+		grid-column-end: 3;
+    grid-row-start: 2;
+		display: inline-flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		#{c(userModal actionsButton)} {
+			margin-right: 2px;
+			padding: 2px 8px;
+		}
+  }
+}
 
 #{c(userModal topSpotify)} {
   #{c(userModal bodyAlignCenter)},
@@ -260,5 +286,28 @@
   #{c(userModal actionsProfile)} {
     grid-column-start: 2;
     grid-row-start: 1;
+  }
+}
+
+
+#{c(userModal topXbox)} {
+	#{c(userModal bodyXbox)} {
+		display: grid;
+		grid-template-columns: 80px auto;
+		grid-template-rows: auto 64px;
+	}
+	#{c(userModal assets)} {
+		grid-row-start: 1;
+		grid-column-start: 1;
+	}
+	#{c(userModal bodyNormalContent)} {
+		max-width: 180px;
+  }
+	#{c(userModal actionsButton)} {
+		grid-row-start: 2;
+		grid-column-start: 1;
+		grid-column-end: 3;
+		margin-right: 2px;
+		padding: 2px 8px;
   }
 }

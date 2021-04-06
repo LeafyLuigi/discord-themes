@@ -55,8 +55,6 @@
     opacity:0;
   }
 }
-
-// used in: chat
 @keyframes gif-bounce {
   25% {
     transform:scale(.6);
@@ -66,6 +64,27 @@
   }
   100% {
     transform:scale(1);
+  }
+}
+
+// used in: error
+@keyframes errorScrollMac {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes errorPopMac {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -106,6 +125,7 @@ code,
 }
 
 // Transparency to allow the background to work.
+html, // because maybe?
 body, // this one is here for transparency in bd to work
 #{c(main appInner)},
 #{c(main bg)},
@@ -114,12 +134,17 @@ body, // this one is here for transparency in bd to work
   background: transparent;
 }
 
-// Backdrop blur
+// Set z-index
 #{c(main backdropWithLayer)} {
   z-index: -1000;
 }
 #{c(os titleBar)} {
   z-index: 1100;
+}
+
+// Loading Icon. Best seen removing the ONLY reaction of a type in the reaction modal.
+#{c(main loadingSquare)} {
+  background-color: $primary;
 }
 
 // defaults:
@@ -199,7 +224,7 @@ body, // this one is here for transparency in bd to work
     border-radius: 0;
   }
   #{c(serverList servers)} {
-    top: 48px;
+    margin-top: 48px;
     overflow: visible;
     @include bg;
     &:before {
@@ -253,6 +278,7 @@ body, // this one is here for transparency in bd to work
         position: relative;
         order: 1;
         left: -56px;
+        -webkit-app-region: drag;
       }
       &:before {
         content: $theme-name;
@@ -271,8 +297,7 @@ body, // this one is here for transparency in bd to work
     }
   }
   #{c(serverList servers)} {
-    top: 48px;
-    margin-top: 0;
+    margin-top: 48px;
     overflow: visible;
     @include bg;
     &:before {
@@ -281,6 +306,7 @@ body, // this one is here for transparency in bd to work
       width: 72px;
       height: 48px;
       top: -48px;
+      -webkit-app-region: drag;
     }
   }
   #{c(serverList scroller)} {

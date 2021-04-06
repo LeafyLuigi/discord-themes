@@ -1,0 +1,8 @@
+{
+    "name": "Pyrite",
+    "description": "desc",
+    "version": "0.1.0",
+    "author": "LeafyLuigi",
+    "theme": "pyrite.css",
+    "license": "unknown"
+}

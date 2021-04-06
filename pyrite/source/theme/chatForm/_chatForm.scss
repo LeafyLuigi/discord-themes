@@ -76,6 +76,9 @@
 #{c(chatForm replyContainer)} {
   background-color: transparent;
 }
+#{c(chatForm scrollableContainer)} {
+  max-height: 20vh;
+}
 #{c(chatForm replyContainer)} {
   #{c(chatForm replyName)} {
     color: $primary;

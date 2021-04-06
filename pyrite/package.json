@@ -1,14 +1,14 @@
 {
   "name": "Pyrite",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "A Discord Theme for both BetterDiscord and PowerCord",
   "private": true,
   "scripts": {
-    "clean": "rimraf {test,public}",
+    "clean": "rimraf {test,build}",
     "test": "sass source:test --load-path=source --no-source-map",
     "build": "npm run build-sass && npm run build-prefix",
     "build-sass": "sass source:build --style=compressed --load-path=source --no-source-map",
-    "build-prefix": "postcss public/*.css --dir=public --use=autoprefixer  -b=\"> 5%\" --no-map",
+    "build-prefix": "postcss build/*.css --dir=build --use=autoprefixer  -b=\"> 5%\" --no-map",
     "dev": "sass source/main.scss:public/main.css --watch --load-path=source --no-source-map"
   },
   "repository": {

@@ -12,7 +12,8 @@
   }
 }
 #{c(chat chatContentInner)},
-#{c(chat chatScrollerNSFW)} {
+#{c(chat chatScrollerNSFW)},
+#{c(chat noChat)}#{c(chat chatContent)} {
   background-color: $middle;
 }
 
@@ -185,6 +186,7 @@
 
 #{c(chat blockquoteContainer)} blockquote {
   background-color: $card;
+  padding: 2px 8px 2px 12px;
 }
 #{c(chat blockquoteDivider)} {
   background-color: $primary;

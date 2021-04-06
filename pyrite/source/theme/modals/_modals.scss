@@ -425,5 +425,16 @@
   background-color: transparent;
 }
 
+// reaction list modal
+#{c(main dark)},
+#{c(main light)} {
+  #{c(modals reactionSide)} {
+    background-color: $side;
+  }
+  #{c(modals reactionMain)} {
+    background-color: $middle;
+  }
+}
+
 // classes that need to be put in and themed
 // .iconContainer-2aaq6z - background, use card, used in "Welcome to Stages" modal

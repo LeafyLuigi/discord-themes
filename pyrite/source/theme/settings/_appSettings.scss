@@ -121,7 +121,7 @@
     }
   }
   #{c(appSettings gameRemove)} {
-    background-image: url(/assets/eb69ec9fdd30653a3ade1ab501a7cd3d.svg);
+    background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
     &:not(:hover) {
       background-color: transparent;
     }
@@ -131,7 +131,7 @@
   }
 }
 #{c(appSettings gameFlowerStar)} > path {
-  fill: $primary;
+  fill: $secondary;
 }
 #{c(appSettings game)} {
   #{c(appSettings gameNameLastPlayed)} + div {

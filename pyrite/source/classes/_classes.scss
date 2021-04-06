@@ -50,6 +50,7 @@ $classes: (
 		"checkbox": "checkbox-1ix_J3",
 		"checkboxChecked": "checked-3_4uQ9",
 		"checkboxRound": "round-2jCFai",
+		"loadingSquare": "wanderingCubesItem-WPXqao",
 	),
 	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 	"os": (
@@ -125,6 +126,7 @@ $classes: (
 	),
 	"chat": (
 		"chat": "chat-3bRxxu",
+		"noChat": "noChat-9aipKz",
 		"chatContent": "content-yTz4x3",
 		"chatScroller": "scroller-2LSbBU",
 		"chatScrollerNSFW": "scroller-11cdZM",
@@ -217,6 +219,7 @@ $classes: (
 	"discover": (
 		"pageWrapper": "pageWrapper-1PgVDX",
 		"header": "discoverHeader-1TWTqG",
+		"viewWrapper": "viewWrapper-8-8h4T",
 		"categoryItem": "categoryItem-3zFJns",
 		"categoryItemSelected": "selectedCategoryItem-3X8ujp",
 		"categoryItemInner": "itemInner-3gVXMG",
@@ -225,13 +228,31 @@ $classes: (
 		"searchHeaderImage": "headerImage-3X1tyY",
 		"search": "search-1iTphC",
 		"searchBox": "searchBox-2_mAlO",
+		"searchBoxInput": "searchBoxInput-K6mkng",
+		"searchCloseIcon": "closeIcon-2WLZc1",
+		"searchSearchIcon": "searchIcon-6ljH-4",
 		"cardList": "guildList-3cJX3d",
 		"cardPlaceholder": "cardPlaceholder-1zrbbe",
 		"card": "card-3DjzTQ",
 		"cardIconMask": "iconMask-3b8GzQ",
 		"spinner": "spinner-3lb-NU",
+		"footer": "footer-2jdoRS",
+		"footerImage": "footerImage-1CwWjz",
 
+		"searchPage": "searchPage-3m5ssC",
 		"searchSpinner": "spinner-2OWD4A",
+		"searchEmptyContainer": "emptyContainer-1_gwCl",
+		"searchEmptyImage": "emptyImage-1ABqhB",
+		"searchErrorImage": "errorImage-1StK2r",
+		"searchCategoryPill": "categoryPill-34fszg",
+		"searchCategorySelected": "selected-1dONk0",
+		"searchPlaceholder": "placeholder-2erB-x",
+
+		"langSelect": "css-12hk9yc-control",
+		"langSelectSelected": "css-1adxh11-control",
+		"langSelectSelected2": "css-1emou8a-control",
+		"langSelectDropdown": "css-ix84ef-menu",
+		"langSelectScrollbar": "css-1ye7vu0",
 	),
 	"embeds": (
 		"codeblock": "markup-2BOw-j code",
@@ -357,6 +378,8 @@ $classes: (
 		"rootLarge": "large-3lXhLH",
 
 		"focusLock": "focusLock-Ns3yie",
+
+		"container": "container-2Uhd6d",
 
 		"rootMessage": "message-2qRu38",
 
@@ -504,6 +527,15 @@ $classes: (
 		"dropdownLookFilled": "lookFilled-22uAsw",
 		"dropdownSelect": "select-2fjwPw",
 		"dropdownInput": "searchInput-5YMkDH",
+
+		"optionContainer": "optionContainer-15srkc",
+
+		"guildSidebar": "guildSidebar-2OCzWB",
+		"guildBody": "modal-f02hVt",
+		"guildFormFieldWrapper": "formFieldWrapper-malor5",
+
+		"reactionSide": "scroller-1-nKid",
+		"reactionMain": "reactors-Blmlhw",
 
 		"listModal": "modal-yWgWj-", // not 100% sure on the usage.
 	),
@@ -751,6 +783,7 @@ $classes: (
 		"activityProfile": "activityProfile-2bJRaP",
 		"activity": "activity-1ythUs",
 		"body": "body-3ND3kc",
+		"bodyXbox": "body-ZAhrcj",
 		"infoScroller": "infoScroller-3EYYns",
 		"listScroller": "listScroller-2_vlfo",
 		"bodyAlignCenter": "bodyAlignCenter-1KzvJk",
@@ -758,7 +791,10 @@ $classes: (
 		"assets": "assets-VMAukC",
 		"assetsLargeImageProfile": "assetsLargeImageProfile-3YXDex",
 		"bodyNormalContent": "content-3JfFJh",
+		"bodyNormalContentTitle": "base-1x0h_U",
+		"bodyNormalContentDetails": "details-38sfDr",
 		"actionsProfile": "actionsProfile-jEtjVX",
+		"actionsButton": "button-2IFFQ4",
 		"userInfoSection": "userInfoSection-2acyCx",
 		"userInfoSectionHeader": "userInfoSectionHeader-CBvMDh",
 		"noteTextArea": "textarea-2r0oV8",

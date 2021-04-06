@@ -36,6 +36,13 @@
 #{c(header title)} {
   @include header;
 }
+#{c(os mac)} {
+  #{c(header title)},
+  #{c(header children)},
+  #{c(header topic)} {
+    -webkit-app-region: no-drag;
+  }
+}
 #{c(header icon)} {
   color: #fff;
 }

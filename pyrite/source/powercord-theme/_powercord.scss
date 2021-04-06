@@ -36,6 +36,13 @@ body#{c(powercord base)} {
     backdrop-filter: none;
   }
 
+  #{c(memberList wrap)}:hover {
+    backdrop-filter: blur(calc(var(--hide-member-list) * 3px));
+  }
+  #{c(friends nowPlayingColumn)}:hover {
+    backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
+  }
+
   #{c(powercord codeblockCopy)} {
     background-color: var(--primary-color);
     &:hover {

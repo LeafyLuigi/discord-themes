@@ -14,6 +14,12 @@
     background-color: $header;
     height: 48px;
     width: 240px;
+    z-index: 1001;
+  }
+}
+#{c(os mac)} {
+  #{c(sidebar sidebar)}:after {
+    -webkit-app-region: drag;
   }
 }
 // Area - Friends List
@@ -42,7 +48,7 @@
       content: "";
       height: 2px;
       flex-grow: 1;
-      margin-left: 5px;
+      margin-right: 5px;
       background: linear-gradient(to left, currentColor -50%, transparent 50%);
     }
   }
@@ -80,11 +86,6 @@
     }
     #{c(sidebar channelsHeader)} {
       z-index: 1100;
-      background-color: transparent;
-      @include bg;
-      &:before {
-        background-color: transparent;
-      }
     }
   }
   #{c(sidebar animatedContainer)} {
