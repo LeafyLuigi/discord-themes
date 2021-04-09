@@ -59,7 +59,8 @@
   margin: 0 4px;
   border: 2px solid $primary;
   border-radius: 0 0 5px 5px;
-  &:hover {
+  &:hover,
+	&:active {
     border-color: $hover;
   }
 	&#{c(userModal tabBarItemSelected)} {
@@ -147,11 +148,15 @@
 	grid-row-start: 2;
   align-self: start;
 }
-#{c(userModal headerButton)} {
+#{c(userModal headerInfo)} + div,
+#{c(userModal headerInfo)} + button {
   grid-column-start: 2;
   grid-row-start: 1;
   align-self: start;
   justify-self: end;
+	&+div {
+		align-self: start;
+	}
 }
 #{c(userModal headerInfo)}+div[role="button"],
 #{c(userModal headerButton)}+div[role="button"] {
@@ -162,6 +167,42 @@
 }
 #{c(userModal additionalActionsIcon)} {
 	height: 32px;
+}
+#{c(userModal tabBar)} {
+	max-width: 330px;
+}
+
+#{c(userModal tabBarContainer)} #{c(userModal top)} #{c(userModal tabBarItem)} {
+	flex-shrink: 1;
+	flex-grow: 1;
+	flex-basis: 10%;
+	justify-content: left;
+  border-radius: 5px;
+	@include bg;
+	&:before {
+		background-color: transparent;
+		opacity: 0.2;
+		border-radius: 5px;
+	}
+  &:hover,
+	&:active {
+    flex-grow: 3;
+		justify-content: center;
+		&:before {
+			background-color: $hover;
+		}
+  }
+	&#{c(userModal tabBarItemSelected)},
+	&[style*="(255, 255, 255)"] {
+		flex-shrink: 3;
+    flex-grow: 3;
+		flex-basis: 33%;
+		justify-content: center;
+		overflow: visible;
+		&:before {
+			background-color: $primary;
+		}
+	}
 }
 
 #{c(userModal header)}+div,
@@ -186,7 +227,7 @@
   grid-column-start: 1;
   align-self: end;
 	position: relative;
-	top: -476px;
+	top: -473px;
 	left: 330px;
 	z-index: 1;
 }
@@ -210,6 +251,10 @@
 	#{c(userModal assets)} {
 		grid-row-start: 1;
 		grid-column-start: 1;
+	}
+	#{c(userModal assetsLargeImageProfile)} {
+		height: 80px;
+		width: 80px;
 	}
 	#{c(userModal bodyNormalContent)} {
 		max-width: 180px;

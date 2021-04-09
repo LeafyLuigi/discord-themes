@@ -28,6 +28,11 @@
 
 // Windows
 #{c(os windows)} {
+  #app-mount {
+    #{c(serverList servers)} {
+      top: calc(var(--server-container) - 48px);
+    }
+  }
   #{c(os typeWindows)} {
     background-color: var(--header-shading);
     height: 22px;
@@ -79,6 +84,9 @@
         position: unset;
         top: 0;
       }
+    }
+    #{c(serverList servers)} {
+      top: calc(var(--server-container) - 26px) !important; // !important reason: import uses !important
     }
   }
   #{c(os typeMac)} {

@@ -234,6 +234,7 @@ $classes: (
 		"cardList": "guildList-3cJX3d",
 		"cardPlaceholder": "cardPlaceholder-1zrbbe",
 		"card": "card-3DjzTQ",
+		"cardLoading": "loading-17PYl_",
 		"cardIconMask": "iconMask-3b8GzQ",
 		"spinner": "spinner-3lb-NU",
 		"footer": "footer-2jdoRS",
@@ -507,6 +508,7 @@ $classes: (
 		"emojiGuildIcon": "guildIcon-3h-1IH",
 		"emojiGuildWrapper": "wrapper-2Gsate",
 		"emojiGuildList": "list-donH_Z",
+		"emojiGuildListHeight": "listHeight-3jP-vC",
 		"emojiColorSelectorPopout": "diversitySelectorPopout-3FiGaM",
 		"emojiCategoryItemDefaultCategorySelected": "categoryItemDefaultCategorySelected-_HCKoz",
 		"emojiUnicodeShortcut": "unicodeShortcut-15J8Ck",
@@ -926,11 +928,29 @@ $classes: (
 			"gameNameLastPlayed": "gameNameLastPlayed-3LJo8n",
 			"gameRemove": "removeGame-2JFGPn",
 		),
+	"other": (
+		"developerPortalCtaWrapper": "developerPortalCtaWrapper-2XNafh",
+		"popout": "popout-3fRpdY",
+	),
 
 	// Client Mods
 	"powercord": (
 		"base": "powercord",
 		"notice": "powercord-notice",
 		"codeblockCopy": "powercord-codeblock-copy-btn",
-	)
+		"entitiesManageTabs": "powercord-entities-manage-tabs",
+		"quickCSS": "powercord-quickcss",
+		"poppedOut": "popped-out",
+		"codeMirrorHeader": "powercord-quickcss-header",
+		"codeMirrorGutters": "CodeMirror-gutters",
+		"codeMirrorSelected": "CodeMirror-selected",
+		"codeMirrorScroll": "CodeMirror-scroll",
+		"codeMirrorFooter": "powercord-quickcss-footer",
+		"codeMirrorHints": "CodeMirror-hints",
+		"codeMirrorHintsActive": "CodeMirror-hint-active",
+		"updaterPage": "powercord-updater",
+	),
+		"pcPlugin": (
+			"smartTypersPreview": "smartTypers-preview",
+		),
 );

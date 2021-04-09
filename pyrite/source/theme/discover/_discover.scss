@@ -49,6 +49,11 @@
 #{c(discover card)} {
   border: 2px solid $primary;
 }
+
+#{c(discover cardLoading)} {
+  background-color: transparent;
+}
+
 #{c(discover viewWrapper)} {
   #{c(discover search)} #{c(discover searchBox)} {
     background-color: $card;

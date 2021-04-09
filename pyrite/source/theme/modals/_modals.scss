@@ -257,6 +257,9 @@
 #{c(modals emojiGuildList)} {
   margin-top: 48px;
 }
+#{c(modals emojiGuildListHeight)} {
+  margin-bottom: 48px;
+}
 #{c(modals emojiCategoryItemDefaultCategorySelected)},
 #{c(modals emojiCategoryItemDefaultCategorySelected)}:hover {
   background-color: $primary;
@@ -370,6 +373,7 @@
   margin-left: 8px !important; // !important reason: element.style
   &:not([style*="width: 416px"]) {
     cursor: zoom-in;
+    max-width: 80vw;
     width: initial !important; // !important reason: element.style
     &:hover {
       height: 30vh !important; // !important reason: element.style

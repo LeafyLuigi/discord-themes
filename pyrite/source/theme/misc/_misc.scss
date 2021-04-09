@@ -245,7 +245,7 @@ body, // this one is here for transparency in bd to work
   }
   #{c(header nicknames)},
   #{c(header topic)} {
-    padding-right: calc(3 * var(--win-min-max-close-button-width));
+    margin-right: calc(3 * var(--win-min-max-close-button-width));
   }
   #{c(os winButton)} {
     position: relative;
@@ -448,6 +448,15 @@ body, // this one is here for transparency in bd to work
       }
     }
   }
+}
+
+/* "Other". */
+// I don't know where this stuff is used in the site.
+#{c(other developerPortalCtaWrapper)} {
+  background-color: $card;
+}
+#{c(other popout)} {
+  background-color: transparent;
 }
 
 /* HLJS */

@@ -78,6 +78,7 @@
   #{c(chat divider)} {
     text-align: center;
     display: block;
+    z-index: 0;
     &:not(#{c(chat dividerUnread)}) {
       border-top: none;
     }

@@ -7,6 +7,15 @@
 /*! #{$theme-name} v#{$version} - Powercord Addon by LeafyLuigi */
 
 @use "classes" as *;
+
+$primary: var(--primary-color);
+$secondary: var(--secondary-color);
+$hover: var(--hover-color);
+$side: var(--side-shading);
+$middle: var(--middle-shading);
+$header: var(--header-shading);
+$card: var(--card-background);
+
 /* Begin Powercord Addon */
 body#{c(powercord base)} {
   #{c(chatForm wrapper)},
@@ -44,9 +53,85 @@ body#{c(powercord base)} {
   }
 
   #{c(powercord codeblockCopy)} {
-    background-color: var(--primary-color);
+    background-color: $primary;
     &:hover {
-      background-color: var(--hover-color);
+      background-color: $hover;
+    }
+  }
+  #{c(powercord entitiesManageTabs)} {
+    background-color: $card;
+  }
+  #{c(powercord quickCSS)}:not(#{c(powercord poppedOut)}) {
+    min-height: 250px;
+    background-color: $card;
+    #{c(powercord codeMirrorGutters)} {
+      background-color: transparent;
+    }
+  }
+  #{c(powercord updaterPage)} {
+    .buttons #{c(button lookFilled)}#{c(button colorBrand)} {
+      background-color: #43b581;
+    }
+  }
+  #{c(pcPlugin smartTypersPreview)} {
+    background-color: $card;
+  }
+}
+
+#{c(powercord codeMirrorHints)} {
+  background-color: $card;
+  #{c(powercord codeMirrorHintsActive)} {
+    background-color: $hover;
+  }
+}
+#{c(powercord quickCSS)} {
+  #{c(powercord codeMirrorSelected)} {
+    background-color: transparent !important;
+    &:before {
+      content: "";
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      background-color: $primary;
+      opacity: 0.5;
+    }
+  }
+}
+
+div#app-mount > {
+  #{c(main dark)},
+  #{c(main light)} {
+    background: transparent;
+    &:before {
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      height: 100%;
+      width: 100%;
+      background: var(--background-image) center/cover no-repeat var(--background-attachment);
+    }
+    #{c(powercord quickCSS)} {
+      &:not(#{c(powercord poppedOut)}) {
+        background-color: transparent;
+      }
+      #{c(powercord codeMirrorScroll)} {
+        // &:-webkit-scrollbar {
+        //   display: none;
+        // }
+        background-color: $side;
+      }
+      #{c(powercord codeMirrorGutters)} {
+        background-color: transparent;
+      }
+    }
+    #{c(powercord codeMirrorHeader)},
+    #{c(powercord codeMirrorFooter)} {
+      background-color: $header;
     }
   }
 }
