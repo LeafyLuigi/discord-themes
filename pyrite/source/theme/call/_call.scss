@@ -1,0 +1,39 @@
+@use "backend" as *;
+/* Start Calls */
+html[lang*="en-GB"] {
+  #{c(call wrapper)} {
+    &#{c(call minimum)} {
+      background-color: transparent;
+      min-height: 300px !important; // !important reason: can be overwritten using element.style
+    }
+    #{c(call container)} {
+      #{c(call root)} {
+        background-color: $card;
+        #{c(call avatarBorder)} {
+          &#{c(call avatarSpeaking)} {
+            box-shadow: inset 0 0 10px 2px $primary;
+          }
+        }
+        &#{c(call idle)} {
+          #{c(call topControls)} {
+            opacity: 1;
+            transform: none;
+          }
+        }
+      }
+    }
+    #{c(call resizeHandle)} {
+      background: linear-gradient(0deg, $primary 50%, transparent 50% 100%);
+      &:hover,
+      &:active {
+        background: linear-gradient(0deg, $hover 50%, transparent 50% 100%);
+      }
+    }
+  }
+  #{c(call video)} {
+    background-color: transparent;
+  }
+  #{c(call status)} {
+    background-color: $primary;
+  }
+}

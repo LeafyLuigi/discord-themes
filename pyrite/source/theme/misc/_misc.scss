@@ -458,6 +458,21 @@ body, // this one is here for transparency in bd to work
 #{c(other popout)} {
   background-color: transparent;
 }
+// Rings - tab around and you'll find it.
+#{c(other ring)} {
+  &[style*="var(--focus-primary)"] {
+    --__adaptive-focus-color: var(--primary-color) !important; // !important reason: element.style
+  }
+}
+#{c(main keyboardMode)} #{c(other focusStroke)} {
+  fill: $primary;
+  stroke: $primary;
+}
+// For the little avatars
+#{c(other speaking)},
+#{c(other avatarSpeaking)} {
+  box-shadow: inset 0 0 0 2px $primary;
+}
 
 /* HLJS */
 #{c(hljs comment)},

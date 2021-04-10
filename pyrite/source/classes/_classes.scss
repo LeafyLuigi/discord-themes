@@ -106,6 +106,19 @@ $classes: (
 		"hoverWhite": "hoverWhite-2uUmXw",
 		"hoverYellow": "hoverYellow-171chs",
 	),
+	"call": (
+		"wrapper": "wrapper-2qzCYF",
+		"video": "wrapper-2qzCYF",
+		"minimum": "minimum-28Z35l",
+		"container": "callContainer-36WRfH",
+		"root": "root-217Brm",
+		"idle": "idle-1j3olu",
+		"resizeHandle": "resizeHandle-aTgVKr",
+		"avatarBorder": "border-Jn5IOt",
+		"avatarSpeaking": "speaking-B2MXPi",
+		"topControls": "topControls-KKImPZ",
+		"status": "status-1WEaea",
+	),
 	"channelSettings": (
 		"roleScroller": "scroller-305q3I",
 		"permGroup": "group-1WdBVp",
@@ -152,6 +165,7 @@ $classes: (
 		"unreadPillCapStroke": "unreadPillCapStroke-7rkHbg",
 		"newMessagesBar": "newMessagesBar-265mhP",
 		"repliedMessage": "repliedMessage-VokQwo",
+		"replyBadge": "replyBadge-r1su3o",
 
 		"chatHeader": "container-3RCQyg",
 		"emptyChannelIcon": "emptyChannelIcon-cc932w",
@@ -215,6 +229,8 @@ $classes: (
 		"beforeInlineCode": "before_inlineCode-1G9rTK",
 		"codeLine": "codeLine-14BKbG",
 		"codeBlockText": "codeBlockText-9TnoxQ",
+
+		"paidGifTooltip": "tooltip-9LylEY",
 	),
 	"discover": (
 		"pageWrapper": "pageWrapper-1PgVDX",
@@ -758,7 +774,9 @@ $classes: (
 		"brand": "tooltipBrand-g03Nz8",
 		"green": "tooltipGreen-WdeQwd",
 		"yellow": "tooltipYellow-E7eIBE",
-		"red": "tooltipRed-8-9NeP"
+		"red": "tooltipRed-8-9NeP",
+
+		"reactionTooltipEmoji": "reactionTooltipEmoji-3LG0v8",
 	),
 	"userModal": (
 		"modal": "modal-3c3bKg",
@@ -931,6 +949,10 @@ $classes: (
 	"other": (
 		"developerPortalCtaWrapper": "developerPortalCtaWrapper-2XNafh",
 		"popout": "popout-3fRpdY",
+		"ring": "ring-13rgEW",
+		"focusStroke": "focusStroke-1ApElc",
+		"speaking": "speaking-3dBKhR",
+		"avatarSpeaking": "avatarSpeaking-2c8-9i",
 	),
 
 	// Client Mods
@@ -952,5 +974,6 @@ $classes: (
 	),
 		"pcPlugin": (
 			"smartTypersPreview": "smartTypers-preview",
+			"textReactButton": "text-react-button",
 		),
 );

@@ -122,6 +122,9 @@
     border-color: $primary;
     filter: drop-shadow(2px 2px 2px $secondary);
   }
+  #{c(chat replyBadge)} {
+    background-color: $card;
+  }
 }
 
 #{c(chat chatHeader)} {

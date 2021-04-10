@@ -76,6 +76,9 @@ body#{c(powercord base)} {
   #{c(pcPlugin smartTypersPreview)} {
     background-color: $card;
   }
+  #{c(pcPlugin textReactButton)} {
+    filter: none;
+  }
 }
 
 #{c(powercord codeMirrorHints)} {
@@ -120,9 +123,6 @@ div#app-mount > {
         background-color: transparent;
       }
       #{c(powercord codeMirrorScroll)} {
-        // &:-webkit-scrollbar {
-        //   display: none;
-        // }
         background-color: $side;
       }
       #{c(powercord codeMirrorGutters)} {
