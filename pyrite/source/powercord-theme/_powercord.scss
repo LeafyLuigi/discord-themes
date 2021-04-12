@@ -114,8 +114,6 @@ div#app-mount > {
       position: absolute;
       z-index: -1;
       pointer-events: none;
-      height: 100%;
-      width: 100%;
       background: var(--background-image) center/cover no-repeat var(--background-attachment);
     }
     #{c(powercord quickCSS)} {
