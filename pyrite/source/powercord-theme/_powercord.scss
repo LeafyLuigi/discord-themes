@@ -18,38 +18,44 @@ $card: var(--card-background);
 
 /* Begin Powercord Addon */
 body#{c(powercord base)} {
-  #{c(chatForm wrapper)},
-  #{c(chatForm channelTextAreaBase)} {
-    backdrop-filter: blur(2px);
-  }
+    #{c(chatForm wrapper)},
+    #{c(chatForm channelTextAreaBase)} {
+      backdrop-filter: blur(2px);
+    }
+    #{c(main backdrop)},
+    #{c(main backdropWithLayer)},
+    #{c(modals uploadArea)} {
+      backdrop-filter: blur(3px);
+    }
+    #{c(modals messagesPopoutWrap)},
+    #{c(modals root)},
+    #{c(modals unreadsWrap)},
+    #{c(modals emojiGifContentWrapper)},
+    #{c(modals searchDropdown)},
+    #{c(modals detachedEmojiPicker)},
+    #{c(modals listModal)},
+    #{c(modals autocomplete)} {
+      backdrop-filter: blur(4px);
+    }
+    #{c(main loadingContainer)} {
+      backdrop-filter: blur(5px);
+    }
+    #{c(modals fullImageModal)},
+    #{c(modals notDetachedEmojiPicker)} #{c(modals detachedEmojiPicker)} {
+      backdrop-filter: none;
+    }
+
+    #{c(memberList wrap)}:hover {
+      backdrop-filter: blur(calc(var(--hide-member-list) * 3px));
+    }
+    #{c(friends nowPlayingColumn)}:hover {
+      backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
+    }
+
   #{c(main backdrop)},
   #{c(main backdropWithLayer)},
   #{c(modals uploadArea)} {
-    backdrop-filter: blur(3px);
-    background-color: transparent !important; // !important usage: element.style
-  }
-  #{c(modals messagesPopoutWrap)},
-  #{c(modals root)},
-  #{c(modals unreadsWrap)},
-  #{c(modals emojiGifContentWrapper)},
-  #{c(modals searchDropdown)},
-  #{c(modals detachedEmojiPicker)},
-  #{c(modals listModal)} {
-    backdrop-filter: blur(4px);
-  }
-  #{c(main loadingContainer)} {
-    backdrop-filter: blur(5px);
-  }
-  #{c(modals fullImageModal)},
-  #{c(modals notDetachedEmojiPicker)} #{c(modals detachedEmojiPicker)} {
-    backdrop-filter: none;
-  }
-
-  #{c(memberList wrap)}:hover {
-    backdrop-filter: blur(calc(var(--hide-member-list) * 3px));
-  }
-  #{c(friends nowPlayingColumn)}:hover {
-    backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
+    background-color: transparent !important;
   }
 
   #{c(powercord codeblockCopy)} {

@@ -28,19 +28,32 @@
 #{c(serverList iconWrapper)} {
   #{c(serverList iconChildWrapper)} {
     background-color: rgba(255,255,255,0.05);
+    transition: background-color .1s ease-out,color .1s ease-out,border-radius 0.1s ease-out;
   }
   &#{c(serverList selected)},
   &:hover {
     #{c(serverList iconChildWrapper)} {
       background-color: $primary;
     }
+    #{c(serverList serverIcon)},
+    #{c(serverList iconChildWrapper)} {
+      border-radius: 33%;
+    }
+  }
+  #{c(serverList serverIcon)},
+  #{c(serverList iconChildWrapper)} {
+    border-radius: 50%;
+    transition: border-radius 0.1s;
   }
 }
 #{c(serverList addServer)} {
   background-color: rgba(255,255,255,0.05);
   color: $primary;
+  border-radius: 50%;
+  transition: color .15s ease-out,background-color .15s ease-out,border-radius 0.15s;
   &#{c(serverList addServerSelected)} {
     background-color: $primary;
+    border-radius: 33%;
     color: #fff;
   }
 }
@@ -84,12 +97,26 @@
 
 #{c(main fullMotion)}#{c(main focused)} #{c(serverList numberBadge)} {
   animation: numberBadgeFlash 5s linear infinite;
+  &:before {
+    animation: numberBadgeFlashBefore 5s linear infinite;
+  }
 }
 #{c(serverList numberBadge)} {
-  background-color: $primary !important; // !important reason: element.style
+  background-color: transparent !important; // !important reason: element.style
   filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
+  @include bg;
+  &:before {
+    background: $primary;
+    border-radius: 50%;
+  }
 }
 
 #{c(serverList placeholderInner)} {
   background-color: $card;
+}
+
+#{c(serverList serverWrapper)} {
+  > svg > foreignObject {
+    mask: none;
+  }
 }

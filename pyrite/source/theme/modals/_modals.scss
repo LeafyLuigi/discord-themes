@@ -440,5 +440,16 @@
   }
 }
 
+// autocomplete modal
+#{c(main dark)},
+#{c(main light)} {
+  #{c(modals autocomplete)} {
+    background-color: $side;
+  }
+  #{c(modals autocompleteSelected)} {
+    background-color: var(--background-modifier-hover);
+  }
+}
+
 // classes that need to be put in and themed
 // .iconContainer-2aaq6z - background, use card, used in "Welcome to Stages" modal

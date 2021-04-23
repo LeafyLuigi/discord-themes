@@ -1,10 +1,10 @@
 /**
  * @name Pyrite
  * @author LeafyLuigi
- * @version 0.0.9
- * @description Currently Indev Pyrite - BD
- * @source https://github.com/LeafyLuigi/discord-themes/tree/master/Pyrite
- * @website https://github.com/LeafyLuigi/discord-themes/tree/master/Pyrite
+ * @version 0.1.2
+ * @description Pyrite for BetterDiscord/BandagedBD
+ * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
+ * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @invite W976FZS
  */
 
@@ -20,47 +20,59 @@
 
 /* Theme Base */
 :root {
-  --background-image: url(https://leafyluigi.github.io/images/nao.png); /* unsure */
+  --background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
   --background-attachment: fixed;
   --user-modal-attachment: var(--background-attachment);
   --user-popout-attachment: var(--background-attachment);
-  --tooltip-color: blue; /* unsure */
-  --primary-color: #1133ff; /* unsure */
-  --secondary-color: #0211e8; /* unsure */
-  --hover-color: pink; /* unsure */
-  --spotify-color: #1db954;
-  --live-color: #593695;
+  --primary-color: #FF6F00;
+  --secondary-color: #E06100;
+  --hover-color: #FF801F;
+  --tooltip-color: #B85000;
+  --mention-background: var(--primary-color);
+  --mention-opacity: 0.3;
+  --home-icon: url(https://leafyluigi.github.io/images/Sunset%20Nature%2024%20by%20Bouzid27.png);
+
+  /* For Advanced Users */
+  --code-font: Monaco, Consolas, Courier, monospace;
+  --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
+  /* Below are currently unused but will be used in future. */
   --background-filters: none;
   --user-modal-filters: blur(3px);
   --user-popout-filters: blur(3px);
-  --mention-background: var(--primary-color);
-  --mention-opacity: 0.3;
-  --graident-colors: var(--primary-color); /* unsure */
-  --gradient-direction: to bottom right; /* unsure */
-  --code-font: Monaco, Consolas, Courier, monospace;
-  --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
-  --home-icon: url(https://leafyluigi.github.io/images/naohead.png); /* unsure */
+  --gradient-colors: var(--primary-color);
+  --gradient-direction: to bottom right;
+  --body-filters: none;
 
-  /* toggles. from 0 (disable) to 1 (enable). anything outside of those values have NOT been tested and likely aren't supported. */
+  /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
   --hide-member-list: 1;
   --hide-active-now: 1;
 
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
+
+
+  /* Using HSL? Uncomment this chunk below. */
+
+  /*--server-size: var(--HSL-server-icon-size, var(--HSL-size, 35px));
+  --server-spacing: var(--HSL-server-spacing, var(--HSL-spacing, 10px));
+  --server-container: calc(var(--server-size) + 20px); */
 }
 
-/* Light + Dark Differences */
-.theme-dark {
+
+/* Feel free to edit these ones for Dark Mode */
+.theme-dark, .theme-dark .theme-light {
   --card-background: rgba(0,0,0,0.5);
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
   --header-shading: rgba(0,0,0,0.7);
 }
+
+/* Feel free to edit these ones for Light Mode */
 .theme-light {
   --card-background: rgba(255,255,255,0.05);
-  --side-shading: rgba(255,255,255,0.5);
+  --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);
-  --header-shading: rgba(255,255,255,0.7);
+  --header-shading: rgba(255,255,255,0.5);
 }

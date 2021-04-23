@@ -103,6 +103,16 @@
     width: 240px;
   }
 }
+#{c(sidebar channelModeUnread)} {
+  #{c(sidebar channelUnreadBlob)} {
+    background-color: $primary;
+    filter: drop-shadow(0 0 2px $primary) drop-shadow(0 0 4px $primary);
+  }
+  // #{c(sidebar channelIcon)},
+  // #{c(sidebar channelName)} {
+  //   color: $primary;
+  // }
+}
 #{c(sidebar bannerVisible)} #{c(sidebar channelsHeader)} {
   filter: none;
 }

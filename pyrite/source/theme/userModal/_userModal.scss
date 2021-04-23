@@ -112,9 +112,8 @@
 
 // Theme's User Modal Layout
 #{c(userModal root)} {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 50% 50%;
+  display: flex;
+  flex-direction: row;
   width: 660px;
   height: 500px;
 }
@@ -203,6 +202,11 @@
 			background-color: $primary;
 		}
 	}
+}
+
+#{c(userModal customStatus)} {
+	max-width: 290px;
+	word-break: break-word;
 }
 
 #{c(userModal header)}+div,

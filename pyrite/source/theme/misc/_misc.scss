@@ -29,6 +29,17 @@
     filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
   }
 }
+@keyframes numberBadgeFlashBefore {
+  0% {
+    background-color: $primary;
+  }
+  50% {
+    background-color: $secondary;
+  }
+  100% {
+    background-color: $primary;
+  }
+}
 
 // used in: misc
 @keyframes monke {
@@ -139,7 +150,7 @@ body, // this one is here for transparency in bd to work
   z-index: -1000;
 }
 #{c(os titleBar)} {
-  z-index: 1100;
+  z-index: 1200;
 }
 
 // Loading Icon. Best seen removing the ONLY reaction of a type in the reaction modal.
@@ -182,10 +193,13 @@ body, // this one is here for transparency in bd to work
     padding-top: 0;
     margin-top: 0;
     height: 0;
+    top: calc(var(--channel-tabs-enabled,0) * calc(66px * var(--channel-tabs-enabled,0)));
+    position: relative;
     @include bg;
     &:before {
       -webkit-app-region: drag;
       height: 18px;
+      position: fixed;
     }
     & > #{c(os wordmark)} {
       color: $primary;
@@ -330,7 +344,7 @@ body, // this one is here for transparency in bd to work
       right: 0;
       width: 100%;
       height: 48px;
-      z-index: 1100;
+      z-index: 1010;
     }
     > #{c(serverList tree)} {
       top: 48px;
