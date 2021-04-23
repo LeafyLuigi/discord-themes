@@ -58,6 +58,9 @@
   /*--server-size: var(--HSL-server-icon-size, var(--HSL-size, 35px));
   --server-spacing: var(--HSL-server-spacing, var(--HSL-spacing, 10px));
   --server-container: calc(var(--server-size) + 20px); */
+
+  /* Using any of the below plugins? Change the 0 to a 1 */
+  --channel-tabs-enabled: 0;
 }
 
 
