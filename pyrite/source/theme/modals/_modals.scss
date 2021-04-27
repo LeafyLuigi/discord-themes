@@ -53,6 +53,7 @@
   // has box shadow
   top: 4px;
   background-color: transparent;
+  max-height: 80vh !important; // !important reason: element.style
 }
 #{c(modals messagesPopoutHeader)},
 #{c(modals messagesPopoutFooter)} {
@@ -449,6 +450,44 @@
   #{c(modals autocompleteSelected)} {
     background-color: var(--background-modifier-hover);
   }
+}
+
+// quickswitcher modal
+#{c(main dark)},
+#{c(main light)} {
+  #{c(modals quickswitcherInput)} {
+    background-color: rgba(255,255,255,0.1);
+    &:focus-within {
+      box-shadow: 0 0 2px 2px $primary;
+      background-color: rgba(0,0,0,0.5);
+    }
+  }
+}
+#{c(modals quickswitcher)} {
+  background-color: $card;
+}
+#{c(modals quickswitcherScroller)} {
+  background-color: transparent;
+  margin-top: 0;
+}
+
+// keyboard shortcuts
+#{c(main dark)},
+#{c(main light)} {
+  #{c(modals keyboardShortcuts)} {
+    background-color: transparent;
+  }
+}
+#{c(modals keyboardShortcutsTitle)} {
+  background-color: $header;
+  margin-bottom: 0;
+}
+#{c(modals keyboardShortcutsSubtitle)} {
+  padding-top: 5px;
+  background-color: $header;
+}
+#{c(modals ddrArrows)}+#{c(scroller base)} {
+  background-color: $middle;
 }
 
 // classes that need to be put in and themed

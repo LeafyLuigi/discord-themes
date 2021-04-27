@@ -108,3 +108,4 @@ dist
 *src/
 *backups/
 buttons-discorddefault
+.vscode/

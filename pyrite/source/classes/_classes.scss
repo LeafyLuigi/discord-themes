@@ -574,6 +574,15 @@ $classes: (
 		"autocompleteRow": "autocompleteRow-2OthDa",
 		"autocompleteSelected": "selected-1Tbx07",
 
+		"quickswitcher": "quickswitcher-3JagVE",
+		"quickswitcherInput": "input-2VB9rf",
+		"quickswitcherScroller": "scroller-zPkAnE",
+		
+		"keyboardShortcuts": "keyboardShortcutsModal-3piNz7",
+		"keyboardShortcutsTitle": "modalTitle-37O4n6",
+		"keyboardShortcutsSubtitle": "modalSubtitle-1Pj5nv",
+		"ddrArrows": "ddrArrows-lSnH7P",
+
 		"listModal": "modal-yWgWj-", // not 100% sure on the usage.
 	),
 	"notice": (
@@ -608,6 +617,7 @@ $classes: (
 		"channel": "channelName-1JRO3C",
 		"resultContainer": "container-2j2llN",
 		"result": "searchResult-9tQ1uo",
+		"blocked": "resultsBlocked-3a77lQ",
 		"buttonContainer": "buttonsContainer-7PA8hy",
 		"button": "button-11zvza",
 		"activeButton": "activeButton-rvKcqq",
@@ -1043,5 +1053,9 @@ $classes: (
 
 			"betterImageViewer": "biv-overlay",
 			"betterImageViewerLensRound": "BIV-zoom-lens-round",
+
+			"xenoLibNotifs": "xenoLib-notifications",
+			"xenoLibNotifContentWrapper": "xenoLib-notification-content-wrapper",
+			"xenoLibNotifLoadbar": "xenoLib-notification-loadbar",
 		)
 );

@@ -31,7 +31,8 @@
   background-color: transparent;
   @include header-line;
 }
-#{c(search result)} {
+#{c(search result)},
+#{c(search blocked)} {
   @include card;
 }
 #{c(search buttonContainer)} {

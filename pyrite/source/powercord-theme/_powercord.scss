@@ -34,7 +34,9 @@ body#{c(powercord base)} {
     #{c(modals searchDropdown)},
     #{c(modals detachedEmojiPicker)},
     #{c(modals listModal)},
-    #{c(modals autocomplete)} {
+    #{c(modals autocomplete)},
+    #{c(modals quickswitcher)},
+    #{c(modals keyboardShortcuts)} {
       backdrop-filter: blur(4px);
     }
     #{c(main loadingContainer)} {
