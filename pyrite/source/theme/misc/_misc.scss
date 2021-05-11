@@ -153,6 +153,11 @@ body, // this one is here for transparency in bd to work
   z-index: 1100;
 }
 
+// Picture in Picture thing (won't fucking work)
+// #{c(main pictureInPicture)} {
+//   height: calc(100vh - (66px * var(--channel-tabs-enabled,0)) - (55px * var(--horizontal-server-list-enabled,0)) );
+// }
+
 // Loading Icon. Best seen removing the ONLY reaction of a type in the reaction modal.
 #{c(main loadingSquare)} {
   background-color: $primary;
@@ -509,6 +514,7 @@ $dev: (
 );
 $helper: (
   "126652966265421824", // Scars
+  "393900343135830016", // Nyx
 );
 
 #{c(chat chatAvatar)} {

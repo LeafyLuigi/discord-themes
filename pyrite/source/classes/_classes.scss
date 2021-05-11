@@ -51,6 +51,7 @@ $classes: (
 		"checkboxChecked": "checked-3_4uQ9",
 		"checkboxRound": "round-2jCFai",
 		"loadingSquare": "wanderingCubesItem-WPXqao",
+		"pictureInPicture": "pictureInPicture-3VocJq",
 	),
 	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 	"os": (
@@ -118,6 +119,8 @@ $classes: (
 		"avatarSpeaking": "speaking-B2MXPi",
 		"topControls": "topControls-KKImPZ",
 		"status": "status-1WEaea",
+		"videoBorder": "border-3dQmSY",
+		"videoSpeaking": "speaking-WDn8Wm",
 	),
 	"channelSettings": (
 		"roleScroller": "scroller-305q3I",
@@ -192,6 +195,10 @@ $classes: (
 
 		"blockquoteContainer": "blockquoteContainer-U5TVEi",
 		"blockquoteDivider": "blockquoteDivider-2hH8H6",
+
+		"reaction": "reaction-1hd86g",
+		"reactionMe": "reactionMe-wv5HKu",
+		"reactionCount": "reactionCount-2mvXRV",
 	),
 	"chatForm": (
 		"form": "form-2fGMdU",
@@ -222,6 +229,7 @@ $classes: (
 		"text": "text-2yjo70", // used for follow this channel stuff
 
 		"colorBrand": "colorBrand-2tjs5J",
+		"colorLink": "colorLink-2vG20E",
 		"colorMuted": "colorMuted-HdFt4q",
 
 		"inlineCode": "inlineCode-2ngu6Y",
@@ -347,7 +355,7 @@ $classes: (
 		"nowPlayingColumn": "nowPlayingColumn-2sl4cE",
 		"nowPlayingScroller": "nowPlayingScroller-2XrVUt",
 		"nowPlayingHeader": "header-13Cw0-",
-		"consentCard": "consentCard-1iSxB_",
+		// "consentCard": "consentCard-1iSxB_",
 		"emptyCard": "emptyCard-1RJw8n",
 		"itemCard": "itemCard-v9viV7",
 		"itemCardBody": "body-1ld4H7",
@@ -355,6 +363,7 @@ $classes: (
 		"itemCardSeperator": "separator-XqIyoz",
 		"itemCardActive": "active-1xchHY",
 		"itemCardInteractive": "interactive-3B9GmY",
+		"itemCardOuter": "outer-1AjyKL",
 		"voiceSectionIconWrapper": "voiceSectionIconWrapper-FO7UEY",
 		"partyMemberOverflow": "partyMemberOverflow-lXnzvu",
 		"multipleIconWrapper": "multipleIconWrapper-DfGWrz",
@@ -465,6 +474,7 @@ $classes: (
 		"addServerIcon": "iconContainer-2B0ixr",
 
 		"menu": "menu-3sdvDG",
+		"menuSubmenu": "submenu-2-ysNh",
 		"menuColorDefault": "colorDefault-2K3EoJ",
 		"menuColorBrand": "colorBrand-ROmMP1",
 		"menuColorDanger": "colorDanger-2qLCe1",
@@ -475,6 +485,7 @@ $classes: (
 		"menuAddReaction": "button-F9qN4n",
 		"menuAddReactionFocused": "focused-3ZzkKr",
 		"menuCheckbox": "checkbox-3s5GYZ",
+		"menuCheckboxCheck": "check-1JyqgN",
 		"menuRadioSelection": "radioSelection-1HmrQS",
 
 		"uploadArea": "uploadArea-3QgLtW", // has background
@@ -583,6 +594,8 @@ $classes: (
 		"keyboardShortcutsSubtitle": "modalSubtitle-1Pj5nv",
 		"ddrArrows": "ddrArrows-lSnH7P",
 
+		"incomingCall": "root-3JVdIJ",
+
 		"listModal": "modal-yWgWj-", // not 100% sure on the usage.
 	),
 	"notice": (
@@ -656,6 +669,7 @@ $classes: (
 		"unreadMention": "unread-1xRYoj",
 		"folder": "folder-1hbNCn",
 		"folderHover": "hover-qTxTR_",
+		"folderIconWrapper": "folderIconWrapper-1_bOZe",
 		"expandedFolderBackground": "expandedFolderBackground-1cujaW",
 		"expandedFolderIconWrapper": "expandedFolderIconWrapper-1xLaU-",
 	),
@@ -762,11 +776,14 @@ $classes: (
 		"scroller": "scroller-1SuHJo",
 		"videoControls": "videoControls-24w7Xp",
 		"videoControlSection": "controlSection-2h3cS0",
+		"videoControlBottom": "bottomControls-lIJyYL",
 		"gradientContainer": "gradientContainer-10lXLB",
 		"headerContainer": "container-2t1JyW",
 		"rowContainer": "rowContainer-2tYerQ",
 		"participants": "participants-soO0aD",
+		"participantsButton": "participantsButton-KYW-IW",
 		"tileContainer": "tileContainer-BaRAZF",
+		"emptyVideo": "emptyPreview-2kuSNe",
 		"requestToSpeakContainer": "container-1EOCj2",
 		"rtsHeaderContainer": "headerContainer-3Dbfbk",
 		"rtsContentContainer": "contentContainer-3uyIT3",

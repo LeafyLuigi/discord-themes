@@ -97,6 +97,8 @@ $card: var(--card-background);
 body #{c(main appInner)} {
     #channelTabs-container {
         z-index: 1100;
+        top: calc(-22px * var(--horizontal-server-list-enabled,0));
+        position: relative;
     }
     #{c(bdPlugin channelTabsTabContainer)} {
         max-height: 36px;

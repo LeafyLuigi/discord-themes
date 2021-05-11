@@ -195,3 +195,22 @@
 #{c(chat blockquoteDivider)} {
   background-color: $primary;
 }
+
+#{c(chat reaction)} {
+  background-color: rgba(255,255,255,0.125);
+  &:hover {
+    background-color: rgba(255,255,255,0.125);
+    border-color: $hover;
+  }
+  &:active {
+    background-color: rgba(255,255,255,0.125);
+    border-color: $primary;
+  }
+  &#{c(chat reactionMe)} {
+    border-color: $secondary;
+    background-color: transparent;
+    #{c(chat reactionCount)} {
+      color: $primary;
+    }
+  }
+}

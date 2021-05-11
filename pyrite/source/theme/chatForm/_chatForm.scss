@@ -9,7 +9,7 @@
     }
     &:focus-within {
       &:before {
-        background-color: rgba(0,0,0,0.5);
+        background-color: $card;
       }
     }
     &#{c(chatForm channelTextAreaDisabled)} {
@@ -85,7 +85,7 @@
     text-shadow: 2px 2px 4px currentColor;
   }
   #{c(chatForm replyActions)} {
-    #{c(chatForm colorBrand)} {
+    #{c(chatForm colorLink)} {
       color: #43b581;
     }
     #{c(chatForm colorMuted)} {

@@ -123,15 +123,16 @@
 #{c(userModal topSpotify)},
 #{c(userModal topStreaming)},
 #{c(userModal topXbox)} {
-  display: grid;
-  grid-template-rows: 40% auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 330px;
+  max-width: 330px;
 }
 
 #{c(userModal header)} {
-  grid-row-start: 1;
   display: grid;
   grid-template-columns: auto auto 20px;
-  grid-template-rows: 110px 100px;
+  grid-template-rows: 110px 60px;
   padding-bottom: 0;
 }
 #{c(userModal avatar)} {
@@ -211,27 +212,27 @@
 
 #{c(userModal header)}+div,
 #{c(userModal headerFill)} {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 80px auto 0;
-  grid-row-start: 2;
+  display: flex;
+  flex-direction: column;
 }
 #{c(userModal activity)} {
-  grid-row-start: 1;
-  grid-column-start: 1;
   padding: 5px 20px;
+  min-height: 78px;
   max-height: 78px;
-}
-#{c(userModal activity)} ~ #{c(userModal activityProfile)} {
-  grid-row-start: 2;
-  grid-column-start: 1;
+  ~ #{c(userModal activityProfile)} {
+    + #{c(userModal tabBarContainer)} {
+      top: -366px;
+    }
+  }
+  + #{c(userModal tabBarContainer)} {
+    top: -278px;
+  }
+
 }
 #{c(userModal tabBarContainer)} {
-  grid-row-start: 3;
-  grid-column-start: 1;
   align-self: end;
 	position: relative;
-	top: -473px;
+	top: -190px;
 	left: 330px;
 	z-index: 1;
 }

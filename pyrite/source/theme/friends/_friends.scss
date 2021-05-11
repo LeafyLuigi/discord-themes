@@ -70,6 +70,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 8px 0;
     &:after {
       content: "";
       height: 2px;
@@ -78,7 +79,7 @@
       margin-left: 5px;
     }
   }
-  #{c(friends consentCard)} {
+  #{c(friends itemCardOuter)} {
     @include card-dark;
   }
   #{c(friends emptyCard)} {

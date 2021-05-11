@@ -1,12 +1,13 @@
 @use "backend" as *;
 /* Start Stages */
-#{c(main dark)},
-#{c(main light)} {
+// #{c(main dark)},
+// #{c(main light)} {
 
-}
+// }
 #{c(stage root)} {
   background-color: $middle;
   top: 48px;
+  height: calc(100% - 48px);
   @include bg;
   &:before {
     background-color: $header;
@@ -31,9 +32,12 @@
     #{c(stage videoControlSection)} {
       position: relative;
       top: -48px;
+      &#{c(stage videoControlBottom)} {
+        top: 0;
+      }
     }
     #{c(stage gradientContainer)} {
-      background-image: none;
+      display: none;
     }
   }
 }
@@ -50,6 +54,11 @@
 #{c(stage rowContainer)},
 #{c(stage participants)} {
   background-color: transparent;
+}
+
+#{c(stage participantsButton)},
+#{c(stage participantsButton)}:hover {
+  @include card;
 }
 
 #{c(stage tileContainer)}:hover {

@@ -64,17 +64,17 @@
 }
 
 // root sizes
-#{c(modals root)} {
-  &#{c(modals rootSmall)} {
+// #{c(modals root)} {
+//   &#{c(modals rootSmall)} {
 
-  }
-  &#{c(modals rootMedium)} {
+//   }
+//   &#{c(modals rootMedium)} {
 
-  }
-  &#{c(modals rootLarge)} {
+//   }
+//   &#{c(modals rootLarge)} {
 
-  }
-}
+//   }
+// }
 
 // spesific modals
 
@@ -290,8 +290,13 @@
   }
 }
 #{c(modals menuColorDefault)} {
-  &#{c(modals menuFocused)}:not(#{c(modals menuColorDanger)}) {
-    background-color: $primary;
+  &#{c(modals menuFocused)} {
+    &:not(#{c(modals menuColorDanger)}) {
+      background-color: $primary;
+    }
+    #{c(modals menuCheckboxCheck)} {
+      color: $primary;
+    }
   }
   #{c(modals menuCheckbox)},
   #{c(modals menuRadioSelection)} {
@@ -489,6 +494,12 @@
 #{c(modals ddrArrows)}+#{c(scroller base)} {
   background-color: $middle;
 }
+
+// incoming call
+#{c(modals incomingCall)} {
+  @include card;
+}
+
 
 // classes that need to be put in and themed
 // .iconContainer-2aaq6z - background, use card, used in "Welcome to Stages" modal

@@ -39,6 +39,21 @@ body#{c(powercord base)} {
     #{c(modals keyboardShortcuts)} {
       backdrop-filter: blur(4px);
     }
+    #{c(modals menu)} {
+      &:before {
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        position: absolute;
+        pointer-events: none;
+        background-color: transparent;
+        border-radius: 4px;
+        backdrop-filter: blur(4px);
+      }
+    }
     #{c(main loadingContainer)} {
       backdrop-filter: blur(5px);
     }
