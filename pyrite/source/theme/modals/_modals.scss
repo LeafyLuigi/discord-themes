@@ -282,6 +282,7 @@
 // right click
 #{c(modals menu)} {
   background-color: $card;
+  max-height: 40vh;
 }
 #{c(modals menuItem)}#{c(modals menuColorBrand)} {
   color: $primary;

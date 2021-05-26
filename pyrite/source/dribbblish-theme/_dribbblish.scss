@@ -1,0 +1,282 @@
+// what goes in here?
+// - Dribbblish support.
+
+// https://github.com/doggybootsy/Dribbblish/
+
+@use "start" as *;
+/*! #{$theme-name} v#{$version} - Dribbblish Addon by LeafyLuigi */
+
+@use "classes" as *;
+
+$primary: var(--primary-color);
+$secondary: var(--secondary-color);
+$hover: var(--hover-color);
+$side: var(--side-shading);
+$middle: var(--middle-shading);
+$header: var(--header-shading);
+$card: var(--card-background);
+
+/* Incompatible with HSL / Horizontal Server List. */
+
+/* Begin Dribbblish Addon */
+@import url("https://discordsnippets.github.io/themes/Dribbblish/import.css");
+
+// layers
+#{c(main layers)} {
+    background: transparent;
+    -webkit-app-region: none;
+}
+#{c(main layer)} {
+    margin: 0;
+    margin-left: 72px;
+    border-radius: 0;
+    &[aria-label="USER_SETTINGS"],
+    &[aria-label="CHANNEL_SETTINGS"],
+    &[aria-label="GUILD_SETTINGS"] {
+        backdrop-filter: blur(5px);
+        z-index: 1110;
+    }
+    &#{c(main baseLayer)} {
+        overflow: visible;
+        &:before {
+            content: "";
+            top: 48px;
+            bottom: 0;
+            left: -72px;
+            width: 72px;
+            position: absolute;
+            z-index: -1;
+            pointer-events: none;
+            background-color: $side;
+        }
+        &:after {
+            content: "";
+            top: 0;
+            left: -72px;
+            width: 72px;
+            height: 48px;
+            position: absolute;
+            z-index: -1;
+            pointer-events: none;
+            background-color: $header;
+        }
+    }
+}
+
+// os
+#{c(os windows)},
+#{c(os mac)} {
+    #{c(header toolbar)} #{c(header search)},
+    #{c(header toolbar)} #{c(friends inviteToolbar)} #{c(header iconWrapper)} {
+        top: 111px !important; // !important reason: import uses important
+    }
+    #{c(main backdrop)},
+    #{c(userModal modal)} {
+        margin: 0;
+        border-radius: 0;
+    }
+    #{c(userModal modal)} {
+        height: 100%;
+        width: 100%;
+    }
+}
+#{c(os windows)} {
+    #{c(serverList homeContainer)} {
+        transform: none;
+    }
+    #{c(header toolbar)} {
+        position: fixed;
+        right: unset;
+        margin-right: 0;
+    }
+    #{c(serverList servers)} {
+        border-radius: 0;
+    }
+}
+
+#{c(os mac)} {
+    #{c(main layer)} {
+        margin-top: 0 !important; // !important reason: import uses important
+    }
+    #{c(serverList servers)} {
+        margin-top: 48px;
+    }
+}
+
+#{c(os linux)},
+#{c(os web)} {
+    #{c(serverList homeContainer)} {
+        top: 58px;
+    }
+    #{c(header toolbar)} #{c(header search)} {
+        top: 111px;
+    }
+}
+
+// toolbar
+#{c(header toolbar)} {
+    left: 8px;
+    bottom: 325px;
+    background-color: transparent;
+    > * {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    > #{c(header iconWrapper)} {
+        height: 38px;
+        background-color: rgba(255,255,255,0.1);
+        padding: 3px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        left: -3px;
+        border-radius: 3px;
+        #{c(header icon)} {
+            height: 32px;
+            width: 32px;
+        }
+        > svg {
+            overflow: visible;
+            width: 32px;
+            > foreignObject {
+                overflow: visible;
+                mask: none;
+                > #{c(header icon)} {
+                    margin-left: -4px;
+                }
+            }
+        }
+        #{c(header iconBadge)} {
+            bottom: 4px;
+            right: 4px;
+        }
+    }
+    #{c(friends inviteToolbar)} #{c(header iconWrapper)} {
+        display: none;
+    }
+    // search
+    #{c(header search)} {
+        #{c(header searchInner)} {
+            background-color: rgba(255,255,255,0.05);
+            &:hover {
+                background-color: $primary;
+            }
+            &#{c(header searchOpen)} {
+                background-color: transparent;
+                &:before {
+                    content: "";
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    position: absolute;
+                    z-index: -1;
+                    pointer-events: none;
+                    background-color: $primary;
+                    border-radius: 0.85rem;
+                    opacity: 0.3;
+                    transition: background-color 0.15s ease-out, border-radius 0.2s ease-out;
+                }
+                #{c(header searchBar)} {
+                    background-color: $card;
+                }
+            }
+        }
+    }
+    // /search
+}
+
+// panels
+#{c(sidebar panels)} {
+    > #{c(sidebar panelContainer)} {
+        display: grid;
+        grid-template-rows: auto auto;
+        background: transparent;
+        height: unset;
+        bottom: 124px;
+        left: 9px;
+        #{c(sidebar panelAvatarWrapper)} {
+            margin: 0 0 4px 0;
+        }
+    }
+    #{c(sidebar panelContainer)} {
+        #{c(sidebar panelButtonRow)},
+        #{c(sidebar panelButtonRow)} > #{c(sidebar panelButton)} > #{c(button contents)} {
+            transform: none;
+        }
+        #{c(sidebar panelButtonRow)} {
+            border: none;
+            & > #{c(sidebar panelButton)} {
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+#{c(sidebar panelContainer)} {
+    #{c(sidebar panelAvatar)} {
+        height: 48px !important; // !important reason: element.style
+        width: 48px !important; // !important reason: element.style
+    }
+    #{c(sidebar panelButton)} {
+        height: 38px;
+        width: 38px;
+        background-color: rgba(255,255,255,0.1);
+        padding: 3px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 3px;
+        color: $primary;
+        > div > svg {
+            height: 32px;
+            width: 32px;
+        }
+        &#{c(sidebar panelButtonEnabled)}:hover {
+            background-color: rgba(255,255,255,0.1);
+            & > div > svg {
+                color: $hover;
+                filter: drop-shadow(0 0 2px currentColor);
+            }
+        }
+    }
+    #{c(sidebar panelName)} {
+        order: 3;
+        grid-row-start: 2;
+        margin-right: 0;
+        min-width: unset;
+    }
+}
+#{c(sidebar panelAvatarWrapper)} {
+    order: 2;
+    grid-row-start: 2;
+    height: 48px;
+    width: 48px;
+    left: -5px;
+    position: relative;
+}
+
+// tutorial container
+#{c(serverList homeContainer)} {
+    transform: none;
+}
+
+#{c(serverList addServerContainer)} {
+    bottom: 74px;
+    + #{c(serverList listItem)} {
+        position: fixed;
+        left: 0;
+        bottom: 10px;
+        z-index: 1;
+        -webkit-app-region: none;
+    }
+}
+
+#{c(main backdrop)},
+#{c(userModal modal)} {
+    margin: 0;
+    border-radius: 0;
+}
+#{c(userModal modal)} {
+    height: 100%;
+    width: 100%;
+}

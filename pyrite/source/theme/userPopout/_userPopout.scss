@@ -4,7 +4,6 @@
 	position: relative;
 	box-shadow: none;
 	max-height: 580px;
-	background-color: rgba(0,0,0,0.4);
   &::before {
     content: "";
     position: absolute;
@@ -22,7 +21,7 @@
 #{c(main light)} {
 	#{c(userPopout body)},
 	#{c(userPopout footer)} {
-		background-color: transparent;
+		background-color: rgba(0,0,0,0.4);
 	}
 	#{c(userPopout actionButton)} {
 		color: $primary;
@@ -75,4 +74,24 @@
 	&#{c(userPopout focused)} {
 		border-color: $primary;
 	}
+}
+
+/* user banner popout (experiment - 2021-05-20) */
+#{c(userPopout banner-headerNormal)} {
+	background-color: $card;
+}
+#{c(userPopout banner-profileBanner)} {
+	&[style*="114, 137, 218"] {
+		background-color: $primary !important; // !important reason: element.style
+	}
+}
+#{c(userPopout banner-avatar)} {
+	background-color: transparent;
+	border-color: transparent;
+}
+#{c(userPopout banner-headerTop)} {
+	background-color: transparent;
+}
+#{c(userPopout banner-activity)} {
+	border-bottom: none;
 }

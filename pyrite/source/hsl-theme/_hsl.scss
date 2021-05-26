@@ -5,6 +5,9 @@
 /*! #{$theme-name} v#{$version} - HSL Addon by LeafyLuigi */
 
 @use "classes" as *;
+
+/* Incompatible with Dribbblish */
+
 /* Begin HSL Addon */
 @import url('https://discordstyles.github.io/HorizontalServerList/base.css');
 :root {

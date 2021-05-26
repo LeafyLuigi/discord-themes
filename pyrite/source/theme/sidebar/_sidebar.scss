@@ -124,27 +124,27 @@
   #{c(sidebar panelUsername)} {
     @include header;
   }
-  #{c(sidebar panelContainer)} {
-    #{c(sidebar panelButtonRow)} {
-      transform: skewX(-15deg);
-      border: 1px solid $middle;
-      > #{c(sidebar panelButton)} {
-        &:hover {
-          background-color: transparent;
-        }
-        @include bg;
-        &:before {
-          background-color: $primary;
-          opacity: 0.6;
-        }
-        &:hover:before {
-          background-color: $hover;
-        }
-        > #{c(button contents)} {
-          transform: skewX(15deg);
-        }
-      }
-    }
+  #{c(sidebar panelContainer)} #{c(sidebar panelButtonRow)},
+  #{c(sidebar panelVoiceContainer)} #{c(sidebar panelInner)} ~ #{c(sidebar panelButtonRow)},
+  #{c(sidebar panelActivityContainer)} #{c(sidebar panelActivityActions)} {
+    transform: skewX(-15deg);
+    border: 1px solid $middle;
+  }
+}
+#{c(sidebar panelButton)} {
+  &:hover {
+    background-color: transparent;
+  }
+  @include bg;
+  &:before {
+    background-color: $primary;
+    opacity: 0.6;
+  }
+  &:hover:before {
+    background-color: $hover;
+  }
+  > #{c(button contents)} {
+    transform: skewX(15deg);
   }
 }
 

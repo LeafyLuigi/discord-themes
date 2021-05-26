@@ -197,6 +197,9 @@
 }
 
 #{c(chat reaction)} {
+  margin-right: .125rem;
+	margin-bottom: .125rem;
+  border-radius: 3px;
   background-color: rgba(255,255,255,0.125);
   &:hover {
     background-color: rgba(255,255,255,0.125);
@@ -211,6 +214,20 @@
     background-color: transparent;
     #{c(chat reactionCount)} {
       color: $primary;
+    }
+  }
+  #{c(chat reactionInner)} {
+    padding: 0 5px;
+  }
+  #{c(chat reactionCount)} {
+    color: var(--text-muted);
+  }
+
+  &#{c(chat reactionMe)} {
+    #{c(chat reactionCount)},
+    &:hover #{c(chat reactionCount)} {
+      color: $primary;
+      text-shadow: 2px 2px 3px;
     }
   }
 }

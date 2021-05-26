@@ -64,6 +64,9 @@
   &:hover {
     left: 0;
   }
+  #{c(friends nowPlayingContainer)} {
+    background-color: transparent;
+  }
   #{c(friends nowPlayingHeader)} {
     @include header;
     display: flex;
@@ -96,6 +99,7 @@
       background-color: transparent;
       #{c(friends itemCardBodySection)} {
         padding: 0 6px;
+        background-color: transparent;
       }
     }
   }

@@ -148,22 +148,8 @@ body #{c(main appInner)} {
         &:hover {
             background: $hover;
         }
-        &:nth-child(2),
-        &:nth-child(3),
-        &:nth-child(4),
-        &:nth-child(5),
-        &:nth-child(6),
-        &:nth-child(7),
-        &:nth-child(8),
-        &:nth-child(9),
-        &:nth-child(10),
-        &:nth-child(11),
-        &:nth-child(12),
-        &:nth-child(13),
-        &:nth-child(14),
-        &:nth-child(15),
-        &:nth-child(16),
-        &:nth-child(17) {
+        &:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6),&:nth-child(7),&:nth-child(8),&:nth-child(9),
+        &:nth-child(10),&:nth-child(11),&:nth-child(12),&:nth-child(13),&:nth-child(14),&:nth-child(15),&:nth-child(16),&:nth-child(17) {
             display: block;
         }
     }
@@ -197,6 +183,10 @@ body #{c(main appInner)} {
     #{c(bdPlugin channelTabsMentionBadge)} {
         background-color: $primary;
     }
+
+}
+body #{c(os typeMac)}#{c(os titleBar)} ~ div #channelTabs-container > :first-child > :first-child {
+    margin-left: 3px;
 }
 
 // Better Image Viewer Plugin

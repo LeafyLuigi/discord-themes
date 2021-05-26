@@ -286,6 +286,7 @@ body, // this one is here for transparency in bd to work
     margin-left: 7px;
   }
   #{c(os typeMac)} {
+    top: calc(var(--channel-tabs-enabled,0) * calc(66px * var(--channel-tabs-enabled,0)));
     #{c(os macButtons)} {
       height: 12px;
       padding-bottom: 38px;
