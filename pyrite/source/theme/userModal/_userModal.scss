@@ -34,7 +34,7 @@
 	}
 }
 #{c(userModal topSpotify)} {
-  background-image: linear-gradient(to bottom right, #1db954 0%, transparent 60%);
+  background-image: linear-gradient(to bottom right, var(--spotify-color,#1db954) 0%, transparent 60%);
 }
 #{c(userModal topStreaming)} {
   background-image: linear-gradient(to bottom right, #593695 0%, transparent 60%);
@@ -58,11 +58,26 @@
   padding: 0 10px;
   margin: 0 4px;
   border: 2px solid $primary;
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px;
+  @include bg;
+  &:before {
+    background-color: transparent;
+    opacity: 0.2;
+    border-radius: 5px;
+	}
   &:hover,
 	&:active {
     border-color: $hover;
+    &:before {
+			background-color: $hover;
+		}
   }
+  &#{c(userModal tabBarItemSelected)},
+	&[style*="(255, 255, 255)"] {
+		&:before {
+			background-color: $primary;
+		}
+	}
 	&#{c(userModal tabBarItemSelected)} {
     color: var(--text-normal);
     border: 2px solid $hover;
@@ -110,7 +125,7 @@
   }
 }
 
-// Theme's User Modal Layout
+/* Theme's User Modal Layout */
 #{c(userModal root)} {
   display: flex;
   flex-direction: row;
@@ -177,20 +192,10 @@
 	flex-grow: 1;
 	flex-basis: 10%;
 	justify-content: left;
-  border-radius: 5px;
-	@include bg;
-	&:before {
-		background-color: transparent;
-		opacity: 0.2;
-		border-radius: 5px;
-	}
   &:hover,
 	&:active {
     flex-grow: 3;
 		justify-content: center;
-		&:before {
-			background-color: $hover;
-		}
   }
 	&#{c(userModal tabBarItemSelected)},
 	&[style*="(255, 255, 255)"] {
@@ -199,9 +204,6 @@
 		flex-basis: 33%;
 		justify-content: center;
 		overflow: visible;
-		&:before {
-			background-color: $primary;
-		}
 	}
 }
 
