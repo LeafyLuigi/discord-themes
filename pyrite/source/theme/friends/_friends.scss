@@ -31,6 +31,9 @@
 }
 #{c(friends peopleColumn)} {
   background-color: $middle;
+  #{c(friends peopleList)} {
+    margin-top: 0;
+  }
   #{c(friends peopleListItem)} {
     &:hover {
       background: rgba(255,255,255,0.05);

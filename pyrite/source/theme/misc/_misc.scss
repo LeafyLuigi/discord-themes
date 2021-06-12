@@ -500,6 +500,43 @@ body, // this one is here for transparency in bd to work
   font-style: italic;
 }
 
+#{c(modals menu)} {
+  &:before {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    position: absolute;
+    pointer-events: none;
+    background-color: transparent;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+}
+#{c(main loadingContainer)} {
+  backdrop-filter: blur(5px);
+}
+#{c(modals fullImageModal)},
+#{c(modals notDetachedEmojiPicker)} #{c(modals detachedEmojiPicker)} {
+  backdrop-filter: none;
+}
+
+#{c(memberList wrap)}:hover {
+  backdrop-filter: blur(calc(var(--hide-member-list) * 3px));
+}
+#{c(friends nowPlayingColumn)}:hover {
+  backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
+}
+
+#{c(main backdrop)},
+#{c(main backdropWithLayer)},
+#{c(modals uploadArea)} {
+  backdrop-filter: blur(3px);
+  background-color: transparent !important;
+}
+
 /* Tags */
 #{c(chat messageContents)} > #{c(chat chatAvatar)} ~ #{c(chat chatHeaderUsername)} #{c(chat chatUsername)}:after {
   content: var(--local-tag, none);

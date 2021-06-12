@@ -32,34 +32,6 @@
 	}
 }
 
-// Top Sections
-// #{c(main dark)},
-// #{c(main light)} {
-// 	#{c(userPopout headerNormal)},
-// 	#{c(userPopout headerPlaying)},
-// 	#{c(userPopout headerSpotify)},
-// 	#{c(userPopout headerStreaming)},
-// 	#{c(userPopout headerXbox)} {
-// 	  background: rgba(0,0,0,0.2);
-// 	}
-// 	#{c(userPopout headerPlaying)} {
-// 	  background-image: linear-gradient(to bottom right, $primary 0%, transparent 60%);
-// 	}
-// 	#{c(userPopout headerSpotify)} {
-// 	  background-image: linear-gradient(to bottom right, var(--spotify-color,#1db954) 0%, transparent 60%);
-// 	}
-// 	#{c(userPopout headerStreaming)} {
-// 	  background-image: linear-gradient(to bottom right, #593695 0%, transparent 60%);
-// 	}
-// 	#{c(userPopout headerXbox)} {
-// 	  background-image: linear-gradient(to bottom right, #107c10 0%, transparent 60%);
-// 	}
-// }
-
-// #{c(userPopout activity)} {
-// 	background-color: transparent;
-// }
-
 #{c(userPopout body)} {
 	#{c(userPopout bodyInnerWrapper)} {
 		padding-right: 0;
@@ -81,35 +53,29 @@
 	}
 }
 
-/* user banner popout (experiment - 2021-05-20 | forced - 2021-05-27) */
-#{c(userPopout banner-loadingPopout)} {
+#{c(userPopout loadingPopout)} {
 	background-color: $card;
 	border-radius: 16px;
 }
-#{c(userPopout banner-headerNormal)} {
+#{c(userPopout headerNormal)} {
 	background-color: $card;
 }
-// #{c(userPopout banner-profileBanner)} {
-	// &[style*="color"] {
-	// 	background-color: transparent !important; // !important reason: element.style
-	// }
-// }
-#{c(userPopout banner-avatar)} {
+#{c(userPopout avatar)} {
 	background-color: transparent;
 	border-color: transparent;
 }
-#{c(userPopout banner-headerTop)} {
+#{c(userPopout headerTop)} {
 	background-color: transparent;
 	border-bottom: none;
 }
-#{c(userPopout banner-aboutMe)} {
+#{c(userPopout aboutMe)} {
 	background-color: transparent;
 }
-#{c(userPopout banner-activity)} {
+#{c(userPopout activity)} {
 	border-bottom: none;
 }
-#{c(userPopout banner-headerTop)},
-#{c(userPopout banner-activity)} {
+#{c(userPopout headerTop)},
+#{c(userPopout activity)} {
 	max-height: 200px;
 	overflow-y: scroll;
 	&::-webkit-scrollbar {

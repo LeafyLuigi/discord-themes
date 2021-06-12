@@ -17,197 +17,197 @@ $card: var(--card-background);
 
 /* Begin BD Addon */
 #{c(bd addonList)} {
-    #{c(bd addonCard)} {
-        background-color: transparent;
-    }
-    #{c(bd addonHeader)} {
-        background-color: $header;
-    }
-    #{c(bd addonDescWrap)},
-    #{c(bd addonFooter)} {
-        background: $card;
-    }
+	#{c(bd addonCard)} {
+		background-color: transparent;
+	}
+	#{c(bd addonHeader)} {
+		background-color: $header;
+	}
+	#{c(bd addonDescWrap)},
+	#{c(bd addonFooter)} {
+		background: $card;
+	}
 }
 #{c(bd searchWrapper)} {
-    background-color: $card;
-    border: $primary;
+	background-color: $card;
+	border: $primary;
 }
 // .floating-window #bd-editor-controls 
 // 
 #{c(userSettings contentColumn)},
 #{c(bdEditor floatingWindow)} {
-    #bd-editor-controls {
-        background-color: $header;
-    }
-    #{c(bdEditor monaco)},
-    #{c(bdEditor monacoBackground)},
-    #{c(bdEditor monaco)} #{c(bdEditor monacoInputArea)}#{c(bdEditor monacoIMEInput)} {
-        background-color: transparent;
-    }
-    #{c(bdEditor monaco)} {
-        #{c(bdEditor monacoMargin)} {
-            background-color: $side;
-        }
-        #{c(bdEditor monacoEditorScrollable)} {
-            background-color: $middle;
-        }
-        #{c(bdEditor monacoFocused)} {
-            #{c(bdEditor monacoSelectedText)} {
-                background-color: transparent;
-                &:before {
-                    content: "";
-                    width: inherit;
-                    height: inherit;
-                    background-color: $primary;
-                    opacity: 0.5;
-                }
-            }
-        }
-        #{c(bdEditor monacoSelectedText)} {
-            background-color: transparent;
-            &:before {
-                content: "";
-                width: inherit;
-                height: inherit;
-                background-color: $primary;
-                opacity: 0.5;
-            }
-        }
-    }
+	#bd-editor-controls {
+		background-color: $header;
+	}
+	#{c(bdEditor monaco)},
+	#{c(bdEditor monacoBackground)},
+	#{c(bdEditor monaco)} #{c(bdEditor monacoInputArea)}#{c(bdEditor monacoIMEInput)} {
+		background-color: transparent;
+	}
+	#{c(bdEditor monaco)} {
+		#{c(bdEditor monacoMargin)} {
+			background-color: $side;
+		}
+		#{c(bdEditor monacoEditorScrollable)} {
+			background-color: $middle;
+		}
+		#{c(bdEditor monacoFocused)} {
+			#{c(bdEditor monacoSelectedText)} {
+				background-color: transparent;
+				&:before {
+					content: "";
+					width: inherit;
+					height: inherit;
+					background-color: $primary;
+					opacity: 0.5;
+				}
+			}
+		}
+		#{c(bdEditor monacoSelectedText)} {
+			background-color: transparent;
+			&:before {
+				content: "";
+				width: inherit;
+				height: inherit;
+				background-color: $primary;
+				opacity: 0.5;
+			}
+		}
+	}
 }
 #{c(bdEditor floatingWindow)} {
-    z-index: 1000;
-    &[style*="top: 0px;"],&[style*="top: 1px;"],&[style*="top: 2px;"],&[style*="top: 3px;"],&[style*="top: 4px;"],&[style*="top: 5px;"],&[style*="top: 6px;"],&[style*="top: 7px;"],&[style*="top: 8px;"],&[style*="top: 9px;"],
-    &[style*="top: 10px;"],&[style*="top: 11px;"],&[style*="top: 12px;"],&[style*="top: 13px;"],&[style*="top: 14px;"],&[style*="top: 15px;"],&[style*="top: 16px;"],&[style*="top: 17px;"],&[style*="top: 18px;"],&[style*="top: 19px;"],
-    &[style*="top: 20px;"],&[style*="top: 21px;"],&[style*="top: 22px;"],&[style*="top: 23px;"],&[style*="top: 24px;"],&[style*="top: 25px;"],&[style*="top: 26px;"],&[style*="top: 27px;"],&[style*="top: 28px;"],&[style*="top: 29px;"],
-    &[style*="top: 30px;"],&[style*="top: 31px;"],&[style*="top: 32px;"],&[style*="top: 33px;"],&[style*="top: 34px;"],&[style*="top: 35px;"],&[style*="top: 36px;"],&[style*="top: 37px;"],&[style*="top: 38px;"],&[style*="top: 39px;"],
-    &[style*="top: 40px;"],&[style*="top: 41px;"],&[style*="top: 42px;"],&[style*="top: 43px;"],&[style*="top: 44px;"],&[style*="top: 45px;"],&[style*="top: 46px;"],
-    &[style*="top: 47px;"] {
-        top: 48px !important; // !important reason: element.style
-    }
+	z-index: 1000;
+	&[style*="top: 0px;"],&[style*="top: 1px;"],&[style*="top: 2px;"],&[style*="top: 3px;"],&[style*="top: 4px;"],&[style*="top: 5px;"],&[style*="top: 6px;"],&[style*="top: 7px;"],&[style*="top: 8px;"],&[style*="top: 9px;"],
+	&[style*="top: 10px;"],&[style*="top: 11px;"],&[style*="top: 12px;"],&[style*="top: 13px;"],&[style*="top: 14px;"],&[style*="top: 15px;"],&[style*="top: 16px;"],&[style*="top: 17px;"],&[style*="top: 18px;"],&[style*="top: 19px;"],
+	&[style*="top: 20px;"],&[style*="top: 21px;"],&[style*="top: 22px;"],&[style*="top: 23px;"],&[style*="top: 24px;"],&[style*="top: 25px;"],&[style*="top: 26px;"],&[style*="top: 27px;"],&[style*="top: 28px;"],&[style*="top: 29px;"],
+	&[style*="top: 30px;"],&[style*="top: 31px;"],&[style*="top: 32px;"],&[style*="top: 33px;"],&[style*="top: 34px;"],&[style*="top: 35px;"],&[style*="top: 36px;"],&[style*="top: 37px;"],&[style*="top: 38px;"],&[style*="top: 39px;"],
+	&[style*="top: 40px;"],&[style*="top: 41px;"],&[style*="top: 42px;"],&[style*="top: 43px;"],&[style*="top: 44px;"],&[style*="top: 45px;"],&[style*="top: 46px;"],
+	&[style*="top: 47px;"] {
+		top: 48px !important; // !important reason: element.style
+	}
 }
 #{c(bdEditor floatingWindowTitlebar)} {
-    background-color: $header;
+	background-color: $header;
 }
 #{c(bdEditor floatingWindowContent)} {
-    background-color: transparent;
+	background-color: transparent;
 }
 
 // Channel Tabs Plugin
 body #{c(main appInner)} {
-    #channelTabs-container {
-        z-index: 1100;
-        top: calc(-22px * var(--horizontal-server-list-enabled,0));
-        position: relative;
-    }
-    #{c(bdPlugin channelTabsTabContainer)} {
-        max-height: 36px;
-        background-color: $header;
-        display: flex;
-        overflow-x: scroll;
-        width: 100vw;
-        &::-webkit-scrollbar,
-        &::-webkit-scrollbar-thumb,
-        &::-webkit-scrollbar-track,
-        &::-webkit-scrollbar-corner {
-            display: none;
-        }
-    }
-    #{c(bdPlugin channelTabsFavContainer)} {
-        background-color: $middle;
-        max-height: 30px;
-        border-bottom: dashed 1px $primary;
-        margin-bottom: -1px;
-        overflow-x: scroll;
-        display: flex;
-        width: 100vw;
-        &::-webkit-scrollbar,
-        &::-webkit-scrollbar-thumb,
-        &::-webkit-scrollbar-track,
-        &::-webkit-scrollbar-corner {
-            display: none;
-        }
-    }
-    #{c(bdPlugin channelTabsClose)} {
-        -webkit-app-region: no-drag;
-        background: $primary;
-        color: var(--text-normal);
-        &:hover {
-            background: $hover;
-        }
-    }
-    #{c(bdPlugin channelTabsNewTab)} {
-        position: fixed;
-        display: none;
-        right: 0;
-        top: calc(var(--channelTabs-tabHeight) / 2 - 2px);
-        margin: 0 7px 0 0;
-        -webkit-app-region: no-drag;
-        background: $primary;
-        color: var(--text-normal);
-        &:hover {
-            background: $hover;
-        }
-        &:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6),&:nth-child(7),&:nth-child(8),&:nth-child(9),
-        &:nth-child(10),&:nth-child(11),&:nth-child(12),&:nth-child(13),&:nth-child(14),&:nth-child(15),&:nth-child(16),&:nth-child(17) {
-            display: block;
-        }
-    }
-    #{c(bdPlugin channelTabsTab)} {
-        border: 1px solid $card;
-        margin: 1px -1px 1px 3px;
-        &#{c(bdPlugin channelTabsTabSelected)} {
-            border-color: $primary;
-            background-color: transparent;
-        }
-        #{c(bdPlugin channelTabsClose)} {
-        background: $primary;
-        color: var(--text-normal);
-        &:hover {
-                background: $hover;
-            }
-        }
-    }
-    #{c(bdPlugin channelTabsNoMention)},
-    #{c(bdPlugin channelTabsNoUnread)} {
-        display: none;
-    }
-    #{c(bdPlugin channelTabsFav)} {
-        &:hover {
-            background-color: $card;
-        }
-    }
-    #{c(bdPlugin channelTabsUnreadBadge)} {
-        background-color: $card;
-    }
-    #{c(bdPlugin channelTabsMentionBadge)} {
-        background-color: $primary;
-    }
+	#channelTabs-container {
+		z-index: 1100;
+		top: calc(-22px * var(--horizontal-server-list-enabled,0));
+		position: relative;
+	}
+	#{c(bdPlugin channelTabsTabContainer)} {
+		max-height: 36px;
+		background-color: $header;
+		display: flex;
+		overflow-x: scroll;
+		width: 100vw;
+		&::-webkit-scrollbar,
+		&::-webkit-scrollbar-thumb,
+		&::-webkit-scrollbar-track,
+		&::-webkit-scrollbar-corner {
+			display: none;
+		}
+	}
+	#{c(bdPlugin channelTabsFavContainer)} {
+		background-color: $middle;
+		max-height: 30px;
+		border-bottom: dashed 1px $primary;
+		margin-bottom: -1px;
+		overflow-x: scroll;
+		display: flex;
+		width: 100vw;
+		&::-webkit-scrollbar,
+		&::-webkit-scrollbar-thumb,
+		&::-webkit-scrollbar-track,
+		&::-webkit-scrollbar-corner {
+			display: none;
+		}
+	}
+	#{c(bdPlugin channelTabsClose)} {
+		-webkit-app-region: no-drag;
+		background: $primary;
+		color: var(--text-normal);
+		&:hover {
+			background: $hover;
+		}
+	}
+	#{c(bdPlugin channelTabsNewTab)} {
+		position: fixed;
+		display: none;
+		right: 0;
+		top: calc(var(--channelTabs-tabHeight) / 2 - 2px);
+		margin: 0 7px 0 0;
+		-webkit-app-region: no-drag;
+		background: $primary;
+		color: var(--text-normal);
+		&:hover {
+			background: $hover;
+		}
+		&:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6),&:nth-child(7),&:nth-child(8),&:nth-child(9),
+		&:nth-child(10),&:nth-child(11),&:nth-child(12),&:nth-child(13),&:nth-child(14),&:nth-child(15),&:nth-child(16),&:nth-child(17) {
+			display: block;
+		}
+	}
+	#{c(bdPlugin channelTabsTab)} {
+		border: 1px solid $card;
+		margin: 1px -1px 1px 3px;
+		&#{c(bdPlugin channelTabsTabSelected)} {
+			border-color: $primary;
+			background-color: transparent;
+		}
+		#{c(bdPlugin channelTabsClose)} {
+		background: $primary;
+		color: var(--text-normal);
+		&:hover {
+				background: $hover;
+			}
+		}
+	}
+	#{c(bdPlugin channelTabsNoMention)},
+	#{c(bdPlugin channelTabsNoUnread)} {
+		display: none;
+	}
+	#{c(bdPlugin channelTabsFav)} {
+		&:hover {
+			background-color: $card;
+		}
+	}
+	#{c(bdPlugin channelTabsUnreadBadge)} {
+		background-color: $card;
+	}
+	#{c(bdPlugin channelTabsMentionBadge)} {
+		background-color: $primary;
+	}
 
 }
 body #{c(os typeMac)}#{c(os titleBar)} ~ div #channelTabs-container > :first-child > :first-child {
-    margin-left: 3px;
+	margin-left: 3px;
 }
 
 // Better Image Viewer Plugin
 body {
-    #{c(bdPlugin betterImageViewer)} {
-        z-index: 1200;
-    }
-    #{c(bdPlugin betterImageViewerLensRound)} {
-        border-color: $primary;
-    }
+	#{c(bdPlugin betterImageViewer)} {
+		z-index: 1200;
+	}
+	#{c(bdPlugin betterImageViewerLensRound)} {
+		border-color: $primary;
+	}
 }
 
 // Xeno Library Plugin
 body {
-    #{c(bdPlugin xenoLibNotifs)} {
-        top: calc( 48px + (68px * var(--channel-tabs-enabled,0) + 75px * var(--horizontal-server-list-enabled,0)) );
-        z-index: 1100;
-    }
-    #{c(bdPlugin xenoLibNotifContentWrapper)} {
-        #{c(bdPlugin xenoLibNotifLoadbar)} {
-            background-image: linear-gradient(130deg, $primary, $secondary);
-        }
-    }
+	#{c(bdPlugin xenoLibNotifs)} {
+		top: calc( 48px + (68px * var(--channel-tabs-enabled,0) + 75px * var(--horizontal-server-list-enabled,0)) );
+		z-index: 1100;
+	}
+	#{c(bdPlugin xenoLibNotifContentWrapper)} {
+		#{c(bdPlugin xenoLibNotifLoadbar)} {
+			background-image: linear-gradient(130deg, $primary, $secondary);
+		}
+	}
 }

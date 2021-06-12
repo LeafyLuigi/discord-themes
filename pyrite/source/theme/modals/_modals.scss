@@ -33,6 +33,20 @@
   }
 }
 
+// blurs
+#{c(modals messagesPopoutWrap)},
+#{c(modals root)},
+#{c(modals unreadsWrap)},
+#{c(modals emojiGifContentWrapper)},
+#{c(modals searchDropdown)},
+#{c(modals detachedEmojiPicker)},
+#{c(modals listModal)},
+#{c(modals autocomplete)},
+#{c(modals quickswitcher)},
+#{c(modals keyboardShortcuts)} {
+  backdrop-filter: blur(4px);
+}
+
 #{c(modals addMembersModal)} {
   top: 4px;
   #{c(modals rootHeader)} {
