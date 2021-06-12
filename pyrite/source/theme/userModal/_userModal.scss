@@ -1,58 +1,37 @@
 @use "backend" as *;
 /* Start User Modal */
-#{c(userModal root)} {
-	background-color: rgba(0,0,0,0.4);
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: var(--user-modal-image);
-    background-attachment: var(--user-modal-attachment);
-    background-size: cover;
-		background-position: center;
-    z-index: -1;
+#{c(main dark)},
+#{c(main light)} {
+  #{c(userModal root)} {
+    box-shadow: none;
+    background: var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.4);
+      border-radius: 8px;
+      z-index: -1;
+      pointer-events: none;
+    }
   }
 }
 // Top Sections
-#{c(userModal topSection)},
-#{c(userModal topPlaying)},
-#{c(userModal topSpotify)},
-#{c(userModal topStreaming)},
-#{c(userModal topXbox)} {
+#{c(userModal topSection)} {
   background: rgba(0,0,0,0.2);
 }
-#{c(userModal topPlaying)} {
-  background-image: linear-gradient(to bottom right, $primary 0%, transparent 60%);
-	#{c(userModal header)} {
-		#{c(button colorBrand)}#{c(button lookInverted)} {
-			background-color: white;
-			color: $primary;
-		}
-	}
-}
-#{c(userModal topSpotify)} {
-  background-image: linear-gradient(to bottom right, var(--spotify-color,#1db954) 0%, transparent 60%);
-}
-#{c(userModal topStreaming)} {
-  background-image: linear-gradient(to bottom right, #593695 0%, transparent 60%);
-}
-#{c(userModal topXbox)} {
-  background-image: linear-gradient(to bottom right, #107c10 0%, transparent 60%);
-}
-
 #{c(userModal headerFill)} {
 	background-color: transparent;
 }
 #{c(userModal tabBar)} {
   height: auto;
 }
-#{c(userModal topSection)} #{c(userModal tabBarContainer)},
 #{c(userModal tabBarContainer)} {
-  border-top: none;
   padding-left: 0;
+  border-bottom: none;
 }
 #{c(userModal tabBarContainer)} #{c(userModal top)} #{c(userModal tabBarItem)} {
   padding: 0 10px;
@@ -96,7 +75,6 @@
 
 #{c(userModal body)} {
   background-color: transparent;
-
   #{c(userModal noteTextArea)} {
 		background-color: transparent;
     &#{c(chatForm channelTextAreaDisabled)} {
@@ -124,74 +102,52 @@
     background-color: rgba(0,0,0,0.5);
   }
 }
+#{c(userModal avatar)} {
+  border-color: transparent;
+  background-color: transparent;
+}
 
 /* Theme's User Modal Layout */
 #{c(userModal root)} {
   display: flex;
   flex-direction: row;
-  width: 660px;
-  height: 500px;
+  width: var(--user-modal-width);
+  height: var(--user-modal-height);
+  min-width: 300px;
+  max-width: 100vw;
+  min-height: 200px;
+  max-height: 100vh;
 }
 
-#{c(userModal topSection)},
-#{c(userModal topPlaying)},
-#{c(userModal topSpotify)},
-#{c(userModal topStreaming)},
-#{c(userModal topXbox)} {
+#{c(userModal topSection)} {
   display: flex;
   flex-direction: column;
-  min-width: 330px;
-  max-width: 330px;
+  width: calc(var(--user-modal-width) * 2/3);
+}
+#{c(userModal profileBanner)},
+#{c(userModal profileBannerPremium)} {
+  width: calc(var(--user-modal-width) * 2/3);
 }
 
 #{c(userModal header)} {
-  display: grid;
-  grid-template-columns: auto auto 20px;
-  grid-template-rows: 110px 60px;
-  padding-bottom: 0;
+  display: flex;
+  min-height: 86px;
 }
-#{c(userModal avatar)} {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  align-self: start;
-	height: 100px !important; // !important reason: element.style
-	width: 100px !important; // !important reason: element.style
+#{c(userModal headerTop)} {
+  width: 100%;
+  padding: 10px 0;
+  flex-direction: column-reverse;
+  align-items: flex-end;
 }
-#{c(userModal headerInfo)} {
-  grid-column-start: 1;
-  grid-column-end: 4;
-	grid-row-start: 2;
-  align-self: start;
-}
-#{c(userModal headerInfo)} + div,
-#{c(userModal headerInfo)} + button {
-  grid-column-start: 2;
-  grid-row-start: 1;
-  align-self: start;
-  justify-self: end;
-	&+div {
-		align-self: start;
-	}
-}
-#{c(userModal headerInfo)}+div[role="button"],
-#{c(userModal headerButton)}+div[role="button"] {
-  grid-column-start: 3;
-  grid-row-start: 1;
-  align-self: start;
-  justify-self: start;
-}
-#{c(userModal additionalActionsIcon)} {
-	height: 32px;
-}
-#{c(userModal tabBar)} {
-	max-width: 330px;
+#{c(userModal relationshipButtons)} {
+  padding-bottom: 12px;
 }
 
 #{c(userModal tabBarContainer)} #{c(userModal top)} #{c(userModal tabBarItem)} {
 	flex-shrink: 1;
 	flex-grow: 1;
 	flex-basis: 10%;
-	justify-content: left;
+  justify-content: center;
   &:hover,
 	&:active {
     flex-grow: 3;
@@ -201,8 +157,7 @@
 	&[style*="(255, 255, 255)"] {
 		flex-shrink: 3;
     flex-grow: 3;
-		flex-basis: 33%;
-		justify-content: center;
+		flex-basis: 1fr;
 		overflow: visible;
 	}
 }
@@ -211,16 +166,8 @@
 	max-width: 290px;
 	word-break: break-word;
 }
-
-#{c(userModal header)}+div,
-#{c(userModal headerFill)} {
-  display: flex;
-  flex-direction: column;
-}
 #{c(userModal activity)} {
   padding: 5px 20px;
-  min-height: 78px;
-  max-height: 78px;
   ~ #{c(userModal activityProfile)} {
     + #{c(userModal tabBarContainer)} {
       top: -366px;
@@ -229,137 +176,40 @@
   + #{c(userModal tabBarContainer)} {
     top: -278px;
   }
-
 }
+
+#{c(userModal activityBody)} {
+  #{c(userModal actionsProfile)} {
+    margin-top: 8px;
+    margin-left: 0;
+  }
+}
+
 #{c(userModal tabBarContainer)} {
-  align-self: end;
-	position: relative;
-	top: -190px;
-	left: 330px;
-	z-index: 1;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  margin: 0 0 5px 5px;
+  width: calc(var(--user-modal-width) * 2/5);
 }
 
 #{c(userModal body)} {
-  height: 476px;
-  min-width: 330px;
+  height: auto;
+  width: calc(var(--user-modal-width) * 1/3);
 }
 #{c(userModal infoScroller)},
 #{c(userModal listScroller)} {
-	margin-top: 24px;
 	padding-top: 8px;
 }
-
-#{c(userModal topPlaying)} {
-	#{c(userModal bodyNormal)} {
-		display: grid;
-		grid-template-columns: 80px auto;
-		grid-template-rows: auto 64px;
-	}
-	#{c(userModal assets)} {
-		grid-row-start: 1;
-		grid-column-start: 1;
-	}
-	#{c(userModal assetsLargeImageProfile)} {
-		height: 80px;
-		width: 80px;
-	}
-	#{c(userModal bodyNormalContent)} {
-		max-width: 180px;
-  }
-  #{c(userModal actionsProfile)} {
-    grid-column-start: 1;
-		grid-column-end: 3;
-    grid-row-start: 2;
-		display: inline-flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		#{c(userModal actionsButton)} {
-			margin-right: 2px;
-			padding: 2px 8px;
-		}
-  }
+#{c(userModal noteTextArea)} {
+  max-height: unset;
 }
 
-#{c(userModal topSpotify)} {
-  #{c(userModal bodyAlignCenter)},
-  #{c(userModal bodyNormal)} {
-    display: grid;
-    grid-template-columns: 80px auto;
-    grid-template-rows: auto 64px;
-  }
-  #{c(userModal assets)} {
-    grid-column-start: 1;
-    grid-row-start: 1;
-  }
-  #{c(userModal assetsLargeImageProfile)} {
-    height: 80px;
-    width: 80px;
-  }
-  #{c(userModal bodyNormalContent)} {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    margin-left: 0;
-    padding-top: 25px;
-  }
-  #{c(userModal actionsProfile)} {
-    grid-column-start: 2;
-    grid-row-start: 1;
-  }
-}
-
-
-#{c(userModal topStreaming)} {
-	#{c(userModal steamingButton)} {
-		padding: 2px 15px;
-		align-self: start;
-		height: 32px;
-		min-height: 32px;
-	}
-	#{c(userModal steamingButton)}+div[role="button"] {
-		align-self: start;
-	}
-	#{c(userModal bodyAlignCenter)},
-  #{c(userModal bodyNormal)} {
-    display: grid;
-    grid-template-columns: auto 100px;
-    grid-template-rows: auto 64px;
-  }
-  #{c(userModal assets)} {
-    grid-column-start: 1;
-    grid-row-start: 1;
-  }
-  #{c(userModal bodyNormalContent)} {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    margin-left: 0;
-  }
-  #{c(userModal actionsProfile)} {
-    grid-column-start: 2;
-    grid-row-start: 1;
-  }
-}
-
-
-#{c(userModal topXbox)} {
-	#{c(userModal bodyXbox)} {
-		display: grid;
-		grid-template-columns: 80px auto;
-		grid-template-rows: auto 64px;
-	}
-	#{c(userModal assets)} {
-		grid-row-start: 1;
-		grid-column-start: 1;
-	}
-	#{c(userModal bodyNormalContent)} {
-		max-width: 180px;
-  }
-	#{c(userModal actionsButton)} {
-		grid-row-start: 2;
-		grid-column-start: 1;
-		grid-column-end: 3;
-		margin-right: 2px;
-		padding: 2px 8px;
-  }
+#{c(userModal nameTag)} {
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 24px;
+} 
+#{c(userModal customStatusActivity)} {
+  padding: 8px 0 0 24px;
 }

@@ -1,0 +1,8 @@
+@use "start";
+@use "start" as *;
+/*! #{$theme-name} v#{$version} by LeafyLuigi */
+// Import Classes
+@use "classes";
+
+// Contains the splash theme proper.
+@use "splash-theme";

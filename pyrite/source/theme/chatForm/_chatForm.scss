@@ -42,6 +42,7 @@
 #{c(chatForm wrapper)} {
   z-index: 0;
   background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(2px);
   #{c(chatForm image)} {
     display: none;
   }
@@ -54,6 +55,7 @@
 
 #{c(chatForm channelTextAreaBase)} {
   background-color: transparent;
+  backdrop-filter: blur(2px);
   @include bg;
   &:before {
     opacity: 1;
@@ -73,7 +75,8 @@
 }
 
 #{c(chatForm scrollableContainer)},
-#{c(chatForm replyContainer)} {
+#{c(chatForm replyBar)},
+#{c(chatForm threadSuggestionBar)} {
   background-color: transparent;
 }
 #{c(chatForm scrollableContainer)} {

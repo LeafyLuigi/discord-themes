@@ -35,6 +35,7 @@
 }
 #{c(header title)} {
   @include header;
+  overflow: visible;
 }
 #{c(os mac)} {
   #{c(header title)},
@@ -58,6 +59,9 @@
     color: $hover;
     filter: drop-shadow(0 0 2px currentColor);
   }
+}
+#{c(header updateIconForeground)} {
+  fill: currentColor;
 }
 #{c(header search)} {
   order: 1;
