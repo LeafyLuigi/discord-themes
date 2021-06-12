@@ -526,7 +526,8 @@ body, // this one is here for transparency in bd to work
 #{c(memberList wrap)}:hover {
   backdrop-filter: blur(calc(var(--hide-member-list) * 3px));
 }
-#{c(friends nowPlayingColumn)}:hover {
+#{c(friends nowPlayingColumn)}:hover,
+#{c(stageDiscovery nowPlayingSidebar)}:hover {
   backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
 }
 

@@ -16,6 +16,12 @@
   #{c(friends multipleIconWrapper)} {
     background-color: transparent;
   }
+  #{c(friends itemCard)} {
+  &#{c(friends itemCardInteractive)}:hover,
+  &#{c(friends itemCardActive)} {
+    background-color: var(--card-background);
+  }
+}
 }
 #{c(friends tabBody)} {
   &:before {
@@ -85,27 +91,6 @@
       margin-left: 5px;
     }
   }
-  #{c(friends itemCardOuter)} {
-    @include card-dark;
-  }
-  #{c(friends emptyCard)} {
-    @include card-light;
-  }
-  #{c(friends itemCard)} {
-    @include card;
-    padding: 8px;
-    &#{c(friends itemCardInteractive)}:hover,
-    &#{c(friends itemCardActive)} {
-      background-color: var(--card-background);
-    }
-    #{c(friends itemCardBody)} {
-      background-color: transparent;
-      #{c(friends itemCardBodySection)} {
-        padding: 0 6px;
-        background-color: transparent;
-      }
-    }
-  }
   #{c(friends multipleIconWrapper)} {
     border-radius: 0%;
   }
@@ -114,6 +99,28 @@
     width: initial;
     > g > path {
       fill: var(--text-normal)
+    }
+  }
+}
+
+#{c(friends itemCardOuter)} {
+  @include card-dark;
+}
+#{c(friends emptyCard)} {
+  @include card-light;
+}
+#{c(friends itemCard)} {
+  @include card;
+  padding: 8px;
+  &#{c(friends itemCardInteractive)}:hover,
+  &#{c(friends itemCardActive)} {
+    background-color: var(--card-background);
+  }
+  #{c(friends itemCardBody)} {
+    background-color: transparent;
+    #{c(friends itemCardBodySection)} {
+      padding: 0 6px;
+      background-color: transparent;
     }
   }
 }
