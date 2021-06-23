@@ -103,11 +103,17 @@
   }
 }
 
+#{c(friends nowPlayingScroller)} {
+  border-left: none;
+  margin-left: 0;
+}
+
 #{c(friends itemCardOuter)} {
   @include card-dark;
 }
 #{c(friends emptyCard)} {
   @include card-light;
+  margin-top: 8px;
 }
 #{c(friends itemCard)} {
   @include card;

@@ -4,16 +4,17 @@
 	position: relative;
 	box-shadow: none;
 	max-height: 580px;
-  &::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	background-color: transparent;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 		background: var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment);
-	z-index: -1;
-  }
+		z-index: -1;
+	}
 }
 
 // because discord.
@@ -33,13 +34,17 @@
 }
 
 #{c(userPopout body)} {
+	#{c(userPopout divider)} {
+		display: none;
+	}
 	#{c(userPopout bodyInnerWrapper)} {
 		padding-right: 0;
+		background-color: transparent;
 	}
 	#{c(userPopout bodyTitle)} {
 		color: white;
 	}
-	#{c(userPopout note)} {
+	#{c(userPopout noteTextArea)} {
 		&:focus {
 			background-color: transparent;
 		}
@@ -57,15 +62,12 @@
 	background-color: $card;
 	border-radius: 16px;
 }
-#{c(userPopout headerNormal)} {
-	background-color: $card;
-}
 #{c(userPopout avatar)} {
 	background-color: transparent;
 	border-color: transparent;
 }
 #{c(userPopout headerTop)} {
-	background-color: transparent;
+	background-color: $card;
 	border-bottom: none;
 }
 #{c(userPopout aboutMe)} {

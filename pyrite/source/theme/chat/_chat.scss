@@ -7,7 +7,7 @@
   background-color: transparent;
 }
 #{c(chat chatContent)} {
-  &:before {
+  &::before {
     content: none;
   }
 }
@@ -20,11 +20,11 @@
 #{c(chat noChannel)} {
   @include bg;
   @include bg2;
-  &:before {
+  &::before {
     height: 48px;
     background-color: $header;
   }
-  &:after {
+  &::after {
     top: 48px;
     height: calc(100vh - 48px);
     background-color: $middle;
@@ -33,7 +33,7 @@
 
 #{c(chat mentioned)},
 #{c(chat botMention)} {
-  &:before {
+  &::before {
     @include bg;
     background-color: var(--mention-background);
     opacity: var(--mention-opacity);
@@ -61,7 +61,7 @@
       background-color: transparent;
     }
     @include bg;
-    &:before {
+    &::before {
       background-color: $primary;
       opacity: 0.6;
     }
@@ -118,7 +118,7 @@
 }
 
 #{c(chat repliedMessage)} {
-  &:before {
+  &::before {
     border-color: $primary;
     filter: drop-shadow(2px 2px 2px $secondary);
   }
@@ -176,7 +176,7 @@
   #{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)}:after {
     animation: gif-ripple .45s ease;
   }
-  &:after {
+  &::after {
     border-color: $primary;
   }
   &:hover,

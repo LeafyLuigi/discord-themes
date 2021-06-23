@@ -1,5 +1,5 @@
 var colors = ["green", "yellow", "red", "white", "grey", "black", "brand", "primary", "link", "transparent"];
-var looks = ["filled", "inverted", "outlined", "ghost", "link"];
+var looks = ["filled", "inverted", "outlined", "link"];
 for(i = 0, len = colors.length, text = ""; i < len; i++) {
   for(j = 0, len2 = looks.length; j < len2; j++) {
   text += "{text:\""+looks[j]+colors[i]+"\",color:\""+colors[i]+"\",look:\""+looks[j]+"\"},";
@@ -14,61 +14,51 @@ powercord.api.notices.sendToast("pc-example-toast",
 {text:"filledgreen",color:"green",look:"filled"},
 {text:"invertedgreen",color:"green",look:"inverted"},
 {text:"outlinedgreen",color:"green",look:"outlined"},
-{text:"ghostgreen",color:"green",look:"ghost"},
 {text:"linkgreen",color:"green",look:"link"},
 
 {text:"filledyellow",color:"yellow",look:"filled"},
 {text:"invertedyellow",color:"yellow",look:"inverted"},
 {text:"outlinedyellow",color:"yellow",look:"outlined"},
-{text:"ghostyellow",color:"yellow",look:"ghost"},
 {text:"linkyellow",color:"yellow",look:"link"},
 
 {text:"filledred",color:"red",look:"filled"},
 {text:"invertedred",color:"red",look:"inverted"},
 {text:"outlinedred",color:"red",look:"outlined"},
-{text:"ghostred",color:"red",look:"ghost"},
 {text:"linkred",color:"red",look:"link"},
 
 {text:"filledwhite",color:"white",look:"filled"},
 {text:"invertedwhite",color:"white",look:"inverted"},
 {text:"outlinedwhite",color:"white",look:"outlined"},
-{text:"ghostwhite",color:"white",look:"ghost"},
 {text:"linkwhite",color:"white",look:"link"},
 
 {text:"filledgrey",color:"grey",look:"filled"},
 {text:"invertedgrey",color:"grey",look:"inverted"},
 {text:"outlinedgrey",color:"grey",look:"outlined"},
-{text:"ghostgrey",color:"grey",look:"ghost"},
 {text:"linkgrey",color:"grey",look:"link"},
 
 {text:"filledblack",color:"black",look:"filled"},
 {text:"invertedblack",color:"black",look:"inverted"},
 {text:"outlinedblack",color:"black",look:"outlined"},
-{text:"ghostblack",color:"black",look:"ghost"},
 {text:"linkblack",color:"black",look:"link"},
 
 {text:"filledbrand",color:"brand",look:"filled"},
 {text:"invertedbrand",color:"brand",look:"inverted"},
 {text:"outlinedbrand",color:"brand",look:"outlined"},
-{text:"ghostbrand",color:"brand",look:"ghost"},
 {text:"linkbrand",color:"brand",look:"link"},
 
 {text:"filledprimary",color:"primary",look:"filled"},
 {text:"invertedprimary",color:"primary",look:"inverted"},
 {text:"outlinedprimary",color:"primary",look:"outlined"},
-{text:"ghostprimary",color:"primary",look:"ghost"},
 {text:"linkprimary",color:"primary",look:"link"},
 
 {text:"filledlink",color:"link",look:"filled"},
 {text:"invertedlink",color:"link",look:"inverted"},
 {text:"outlinedlink",color:"link",look:"outlined"},
-{text:"ghostlink",color:"link",look:"ghost"},
 {text:"linklink",color:"link",look:"link"},
 
 {text:"filledtransparent",color:"transparent",look:"filled"},
 {text:"invertedtransparent",color:"transparent",look:"inverted"},
 {text:"outlinedtransparent",color:"transparent",look:"outlined"},
-{text:"ghosttransparent",color:"transparent",look:"ghost"},
 {text:"linktransparent",color:"transparent",look:"link"}
 
 ]});

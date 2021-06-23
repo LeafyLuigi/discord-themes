@@ -2,14 +2,84 @@
 /* Begin Beta Branch */
 // Expect it to not work fully.
 html[lang="en-GB"] {
-  /* none right now. check back later? */
 
-    // joke is here because factorio is fun
-  // .nameNormal-2lqVQK[title="Factorio"] .activityName-1IaRLn {
-  //   font-size: 0;
-  //   &:before {
-  //     content: "Autism";
-  //     font-size: 14px;
-  //   }
-  // }
+	//test colors lol
+	// --green-color: green;
+	// --yellow-color: yellow;
+	// --red-color: red;
+	// --link-color: cyan;
+	@debug "beta todo: buttons, comb through css probably too. eventually merge.";
+	// custom statuses
+	.wrapper-3t9DeA {
+		[mask*="online"],
+		[fill*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+			fill: $green;
+		}
+		[mask*="idle"],
+		[fill*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
+			fill: $yellow;
+		}
+		[mask*="dnd"],
+		[fill*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
+			fill: $red;
+		}
+		[mask*="streaming"],
+		[fill*="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"] {
+			fill: $live;
+		}
+		[mask*="offline"],
+		[fill*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
+			fill: $offline;
+		}
+	}
+
+	// radio bar
+	#{c(userSettings radioBar)} {
+		&[style*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+			--radio-bar-accent-color: var(--green-color) !important; // !important reason: element.style
+		}
+		&[style*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
+			--radio-bar-accent-color: var(--yellow-color) !important; // !important reason: element.style
+		}
+		&[style*="hsl(21, calc(var(--saturation-factor, 1) * 90.7%), 57.6%)"] {
+			--radio-bar-accent-color: var(--secret-orange) !important; // !important reason: element.style
+		}
+		&[style*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
+			--radio-bar-accent-color: var(--red-color) !important; // !important reason: element.style
+		}
+	}
+
+	// green
+	// hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)
+
+	// red
+	// hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)
+
+	// this shit is green - bg
+	// serverList
+	// .iconBadge-3qSJIw.participating-1NvRVd
+	
+	// this shit green - fill
+	// server settings
+	// .descriptionIcon-36p1fN path
+	
+	// this shit is green - color
+	// sidebar panels
+	// .rtcConnectionStatusConnected-VRZDjy
+
+	// this shit is green -> primary - box shadow'
+	// sidebar channels
+	// .avatarSpeaking-2IGMRN
+
+	// this shit is link - color
+
+}
+
+a,
+.anchor-3Z-8Bb {
+	color: $link;
+	&[href^="http://"] {
+		color: $red;
+		text-shadow: 0 0 2px $red;
+	}
 }

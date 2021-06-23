@@ -38,7 +38,7 @@ $card: var(--card-background);
     }
     &#{c(main baseLayer)} {
         overflow: visible;
-        &:before {
+        &::before {
             content: "";
             top: 48px;
             bottom: 0;
@@ -49,7 +49,7 @@ $card: var(--card-background);
             pointer-events: none;
             background-color: $side;
         }
-        &:after {
+        &::after {
             content: "";
             top: 0;
             left: -72px;
@@ -166,7 +166,7 @@ $card: var(--card-background);
             }
             &#{c(header searchOpen)} {
                 background-color: transparent;
-                &:before {
+                &::before {
                     content: "";
                     top: 0;
                     right: 0;
@@ -210,7 +210,7 @@ $card: var(--card-background);
         #{c(sidebar panelButtonRow)} {
             border: none;
             & > #{c(sidebar panelButton)} {
-                &:before {
+                &::before {
                     content: none;
                 }
             }

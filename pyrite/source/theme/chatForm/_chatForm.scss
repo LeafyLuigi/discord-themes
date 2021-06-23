@@ -4,11 +4,11 @@
   #{c(chatForm channelTextAreaBase)} {
     background-color: transparent;
     @include bg;
-    &:before {
+    &::before {
       background-color: rgba(255,255,255,0.1);
     }
     &:focus-within {
-      &:before {
+      &::before {
         background-color: $card;
       }
     }
@@ -19,11 +19,11 @@
 }
 #{c(main light)} {
   #{c(chatForm channelTextAreaBase)} {
-    &:before {
+    &::before {
       background-color: rgba(255,255,255,0.1);
     }
     &:focus-within {
-      &:before {
+      &::before {
         background-color: rgba(255,255,255,0.5);
       }
     }
@@ -57,18 +57,19 @@
   background-color: transparent;
   backdrop-filter: blur(2px);
   @include bg;
-  &:before {
+  &::before {
     opacity: 1;
     border-radius: 8px;
   }
   &:focus-within {
     box-shadow: 0 0 2px 2px $primary;
-    &:before {
+    &::before {
       opacity: 0.5;
     }
   }
+
   &#{c(chatForm channelTextAreaDisabled)} {
-    &:before {
+    &::before {
       content: none;
     }
   }

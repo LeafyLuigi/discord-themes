@@ -89,6 +89,14 @@
     background-color: rgba(0,0,0,0.7);
   }
 }
+#{c(userSettings radioBar)} {
+  border-left: 3px solid var(--radio-bar-accent-color,#fff);
+  &[style*="--radio-bar-accent-color"] {
+    #{c(userSettings radioIconForeground)} {
+      color: var(--radio-bar-accent-color);
+    }
+  }
+}
 #{c(userSettings radioIconForeground)} {
   color: $primary;
 }
