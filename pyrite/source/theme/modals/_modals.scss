@@ -1,5 +1,6 @@
 @use "backend" as *;
 /* Begin Modals */
+// @debug "rewite this shit";
 #{c(main dark)},
 #{c(main light)} {
   #{c(modals root)} {
@@ -175,13 +176,16 @@
   background-color: $card;
 }
 
-// emoji/gif/stickers(soon:tm:) from chatbar
+// emoji/gif/stickers from chatbar
 #{c(modals emojiGifResizeHandle)} {
   @include bg;
   &:before {
     width: 2px;
     background-color: $primary;
   }
+}
+#{c(modals emojiGifNavItem)}[aria-controls="sticker-picker-tab-panel"] {
+  display: none; // fuck stickers.
 }
 #{c(modals emojiGifContentWrapper)} {
   background-color: $card;
@@ -193,10 +197,10 @@
   #{c(modals gifResult)} {
     &[style*="background-color"] {
       background-color: $primary !important; // !important reason: element.style
-      &[style*="rgb(179, 174, 255)"] {
+      &[style*="hsl(228, calc(var(--saturation-factor, 1) * 86.7%), 70.6%)"] {
         filter: brightness(1.2);
       }
-      &[style*="rgb(115, 142, 245)"] {
+      &[style*="hsl(228, calc(var(--saturation-factor, 1) * 86.7%), 70.6%)"] {
         filter: grayscale(0.2);
       }
       &[style*="rgb(146, 154, 250)"] {

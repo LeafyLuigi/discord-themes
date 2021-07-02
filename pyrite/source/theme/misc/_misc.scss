@@ -207,36 +207,7 @@ body, // this one is here for transparency in bd to work
       position: fixed;
     }
     & > #{c(os wordmark)} {
-      color: $primary;
-      position: relative;
-      top: 4px;
-      margin-right: auto;
-      order: 1;
-      display: flex;
-      & > svg {
-        filter: drop-shadow(3px 3px 1px $secondary);
-      }
-      &:before,
-      &:after {
-        order: 1;
-        white-space: nowrap;
-        color: var(--text-normal);
-        position: relative;
-        right: 60px;
-        top: 20px;
-      }
-      &:before {
-        content: $theme-name;
-        font-size: 14px;
-        margin-left: 4px;
-        font-style: italic;
-      }
-      &:after {
-        content: $version;
-        font-size: 10px;
-        margin-left: 2px;
-        font-family: Segoe Script, serif;
-      }
+      display: none;
     }
   }
   #{c(sidebar sidebar)} {
@@ -275,12 +246,6 @@ body, // this one is here for transparency in bd to work
 
 // Mac
 #{c(os mac)} {
-  #{c(os macButtonClose)},
-  #{c(os macButtonMinimize)},
-  #{c(os macButtonMaximize)} {
-    order: 0;
-    margin-top: 12px;
-  }
   #{c(os macButtonMinimize)},
   #{c(os macButtonMaximize)} {
     margin-left: 7px;
@@ -288,32 +253,7 @@ body, // this one is here for transparency in bd to work
   #{c(os typeMac)} {
     top: calc(var(--channel-tabs-enabled,0) * calc(66px * var(--channel-tabs-enabled,0)));
     #{c(os macButtons)} {
-      height: 12px;
-      padding-bottom: 38px;
-      &:before,
-      &:after {
-        order: 1;
-        white-space: nowrap;
-        color: var(--text-normal);
-        position: relative;
-        order: 1;
-        left: -56px;
-        -webkit-app-region: drag;
-      }
-      &:before {
-        content: $theme-name;
-        font-size: 14px;
-        margin-left: 4px;
-        font-style: italic;
-        top: 25px;
-      }
-      &:after {
-        content: $version;
-        font-size: 10px;
-        margin-left: 2px;
-        font-family: Segoe Script, serif;
-        top: 23px;
-      }
+      height: 48px;
     }
   }
   #{c(serverList servers)} {
@@ -356,29 +296,6 @@ body, // this one is here for transparency in bd to work
       top: 48px;
       position: relative;
       height: calc(100vh - 48px);
-      &:before,
-      &:after {
-        order: 1;
-        white-space: nowrap;
-        color: var(--text-normal);
-        position: absolute;
-        top: -32px;
-        z-index: 1100;
-      }
-      &:before {
-        content: $theme-name;
-        font-size: 14px;
-        margin-left: 4px;
-        font-style: italic;
-        right: 30px;
-      }
-      &:after {
-        content: $version;
-        font-size: 10px;
-        margin-left: 2px;
-        right: 4px;
-        font-family: Segoe Script, serif;
-      }
     }
   }
 }
@@ -537,6 +454,18 @@ body, // this one is here for transparency in bd to work
   backdrop-filter: blur(3px);
   background-color: transparent !important;
 }
+
+/* Version */
+#{c(userSettings sidebarInfo)} {
+  &::after {
+    content: $theme-name str-insert($version, " - ", 0);
+    font-style: italic;
+    color: #fff;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
 
 /* Tags */
 #{c(chat messageContents)} > #{c(chat chatAvatar)} ~ #{c(chat chatHeaderUsername)} #{c(chat chatUsername)}:after {

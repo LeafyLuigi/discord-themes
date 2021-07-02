@@ -32,11 +32,15 @@
 		}
 	}
 }
+#{c(userPopout footer)} {
+	margin-top: 0;
+}
 
+#{c(userPopout divider)} {
+	display: none;
+}
 #{c(userPopout body)} {
-	#{c(userPopout divider)} {
-		display: none;
-	}
+	padding-top: 8px;
 	#{c(userPopout bodyInnerWrapper)} {
 		padding-right: 0;
 		background-color: transparent;

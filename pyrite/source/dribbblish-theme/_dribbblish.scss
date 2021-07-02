@@ -122,6 +122,9 @@ $card: var(--card-background);
     left: 8px;
     bottom: 325px;
     background-color: transparent;
+    #{c(header divider)} {
+        display: none;
+    }
     > * {
         margin-top: 8px;
         margin-bottom: 8px;
@@ -260,7 +263,7 @@ $card: var(--card-background);
 }
 
 // tutorial container
-#{c(serverList homeContainer)} {
+#{c(main appMount)} #{c(serverList homeContainer)} {
     transform: none;
 }
 

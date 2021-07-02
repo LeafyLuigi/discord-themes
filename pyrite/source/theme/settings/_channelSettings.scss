@@ -3,6 +3,23 @@
 #{c(channelSettings roleScroller)} {
   background-color: transparent;
 }
+#{c(channelSettings settingsCard)},
+#{c(channelSettings settingsCard)}#{c(channelSettings settingsCardActive)} {
+  background-color: transparent;
+}
+#{c(channelSettings cardContent)} {
+  padding: 16px 6px;
+}
+#{c(channelSettings cardFolder)} {
+  background-color: transparent;
+}
+#{c(channelSettings folderHeader)} {
+  padding: 16px 6px;
+}
+#{c(channelSettings folderRoleMemberList)} {
+  padding: 0 6px 16px 6px !important; // !important reason: element.style (padding right)
+}
+
 #{c(channelSettings permGroup)} {
   border: none;
 }
@@ -56,7 +73,7 @@
 #{c(main light)} {
   #{c(channelSettings inviteRow)} {
     padding: 10px 0;
-    &:before {
+    &::before {
       content: none;
     }
     #{c(channelSettings revokeInvite)} {

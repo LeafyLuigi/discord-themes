@@ -68,7 +68,7 @@
     &:hover:before {
       background-color: $hover;
     }
-    > svg {
+    #{c(chat buttonIcon)} {
       transform: skewX(15deg);
     }
   }

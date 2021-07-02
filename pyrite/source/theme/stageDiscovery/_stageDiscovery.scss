@@ -40,7 +40,7 @@
     align-items: center;
     text-align: center;
     padding: 8px 0;
-    &:after {
+    &::after {
       content: "";
       height: 2px;
       flex-grow: 1;
@@ -49,3 +49,12 @@
     }
   }
 }
+
+#{c(stageDiscovery microphoneIcon)} {
+  background-color: $card;
+  color: #fff;
+}
+
+// #{c(stageDiscovery bottomContainer)} {
+//   display: none;
+// }

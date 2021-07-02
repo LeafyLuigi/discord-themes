@@ -75,10 +75,25 @@
   }
 }
 
+#{c(chatForm jumpToPresentBar)} {
+  background-color: $card;
+  opacity: 1;
+  backdrop-filter: blur(3px);
+  transition: backdrop-filter 0.15s;
+  &:active {
+    backdrop-filter: blur(5px);
+  }
+}
+
 #{c(chatForm scrollableContainer)},
+#{c(chatForm attachedBars)},
 #{c(chatForm replyBar)},
 #{c(chatForm threadSuggestionBar)} {
   background-color: transparent;
+}
+#{c(chatForm clipContainer)} {
+  margin-top: 0;
+  padding-top: 0;
 }
 #{c(chatForm scrollableContainer)} {
   max-height: 20vh;
@@ -90,10 +105,10 @@
   }
   #{c(chatForm replyActions)} {
     #{c(chatForm colorLink)} {
-      color: #43b581;
+      color: $green;
     }
     #{c(chatForm colorMuted)} {
-      color: #f04747;
+      color: $red;
     }
   }
 }
@@ -107,4 +122,14 @@
 }
 #{c(chatForm paidGifTooltip)} {
   background-color: $card;
+}
+
+// delete nitro button + stickers. might cock up a few plugins.
+#{c(chatForm buttons)} {
+  > #{c(chatForm button)} {
+    display: none;
+  }
+  #{c(chatForm buttonContainer)}:nth-child(3) {
+    display: none;
+  }
 }
