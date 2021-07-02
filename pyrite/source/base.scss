@@ -1,4 +1,3 @@
-@import url(https://leafyluigi.github.io/discord-themes/pyrite/build/userModalLayout.css);
 @use "start";
 @use "start" as *;
 /*! #{$theme-name} v#{$version} by LeafyLuigi */
@@ -13,3 +12,5 @@
 
 // Contains the theme proper.
 @use "theme";
+
+@import url(https://leafyluigi.github.io/discord-themes/pyrite/build/userModalLayout.css);
