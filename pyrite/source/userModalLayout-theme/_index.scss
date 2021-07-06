@@ -3,8 +3,8 @@
 #{c(userModal root)} {
   display: flex;
   flex-direction: row;
-  width: var(--user-modal-width);
-  height: var(--user-modal-height);
+  width: var(--user-modal-width,900px);
+  height: var(--user-modal-height,600px);
   min-width: 300px;
   max-width: 100vw;
   min-height: 200px;
@@ -14,11 +14,11 @@
 #{c(userModal topSection)} {
   display: flex;
   flex-direction: column;
-  width: calc(var(--user-modal-width) * 2/3);
+  width: calc(var(--user-modal-width,900px) * 2/3);
 }
 #{c(userModal profileBanner)},
 #{c(userModal profileBannerPremium)} {
-  width: calc(var(--user-modal-width) * 2/3);
+  width: calc(var(--user-modal-width,900px) * 2/3);
 }
 
 #{c(userModal header)} {
@@ -87,12 +87,12 @@
   z-index: 1;
   bottom: 0;
   margin: 0 0 5px 5px;
-  width: calc(var(--user-modal-width) * 2/5);
+  width: calc(var(--user-modal-width,900px) * 2/5);
 }
 
 #{c(userModal body)} {
   height: auto;
-  width: calc(var(--user-modal-width) * 1/3);
+  width: calc(var(--user-modal-width,900px) * 1/3);
   #{c(userModal activityBody)} {
     display: grid;
   }
