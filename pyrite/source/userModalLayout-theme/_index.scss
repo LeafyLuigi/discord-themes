@@ -45,6 +45,7 @@
 	flex-grow: 1;
 	flex-basis: 10%;
   justify-content: center;
+  margin-right: 0;
   &:hover,
 	&:active {
     flex-grow: 3;
@@ -54,7 +55,7 @@
 	&[style*="(255, 255, 255)"] {
 		flex-shrink: 3;
     flex-grow: 3;
-		flex-basis: 1fr;
+		flex-basis: 10%;
 		overflow: visible;
 	}
 }
