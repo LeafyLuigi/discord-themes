@@ -184,9 +184,9 @@
     background-color: $primary;
   }
 }
-#{c(modals emojiGifNavItem)}[aria-controls="sticker-picker-tab-panel"] {
-  display: none; // fuck stickers.
-}
+// #{c(modals emojiGifNavItem)}[aria-controls="sticker-picker-tab-panel"] {
+//   display: none; // fuck stickers.
+// }
 #{c(modals emojiGifContentWrapper)} {
   background-color: $card;
 }

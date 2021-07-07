@@ -124,12 +124,9 @@
   background-color: $card;
 }
 
-// delete nitro button + stickers. might cock up a few plugins.
+// delete nitro button. might cock up a few plugins.
 #{c(chatForm buttons)} {
   > #{c(chatForm button)} {
-    display: none;
-  }
-  #{c(chatForm buttonContainer)}:nth-child(3) {
     display: none;
   }
 }
