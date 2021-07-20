@@ -36,11 +36,6 @@ powercord.api.notices.sendToast("pc-example-toast",
 {text:"outlinedgrey",color:"grey",look:"outlined"},
 {text:"linkgrey",color:"grey",look:"link"},
 
-{text:"filledblack",color:"black",look:"filled"},
-{text:"invertedblack",color:"black",look:"inverted"},
-{text:"outlinedblack",color:"black",look:"outlined"},
-{text:"linkblack",color:"black",look:"link"},
-
 {text:"filledbrand",color:"brand",look:"filled"},
 {text:"invertedbrand",color:"brand",look:"inverted"},
 {text:"outlinedbrand",color:"brand",look:"outlined"},

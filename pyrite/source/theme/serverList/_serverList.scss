@@ -120,6 +120,15 @@
   }
 }
 
+#{c(serverList iconBadge)} {
+  // filter: drop-shadow($primary 0 0 4px) drop-shadow($primary 0 0 4px);
+  // background-color: $secondary;
+  &#{c(serverList participating)} {
+    background-color: $green;
+    filter: none;
+  }
+}
+
 #{c(serverList placeholderInner)} {
   background-color: $card;
 }

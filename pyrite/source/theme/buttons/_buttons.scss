@@ -36,8 +36,6 @@
   // }
   // &#{c(button colorGrey)} {
   // }
-  // &#{c(button colorBlack)} {
-  // }
   &#{c(button colorBrand)} {
     @include button-bg($color: $primary);
   }
@@ -63,8 +61,6 @@
   // &#{c(button colorWhite)} {
   // }
   // &#{c(button colorGrey)} {
-  // }
-  // &#{c(button colorBlack)} {
   // }
   &#{c(button colorBrand)} {
     @include button-inverted($color: $primary);
@@ -92,8 +88,6 @@
   // }
   // &#{c(button colorGrey)} {
   // }
-  // &#{c(button colorBlack)} {
-  // }
   &#{c(button colorBrand)} {
     @include button-border($color: $primary);
   }
@@ -116,8 +110,6 @@
   // &#{c(button colorWhite)} {
   // }
   // &#{c(button colorGrey)} {
-  // }
-  // &#{c(button colorBlack)} {
   // }
   &#{c(button colorBrand)} {
     @include button-link($color: $primary);

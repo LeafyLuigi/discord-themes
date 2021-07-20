@@ -75,11 +75,3 @@ html[lang="en-GB"] {
 
 }
 
-a,
-.anchor-3Z-8Bb {
-	color: $link;
-	&[href^="http://"] {
-		color: $red;
-		text-shadow: 0 0 2px $red;
-	}
-}

@@ -364,25 +364,25 @@ body, // this one is here for transparency in bd to work
   #{c(main checkbox)} {
     border-color: $primary;
     &#{c(main checkboxChecked)} {
-      &[style*="border-color: rgb(114, 137, 218);"] {
+      &[style*="border-color: var(--control-brand-foreground);"] {
         box-shadow: inset 0 0 3px 1px $primary;
         border-color: $primary !important; // !important reason: element.style
         > svg > path {
           fill: $primary;
         }
       }
-      &[style*="background-color: rgb(114, 137, 218)"] {
+      &[style*="var(--control-brand-foreground)"] {
         background-color: transparent !important; // !important reason: element.style
       }
-      &[style*="rgba(67, 181, 129, 0.15)"],
-      &[style*="rgb(67, 181, 129)"] {
-        box-shadow: inset 0 0 3px 1px $primary;
-        border-color: $primary !important; // !important reason: element.style
-        background-color: transparent !important; // !important reason: element.style
-        > svg > path {
-          fill: $primary;
-        }
-      }
+      // &[style*="rgba(67, 181, 129, 0.15)"],
+      // &[style*="rgb(67, 181, 129)"] {
+      //   box-shadow: inset 0 0 3px 1px $primary;
+      //   border-color: $primary !important; // !important reason: element.style
+      //   background-color: transparent !important; // !important reason: element.style
+      //   > svg > path {
+      //     fill: $primary;
+      //   }
+      // }
     }
   }
 }
@@ -409,6 +409,37 @@ body, // this one is here for transparency in bd to work
 #{c(other speaking)},
 #{c(other avatarSpeaking)} {
   box-shadow: inset 0 0 0 2px $primary;
+}
+// Goto Message Links
+#{c(main anchorLink)} {
+  &[href^="https://canary.discord.com/channels/"],
+  &[href^="https://ptb.discord.com/channels/"],
+  &[href^="https://discord.com/channels/"] {
+    font-size: 0;
+    &:hover {
+      text-decoration: none;
+    }
+    &:hover:before {
+      background-color: $primary;
+      color: #fff;
+    }
+    &:before {
+      content: "Jump to message";
+      font-size: 1rem;
+      padding: 0 3px;
+      border-radius: 3px;
+      color: $primary;
+    }
+  }
+}
+// insecure links
+a,
+#{c(main anchorLink)} {
+	color: $link;
+	&[href^="http://"] {
+		color: $red;
+		text-shadow: 0 0 2px $red;
+	}
 }
 
 /* HLJS */
