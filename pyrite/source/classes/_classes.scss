@@ -149,7 +149,10 @@ $classes: (
 		"webhookFooterImage": "footerImage-4UrEF0",
 	),
 	"chat": (
+		"cozy": "cozy-3raOZG",
+
 		"chat": "chat-3bRxxu",
+		"threadSidebarOpen": "threadSidebarOpen-vdkwIh",
 		"noChat": "noChat-9aipKz",
 		"chatContent": "content-yTz4x3",
 		"chatScroller": "scroller-2LSbBU",
@@ -187,6 +190,7 @@ $classes: (
 		"chatAvatar": "avatar-1BDn8e",
 		"chatHeaderUsername": "header-23xsNx",
 		"chatTimestamp": "timestamp-3ZCmNB",
+		"chatEdited": "edited-3sfAzf",
 		"chatUsername": "username-1A8OIy",
 		"chatUsernameClickable": "clickable-1bVtEA",
 		"zalgoBlocker": "zalgo-jN1Ica",
@@ -211,6 +215,20 @@ $classes: (
 		"reactionInner": "reactionInner-15NvIl",
 		"reactionCount": "reactionCount-2mvXRV",
 	),
+		// indented because i hate discord
+		"threads": (
+			"sidebar": "threadSidebar-1o3BTy",
+			"chat": "chat-1cCjJ5",
+			"iconWrapper": "iconWrapper-L3hQuc",
+			"channelTextAreaInnerFocused": "channelTextAreaInnerFocused-M_uztw",
+			"privateThreadFeaturePill": "privateThreadFeaturePill-wa49np",
+
+			"chatContainer": "container-3hZ-gs",
+			"chatHasThread": "hasThread-2k82W0",
+			"spine": "spine-5jbOmI",
+
+			"channelListSpine": "spine--Wla_O",
+		),
 	"chatForm": (
 		"form": "form-2fGMdU",
 		"channelTextAreaBase": "channelTextArea-2VhZ6z", // base being applied to *every* form
@@ -1146,7 +1164,8 @@ $classes: (
 
 			"betterImageViewer": "biv-overlay",
 			"betterImageViewerLensRound": "BIV-zoom-lens-round",
-
+			"betterImageViewerLens": "BIV-zoom-lens",
+			
 			"xenoLibNotifs": "xenoLib-notifications",
 			"xenoLibNotifContentWrapper": "xenoLib-notification-content-wrapper",
 			"xenoLibNotifLoadbar": "xenoLib-notification-loadbar",

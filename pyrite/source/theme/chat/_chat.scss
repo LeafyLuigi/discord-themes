@@ -3,7 +3,8 @@
 #{c(chat chat)},
 #{c(chat chatLoadingWrapper)},
 #{c(chat messageLoadingWrapper)},
-#{c(chat chatContent)} {
+#{c(chat chatContent)},
+#{c(threads sidebar)} {
   background-color: transparent;
 }
 #{c(chat chatContent)} {
@@ -143,6 +144,22 @@
   }
 }
 
+#{c(chat messageContent)} {
+  #{c(chat chatTimestamp)} {
+    time {
+      font-size: 0;
+      &:before {
+        content: "(edited " attr(aria-label) ")";
+        text-transform: lowercase;
+        font-size: 0.625rem;
+      }
+      #{c(chat chatEdited)} {
+        display: none;
+      }
+    }
+  }
+}
+
 #{c(main dark)} {
   #{c(chat spoilerText)} {
     &#{c(chat spoilerHidden)} {
@@ -233,4 +250,42 @@
       text-shadow: 2px 2px 3px;
     }
   }
+}
+
+// Threads
+#{c(chat chat)}#{c(chat threadSidebarOpen)} {
+  border-radius: 0;
+  #{c(header toolbar)} {
+    right: 0;
+  }
+}
+#{c(threads sidebar)} {
+  border-radius: 0;
+  margin-left: 0;
+}
+#{c(threads chat)} {
+  background-color: $side;
+  &:before {
+    content: none;
+  }
+}
+#{c(threads iconWrapper)} {
+  background-color: $card;
+}
+#{c(threads channelTextAreaInnerFocused)} {
+  border-color: transparent;
+}
+#{c(threads privateThreadFeaturePill)} {
+  background-color: $card;
+}
+#{c(threads chatContainer)} {
+  background-color: $card;
+}
+#{c(chat cozy)}#{c(threads chatHasThread)}:after,
+#{c(threads spine)} {
+  border-color: $primary;
+  filter: drop-shadow(2px 2px 2px var(--secondary-color));
+}
+#{c(threads channelListSpine)} {
+  color: $primary;
 }

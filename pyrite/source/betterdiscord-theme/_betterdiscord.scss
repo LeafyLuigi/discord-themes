@@ -100,6 +100,17 @@ body #{c(main appInner)} {
 		top: calc(-22px * var(--horizontal-server-list-enabled,0));
 		position: relative;
 	}
+	#channelTabs-settingsMenu {
+		border-radius: 0;
+		position: absolute;
+		top: 36px;
+		right: 0;
+		height: 30px;
+		background-color: transparent;
+		&:hover {
+			background-color: $card;
+		}
+	}
 	#{c(bdPlugin channelTabsTabContainer)} {
 		max-height: 36px;
 		background-color: $header;
@@ -194,7 +205,8 @@ body {
 	#{c(bdPlugin betterImageViewer)} {
 		z-index: 1200;
 	}
-	#{c(bdPlugin betterImageViewerLensRound)} {
+	#{c(bdPlugin betterImageViewerLensRound)},
+	#{c(bdPlugin betterImageViewerLens)} {
 		border-color: $primary;
 	}
 }
