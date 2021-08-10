@@ -101,3 +101,8 @@
 		min-height: 40px;
 	}
 }
+#{c(userPopout role)} {
+	border: 1px solid; // color does not need to be defined because it's done in element.style
+	background-color: transparent;
+	border-radius: 16px;
+}

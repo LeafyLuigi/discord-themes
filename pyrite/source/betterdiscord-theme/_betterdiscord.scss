@@ -93,6 +93,14 @@ $card: var(--card-background);
 	background-color: transparent;
 }
 
+// Minimal Mode Fixes
+#{c(bd minimal)} {
+	#{c(friends nowPlayingColumn)} {
+		left: unset;
+		margin-left: unset;
+	}
+}
+
 // Channel Tabs Plugin
 body #{c(main appInner)} {
 	#channelTabs-container {

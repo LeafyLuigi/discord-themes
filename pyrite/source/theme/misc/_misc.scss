@@ -429,6 +429,7 @@ body, // this one is here for transparency in bd to work
       padding: 0 3px;
       border-radius: 3px;
       color: $primary;
+      text-decoration-color: currentColor;
     }
   }
 }
