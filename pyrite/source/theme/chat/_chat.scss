@@ -126,6 +126,10 @@
   #{c(chat replyBadge)} {
     background-color: $card;
   }
+  // allows for spoiler hover
+  #{c(chat repliedTextPreview)} #{c(chat repliedTextContent)} {
+    pointer-events: unset;
+  }
 }
 
 #{c(chat chatHeader)} {
