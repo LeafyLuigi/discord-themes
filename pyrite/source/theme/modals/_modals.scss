@@ -184,6 +184,38 @@
     background-color: $primary;
   }
 }
+// stickers
+#{c(modals stickerWrapper)} {
+  display: flex;
+  flex-direction: column-reverse;
+  #{c(modals emojiInspector)} {
+    grid-column: unset;
+    grid-row: unset;
+  }
+}
+#{c(modals stickerCategoryRecent)} {
+  color: #fff;
+}
+#{c(modals stickerCategoryRecent)}:hover,
+#{c(modals stickerPremiumCategorySelected)},
+#{c(modals stickerPremiumCategorySelected)}:hover,
+#{c(modals stickerCategoryRecentSelected)},
+#{c(modals stickerCategoryRecentSelected)}:hover {
+  background-color: $primary;
+}
+#{c(modals stickerSelected)} #{c(modals stickerInspectedIndicator)} {
+  background-color: transparent;
+  ~ #{c(modals stickerNode)} {
+    background-color: $primary;
+    -webkit-mask: url(/assets/7d65d61e6cd25bf1847ec2d3e4a0144d.svg) 0 0/100% 100%;
+    transition: background-color .08s ease-out, color .08s ease-out, opacity .25s;
+    margin: -2px;
+    padding: 2px;
+  }
+}
+#{c(modals stickerUpsellWrapper)} {
+  display: none;
+}
 // #{c(modals emojiGifNavItem)}[aria-controls="sticker-picker-tab-panel"] {
 //   display: none; // fuck stickers.
 // }

@@ -38,3 +38,6 @@
 #{c(call videoBorder)}#{c(call videoSpeaking)} {
   box-shadow: inset 0 0 25px 10px $primary;
 }
+#{c(call streamBackground)} { 
+  background-color: transparent;
+}
