@@ -86,6 +86,7 @@
     }
     #{c(sidebar channelsHeader)} {
       z-index: 1100;
+      box-shadow: none;
     }
   }
   #{c(sidebar animatedContainer)} {
