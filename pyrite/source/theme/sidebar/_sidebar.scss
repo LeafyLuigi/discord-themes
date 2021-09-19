@@ -85,7 +85,7 @@
       justify-content: center;
     }
     #{c(sidebar channelsHeader)} {
-      z-index: 1100;
+      z-index: 1010;
       box-shadow: none;
     }
   }
@@ -93,6 +93,9 @@
     background-color: transparent;
     top: 48px;
     z-index: 2;
+    &[style*="(-90px)"] {
+      z-index: -3000;
+    }
     #{c(sidebar bannerImage)} {
       &:before {
         content: none;
@@ -116,6 +119,9 @@
 }
 #{c(sidebar bannerVisible)} #{c(sidebar channelsHeader)} {
   filter: none;
+}
+#{c(sidebar voiceSpeaking)} {
+	box-shadow: inset 0 0 0 2px $primary;
 }
 
 // Panels

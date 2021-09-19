@@ -138,3 +138,7 @@
     mask: none;
   }
 }
+
+#{c(serverList iconBadge)}#{c(serverList participating)} {
+  background-color: $green;
+}

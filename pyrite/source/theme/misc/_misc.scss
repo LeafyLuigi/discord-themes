@@ -102,17 +102,13 @@
 /* Begin Misc */
 // Fonts
 // body fonts
-::placeholder,
-::-webkit-input-placeholder,
-body,
-button,
-input,
-select,
-textarea {
+::placeholder, ::-webkit-input-placeholder,
+body, button, input, select, textarea {
   font-family: var(--body-font);
 }
-#{c(main focused)} body::selection {
-  background-color: red;
+::selection {
+  background-color: $secondary;
+
 }
 // code fonts
 code,
@@ -149,14 +145,12 @@ body, // this one is here for transparency in bd to work
 #{c(main backdropWithLayer)} {
   z-index: -1000;
 }
+#{c(main pictureInPicture)} {
+  z-index: 1050;
+}
 #{c(os titleBar)} {
   z-index: 1100;
 }
-
-// Picture in Picture thing (won't fucking work)
-// #{c(main pictureInPicture)} {
-//   height: calc(100vh - (66px * var(--channel-tabs-enabled,0)) - (55px * var(--horizontal-server-list-enabled,0)) );
-// }
 
 // Loading Icon. Best seen removing the ONLY reaction of a type in the reaction modal.
 #{c(main loadingSquare)} {
@@ -218,7 +212,7 @@ body, // this one is here for transparency in bd to work
     overflow: visible;
     @include bg;
     &:before {
-      z-index: 1050;
+      z-index: 1010;
       background-color: $header;
       width: 72px;
       height: 48px;
@@ -227,6 +221,10 @@ body, // this one is here for transparency in bd to work
   }
   #{c(os winButton)} {
     width: var(--win-min-max-close-button-width);
+  }
+  #{c(os winButtonClose)}:hover {
+    background: $red;
+    color: #fff;
   }
   #{c(header toolbar)} {
     position: relative;
@@ -434,9 +432,7 @@ body, // this one is here for transparency in bd to work
   }
 }
 // insecure links
-a,
-#{c(main anchorLink)} {
-	color: $link;
+a {
 	&[href^="http://"] {
 		color: $red;
 		text-shadow: 0 0 2px $red;

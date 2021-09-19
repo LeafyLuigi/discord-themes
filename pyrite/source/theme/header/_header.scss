@@ -22,7 +22,7 @@
   &:after {
     content: none;
   }
-  >#{c(header iconWrapper)} {
+  > #{c(header iconWrapper)} {
     > #{c(header icon)} {
       filter: drop-shadow(2px 2px 2px #aaa);
     }
@@ -42,6 +42,23 @@
   #{c(header children)},
   #{c(header topic)} {
     -webkit-app-region: no-drag;
+  }
+}
+#{c(header status)} > svg > rect {
+  &[fill*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+    fill: $green;
+  }
+  &[fill*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
+    fill: $yellow;
+  }
+  &[fill*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
+    fill: $red;
+  }
+  &[fill*="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"] {
+    fill: $live;
+  }
+  &[fill*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
+    fill: $offline;
   }
 }
 #{c(header icon)} {
@@ -70,40 +87,8 @@
   background-color: var(--card-background);
 }
 
-// HIDE MEMBER ICON. REQUIRES ARIA-LABEL.
-@debug "Aria Label list in Header";
-#{c(chat chat)} #{c(header toolbar)} #{c(header iconSelected)} {
-  &[aria-label="Medlemsliste"], // Danish
-  &[aria-label="Mitgliederliste"], // German
-  &[aria-label="Member List"], // English
-  &[aria-label="Lista de miembros"], // Spanish
-  &[aria-label="Liste des membres"], // French
-  &[aria-label="Popis članova"], // Croatian
-  &[aria-label="Lista dei membri"], // Italian
-  &[aria-label="Narių Sąrašas"], // Lithuanian
-  &[aria-label="Tagok listája"], // Hungarian
-  &[aria-label="Ledenlijst"], // Dutch
-  &[aria-label="Medlemsliste"], // Norwegian
-  &[aria-label="Lista członków"], // Polish
-  &[aria-label="Lista de membros"], // Portuguese
-  &[aria-label="Lista membrilor"], // Romanian
-  &[aria-label="Jäsenluettelo"], // Finnish
-  &[aria-label="Medlemslista"], // Swedish
-  &[aria-label="Danh sách thành viên"], // Vietnamese
-  &[aria-label="Üye Listesi"], // Turkish
-  &[aria-label="Seznam členů"], // Czech
-  &[aria-label="Λίστα μελών"], // Greek
-  &[aria-label="Списък с членове"], // Bulgarian
-  &[aria-label="Список участников"], // Russian
-  &[aria-label="Список учасників"], // Ukranian
-  &[aria-label="รายชื่อสมาชิก"], // Thai
-  &[aria-label="成员名单"], // Chinese (mainland)
-  &[aria-label="メンバーリスト"], // Japanese
-  &[aria-label="成員名單"], // Chinese (Taiwan)
-  &[aria-label="멤버 목록"]  // Korean
-  {
-    display: none;
-  }
+#{c(header warningIcon)} {
+  color: $yellow;
 }
 
 // Hide Help icon. Can be accessed by pressing F1.

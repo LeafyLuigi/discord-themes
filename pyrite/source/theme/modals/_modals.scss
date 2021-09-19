@@ -354,6 +354,17 @@
     color: $primary;
   }
 }
+#{c(modals menuColorDanger)} {
+  color: $red;
+  &#{c(modals menuFocused)} {
+    background-color: $red;
+    color: #fff;
+  }
+}
+// no one i know uses this
+#user-call-context {
+  display: none;
+}
 
 // add server
 #{c(modals addServerTemplatesList)},
@@ -465,6 +476,22 @@
   }
   #{c(modals searchDropdownFocused)} {
     background-color: transparent;
+  }
+}
+
+// status / custom status
+#{c(modals status)} {
+  &[style*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+    background-color: var(--green-color) !important; // !important reason: element.style
+  }
+  &[style*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
+    background-color: var(--yellow-color) !important; // !important reason: element.style
+  }
+  &[style*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
+    background-color: var(--red-color) !important; // !important reason: element.style
+  }
+  &[style*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
+    background-color: var(--offline-color) !important; // !important reason: element.style
   }
 }
 

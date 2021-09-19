@@ -54,6 +54,7 @@ $classes: (
 		"loadingSquare": "wanderingCubesItem-WPXqao",
 		"pictureInPicture": "pictureInPicture-3VocJq",
 		"anchorLink": "anchor-3Z-8Bb",
+		"toggle": "container-3auIfb", // that sliding selection thing
 	),
 	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 	"os": (
@@ -186,6 +187,7 @@ $classes: (
 		"replyBadge": "replyBadge-r1su3o",
 
 		"chatHeader": "container-3RCQyg",
+		"chatHeaderButton": "button-18p_f6",
 		"emptyChannelIcon": "emptyChannelIcon-cc932w",
 		"allowedRole": "role-1P70N6",
 
@@ -217,6 +219,10 @@ $classes: (
 		"reactionMe": "reactionMe-wv5HKu",
 		"reactionInner": "reactionInner-15NvIl",
 		"reactionCount": "reactionCount-2mvXRV",
+
+		"containerExpanded": "containerExpanded-3MGTRr",
+		"compactButton": "compactButton-195WSV", // send wave sticker
+		"welcomeCTA": "welcomeCTA-2orRfU",
 	),
 		// indented because i hate discord
 		"threads": (
@@ -348,6 +354,7 @@ $classes: (
 		"gameName": "name-GG2Mcs",
 		"gameFullHeight": "fullHeight-24whqn",
 		"gameArtwork": "artwork-1vrmJ_",
+		"uploadProgressBar": "progressBar-3u8FBM",
 	),
 	//indented as it's a subset of embeds
 		"media": (
@@ -404,6 +411,7 @@ $classes: (
 		"itemCardOuter": "outer-1AjyKL",
 		"voiceSectionIconWrapper": "voiceSectionIconWrapper-FO7UEY",
 		"partyMemberOverflow": "partyMemberOverflow-lXnzvu",
+		"live": "live-vBWnV6",
 		"multipleIconWrapper": "multipleIconWrapper-DfGWrz",
 		"multipleIcon": "multipleIcon-1oJINS",
 	),
@@ -429,7 +437,8 @@ $classes: (
 		"participating": "participating-1NvRVd",
 		"topic": "topic-TCb_qw",
 		"nicknames": "nicknames-1XK4Zt",
-
+		"status": "status-1XNdyw",
+		"warningIcon": "warningIcon-3rQ5yJ",
 	),
 	"hljs": (
 		"comment": "hljs-comment",
@@ -443,6 +452,7 @@ $classes: (
 		"group": "membersGroup-v9BXpm",
 		"container": "container-2ax-kl",
 		"avatar": "avatar-3uk_u9",
+		"status": "wrapper-3t9DeA",
 		"ownerIcon": "ownerIcon-2NH9FM",
 		"name": "name-uJV0GL",
 		"roleColor": "roleColor-rz2vM0",
@@ -609,7 +619,6 @@ $classes: (
 		"stickerNode": "stickerNode-20m2uy",
 		"stickerUpsellWrapper": "upsellWrapper-1utsSD ",
 
-
 		"detachedEmojiPicker": "emojiPicker-3PwZFl",
 		"notDetachedEmojiPicker": "emojiPickerInExpressionPicker-3IzIcv",
 
@@ -618,6 +627,8 @@ $classes: (
 		"searchDropdownOption": "option-96V44q",
 		"searchDropdownSelected": "selected-rZcOL-",
 		"searchDropdownFocused": "focused-2bY0OD",
+
+		"status": "status-1AY8sU",
 
 		"dropdownExpanded": "popout-VcNcHB",
 		"dropdownOption": "option-3KoAJB",
@@ -762,6 +773,7 @@ $classes: (
 		"enableCommunityFeatureCard": "featureCard-1RR4Tl",
 		"enableCommunityFeatureIcon": "featureIcon-3p1TC_",
 		"enableCommunityGuildDetails": "guildDetails-2p1NmK",
+		"templateDescriptionIcon": "descriptionIcon-36p1fN",
 	),
 	"sidebar": (
 		"sidebar": "sidebar-2K8pFh",
@@ -831,8 +843,8 @@ $classes: (
 		"noAccessCategory": "category-2SZJwK",
 		"noAccessChannelIcon": "channelIcon-CCo35e",
 		"noAccessChannelName": "channelName-3y9uE0",
-		"animatedContainer": "animatedContainer-1NSq4T",
 
+		"animatedContainer": "animatedContainer-1NSq4T",
 		"hasBanner": "hasBanner-2SrLR3",
 		"bannerVisible": "bannerVisible-2ZE_qG",
 		"bannerImage": "bannerImage-3KhIJ6",

@@ -77,6 +77,7 @@
 
 #{c(main groupSpacing16)} {
   #{c(chat divider)} {
+    --divider-color: var(--red-color);
     text-align: center;
     display: block;
     z-index: 0;
@@ -98,7 +99,7 @@
     }
     &#{c(chat dividerUnread)} {
       #{c(chat dividerContent)} {
-        color: #f04747;
+        color: var(--divider-color);
         font-weight: 600;
       }
     }
@@ -135,6 +136,10 @@
 #{c(chat chatHeader)} {
   #{c(chat emptyChannelIcon)} {
     background-color: var(--card-background);
+  }
+  #{c(chat chatHeaderButton)},
+  #{c(chat chatHeaderButton)}:hover {
+    color: $primary;
   }
 }
 #{c(chat allowedRole)} {
@@ -184,6 +189,12 @@
       }
     }
   }
+}
+
+// who the hell uses those wave stickers?
+#{c(chat compactButton)},
+#{c(chat containerExpanded)} {
+  display: none;
 }
 
 #{c(chat botTag)} {
@@ -254,6 +265,10 @@
       text-shadow: 2px 2px 3px;
     }
   }
+}
+
+#{c(chat welcomeCTA)} {
+  display: none;
 }
 
 // Threads

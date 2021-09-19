@@ -126,6 +126,15 @@
   background-color: transparent;
 }
 
+#{c(serverSettings templateDescriptionIcon)} circle {
+	&[fill="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+		fill: $green;
+	}
+	&[fill="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
+		fill: $red;
+	}
+}
+
 /* This is only here to debug something. Do not question it. */
 #{c(serverSettings emojiTopRow)} {
   background-color: transparent;

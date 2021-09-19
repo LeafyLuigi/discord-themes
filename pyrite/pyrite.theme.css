@@ -1,7 +1,7 @@
 /**
  * @name Pyrite
  * @author LeafyLuigi
- * @version 0.1.6
+ * @version 0.1.7
  * @description Pyrite for BetterDiscord/BandagedBD
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
@@ -41,6 +41,13 @@
   --mention-opacity: 0.3;
   --home-icon: url(https://leafyluigi.github.io/images/Sunset%20Nature%2024%20by%20Bouzid27.png);
 
+  --green-color: #43b581;
+  --yellow-color: #f9a719;
+  --red-color: #ec4144;
+  --link-color: #00aef3;
+  --live-color:  #583594;
+  --offline-color: #737e8c;
+
   /* For Advanced Users */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
@@ -72,7 +79,7 @@
 
 
 /* Feel free to edit these ones for Dark Mode */
-.theme-dark, .theme-dark .theme-light {
+.theme-dark {
   --card-background: rgba(0,0,0,0.5);
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);

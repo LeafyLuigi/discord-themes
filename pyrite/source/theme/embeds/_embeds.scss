@@ -13,7 +13,7 @@
   }
   #{c(media audioWrapper)} {
     @include card;
-    width: 90% !important; // !important reason: element.style
+    width: 100% !important; // !important reason: element.style
   }
   #{c(embeds inviteResolvingBackground)} {
     background-image:linear-gradient(90deg,$primary,$secondary,$primary);
@@ -29,6 +29,10 @@
 #{c(embeds invite)},
 #{c(embeds attachment)} {
   @include card;
+}
+
+#{c(embeds uploadProgressBar)} {
+  background-color: $primary !important; // !important reason: element.style
 }
 
 #{c(embeds invite)} {
@@ -130,4 +134,8 @@
   #{c(embeds gameHeader)} {
     @include header;
   }
+}
+
+#{c(media audioControls)} {
+  min-width: 400px;
 }

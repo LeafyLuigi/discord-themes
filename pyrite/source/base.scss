@@ -33,10 +33,9 @@
   --user-modal-width: 900px;
   --user-modal-height: 600px;
 
-  --green-color: #3aa45c; // likely to be soon changed to #57f287
-  --green-color: #43b581; // old, better green
-  --yellow-color: #f9a719; // likely to be soon changed to #fee75c
-  --red-color: #ec4144; // likely to be soon changed to #ed4245
+  --green-color: #43b581;
+  --yellow-color: #f9a719;
+  --red-color: #ec4144;
   --link-color: #00aef3;
   --live-color:  #583594;
   --offline-color: #737e8c;
@@ -63,6 +62,11 @@
   --background-message-hover: transparent;
   --background-mentioned: transparent;
   --background-mentioned-hover: transparent;
+  --text-link: var(--link-color);
+  --text-positive: var(--green-color);
+  --text-warning: var(--yellow-color);
+  --text-danger: var(--red-color);
+  --text-brand: var(--primary-color);
 
 	/* Glasscord properties. Don't mess with these if you don't use Glasscord. */
 
@@ -90,11 +94,7 @@
   /* Better Discord Toggles and whatnot */
   --channel-tabs-enabled: 0;
 
-
-  --link-text: var(--link-color);
-
   --secret-orange: #f57531; // used in only one place - radio bar. converted from hsl.
-
 }
 
 // Light + Dark Differences

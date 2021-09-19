@@ -104,7 +104,7 @@ $card: var(--card-background);
 // Channel Tabs Plugin
 body #{c(main appInner)} {
 	#channelTabs-container {
-		z-index: 1100;
+		z-index: 1011;
 		top: calc(-22px * var(--horizontal-server-list-enabled,0));
 		position: relative;
 	}
@@ -230,4 +230,10 @@ body {
 			background-image: linear-gradient(130deg, $primary, $secondary);
 		}
 	}
+}
+
+// Fix for one of DevilBro's plugins - BDFDB
+// For some ungodly reason the prick thinks it's a good idea to change layerContainer.
+div.appMount-3lHmkl > .layerContainer-yqaFcK {
+	z-index: 1100; // "div" is there to overwrite the css priority.
 }
