@@ -158,7 +158,7 @@
     time {
       font-size: 0;
       &:before {
-        content: "(edited " attr(aria-label) ")";
+        content: "(" attr(aria-label) ")";
         text-transform: lowercase;
         font-size: 0.625rem;
       }
