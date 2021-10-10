@@ -36,6 +36,10 @@
   }
 }
 
+#{c(serverSettings newBadge)} {
+  background-color: $red !important; // !important reason: element.style
+}
+
 #{c(serverSettings roleBannerContainer)} {
   display: none;
 }

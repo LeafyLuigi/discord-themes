@@ -76,6 +76,11 @@
   }
 }
 
+#{c(serverList centerDragOver)}:before, 
+#{c(serverList targetDragOver)}:before {
+  background-color: $green; //moving bar thing
+}
+
 #{c(serverList homeContainer)} {
   #{c(serverList iconWrapper)} {
     #{c(serverList iconChildWrapper)} {
@@ -89,14 +94,12 @@
       }
     }
   }
-  &~#{c(serverList listItem)}:not(:last-child) {
-    > #{c(serverList serverSeparator)} {
-      background: linear-gradient(to bottom, $secondary, transparent);
-      width: 48px;
-      height: 4px;
-      margin-bottom: -2px;
-    }
-  }
+}
+#{c(serverList serverSeparator)} {
+  background: linear-gradient(to bottom, $secondary, transparent);
+  width: 48px;
+  height: 4px;
+  margin-bottom: -2px;
 }
 #{c(serverList unreadMention)},
 #{c(serverList mentionBar)},
@@ -120,13 +123,9 @@
   }
 }
 
-#{c(serverList iconBadge)} {
-  // filter: drop-shadow($primary 0 0 4px) drop-shadow($primary 0 0 4px);
-  // background-color: $secondary;
-  &#{c(serverList participating)} {
+#{c(serverList iconBadge)}#{c(serverList participating)} {
     background-color: $green;
     filter: none;
-  }
 }
 
 #{c(serverList placeholderInner)} {
@@ -137,8 +136,4 @@
   > svg > foreignObject {
     mask: none;
   }
-}
-
-#{c(serverList iconBadge)}#{c(serverList participating)} {
-  background-color: $green;
 }

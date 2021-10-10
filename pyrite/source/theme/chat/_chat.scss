@@ -88,7 +88,9 @@
       background-color: rgba(255,255,255,0.05);
       color: $primary;
       font-weight: normal;
-      margin-top: 0;
+      margin: 0 8px;
+      padding: 2px 10px;
+      // width: fit-content;
     }
     &#{c(chat dividerHasContent)} {
       margin: 0.5rem auto 1.5rem auto;
@@ -97,12 +99,13 @@
         top: 2px;
       }
     }
-    &#{c(chat dividerUnread)} {
-      #{c(chat dividerContent)} {
-        color: var(--divider-color);
-        font-weight: 600;
-      }
-    }
+    // &#{c(chat dividerUnread)} {
+    //   #{c(chat dividerContent)} {
+    //     color: var(--text-normal);
+    //     background-color: var(--divider-color);
+    //     font-weight: 600;
+    //   }
+    // }
   }
 }
 
@@ -192,6 +195,7 @@
 }
 
 // who the hell uses those wave stickers?
+#{c(chat compactContainer)},
 #{c(chat compactButton)},
 #{c(chat containerExpanded)} {
   display: none;

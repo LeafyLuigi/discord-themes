@@ -36,7 +36,8 @@
   // }
   // &#{c(button colorGrey)} {
   // }
-  &#{c(button colorBrand)} {
+  &#{c(button colorBrand)},
+  &#{c(button colorBrandNew)} {
     @include button-bg($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -62,7 +63,8 @@
   // }
   // &#{c(button colorGrey)} {
   // }
-  &#{c(button colorBrand)} {
+  &#{c(button colorBrand)},
+  &#{c(button colorBrandNew)} {
     @include button-inverted($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -88,7 +90,8 @@
   // }
   // &#{c(button colorGrey)} {
   // }
-  &#{c(button colorBrand)} {
+  &#{c(button colorBrand)},
+  &#{c(button colorBrandNew)} {
     @include button-border($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -111,7 +114,8 @@
   // }
   // &#{c(button colorGrey)} {
   // }
-  &#{c(button colorBrand)} {
+  &#{c(button colorBrand)},
+  &#{c(button colorBrandNew)} {
     @include button-link($color: $primary);
   }
   &#{c(button colorLink)} {

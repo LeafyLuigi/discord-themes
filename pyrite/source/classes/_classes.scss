@@ -88,8 +88,8 @@ $classes: (
 		"hasHover": ".hasHover-3X1-zV",
 
 		//colors / hovers
-		"colorBlack": "colorBlack-1jwPVL",
 		"colorBrand": "colorBrand-3pXr91",
+		"colorBrandNew": "colorBrandNew-g5lmBU",
 		"colorGreen": "colorGreen-29iAKY",
 		"colorGrey": "colorGrey-2DXtkV",
 		"colorLink": "colorLink-35jkBc",
@@ -221,6 +221,7 @@ $classes: (
 		"reactionCount": "reactionCount-2mvXRV",
 
 		"containerExpanded": "containerExpanded-3MGTRr",
+		"compactContainer": "containerCompact-18xElE", // send wave sticker parent
 		"compactButton": "compactButton-195WSV", // send wave sticker
 		"welcomeCTA": "welcomeCTA-2orRfU",
 	),
@@ -260,6 +261,7 @@ $classes: (
 		"lookBlank": "lookBlank-3eh9lL",
 		"operations": "operations-36ENbA",
 		"jumpToPresentBar": "jumpToPresentBar-G1R9s6",
+		"messagesErrorBar": "messagesErrorBar-nyJGU7",
 		"attachedBars": "attachedBars-tZDmyV",
 		"clipContainer": "clipContainer-eeROt0",
 		"replyContainer": "container-2fRDfG",
@@ -439,6 +441,11 @@ $classes: (
 		"nicknames": "nicknames-1XK4Zt",
 		"status": "status-1XNdyw",
 		"warningIcon": "warningIcon-3rQ5yJ",
+		"tabBar": "tabBar-ZmDY9v",
+		"topPill": "topPill-30KHOu",
+		"tabBarItem": "item-PXvHYJ",
+		"tabBarItemSelected": "selected-3s45Ha",
+		"tabBarItemThemed": "themed-OHr7kt",
 	),
 	"hljs": (
 		"comment": "hljs-comment",
@@ -713,10 +720,10 @@ $classes: (
 		"scroller": "scroller-1Bvpku",
 		"homeContainer": "tutorialContainer-2sGCg9",
 		"homeIcon": "homeIcon-FuNwkv",
-		"listItem": "listItem-GuPuDH",
-		"serverSeparator": "guildSeparator-33mFX6",
-		"placeholderMask": "placeholderMask-3v3K7P",
-		"placeholderInner": "dragInner-Oq_toX",
+		"listItem": "listItem-1hlISG",
+		"serverSeparator": "guildSeparator-EOYZLM",
+		"placeholderMask": "placeholderMask-2k7m_e",
+		"placeholderInner": "dragInner-37Nf0z",
 		"pill": "pill-3N7f9r",
 		"pillItem": "item-2hkk8m",
 		"serverWrapper": "wrapper-25eVIn",
@@ -741,8 +748,11 @@ $classes: (
 		"folderIconWrapper": "folderIconWrapper-1_bOZe",
 		"expandedFolderBackground": "expandedFolderBackground-1cujaW",
 		"expandedFolderIconWrapper": "expandedFolderIconWrapper-1xLaU-",
+		"centerDragOver": "centerTarget-1vR_1-.dragOver-Iim8_W", //green thing when merging
+		"targetDragOver": "target-3LqNfV.dragOver-Iim8_W", //green thing when dragging
 	),
 	"serverSettings": (
+		"newBadge": "newBadge-34a1Fs",
 		"noticeRegion": "noticeRegion-1YviSH",
 		"noticeContainer": "container-2VW0UT",
 		"roleBannerContainer": "bannerContainer-1owGn0",
@@ -839,6 +849,7 @@ $classes: (
 		"panelUsernameContainer": "usernameContainer-1fp4nu",
 
 		// no access == not loaded, not in the server etc
+		// also seems to be used when loading into discord
 		"noAccessSidebar": "container-JPloBS",
 		"noAccessCategory": "category-2SZJwK",
 		"noAccessChannelIcon": "channelIcon-CCo35e",

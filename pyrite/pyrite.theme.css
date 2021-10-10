@@ -51,13 +51,9 @@
   /* For Advanced Users */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
+
   /* Below are currently unused but will be used in future. */
-  --background-filters: none;
-  --user-modal-filters: blur(3px);
-  --user-popout-filters: blur(3px);
-  --gradient-colors: var(--primary-color);
-  --gradient-direction: to bottom right;
-  --body-filters: none;
+  --gradient: to bottom right, var(--primary-color);
 
   /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
   --hide-member-list: 1;

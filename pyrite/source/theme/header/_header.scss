@@ -91,6 +91,38 @@
   color: $yellow;
 }
 
+#{c(header tabBar)}#{c(header topPill)} {
+  #{c(header tabBarItem)} {
+    // these two are for the "add friend" thing
+    &[style*="background-color: hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+      background-color: $green !important; // !important reason: element.style
+    }
+    &[style*="color: hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"]:not([style*="background-color"]) {
+      color: $green !important; // !important reason: element.style
+    }
+    // and the blocked tab
+    &#{c(header tabBarItemThemed)} {
+      &[data-item-id="BLOCKED"] {
+        color: #fff;
+        background-color: $red;
+      }
+    }
+    &#{c(header tabBarItemSelected)}#{c(header tabBarItemThemed)} {
+      &[data-item-id="BLOCKED"] {
+        color: $red;
+        background-color: transparent;
+        // for parity
+        &:hover{
+          background-color: var(--background-modifier-hover);
+        }
+        &:active{
+          background-color: var(--background-modifier-active);
+        }
+      }
+    }
+  }
+}
+
 // Hide Help icon. Can be accessed by pressing F1.
 #{c(header toolbar)} {
   &>a[href*="support.discord.com"] {
