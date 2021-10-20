@@ -16,8 +16,11 @@
 	@return "." + $class;
 }
 
-///extreme lazy shorthand
+///extreme lazy shorthand with capital just in case
 @function c($query) {
+  @return class($query);
+}
+@function C($query) {
   @return class($query);
 }
 
@@ -86,6 +89,8 @@ $classes: (
 		"lookLink": "lookLink-9FtZy-",
 		"lookOutlined": "lookOutlined-3sRXeN",
 		"hasHover": ".hasHover-3X1-zV",
+		"icon": "buttonIcon-Od8mYw",
+		"withText": "withText-10pQhr",
 
 		//colors / hovers
 		"colorBrand": "colorBrand-3pXr91",
@@ -459,6 +464,8 @@ $classes: (
 		"group": "membersGroup-v9BXpm",
 		"container": "container-2ax-kl",
 		"avatar": "avatar-3uk_u9",
+		"contentName": "content-3QAtGj",
+		"contentChildren": "children-gzQq2t",
 		"status": "wrapper-3t9DeA",
 		"ownerIcon": "ownerIcon-2NH9FM",
 		"name": "name-uJV0GL",
@@ -732,8 +739,8 @@ $classes: (
 		"serverIcon": "icon-27yU2q",
 		"selected": "selected-bZ3Lue",
 		"addServerContainer": "tutorialContainer-30WoTp",
-		"addServer": "circleIconButton-1QV--U",
-		"addServerSelected": "selected-1JjBPm",
+		"addServer": "circleIconButton-1XqULR",
+		"addServerSelected": "selected-2jcQaY",
 		"lowerBadge": "lowerBadge-29hYVK",
 		"numberBadge": "numberBadge-2s8kKX",
 		"upperBadge": "upperBadge-2XnnGB",
@@ -847,6 +854,7 @@ $classes: (
 		"panelName": "nameTag-3uD-yy",
 		"panelNameCanCopy": "canCopy-2VBT7N",
 		"panelUsernameContainer": "usernameContainer-1fp4nu",
+		"panelActionButtons": "actionButtons-14eAc_",
 
 		// no access == not loaded, not in the server etc
 		// also seems to be used when loading into discord
