@@ -91,16 +91,7 @@
 }
 #{c(embeds textFooter)} {
   background-color: transparent;
-}
-// Enable with Beer
-// confused? https://cdn.discordapp.com/attachments/747040126294687764/827442200094179338/unknown.png
-#{c(embeds textOpenFullPreview)} {
-  &:before {
-    content: "🍺";
-  }
-  > svg {
-    display: none;
-  }
+  border: none;
 }
 
 #{c(embeds gameInvite)} {

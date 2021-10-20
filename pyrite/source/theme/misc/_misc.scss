@@ -304,6 +304,17 @@ body, // this one is here for transparency in bd to work
   animation: monke 6.9s linear infinite;
 }
 
+// Enable with Beer
+// confused? https://cdn.discordapp.com/attachments/747040126294687764/827442200094179338/unknown.png
+#{c(embeds textOpenFullPreview)} {
+  &:before {
+    content: "🍺";
+  }
+  > svg {
+    display: none;
+  }
+}
+
 #{c(store store)} {
    #{c(store scroller)} {
     > #{c(store nitroContainer)} {
@@ -432,11 +443,9 @@ body, // this one is here for transparency in bd to work
   }
 }
 // insecure links
-a {
-	&[href^="http://"] {
-		color: $red;
-		text-shadow: 0 0 2px $red;
-	}
+a[href^="http://"] {
+  color: $red;
+  text-shadow: 0 0 2px $red;
 }
 
 /* HLJS */
@@ -494,6 +503,71 @@ a {
   }
 }
 
+/* Official Preset Previews */
+#{c(chat messageAttachmentsContainer)} {
+  &#message-accessories-900277937956339712 {
+    margin-bottom: 20px;
+    #{c(embeds textContainerUp)} {
+      border: none;
+      background-color: transparent;
+      #{c(embeds textContainer)} {
+        @include bg;
+        @include bg2;
+        &:before {
+          background: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png) center/ cover no-repeat;
+        }
+        &:after {
+          background: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat;
+        }
+        pre {
+          display: none;
+        }
+      }
+    }
+    #{c(embeds textFooter)} {
+      width: 300px;
+      position: relative;
+      bottom: -40px;
+      #{c(embeds toggleExpandedPreview)},
+      #{c(embeds attachmentName)},
+      #{c(embeds attachmentSize)},
+      #{c(embeds codeIcon)} {
+        display: none;
+      }
+    }
+  }
+  &#message-accessories-900283733997920267 {
+    margin-bottom: 20px;
+    #{c(embeds textContainerUp)} {
+      border: none;
+      background-color: transparent;
+      #{c(embeds textContainer)} {
+        @include bg;
+        @include bg2;
+        &:before {
+          background: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png') center/ cover no-repeat;
+        }
+        &:after {
+          background: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat;
+        }
+        pre {
+          display: none;
+        }
+      }
+    }
+    #{c(embeds textFooter)} {
+      width: 300px;
+      position: relative;
+      bottom: -40px;
+      #{c(embeds toggleExpandedPreview)},
+      #{c(embeds attachmentName)},
+      #{c(embeds attachmentSize)},
+      #{c(embeds codeIcon)} {
+        display: none;
+      }
+    }
+  }
+}
 
 /* Tags */
 #{c(chat messageContents)} > #{c(chat chatAvatar)} ~ #{c(chat chatHeaderUsername)} #{c(chat chatUsername)}:after {
