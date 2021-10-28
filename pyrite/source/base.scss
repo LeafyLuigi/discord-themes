@@ -43,7 +43,12 @@
   /* Advanced Users */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
-  --gradient: to bottom right, var(--primary-color), var(--secondary-color);  // currently unused, not final
+  --background-filters: none; // currently unused
+  --user-modal-filters: blur(3px); // currently unused
+  --user-popout-filters: blur(3px); // currently unused
+  --gradient-colors: var(--primary-color);  // currently unused, not final
+  --gradient-direction: to bottom right;  // currently unused, not final
+  --body-filters: none;  // currently unused
 
 
   /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
