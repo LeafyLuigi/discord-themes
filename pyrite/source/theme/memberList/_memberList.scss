@@ -1,18 +1,23 @@
 @use "backend" as *;
 /* Start Member List */
 
-#{c(memberList wrap)} {
-  min-width: auto;
-  flex-basis: 0px;
+#{c(memberList container)} {
+  width: 240px;
+  background-color: $side;
   left: calc( ( 240px - 60px ) * var(--hide-member-list));
   transition: .5s all ease-out;
   margin-left: calc( -1 * (( 240px - 60px ) * var(--hide-member-list)));
-	&:hover {
-		left: 0;
+  position: relative;
+  &:hover {
+    left: 0;
 	}
+}
+#{c(memberList wrap)} {
+  background-color: transparent;
+  min-width: auto;
+  flex-basis: 0px;
 	#{c(memberList members)} {
-		width: 240px;
-    background-color: $side;
+    background-color: transparent;
     &>div {
       background-color: transparent;
     }
