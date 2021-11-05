@@ -1,7 +1,8 @@
 @use "backend" as *;
 /* Start Member List */
 
-#{c(chat chatContentInner)} ~ div {
+#{c(chat chatContentInner)} ~ div,
+#{c(chat chatContentInner)} ~ aside {
   width: 240px;
   background-color: $side;
   left: calc( ( 240px - 60px ) * var(--hide-member-list));
