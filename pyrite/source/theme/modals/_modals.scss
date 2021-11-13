@@ -44,7 +44,8 @@
 #{c(modals listModal)},
 #{c(modals autocomplete)},
 #{c(modals quickswitcher)},
-#{c(modals keyboardShortcuts)} {
+#{c(modals keyboardShortcuts)},
+#{c(modals toolbar)} {
   backdrop-filter: blur(4px);
 }
 
@@ -159,7 +160,8 @@
   border-radius: 4px;
   margin: 4px 16px 12px;
 }
-#{c(modals mentionsMessage)} {
+#{c(modals mentionsMessage)},
+#{c(modals mentionsGuildIcon)} {
   background-color: transparent;
 }
 #{c(modals mentionsCloseButton)} {
@@ -352,6 +354,9 @@
   #{c(modals menuCheckbox)},
   #{c(modals menuRadioSelection)} {
     color: $primary;
+  }
+  &:active:not(#{c(modals menuHideInteraction)}) {
+    background-color: $primary;
   }
 }
 #{c(modals menuColorDanger)} {
@@ -578,6 +583,16 @@
   @include card;
 }
 
+// toolbar (double click a word)
+#{c(modals toolbar)} {
+  background-color: $card;
+  &:before {
+    border-top-color: $card;
+  }
+}
+#{c(modals toolbarDivider)} {
+  display: none;
+}
 
 // classes that need to be put in and themed
 // .iconContainer-2aaq6z - background, use card, used in "Welcome to Stages" modal

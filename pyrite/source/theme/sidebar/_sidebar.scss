@@ -129,6 +129,9 @@
 #{c(sidebar noAccessChannelName)} {
   background-color: $primary;
 }
+#{c(sidebar emptyBackground)} {
+  fill: $secondary;
+}
 
 
 // Panels
@@ -215,6 +218,9 @@
     border: none;
     left: -6px;
   }
+}
+#{c(sidebar studentHubContainer)} {
+  background-color: transparent;
 }
 
 // VOICE CHANNEL WHEN FULL. REQUIRES ARIA-LABEL.

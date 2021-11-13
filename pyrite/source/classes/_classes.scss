@@ -58,6 +58,12 @@ $classes: (
 		"pictureInPicture": "pictureInPicture-3VocJq",
 		"anchorLink": "anchor-3Z-8Bb",
 		"toggle": "container-3auIfb", // that sliding selection thing
+		
+		// find this by joining TeRQEPb
+		"areYouARobotContainer": "container-2vhgEz",
+		"robotContent": "content-1jf0rq",
+		"robotTitle": "title-dHonOz",
+		"robotLogo": "logoContainer-2oll5D",
 	),
 	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 	"os": (
@@ -83,6 +89,7 @@ $classes: (
 		"web": "platform-web"
 	),
 	"button": (
+		"button": "button-38aScr",
 		"contents": "contents-18-Yxp",
 		"lookFilled": "lookFilled-1Gx00P",
 		"lookInverted": "lookInverted-2D7oAl",
@@ -517,6 +524,7 @@ $classes: (
 		"unreadsJumpBackground": "jumpButton-2dvRSC",
 		"unreadsIconContainer": "iconContainer-JbDkvn",
 
+		"mentionsGuildIcon": "guildIcon-3Co6k-",
 		"mentionsChannel": "container-3iAQ-0",
 		"mentionsCloseButton": "closeButton-1152MI",
 		"mentionsMessage": "messageContainer-gbhlwo",
@@ -559,6 +567,7 @@ $classes: (
 		"menuCheckbox": "checkbox-3s5GYZ",
 		"menuCheckboxCheck": "check-1JyqgN",
 		"menuRadioSelection": "radioSelection-1HmrQS",
+		"menuHideInteraction": "hideInteraction-1iHO1O",
 
 		"uploadArea": "uploadArea-3QgLtW", // has background
 		"uploadModalIn": "uploadModalIn-1z07Bv",
@@ -682,6 +691,9 @@ $classes: (
 		"ddrArrows": "ddrArrows-lSnH7P",
 
 		"incomingCall": "root-3JVdIJ",
+
+		"toolbar": "toolbar-2bjZV7",
+		"toolbarDivider": "divider-24xeUg",
 
 		"listModal": "modal-yWgWj-", // not 100% sure on the usage.
 	),
@@ -877,6 +889,7 @@ $classes: (
 
 		// no access == not loaded, not in the server etc
 		// also seems to be used when loading into discord
+		"emptyBackground": "empty-388osJ", //this one is for the fake channel's background
 		"noAccessSidebar": "container-JPloBS",
 		"noAccessCategory": "category-2SZJwK",
 		"noAccessChannelIcon": "channelIcon-CCo35e",
@@ -886,6 +899,7 @@ $classes: (
 		"hasBanner": "hasBanner-2SrLR3",
 		"bannerVisible": "bannerVisible-2ZE_qG",
 		"bannerImage": "bannerImage-3KhIJ6",
+		"studentHubContainer": "container-1d-xkt",
 
 		"voiceSpeaking": "avatarSpeaking-2IGMRN",
 	),

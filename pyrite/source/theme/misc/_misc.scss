@@ -315,6 +315,62 @@ body, // this one is here for transparency in bd to work
   }
 }
 
+// Are you a robot?
+#{c(main areYouARobotContainer)} {
+  background-color: $header;
+  backdrop-filter: blur(5px);
+}
+h1#{c(main robotTitle)} {
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: initial;
+  margin-bottom: 0 !important; // !important reason: i couldn't be fucked dealing with >:not(:last-child)
+  &:before {
+    content: "Oh fuck, you clicked on this thing!";
+    font-size: 24px;
+  }
+  &:after {
+    content: "Don't you love it when you have to input a dumb captcha?";
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-normal);
+  }
+  &+div {
+    font-size: 0;
+    display: flex;
+    flex-direction: column;
+    &:before {
+      content: "I love it. I'm sure you love it, too.";
+      font-size: 16px;
+    }
+    &:after {
+      content: "Who would've thought that someone actually wanted to add this into the Discord app?";
+      font-size: 16px;
+    }
+  }
+  &~#{c(button button)}>#{c(button contents)} {
+    font-size: 0;
+    &:before {
+      content: "just click this or press esc. don't bother with the captcha :)";
+      font-size: 14px;
+    }
+  }
+}
+#{c(main robotLogo)} svg g {
+  &>path {
+    display: none;
+  }
+  &>path:first-child {
+    display: inline;
+  }
+  &>path:nth-child(2) {
+    display: inline;
+    transform: translate(36px, 5px);
+    d: path("M 8.438 15.188 L 1.688 15.188 L 1.688 13.5 L 0 13.5 L 0 1.688 L 1.688 1.688 L 1.688 0 L 8.438 0 L 8.438 1.688 L 10.125 1.688 L 10.125 5.063 L 6.75 5.063 L 6.75 1.688 L 3.375 1.688 L 3.375 13.5 L 6.75 13.5 L 6.75 10.125 L 10.125 10.125 L 10.125 13.5 L 8.438 13.5 L 8.438 15.188 Z M 60.75 15.188 L 54 15.188 L 54 13.5 L 52.313 13.5 L 52.313 11.813 L 55.688 11.813 L 55.688 13.5 L 59.063 13.5 L 59.063 10.125 L 54 10.125 L 54 8.438 L 52.313 8.438 L 52.313 5.063 L 54 5.063 L 54 3.375 L 60.75 3.375 L 60.75 5.063 L 62.438 5.063 L 62.438 6.75 L 59.063 6.75 L 59.063 5.063 L 55.688 5.063 L 55.688 8.438 L 60.75 8.438 L 60.75 10.125 L 62.438 10.125 L 62.438 13.5 L 60.75 13.5 L 60.75 15.188 Z M 23.625 15.188 L 15.188 15.188 L 15.188 13.5 L 13.5 13.5 L 13.5 3.375 L 16.875 3.375 L 16.875 13.5 L 20.25 13.5 L 20.25 3.375 L 23.625 3.375 L 23.625 15.188 Z M 30.375 15.188 L 27 15.188 L 27 3.375 L 35.438 3.375 L 35.438 5.063 L 37.125 5.063 L 37.125 15.188 L 33.75 15.188 L 33.75 5.063 L 30.375 5.063 L 30.375 15.188 Z M 48.938 15.188 L 43.875 15.188 L 43.875 13.5 L 42.188 13.5 L 42.188 5.063 L 40.5 5.063 L 40.5 3.375 L 42.188 3.375 L 42.188 0 L 45.563 0 L 45.563 3.375 L 48.938 3.375 L 48.938 5.063 L 45.563 5.063 L 45.563 13.5 L 48.938 13.5 L 48.938 15.188 Z");
+  }
+}
+
 #{c(store store)} {
    #{c(store scroller)} {
     > #{c(store nitroContainer)} {

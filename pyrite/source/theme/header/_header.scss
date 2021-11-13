@@ -78,7 +78,7 @@
   }
 }
 #{c(header updateIconForeground)} {
-  fill: currentColor;
+  fill: $red;
 }
 #{c(header search)} {
   order: 1;
@@ -128,4 +128,8 @@
   &>a[href*="support.discord.com"] {
     display: none;
   }
+  #{c(header iconWrapper)}:not(#{c(header iconClickable)}) #{c(header icon)} {
+    cursor: not-allowed;
+    color: $red;
+  } 
 }
