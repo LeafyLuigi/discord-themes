@@ -113,21 +113,56 @@ html[lang="en-GB"] {
 	/*---------- BORDER RADIUS STUFFS ----------*/
 	--border-radius: 8px;
 	--border-radius-small: 4px;
-	// date divider
+	// chat date divider
 	.content-1o0f9g,
 	// friends list
 	.peopleColumn-29fq28 .peopleListItem-2nzedh:hover,
 	// active now card
-	.itemCard-v9viV7
+	.itemCard-v9viV7,
+	// this section could be better card
+	.card-2qZngs,
+
+	// active now avatar
+	.headerAvatar-2MDZJn > svg > foreignObject,
+	// private chats avatar/group chat icon, affects "my account" avatar, user popout avatar, user profile avatar
+	.wrapper-3t9DeA > svg > foreignObject,
+
+	// chat avatar, also affects friends list and member list
+	.avatar-1BDn8e,
+
+	// friend list action button
+	.actionButton-uPB8Fs,
+
+	// play video wrapper in chat
+	.wrapper-129saQ
 	{
 		border-radius: var(--border-radius);
 	}
 
 	// online/all/pending etc buttons
-	.topPill-30KHOu .item-PXvHYJ
+	.topPill-30KHOu .item-PXvHYJ,
+
+	// image wrapper in chat
+	.imageWrapper-2p5ogY
 	{
 		border-radius: var(--border-radius-small);
 	}
+
+	// mask removal for avatars
+	// active now status
+	// .headerAvatar-2MDZJn > svg > rect,
+	// active now avatar
+	.headerAvatar-2MDZJn > svg > foreignObject,
+	// private chats status
+	// .wrapper-3t9DeA > svg > rect,
+	// private chats avatar/group chat icon, affects "my account" avatar, user popout avatar, user profile avatar
+	.wrapper-3t9DeA > svg > foreignObject
+	{
+		mask: none;
+	}
+
+	// MAYBE:
+	// server icons, server folders
 
 }
 

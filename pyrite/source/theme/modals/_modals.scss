@@ -594,5 +594,34 @@
   display: none;
 }
 
+// events
+#{c(main dark)},
+#{c(main light)} {
+  #{c(modals eventPreviewCard)} {
+    background-color: $card;
+    border: 1px solid $primary;
+  }
+}
+#{c(modals eventTextInputWrapper)} {
+  background-color: transparent;
+}
+#{c(modals eventTickSelectedIcon)} {
+  color: $primary;
+}
+#{c(modals eventRSVPCount)} {
+  background-color: $card;
+  #{c(modals eventRSVPIcon)},
+  #{c(modals colorHeaderSecondary)} {
+    color: $primary;
+  }
+}
+#{c(modals eventCard)} {
+  background-color: $card;
+  border: 1px solid $primary;
+  &:hover {
+    background-color: $card;
+  }
+}
+
 // classes that need to be put in and themed
 // .iconContainer-2aaq6z - background, use card, used in "Welcome to Stages" modal

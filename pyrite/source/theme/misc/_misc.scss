@@ -558,6 +558,12 @@ a[href^="http://"] {
     line-height: 16px;
   }
 }
+/* Beta Version */
+html[lang="en-GB"] #{c(userSettings sidebarInfo)} {
+  &::after {
+    content: $theme-name str-insert($version, " Beta Branch - ", 0);
+  }
+}
 
 /* Official Preset Previews */
 #{c(chat messageAttachmentsContainer)} {
