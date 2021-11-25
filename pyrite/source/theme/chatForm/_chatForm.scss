@@ -100,7 +100,7 @@
   padding-top: 0;
 }
 #{c(chatForm scrollableContainer)} {
-  max-height: 20vh;
+  max-height: 30vh;
 }
 #{c(chatForm replyContainer)} {
   #{c(chatForm replyName)} {
@@ -126,6 +126,13 @@
 }
 #{c(chatForm paidGifTooltip)} {
   background-color: $card;
+}
+#{c(chatForm inlineUpload)} {
+  background-color: $card;
+}
+#{c(chatForm inlineSpoilerTag)} {
+  background-color: $secondary;
+  color: var(--text-normal);
 }
 
 // delete nitro button. might cock up a few plugins.

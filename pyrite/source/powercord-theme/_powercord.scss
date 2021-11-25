@@ -16,6 +16,7 @@ $middle: var(--middle-shading);
 $header: var(--header-shading);
 $card: var(--card-background);
 
+
 /* Begin Powercord Addon */
 body#{c(powercord base)} {
   #{c(powercord codeblockCopy)} {
