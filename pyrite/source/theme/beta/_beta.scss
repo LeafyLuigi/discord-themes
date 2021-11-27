@@ -214,6 +214,7 @@ html[lang="en-GB"] {
 		}
 
 		.dots-3Bkt3k {
+			color: $primary;
 			circle {
 				&:nth-child(1) {
 					cx: -9;
@@ -271,33 +272,33 @@ html[lang="en-GB"] {
 				}
 			}
 		}
-	}
-	.pointerEvents-2zdfdO {
-		fill: transparent !important;
-		mask: none;
-		x: 0;
-		y: 0;
-		display: block;
-		rx: calc(var(--avatar-radius) * var(--br-multi, 1));
-		ry: calc(var(--avatar-radius) * var(--br-multi, 1));
-		stroke-width: var(--stroke-width);
-		height: 100%;
-		width: var(--height);
-		stroke: var(--color);
-		&[fill="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
-			--color: var(--green-color);
-		}
-		&[fill="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
-			--color: var(--yellow-color);
-		}
-		&[fill="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
-			--color: var(--red-color);
-		}
-		&[fill="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"] {
-			--color: var(--live-color);
-		}
-		&[fill="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
-			--color: var(--offline-color);
+		rect {
+			fill: transparent !important;
+			mask: none;
+			x: 0;
+			y: 0;
+			display: block;
+			rx: calc(var(--avatar-radius) * var(--br-multi, 1));
+			ry: calc(var(--avatar-radius) * var(--br-multi, 1));
+			stroke-width: var(--stroke-width);
+			height: 100%;
+			width: var(--height);
+			stroke: var(--color);
+			&[fill="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+				--color: var(--green-color);
+			}
+			&[fill="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
+				--color: var(--yellow-color);
+			}
+			&[fill="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
+				--color: var(--red-color);
+			}
+			&[fill="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"] {
+				--color: var(--live-color);
+			}
+			&[fill="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
+				--color: var(--offline-color);
+			}
 		}
 	}
 }
