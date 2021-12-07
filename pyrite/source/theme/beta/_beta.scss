@@ -130,6 +130,12 @@ html[lang="en-GB"] {
 	// chat avatar, also affects friends list and member list
 	.avatar-1BDn8e,
 
+	// voice call avi
+	.avatar-3tNQiO,
+
+	// sidebar panel speaking
+	.avatarSpeaking-2c8-9i,
+
 	// hover over avatar in popout to see this
 	.avatarHint-2A3RNb
 	{
@@ -281,7 +287,7 @@ html[lang="en-GB"] {
 			rx: calc(var(--avatar-radius) * var(--br-multi, 1));
 			ry: calc(var(--avatar-radius) * var(--br-multi, 1));
 			stroke-width: var(--stroke-width);
-			height: 100%;
+			height: var(--height);
 			width: var(--height);
 			stroke: var(--color);
 			&[fill="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {

@@ -92,6 +92,10 @@
     #{c(serverList iconChildWrapper)} {
       background: $home center/cover no-repeat scroll;
       color: transparent;
+      // very quick remove xmas thinggy
+      >svg{
+        display: none !important; // !important reason: inline
+      }
     }
     &#{c(serverList selected)},
     &:hover {

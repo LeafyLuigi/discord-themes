@@ -32,49 +32,6 @@ $card: var(--card-background);
 	background-color: $card;
 	border: $primary;
 }
-// .floating-window #bd-editor-controls 
-// 
-#{c(userSettings contentColumn)},
-#{c(bdEditor floatingWindow)} {
-	#bd-editor-controls {
-		background-color: $header;
-	}
-	#{c(bdEditor monaco)},
-	#{c(bdEditor monacoBackground)},
-	#{c(bdEditor monaco)} #{c(bdEditor monacoInputArea)}#{c(bdEditor monacoIMEInput)} {
-		background-color: transparent;
-	}
-	#{c(bdEditor monaco)} {
-		#{c(bdEditor monacoMargin)} {
-			background-color: $side;
-		}
-		#{c(bdEditor monacoEditorScrollable)} {
-			background-color: $middle;
-		}
-		#{c(bdEditor monacoFocused)} {
-			#{c(bdEditor monacoSelectedText)} {
-				background-color: transparent;
-				&:before {
-					content: "";
-					width: inherit;
-					height: inherit;
-					background-color: $primary;
-					opacity: 0.5;
-				}
-			}
-		}
-		#{c(bdEditor monacoSelectedText)} {
-			background-color: transparent;
-			&:before {
-				content: "";
-				width: inherit;
-				height: inherit;
-				background-color: $primary;
-				opacity: 0.5;
-			}
-		}
-	}
-}
 #{c(bdEditor floatingWindow)} {
 	z-index: 1000;
 	&[style*="top: 0px;"],&[style*="top: 1px;"],&[style*="top: 2px;"],&[style*="top: 3px;"],&[style*="top: 4px;"],&[style*="top: 5px;"],&[style*="top: 6px;"],&[style*="top: 7px;"],&[style*="top: 8px;"],&[style*="top: 9px;"],
