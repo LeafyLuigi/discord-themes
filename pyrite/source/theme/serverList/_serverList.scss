@@ -18,9 +18,7 @@
 }
 
 #{c(serverList folder)},
-#{c(serverList folder)}#{c(serverList folderHover)},
-#{c(serverList folder2)},
-#{c(serverList folder2)}#{c(serverList folderHover2)} {
+#{c(serverList folder)}#{c(serverList folderHover)} {
   background-color: transparent;
 }
 // #{c(serverList folderIconWrapper)} {
@@ -32,8 +30,7 @@
 //     border-radius: 33%;
 //   }
 // }
-#{c(serverList expandedFolderBackground)},
-#{c(serverList expandedFolderBackground2)} {
+#{c(serverList expandedFolderBackground)} {
   background-color: $card;
 }
 
@@ -58,14 +55,12 @@
     transition: border-radius 0.1s;
   }
 }
-#{c(serverList addServer)},
-#{c(serverList addServer2)} {
+#{c(serverList addServer)} {
   background-color: rgba(255,255,255,0.05);
   color: $primary;
   border-radius: 50%;
   transition: color .15s ease-out,background-color .15s ease-out,border-radius 0.15s;
-  &#{c(serverList addServerSelected)},
-  &#{c(serverList addServerSelected2)} {
+  &#{c(serverList addServerSelected)} {
     background-color: $primary;
     border-radius: 33%;
     color: #fff;
@@ -86,16 +81,11 @@
   background-color: $green; //moving bar thing
 }
 
-#{c(serverList homeContainer)},
-#{c(serverList homeContainer2)} {
+#{c(serverList homeContainer)} {
   #{c(serverList iconWrapper)} {
     #{c(serverList iconChildWrapper)} {
       background: $home center/cover no-repeat scroll;
       color: transparent;
-      // very quick remove xmas thinggy
-      >svg{
-        display: none !important; // !important reason: inline
-      }
     }
     &#{c(serverList selected)},
     &:hover {
@@ -105,8 +95,7 @@
     }
   }
 }
-#{c(serverList serverSeparator)},
-#{c(serverList serverSeparator2)} {
+#{c(serverList serverSeparator)} {
   background: linear-gradient(to bottom, $secondary, transparent);
   width: 48px;
   height: 4px;
@@ -139,8 +128,7 @@
     filter: none;
 }
 
-#{c(serverList placeholderInner)},
-#{c(serverList placeholderInner2)} {
+#{c(serverList placeholderInner)} {
   background-color: $card;
 }
 

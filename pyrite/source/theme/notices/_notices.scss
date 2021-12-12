@@ -41,7 +41,7 @@
         position: relative;
         top: calc(-36px * var(--notice-count));
         // height calc: 77 -> 22, 55 (by default): former being bar at top, latter being server list width
-        height: calc(100vh - ( ( var(--server-container, 0px) ) * var(--horizontal-server-list-enabled, 0) ) - (66px * var(--channel-tabs-enabled,0) ) );
+        height: calc(100vh - ( ( 22px + var(--server-container, 0px) ) - ( 22px * var(--horizontal-server-list-enabled, 0) ) ) - ( 66px * var(--channel-tabs-enabled,0) ) )
       }
       #{c(chat noChannel)}:before {
         top: calc(-36px * var(--notice-count));

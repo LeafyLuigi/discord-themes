@@ -105,3 +105,16 @@ div#app-mount > {
     }
   }
 }
+
+body#{c(powercord base)} #{c(main layer)}[aria-label="GUILD_IDENTITY_SETTINGS"] {
+  .toolsContainer-1edPuj {
+    &:after{
+      content: " Please\A Press\A ESC";
+      text-align: center;
+      color: var(--red-color);
+    }
+    &>* {
+      display: none;
+    }
+  }
+}

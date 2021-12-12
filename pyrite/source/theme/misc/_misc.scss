@@ -475,6 +475,11 @@ a[href^="http://"] {
   text-shadow: 0 0 2px $red;
 }
 
+// remove xmas
+.tutorialContainer-11ICd5 .childWrapper-anI2G9>svg{
+  display: none !important;
+}
+
 /* HLJS */
 #{c(hljs comment)},
 #{c(hljs quote)} {

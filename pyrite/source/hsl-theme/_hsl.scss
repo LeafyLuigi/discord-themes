@@ -7,6 +7,7 @@
 @use "classes" as *;
 
 /* Incompatible with Dribbblish */
+/* Gibbu, the creator, decided to use a lot of #app-mount. Blame him. */
 
 /* Begin HSL Addon */
 @import url('https://discordstyles.github.io/HorizontalServerList/dist/HorizontalServerList.css');
@@ -17,7 +18,7 @@
   /* You are free to change these ones. Defaults are in the import above. */
   --server-size: var(--HSL-server-icon-size, var(--HSL-size, 35px));
   --server-spacing: var(--HSL-server-spacing, var(--HSL-spacing, 10px));
-  --server-container: calc(var(--server-size) + 20px);
+  --server-container: calc(var(--server-size) + 20px); // set the + offset to 42 if you want the old bar back
 }
 
 #app-mount {
@@ -29,6 +30,12 @@
   }
 }
 
+// allow interacting for these
+#{c(serverList serverWrapper)},
+#{c(serverList folder)} {
+  -webkit-app-region: no-drag;
+}
+
 // Windows
 #{c(os windows)} {
   #app-mount {
@@ -37,21 +44,8 @@
     }
   }
   #{c(os typeWindows)} {
-    background-color: var(--header-shading);
-    height: 22px;
+    height: 0;
     margin-top: 0;
-    &::before {
-      content: none;
-    }
-    & > #{c(os wordmark)} {
-      position: absolute;
-      top: 0;
-      &::before,
-      &::after {
-        right: 0;
-        top: 0;
-      }
-    }
   }
   #{c(serverList servers)} {
     &::before {
@@ -75,13 +69,9 @@
 // Mac
 #{c(os mac)} {
   #app-mount {
-    #{c(os macButtonClose)},
-    #{c(os macButtonMinimize)},
-    #{c(os macButtonMaximize)} {
-      margin-top: 0;
-    }
     #{c(os typeMac)} #{c(os macButtons)} {
       padding: 10px;
+      margin-top: -22px;
       &::before,
       &::after {
         position: unset;
@@ -89,22 +79,33 @@
       }
     }
     #{c(serverList servers)} {
-      top: calc(var(--server-container) - 26px) !important; // !important reason: import uses !important
+      top: calc(var(--server-container) - 48px) !important; // !important reason: import uses important
+      #{c(serverList scroller)} {
+        padding-top: 70px !important; // !important reason: import uses important
+      }
     }
   }
   #{c(os typeMac)} {
-    height: 22px;
-    background-color: var(--header-shading);
-  }
-  #{c(main layer)}:not(#{c(main baseLayer)}) {
-    top: 22px;
-    padding-top: 22px;
+    height: 0;
+    &:before {
+      content: "";
+      height: 22px;
+      width: 100vw;
+      display: block;
+      -webkit-app-region: drag;
+    }
   }
   #{c(main appMount)} #{c(os typeMac)} #{c(os macButtons)} {
     height: 12px;
   }
   #{c(serverList servers)} {
-    top: calc(var(--server-container) + 22px) !important; // !important reason: import overrides it
+    top: var(--server-container) !important; // !important reason: import overrides it
+    &::before {
+      content: none;
+    }
+    #{c(serverList scroller)} {
+      padding-top: 70px !important; // !important reason: import uses important
+    }
   }
   #{c(header header)} {
     -webkit-app-region: unset;
@@ -113,14 +114,12 @@
     top: 20px;
     padding-top: 22px;
   }
-  #{c(serverList servers)} {
-    &::before {
-      content: none;
-    }
+  #{c(sidebar sidebar)}:after {
+    -webkit-app-region: unset;
   }
 }
 html#{c(os mac)} #app-mount #{c(main base)} {
-  top: calc(var(--server-container) + 22px) !important; // !important reason: import overrides it
+  top: var(--server-container) !important; // !important reason: import overrides it
 }
 
 // Linux/Web
