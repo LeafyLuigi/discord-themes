@@ -88,6 +88,22 @@ $classes: (
 		"linux": "platform-linux",
 		"web": "platform-web"
 	),
+	"boost": (
+		"wrapper": "wrapper-3qSb0d",
+		"navBar": "navigationBar-2JJXBp",
+		"scrollerWrapper": "scrollerWrapper-3SotqN",
+		"topBanner": "hero-209Qgc",
+		"topBannerLowSaturation": "heroLowSaturation-1DeYGg",
+		"guildInfoWrapper": "guildInfoWrapper-3k4tAY",
+		"progressBarFill": "progressBarFill-T4kMVn",
+		"progressBarTrack": "progressBarTrack-3y6rh7",
+		"progressMarker": "progressBarMarker-1PPOYV",
+		"planCard": "planCard-rYl0vk",
+		"planCardImage": "planCardImage-12Atlc",
+
+		"perkPopoutImage": "perkPopoutImage-1mWljp",
+		"perkPopoutAnimation": "perkPopoutAnimation-2homYn",
+	),
 	"button": (
 		"button": "button-38aScr",
 		"contents": "contents-18-Yxp",
@@ -136,6 +152,7 @@ $classes: (
 		"videoBorder": "border-3dQmSY",
 		"videoSpeaking": "speaking-WDn8Wm",
 		"streamBackground": "root-2sELX6",
+		"avatar": "avatar-3tNQiO",
 	),
 	"channelSettings": (
 		"roleScroller": "scroller-305q3I",
@@ -207,11 +224,13 @@ $classes: (
 		"messageAttachmentsContainer": "container-1ov-mD",
 		"messageAttachment": "messageAttachment-1aDidq",
 		"chatAvatar": "avatar-1BDn8e",
+		"chatAvatarTimedOut": "communicationDisabledOpacity-To9NDM",
 		"chatHeaderUsername": "header-23xsNx",
 		"chatTimestamp": "timestamp-3ZCmNB",
 		"chatEdited": "edited-3sfAzf",
 		"chatUsername": "username-1A8OIy",
 		"chatUsernameClickable": "clickable-1bVtEA",
+		"chatUsernameTimedOut": "communicationDisabled-11brwX",
 		"zalgoBlocker": "zalgo-jN1Ica",
 		"messageContent": "messageContent-2qWWxC",
 		"spoilerText": "spoilerText-3p6IlD",
@@ -378,6 +397,8 @@ $classes: (
 		"gameFullHeight": "fullHeight-24whqn",
 		"gameArtwork": "artwork-1vrmJ_",
 		"uploadProgressBar": "progressBar-3u8FBM",
+		"videoPlayWrapper": "wrapper-129saQ",
+		"imageWrapper": "imageWrapper-2p5ogY",
 	),
 	//indented as it's a subset of embeds
 		"media": (
@@ -437,6 +458,7 @@ $classes: (
 		"live": "live-vBWnV6",
 		"multipleIconWrapper": "multipleIconWrapper-DfGWrz",
 		"multipleIcon": "multipleIcon-1oJINS",
+		"activeNowAvatar": "headerAvatar-2MDZJn",
 	),
 	"header": (
 		"header": "container-1r6BKw",
@@ -444,7 +466,7 @@ $classes: (
 		"children": "children-19S4PO",
 		"divider": "divider-3FBTu8",
 		"iconWrapper": "iconWrapper-2OrFZ1",
-		"updateIconForeground": "updateIconForeground-3tnNZn",
+		"updateIconForeground": "updateIconForeground-7tX35q",
 		"icon": "icon-22AiRD",
 		"iconClickable": "clickable-3rdHwn",
 		"title": "title-29uC1r",
@@ -452,7 +474,7 @@ $classes: (
 		"input": "input-2A_zIr",
 		"toolbar": "toolbar-1t6TWx",
 		"iconSelected": "selected-1GqIat",
-		"search": "search-36MZv-",
+		"search": "search-wZVriS",
 		"searchInner": "search-2oPWTC",
 		"searchOpen": "open-6_Y_aH",
 		"searchBar": "searchBar-3dMhjb",
@@ -707,8 +729,29 @@ $classes: (
 		"eventRSVPIcon": "rsvpIcon-32ixCJ",
 		"eventCard": "card-2X8BSG",
 
+		"beforeTalkModal": "container-19nk2r",
+		"beforeTalkClose": "closeButton-1aXUE8",
+		"beforeTalkSidebar": "guildSidebar-2OCzWB",
+		"beforeTalkMain": "modal-f02hVt",
+		"beforeTalkRules": "formFieldWrapper-malor5",
+
+		"timeoutSelectorButton": "selectorButton-2es7-i",
+		"timeoutSelectorButtonSelected": "selectorButtonSelected-Jj5-3m",
+
 		"listModal": "modal-yWgWj-", // not 100% sure on the usage.
 	),
+		"timedOut": (
+			"container": "container-3xeWHc",
+			"iconContainer": "iconContainer-3eYW51",
+			"icon": "icon-110tQy",
+			"spamBanner": "spamBanner-F4eeXk",
+			"bannerIcon": "bannerIcon-3xvIH-",
+		),
+		"toasts": (
+			"container": "container-2cKKek",
+			"toast": "toast-1DEQGy",
+			"icon": "icon-q80NJC",
+		),
 	"notice": (
 		"base": "notice-3bPHh-",
 		"completeSteps": "notice-3uyY6c", // contents: "You must complete a few more steps before you can start talking in this server."
@@ -1044,6 +1087,7 @@ $classes: (
 		"avatarPositionPremium": "avatarPositionPremium-1QenYe",
 		"avatarImg": "avatar-VxgULZ",
 		"headerTop": "headerTop-3vNv-a",
+		"avatarHint": "avatarHint-2A3RNb",
 		"aboutMe": "aboutMeSection---MkQa",
 		"badges": "profileBadges-ohc0Vu",
 		"customStatus": "customStatus-2SDCR6",

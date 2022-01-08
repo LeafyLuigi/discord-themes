@@ -1,6 +1,6 @@
 @use "backend" as *;
 /* Begin Modals */
-// @debug "rewite this shit";
+@debug "rewite this shit";
 #{c(main dark)},
 #{c(main light)} {
   #{c(modals root)} {
@@ -45,7 +45,8 @@
 #{c(modals autocomplete)},
 #{c(modals quickswitcher)},
 #{c(modals keyboardShortcuts)},
-#{c(modals toolbar)} {
+#{c(modals toolbar)},
+#{c(timedOut container)} {
   backdrop-filter: blur(4px);
 }
 
@@ -620,6 +621,37 @@
   border: 1px solid $primary;
   &:hover {
     background-color: $card;
+  }
+}
+
+// "Before you can talk here"
+#{c(modals beforeTalkModal)} {
+  #{c(modals beforeTalkSidebar)} {
+    background-color: $side;
+  }
+  #{c(modals beforeTalkMain)} {
+    background-color: $middle;
+  }
+  #{c(modals beforeTalkRules)} {
+    border-color: $primary;
+    background-color: $card;
+  }
+  #{c(modals rootFooter)} {
+    border-radius: 0;
+  }
+}
+
+// Timeout user modal
+#{c(modals timeoutSelectorButton)} {
+  background-color: $card;
+  &:hover {
+    background-color: $hover;
+  }
+}
+#{c(modals timeoutSelectorButtonSelected)} {
+  background-color: $primary;
+  &:hover {
+    background-color: $primary;
   }
 }
 

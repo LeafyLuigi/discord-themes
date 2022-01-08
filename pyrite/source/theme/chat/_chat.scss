@@ -207,7 +207,7 @@
 
 #{c(chat gifFavoriteButton)} {
   #{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)} #{c(chat gifFavoriteIcon)} {
-    animation: gif-bouce .4s linear;
+    animation: gif-bounce .4s linear;
   }
   #{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)}:after {
     animation: gif-ripple .45s ease;
@@ -273,6 +273,12 @@
 
 #{c(chat welcomeCTA)} {
   display: none;
+}
+
+#{c(chat chatUsernameTimedOut)} {
+  path {
+    fill: $red;
+  }
 }
 
 // Threads

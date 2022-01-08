@@ -1,0 +1,20 @@
+@use "backend" as *;
+/* Begin Timed Out */
+#{c(timedOut container)} {
+    background-color: $card;
+}
+#{c(timedOut iconContainer)} {
+    background-color: transparent;
+}
+#{c(timedOut icon)},
+#{c(timedOut bannerIcon)} {
+    path {
+        &[fill="#ED4245"] {
+            fill: $red;
+        }
+    }
+}
+#{c(timedOut spamBanner)} {
+    background-color: $header;
+    backdrop-filter: blur(2px);
+}

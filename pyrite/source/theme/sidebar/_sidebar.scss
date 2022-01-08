@@ -223,44 +223,6 @@
   background-color: transparent;
 }
 
-// VOICE CHANNEL WHEN FULL. REQUIRES ARIA-LABEL.
-@debug "Aria Label list in Sidebar";
-#{c(sidebar channelMainContent)} {
-  &[aria-label="Denne kanal er fuld."], // Danish
-  &[aria-label="Dieser Kanal ist voll."], // German
-  &[aria-label="This channel is full."], // English
-  &[aria-label="Este canal está lleno."], // Spanish
-  &[aria-label="Ce salon est plein."], // French
-  &[aria-label="Ovaj kanal je pun."], // Croatian
-  &[aria-label="Questo canale è pieno."], // Italian
-  &[aria-label="Kanalas pilnas."], // Lithuanian
-  &[aria-label="Ez a csatorna megtelt."], // Hungarian
-  &[aria-label="Dit kanaal is vol."], // Dutch
-  &[aria-label="Denne kanalen er full."], // Norwegian
-  &[aria-label="Ten kanał jest pełny."], // Polish
-  &[aria-label="Este canal está lotado."], // Portuguese
-  &[aria-label="Acest canal este plin."], // Romanian
-  &[aria-label="Tämä kanava on täynnä."], // Finnish
-  &[aria-label="Den här kanalen är full."], // Swedish
-  &[aria-label="Kênh đã đầy."], // Vietnamese
-  &[aria-label="Bu kanal dolu."], // Turkish
-  &[aria-label="Tento kanál je plný."], // Czech
-  &[aria-label="Αυτό το κανάλι είναι γεμάτο."], // Greek
-  &[aria-label="Този канал е пълен."], // Bulgarian
-  &[aria-label="Этот канал заполнен."], // Russian
-  &[aria-label="Цей канал переповнений."], // Ukranian
-  &[aria-label="ช่องนี้เต็ม"], // Thai
-  &[aria-label="此频道已满。"], // Chinese (mainland)
-  &[aria-label="このチャンネルは満員です。"], // Japanese
-  &[aria-label="此頻道已滿。"], // Chinese (Taiwan)
-  &[aria-label="채널 인원이 다 찼어요."] // Korean
-    {
-    ~ #{c(sidebar channelChildren)} #{c(sidebar channelUserLimitWrapper)} {
-      color: #f04747;
-    }
-  }
-}
-
 // unread channels: hides dot, makes channel name and icon $main
 // make read text normal
 // make mutes text muted 

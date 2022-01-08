@@ -1,0 +1,36 @@
+@use "backend" as *;
+/* Begin Boosts */
+#{c(main dark)},
+#{c(main light)} {
+	#{c(boost navBar)} {
+		background-color: $header;
+	}
+	#{c(boost topBannerLowSaturation)} {
+		background-image: none;
+	}
+}
+#{c(boost wrapper)} {
+	background-color: transparent;
+}
+#{c(boost scrollerWrapper)} {
+	background-color: $middle;
+}
+#{c(boost topBanner)} {
+	background: transparent none;
+}
+#{c(boost topBannerLowSaturation)} #{c(boost guildInfoWrapper)},
+#{c(boost guildInfoWrapper)},
+#{c(boost progressMarker)} {
+	background-color: $card;
+}
+#{c(boost planCard)} {
+	background-color: $card;
+	padding: 24px 16px;
+	#{c(boost planCardImage)} {
+		display: none;
+	}
+}
+#{c(boost perkPopoutAnimation)},
+#{c(boost perkPopoutImage)} {
+	display: none;
+}

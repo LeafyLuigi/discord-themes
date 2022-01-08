@@ -102,13 +102,13 @@
     }
     // and the blocked tab
     &#{c(header tabBarItemThemed)} {
-      &[data-item-id="BLOCKED"] {
+      &[aria-controls="blocked-tab"] {
         color: #fff;
         background-color: $red;
       }
     }
     &#{c(header tabBarItemSelected)}#{c(header tabBarItemThemed)} {
-      &[data-item-id="BLOCKED"] {
+      &[aria-controls="blocked-tab"] {
         color: $red;
         background-color: transparent;
         // for parity
