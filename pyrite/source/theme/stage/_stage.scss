@@ -61,8 +61,11 @@
   @include card;
 }
 
-#{c(stage tileContainer)}:hover {
-  background-color: var(--background-modifier-hover);
+#{c(stage tileContainer)} {
+  background-color: transparent;
+  &:hover {
+    background-color: var(--background-modifier-hover);
+  }
 }
 
 #{c(stage openTheStageContainer)},
@@ -107,6 +110,20 @@
     background-color: $primary;
     color: #fff;
   }
+  &#{c(stage red)},
+  &#{c(stage red)}:hover,
+  &#{c(stage red)}:active {
+    background-color: $red;
+    color: #fff;
+  }
+}
+#{c(stage buttonRow)} #{c(stage leaveQuietlyButton)} {
+  &::before {
+    border-radius: 28px;
+  }
+  #{c(button contents)} {
+    z-index: 1;
+  }
 }
 #{c(stage audienceVoiceUserIconContainer)} {
   background-color: $primary;
@@ -120,4 +137,7 @@
   #{c(stage speakerRaiseHandBadge)} {
     animation: numberBadgeFlash 5s linear infinite;
   }
+}
+#{c(stage avatar)} {
+  background-color: transparent;
 }

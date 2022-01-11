@@ -41,3 +41,9 @@
 #{c(call streamBackground)} { 
   background-color: transparent;
 }
+#{c(call liveQualityIndicator)} {
+  background-color: $card !important; // !important reason: element.style
+}
+#{c(call lowQualityWarningIcon)} {
+  color: $yellow;
+}

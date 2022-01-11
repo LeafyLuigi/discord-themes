@@ -103,16 +103,14 @@
 
 #{c(main dark)},
 #{c(main light)} {
+  #{c(channelSettings integrationCard)},
   #{c(channelSettings webhookCard)},
-  #{c(channelSettings webhookCard2)},
-  #{c(channelSettings webhookCard3)} {
+  #{c(channelSettings followedChannelCard)} {
     border-color: var(--secondary-color);
   }
-  #{c(channelSettings webhookFooterImage)} {
-    display: none;
-  }
 }
-#{c(channelSettings webhookIconWrapper)},
-#{c(channelSettings webhookAvatarUploader)} {
+#{c(channelSettings integrationIconWrapper)},
+#{c(channelSettings webhookAvatarUploader)},
+#{c(channelSettings followedChannelAvatar)} {
   background-color: transparent;
 }

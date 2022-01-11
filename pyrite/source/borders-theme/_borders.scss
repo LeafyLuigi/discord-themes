@@ -33,7 +33,7 @@ $card: var(--card-background);
 #{c(friends activeNowAvatar)} > svg > foreignObject,
 
 // private chats avatar/group chat icon, affects "my account" avatar, user popout avatar, user profile avatar
-#{c(memberList status)} img,
+#{c(memberList avatarWrapper)} img,
 
 // chat avatar, also affects friends list and member list
 #{c(chat chatAvatar)},
@@ -81,16 +81,14 @@ $card: var(--card-background);
 }
 
 // mask removal for avatars
-// active now status
-// .headerAvatar-2MDZJn > svg > rect,
 // active now avatar
-.headerAvatar-2MDZJn > svg > foreignObject,
-// private chats status
-// .wrapper-3t9DeA > svg > rect,
+#{c(friends activeNowAvatar)} > svg > foreignObject,
+
 // private chats avatar/group chat icon, affects "my account" avatar, user popout avatar, user profile avatar
-.wrapper-3t9DeA > svg > foreignObject,
+#{c(memberList avatarWrapper)} > svg > foreignObject,
+
 // hover over avatar in popout to see this
-.avatarHint-2A3RNb > foreignObject
+#{c(userPopout avatarHint)} > foreignObject
 {
 	mask: none;
 }
@@ -98,21 +96,23 @@ $card: var(--card-background);
 // MAYBE:
 // server icons, server folders
 
-.userPopout-xaxa6l {
+#{c(userPopout popout)} {
 	--br-multi: 2.5;
 }
-.root-3QyAh1 {
+#{c(userModal root)} {
 	--br-multi: 4;
-	.body-r6_QPy {
+	#{c(userModal body)} {
 		--br-multi: 1;
 	}
 }
 
-.wrapper-3t9DeA svg {
+#{c(friends activeNowAvatar)} svg,
+#{c(memberList avatarWrapper)} > svg
+{
 	overflow: visible;
 }
 
-.mask-1l8v16 {
+#{c(memberList avatarMask)} {
 	&[height="24"]{
 		--height: 24px;
 	}
@@ -131,8 +131,9 @@ $card: var(--card-background);
 		--stroke-width: 4px;
 	}
 
-	.dots-3Bkt3k {
+	#{c(chatForm typingDots)} {
 		color: $primary;
+		overflow: visible;
 		circle {
 			&:nth-child(1) {
 				cx: -9;

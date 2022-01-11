@@ -1,5 +1,8 @@
 @use "backend" as *;
 /* Start Notices */
+// since this whole fucking thing is a mess let me explain in these handy comments that anyone who knows
+// what they're doing will be yelling at me over how spaghetti this is
+// first one: windows and mac stuff for setting the height of stuff since it's handled slightly differently on linux/web
 #{c(os windows)},
 #{c(os mac)} {
   #{c(main base)} #{c(notice base)} ~ #{c(main content)} {
@@ -7,10 +10,24 @@
     #{c(chat chat)},
     #{c(friends container)},
     #{c(sidebar sidebar)} {
+      // the extra "22px" here is done for the bar at the top which has been removed using the theme.
       height: calc(100vh - ( ( 22px + var(--server-container, 0px) ) * var(--horizontal-server-list-enabled, 0) ) - ( 66px * var(--channel-tabs-enabled,0) ) );
     }
   }
 }
+// linux/web has a 22px gap at bottom with above because it lacks the bar at top.
+#{c(os linux)},
+#{c(os web)} {
+  #{c(main base)} #{c(notice base)} ~ #{c(main content)} {
+    #{c(sidebar hasNotice)},
+    #{c(chat chat)},
+    #{c(friends container)},
+    #{c(sidebar sidebar)} {
+      height: calc(100vh - ( ( var(--server-container, 0px) ) * var(--horizontal-server-list-enabled, 0) ) - ( 66px * var(--channel-tabs-enabled,0) ) );
+    }
+  }
+}
+// this is where the main shit is. "main base" is the div above the notice
 #{c(main base)} {
   #{c(notice base)} {
     max-height: 36px;
@@ -22,6 +39,8 @@
     padding: 0;
     box-shadow: none;
     // background-color: transparent;
+    
+    // this block is for notice count, max of 3.
     & + #{c(notice base)} {
       & ~ #{c(main content)} {
         --notice-count: 2;
@@ -32,8 +51,11 @@
         }
       }
     }
+
+    // this lot is for moving things into place
     & ~ #{c(main content)} {
       --notice-count: 1;
+      // sidebar w/ notice, chat, friends area, sidebar
       #{c(sidebar hasNotice)},
       #{c(chat chat)},
       #{c(friends container)},
@@ -43,20 +65,42 @@
         // height calc: 77 -> 22, 55 (by default): former being bar at top, latter being server list width
         height: calc(100vh - ( ( 22px + var(--server-container, 0px) ) - ( 22px * var(--horizontal-server-list-enabled, 0) ) ) - ( 66px * var(--channel-tabs-enabled,0) ) )
       }
+      // server without chat
       #{c(chat noChannel)}:before {
         top: calc(-36px * var(--notice-count));
       }
+      // region selector when in a call
+      #{c(call regionSelector)} {
+        position: relative;
+        top: calc(36px * var(--notice-count));
+      }
+      // chat stuffs.
       #{c(chat chat)} {
+        // messages and new message bar
         #{c(chat chatScroller)},
         #{c(chat newMessagesBar)} {
           top: calc(36px * var(--notice-count));
         }
+        // member list and search
         #{c(memberList wrap)},
         #{c(search wrap)} {
           top: calc(36px * var(--notice-count));
           height: calc(100% - calc(36px * var(--notice-count)));
         }
+        // this is for when you're in a chat with an ongoing call
+        #{c(call wrapper)} ~ #{c(chat chatContent)} {
+          #{c(memberList wrap)},
+          #{c(search wrap)} {
+            top: unset;
+            height: unset;
+          }
+          #{c(chat chatScroller)},
+          #{c(chat newMessagesBar)} {
+            top: 0;
+          }
+        }
       }
+      // this is for the div containing both the friend list proper and the now playing sidebar
       #{c(friends tabBody)} {
         top: calc(36px * var(--notice-count));
         #{c(friends peopleColumn)},
@@ -73,7 +117,6 @@
 #{c(notice previewServerNotice)} {
   height: 36px;
 }
-
 #{c(notice viewServerAsRole)} {
   height: 36px;
   > button {
@@ -84,4 +127,7 @@
       right: 8px;
     }
   }
+}
+#{c(notice colorNotifGreen)} {
+  background-color: $green;
 }

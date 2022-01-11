@@ -2,12 +2,6 @@
 /* Begin Search */
 #{c(main dark)},
 #{c(main light)} {
-  #{c(search tab)} {
-    &#{c(search selected)} {
-      background-color: $secondary;
-      color: #fff;
-    }
-  }
   #{c(search searchFilter)},
   #{c(search searchAnswer)} {
     background-color: $primary;
@@ -20,6 +14,15 @@
 }
 #{c(search header)} {
   background-color: $header;
+}
+#{c(search headerTabList)} {
+  #{c(search tabItem)}#{c(search tabThemed)} {
+    &#{c(search tabSelected)},
+    &#{c(search tabSelected)}:hover {
+      background-color: $secondary;
+      color: #fff;
+    }
+  }
 }
 #{c(search wrap)} {
   background-color: transparent;

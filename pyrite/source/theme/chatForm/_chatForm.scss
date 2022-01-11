@@ -39,14 +39,14 @@
     content: none;
   }
 }
-#{c(chatForm wrapper)} {
+#{c(chatForm followWrapper)} {
   z-index: 0;
   background-color: rgba(255,255,255,0.1);
   backdrop-filter: blur(2px);
-  #{c(chatForm image)} {
+  #{c(chatForm followImage)} {
     display: none;
   }
-  #{c(chatForm text)} {
+  #{c(chatForm followText)} {
     &>div {
       color: #fff;
     }
