@@ -133,3 +133,9 @@
 #{c(friends live)} {
   background-color: $red !important; // !important usage: element.style
 }
+
+#{c(friends addFriendInputWrapper)} {
+  &:focus-within {
+    border-color: $primary;
+  }
+}

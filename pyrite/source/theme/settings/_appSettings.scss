@@ -10,6 +10,11 @@
   background-color: $primary;
 }
 
+#{c(appSettings previewMessage)} {
+  padding: 0;
+  background-color: transparent;
+}
+
 #{c(main dark)},
 #{c(main light)} {
   #{c(appSettings voiceNotches)} {
@@ -17,18 +22,18 @@
   }
 }
 
-#{c(main dark)},
-#{c(main light)} {
-  #{c(appSettings voicePage)} {
-    #{c(appSettings voicePreviewOverlay)} {
-      @include card-dark;
-    }
-  }
-}
+
 #{c(appSettings voicePreviewContainer)} {
+  @include card;
   #{c(main mediaEngineVideo)} {
     background: transparent;
   }
+}
+#{c(appSettings voiceBackgroundOptionRing)} {
+  border-color: $primary;
+}
+#{c(appSettings voiceBackgroundOptionInner)} {
+  background-color: $card;
 }
 
 #{c(appSettings overlayWrapper)} {
@@ -38,6 +43,15 @@
     &#{c(appSettings overlaySelected)} {
       background-color: $primary;
     }
+  }
+  &#{c(appSettings overlayDisabledSelected)} {
+    border-color: $red;
+  }
+}
+#{c(appSettings overlayDisabled)} {
+  &#{c(appSettings overlaySelected)},
+  &:hover {
+    color: $red;
   }
 }
 
@@ -134,7 +148,7 @@
   fill: $secondary;
 }
 #{c(appSettings game)} {
-  #{c(appSettings gameNameLastPlayed)} + div {
+  #{c(appSettings gameLastPlayed)} + div {
     position: relative;
     right: 32px;
   }

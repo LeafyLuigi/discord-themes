@@ -540,6 +540,12 @@ html[lang="en-GB"] #{c(userSettings sidebarInfo)} {
     content: $theme-name str-insert($version, " Beta Branch - ", 0);
   }
 }
+#{c(userSettings contentColumn)} > div > :nth-child(2) > :only-child > div > :nth-child(3) > #{c(userSettings radioBar)} > :nth-child(2) > div:after {
+  content: "Pyrite Beta Branch";
+  font-size: 14px;
+  color: $primary;
+  font-style: italic;
+}
 
 /* Official Preset Previews */
 #{c(chat messageAttachmentsContainer)} {
@@ -618,7 +624,7 @@ html[lang="en-GB"] #{c(userSettings sidebarInfo)} {
 }
 
 $dev: (
-  "309976820109803520", // Nao Tomori
+  "309976820109803520", // Leafy (my username changes a lot)
 );
 $helper: (
   "126652966265421824", // Scars

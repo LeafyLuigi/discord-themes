@@ -124,9 +124,9 @@
 	box-shadow: inset 0 0 0 2px $primary;
 }
 
-#{c(sidebar noAccessCategory)},
-#{c(sidebar noAccessChannelIcon)},
-#{c(sidebar noAccessChannelName)} {
+#{c(sidebar loadingCategory)},
+#{c(sidebar loadingChannelIcon)},
+#{c(sidebar loadingChannelName)} {
   background-color: $primary;
 }
 #{c(sidebar emptyBackground)} {
@@ -166,11 +166,9 @@
 }
 
 #{c(sidebar channelCategoryContainerDefault)} {
-  #{c(sidebar channelChildren)},
   #{c(sidebar categoryChildren)} {
     order: 1;
   }
-  #{c(sidebar channelMainContent)},
   #{c(sidebar categoryMainContent)} {
     order: 2;
   }

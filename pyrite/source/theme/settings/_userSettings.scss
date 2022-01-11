@@ -54,9 +54,6 @@
   #{c(userSettings contentHeader)} {
     @include header;
   }
-  #{c(userSettings contentBackground)} {
-    @include card;
-  }
   #{c(userSettings fieldList)} {
     background-color: transparent;
   }
@@ -71,15 +68,29 @@
     }
   }
 }
-#{c(userSettings profile)} ~ #{c(userSettings fieldList)} #{c(userSettings field)}:first-child {
-  #{c(userSettings usernameRow)} #{c(userSettings usernameRowInner)} {
-    &>span:last-child {
-      filter: blur(5px);
-      transition: all 0.5s ease-in-out;
-    }
-    &:hover>span:last-child {
-      filter: none;
-    }
+#{c(userSettings accountProfile)} {
+  background-color: $card;
+  #{c(userSettings accountProfileBackground)} {
+    padding: 8px 0 0 0;
+    background-color: transparent;
+  }
+  #{c(userSettings accountProfileAvatar)} {
+    border-color: transparent;
+    background-color: transparent;
+  }
+}
+
+#{c(userSettings profileNitroNotice)} {
+  display: none;
+}
+#{c(userSettings profileAvatarUploader)} {
+  border-color: transparent;
+  background-color: transparent;
+}
+#{c(userSettings profileBannerPreview)} { 
+  background-color: transparent;
+  #{c(userSettings profilePopoutInfo)} {
+    background-color: rgba(0,0,0,0.4);
   }
 }
 
@@ -125,7 +136,6 @@
   @include card;
 }
 
-// @debug "Connections need to be done based on icons of cards. VERY LIKELY will be impossible to do with height changing.";
 #{c(userSettings accountList)} {
   @include card;
 }
@@ -180,9 +190,6 @@
       }
     }
   }
-  #{c(userSettings nitroBanner)} {
-    @include card;
-  }
 }
 
 #{c(main dark)},
@@ -230,4 +237,17 @@
   #{c(userSettings closeButton)}>svg>path {
     fill: currentColor;
   }
+}
+
+#{c(main dark)},
+#{c(main light)} {
+  #{c(userSettings subscriptionsNoItemsIconSubs)},
+  #{c(userSettings subscriptionsNoItemsIconCredits)} {
+    background-color: transparent;
+  }
+}
+
+#{c(userSettings subscriptionsNoItemsCardSubs)},
+#{c(userSettings subscriptionsNoItemsCardCredits)} {
+  @include card;
 }

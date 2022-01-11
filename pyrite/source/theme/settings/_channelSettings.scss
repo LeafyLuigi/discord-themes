@@ -1,5 +1,11 @@
 @use "backend" as *;
 /* Begin Channel Settings */
+#{c(channelSettings channelName)} {
+  &#{c(channelSettings channelNameFocused)},
+  &:focus {
+    border-color: $primary;
+  }
+}
 #{c(channelSettings roleScroller)} {
   background-color: transparent;
 }

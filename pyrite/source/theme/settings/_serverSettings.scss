@@ -36,6 +36,13 @@
   }
 }
 
+#{c(serverSettings serverIconUploadInner)} {
+  background-color: transparent;
+}
+#{c(serverSettings bannerUpsellContainer)} {
+  display: none;
+}
+
 #{c(serverSettings newBadge)} {
   background-color: $red !important; // !important reason: element.style
 }
@@ -43,24 +50,23 @@
 #{c(serverSettings roleBannerContainer)} {
   display: none;
 }
-#{c(serverSettings roleRow)}:hover:not(#{c(serverSettings roleRowDisableHover)}) {
-  #{c(serverSettings roleCircleButton)} {
-    background-color: $primary;
-    &:hover {
-      background-color: $hover;
-    }
+#{c(serverSettings roleCircleButton)} {
+  background-color: $primary;
+  color: #fff;
+  &:hover {
+    background-color: $hover;
   }
 }
 #{c(serverSettings rolePage)} {
-  #{c(serverSettings roleContentContainer)},
-  #{c(serverSettings roleSidebar)} {
-    background-color: $middle;
-  }
-  #{c(serverSettings roleTitleContainer)},
-  #{c(serverSettings roleHeader)} {
+  #{c(serverSettings rolePageScroller)} {
     background-color: transparent;
   }
 }
+#{c(serverSettings roleTitleContainer)},
+#{c(serverSettings roleHeader)} {
+  background-color: transparent;
+}
+
 #{c(serverSettings roleHeader)} {
   &#{c(serverSettings roleHeaderStickyElevated)} {
     box-shadow: none;
@@ -87,11 +93,14 @@
 #{c(serverSettings roleEveryoneIcon)} {
   background-color: $card;
 }
+#{c(serverSettings rolePreviewContainer)} {
+  border-color: $primary;
+}
+
 #{c(serverSettings emojiAliasPlaceholder)} {
   display: none;
 }
 #{c(serverSettings emojiRow)} {
-  height: 144px;
   padding: 10px 0;
   #{c(serverSettings emojiRemoveDefault)} {
     opacity: 1;
@@ -104,14 +113,6 @@
       opacity: 1;
     }
   }
-  #{c(serverSettings emojiImage)} {
-    min-width: 144px;
-    height: 144px;
-    background-position: 50% 50%;
-  }
-}
-#{c(serverSettings emojiTopRow)} #{c(serverSettings flexChild)}[style="flex: 0 1 40px;"] {
-  flex: 0 1 170px !important; // !important usage: element.style
 }
 
 #{c(serverSettings auditScroller)} {
@@ -137,9 +138,4 @@
 	&[fill="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
 		fill: $red;
 	}
-}
-
-/* This is only here to debug something. Do not question it. */
-#{c(serverSettings emojiTopRow)} {
-  background-color: transparent;
 }
