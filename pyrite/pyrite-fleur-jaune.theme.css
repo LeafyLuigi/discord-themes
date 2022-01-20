@@ -28,7 +28,7 @@
 /* Theme Base */
 :root {
   /* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
-  --background-image: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
+  --background-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
   /* Home icon is for the little button in the top left. */
