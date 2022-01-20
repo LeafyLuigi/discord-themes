@@ -51,23 +51,11 @@
 }
 
 #{c(userSettings contentColumn)} {
-  #{c(userSettings contentHeader)} {
-    @include header;
-  }
   #{c(userSettings fieldList)} {
     background-color: transparent;
   }
 }
 
-#{c(userSettings profileDetailsInner)} {
-  &>span:not(#{c(userSettings username)}) {
-    filter: blur(5px);
-    transition: all 0.5s ease-in-out;
-    &:hover {
-      filter: none;
-    }
-  }
-}
 #{c(userSettings accountProfile)} {
   background-color: $card;
   #{c(userSettings accountProfileBackground)} {

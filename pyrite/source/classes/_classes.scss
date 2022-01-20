@@ -46,10 +46,8 @@ $classes: (
 		"content": "content-1SgpWY",
 		"baseLayer": "baseLayer-W6S8cY",
 		"layer": "layer-86YKbF",
-				"layers": "layers-3iHuyZ", // one of layers-OrUESM layers-1YQhyW
 		"mediaEngineVideo": "media-engine-video",
 		"base": "base-2jDfDU",
-			"loadingBackground": "loading-Ags1CY",
 		"loadingContainer": "container-2RRFHK",
 		"checkbox": "checkbox-f1HnKB",
 		"checkboxChecked": "checked-1pZh2h",
@@ -60,10 +58,10 @@ $classes: (
 		"toggle": "container-2nx-BQ", // that sliding selection thing
 		
 			// find this by joining a server with a captcha thing
-			"areYouARobotContainer": "container-2vhgEz",
-			"robotContent": "content-1jf0rq",
-			"robotTitle": "title-dHonOz",
-			"robotLogo": "logoContainer-2oll5D",
+			// "areYouARobotContainer": "container-2vhgEz",
+			// "robotContent": "content-1jf0rq",
+			// "robotTitle": "title-dHonOz",
+			// "robotLogo": "logoContainer-2oll5D",
 	),
 	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 	"os": (
@@ -113,8 +111,8 @@ $classes: (
 		"lookOutlined": "lookOutlined-3yKVGo",
 		"lookLink": "lookLink-15mFoz",
 		"hasHover": "hasHover-26V98q",
-			"icon": "buttonIcon-Od8mYw",
-			"withText": "withText-10pQhr",
+			"icon": "buttonIcon-Od8mYw", // minimal mode
+			"withText": "withText-10pQhr", // minimal mode
 
 		//colors / hovers
 		"colorBrand": "colorBrand-I6CyqQ",
@@ -141,6 +139,7 @@ $classes: (
 	"call": (
 		"wrapper": "wrapper-1gVUIN",
 		"video": "wrapper-9CUbzN",
+		"videoEnded": "tile-2TcwiO",
 		"minimum": "minimum-fXpVNc",
 		"container": "callContainer-HtHELf",
 		"root": "root-22AK9z",
@@ -149,14 +148,15 @@ $classes: (
 		"avatarBorder": "border-2BJQjd",
 		"avatarSpeaking": "speaking-3RWJBr",
 		"topControls": "topControls-23RE3h",
-			"status": "status-1WEaea",
+		"status": "status-1ZXjSF",
 		"videoBorder": "border-2Vy6FN",
 		"videoSpeaking": "speaking-7QZEkv",
-			"streamBackground": "root-2sELX6",
+		"streamBackground": "root-1Emen5",
 		"avatar": "avatar-b5OQ1N",
 		"liveQualityIndicator": "liveQualityIndicator-8fb_DX",
 		"lowQualityWarningIcon": "warningIcon-3Mtahk",
 		"regionSelector": "quickSelect-384d3G",
+		"watchStreamButton": "cta-3-AFNF",
 	),
 	"channelSettings": (
 		"channelName": "input-2g-os5",
@@ -196,6 +196,7 @@ $classes: (
 
 		"chat": "chat-2ZfjoI",
 		"threadSidebarOpen": "threadSidebarOpen-1LSXvU",
+		"threadSidebarFloating": "threadSidebarFloating-uC2s6v",
 		"noChat": "noChat-sb1z07",
 		"chatContent": "content-1jQy2l",
 		"chatScroller": "scroller-kQBbkU",
@@ -237,13 +238,12 @@ $classes: (
 		"messageAttachmentsContainer": "container-2sjPya",
 		"messageAttachment": "messageAttachment-CZp8Iv",
 		"chatAvatar": "avatar-2e8lTP",
-			"chatAvatarTimedOut": "communicationDisabledOpacity-To9NDM",
 		"chatHeaderUsername": "header-2jRmjb",
 		"chatTimestamp": "timestamp-p1Df1m",
 		"chatEdited": "edited-1v5nT8",
 		"chatUsername": "username-h_Y3Us",
 		"chatUsernameClickable": "clickable-31pE3P",
-			"chatUsernameTimedOut": "communicationDisabled-11brwX",
+		"chatUsernameTimedOut": "communicationDisabled-2KRN2p",
 		"zalgoBlocker": "zalgo-26OfGz",
 		"messageContent": "messageContent-2t3eCI",
 		"spoilerText": "spoilerText-27bIiA",
@@ -267,24 +267,25 @@ $classes: (
 		"reactionCount": "reactionCount-1zkLcN",
 
 		"containerExpanded": "containerExpanded-3etgq5", // send wave sticker large
-			"compactContainer": "containerCompact-18xElE", // send wave sticker parent
-			"compactButton": "compactButton-195WSV", // send wave sticker
+		"compactContainer": "containerCompact-1Jto1O", // houses below
+		"compactButton": "compactButton-3hG-bs", // send wave sticker
 		"welcomeCTA": "welcomeCTA-3GMMRK",
 	),
 		// indented because i hate discord
 		"threads": (
-				// "container": "container-3XgAHv",
-				"sidebar": "threadSidebar-1o3BTy",
-				"chat": "chat-1cCjJ5",
-				"iconWrapper": "iconWrapper-L3hQuc",
-				"channelTextAreaInnerFocused": "channelTextAreaInnerFocused-M_uztw",
-				"privateThreadFeaturePill": "privateThreadFeaturePill-wa49np",
+			"msgHasThread": "hasThread-3h-KJV", // in here despite probably better in chat
+			"msgSpine": "spine-2vt3pM",
+			"resizeHandle": "resizeHandle-PBRzPC",
+			"container": "container-3XgAHv",
+			"floating": "floating-3M3WeH",
+			"chat": "chat-1-OBC7",
+			"iconWrapper": "iconWrapper-3plkqh",
+			"header": "chatHeaderBar-2fUORh", // usually contains "this thread is/was archived..."
 
-				"chatContainer": "container-3hZ-gs",
-				"chatHasThread": "hasThread-2k82W0",
-				"spine": "spine-5jbOmI",
-
-				"channelListSpine": "spine--Wla_O",
+			// these are for when creating a thread
+			"newChat": "chat-1rZYgu",
+			"newTextAreaFocused": "channelTextAreaInnerFocused-3oQcB2",
+			"newTextAreaError": "channelTextAreaInnerError-iNytdJ",
 		),
 	"chatForm": (
 		"form": "form-3gdLxP",
@@ -308,9 +309,8 @@ $classes: (
 		"button": "button-f2h6uQ",
 		"lookBlank": "lookBlank-21BCro",
 		"buttonActive": "active-z80xEj",
-			"operations": "operations-36ENbA",
 		"jumpToPresentBar": "jumpToPresentBar-1cEnH0",
-			"messagesErrorBar": "messagesErrorBar-nyJGU7",
+		"messagesErrorBar": "messagesErrorBar-1IQ1rH",
 		"attachedBars": "attachedBars-2BCP3l",
 		"clipContainer": "clipContainer-31nYlH",
 		"replyContainer": "container-A2jo65",
@@ -324,17 +324,17 @@ $classes: (
 		"followImage": "image-3FliiM",
 		"followText": "text-2GfGMu",
 
-			"colorBrand": "colorBrand-2tjs5J",
+		// colors may apply elsewhere
+		"colorBrand": "colorBrand-21Le_q",
 		"colorLink": "colorLink-2apWfY",
 		"colorMuted": "colorMuted-20987_",
+		"colorError": "colorError-1H4THa",
 
 		"beforeInlineCode": "before_inlineCode-xn8Llh",
 		"inlineCode": "inlineCode-2auMQi",
 		"afterInlineCode": "after_inlineCode-WydEur",
 		"codeLine": "codeLine-3a3dbd",
-			"codeBlockText": "codeBlockText-9TnoxQ",
-
-			"paidGifTooltip": "tooltip-9LylEY",
+		"codeBlockText": "codeBlockText-311wOq",
 
 		"inlineUpload": "upload-3GTSF9",
 		"inlineSpoilerTag": "altTag-2Bi3uP",
@@ -352,14 +352,14 @@ $classes: (
 		"searchHeader": "searchHeader-3ZIh2x",
 		"searchHeaderImage": "headerImage-2D5D-vY",
 		"search": "search-25t1e9",
-			"searchBox": "searchBox-pyIJJj", // one of searchBox-pyIJJj or searchBox-31Zv9h
+		"searchBox": "searchBox-pyIJJj",
 		"searchBoxInput": "searchBoxInput-3h4etz",
 		"searchCloseIcon": "closeIcon-BMGxx0",
 		"searchSearchIcon": "searchIcon-3X4BYL",
 		"cardList": "guildList-3GXKvP",
 		"cardPlaceholder": "cardPlaceholder-1E2FEs",
 		"card": "card-2TuZPZ",
-			"cardLoading": "loading-17PYl_",
+		"cardLoading": "loading-3ozbwt",
 		"cardIconMask": "iconMask-2fMR98",
 		"spinner": "spinner-2bMWLW",
 		"footer": "footer-26kPv_",
@@ -374,12 +374,9 @@ $classes: (
 		"searchCategorySelected": "selected-bLcqYK",
 		"searchPlaceholder": "placeholder-2jEh13",
 
-			// needs rewrite
-			"langSelect": "css-12hk9yc-control",
-			"langSelectSelected": "css-1adxh11-control",
-			"langSelectSelected2": "css-1emou8a-control",
-			"langSelectDropdown": "css-ix84ef-menu",
-			"langSelectScrollbar": "css-1ye7vu0",
+		"studentScroller": "scroller-RfJjkV",
+		"studentCard": "container-1wv6C6",
+		"studentIconContainer": "iconContainer-6xlTpK",
 	),
 	"embeds": (
 		"codeblock": "markup-eYLPri code",
@@ -390,14 +387,13 @@ $classes: (
 		"inviteServerIconExpired": "guildIconExpired-2BFmZC",
 		"inviteResolvingBackground": "resolvingBackground-1MSH01",
 
-			"gift": "tile-2OwFgW",
-			"giftInvalidPoop": "invalidPoop-pnUbq7",
+		"gift": "tile-2mmK5T",
+		"giftInvalidPoop": "invalidPoop--w1123",
 
 		"embedFull": "embedFull-1HGV2S",
 		"embedSuppressButton": "removeAttachmentButton-1iO1qS",
 		"attachment": "attachment-1PZZB2",
-			"codeView": "codeView-1JPDeA",
-		"textContainerUp": "container-rr3Ruk", // "up" being the div above
+		"textContainerUp": "container-rr3Ruk", // parent of below class
 		"textContainer": "textContainer-36wgKK",
 		"textFooter": "footer-GXWBBp",
 		"toggleExpandedPreview": "toggleExpandSection-1710zV",
@@ -423,6 +419,7 @@ $classes: (
 		"uploadProgressBar": "progressBar-1T6LYX",
 		"videoPlayWrapper": "wrapper-1FP9YQ",
 		"imageWrapper": "imageWrapper-oMkQl4",
+		"threadContainer": "container-3i3IzO",
 	),
 	//indented as it's a subset of embeds
 		"media": (
@@ -458,7 +455,7 @@ $classes: (
 	"friends": (
 		"container": "container-2cd8Mz",
 		"tabBody": "tabBody-2dgbAs",
-			"inviteToolbar": "inviteToolbar-3F-l2g",
+		"inviteToolbar": "inviteToolbar-2k2nqz",
 		"peopleColumn": "peopleColumn-1wMU14",
 		"peopleList": "peopleList-2VBrVI",
 		"peopleListItem": "peopleListItem-u6dGxF",
@@ -497,7 +494,7 @@ $classes: (
 		"iconClickable": "clickable-ZD7xvu",
 		"title": "title-17SveM",
 		"akaBadge": "akaBadge-3i7V3p",
-			"input": "input-2A_zIr",
+		"input": "input-1nrc5P",
 		"toolbar": "toolbar-3_r2xA",
 		"iconSelected": "selected-29KTGM",
 		"search": "search-39IXmY",
@@ -505,12 +502,11 @@ $classes: (
 		"searchOpen": "open-3y3yI_",
 		"searchBar": "searchBar-zdmu7v",
 		"iconBadge": "iconBadge-3Mmg92",
-			"participating": "participating-1NvRVd",
+		"participating": "participating-2Z81oO",
 		"topic": "topic-11NuQZ",
 		"avatars": "avatars-2jLHaO",
 		"nicknames": "nicknames-10Sg6e",
 		"status": "status-2DiCMd",
-			"warningIcon": "warningIcon-3rQ5yJ",
 		"tabBar": "tabBar-ra-EuL",
 		"topPill": "topPill-3DJJNV",
 		"tabBarItem": "item-3mHhwr",
@@ -531,255 +527,277 @@ $classes: (
 		"avatar": "avatar-6qzftW",
 		"avatarMask": "mask-1FEkla",
 		"contentName": "content-1U25dZ",
-			"contentChildren": "children-gzQq2t",
 		"avatarWrapper": "wrapper-1VLyxH",
 		"status": "pointerEvents-9SZWKj",
 		"ownerIcon": "ownerIcon-255uKo",
 		"name": "name-3Vmqxm",
-			"nameContainer": "container-2ax-kl",
 		"roleColor": "roleColor-nA7BqX",
 		"offline": "offline-22aM7E",
 	),
 	"modals": (
-			"layer": "layer-2KE1M9",
-			"root": "root-1gCeng",
-			"rootHeader": "header-1TKi98",
-			"rootBody": "content-1LAB8Z",
-			"rootFooter": "footer-2gL1pp",
-			"rootSmall": "small-3iVZYw",
-			"rootMedium": "medium-2RE1hE",
-			"rootLarge": "large-3lXhLH",
+		"layer": "layer-1Ixpg3",
+		"focusLock": "focusLock-2tveLW",
+		"root": "root-g14mjS",
+		"header": "header-1zd7se",
+		"close": "close-1mLglB",
+		"closeIcon": "closeIcon-11LhXr",
+		"body": "content-2hZxGK",
+		"footer": "footer-31IekZ", // apparently it still uses theme-dark and theme-light. wankers.
 
-			"focusLock": "focusLock-Ns3yie",
+		"createChannelHeader": "header-o8wV_s", // has extra top/bottom margins
+		"createChannelClose": "closeButton-32emop", // it's moved up for some reason
+		"createChannelSearchBar": "searchBar-3OIGe3", // make a private channel and click next
+		"createChannelTag": "tag-15zcD_", // add a user or role to the list
+		"createEventProgressBar": "progressBar-18rmp1", // tab at top, unselected
+		"createEventProgressBarSelected": "selectedProgressBar-11z5d9", // above selected
+		"createEventTextInput": "textInput-3g8y92",
+		"createEventPreviewCard": "previewCard-E137i2",
+		"createEventRSVPCount": "rsvpCount-iCkObl",
 
-			"container": "container-2Uhd6d",
+		"eventCard": "card-8UsK4b",
+		"eventInfoHeader": "container-3EBHNg",
+		"eventInfoGuildIcon": "guildIcon-1t7MRZ",
+		"warningCard": "cardWarning-WRe-Qa",
 
-			"rootMessage": "message-2qRu38",
+		"inviteScroller": "scroller-3nFW5p",
 
-			"fullImageModal": "modal-qgFCbT",
-			
-			"colorHeaderPrimary": "colorHeaderPrimary-26Jzh-",
-			"colorHeaderSecondary": "colorHeaderSecondary-3Sp3Ft",
+		"timeoutDurationGroupBar": "group-1_ptLP",
+		"timeoutDuration": "item-2OyinQ",
+		"timeoutDurationSelected": "selectorButtonSelected-1VZ6hz",
 
-			"recentMentions": "recentMentionsPopout-3rCiI6",
-			"unreadsWrap": "container-enaOkj",
-			"unreadsScroller": "scroller-tlc3kG",
-			"unreadsTabBar": "tabBar-1kuXvJ",
-			"unreadsTab": "tab-ck0077",
-			"unreadsTabActive": "active-1MbGPa",
-			"unreadsHeader": "header-2-Imhb",
-			"unreadsMiddle": "container-3u944p",
-			"unreadsTutorial": "tutorial-3w5I9h",
-			"unreadsTutorialIcon": "tutorialIcon-3f1miQ",
-			"unreadsChannel": "channel-3pEHab",
-			"unreadsChannelHeader": "channelHeader-3Gd2xq",
-			"unreadsMention": "wrapper-232cHJ",
-			"unreadsChannelButton": "button-1-5Aqk",
-			"unreadsChannelReadButton": "markReadButton-qAjML_",
-			"unreadsChannelButtonDisabled": "disabled-3Njyym",
-			"unreadsMessages": "messages-3G3erD",
-			"unreadsJumpBackground": "jumpButton-2dvRSC",
-			"unreadsIconContainer": "iconContainer-JbDkvn",
+		"unpinMessage": "message-G6O-Wv",
 
-			"mentionsGuildIcon": "guildIcon-3Co6k-",
-			"mentionsChannel": "container-3iAQ-0",
-			"mentionsCloseButton": "closeButton-1152MI",
-			"mentionsMessage": "messageContainer-gbhlwo",
-			"mentionsScrollingFooterWrap": "scrollingFooterWrap-3FDlMn",
-			"mentionsFooter": "container-3u944p",
+		"incomingCall": "root-1e2tfc",
 
-			"messagesPopoutWrap": "messagesPopoutWrap-1MQ1bW",
-			"messagesPopoutHeader": "header-ykumBX",
-			"messagesPopoutMiddle": "messagesPopout-24nkyi",
-			"messagesPopoutFooter": "footer-1kmXd4",
+		"shortcutsModal": "keyboardShortcutsModal-2CRmCm",
+		"shortcutsTitle": "modalTitle-2skSKy",
+		"shortcutsSubtitle": "modalSubtitle-2lx7qk",
 
-			"addMembersModal": "popout-103y-5",
-			"addMembersSearchBar": "container-2XeR5Z",
-			"addMembersTag": "tag-2gHSR7",
+		"beforeTalkSidebar": "guildSidebar-UHnQqs",
+		"beforeTalkBody": "modal-2TOYtq",
+		"beforeTalkFieldWrapper": "formFieldWrapper-2LV3S6",
 
-			"pinnedMessageGroupWrapper": "messageGroupWrapper-o-Zw7G",
-			"pinnedActionButtons": "actionButtons-1sUUug",
-			"pinnedJumpButton": "jumpButton-3DTcS_",
+		"welcomeToServerMain": "main-jX9p1r",
+		"welcomeToServerOption": "optionContainer-yOpaLq",
 
-			"addServerHeader": "header-3msK0M",
-			"addServerTemplatesList": "templatesList-2E6rTe",
-			"addServerOptionsList": "optionsList-3UMAjx",
-			"addServerCreateGuild": "createGuild-23lWNm",
-			"addServerFooter": "footer-1NnaNd",
-			"addServerContainer": "container-UC8Ug1",
-			"addServerIcon": "iconContainer-2B0ixr",
+		// @everyone with a larger server
+		"contentWarningPopout": "contentWarningPopout-WKdbDG",
+		"contentWarningBody": "body-2rDNbs",
+		"contentWarningAnimation": "animation-17phMk",
+		"contentWarningContent": "content-2BDyq1",
+		"contentWarningHeaderText": "header-DRA95Q",
+		"contentWarningFooter": "footer-2aeMle",
 
-			"menu": "menu-3sdvDG",
-			"menuSubmenu": "submenu-2-ysNh",
-			"menuColorDefault": "colorDefault-2K3EoJ",
-			"menuColorBrand": "colorBrand-ROmMP1",
-			"menuColorDanger": "colorDanger-2qLCe1",
-			"menuFocused": "focused-3afm-j",
-			"menuItem": "item-1tOPte",
-			"menuItemDisabled": "disabled-1WRMNA",
-			"menuSeparator": "separator-2I32lJ",
-			"menuAddReaction": "button-F9qN4n",
-			"menuAddReactionFocused": "focused-3ZzkKr",
-			"menuCheckbox": "checkbox-3s5GYZ",
-			"menuCheckboxCheck": "check-1JyqgN",
-			"menuRadioSelection": "radioSelection-1HmrQS",
-			"menuHideInteraction": "hideInteraction-1iHO1O",
+		"toolbar": "toolbar-37BrJ5",
 
-			"uploadArea": "uploadArea-3QgLtW", // has background
-			"uploadModalIn": "uploadModalIn-1z07Bv",
-			"uploadDrop": "uploadDropModal-2kTwbc",
-			"uploadBgScale": "bgScale-1otPtc",
-			"uploadDropError": "error-kKl9o2",
-			"uploadDropInner": "inner-3nWsbo",
-			"uploadDropIcons": "icons-1w691d",
-			"uploadDropTitle": "title-2Vtl4y",
-			"uploadDropInstructions": "instructions-2Du9gG",
-			"uploadPremiumPromo": "premiumPromo-3oM7cT",
-			"uploadPremiumContent": "content-P4SiGI",
+		"reactionsSidebar": "scroller-2GkvCq",
+		"reactionDefault": "reactionDefault-1Sjj1f",
+		"reactionSelected": "reactionSelected-1aMb2K",
+		"reactionReactors": "reactors-1VXca7",
+		
+		"quickSwitchModal": "container-qBnZJg",
+		"quickSwitch": "quickswitcher-pKcM9U",
+		"quickSwitchSearch": "input-3r5zZY",
+		"quickSwitchScroller": "scroller-2qwVWY",
 
-			"uploadModal": "uploadModal-2ifh8j",
-			"uploadModalInner": "inner-3nWsbo",
-			"uploadModalFile": "file-34mY5K",
-			"uploadModalIcon": "icon-kyxXVr",
-			"uploadModalDescription": "description-2ug5H_",
-			"uploadModalFilename": "filename-ovv3c5",
-			"uploadModalDestination": "destination-3ZiRO2",
-			"uploadModalComment": "comment-4IWttf",
-			"uploadModalFileInputWrapper": "inputWrapper-31_8H8",
-			"uploadModalFileInput": "input-cIJ7To",
-			"uploadModalTextArea": "channelTextAreaUpload-3t7EIx",
-			"uploadModalFooter": "footer-3mqk7D",
-			"uploadModalHasSpoilers": "hasSpoilers-1IRtQC",
+		"autocomplete": "autocomplete-3NRXG8",
+		"autocompleteInner": "autocompleteInner-y1mjDl",
+		"autocompleteRail": "rail-1BiMhk", // sidebar thingy w/ default commands and bot icons
+		"autocompleteRailInner": "list-33W-Tv", // of course this had a background
+		"autocompleteCategory": "wrapper-1wwiGV",
+		"autocompleteCategorySelected": "selected-3B2w1z",
+		"autocompleteScroller": "scroller-2MALzE",
+		"autocompleteCategoryHeader": "categoryHeader-OpJ1Ly",
+		"autocompleteCommandBase": "base-2v-uc0",
+		"autocompleteCommandSelected": "selected-3H3-RC",
+		"autocompleteEmojiInner": "autocompleteInner-2tOQrf",
 
-			"uploadModalImage": "image-2yrs5j",
-			"uploadModalVideo": "video-27RLEH",
-			"uploadModalAcrobat": "acrobat-3K1PC6",
-			"uploadModalAe": "ae-1Y5Jq3",
-			"uploadModalSketch": "sketch-ZMuo7D",
-			"uploadModalArchive": "archive-2hqXug",
-			"uploadModalCode": "code-aoB-kL",
-			"uploadModalDocument": "document-2cvI0u",
-			"uploadModalPhotoshop": "photoshop-1UWfyZ",
-			"uploadModalPs": "ps-2T6Jrl",
-			"uploadModalSpreadsheet": "spreadsheet-1QuSej",
-			"uploadModalWebcode": "webcode-22GGLX",
-			"uploadModalUnknown": "unknown-3TPTMr",
-			"uploadModalAudio": "audio-14DQXq",
+		"stickerSuggestExpressionFocused": "suggestedExpressionFocused-1KCZvA",
+		"stickerSuggestMask": "mask-899QXq",
+		"stickerSuggestMaskBackground": "maskBackground-F7QD-A",
+		"stickerSuggestBackground": "containerBackground-Ang24O",
 
-			"emojiGifContentWrapper": "contentWrapper-SvZHNd",
-			"emojiGifResizeHandle": "resizeHandle-3NRr0z",
-			"emojiGifSearchBar": "searchBar--fTZYa",
-			"emojiGifNavList": "navList-2UtuhC",
-			"emojiGifNavItem": "navItem-3Wp_oJ",
-			"emojiGifNavButton": "navButton-2gQCx-",
-			"emojiGifNavButtonActive": "navButtonActive-1MkytQ",
-			"gifResult": "result-3w1ZcL",
-			"gifFadeBlurple": "categoryFadeBlurple-1j72_A",
-			"gifFade": "categoryFade-2ybR1J",
+		"problemInfo": "problemInfo-1QppuA",
+		"problemInfoRoot": "root-cw9rWQ",
+		"problemInfoOption": "option-1O-Hwt",
 
-			"emojiListWrapper": "listWrapper-3kgtQ0",
-			"emojiItem": "emojiItem-14v6tW",
-			"emojiItemDisabled": "emojiItemDisabled-1FvFuF",
-			"emojiItemSelected": "emojiItemSelected-1aLkfV",
-			"emojiLoading": "imageLoading-bpSr0M",
-			"emojiPremiumPromo": "premiumPromo-fVlLu-",
-			"emojiUpsell": "premiumUpsell-2vHaVa",
-			"emojiCategoryWrapper": "wrapper-1-Fsb8",
-			"emojiInspector": "inspector-S2gM3e",
-			"emojiGuildIcon": "guildIcon-3h-1IH",
-			"emojiGuildWrapper": "wrapper-2Gsate",
-			"emojiGuildList": "list-donH_Z",
-			"emojiGuildListHeight": "listHeight-3jP-vC",
-			"emojiColorSelectorPopout": "diversitySelectorPopout-3FiGaM",
-			"emojiCategoryItemDefaultCategorySelected": "categoryItemDefaultCategorySelected-_HCKoz",
-			"emojiUnicodeShortcut": "unicodeShortcut-15J8Ck",
-			"emojiUnicodeShortcutInvisible": "unicodeShortcutInvisible-2TqXrS",
+		"timedOutContainer": "container-lJuBHq",
+		"timedOutIconContainer": "iconContainer-2k2ykS",
+		"timedOutIcon": "icon-2PhspP",
+		"timedOutSpamBanner": "spamBanner-1auiob",
+		"timedOutBannerIcon": "bannerIcon-1AJ6ir",
 
-			"stickerSelected": "stickerInspected-2EM4w-",
-			"stickerCategoryRecent": "stickerCategoryRecent-1WVWrj",
-			"stickerWrapper": "wrapper-OxgYJ1",
-			"stickerScroller": "scroller-3gAZLs",
-			"stickerPremiumCategorySelected": "premiumCategorySelected-23oFPJ",
-			"stickerCategoryRecentSelected": "stickerCategoryRecentSelected-2gbLs2",
-			"stickerInspectedIndicator": "inspectedIndicator-59EII8",
-			"stickerNode": "stickerNode-20m2uy",
-			"stickerUpsellWrapper": "upsellWrapper-1utsSD ",
+		"toastsContainer": "container-Sxc1z3",
+		"toastsToast": "toast-q3Y4wI",
+		"toastsIcon": "icon-2QUmmw",
 
-			"detachedEmojiPicker": "emojiPicker-3PwZFl",
-			"notDetachedEmojiPicker": "emojiPickerInExpressionPicker-3IzIcv",
-
-			"searchDropdown": "container-3ayLPN",
-			"searchDropdownResultsGroup": "resultsGroup-r_nuzN",
-			"searchDropdownOption": "option-96V44q",
-			"searchDropdownSelected": "selected-rZcOL-",
-			"searchDropdownFocused": "focused-2bY0OD",
-
-			"status": "status-1AY8sU",
-
-			"dropdownExpanded": "popout-VcNcHB",
-			"dropdownOption": "option-3KoAJB",
-			"dropdownFocused": "focused-1T6PE5",
-			"dropdownLookFilled": "lookFilled-22uAsw",
-			"dropdownSelect": "select-2fjwPw",
-			"dropdownInput": "searchInput-5YMkDH",
-
-			"optionContainer": "optionContainer-15srkc",
-
-			"guildSidebar": "guildSidebar-2OCzWB",
-			"guildBody": "modal-f02hVt",
-			"guildFormFieldWrapper": "formFieldWrapper-malor5",
-
-			"reactionSide": "scroller-1-nKid",
-			"reactionMain": "reactors-Blmlhw",
-
-			"autocomplete": "autocomplete-1vrmpx",
-			"autocompleteInner": "autocompleteInner-zh20B_",
-			"autocompleteRow": "autocompleteRow-2OthDa",
-			"autocompleteSelected": "selected-1Tbx07",
-
-			"quickswitcher": "quickswitcher-3JagVE",
-			"quickswitcherInput": "input-2VB9rf",
-			"quickswitcherScroller": "scroller-zPkAnE",
-			
-			"keyboardShortcuts": "keyboardShortcutsModal-3piNz7",
-			"keyboardShortcutsTitle": "modalTitle-37O4n6",
-			"keyboardShortcutsSubtitle": "modalSubtitle-1Pj5nv",
-			"ddrArrows": "ddrArrows-lSnH7P",
-
-			"incomingCall": "root-3JVdIJ",
-
-			"toolbar": "toolbar-2bjZV7",
-			"toolbarDivider": "divider-24xeUg",
-
-			"eventTextInputWrapper": "textInput-Qjzn11",
-			"eventTickSelectedIcon": "selectedIcon-3uS11H",
-			"eventPreviewCard": "previewCard-2AKKVB",
-			"eventRSVPCount": "rsvpCount-1Qtgtr",
-			"eventRSVPIcon": "rsvpIcon-32ixCJ",
-			"eventCard": "card-2X8BSG",
-
-			"beforeTalkModal": "container-19nk2r",
-			"beforeTalkClose": "closeButton-1aXUE8",
-			"beforeTalkSidebar": "guildSidebar-2OCzWB",
-			"beforeTalkMain": "modal-f02hVt",
-			"beforeTalkRules": "formFieldWrapper-malor5",
-
-			"timeoutSelectorButton": "selectorButton-2es7-i",
-			"timeoutSelectorButtonSelected": "selectorButtonSelected-Jj5-3m",
-
-			"listModal": "modal-yWgWj-", // not 100% sure on the usage.
+		"regionSelectDropdown": "regionSelectPopout-3sEzVB",
+		
 	),
-		"timedOut": (
-				"container": "container-3xeWHc",
-				"iconContainer": "iconContainer-3eYW51",
-				"icon": "icon-110tQy",
-				"spamBanner": "spamBanner-F4eeXk",
-				"bannerIcon": "bannerIcon-3xvIH-",
+
+		"addServer": (
+			"modal": "container-1Lk8p7",
+			"templatesList": "templatesList-uohY49",
+			"templateButton": "container-x8Y1ix",
+			"templateButtonText": "text-PdAsFQ",
+			"optionsList": "optionsList-dmHy1l",
+			"createServer": "createGuild-2m1V10",
 		),
-		"toasts": (
-				"container": "container-2cKKek",
-				"toast": "toast-1DEQGy",
-				"icon": "icon-q80NJC",
+		
+		// gif sticker emoji (and add reaction)
+		"gse": (
+			"resizeHandle": "resizeHandle-T_gFJR",
+			"contentWrapper": "contentWrapper-3vHNP2",
+
+			"nav": "nav-1zWVQw",
+			"navButtonActive": "navButtonActive-1EqC5l",
+
+			"gifContainer": "container-23gRWx",
+			"gifHeader": "header-JHwfVI",
+			"gifScroller": "container-2Qb0ED",
+			"gifResultPlaceholder": "placeholder-2Mfkde",
+			"gifResult": "result-3OpoO7",
+			"gifResultFocused": "focused-q9B2e4", // press arrow keys
+			"gifFavoritesFade": "categoryFadeBlurple-1HuV1x",
+			"gifCategoryFade": "categoryFade-2EGqIh",
+			"gifEndContainer": "endContainer-3FEUTM",
+			"gifResults": "results-3OoWM-",
+			"gifNoResultsWrapper": "wrapper-2g4olo",
+			"gifSadImage": "sadImage-2_mw0p", // search "hentai" or something
+			"gifContent": "content-1CboaJ",
+
+			"stickerHeader": "header-uVCAlo",
+			"stickerSearchContainer": "container-1SX9VC",
+			"stickerDisabled": "disabled-2QaYSb", // for search bar opacity and cursor
+			"stickersWrapper": "wrapper-i1awk3", // holds stickers in grid
+			"stickersScroller": "scroller-2MALzE",
+			"stickerListItems": "listItems-6eZzQ1", // role also applies to server list because of course it does
+			"stickerGuildHeader": "wrapper-1NNaWG",
+			"stickerPackHeader": "packHeader-w9jpYl", // has a pos sticky and top 0
+			"stickerInspected": "stickerInspected-mwnU6w",
+			"stickerInspectedIndicator": "inspectedIndicator-27zwNZ", // hover over a sticker
+			"stickerUpsell": "upsell-3B1lnN", //"upload x+ custom stickers with boosting" how about no
+			"stickerGuildListWrapper": "categoryList-2GgCrD",
+			"stickerGuildListIcon": "guildIcon-2SUGiq",
+			"stickerInspector": "inspector-DFKXwB", // bar at bottom
+
+			"emojiInExpressionPicker": "emojiPickerInExpressionPicker-2nOwH8",
+			"emojiPicker": "emojiPicker-6YCk8a",
+			"emojiHeader": "header-11eigE",
+			"emojiPickerListWrapper": "emojiPickerListWrapper-1T3YI3",
+			"emojiScroller": "scroller-2MALzE",
+			"emojiListItems": "listItems-6eZzQ1",
+			"emojiItem": "emojiItem-277VFM",
+			"emojiItemSelected": "emojiItemSelected-2Lg50V",
+			"emojiPlaceholder": "imageLoading-2uloYN",
+			"emojiGuildList": "categoryList-2qRrlj",
+			"emojiSkinColorOptions": "diversitySelectorOptions-3DhNYs",
+			"emojiDefaultCategory": "categoryItemDefaultCategory-3haEDq",
+			"emojiDefaultCategorySelected": "categoryItemDefaultCategorySelected-2YeRUu",
+			"emojiUnicodeShortcut": "unicodeShortcut-3N8oDe", // for all the non-server emotes
+
+			"floatingEmojiPicker": "wrapper-3u51GQ",
+		),
+		
+		// inbox pinned threads
+		"ipt": (
+			"topPill": "topPill-3DJJNV",
+			"tab": "item-3XjbnG",
+			"tabSelected": "selected-g-kMVV",
+
+			// ip = shared between inbox and pinned
+			"ipHeader": "header-1w9Q93",
+
+			"inboxModal": "recentMentionsPopout-2bI1ZN",
+
+			"inboxBody": "container-nwU-8G", // Inbox: Nothing is read | Recent Mentions: At bottom of list
+			"inboxIconContainer": "iconContainer-33_6mP",
+			"inboxScroller": "scroller-145h9c",
+			"inboxTutorial": "tutorial-Nb3Zz5", // "Stay up to date with the latest messages!". this gonna be display none'd
+			"inboxChannel": "channel-3NJZ1V",
+			"inboxChannelHeader": "channelHeader-DFRX8q",
+			"inboxUnreadMessagesCountWrapper": "wrapper-2olG5t",
+			"inboxChannelMessages": "messages-23can0",
+			"inboxMessageContainer": "messageContainer-8dSNjf",
+			"inboxJumpButton": "jumpButton-1V_1FA",
+			"inboxRoundButton": "button-1_oXub",
+			"inboxRoundButtonDisabled": "disabled-184-il",
+
+			"mentionsMessagesPopoutWrap": "messagesPopoutWrap-3zryHW", // also used by pinned
+			"mentionsGuildIcon": "guildIcon-IklRcj",
+			"mentionsScroller": "scroller-MIi2ab",
+			"mentionsMessageContainerParent": "container-iA3Qrz", // parent to below class
+			"mentionsMessageContainer": "messageContainer-3VTXBC",
+			"mentionsScrollingFooterWrap": "scrollingFooterWrap-grqTU8",
+
+			"pinnedModal": "messagesPopoutWrap-3zryHW",
+			"pinnedScroller": "messagesPopout-eVzQcI",
+			"pinnedMessageWrapper": "messageGroupWrapper-1jf_7C",
+			"pinnedActionButtons": "actionButtons-2mNSAB",
+			"pinnedJumpButton": "jumpButton-1ZwI_j",
+			"pinnedCloseIcon": "closeIcon-2IriN1", // used when removing pinned message
+			"pinnedPlaceholderImage": "image-t6rLT3", // image when no pins
+			"pinnedFooter": "footer-5ji8u1",
+
+			"threadDropdownModal": "browser-mnQ1T7",
+			"threadDropdownHeader": "header-3_zmOb",
+			"threadDropdownTabBar": "tabBar-2WhZ9G",
+			"threadDropdownList": "list-1uSVgu",
+			"threadDropdownControls": "controls-SB-N9h",
+			"threadDropdownContainer": "container-2c4_8A",
+			"threadDropdownBodyIcon": "icon-mJhEWn",
+			"threadDropdownBodyStars": "stars-3UP9-A",
+		),
+
+		"groupDm": (
+			"popout": "popout-3gby1q",
+			"header": "header-1zd7se",
+			"searchBarContainer": "container-1SX9VC",
+			"searchBarTag": "tag-15zcD_", // yet-to-be added but-still-selected user
+			"bodyScroller": "scroller-1Kbkqa",
+			"friendSelected": "friendSelected-3cwmD7",
+			"footerSeparator": "footerSeparator-b6VH1V",
+			"footer": "footer-C9oLp9",
+		),
+		"menus": (
+			"menu": "menu-1QACrS",
+			"item": "item-1OdjEX",
+			"itemFocused": "focused-3qFvc8",
+			"itemHideInteraction": "hideInteraction-2jPGL_",
+			"colorDefault": "colorDefault-CDqZdO",
+			"colorBrand": "colorBrand-3cPPsm",
+			"colorDanger": "colorDanger-3n-KnP",
+			"iconContainer": "iconContainer-1-SsTR",
+			"checkbox": "checkbox-hADx5o",
+			"checkboxCheck": "check-3HZJs4",
+			"radioSelection": "radioSelection-1UHp0b",
+			"quickReactionButton": "button-1zW0-r",
+
+			"dropdownFilled": "lookFilled-1GseHa",
+			"dropdownSelect": "select-1Ia3hD",
+			"dropdownSelectTop": "selectPositionTop-1Xy1Sp",
+			"dropdownOpen": "open-1FRZsK",
+			"dropdownPopout": "popout-1KHNAq",
+			"dropdownPopoutTop": "popoutPositionTop-1GenHR",
+			"dropdownPopoutOption": "option-2eIyOn",
+			"dropdownPopoutOptionFocused": "focused-ODgjnC",
+			"dropdownPopoutSelectedIcon": "selectedIcon-19TbzU",
+		),
+		"upload": (
+			"modal": "uploadModal-2ie9O_",
+			"inner": "inner-rBP-MS",
+			"file": "file-163EuR",
+			"icon": "icon-HW4tZ-",
+			"image": "image-2ssF8k",
+			"footer": "footer-VCsJQY",
+
+			"area": "uploadArea-2Nu_Vc",
+			"modalIn": "uploadModalIn-2w48Zf",
+			"dropModal": "uploadDropModal-13Kd20",
+			"dropError": "error-3lNz4C", // unsupported file type (or a folder), too many uploads, size limits
+			"dropBg": "bgScale-1iWuPF",
+			"dropInner": "inner-rBP-MS",
+			"dropIcons": "icons-1UZPvE",
 		),
 	"notice": (
 		"base": "notice-2HEN-u",
@@ -794,7 +812,6 @@ $classes: (
 		"auto": "auto-2K3UW5",
 		"none": "none-2-_0dP",
 		"fade": "fade-1R6FHN",
-			"content": "content-3YMskv",
 		"scrolling": "scrolling-20Of9p",
 		"disableScrollAnchor": "disableScrollAnchor-6TwzvM",
 	),
@@ -822,6 +839,11 @@ $classes: (
 		"noResultsImage": "noResultsImage-1-dP2n",
 		"OOOOHHHHHHHHBANANA": "alt-3_Cl_W",
 	),
+	"serverProfile": (
+		"notice": "notice-5OG6bf",
+		"warningCircleIcon": "warningCircleIcon-JjxdGS",
+		"upsellContainer": "upsellContainer-3qKRln",
+	),
 	"serverList": (
 		"servers": "guilds-2JjMmN",
 		"wrapper": "wrapper-1_HaEi",
@@ -837,6 +859,7 @@ $classes: (
 		"pill": "pill-L_aLMQ",
 		"pillItem": "item-2LIpTv",
 		"serverWrapper": "wrapper-28eC3z",
+		"serverWrapperSimple": "wrapperSimple-Js2rIO",
 		"iconWrapper": "wrapper-3kah-n",
 		"iconChildWrapper": "childWrapper-1j_1ub",
 		"serverIcon": "icon-3AqZ2e",
@@ -852,6 +875,8 @@ $classes: (
 		"unreadMentionBarBottom": "unreadMentionsIndicatorBottom-3RJMnQ",
 		"mentionBar": "mention-3XBnnZ",
 		"unreadMention": "unread-2wipsx",
+		"folderParentWrapper": "wrapper-38slSD",
+		"folderParentWrapperExpanded": "expanded",
 		"folder": "folder-241Joy",
 		"folderHover": "hover-3m7-WT",
 		"expandedFolderBackground": "expandedFolderBackground-1kSAf6",
@@ -862,15 +887,13 @@ $classes: (
 	),
 	"serverSettings": (	
 		"serverIconUploadInner": "avatarUploaderInner-1Cp1oP",
-		"bannerUpsellContainer": "bannerUpsellContainer-31E9J5",
 
 		"rolePage": "contentColumnMinimal-32PuDO",
 		"rolePageScroller": "customScroller-m1-jZn",
 
-			"newBadge": "newBadge-34a1Fs",
+			// "newBadge": "newBadge-34a1Fs", // it's there somewhere but idk where!
 		"noticeRegion": "noticeRegion-qjyUVg",
 		"noticeContainer": "container-20TyK0",
-			"roleBannerContainer": "bannerContainer-1owGn0",
 
 		"roleEveryoneContainer": "container-3EtAkD",
 		"roleEveryoneIcon": "icon-2DGsye",
@@ -967,9 +990,6 @@ $classes: (
 		"panelUsernameContainer": "usernameContainer-3PPkWq",
 		"panelActionButtons": "actionButtons-2vEOUh",
 
-			// also seems to be used when loading into discord
-			"emptyBackground": "empty-388osJ", //this one is for the fake channel's background
-
 		"loadingSidebar": "container-1NXEtd",
 		"loadingAnimationContainer": "container-1XYZ8d", // container has animation tag on it
 		"loadingCategory": "category-1ncDaU",
@@ -981,7 +1001,6 @@ $classes: (
 		"bannerVisible": "bannerVisible-Vkyg1I",
 		"animatedContainer": "animatedContainer-2laTjx",
 		"bannerImage": "bannerImage-ubW8K-",
-			"studentHubContainer": "container-1d-xkt",
 
 		"voiceSpeaking": "avatarSpeaking-2pCGrZ",
 		"voiceUsernameSpeaking": "usernameSpeaking-3FKv6H",
@@ -989,40 +1008,38 @@ $classes: (
 	"stage": (
 		"container": "container-cH6QoY",
 		"callContainer": "callContainer-BGIngG",
-			"sidebarVisible": "sidebarVisible-3bgZKv", // maybe? i searched in css file. only result.
+		"sidebarVisible": "sidebarVisible-3bgZKv",
 		"root": "root-22AK9z",
 		"scroller": "scroller-35tvpe",
 		"videoControls": "videoControls-353CsJ",
 		"videoControlSection": "controlSection-1mNixL",
 		"videoControlBottom": "bottomControls-31YuPK",
-			"gradientContainer": "gradientContainer-10lXLB",
+		"gradientContainer": "gradientContainer-phMG8d",
 		"headerContainer": "container-3r7mfc",
 		"rowContainer": "rowContainer-jDvyA4",
 		"participants": "participants-3hk3ND",
-			"participantsButton": "participantsButton-KYW-IW",
+		"participantsButton": "participantsButton-1WBdFP",
 		"tileContainer": "tileContainer-Os085F",
-			"emptyVideo": "emptyPreview-2kuSNe",
 		"requestToSpeakContainer": "container-lqPArA",
 		"rtsHeaderContainer": "headerContainer-21E-jZ",
 		"rtsContentContainer": "contentContainer-dKJ2Bn",
 		"rtsEmptyImage": "container-2GuWaQ",
-			"rtsListTitle": "listTitle-3x9PAq",
 		"rtsButtonContainer": "buttonContainer-1QM2ob",
-			"openTheStageContainer": "container-oZq3fb",
+		"openTheStageContainer": "container-1IyjjY",
 		"buttonRow": "container-a_NK-C",
 		"colorable": "colorable-3rVGna",
 		"primaryDark": "primaryDark-2UJt1G",
 		"white": "white-11auuQ",
 		"red": "red-3T8maV",
+		"green": "green-3wkLbx",
 		"leaveQuietlyButton": "leaveQuietlyButton-3Vhswc",
-			"active": "active-1QRrIS",
+		"active": "active-3D763s",
 		"speakerRaiseHandBadge": "speakerRaiseHandBadge-1hA2Uh",
 		"audienceVoiceUserIconContainer": "audienceVoiceUserIconContainer-1aQGLF",
 		"avatar": "avatar-rC0Atp",
 	),
 	"store": (
 		"store": "applicationStore-2nk7Lo",
-			"wrapper": "homeWrapperNormal-2KSUEa",
 		"scroller": "scroller-29cQFV",
 		"nitroContainer": "premiumContainer-3GGa8Q",
 		"libraryContainer": "container-36u7Lw", // maybe
@@ -1047,10 +1064,10 @@ $classes: (
 		"red": "tooltipRed-2z14Wl",
 
 		"reactionTooltipEmoji": "reactionTooltipEmoji-EMfTC-",
+		"stageListenerPill": "stageListenerPill-1_QAPA",
 	),
 	"userModal": (
-			"modal": "modal-3c3bKg",
-		"root": "root-8LYsGj", // one of root-8LYsGj root-g14mjS
+		"root": "root-8LYsGj",
 		"topSection": "topSection-13QKHs",
 		"profileBanner": "profileBanner-1owKI5",
 		"profileBannerPremium": "profileBannerPremium-KD60EB",
@@ -1070,9 +1087,8 @@ $classes: (
 		"tabBarItemSelected": "selected-g-kMVV",
 		"tabBarThemed": "themed-2-lozF",
 		"tabBarItemNoPrefix": "item-3XjbnG",
-			"headerFill": "headerFill-39azRn",
 
-			"additionalActionsIcon": "additionalActionsIcon-365LnQ",
+		"additionalActionsIcon": "additionalActionsIcon-3Cy8UU",
 		"activity": "userProfileActivity-sal5no",
 
 		"body": "body-1Ukv50",
@@ -1096,14 +1112,10 @@ $classes: (
 		"bodyNormal": "bodyNormal-250CQK",
 		"bodyNormalContent": "content-tXPNDw",
 		"actionsProfile": "actionsProfile-31n1ca",
-			"bodyNoTabBar": "noTabBar-3ZjPNR",
-			"bodyNormalContentTitle": "base-1x0h_U",
-			"bodyNormalContentDetails": "details-38sfDr",
-			"actionsButton": "button-2IFFQ4",
+		"bodyNoTabBar": "noTabBar-2Q-iE_",
 		"guildAvatarWithoutIcon": "guildAvatarWithoutIcon-6EjPQF",
 	),
 	"userPopout": (
-			"popoutLeft": "popoutLeft-3aViER",
 		"loadingPopout": "loadingPopout-1feYe_",
 		"loadingPopoutInner": "inner-26JK4f",
 		"popout": "userPopout-2j1gM4",
@@ -1130,9 +1142,8 @@ $classes: (
 		"noteTextArea": "textarea-_59yqs",
 		"actionButton": "actionButton-1YKTU0",
 		"footer": "footer-3naVBw",
-			"protip": "protip-2urNh2",
 		"input": "input-2z42oC",
-			"focused": "focused-1mmYsC",
+		"focused": "focused-1AtTHC",
 	),
 	"userSettings": (
 		"standardSidebarView": "standardSidebarView-E9Pc3j",
@@ -1150,7 +1161,6 @@ $classes: (
 		"contentRegion": "contentRegion-3HkfJJ",
 		"contentRegionScroller": "contentRegionScroller-2_GT_N",
 		"contentColumn": "contentColumn-1C7as6",
-			"contentHeader": "h2-2gWE-o",
 
 		"accountProfile": "accountProfileCard-lbN7n-",
 		"accountProfileAvatar": "avatar-3mTjvZ",
@@ -1162,12 +1172,6 @@ $classes: (
 		"profileAvatarUploader": "avatarUploaderInner-p38nm2",
 		"profileBannerPreview": "profileBannerPreview-3mLIdO",
 		"profilePopoutInfo": "popoutInfo-16MuYF",
-
-			"profileDetails": "details-2fkb7l",
-			"profileDetailsInner": "detailsInner-1VPlWl",
-			"username": "username-1fQw19",
-			"usernameRow": "usernameRow-2Lu_-c",
-			"usernameRowInner": "usernameInnerRow-ZlFnET",
 
 		"radioGroupItem": "item-2idW98",
 		"radioBar": "radioBar-3w9XY-",
@@ -1258,11 +1262,8 @@ $classes: (
 		),
 	"other": (
 		"developerPortalCtaWrapper": "developerPortalCtaWrapper-2PniQs",
-			"popout": "popout-3fRpdY",
 		"ring": "ring-370dIp",
 		"focusStroke": "focusStroke-3V8pid",
-			"speaking": "speaking-3dBKhR",
-			"avatarSpeaking": "avatarSpeaking-2c8-9i",
 	),
 
 	// Client Mods
@@ -1304,14 +1305,6 @@ $classes: (
 			"resizable": "resizable",
 			"floatingWindowTitlebar": "floating-window-titlebar",
 			"floatingWindowContent": "floating-window-content",
-			"monaco": "monaco-editor",
-			"monacoBackground": "monaco-editor-background",
-			"monacoInputArea": "inputarea",
-			"monacoIMEInput": "ime-input",
-			"monacoMargin": "margin",
-			"monacoEditorScrollable": "editor-scrollable",
-			"monacoFocused": "focused",
-			"monacoSelectedText": "selected-text",
 		),
 		"bdPlugin": (
 			"channelTabsTabContainer": "channelTabs-tabContainer",

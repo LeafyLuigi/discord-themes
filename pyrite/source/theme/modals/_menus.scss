@@ -1,0 +1,106 @@
+@use "backend" as *;
+#{c(menus menu)} {
+    background-color: $card;
+    max-height: 60vh;
+    &:before {
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        position: absolute;
+        pointer-events: none;
+        background-color: transparent;
+        border-radius: 4px;
+        backdrop-filter: blur(4px);
+    }
+}
+#{c(menus item)} {
+    // checkbox + radio
+    #{c(menus checkbox)},
+    #{c(menus radioSelection)} {
+        color: $primary;
+    }
+    // colors
+    &#{c(menus colorBrand)} {
+        color: $primary;
+    }
+    // hover/active
+    &#{c(menus itemFocused)},
+    &#{c(menus itemFocused)}:active,
+    &:active:not(#{c(menus itemHideInteraction)}) {
+        background-color: $primary;
+        // colors (and block for red)
+        &#{c(menus colorDanger)},
+        &#user-context-block {
+            background-color: $red;
+        }
+        &#{c(menus colorBrand)} {
+            background-color: $primary;
+            color: #fff;
+        }
+        // checkbox + radio
+        #{c(menus checkboxCheck)} {
+            color: $primary;
+        }
+        #{c(menus radioSelection)} {
+            color: #fff;
+        }
+    }
+    // make block red
+    &#user-context-block {
+        color: $red;
+        &#{c(menus itemFocused)},
+        &:active:not(#{c(menus itemHideInteraction)}),
+        &:hover {
+            color: #fff;
+        }
+    }
+
+}
+
+#{c(menus quickReactionButton)} {
+    background-color: transparent;
+    &:hover {
+        background-color: var(--background-modifier-hover);
+    }
+    &:active {
+        background-color: var(--background-modifier-active);
+    }
+}
+
+// Both of below can be accessed by clicking the phone/camera button and going
+// into the profile directly. I don't know anyone who uses these.
+#user-context-call,
+#user-context-note {
+  display: none;
+}
+
+#{c(menus dropdownFilled)}#{c(menus dropdownSelect)} {
+    @include card;
+    &#{c(menus dropdownOpen)} {
+        border-bottom-width: 0;
+        &#{c(menus dropdownSelectTop)} {
+            border-bottom-width: 1px;
+        }
+    }
+}
+#{c(menus dropdownPopout)} {
+    background-color: $card;
+    backdrop-filter: blur(4px);
+    border: 1px solid $primary;
+}
+#{c(menus dropdownPopoutOption)} {
+    &:hover,
+    &:focus,
+    #{c(menus dropdownPopoutOptionFocused)} {
+        background-color: var(--background-modifier-hover);
+    }
+    &[aria-selected="true"] {
+        background-color: var(--background-modifier-active);
+    }
+}
+#{c(menus dropdownPopoutSelectedIcon)} {
+    color: $primary;
+}

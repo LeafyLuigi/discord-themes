@@ -130,16 +130,16 @@ $card: var(--card-background);
 			margin-right: 12px;
 			flex-grow: 0;
 		}
-		#{c(memberList contentName)}, 
-		#{c(memberList contentChildren)} {
+		// #{c(memberList contentChildren)}, // split into two. commented for now
+		#{c(memberList contentName)} {
 			display: unset;
 		}
 	}
 	#{c(memberList wrap)} {
 		transition: 250ms cubic-bezier(.52,0,.74,0);
 	}
-	#{c(modals messagesPopoutWrap)}, 
-	#{c(modals unreadsWrap)} {
+	#{c(ipt mentionsMessagesPopoutWrap)}, 
+	#{c(ipt inboxModal)} {
 		top: unset;
 	}
 	#{c(sidebar panelActionButtons)} #{c(button contents)} {
@@ -301,6 +301,6 @@ body {
 
 // Fix for one of DevilBro's plugins - BDFDB
 // For some ungodly reason the prick thinks it's a good idea to change layerContainer.
-div.appMount-3lHmkl > .layerContainer-yqaFcK {
+div#{c(main appMount)} > #{c(main layerContainer)} {
 	z-index: 1100; // "div" is there to overwrite the css priority.
 }

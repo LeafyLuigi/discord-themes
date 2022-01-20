@@ -124,9 +124,6 @@
     color: #cdcdcd;
   }
 }
-#{c(chatForm paidGifTooltip)} {
-  background-color: $card;
-}
 #{c(chatForm inlineUpload)} {
   background-color: $card;
 }
@@ -135,9 +132,23 @@
   color: var(--text-normal);
 }
 
-// delete nitro button. might cock up a few plugins.
+#{c(chatForm beforeInlineCode)},
+#{c(chatForm inlineCode)},
+#{c(chatForm afterInlineCode)} {
+  background-color: $card;
+}
+
+// delete gift nitro button. might cock up a few plugins.
 #{c(chatForm buttons)} {
   > #{c(chatForm button)} {
     display: none;
   }
+}
+
+// text colors that may be used elsewhere
+#{c(chatForm colorBrand)} {
+  color: $primary;
+}
+#{c(chatForm colorError)} {
+  color: $red;
 }

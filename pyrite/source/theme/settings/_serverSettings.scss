@@ -39,17 +39,12 @@
 #{c(serverSettings serverIconUploadInner)} {
   background-color: transparent;
 }
-#{c(serverSettings bannerUpsellContainer)} {
-  display: none;
-}
 
-#{c(serverSettings newBadge)} {
-  background-color: $red !important; // !important reason: element.style
-}
+// commented bc idk where to get it
+// #{c(serverSettings newBadge)} {
+//   background-color: $red !important; // !important reason: element.style
+// }
 
-#{c(serverSettings roleBannerContainer)} {
-  display: none;
-}
 #{c(serverSettings roleCircleButton)} {
   background-color: $primary;
   color: #fff;

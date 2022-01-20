@@ -86,7 +86,7 @@ div#app-mount > {
       position: absolute;
       z-index: -1;
       pointer-events: none;
-      background: var(--background-image) center/cover no-repeat var(--background-attachment);
+      // background: var(--background-image) center/cover no-repeat var(--background-attachment);
     }
     #{c(powercord quickCSS)} {
       &:not(#{c(powercord poppedOut)}) {

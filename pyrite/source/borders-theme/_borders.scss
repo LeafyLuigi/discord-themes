@@ -33,16 +33,13 @@ $card: var(--card-background);
 #{c(friends activeNowAvatar)} > svg > foreignObject,
 
 // private chats avatar/group chat icon, affects "my account" avatar, user popout avatar, user profile avatar
-#{c(memberList avatarWrapper)} img,
+#{c(memberList avatarWrapper)},
 
 // chat avatar, also affects friends list and member list
 #{c(chat chatAvatar)},
 
 // voice call avi
 #{c(call avatar)},
-
-// sidebar panel speaking
-#{c(other avatarSpeaking)},
 
 // hover over avatar in popout to see this
 #{c(userPopout avatarHint)}

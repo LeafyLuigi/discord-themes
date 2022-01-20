@@ -1,11 +1,11 @@
 /**
  * @name Pyrite
  * @author LeafyLuigi
- * @version 0.1.7
+ * @version 0.1.8
  * @description Pyrite for BetterDiscord/BandagedBD
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
- * @invite W976FZS
+ * @invite 7P99YTBRUu
  */
 
 /* Import Base */
@@ -22,25 +22,46 @@
 /* Optional: HorizontalServerList. Includes the base for the minitheme. Incompatible with Dribbblish. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css); */
 
+/* Optional: Border Radius / Radical Status. Does not include Gibbu's base for Radical Status. Incompatible with it. */
+/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/borders.css) */
+
+
+/* Below are discontinued. They are very likely unstable and could mess with the UI too much. */
+/* Press Ctrl+Comma (Cmd+Comma on Mac) to open settings. */
+
 /* Optional: Dribbblish. Includes the base for the theme. Incompatible with HorizontalServerList. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/dribbblish.css); */
 
+
 /* Theme Base */
 :root {
+  /* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
   --background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
+  /* Home icon is for the little button in the top left. */
+  --home-icon: url(https://leafyluigi.github.io/images/Sunset%20Nature%2024%20by%20Bouzid27.png);
+
+  /* Image attachment can be "fixed", "scroll" or "local" */
+  /* scroll/local attaches the background to the modal completely while fixed keeps it in line with the background */
+  /* Default is "fixed" */
   --background-attachment: fixed;
   --user-modal-attachment: var(--background-attachment);
   --user-popout-attachment: var(--background-attachment);
+
+  /* Colours can be Hex, RGB(A) or HSL(A). */
+  /* Discord uses HSL(A) for anything that uses the saturation factor variable while using Hex for anything without transparency and RGBA for transparency. */
+  /* HSL(A) is extremely complex and should not be used unless you know what you are doing. Pyrite has everything in Hex for simplicity. */
+  /* Primary is the "main colour" */
+  /* Secondary is an accent colour of sorts. It's not used as often as Primary. It should be a shade or two lighter or darker compared to Primary. */
+  /* Hover is a secondary accent colour of sorts and is often used when hovering over something. Like Secondary, it should be a shade or two lighter or darker compared to Primary. */
+  /* Tooltip is used for tooltips. It can whatever colour you wish. */
   --primary-color: #FF6F00;
   --secondary-color: #E06100;
   --hover-color: #FF801F;
   --tooltip-color: #B85000;
-  --mention-background: var(--primary-color);
-  --mention-opacity: 0.3;
-  --home-icon: url(https://leafyluigi.github.io/images/Sunset%20Nature%2024%20by%20Bouzid27.png);
-
+  /* These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex. */
+  /* Green's default here is the old green. The new green is #3ba55d */
   --green-color: #43b581;
   --yellow-color: #f9a719;
   --red-color: #ec4144;
@@ -48,11 +69,21 @@
   --live-color:  #583594;
   --offline-color: #737e8c;
 
+  /* Background default to Primary, OPacity to 0.3. Opacity on hover is a static +0.2 compared to the variable. */
+  --mention-background: var(--primary-color);
+  --mention-opacity: 0.3;
+
+
   /* For Advanced Users */
+  /* Code is monospace, Body is normal font. */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
 
-  /* Below are currently unused but will be used in future. */
+  /* User Modal Layout sizes. Changing these HAS NOT BEEN TESTED. */
+  --user-modal-width: 900px;
+  --user-modal-height: 600px;
+  
+  /* Below are currently unused but will be used in future. They are very much subject to change. */
   --gradient: to bottom right, var(--primary-color);
 
   /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
@@ -71,11 +102,16 @@
 
   /* Using any of the below plugins? Change the 0 to a 1 */
   --channel-tabs-enabled: 0;
+
+
+  /* Debug; please do not touch */
+  --update-notice-0: none;
 }
 
 
 /* Feel free to edit these ones for Dark Mode */
-.theme-dark {
+.theme-dark,
+.theme-dark :not(.previewContainer-1xQAsw) .theme-light {
   --card-background: rgba(0,0,0,0.5);
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
@@ -83,7 +119,8 @@
 }
 
 /* Feel free to edit these ones for Light Mode */
-.theme-light {
+.theme-light,
+.theme-light :not(.previewContainer-1xQAsw) .theme-dark:not(.sidebar-1tnWFu):not(.guilds-2JjMmN):not(.sidebarRegion-1VBisG) {
   --card-background: rgba(255,255,255,0.05);
   --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);

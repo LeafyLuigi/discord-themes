@@ -21,3 +21,6 @@
     text-shadow: 2px 2px 2px #aaa;
   }
 }
+#{c(tooltips stageListenerPill)} {
+  background-color: $card;
+}

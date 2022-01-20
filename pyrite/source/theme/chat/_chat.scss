@@ -3,8 +3,7 @@
 #{c(chat chat)},
 #{c(chat chatLoadingWrapper)},
 #{c(chat messageLoadingWrapper)},
-#{c(chat chatContent)},
-#{c(threads sidebar)} {
+#{c(chat chatContent)} {
   background-color: transparent;
 }
 #{c(chat chatContent)} {
@@ -84,14 +83,6 @@
     &:not(#{c(chat dividerUnread)}) {
       border-top: none;
     }
-    #{c(chat dividerContent)} {
-      background-color: rgba(255,255,255,0.05);
-      color: $primary;
-      font-weight: normal;
-      margin: 0 8px;
-      padding: 2px 10px;
-      // width: fit-content;
-    }
     &#{c(chat dividerHasContent)} {
       margin: 0.5rem auto 1.5rem auto;
       border-top: none;
@@ -107,6 +98,15 @@
     //   }
     // }
   }
+}
+
+#{c(chat dividerContent)} {
+  background-color: rgba(255,255,255,0.05);
+  color: $primary;
+  font-weight: normal;
+  margin: 0 8px;
+  padding: 2px 10px;
+  // width: fit-content;
 }
 
 #{c(chat newMessagesBar)} {
@@ -287,34 +287,42 @@
   #{c(header toolbar)} {
     right: 0;
   }
+  // &#{c(chat threadSidebarFloating)} {
+  // }
 }
-#{c(threads sidebar)} {
+#{c(threads resizeHandle)} {
+  width: 4px;
+  &:hover,
+  &:active {
+    transition: background-color 0.25s ease-in-out 0.25s; 
+    background-color: $primary;
+  }
+}
+#{c(threads container)} {
   border-radius: 0;
-  margin-left: 0;
+  background-color: transparent;
 }
-#{c(threads chat)} {
-  background-color: $side;
-  &:before {
+#{c(threads chat)},
+#{c(threads newChat)} {
+  &::before {
     content: none;
   }
+}
+#{c(threads header)},
+#{c(threads newChat)} {
+  background-color: $middle;
 }
 #{c(threads iconWrapper)} {
   background-color: $card;
 }
-#{c(threads channelTextAreaInnerFocused)} {
+#{c(threads newTextAreaFocused)} {
   border-color: transparent;
 }
-#{c(threads privateThreadFeaturePill)} {
-  background-color: $card;
+#{c(threads newTextAreaError)} {
+  border-color: $red;
 }
-#{c(threads chatContainer)} {
-  background-color: $card;
-}
-#{c(chat cozy)}#{c(threads chatHasThread)}:after,
-#{c(threads spine)} {
+#{c(chat cozy)}#{c(threads msgHasThread)}::after,
+#{c(threads msgSpine)} {
   border-color: $primary;
-  filter: drop-shadow(2px 2px 2px var(--secondary-color));
-}
-#{c(threads channelListSpine)} {
-  color: $primary;
+  filter: drop-shadow(2px 2px 2px $secondary);
 }

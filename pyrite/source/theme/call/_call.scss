@@ -1,11 +1,13 @@
 @use "backend" as *;
 /* Start Calls */
 #{c(call wrapper)} {
+  background-color: $middle;
   &#{c(call minimum)} {
     background-color: transparent;
     min-height: 300px !important; // !important reason: can be overwritten using element.style
   }
   #{c(call container)} {
+    background-color: transparent;
     #{c(call root)} {
       background-color: $card;
       #{c(call avatarBorder)} {
@@ -29,7 +31,8 @@
     }
   }
 }
-#{c(call video)} {
+#{c(call video)},
+#{c(call videoEnded)} {
   background-color: transparent;
 }
 #{c(call status)} {
@@ -46,4 +49,10 @@
 }
 #{c(call lowQualityWarningIcon)} {
   color: $yellow;
+}
+#{c(call watchStreamButton)} {
+  background-color: $primary;
+  &:hover {
+    background-color: $hover;
+  }
 }

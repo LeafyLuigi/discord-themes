@@ -1,0 +1,33 @@
+@use "backend" as *;
+
+// #{c(main dark)} {
+//     #{c(main light)} {
+//         #{c(addServer modal)} {
+//             // maybe put classes back in here? dunno.
+//         }
+//     }
+// }
+
+#{c(addServer templatesList)},
+#{c(addServer optionsList)} {
+    margin-top: 0;
+    padding-top: 24px;
+}
+#{c(addServer createServer)} {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+#{c(addServer templateButton)} {
+    background-color: $card;
+    #{c(addServer templateButtonText)} {
+        color: var(--interactive-normal);
+    }
+}
+#{c(addServer templateButton)}:hover {
+    background-color: $card;
+    #{c(addServer templateButtonText)} {
+        color: var(--interactive-hover);
+    }
+}

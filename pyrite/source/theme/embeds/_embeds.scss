@@ -82,7 +82,8 @@
   }
 }
 
-#{c(embeds textContainerUp)} {
+#{c(embeds textContainerUp)},
+#{c(embeds threadContainer)} {
   @include card;
 }
 #{c(embeds textContainer)} {

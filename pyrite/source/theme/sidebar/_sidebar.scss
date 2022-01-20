@@ -129,10 +129,6 @@
 #{c(sidebar loadingChannelName)} {
   background-color: $primary;
 }
-#{c(sidebar emptyBackground)} {
-  fill: $secondary;
-}
-
 
 // Panels
 #{c(sidebar panels)} {
@@ -216,9 +212,6 @@
     border: none;
     left: -6px;
   }
-}
-#{c(sidebar studentHubContainer)} {
-  background-color: transparent;
 }
 
 // unread channels: hides dot, makes channel name and icon $main

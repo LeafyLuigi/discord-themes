@@ -89,9 +89,7 @@
 #{c(stage rtsEmptyImage)} {
   display: none;
 }
-#{c(stage rtsListTitle)} {
-  @include header;
-}
+
 #{c(stage rtsButtonContainer)},
 #{c(stage rtsButtonContainer)}:hover,
 #{c(stage rtsButtonContainer)}:active {
@@ -114,6 +112,12 @@
   &#{c(stage red)}:hover,
   &#{c(stage red)}:active {
     background-color: $red;
+    color: #fff;
+  }
+  &#{c(stage green)},
+  &#{c(stage green)}:hover,
+  &#{c(stage green)}:active {
+    background-color: $green;
     color: #fff;
   }
 }

@@ -1,8 +1,8 @@
 /**
- * @name Pyrite - Fleur Jaune
+ * @name Pyrite - Océan Bleu
  * @author LeafyLuigi
  * @version 0.1.8
- * @description Pyrite for BetterDiscord/BandagedBD. Fleur Jaune Edition.
+ * @description Pyrite for BetterDiscord/BandagedBD. Océan Bleu Edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @invite 7P99YTBRUu
@@ -28,11 +28,11 @@
 /* Theme Base */
 :root {
   /* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
-  --background-image: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
+  --background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
   /* Home icon is for the little button in the top left. */
-  --home-icon: url('https://leafyluigi.github.io/images/Frangipani by Leon Brooks.png');
+  --home-icon: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
 
   /* Image attachment can be "fixed", "scroll" or "local" */
   /* scroll/local attaches the background to the modal completely while fixed keeps it in line with the background */
@@ -48,10 +48,10 @@
   /* Secondary is an accent colour of sorts. It's not used as often as Primary. It should be a shade or two lighter or darker compared to Primary. */
   /* Hover is a secondary accent colour of sorts and is often used when hovering over something. Like Secondary, it should be a shade or two lighter or darker compared to Primary. */
   /* Tooltip is used for tooltips. It can whatever colour you wish. */
-  --primary-color: #e6de00;
-  --secondary-color: #ccc500;
-  --hover-color: #fff600;
-  --tooltip-color: #a9a300;
+  --primary-color: #387eff;
+  --secondary-color: #3298e0;
+  --hover-color: #139dff;
+  --tooltip-color: #1967ab;
 
   /* These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex. */
   /* Green's default here is the old green. The new green is #3ba55d */

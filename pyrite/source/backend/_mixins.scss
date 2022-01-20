@@ -87,7 +87,7 @@ $active-filter: rgba(0,0,0,0.4);
 /// Button : (background / border) color will need to be defined.
 @mixin button-base($color: null) {
 	@include bg;
-	> .contents-18-Yxp {
+	> .contents-3ca1mk {
 		z-index: 2;
 	}
 	&::before {
@@ -135,7 +135,7 @@ $active-filter: rgba(0,0,0,0.4);
 	color: $color;
 	background-color: transparent;
 	@include bg;
-	> .contents-18-Yxp {
+	> .contents-3ca1mk {
 		z-index: 2;
 	}
 	&::before {
@@ -162,12 +162,12 @@ $active-filter: rgba(0,0,0,0.4);
 @mixin button-link($color: null) {
 	color: $color;
 	background-color: transparent;
-	> .contents-18-Yxp {
+	> .contents-3ca1mk {
 		z-index: 2;
 	}
 	&:hover:not(:disabled),
 	&:active:not(:disabled) {
-		>.contents-18-Yxp {
+		>.contents-3ca1mk {
 			background-image: linear-gradient(0deg,transparent,transparent 1px, $color 0,$color 2px,transparent 0);
 		}
 	}

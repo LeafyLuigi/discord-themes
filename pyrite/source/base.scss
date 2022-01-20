@@ -17,6 +17,18 @@
 @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/userModalLayout.css);
 /* Default Variables */
 :root {
+  /* forced by theme */
+  --background-message-hover: transparent;
+  --background-mentioned: transparent;
+  --background-mentioned-hover: transparent;
+  --text-link: var(--link-color);
+  --text-positive: var(--green-color);
+  --text-warning: var(--yellow-color);
+  --text-danger: var(--red-color);
+  --text-brand: var(--primary-color);
+  --secret-orange: #f57531; // used in only one place - radio bar. converted from hsl.
+
+
   --background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
@@ -53,16 +65,6 @@
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
 
-  /* forced by theme */
-  --background-message-hover: transparent;
-  --background-mentioned: transparent;
-  --background-mentioned-hover: transparent;
-  --text-link: var(--link-color);
-  --text-positive: var(--green-color);
-  --text-warning: var(--yellow-color);
-  --text-danger: var(--red-color);
-  --text-brand: var(--primary-color);
-
 	/* Glasscord properties. Don't mess with these if you don't use Glasscord. */
 
     /* Windows-specific properties */
@@ -89,17 +91,23 @@
   /* Better Discord Toggles and whatnot */
   --channel-tabs-enabled: 0;
 
-  --secret-orange: #f57531; // used in only one place - radio bar. converted from hsl.
+
+  /* Internal please ignore */
+  // --update-notice-0: none;
 }
 
-// Light + Dark Differences
-.theme-dark {
+/* Feel free to edit these ones for Dark Mode */
+.theme-dark,
+.theme-dark :not(.previewContainer-1xQAsw) .theme-light {
   --card-background: rgba(0,0,0,0.5);
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
   --header-shading: rgba(0,0,0,0.7);
 }
-.theme-light {
+
+/* Feel free to edit these ones for Light Mode */
+.theme-light,
+.theme-light :not(.previewContainer-1xQAsw) .theme-dark:not(.sidebar-1tnWFu):not(.guilds-2JjMmN):not(.sidebarRegion-1VBisG) {
   --card-background: rgba(255,255,255,0.05);
   --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);

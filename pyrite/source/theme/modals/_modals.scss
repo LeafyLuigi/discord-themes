@@ -1,659 +1,298 @@
 @use "backend" as *;
 /* Begin Modals */
-@debug "rewite this shit";
 #{c(main dark)},
 #{c(main light)} {
-  #{c(modals root)} {
-    background-color: transparent;
-    // has box shadow
-  }
-  #{c(modals rootHeader)} {
-    background-color: $header;
-    padding-bottom: 10px;
-  }
-  #{c(modals rootBody)} {
-    background-color: $side;
-    padding-top: 12px;
-    border-radius: 0;
-  }
-  #{c(modals rootFooter)} {
-    background-color: $header;
-  }
-  #{c(modals rootMessage)} {
-    background-color: transparent;
-    border: 2px solid $primary;
-    border-radius: 4px;
-  }
-  #{c(modals unreadsHeader)} #{c(modals unreadsTabBar)} #{c(modals unreadsTab)}#{c(modals unreadsTabActive)} {
-    background-color: $primary;
-    color: #fff;
-  }
-  #{c(modals listModal)} {
-    background-color: transparent;
-    // has box shadow
-  }
+	#{c(modals root)} {
+		background-color: transparent;
+		box-shadow: none;
+		backdrop-filter: blur(4px);
+	}
 }
 
-// blurs
-#{c(modals messagesPopoutWrap)},
-#{c(modals root)},
-#{c(modals unreadsWrap)},
-#{c(modals emojiGifContentWrapper)},
-#{c(modals searchDropdown)},
-#{c(modals detachedEmojiPicker)},
-#{c(modals listModal)},
-#{c(modals autocomplete)},
-#{c(modals quickswitcher)},
-#{c(modals keyboardShortcuts)},
-#{c(modals toolbar)},
-#{c(timedOut container)} {
-  backdrop-filter: blur(4px);
-}
-
-#{c(modals addMembersModal)} {
-  top: 4px;
-  #{c(modals rootHeader)} {
-    padding-bottom: 16px;
-    background-color: transparent;
-  }
-}
-
-#{c(modals recentMentions)} {
-  #{c(modals unreadsMiddle)} {
-    background-color: $middle;
-    min-height: 200px;
-  }
-}
-
-#{c(modals messagesPopoutWrap)},
-#{c(modals unreadsWrap)} {
-  // has box shadow
-  top: 4px;
-  background-color: transparent;
-  max-height: 80vh !important; // !important reason: element.style
-}
-#{c(modals messagesPopoutHeader)},
-#{c(modals messagesPopoutFooter)} {
-  background-color: $header;
-}
-#{c(modals messagesPopoutMiddle)} {
-  background-color: $middle;
-}
-
-// root sizes
-// #{c(modals root)} {
-//   &#{c(modals rootSmall)} {
-
-//   }
-//   &#{c(modals rootMedium)} {
-
-//   }
-//   &#{c(modals rootLarge)} {
-
-//   }
-// }
-
-// spesific modals
-
-
-// add members
-#{c(modals addMembersSearchBar)} {
-  background-color: $card;
-}
-#{c(modals addMembersTag)} {
-  background-color: $primary;
-  color: #fff;
-}
-
-// inbox
-#{c(modals unreadsChannel)} {
-  border: 2px solid $primary;
-  border-radius: 4px;
-  padding-bottom: 0;
-  margin-bottom: 16px;
-}
-#{c(modals unreadsTutorial)} {
-  background-color: $card;
-}
-#{c(modals unreadsTutorialIcon)} {
-  display: none;
-}
-#{c(modals unreadsChannelHeader)},
-#{c(modals unreadsMessages)} {
-  background-color: transparent;
-}
-#{c(modals unreadsChannelButton)} {
-  background-color: $primary;
-  color: #fff;
-  &:hover:not(#{c(modals unreadsChannelButtonDisabled)}) {
-    background-color: $hover;
-  }
-}
-#{c(modals unreadsChannelReadButton)} {
-  margin: 0 8px;
-}
-#{c(modals unreadsMention)} {
-  background-color: $primary;
-  filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
-}
-#{c(main fullMotion)}#{c(main focused)} #{c(modals unreadsMention)} {
-  animation: numberBadgeFlash 5s linear infinite;
-}
-#{c(modals unreadsJumpBackground)} {
-  background-color: $card;
-}
-#{c(modals unreadsIconContainer)} {
-  display: none;
-}
-
-// recent mentions
-#{c(modals mentionsScrollingFooterWrap)} {
-  #{c(modals mentionsFooter)} {
-    background-color: transparent;
-    min-height: unset;
-    padding: 16px;
-  }
-}
-#{c(modals mentionsChannel)} {
-  padding-left: 0;
-  padding-right: 0;
-  border: 2px solid $primary;
-  border-radius: 4px;
-  margin: 4px 16px 12px;
-}
-#{c(modals mentionsMessage)},
-#{c(modals mentionsGuildIcon)} {
-  background-color: transparent;
-}
-#{c(modals mentionsCloseButton)} {
-  margin: 0 8px;
-}
-
-// pins
-#{c(modals pinnedMessageGroupWrapper)} {
-  background-color: transparent;
-  border: 2px solid $primary;
-  border-radius: 4px;
-}
-#{c(modals pinnedJumpButton)} {
-  background-color: $card;
-}
-
-// emoji/gif/stickers from chatbar
-#{c(modals emojiGifResizeHandle)} {
-  @include bg;
-  &:before {
-    width: 2px;
-    background-color: $primary;
-  }
-}
-// stickers
-#{c(modals stickerWrapper)} {
-  display: flex;
-  flex-direction: column-reverse;
-  #{c(modals emojiInspector)} {
-    grid-column: unset;
-    grid-row: unset;
-  }
-}
-#{c(modals stickerCategoryRecent)} {
-  color: #fff;
-}
-#{c(modals stickerCategoryRecent)}:hover,
-#{c(modals stickerPremiumCategorySelected)},
-#{c(modals stickerPremiumCategorySelected)}:hover,
-#{c(modals stickerCategoryRecentSelected)},
-#{c(modals stickerCategoryRecentSelected)}:hover {
-  background-color: $primary;
-}
-#{c(modals stickerSelected)} #{c(modals stickerInspectedIndicator)} {
-  background-color: transparent;
-  ~ #{c(modals stickerNode)} {
-    background-color: $primary;
-    -webkit-mask: url(/assets/7d65d61e6cd25bf1847ec2d3e4a0144d.svg) 0 0/100% 100%;
-    transition: background-color .08s ease-out, color .08s ease-out, opacity .25s;
-    margin: -2px;
-    padding: 2px;
-  }
-}
-#{c(modals stickerUpsellWrapper)} {
-  display: none;
-}
-// #{c(modals emojiGifNavItem)}[aria-controls="sticker-picker-tab-panel"] {
-//   display: none; // fuck stickers.
-// }
-#{c(modals emojiGifContentWrapper)} {
-  background-color: $card;
-}
-#{c(modals emojiGifNavButtonActive)} {
-  background-color: $primary;
-}
-#{c(modals emojiGifContentWrapper)} {
-  #{c(modals gifResult)} {
-    &[style*="background-color"] {
-      background-color: $primary !important; // !important reason: element.style
-      &[style*="hsl(228, calc(var(--saturation-factor, 1) * 86.7%), 70.6%)"] {
-        filter: brightness(1.2);
-      }
-      &[style*="hsl(228, calc(var(--saturation-factor, 1) * 86.7%), 70.6%)"] {
-        filter: grayscale(0.2);
-      }
-      &[style*="rgb(146, 154, 250)"] {
-        filter: grayscale(0.3) brightness(1.2);
-      }
-    }
-    #{c(modals gifFade)} {
-      background-color: transparent;
-      &:hover {
-        background-color: $card;
-      }
-    }
-    #{c(modals gifFadeBlurple)} {
-      background-color: transparent;
-      @include bg;
-      &:before {
-        transition: all .15s ease-out;
-        background-color: $primary;
-        opacity: 0.8;
-        border-radius: 4px;
-      }
-      &:hover {
-        background-color: transparent;
-        &:before {
-          opacity: 0.9;
-        }
-      }
-    }
-    &:hover:after {
-      box-shadow: inset 0 0 0 2px $primary, inset 0 0 0 3px $card;
-    }
-  }
-}
-// emoji from chatbar
-#{c(modals emojiListWrapper)} {
-  top: 48px;
-  #{c(modals emojiItem)} {
-    &#{c(modals emojiItemSelected)} {
-      background-color: transparent;
-      &:not(#{c(modals emojiItemDisabled)}) {
-        background-color: $primary;
-      }
-    }
-    #{c(modals emojiLoading)} {
-      background-image: none;
-    }
-  }
-}
-#{c(modals emojiCategoryWrapper)} {
-  background-color: transparent;
-}
-#{c(modals emojiItemDisabled)} {
-  cursor: not-allowed;
-}
-#{c(modals emojiInspector)} {
-  background-color: transparent;
-  grid-column: 2/3;
-  grid-row: 2/3;
-}
-#{c(modals emojiGuildIcon)} {
-  background-color: transparent;
-}
-#{c(modals emojiUnicodeShortcutInvisible)} {
-  opacity: 1;
-  transform: none;
-}
-#{c(modals emojiUnicodeShortcut)} {
-  bottom: unset;
-}
-#{c(modals emojiGuildWrapper)} {
-  background-color: transparent;
-}
-#{c(modals emojiGuildList)} {
-  margin-top: 48px;
-}
-#{c(modals emojiGuildListHeight)} {
-  margin-bottom: 48px;
-}
-#{c(modals emojiCategoryItemDefaultCategorySelected)},
-#{c(modals emojiCategoryItemDefaultCategorySelected)}:hover {
-  background-color: $primary;
-}
-#{c(modals emojiColorSelectorPopout)} {
-  background-color: $card;
-  border-color: transparent;
-}
-#{c(modals emojiUpsell)},
-#{c(modals emojiPremiumPromo)} {
-  display: none;
-}
-
-// detached emoji picker / add reactions
-#{c(modals detachedEmojiPicker)} {
-  background-color: $card;
-}
-
-// right click
-#{c(modals menu)} {
-  background-color: $card;
-  max-height: 40vh;
-}
-#{c(modals menuItem)}#{c(modals menuColorBrand)} {
-  color: $primary;
-  &#{c(modals menuFocused)} {
-    color: #fff;
-  }
-}
-#{c(modals menuColorDefault)} {
-  &#{c(modals menuFocused)} {
-    &:not(#{c(modals menuColorDanger)}) {
-      background-color: $primary;
-    }
-    #{c(modals menuCheckboxCheck)} {
-      color: $primary;
-    }
-  }
-  #{c(modals menuCheckbox)},
-  #{c(modals menuRadioSelection)} {
-    color: $primary;
-  }
-  &:active:not(#{c(modals menuHideInteraction)}) {
-    background-color: $primary;
-  }
-}
-#{c(modals menuColorDanger)} {
-  color: $red;
-  &#{c(modals menuFocused)} {
-    background-color: $red;
-    color: #fff;
-  }
-}
-// no one i know uses this
-#user-context-call {
-  display: none;
-}
-
-// add server
-#{c(modals addServerTemplatesList)},
-#{c(modals addServerOptionsList)},
-#{c(modals addServerCreateGuild)} {
-  margin: 0;
-}
-#{c(modals addServerContainer)} {
-  background-color: $card;
-}
-#{c(modals addServerIcon)} {
-  > svg > circle {
-    fill: $primary;
-  }
-}
-// Add Server Modal reset Dark from light
-#{c(main dark)} #{c(main light)} {
-  #{c(modals root)} {
-    box-shadow: 0 0 0 1px rgba(32,34,37,.6), 0 2px 10px 0 rgba(0,0,0,.2);
-  }
-  #{c(modals addServerFooter)} {
-    box-shadow: inset 0 1px 0 rgba(47,49,54,.6);
-  }
-  #{c(chatForm lookBlank)}#{c(button colorBrand)} {
-    color: $primary;
-  }
-  #{c(button lookFilled)}#{c(button colorGrey)} {
-    background-color: $primary;
-  }
-}
-
-// upload drop
-#{c(modals uploadPremiumPromo)} {
-  display: none;
-}
-#{c(modals uploadModalIn)} {
-  #{c(modals uploadDrop)} {
-    #{c(modals uploadBgScale)} {
-      background-color: $primary;
-      ~ #{c(modals uploadDropInner)} {
-        border-color: $secondary;
-      }
-    }
-    #{c(modals uploadDropIcons)} {
-      display: none;
-    }
-    &#{c(modals uploadDropError)} {
-      height: 170px;
-    }
-  }
-}
-
-// upload modal
-#{c(main light)},
-#{c(main dark)} {
-  #{c(modals uploadModal)} {
-    filter: unset;
-    background-color: $side;
-  }
-  #{c(modals uploadModalFooter)} {
-    background-color: transparent;
-    box-shadow: none;
-  }
-}
-#{c(modals uploadModalComment)} {
-  #{c(modals uploadModalFileInputWrapper)} #{c(modals uploadModalFileInput)} {
-    background-color: rgba(255,255,255,0.1);
-  }
-}
-#{c(modals uploadModal)} #{c(modals uploadModalInner)} #{c(modals uploadModalFile)} #{c(modals uploadModalIcon)}#{c(modals uploadModalImage)} {
-  background: $primary repeating-conic-gradient(#0004 0% 25%, #eee4 0% 50%) center/10px 10px;
-  transition: all 0.25s linear;
-  -webkit-user-drag: none;
-  margin-left: 8px !important; // !important reason: element.style
-  &:not([style*="width: 416px"]) {
-    cursor: zoom-in;
-    max-width: 80vw;
-    width: initial !important; // !important reason: element.style
-    &:hover {
-      height: 30vh !important; // !important reason: element.style
-    }
-    &:active {
-      height: 50vh !important; // !important reason: element.style
-    }
-  }
-}
-
-// search dropdown
-#{c(main light)},
-#{c(main dark)} {
-  #{c(modals searchDropdown)} {
-    top: 4px;
-    position: relative;
-    background-color: $card;
-  }
-  #{c(modals searchDropdownResultsGroup)} {
-    &:before {
-      content: none;
-    }
-  }
-  #{c(modals searchDropdownOption)} {
-    &:before,
-    &:after {
-      content: none;
-    }
-    &#{c(modals searchDropdownSelected)} {
-      background-color: var(--background-modifier-hover);
-    }
-  }
-  #{c(modals searchDropdownFocused)} {
-    background-color: transparent;
-  }
-}
-
-// status / custom status
-#{c(modals status)} {
-  &[style*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
-    background-color: var(--green-color) !important; // !important reason: element.style
-  }
-  &[style*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
-    background-color: var(--yellow-color) !important; // !important reason: element.style
-  }
-  &[style*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
-    background-color: var(--red-color) !important; // !important reason: element.style
-  }
-  &[style*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
-    background-color: var(--offline-color) !important; // !important reason: element.style
-  }
-}
-
-// notification settings dropdown, could apply for others
-#{c(modals dropdownExpanded)} {
-  background-color: $card;
-}
-#{c(modals dropdownOption)} {
-  &#{c(modals dropdownFocused)},
-  &:hover,
-  &:focus {
-    background-color: var(--background-modifier-hover);
-  }
-}
-#{c(modals dropdownLookFilled)}#{c(modals dropdownSelect)} {
-  @include card;
-}
-#{c(modals dropdownInput)} {
-  background-color: transparent;
-}
-
-// reaction list modal
 #{c(main dark)},
 #{c(main light)} {
-  #{c(modals reactionSide)} {
-    background-color: $side;
-  }
-  #{c(modals reactionMain)} {
-    background-color: $middle;
-  }
+	#{c(modals footer)} {
+		background-color: $middle;
+	}
+	#{c(modals createEventPreviewCard)} {
+		@include card;
+	}
+	#{c(modals unpinMessage)} {
+		@include card;
+		box-shadow: none;
+	}
+	#{c(modals shortcutsModal)} {
+		background-color: transparent;
+	}
+	#{c(modals quickSwitchModal)} {
+		backdrop-filter: none;
+		min-height: 365px;
+	}
+	// used in calls
+	#{c(modals regionSelectDropdown)} {
+		@include card;
+		box-shadow: none;
+	}
+}
+#{c(modals header)} {
+	background-color: $header;
+}
+#{c(modals close)} {
+	opacity: 1;
+}
+#{c(modals closeIcon)} {
+	color: $primary;
+	&:hover {
+			color: $hover;
+	}
+}
+#{c(modals body)} {
+	background-color: $middle;
+}
+// fuckers have the close button moved.
+#{c(modals createChannelHeader)} {
+	margin: 0;
+	#{c(modals createChannelClose)} {
+		top: 14px;
+	}
+}
+#{c(modals createChannelSearchBar)} {
+	background-color: $card;
+	#{c(modals createChannelTag)} {
+		background-color: transparent;
+		border: 1px solid $primary;
+	}
 }
 
-// autocomplete modal
-#{c(main dark)},
-#{c(main light)} {
-  #{c(modals autocomplete)} {
-    background-color: $side;
-  }
-  #{c(modals autocompleteSelected)} {
-    background-color: var(--background-modifier-hover);
-  }
+#{c(modals createEventProgressBar)},
+#{c(modals createEventRSVPCount)} {
+	background-color: $card;
 }
-
-// quickswitcher modal
-#{c(main dark)},
-#{c(main light)} {
-  #{c(modals quickswitcherInput)} {
-    background-color: rgba(255,255,255,0.1);
-    &:focus-within {
-      box-shadow: 0 0 2px 2px $primary;
-      background-color: rgba(0,0,0,0.5);
-    }
-  }
+#{c(modals createEventProgressBarSelected)} {
+	background-color: $primary;
 }
-#{c(modals quickswitcher)} {
-  background-color: $card;
+#{c(modals createEventTextInput)} {
+	@include card;
 }
-#{c(modals quickswitcherScroller)} {
-  background-color: transparent;
-  margin-top: 0;
+#{c(modals eventCard)},
+#{c(modals eventCard)}:hover {
+	background-color: $card;
+	border-color: $primary;
 }
-
-// keyboard shortcuts
-#{c(main dark)},
-#{c(main light)} {
-  #{c(modals keyboardShortcuts)} {
-    background-color: transparent;
-  }
+#{c(modals eventInfoHeader)} {
+	background-color: $header;
 }
-#{c(modals keyboardShortcutsTitle)} {
-  background-color: $header;
-  margin-bottom: 0;
+#{c(modals eventInfoGuildIcon)} {
+	background-color: transparent;
 }
-#{c(modals keyboardShortcutsSubtitle)} {
-  padding-top: 5px;
-  background-color: $header;
+#{c(modals warningCard)} {
+	background-color: $yellow;
+	border-color: $yellow;
 }
-#{c(modals ddrArrows)}+#{c(scroller base)} {
-  background-color: $middle;
+#{c(modals inviteScroller)} {
+	background-color: $middle;
 }
-
-// incoming call
+#{c(modals timeoutDurationGroupBar)} {
+	#{c(modals timeoutDuration)} {
+		@include card;
+		&:hover {
+			background-color: $hover;
+		}
+		&#{c(modals timeoutDurationSelected)} {
+			background-color: $primary;
+		}
+	}
+}
 #{c(modals incomingCall)} {
-  @include card;
+	@include card;
+	backdrop-filter: blur(5px);
 }
 
-// toolbar (double click a word)
-#{c(modals toolbar)} {
-  background-color: $card;
-  &:before {
-    border-top-color: $card;
-  }
+#{c(modals shortcutsModal)} #{c(scroller base)} {
+	background-color: $middle;
 }
-#{c(modals toolbarDivider)} {
-  display: none;
+#{c(modals shortcutsTitle)} {
+	background: $header;
+	margin-bottom: 0;
+}
+#{c(modals shortcutsSubtitle)} {
+	background: $header;
+	padding-top: 5px;
 }
 
-// events
+#{c(modals beforeTalkSidebar)} {
+	background-color: $side;
+}
+#{c(modals beforeTalkBody)} {
+	background-color: transparent;
+}
+#{c(modals beforeTalkFieldWrapper)} {
+	@include card;
+}
+
+#{c(modals welcomeToServerMain)}#{c(modals root)} {
+	background-color: $middle;
+}
+#{c(modals welcomeToServerOption)} {
+	background-color: $card;
+	&:hover {
+		background-color: $card;
+	}
+}
+
 #{c(main dark)},
 #{c(main light)} {
-  #{c(modals eventPreviewCard)} {
-    background-color: $card;
-    border: 1px solid $primary;
-  }
+	#{c(modals contentWarningPopout)} {
+		backdrop-filter: blur(5px);
+		background-color: $card;
+		box-shadow: none;
+	}
+	#{c(modals contentWarningFooter)} {
+		background-color: transparent;
+	}
 }
-#{c(modals eventTextInputWrapper)} {
-  background-color: transparent;
+#{c(modals contentWarningBody)} {
+	#{c(modals contentWarningContent)} {
+		margin-left: 0;
+	}
+	#{c(modals contentWarningHeaderText)} {
+		color: $red;
+	}
 }
-#{c(modals eventTickSelectedIcon)} {
-  color: $primary;
-}
-#{c(modals eventRSVPCount)} {
-  background-color: $card;
-  #{c(modals eventRSVPIcon)},
-  #{c(modals colorHeaderSecondary)} {
-    color: $primary;
-  }
-}
-#{c(modals eventCard)} {
-  background-color: $card;
-  border: 1px solid $primary;
-  &:hover {
-    background-color: $card;
-  }
+#{c(modals contentWarningAnimation)} {
+	display: none;
 }
 
-// "Before you can talk here"
-#{c(modals beforeTalkModal)} {
-  #{c(modals beforeTalkSidebar)} {
-    background-color: $side;
-  }
-  #{c(modals beforeTalkMain)} {
-    background-color: $middle;
-  }
-  #{c(modals beforeTalkRules)} {
-    border-color: $primary;
+#{c(modals toolbar)} {
+	background-color: $card;
+	box-shadow: none;
+	backdrop-filter: blur(5px);
+	&:before {
+		border-top-color: $card;
+	}
+}
+
+#{c(main dark)},
+#{c(main light)} {
+	#{c(modals reactionsSidebar)} {
+		background-color: $side;
+	}
+	#{c(modals reactionDefault)}:hover {
+		background-color: var(--background-modifier-hover);
+	}
+	#{c(modals reactionDefault)}:active,
+	#{c(modals reactionSelected)} {
+		background-color: var(--background-modifier-active);
+	}
+	#{c(modals reactionReactors)} {
+		background-color: $middle;
+	}
+}
+
+#{c(modals quickSwitch)} {
+	box-shadow: none;
+	background-color: $middle;
+}
+#{c(modals quickSwitchSearch)} {
+	box-shadow: none;
+	background-color: $card;
+}
+#{c(modals quickSwitchScroller)} {
+	background-color: transparent;
+	&::-webkit-scrollbar-track {
+		background-color: transparent !important; // !important reason: discord uses important
+	}
+}
+
+#{c(main dark)},
+#{c(main light)} {
+	#{c(modals autocomplete)} {
+		background-color: transparent;
+	}
+}
+#{c(modals autocomplete)} {
+	box-shadow: none;
+	#{c(modals autocompleteScroller)} {
+		background-color: $middle;
+		backdrop-filter: blur(5px);
+	}
+	#{c(modals autocompleteCategoryHeader)} {
+		background-color: $card;
+	}
+}
+#{c(modals autocompleteInner)} {
+	backdrop-filter: blur(5px);
+}
+#{c(modals autocompleteRail)} {
+	background-color: $side;
+	backdrop-filter: blur(5px);
+}
+#{c(modals autocompleteRailInner)} {
+	background-color: transparent;
+}
+#{c(modals autocompleteCategorySelected)},
+#{c(modals autocompleteCategorySelected)}:hover {
+	background-color: $card;
+}
+#{c(modals autocompleteCommandBase)}#{c(modals autocompleteCommandSelected)} {
+	background-color: $card;
+}
+#{c(modals autocompleteEmojiInner)} {
+	background-color: $card;
+}
+
+#{c(modals stickerSuggestMask)} > foreignObject {
+	mask: none;
+}
+#{c(modals stickerSuggestMaskBackground)} {
+	background-color: $card;
+	border-radius: 4px;
+}
+#{c(modals stickerSuggestBackground)} {
+	background-color: $card;
+	border: 1px solid $primary;
+	box-shadow: none;
+	backdrop-filter: blur(5px);
+	&:after {
+		content: none;
+	}
+}
+
+#{c(modals problemInfoRoot)} {
+	background-color: $card;
+}
+
+#{c(modals timedOutContainer)} {
     background-color: $card;
-  }
-  #{c(modals rootFooter)} {
-    border-radius: 0;
-  }
+}
+#{c(modals timedOutIconContainer)} {
+    background-color: transparent;
+}
+#{c(modals timedOutIcon)},
+#{c(modals timedOutBannerIcon)} {
+    path {
+        &[fill="#ED4245"] {
+            fill: $red;
+        }
+    }
+}
+#{c(modals timedOutSpamBanner)} {
+    background-color: $header;
+    backdrop-filter: blur(2px);
 }
 
-// Timeout user modal
-#{c(modals timeoutSelectorButton)} {
-  background-color: $card;
-  &:hover {
-    background-color: $hover;
-  }
+#{c(modals toastsContainer)} {
+    z-index: 1200;
 }
-#{c(modals timeoutSelectorButtonSelected)} {
-  background-color: $primary;
-  &:hover {
-    background-color: $primary;
-  }
+#{c(modals toastsToast)} {
+    background-color: $card;
+    border-radius: var(--border-radius);
 }
-
-// classes that need to be put in and themed
-// .iconContainer-2aaq6z - background, use card, used in "Welcome to Stages" modal
+#{c(modals toastsIcon)} path{
+    &[fill="#3BA55C"] {
+        fill: $green;
+    }
+    &[fill="#ED4245"] {
+        fill: $red;
+    }
+}

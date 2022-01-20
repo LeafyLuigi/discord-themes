@@ -1,0 +1,11 @@
+@use "backend" as *;
+/* Begin Server Profile */
+#{c(serverProfile notice)} {
+    @include card;
+    #{c(serverProfile warningCircleIcon)} {
+        color: $yellow;
+    }
+}
+#{c(serverProfile upsellContainer)} {
+    display: none;
+}

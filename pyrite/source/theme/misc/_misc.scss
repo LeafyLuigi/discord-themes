@@ -14,7 +14,7 @@
   }
 }
 
-// used in: modals, serverList
+// used in: misc
 @keyframes numberBadgeFlash {
   0% {
     background-color: $primary;
@@ -136,7 +136,6 @@ html, // because maybe?
 body, // this one is here for transparency in bd to work
 #{c(main appInner)},
 #{c(main bg)},
-#{c(main loadingBackground)},
 #{c(main loadingContainer)} {
   background: transparent;
 }
@@ -287,10 +286,11 @@ body, // this one is here for transparency in bd to work
 }
 
 // Are you a robot?
-#{c(main areYouARobotContainer)} {
-  background-color: $header;
-  backdrop-filter: blur(5px);
-}
+// commented bc i cannot find a way to get it up
+// #{c(main areYouARobotContainer)} {
+//   background-color: $header;
+//   backdrop-filter: blur(5px);
+// }
 
 #{c(store store)} {
    #{c(store scroller)} {
@@ -378,9 +378,6 @@ body, // this one is here for transparency in bd to work
 #{c(other developerPortalCtaWrapper)} {
   background-color: $card;
 }
-#{c(other popout)} {
-  background-color: transparent;
-}
 // Rings - tab around and you'll find it.
 #{c(other ring)} {
   &[style*="var(--focus-primary)"] {
@@ -390,11 +387,6 @@ body, // this one is here for transparency in bd to work
 #{c(main keyboardMode)} #{c(other focusStroke)} {
   fill: $primary;
   stroke: $primary;
-}
-// For the little avatars
-#{c(other speaking)},
-#{c(other avatarSpeaking)} {
-  box-shadow: inset 0 0 0 2px $primary;
 }
 // Goto Message Links
 #{c(main anchorLink)} {
@@ -431,27 +423,8 @@ a[href^="http://"] {
   font-style: italic;
 }
 
-#{c(modals menu)} {
-  &:before {
-    content: "";
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    position: absolute;
-    pointer-events: none;
-    background-color: transparent;
-    border-radius: 4px;
-    backdrop-filter: blur(4px);
-  }
-}
 #{c(main loadingContainer)} {
   backdrop-filter: blur(5px);
-}
-#{c(modals fullImageModal)},
-#{c(modals notDetachedEmojiPicker)} #{c(modals detachedEmojiPicker)} {
-  backdrop-filter: none;
 }
 
 #{c(memberList wrap)}:hover {
@@ -462,10 +435,23 @@ a[href^="http://"] {
 }
 
 #{c(main backdrop)},
-#{c(main backdropWithLayer)},
-#{c(modals uploadArea)} {
+#{c(main backdropWithLayer)} {
   backdrop-filter: blur(3px);
   background-color: transparent !important;
+}
+
+/* Animations */
+
+#{c(main fullMotion)}#{c(main focused)} {
+  #{c(serverList numberBadge)} {
+    animation: numberBadgeFlash 5s linear infinite;
+    &:before {
+      animation: numberBadgeFlashBefore 5s linear infinite;
+    }
+  }
+  #{c(ipt inboxUnreadMessagesCountWrapper)} {
+    animation: numberBadgeFlashBefore 5s linear infinite;
+  }
 }
 
 /* Version */
@@ -493,7 +479,9 @@ html[lang="en-GB"] #{c(userSettings sidebarInfo)} {
 
 /* Official Preset Previews */
 #{c(chat messageAttachmentsContainer)} {
-  &#message-accessories-900277937956339712 {
+  &#message-accessories-933588860527603762,
+  &#message-accessories-933588953817313321,
+  &#message-accessories-933589023761510400 {
     margin-bottom: 20px;
     #{c(embeds textContainerUp)} {
       border: none;
@@ -502,7 +490,7 @@ html[lang="en-GB"] #{c(userSettings sidebarInfo)} {
         @include bg;
         @include bg2;
         &:before {
-          background: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png) center/ cover no-repeat;
+          background: center/ cover no-repeat;
         }
         &:after {
           background: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat;
@@ -524,34 +512,30 @@ html[lang="en-GB"] #{c(userSettings sidebarInfo)} {
       }
     }
   }
-  &#message-accessories-900283733997920267 {
-    margin-bottom: 20px;
+  &#message-accessories-933588860527603762 {
     #{c(embeds textContainerUp)} {
-      border: none;
-      background-color: transparent;
       #{c(embeds textContainer)} {
-        @include bg;
-        @include bg2;
         &:before {
-          background: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png') center/ cover no-repeat;
-        }
-        &:after {
-          background: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat;
-        }
-        pre {
-          display: none;
+          background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
         }
       }
     }
-    #{c(embeds textFooter)} {
-      width: 300px;
-      position: relative;
-      bottom: -40px;
-      #{c(embeds toggleExpandedPreview)},
-      #{c(embeds attachmentName)},
-      #{c(embeds attachmentSize)},
-      #{c(embeds codeIcon)} {
-        display: none;
+  }
+  &#message-accessories-933588953817313321 {
+    #{c(embeds textContainerUp)} {
+      #{c(embeds textContainer)} {
+        &:before {
+          background-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
+        }
+      }
+    }
+  }
+  &#message-accessories-933589023761510400 {
+    #{c(embeds textContainerUp)} {
+      #{c(embeds textContainer)} {
+        &:before {
+          background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
+        }
       }
     }
   }
@@ -586,4 +570,18 @@ $helper: (
       --local-tag: "Theme Helper";
     }
   }
+}
+
+/* Redownload pls bar */
+#{c(main appContainer)}::before {
+  content: "Your version of Pyrite is outdated. Please redownload.";
+  text-align: center;
+  position: absolute;
+  color: #fff;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  padding: 10px 0;
+  background-color: $header;
+  display: var(--update-notice-0, block);
+  z-index: 2500;
 }
