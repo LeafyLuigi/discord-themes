@@ -197,8 +197,7 @@ body, // this one is here for transparency in bd to work
     color: #fff;
   }
   #{c(header toolbar)} {
-    position: relative;
-    right: calc(3 * var(--win-min-max-close-button-width));
+    padding-right: calc(3 * var(--win-min-max-close-button-width));
     margin-right: -6px;
   }
   #{c(header nicknames)},

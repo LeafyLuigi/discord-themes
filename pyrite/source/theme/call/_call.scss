@@ -6,6 +6,9 @@
     background-color: transparent;
     min-height: 300px !important; // !important reason: can be overwritten using element.style
   }
+  &#{c(call noChat)} {
+    background-color: transparent;
+  }
   #{c(call container)} {
     background-color: transparent;
     #{c(call root)} {

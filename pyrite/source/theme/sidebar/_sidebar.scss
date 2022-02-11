@@ -33,9 +33,15 @@
   #{c(sidebar scroller)} {
     background-color: transparent;
     width: 240px;
-    #{c(sidebar privateChannel)}[href="/store"],
-    #{c(sidebar privateChannel)}[href="/library"] {
+    #{c(sidebar privateChannelLink)}[href="/store"],
+    #{c(sidebar privateChannelLink)}[href="/library"] {
       display: none;
+    }
+    #{c(sidebar privateChannel)} {
+      padding: 0;
+    }
+    #{c(sidebar privateChannelLink)} {
+      padding: 1px 0;
     }
   }
   #{c(sidebar privateChannelsHeader)} {

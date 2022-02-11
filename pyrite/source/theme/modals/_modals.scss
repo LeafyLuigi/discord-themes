@@ -33,6 +33,25 @@
 		@include card;
 		box-shadow: none;
 	}
+	// search has a lot of theme-d/l beforehand.
+	#{c(modals searchDropdown)} {
+		background-color: transparent;
+		box-shadow: none;
+		backdrop-filter: blur(5px);
+	}
+	#{c(modals searchOption)}::after {
+		content: none;
+	}
+	#{c(modals searchQueryHeader)} {
+		background-color: $header;
+	}
+	#{c(modals searchResultsGroup)},
+	#{c(modals searchDatePicker)} {
+		background-color: $middle;
+	}
+	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)} {
+		background-color: $primary;
+	}
 }
 #{c(modals header)} {
 	background-color: $header;
