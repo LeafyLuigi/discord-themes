@@ -38,6 +38,8 @@
 		background-color: transparent;
 		box-shadow: none;
 		backdrop-filter: blur(5px);
+		position: relative;
+		top: 4px;
 	}
 	#{c(modals searchOption)}::after {
 		content: none;
@@ -49,7 +51,8 @@
 	#{c(modals searchDatePicker)} {
 		background-color: $middle;
 	}
-	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)} {
+	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)},
+	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)}:hover {
 		background-color: $primary;
 	}
 }
@@ -152,11 +155,9 @@
 #{c(modals welcomeToServerMain)}#{c(modals root)} {
 	background-color: $middle;
 }
-#{c(modals welcomeToServerOption)} {
+#{c(modals welcomeToServerOption)},
+#{c(modals welcomeToServerOption)}:hover {
 	background-color: $card;
-	&:hover {
-		background-color: $card;
-	}
 }
 
 #{c(main dark)},
@@ -314,4 +315,46 @@
     &[fill="#ED4245"] {
         fill: $red;
     }
+}
+
+#{c(modals searchResultsGroup)}::before {
+	content: none;
+}
+#{c(modals searchDatePicker)} #{c(modals searchCalendarPicker)} {
+	#{c(modals reactDatePicker)},
+	#{c(modals reactDPHeader)}
+	{
+		background-color: transparent;
+	}
+	#{c(modals reactDPDay)} {
+		&:hover,
+		&#{c(modals reactDPDayOutsideMonth)}:hover,
+		&#{c(modals reactDPDaySelected)}::after,
+		&#{c(modals reactDPDayKeyboardSelected)} {
+			background-color: $primary;
+		}
+		&#{c(modals reactDPDayOutsideMonth)},
+		&#{c(modals reactDPDayDisabled)},
+		&#{c(modals reactDPDayDisabled)}:hover {
+			background-color: transparent;
+		}
+	}
+}
+
+#{c(modals bannedUserModal)} {
+	#{c(modals bannedUserHeader)} {
+		padding: 20px 16px;
+	}
+	#{c(modals body)} {
+		padding: 20px 8px 20px 16px;
+	}
+}
+
+#{c(modals addRoleContainer)} {
+	background-color: $card;
+	backdrop-filter: blur(5px);
+}
+
+#{c(modals purgeBody)} {
+	background-color: $middle;
 }

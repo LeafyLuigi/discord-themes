@@ -499,9 +499,9 @@ $classes: (
 		"toolbar": "toolbar-3_r2xA",
 		"iconSelected": "selected-29KTGM",
 		"search": "search-39IXmY",
-		"searchInner": "search-1FM8Qc",
-		"searchOpen": "open-3y3yI_",
-		"searchBar": "searchBar-zdmu7v",
+		"searchInner": "search-2Mwzzq",
+		"searchOpen": "open-1F8u2c",
+		"searchBar": "searchBar-jGtisZ",
 		"iconBadge": "iconBadge-3Mmg92",
 		"participating": "participating-2Z81oO",
 		"topic": "topic-11NuQZ",
@@ -635,14 +635,27 @@ $classes: (
 		"regionSelectDropdown": "regionSelectPopout-3sEzVB",
 		
 		"searchDropdown": "container-2McqkF",
-		"searchOption": "option-2KkUJO",
+		"searchOption": "option-ayUoaq",
 		"searchQueryHeader": "queryContainer-ZunrLZ",
-		"searchResultsGroup": "resultsGroup-1BPR25",
-		"searchDatePicker": "datePicker-70cO23",
-		"searchDatePickerHint": "datePickerHint-17MnA8",
-		"searchDateHintValue": "hintValue-1x-flY",
+		"searchResultsGroup": "resultsGroup-cfY57t",
+		"searchDatePicker": "datePicker-3iA7_k",
+		"searchDatePickerHint": "datePickerHint-Ir4715",
+		"searchDateHintValue": "hintValue-V9hd8l",
 		"searchCalendarPicker": "calendarPicker-sDhzdi",
-		// "searchR": "react-datepicker",
+		"reactDatePicker": "react-datepicker",
+		"reactDPHeader": "react-datepicker__header",
+		"reactDPDay": "react-datepicker__day",
+		"reactDPDayDisabled": "react-datepicker__day--disabled",
+		"reactDPDaySelected": "react-datepicker__day--selected",
+		"reactDPDayOutsideMonth": "react-datepicker__day--outside-month",
+		"reactDPDayKeyboardSelected": "react-datepicker__day--keyboard-selected",
+
+		"bannedUserModal": "bannedUserModal-9XjyCI",
+		"bannedUserHeader": "header-2An-Ws",
+
+		"addRoleContainer": "container-2O1UgZ",
+
+		"purgeBody": "content-1x29-w",
 	),
 
 		"addServer": (
@@ -815,6 +828,7 @@ $classes: (
 		"viewServerAsRole": "notice-2olXi7", // contents: "You are viewing this server as $count role(s)."
 		"previewServerNotice": "notice-12Koq-", // contents: "You are currently in preview mode. Join this server to start chatting!"
 		"colorNotifGreen": "colorNotification-24Qhr6", // can be accessed by raising your hand in a stage channel and being allowed up
+		"colorWarning": "colorWarning-3oV0Ge", // shown when nitro is about to end when you don't have a payment option. on same line as other notice stuff
 	),
 	"scroller": (
 		"base": "scrollerBase-_bVAAt",
