@@ -1,7 +1,7 @@
 @use "backend" as *;
 /* Start Server List */
 #{c(serverList wrapper)} {
-  background-color: transparent;
+  background-color: $side;
   &:focus {
     outline: 0;
   }
@@ -14,7 +14,7 @@
 }
 
 #{c(serverList scroller)} {
-  background-color: $side;
+  background-color: transparent;
 }
 
 #{c(serverList folder)},

@@ -490,6 +490,8 @@ $classes: (
 		"children": "children-3xh0VB",
 		"divider": "divider-q3P9HC",
 		"iconWrapper": "iconWrapper-2awDjA",
+		"updateDownloadingCloud": "cloud-PaJUGP",
+		"updateDownloadingIcon": "downloadArrow-3u87TS",
 		"updateIconForeground": "updateIconForeground-2V_zo4",
 		"icon": "icon-2xnN2Y",
 		"iconClickable": "clickable-ZD7xvu",
@@ -559,6 +561,11 @@ $classes: (
 		"eventInfoHeader": "container-3EBHNg",
 		"eventInfoGuildIcon": "guildIcon-1t7MRZ",
 		"warningCard": "cardWarning-WRe-Qa",
+
+		"inviteFromBrowserContentWrapper": "contentWrapper-3oy4Xo",
+		"inviteFromBrowserInviteSplash": "inviteSplash-2Q0PLE",
+		"pillIconOnline": "pillIconOnline-2JLgFw",
+		"pillIconTotal": "pillIconTotal-3rJafa",
 
 		"inviteScroller": "scroller-3nFW5p",
 
@@ -718,6 +725,7 @@ $classes: (
 			"emojiDefaultCategory": "categoryItemDefaultCategory-3haEDq",
 			"emojiDefaultCategorySelected": "categoryItemDefaultCategorySelected-2YeRUu",
 			"emojiUnicodeShortcut": "unicodeShortcut-3N8oDe", // for all the non-server emotes
+			"emojiPremiumRetention": "premiumRetentionNotice-A_Ke4K",
 
 			"floatingEmojiPicker": "wrapper-3u51GQ",
 		),
@@ -1181,8 +1189,8 @@ $classes: (
 		"sidebarItem": "item-3XjbnG",
 		"sidebarItemSelected": "selected-g-kMVV",
 		"sidebarItemThemed": "themed-2-lozF",
-		"sidebarSocialLinks": "socialLinks-2DELRE",
-		"sidebarInfo": "info-1sUqUG",
+		"sidebarSocialLinks": "socialLinks-3ywLUf",
+		"sidebarInfo": "info-3pQQBb",
 
 		"contentRegion": "contentRegion-3HkfJJ",
 		"contentRegionScroller": "contentRegionScroller-2_GT_N",
@@ -1208,13 +1216,13 @@ $classes: (
 		"cardPrimaryOutline": "cardPrimaryOutline-1ofwVz",
 		"cardPrimaryOutlineEditable": "cardPrimaryOutlineEditable-1VE28Z",
 
-		"accountList": "accountList-305sx3",
-		"accountButton": "accountBtn-1YkMgV",
-		"accountButtonInner": "accountBtnInner-3XK70s",
-		"connection": "connection-107AGH",
-		"connectionHeader": "connectionHeader-2rV1ze",
-		"connectionIcon": "connectionIcon-3nqZDW",
-		"connectionDelete": "connectionDelete-XXTMqE",
+		"accountList": "accountList-Wii_T5",
+		"accountButton": "accountBtn-3pgcgr",
+		"accountButtonInner": "accountBtnInner-3ttD-i",
+		"connection": "connection-YOVI9j",
+		"connectionHeader": "connectionHeader-Ixbb1s",
+		"connectionIcon": "connectionIcon-1iZ6F_",
+		"connectionDelete": "connectionDelete-3YgMVq",
 		
 		"nitroPage": "container-LUKdw8",
 		"nitroHero": "hero-1aNo0v",
@@ -1224,7 +1232,7 @@ $classes: (
 		"nitroFeatureImageWrapper": "featureImageWrapper-2ndc8N",
 		
 		"boostGuildsSection": "guildsSection-3E1u96",
-		"boostCardWrapper": "cardWrapper-CyvwQv",
+		"boostCardWrapper": "cardWrapper-1bSePP",
 		"boostCardNoIcon": "noIcon-3gSX9V",
 		"boostCardGemContainer": "gemIndicatorContainer-PqApbX",
 		"boostDealWrapper": "wrapper-3Zq_cJ", // thing at bottom. contains the classic as an svg.
@@ -1235,7 +1243,7 @@ $classes: (
 		"subscriptionsNoItemsCardCredits": "noItemsCard-5EOcCl",
 		"subscriptionsNoItemsIconCredits": "noItemsIcon-2OeOld",
 		
-		"codeRedemptionRedirect": "codeRedemptionRedirect-3SBiCp",
+		"codeRedemptionRedirect": "codeRedemptionRedirect-2hYMSQ",
 
 		"closeButton": "closeButton-PCZcma",
 		"closeButtonKeybind": "keybind-13vtq8",
@@ -1251,9 +1259,9 @@ $classes: (
 
 			"voicePage": "userSettingsVoice-1_dzjw",
 			"voiceNotches": "notches-2w7UZJ.gray-3wP137",
-			"voicePreviewContainer": "cameraWrapper-1hB0cM",
-			"voiceBackgroundOptionRing": "backgroundOptionRing-2wxJ7j",
-			"voiceBackgroundOptionInner": "backgroundOptionInner-TuavSG",
+			"voicePreviewContainer": "cameraWrapper-3a7Ngv",
+			"voiceBackgroundOptionRing": "backgroundOptionRing-1vvQ0C",
+			"voiceBackgroundOptionInner": "backgroundOptionInner-SSz19O",
 
 			"overlayWrapper": "wrapper-SdcMKg",
 			"overlayDisabled": "disabled-35mc5w",
@@ -1308,6 +1316,7 @@ $classes: (
 		"codeMirrorHints": "CodeMirror-hints",
 		"codeMirrorHintsActive": "CodeMirror-hint-active",
 		"updaterPage": "powercord-updater",
+		"toast": "powercord-toast",
 	),
 		"pcPlugin": (
 			"smartTypersPreview": "smartTypers-preview",
@@ -1324,7 +1333,6 @@ $classes: (
 		"addonDescWrap": "bd-description-wrap",
 		"addonFooter": "bd-footer",
 		"searchWrapper": "bd-search-wrapper",
-		"minimal": "bd-minimal",
 	),
 		"bdEditor": (
 			"floatingWindow": "floating-window",

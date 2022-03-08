@@ -133,6 +133,9 @@
   // allows for spoiler hover
   #{c(chat repliedTextPreview)} #{c(chat repliedTextContent)} {
     pointer-events: unset;
+    a, span {
+      pointer-events: none;
+    }
   }
 }
 
@@ -279,6 +282,10 @@
   path {
     fill: $red;
   }
+}
+
+#{c(chat messageAttachment)} {
+  width: unset;
 }
 
 // Threads

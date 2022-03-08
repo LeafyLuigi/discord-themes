@@ -17,6 +17,9 @@
 	#{c(modals createEventPreviewCard)} {
 		@include card;
 	}
+	#{c(modals inviteFromBrowserContentWrapper)} {
+		background-color: $middle;
+	}
 	#{c(modals unpinMessage)} {
 		@include card;
 		box-shadow: none;
@@ -110,6 +113,15 @@
 #{c(modals warningCard)} {
 	background-color: $yellow;
 	border-color: $yellow;
+}
+#{c(modals inviteFromBrowserInviteSplash)} {
+	background-color: $middle;
+}
+#{c(modals pillIconOnline)} {
+	background-color: $green;
+}
+#{c(modals pillIconTotal)} {
+	background-color: $offline;
 }
 #{c(modals inviteScroller)} {
 	background-color: $middle;

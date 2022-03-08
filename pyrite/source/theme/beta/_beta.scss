@@ -1,7 +1,8 @@
 @use "backend" as *;
 /* Begin Beta Branch */
 // Expect it to not work fully.
-html[lang="en-GB"] {
+html[lang="en-GB"],
+html[lang="fr"] {
 
 	//test colors lol
 	// --green-color: green;
@@ -108,6 +109,115 @@ html[lang="en-GB"] {
 	// .sidebar-CFHs9e .header-2RyJ0Y:after /*Settings bars*/
 	// {
 	// background: linear-gradient(to right,var(--from-gradient-color) 50%,transparent) !important;
+	// }
+
+	// .guilds-2JjMmN {
+	// 	// &:hover {
+	// 		width: 288px;
+	// 		&::before {
+	// 			width: 288px;
+	// 		}
+	// 	// }
+	// }
+	// .wrapper-38slSD,
+	// .listItem-3SmSlK {
+	// 	width: 288px;
+	// }
+	// .listItem-3SmSlK {
+	// 	justify-content: flex-start;
+	// }
+	// .blobContainer-ikKyFs {
+	// 	display: inline-flex;
+	// 	align-items: center;
+	// }
+	// .icon-3AqZ2e {
+	// 	right: 0px;
+	// }
+	// .wrapper-28eC3z > svg > foreignObject {
+	// 	width: 288px;
+	// 	padding-left: 12px;
+	// }
+	// .blobContainer-ikKyFs::after {
+	// 	padding-left: 22px;
+	// 	content: attr(data-dnd-name);
+	// 	color: white;
+	// }
+	// .wrapper-38slSD.expanded {
+	// 	margin-bottom: 8px;
+	// }
+	// .expandedFolderBackground-1kSAf6 {
+	// 	bottom: 0;
+	// }
+	// .lowerBadge-3WTshO {
+	// 	right: -228px;
+	// 	bottom: 16px;
+	// }
+	// .tutorialContainer-1pL9QS .wrapper-3kah-n::before {
+	// 	padding-left: 22px;
+	// 	content: attr(aria-label);
+	// 	color: white;
+	// 	position: absolute;
+	// 	left: -8px;
+	// 	top: 16px;
+	// }
+	// .tutorialContainer-1pL9QS .childWrapper-1j_1ub {
+	// 	position: absolute;
+	// 	right: 0;
+	// }
+	// .tutorialContainer-1pL9QS~div:not([class]):not([aria-label]) .wrapper-3kah-n::after {
+	// 	padding-left: 22px;
+	// 	content: attr(aria-label);
+	// 	color: white;
+	// 	position: absolute;
+	// 	left: 48px;
+	// 	top: 16px;
+	// }
+	// .wrapper-38slSD>.listItem-3SmSlK>div[data-dnd-name]::after {
+	// 	padding-left: 22px;
+	// 	content: attr(data-dnd-name);
+	// 	color: white;
+	// 	position: absolute;
+	// 	left: 48px;
+	// 	top: 18px;
+	// }
+	// .wrapper-38slSD ul .listItem-3SmSlK {
+	// 	height: 48px;
+	// }
+	// .wrapper-38slSD ul {
+	// 	margin-bottom: 8px;
+	// 	height: unset !important;
+	// }
+	// .unreadMentionsIndicatorBottom-3RJMnQ, .unreadMentionsIndicatorTop-2bTgUU {
+	// 	width: 288px;
+	// }
+	// .guildSeparator-a4uisj {
+	// 	width: 288px;
+	// }
+	// .wrapper-3kah-n {
+	// 	padding-right: 228px;
+	// }
+	// .tutorialContainer-2jwoiB .target-1eRTCg::after {
+	// 	padding-left: 22px;
+	// 	content: attr(data-dnd-name);
+	// 	color: white;
+	// 	position: absolute;
+	// 	left: 48px;
+	// 	top: 32px;
+	// }
+	// .tutorialContainer-2jwoiB+.listItem-3SmSlK .circleIconButton-1VxDrg::after {
+	// 	padding-left: 22px;
+	// 	content: attr(aria-label);
+	// 	color: white;
+	// 	position: absolute;
+	// 	left: 48px;
+	// 	top: 16px;
+	// }
+
+	// .listItem-3SmSlK, .wrapper-z5ab_q, .wrapper-28eC3z, .wrapper-28eC3z>svg>foreignObject, .wrapper-3kah-n, .icon-3AqZ2e, .closedFolderIconWrapper-3tRb2d{
+	// 	height: 32px;
+	// }
+	// .icon-3AqZ2e {
+	// 	width: 32px;
 	// }
 
 }

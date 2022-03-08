@@ -8,7 +8,8 @@
   }
 }
 #{c(os windows)} {
-  &[lang="en-GB"] {
+  &[lang="en-GB"],
+  &[lang="fr"] {
     #{c(error errorPage)} {
       #{c(error image)} {
         display: none;
@@ -76,7 +77,8 @@
 }
 
 #{c(os mac)} {
-  &[lang="en-GB"] {
+  &[lang="en-GB"],
+  &[lang="fr"] {
     #{c(main dark)},
     #{c(main light)} {
       #{c(error wrapper)} {
@@ -164,16 +166,19 @@
       }
     }
   }
-  &#{c(main fullMotion)}[lang="en-GB"] {
-    #{c(error errorPage)} {
-      &:before {
-        animation: errorScrollMac 3.2s linear;
+  &#{c(main fullMotion)} {
+    &[lang="en-GB"],
+    &[lang="fr"] {
+      #{c(error errorPage)} {
+        &:before {
+          animation: errorScrollMac 3.2s linear;
+        }
       }
-    }
-    #{c(error text)},
-    #{c(error note)},
-    #{c(error errorPage)} button {
-      animation: errorPopMac 3.2s linear;
+      #{c(error text)},
+      #{c(error note)},
+      #{c(error errorPage)} button {
+        animation: errorPopMac 3.2s linear;
+      }
     }
   }
 }

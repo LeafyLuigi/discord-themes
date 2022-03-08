@@ -51,6 +51,13 @@ body#{c(powercord base)} {
       content: none;
     }
   }
+  #{c(powercord toast)} {
+    --toast-background: var(--middle-shading);
+    --toast-header: var(--header-shading);
+    --toast-contents: transparent;
+    --toast-box-shadow: transparent;
+    --toast-border: transparent;
+  }
 }
 
 #{c(powercord codeMirrorHints)} {

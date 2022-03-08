@@ -6,6 +6,9 @@
     background-color: $secondary;
     color: #fff;
   }
+  #{c(header updateDownloadingCloud)} {
+    color: $red;
+  }
 }
 #{c(header header)}#{c(header themed)} {
   background: $header;
@@ -76,6 +79,9 @@
     color: $hover;
     filter: drop-shadow(0 0 2px currentColor);
   }
+}
+#{c(header updateDownloadingIcon)} {
+  color: $red;
 }
 #{c(header updateIconForeground)} {
   fill: $red;

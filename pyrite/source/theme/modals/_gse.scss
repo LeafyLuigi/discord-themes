@@ -121,7 +121,8 @@
         inset-inline-start: 0 !important; // !important reason: inline;
     }
 }
-#{c(gse stickerUpsell)} {
+#{c(gse stickerUpsell)},
+#{c(gse emojiPremiumRetention)} {
     display: none;
 }
 #{c(gse stickerPackHeader)} {

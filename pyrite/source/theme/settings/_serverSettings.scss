@@ -52,6 +52,15 @@
     background-color: $hover;
   }
 }
+#{c(serverSettings roleRow)}:hover:not(#{c(serverSettings roleRowDisableHover)}) {
+  #{c(serverSettings roleCircleButton)} {
+    background-color: $primary;
+    color: #fff;
+    &:hover {
+      background-color: $hover;
+    }
+  }
+}
 #{c(serverSettings rolePage)} {
   #{c(serverSettings rolePageScroller)} {
     background-color: transparent;

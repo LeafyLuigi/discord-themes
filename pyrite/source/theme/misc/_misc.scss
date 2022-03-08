@@ -401,7 +401,7 @@ body, // this one is here for transparency in bd to work
       color: #fff;
     }
     &:before {
-      content: "Jump to message";
+      content: var(--jumpToMessage, "Jump to message");
       font-size: 1rem;
       padding: 0 3px;
       border-radius: 3px;
@@ -409,6 +409,9 @@ body, // this one is here for transparency in bd to work
       text-decoration-color: currentColor;
     }
   }
+}
+html[lang="fr"] {
+  --jumpToMessage: "Aller au message";
 }
 // insecure links
 a[href^="http://"] {
@@ -469,11 +472,24 @@ html[lang="en-GB"] #{c(userSettings sidebarInfo)} {
     content: $theme-name str-insert($version, " Beta Branch - ", 0);
   }
 }
-#{c(userSettings contentColumn)} > div > :nth-child(2) > :only-child > div > :nth-child(3) > #{c(userSettings radioBar)} > :nth-child(2) > div:after {
-  content: "Pyrite Beta Branch";
-  font-size: 14px;
-  color: $primary;
-  font-style: italic;
+html[lang="fr"] #{c(userSettings sidebarInfo)} {
+  &::after {
+    content: $theme-name str-insert($version, " Branche Bêta - ", 0);
+  }
+}
+#{c(userSettings contentColumn)} > div > :nth-child(2) > :only-child > div > {
+  :nth-child(3) > #{c(userSettings radioBar)} > :nth-child(2) > div:after {
+    content: "Pyrite Beta Branch";
+    font-size: 14px;
+    color: $primary;
+    font-style: italic;
+  }
+  :nth-child(6) > #{c(userSettings radioBar)} > :nth-child(2) > div:after {
+    content: "Branche Bêta de Pyrite";
+    font-size: 14px;
+    color: $primary;
+    font-style: italic;
+  }
 }
 
 /* Official Preset Previews */
@@ -571,16 +587,16 @@ $helper: (
   }
 }
 
-/* Redownload pls bar */
-#{c(main appContainer)}::before {
-  content: "Your version of Pyrite is outdated. Please redownload.";
-  text-align: center;
-  position: absolute;
-  color: #fff;
-  white-space: pre-wrap;
-  box-sizing: border-box;
-  padding: 10px 0;
-  background-color: $header;
-  display: var(--update-notice-0, block);
-  z-index: 2500;
-}
+// /* Redownload pls bar */
+// #{c(main appContainer)}::before {
+//   content: "Your version of Pyrite is outdated. Please redownload.";
+//   text-align: center;
+//   position: absolute;
+//   color: #fff;
+//   white-space: pre-wrap;
+//   box-sizing: border-box;
+//   padding: 10px 0;
+//   background-color: $header;
+//   display: var(--update-notice-0, block);
+//   z-index: 2500;
+// }
