@@ -108,8 +108,7 @@ $card: var(--card-background);
 {
 	overflow: visible;
 }
-
-#{c(memberList avatarMask)} {
+#{c(memberList avatarWrapper)} #{c(memberList avatarMask)} {
 	&[height="24"]{
 		--height: 24px;
 	}
