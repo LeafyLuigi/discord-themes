@@ -59,11 +59,6 @@
 		overflow: visible;
 	}
 }
-
-#{c(userModal customStatus)} {
-	// max-width: 290px;
-	// word-break: break-word;
-}
 #{c(userModal activity)} {
   padding: 5px 20px;
   ~ #{c(userModal activityProfile)} {
@@ -78,8 +73,13 @@
 
 #{c(userModal activityBody)} {
   #{c(userModal actionsProfile)} {
-    margin-top: 8px;
     margin-left: 0;
+    flex-direction: row;
+    align-self: flex-end;
+    > button:not(:first-child) {
+      margin-top: 0;
+      margin-left: 8px;
+    }
   }
 }
 
@@ -95,20 +95,42 @@
   height: auto;
   width: calc(var(--user-modal-width,900px) * 1/3);
   #{c(userModal activityBody)} {
-    display: grid;
+    flex-direction: column;
   }
-  #{c(userModal assets)} {
+  #{c(userModal activityName)} {
+    max-width: 252px;
+    white-space: normal;
+  }
+  #{c(userModal assets)},
+  #{c(userModal gameIcon)} {
     position: absolute;
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
+    left: 20px;
+    opacity: 0.5;
+    filter: blur(2px);
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      opacity: 1.0;
+      filter: none;
+      z-index: 5;
+    }
   }
   #{c(userModal bodyNormalContent)} {
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
+    align-self: flex-end;
+    margin-left: 0;
+    text-align: right;
   }
-  #{c(userModal actionsProfile)} {
-    grid-row: 2 / 3;
-    grid-column: 1 / 3;
+  #{c(userModal timeBarProfile)} {
+    width: 200px;
+  }
+  #{c(userModal timestampLeft)},
+  #{c(userModal timestampRight)} {
+    flex: 1 1 auto !important; // !important reason: inline
+  }
+  #{c(userModal timestampLeft)} {
+    text-align: left;
+  }
+  #{c(userModal timestampRight)} {
+    text-align: right;
   }
 }
 #{c(userModal infoScroller)},

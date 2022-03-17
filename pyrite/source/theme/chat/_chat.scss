@@ -210,10 +210,10 @@
 
 #{c(chat gifFavoriteButton)} {
   #{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)} #{c(chat gifFavoriteIcon)} {
-    animation: gif-bounce .4s linear;
+    animation: gifBounce .4s linear;
   }
   #{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)}:after {
-    animation: gif-ripple .45s ease;
+    animation: gifRipple .45s ease;
   }
   &::after {
     border-color: $primary;
