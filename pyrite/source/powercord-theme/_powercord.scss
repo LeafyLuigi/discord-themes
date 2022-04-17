@@ -37,7 +37,7 @@ body#{c(powercord base)} {
   }
   #{c(powercord updaterPage)} {
     .buttons #{c(button lookFilled)}#{c(button colorBrand)} {
-      background-color: #43b581;
+      background-color: var(--green-color);
     }
   }
   #{c(pcPlugin smartTypersPreview)} {
@@ -57,6 +57,7 @@ body#{c(powercord base)} {
     --toast-contents: transparent;
     --toast-box-shadow: transparent;
     --toast-border: transparent;
+    backdrop-filter: blur(3px);
   }
 }
 
@@ -109,19 +110,6 @@ div#app-mount > {
     #{c(powercord codeMirrorHeader)},
     #{c(powercord codeMirrorFooter)} {
       background-color: $header;
-    }
-  }
-}
-
-body#{c(powercord base)} #{c(main layer)}[aria-label="GUILD_IDENTITY_SETTINGS"] {
-  .toolsContainer-1edPuj {
-    &:after{
-      content: " Please\A Press\A ESC";
-      text-align: center;
-      color: var(--red-color);
-    }
-    &>* {
-      display: none;
     }
   }
 }

@@ -8,7 +8,6 @@
 // filled red : pc plugins
 // filled brand : my account
 // filled primary : discord nitro
-// filled grey : add server modal, user popout modal
 // inverted brand : discord nitro, playing user profile modal
 // outlined red : authorized whatever
 // outlined brand : privacy (at bottom)
@@ -34,10 +33,11 @@
   
   // &#{c(button colorWhite)} {
   // }
-  // &#{c(button colorGrey)} {
-  // }
   &#{c(button colorBrand)},
   &#{c(button colorBrandNew)} {
+    @include button-bg($color: $primary);
+  }
+  &#{c(button colorPrimary)} {
     @include button-bg($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -61,10 +61,11 @@
   }
   // &#{c(button colorWhite)} {
   // }
-  // &#{c(button colorGrey)} {
-  // }
   &#{c(button colorBrand)},
   &#{c(button colorBrandNew)} {
+    @include button-inverted($color: $primary);
+  }
+  &#{c(button colorPrimary)} {
     @include button-inverted($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -88,10 +89,11 @@
   }
   // &#{c(button colorWhite)} {
   // }
-  // &#{c(button colorGrey)} {
-  // }
   &#{c(button colorBrand)},
   &#{c(button colorBrandNew)} {
+    @include button-border($color: $primary);
+  }
+  &#{c(button colorPrimary)} {
     @include button-border($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -112,10 +114,11 @@
   }
   // &#{c(button colorWhite)} {
   // }
-  // &#{c(button colorGrey)} {
-  // }
   &#{c(button colorBrand)},
   &#{c(button colorBrandNew)} {
+    @include button-link($color: $primary);
+  }
+  &#{c(button colorPrimary)} {
     @include button-link($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -123,29 +126,4 @@
   }
   // &#{c(button colorTransparent)} {
   // }
-}
-// primary likes to be a bit... different.
-#{c(main dark)},
-#{c(main light)} {
-  #{c(button lookFilled)} {
-    &#{c(button colorPrimary)} {
-      color: var(--text-normal);
-      @include button-bg($color: $primary);
-    }
-  }
-  #{c(button lookInverted)} {
-    &#{c(button colorPrimary)} {
-      @include button-inverted($color: $primary);
-    }
-  }
-  #{c(button lookOutlined)} {
-    &#{c(button colorPrimary)} {
-      @include button-border($color: $primary);
-    }
-  }
-  #{c(button lookLink)} {
-    &#{c(button colorPrimary)} {
-      @include button-link($color: $primary);
-    }
-  }
 }

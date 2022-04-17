@@ -16,6 +16,8 @@
         backdrop-filter: blur(5px);
     }
 }
+
+@debug "work on this again maybe?";
 #{c(menus item)} {
     // checkbox + radio
     #{c(menus checkbox)},
@@ -31,30 +33,28 @@
     &#{c(menus itemFocused)}:active,
     &:active:not(#{c(menus itemHideInteraction)}) {
         background-color: $primary;
-        // colors (and block for red)
-        &#{c(menus colorDanger)},
-        &#user-context-block {
+        // colors
+        &#{c(menus colorDanger)} {
             background-color: $red;
         }
         &#{c(menus colorBrand)} {
             background-color: $primary;
-            color: #fff;
+            color: #fff; // overwrite what's overwritten. uses discord's default
         }
         // checkbox + radio
         #{c(menus checkboxCheck)} {
             color: $primary;
         }
-        #{c(menus radioSelection)} {
-            color: #fff;
-        }
     }
-    // make block red
-    &#user-context-block {
+    // make block and remove friend red
+    &#user-context-block,
+    &#user-context-remove-friend {
         color: $red;
         &#{c(menus itemFocused)},
         &:active:not(#{c(menus itemHideInteraction)}),
         &:hover {
-            color: #fff;
+            color: #fff; // mirrors red ones. also overrides something set by theme
+            background-color: $red;
         }
     }
 

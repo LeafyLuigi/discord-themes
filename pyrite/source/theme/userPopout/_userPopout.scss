@@ -16,20 +16,15 @@
 		z-index: -1;
 	}
 }
-
-// because discord.
-#{c(main dark)},
-#{c(main light)} {
-	#{c(userPopout body)},
-	#{c(userPopout footer)} {
-		background-color: rgba(0,0,0,0.4);
-	}
-	#{c(userPopout actionButton)} {
-		color: $primary;
-		border-color: currentColor;
-		&:hover {
-			color: $hover;
-		}
+#{c(userPopout body)},
+#{c(userPopout footer)} {
+	background-color: $side;
+}
+#{c(userPopout actionButton)} {
+	color: $primary;
+	border-color: currentColor;
+	&:hover {
+		color: $hover;
 	}
 }
 #{c(userPopout footer)} {
@@ -46,7 +41,7 @@
 		background-color: transparent;
 	}
 	#{c(userPopout bodyTitle)} {
-		color: white;
+		color: var(--header-primary);
 	}
 	#{c(userPopout noteTextArea)} {
 		&:focus {
@@ -71,7 +66,7 @@
 	border-color: transparent;
 }
 #{c(userPopout headerTop)} {
-	background-color: $card;
+	background-color: $header;
 	border-bottom: none;
 }
 #{c(userPopout aboutMe)} {

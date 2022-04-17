@@ -11,7 +11,7 @@
     }
     #{c(groupDm searchBarTag)} {
         background-color: $primary;
-        color: #fff;
+        color: var(--header-primary)
     }
     #{c(main checkbox)}#{c(main checkboxChecked)}[style*="border-color:"] {
         border-color: $primary !important; // !important reason: element.style

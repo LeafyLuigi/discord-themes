@@ -35,7 +35,7 @@
     width: 240px;
     #{c(sidebar privateChannelLink)}[href="/store"],
     #{c(sidebar privateChannelLink)}[href="/library"],
-    #{c(sidebar privateChannelLink)}[href="/store"]+svg {
+    #{c(sidebar privateChannelBadgeIcon)} {
       display: none;
     }
     #{c(sidebar privateChannel)} {
@@ -45,26 +45,12 @@
       padding: 1px 0;
     }
   }
-  #{c(sidebar privateChannelsHeader)} {
-    @include header;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    &:before {
-      content: "";
-      height: 2px;
-      flex-grow: 1;
-      margin-right: 5px;
-      background: linear-gradient(to left, currentColor -50%, transparent 50%);
-    }
-  }
   #{c(sidebar privateChannelRecipientsInviteButtonIcon)} {
-    color: #fff;
+    color: var(--interactive-normal);
     order: -1;
     &:hover {
-      color: #fff;
-      filter: drop-shadow(0 0 2px #aaa);
+      color: var(--interactive-hover);
+      filter: drop-shadow(0 0 2px var(--interactive-normal));
     }
   }
 }
@@ -72,6 +58,21 @@
   #{c(sidebar searchBarComponent)} {
     -webkit-app-region: no-drag;
     background-color: var(--card-background);
+  }
+}
+
+#{c(sidebar privateChannelsHeader)} {
+  color: var(--category-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  &:before {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+    margin-right: 5px;
+    background: linear-gradient(to left, currentColor -50%, transparent 50%);
   }
 }
 // Area - Channels
@@ -119,10 +120,6 @@
     background-color: $primary;
     filter: drop-shadow(0 0 2px $primary) drop-shadow(0 0 4px $primary);
   }
-  // #{c(sidebar channelIcon)},
-  // #{c(sidebar channelName)} {
-  //   color: $primary;
-  // }
 }
 #{c(sidebar bannerVisible)} #{c(sidebar channelsHeader)} {
   filter: none;
@@ -168,42 +165,26 @@
   }
 }
 
-#{c(sidebar channelCategoryContainerDefault)} {
-  #{c(sidebar categoryChildren)} {
-    order: 1;
-  }
-  #{c(sidebar categoryMainContent)} {
-    order: 2;
-  }
-  #{c(sidebar categoryWrapper)} {
-    #{c(sidebar categoryName)} {
-      color: #aaa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      &:before {
-        content: "";
-        height: 2px;
-        flex-grow: 1;
-        background: transparent;
-        margin-right: 5px;
-      }
-    }
-    &:not( #{c(sidebar categoryCollapsed)} ) {
-      #{c(sidebar categoryName)} {
-        color: #fff;
-        &:before {
-          background: linear-gradient(to left, currentColor -50%, transparent 50%);
-        }
-      }
-    }
-  }
-  &#{c(sidebar channelModeMuted)} {
-    #{c(sidebar channelName)} {
-      color: var(--interactive-muted);
-    }
+#{c(sidebar categoryChildren)} {
+  order: 1;
+}
+#{c(sidebar categoryMainContent)} {
+  order: 2;
+}
+
+#{c(sidebar categoryWrapper)} #{c(sidebar categoryName)} {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:before {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+    background: transparent;
+    margin-right: 5px;
   }
 }
+
 #{c(sidebar channelUserLimitWrapper)} {
   background-color: $card;
 }
@@ -221,6 +202,61 @@
   }
 }
 
-// unread channels: hides dot, makes channel name and icon $main
-// make read text normal
-// make mutes text muted 
+#{c(sidebar channelMainContent)},
+#{c(sidebar channelName)},
+#{c(sidebar channelIcon)},
+#{c(sidebar categoryArrow)},
+#{c(sidebar categoryName)} {
+  color: inherit !important; // !important reason: i am very lazy. https://cdn.discordapp.com/attachments/747040126294687764/965181579259428924/unknown.png
+}
+
+#{c(sidebar privateChannelInteractive)},
+#{c(sidebar channelWrapper)} {
+  color: var(--read-channel-color);
+}
+
+#{c(sidebar channelModeSelected)},
+#{c(sidebar privateChannelSelected)},
+#{c(sidebar channelWrapper)}:hover:not(#{c(sidebar channelModeMuted)}):not(#{c(sidebar channelModeLocked)}),
+#{c(sidebar privateChannelInteractive)}:hover:not(#{c(sidebar privateChannelMuted)}) {
+  color: var(--selected-channel-color);
+}
+
+#{c(sidebar channelModeUnread)} {
+  color: var(--unread-channel-color);
+  #{c(sidebar channelUnreadBlob)} {
+    display: var(--show-channel-unread-dot, block);
+    background-color: currentColor;
+  }
+  #{c(sidebar channelUnreadBlob)},
+  #{c(sidebar channelName)},
+  #{c(sidebar channelIcon)} {
+    filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
+  }
+}
+
+#{c(sidebar channelModeMuted)} {
+  color: var(--muted-channel-color);
+}
+#{c(sidebar channelModeConnected)} {
+  color: var(--category-color);
+}
+#{c(sidebar channelModeLocked)} {
+  color: var(--locked-voice-channel-color);
+}
+
+#{c(sidebar categoryWrapper)},
+#{c(sidebar categoryWrapper)}:hover {
+  color: var(--category-color);
+  &#{c(sidebar categoryCollapsed)} {
+    color: var(--read-channel-color);
+  }
+  &#{c(sidebar categoryMuted)} {
+    color: var(--muted-channel-color);
+  }
+  &:not(#{c(sidebar categoryCollapsed)}) {
+    #{c(sidebar categoryName)}:before {
+      background: linear-gradient(to left, currentColor -50%, transparent 50%);
+    }
+  }
+}

@@ -171,7 +171,6 @@ body {
 // Xeno Library Plugin
 body {
 	#{c(bdPlugin xenoLibNotifs)} {
-		top: calc( 48px + (68px * var(--channel-tabs-enabled,0) + 75px * var(--horizontal-server-list-enabled,0)) );
 		z-index: 1100;
 	}
 	#{c(bdPlugin xenoLibNotifContentWrapper)} {

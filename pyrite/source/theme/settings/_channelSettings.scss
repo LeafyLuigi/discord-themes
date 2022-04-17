@@ -40,37 +40,37 @@
 #{c(channelSettings permDeny)} {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  background-color: #f04747;
+  background-color: $red;
   &#{c(channelSettings permSelected)} {
-    background-color: #fff;
-    border: 8px solid #f04747;
+    background-color: currentColor;
+    border: 8px solid $red;
   }
   &:hover:not(#{c(channelSettings permSelected)}) {
-    background-color: #f04747;
+    background-color: $red;
     cursor: pointer;
   }
 }
 #{c(channelSettings permNoop)} {
-  background-color: #737373;
+  background-color: $offline;
   &#{c(channelSettings permSelected)} {
-    background-color: #fff;
-    border: 8px solid #737373;
+    background-color: currentColor;
+    border: 8px solid $offline;
   }
   &:hover:not(#{c(channelSettings permSelected)}) {
-    background-color: #737373;
+    background-color: $offline;
     cursor: pointer;
   }
 }
 #{c(channelSettings permAllow)} {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #43b581;
+  background-color: $green;
   &#{c(channelSettings permSelected)} {
-    background-color: #fff;
-    border: 8px solid #43b581;
+    background-color: currentColor;
+    border: 8px solid $green;
   }
   &:hover:not(#{c(channelSettings permSelected)}) {
-    background-color: #43b581;
+    background-color: $green;
     cursor: pointer;
   }
 }
@@ -95,7 +95,7 @@
         background-color: transparent;
       }
       &:hover {
-        background-color: #f15454;
+        background-color: $red;
       }
     }
   }

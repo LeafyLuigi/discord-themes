@@ -17,7 +17,7 @@
       #{c(error text)} {
         width: 70vw;
         padding: 100px;
-        background-color: #0078d7;
+        background-color: #0078d7; // Intended color; Fake BSoD.
         #{c(error title)} {
           line-height: 7.5vw;
           font-size: 0;
@@ -95,9 +95,6 @@
       }
       #{c(error text)} {
         background: transparent url(https://leafyluigi.github.io/images/fakemacerror.png) no-repeat center;
-        // https://leafyluigi.github.io/images/fakemacerror.png
-        // https://upload.wikimedia.org/wikipedia/commons/0/04/MacOSX_kernel_panic.png
-        // background: transparent url(https://upload.wikimedia.org/wikipedia/commons/0/04/MacOSX_kernel_panic.png) no-repeat center;
         height: 255px;
         width: 472px;
         #{c(error title)} {

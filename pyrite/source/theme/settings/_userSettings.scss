@@ -20,7 +20,7 @@
 }
 #{c(userSettings sidebarInfo)} {
   #{c(chatForm colorMuted)} {
-    color: #fff;
+    color: var(--interactive-normal);
   }
 }
 #{c(userSettings sidebarItem)} {
@@ -37,10 +37,11 @@
       border-radius: 6px;
     }
   }
-  &[style*="background-color: rgb(114, 137, 218)"] {
-    background-color: $primary !important; // !important reason: element.style
-    color: #fff !important; // !important reason: element.style, overlapping rules
-  }
+  // &[style*="background-color: rgb(114, 137, 218)"] {
+  //   background-color: $primary !important; // !important reason: element.style
+  //   color: #fff !important; // !important reason: element.style, overlapping rules
+  // @debug "fixed color";
+  // }
 }
 
 #{c(userSettings contentRegionScroller)} {
@@ -78,21 +79,21 @@
 #{c(userSettings profileBannerPreview)} { 
   background-color: transparent;
   #{c(userSettings profilePopoutInfo)} {
-    background-color: rgba(0,0,0,0.4);
+    background-color: $side;
   }
 }
 
 #{c(userSettings radioGroupItem)} {
-  background-color: rgba(0,0,0,0.5);
+  background-color: var(--background-modifier-accent);
   &:hover:not([aria-checked=true]) {
-    background-color: rgba(0,0,0,0.3);
+    background-color: var(--background-modifier-hover);
   }
   &[aria-checked=true] {
-    background-color: rgba(0,0,0,0.7);
+    background-color: var(--background-modifier-selected);
   }
 }
 #{c(userSettings radioBar)} {
-  border-left: 3px solid #fff;
+  border-left: 3px solid var(--header-primary);
   border-left-color: var(--offline-color);
   border-left-color: var(--radio-bar-accent-color);
   &[style*="--radio-bar-accent-color"] {
@@ -128,21 +129,16 @@
   @include card;
 }
 #{c(userSettings accountButton)} #{c(userSettings accountButtonInner)} {
-  background-color: rgba(0,0,0,0.5);
+  background-color: var(--background-modifier-accent);
   &:hover {
-    background-color: rgba(0,0,0,0.3);
+    background-color: var(--background-modifier-hover);
   }
 }
 #{c(userSettings connection)} {
   @include card;
   #{c(userSettings connectionHeader)} {
-    background-color: rgba(0,0,0,0.5);
+    background-color: $card;
     padding: 10px 20px;
-  }
-}
-#{c(main light)} {
-  #{c(userSettings connectionHeader)} {
-    background-color: rgba(255,255,255,0.05);
   }
 }
 
@@ -164,26 +160,11 @@
     }
   }
 }
-#{c(userSettings nitroPage)} {
-  #{c(userSettings nitroHero)} {
-    background-image: none;
-    height: initial;
-    max-width: initial;
-    #{c(userSettings nitroHeroButtons)} {
-      > button {
-        background-color: $primary;
-        > #{c(button contents)} {
-          color: #fff;
-        }
-      }
-    }
-  }
-}
 
 #{c(main dark)},
 #{c(main light)} {
   #{c(userSettings boostCardGemContainer)} {
-    background-color: rgba(0,0,0,0.05);
+    background-color: transparent;
   }
 }
 #{c(userSettings boostGuildsSection)} {
@@ -191,39 +172,38 @@
 }
 #{c(userSettings boostCardWrapper)} {
   background-color: transparent;
+  #{c(friends itemCardOuter)} {
+    background-color: transparent;
+  }
   #{c(userSettings boostCardNoIcon)} {
-    background-color: rgba(255,255,255,0.05);
+    background-color: $card;
   }
 }
 #{c(userSettings boostDealWrapper)} {
   &:before {
     content: none;
   }
-  #{c(userSettings boostDealAction)} {
-    > button {
-      > #{c(button contents)} {
-        color: #fff;
-      }
-    }
-  }
 }
 
-#{c(main dark)},
-#{c(main light)} {
-  #{c(userSettings closeButtonKeybind)} {
-    color: $primary;
+#{c(userSettings closeButtonContainer)} {
+  color: $primary;
+  &:hover,
+  &:active {
+    color: $hover;
   }
   #{c(userSettings closeButton)} {
-    color: $primary;
     border-color: currentColor;
     &:hover,
     &:active {
-      color: $hover;
       background-color: transparent;
     }
+    &>svg>path {
+      fill: currentColor;
+    }
   }
-  #{c(userSettings closeButton)}>svg>path {
-    fill: currentColor;
+  #{c(userSettings closeButton)}+#{c(userSettings closeButtonKeybind)},
+  #{c(userSettings closeButton)} {
+    color: currentColor;
   }
 }
 

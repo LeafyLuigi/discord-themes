@@ -8,7 +8,7 @@
       background-color: transparent;
     }
     &:hover {
-      background-color: #f15454;
+      background-color: $red;
     }
   }
   #{c(serverSettings emojiAliasInput)} #{c(serverSettings emojiInput)} {
@@ -47,7 +47,6 @@
 
 #{c(serverSettings roleCircleButton)} {
   background-color: $primary;
-  color: #fff;
   &:hover {
     background-color: $hover;
   }
@@ -55,7 +54,6 @@
 #{c(serverSettings roleRow)}:hover:not(#{c(serverSettings roleRowDisableHover)}) {
   #{c(serverSettings roleCircleButton)} {
     background-color: $primary;
-    color: #fff;
     &:hover {
       background-color: $hover;
     }
@@ -98,7 +96,7 @@
   background-color: $card;
 }
 #{c(serverSettings rolePreviewContainer)} {
-  border-color: $primary;
+  background-color: $card;
 }
 
 #{c(serverSettings emojiAliasPlaceholder)} {

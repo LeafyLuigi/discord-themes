@@ -1,16 +1,14 @@
 @use "backend" as *;
 // Also includes recent mentions.
-#{c(main dark)},
-#{c(main light)} {
-    #{c(ipt ipHeader)},
-    #{c(ipt threadDropdownModal)},
-    #{c(ipt threadDropdownControls)} {
-        #{c(ipt topPill)} #{c(ipt tab)}#{c(ipt tabSelected)} {
-            background-color: $primary;
-            color: #fff;
-        }
+#{c(ipt ipHeader)},
+#{c(ipt threadDropdownModal)},
+#{c(ipt threadDropdownControls)} {
+    #{c(ipt topPill)} #{c(ipt tab)}#{c(ipt tabSelected)} {
+        background-color: $primary;
+        color: var(--interactive-active);
     }
 }
+
 #{c(ipt inboxModal)},
 #{c(ipt pinnedModal)},
 #{c(ipt threadDropdownModal)} {
@@ -69,10 +67,10 @@
 }
 #{c(ipt inboxRoundButton)} {
     background-color: $primary;
-    color: #fff;
+    color: var(--interactive-normal);
     &:hover:not(#{c(ipt inboxRoundButtonDisabled)}) {
         background-color: $hover;
-        color: #fff;
+        color: var(--interactive-hover);
     }
 }
 #{c(ipt inboxJumpButton)} {

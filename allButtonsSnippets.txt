@@ -1,4 +1,4 @@
-var colors = ["green", "yellow", "red", "white", "grey", "black", "brand", "primary", "link", "transparent"];
+var colors = ["green", "yellow", "red", "white", "brand", "primary", "link", "transparent"];
 var looks = ["filled", "inverted", "outlined", "link"];
 for(i = 0, len = colors.length, text = ""; i < len; i++) {
   for(j = 0, len2 = looks.length; j < len2; j++) {
@@ -30,11 +30,6 @@ powercord.api.notices.sendToast("pc-example-toast",
 {text:"invertedwhite",color:"white",look:"inverted"},
 {text:"outlinedwhite",color:"white",look:"outlined"},
 {text:"linkwhite",color:"white",look:"link"},
-
-{text:"filledgrey",color:"grey",look:"filled"},
-{text:"invertedgrey",color:"grey",look:"inverted"},
-{text:"outlinedgrey",color:"grey",look:"outlined"},
-{text:"linkgrey",color:"grey",look:"link"},
 
 {text:"filledbrand",color:"brand",look:"filled"},
 {text:"invertedbrand",color:"brand",look:"inverted"},

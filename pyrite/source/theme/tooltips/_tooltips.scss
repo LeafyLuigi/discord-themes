@@ -17,8 +17,8 @@
   #{c(tooltips primary)},
   #{c(media bubble)} {
     background: $tooltip;
-    color: #fff;
-    text-shadow: 2px 2px 2px #aaa;
+    color: var(--header-primary);
+    text-shadow: 2px 2px 2px var(--header-secondary);
   }
 }
 #{c(tooltips stageListenerPill)} {

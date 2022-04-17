@@ -1,7 +1,7 @@
 /**
  * @name Pyrite - Fleur Jaune
  * @author LeafyLuigi
- * @version 0.1.8
+ * @version 0.1.9
  * @description Pyrite for BetterDiscord/BandagedBD. Fleur Jaune Edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
@@ -62,6 +62,21 @@
   --live-color:  #583594;
   --offline-color: #737e8c;
 
+  /* Channels */
+  /* These are used for channel related things. "Channels" may apply to DMs or Server channels. */
+  --category-color: var(--header-primary); /* Applies to uncollapsed categories, member list groups and applies to active voice/stage channel. */
+  --selected-channel-color: var(--header-primary); /* Applies to selected channel as well as non-locked, non-muted channels on hover. */
+  --unread-channel-color: var(--primary-color); /* Applies to unread channels. Combined with below can give a glow. */
+  --unread-channel-glow: drop-shadow(0 0 4px); /* More advanced. Uses the filter's drop-shadow function to give a glow. */
+  --read-channel-color: var(--interactive-normal); /* Applies unread, unmuted, unlocked (voice) channels and unmuted collapsed categories. */
+  --muted-channel-color: var(--interactive-muted); /* Applies to muted channels and categories. Ignores hover from selected. */
+  --show-channel-unread-dot: block; /* Toggle display of the unread channel dot. Valid options: "block" and "none", both without quotations. "block" shows the blob and "none" hides it. */
+  --locked-voice-channel-color: var(--red-color); /* Applies to locked voice channels. Does NOT include full voice channels. */
+
+  /* Background default to Primary, Opacity to 0.3. Opacity on hover is a static +0.2 compared to the variable. */
+  --mention-background: var(--primary-color);
+  --mention-opacity: 0.3;
+
   /* For Advanced Users */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
@@ -92,7 +107,7 @@
 
 
   /* Debug; please do not touch */
-  --update-notice-0: none;
+  --update-notice-1: none;
 }
 
 
@@ -103,6 +118,10 @@
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
   --header-shading: rgba(0,0,0,0.7);
+
+  /* The following are applied to buttons to indicate hover and being held down. */
+  --hover-filter: rgba(0,0,0,0.2);
+  --active-filter: rgba(0,0,0,0.4);
 }
 
 /* Feel free to edit these ones for Light Mode */
@@ -112,5 +131,9 @@
   --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);
   --header-shading: rgba(255,255,255,0.5);
+
+  /* The following are applied to buttons to indicate hover and being held down. */
+  --hover-filter: rgba(255,255,255,0.2); 
+  --active-filter: rgba(255,255,255,0.4);
 }
 

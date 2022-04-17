@@ -46,16 +46,16 @@
 
 @mixin card-light {
 	border: 1px solid var(--secondary-color);
-	background-color: rgba(255,255,255,0.05);
+	background-color: rgba(255,255,255,0.05); // intentionally set colors
 }
 @mixin card-dark {
 	border: 1px solid var(--secondary-color);
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.5); // intentionally set colors
 }
 
 @mixin header {
-	color: #fff;
-	text-shadow: 2px 2px 2px #aaa;
+	color: var(--header-primary);
+	text-shadow: 2px 2px 2px var(--header-secondary);
 }
 @mixin header-line {
 	@include header;
@@ -78,12 +78,8 @@
 	}
 }
 
-@mixin bar-small {
-
-}
-
-$hover-filter: rgba(0,0,0,0.2); // Can 100% confirm this works with the green.
-$active-filter: rgba(0,0,0,0.4);
+$hover-filter: var(--hover-filter);
+$active-filter: var(--active-filter);
 /// Button : (background / border) color will need to be defined.
 @mixin button-base($color: null) {
 	@include bg;
@@ -124,9 +120,9 @@ $active-filter: rgba(0,0,0,0.4);
 
 @mixin button-inverted($color: null) {
 	@include button-color($color);
-	background-color: rgba(255,255,255,0.15);
+	background-color: var(--card-background);
 	&:disabled {
-		background-color: rgba(255,255,255,0.15);
+		background-color: var(--card-background);
 	}
 }
 

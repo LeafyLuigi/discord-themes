@@ -4,7 +4,7 @@
 #{c(main light)} {
   #{c(header akaBadge)} {
     background-color: $secondary;
-    color: #fff;
+    color: var(--header-primary);
   }
   #{c(header updateDownloadingCloud)} {
     color: $red;
@@ -27,7 +27,7 @@
   }
   > #{c(header iconWrapper)} {
     > #{c(header icon)} {
-      filter: drop-shadow(2px 2px 2px #aaa);
+      filter: drop-shadow(2px 2px 2px var(--header-secondary));
     }
   }
 }
@@ -65,7 +65,7 @@
   }
 }
 #{c(header icon)} {
-  color: #fff;
+  color: var(--header-primary);
 }
 #{c(header iconBadge)} {
   filter: drop-shadow($primary 0 0 4px) drop-shadow($primary 0 0 4px);
@@ -110,7 +110,7 @@
     // and the blocked tab
     &#{c(header tabBarItemThemed)} {
       &[aria-controls="blocked-tab"] {
-        color: #fff;
+        color: #fff; // interactive-normal to mirror online/all/pending, white to mirror add friends. both light and dark.
         background-color: $red;
       }
     }

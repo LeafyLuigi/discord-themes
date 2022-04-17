@@ -5,7 +5,6 @@
   #{c(search searchFilter)},
   #{c(search searchAnswer)} {
     background-color: $primary;
-    color: #fff;
   }
   #{c(search activeButton)},
   #{c(search activeButton)}:hover {
@@ -20,7 +19,6 @@
     &#{c(search tabSelected)},
     &#{c(search tabSelected)}:hover {
       background-color: $secondary;
-      color: #fff;
     }
   }
 }

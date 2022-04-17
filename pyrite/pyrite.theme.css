@@ -1,8 +1,8 @@
 /**
  * @name Pyrite
  * @author LeafyLuigi
- * @version 0.1.8
- * @description Pyrite for BetterDiscord/BandagedBD
+ * @version 0.1.9
+ * @description Pyrite for BetterDiscord/BandagedBD.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @invite 7P99YTBRUu
@@ -22,25 +22,17 @@
 /* Optional: HorizontalServerList. Includes the base for the minitheme. Incompatible with Dribbblish. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css); */
 
-/* Optional: Border Radius / Radical Status. Does not include Gibbu's base for Radical Status. Incompatible with it. */
-/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/borders.css) */
-
-
-/* Below are discontinued. They are very likely unstable and could mess with the UI too much. */
-/* Press Ctrl+Comma (Cmd+Comma on Mac) to open settings. */
-
 /* Optional: Dribbblish. Includes the base for the theme. Incompatible with HorizontalServerList. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/dribbblish.css); */
-
 
 /* Theme Base */
 :root {
   /* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
-  --background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
+  --background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
   /* Home icon is for the little button in the top left. */
-  --home-icon: url(https://leafyluigi.github.io/images/Sunset%20Nature%2024%20by%20Bouzid27.png);
+  --home-icon: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
 
   /* Image attachment can be "fixed", "scroll" or "local" */
   /* scroll/local attaches the background to the modal completely while fixed keeps it in line with the background */
@@ -56,10 +48,11 @@
   /* Secondary is an accent colour of sorts. It's not used as often as Primary. It should be a shade or two lighter or darker compared to Primary. */
   /* Hover is a secondary accent colour of sorts and is often used when hovering over something. Like Secondary, it should be a shade or two lighter or darker compared to Primary. */
   /* Tooltip is used for tooltips. It can whatever colour you wish. */
-  --primary-color: #FF6F00;
-  --secondary-color: #E06100;
-  --hover-color: #FF801F;
-  --tooltip-color: #B85000;
+  --primary-color: #387eff;
+  --secondary-color: #3298e0;
+  --hover-color: #139dff;
+  --tooltip-color: #1967ab;
+
   /* These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex. */
   /* Green's default here is the old green. The new green is #3ba55d */
   --green-color: #43b581;
@@ -69,22 +62,31 @@
   --live-color:  #583594;
   --offline-color: #737e8c;
 
-  /* Background default to Primary, OPacity to 0.3. Opacity on hover is a static +0.2 compared to the variable. */
+  /* Channels */
+  /* These are used for channel related things. "Channels" may apply to DMs or Server channels. */
+  --category-color: var(--header-primary); /* Applies to uncollapsed categories, member list groups and applies to active voice/stage channel. */
+  --selected-channel-color: var(--header-primary); /* Applies to selected channel as well as non-locked, non-muted channels on hover. */
+  --unread-channel-color: var(--primary-color); /* Applies to unread channels. Combined with below can give a glow. */
+  --unread-channel-glow: drop-shadow(0 0 4px); /* More advanced. Uses the filter's drop-shadow function to give a glow. */
+  --read-channel-color: var(--interactive-normal); /* Applies unread, unmuted, unlocked (voice) channels and unmuted collapsed categories. */
+  --muted-channel-color: var(--interactive-muted); /* Applies to muted channels and categories. Ignores hover from selected. */
+  --show-channel-unread-dot: block; /* Toggle display of the unread channel dot. Valid options: "block" and "none", both without quotations. "block" shows the blob and "none" hides it. */
+  --locked-voice-channel-color: var(--red-color); /* Applies to locked voice channels. Does NOT include full voice channels. */
+
+  /* Background default to Primary, Opacity to 0.3. Opacity on hover is a static +0.2 compared to the variable. */
   --mention-background: var(--primary-color);
   --mention-opacity: 0.3;
 
-
   /* For Advanced Users */
-  /* Code is monospace, Body is normal font. */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
-
-  /* User Modal Layout sizes. Changing these HAS NOT BEEN TESTED. */
-  --user-modal-width: 900px;
-  --user-modal-height: 600px;
-  
-  /* Below are currently unused but will be used in future. They are very much subject to change. */
-  --gradient: to bottom right, var(--primary-color);
+  /* Below are currently unused but will be used in future. */
+  --background-filters: none;
+  --user-modal-filters: blur(3px);
+  --user-popout-filters: blur(3px);
+  --gradient-colors: var(--primary-color);
+  --gradient-direction: to bottom right;
+  --body-filters: none;
 
   /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
   --hide-member-list: 1;
@@ -105,7 +107,7 @@
 
 
   /* Debug; please do not touch */
-  --update-notice-0: none;
+  --update-notice-1: none;
 }
 
 
@@ -116,6 +118,10 @@
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
   --header-shading: rgba(0,0,0,0.7);
+
+  /* The following are applied to buttons to indicate hover and being held down. */
+  --hover-filter: rgba(0,0,0,0.2);
+  --active-filter: rgba(0,0,0,0.4);
 }
 
 /* Feel free to edit these ones for Light Mode */
@@ -125,5 +131,9 @@
   --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);
   --header-shading: rgba(255,255,255,0.5);
+
+  /* The following are applied to buttons to indicate hover and being held down. */
+  --hover-filter: rgba(255,255,255,0.2); 
+  --active-filter: rgba(255,255,255,0.4);
 }
 

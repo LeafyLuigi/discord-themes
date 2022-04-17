@@ -118,7 +118,6 @@ $classes: (
 		"colorBrand": "colorBrand-I6CyqQ",
 		"colorBrandNew": "colorBrandNew-2-gGsS",
 		"colorGreen": "colorGreen-3y-Z79",
-		"colorGrey": "colorGrey-2iAG-B",
 		"colorLink": "colorLink-1Md3RZ",
 		"colorPrimary": "colorPrimary-2AuQVo",
 		"colorRed": "colorRed-rQXKgM",
@@ -128,7 +127,6 @@ $classes: (
 
 		"hoverBrand": "hoverBrand-9W5Bs0",
 		"hoverGreen": "hoverGreen-1KfT6K",
-		"hoverGrey": "hoverGrey-JnW3T-",
 		"hoverLink": "hoverLink-3tFUy_",
 		"hoverPrimary": "hoverPrimary-2hqNIm",
 		"hoverRed": "hoverRed-1gTvle",
@@ -271,6 +269,8 @@ $classes: (
 		"compactContainer": "containerCompact-1Jto1O", // houses below
 		"compactButton": "compactButton-3hG-bs", // send wave sticker
 		"welcomeCTA": "welcomeCTA-3GMMRK",
+
+		"channelLinkUserMentionWrapper": "wrapper-1ZcZW-",
 	),
 		// indented because i hate discord
 		"threads": (
@@ -304,7 +304,7 @@ $classes: (
 		"attachButtonPlus": "attachButtonPlus-3IYelE",
 		"textArea": "textArea-2CLwUE",
 		"textAreaSlate": "textAreaSlate-9-y-k2",
-		"placeholder": "placeholder-1_mJY1", // phantom text usually saying "Message $channel/$user"
+		"placeholder": "placeholder-1rCBhr", // phantom text usually saying "Message $channel/$user"
 		"buttons": "buttons-uaqb-5",
 		"buttonContainer": "buttonContainer-2lnNiN",
 		"button": "button-f2h6uQ",
@@ -941,7 +941,7 @@ $classes: (
 		"roleHeader": "header-JUTO-g",
 		"roleHeaderStickyElevated": "stickyHeaderElevated-dNSSrJ",
 		"roleHeaderSticky": "stickyHeader-1Sunlx",
-		"rolePreviewContainer": "previewContainer-1xQAsw",
+		"rolePreviewContainer": "previewContainer-1GxmBJ",
 
 		"emojiRow": "emojiRow-1aPaM-",
 		"emojiAliasPlaceholder": "emojiAliasPlaceholder-3oShSx",
@@ -968,8 +968,11 @@ $classes: (
 		"privateChannelsHeaderContainer": "privateChannelsHeaderContainer-1UWASm",
 		"privateChannelsHeader": "headerText-1qIDDT",
 		"privateChannel": "channel-1Shao0",
-		"privateChannelInteractive": "interactive-iyXY_x",
+		"privateChannelInteractive": "interactive-1vLZ_I",
+		"privateChannelSelected": "interactiveSelected-29CP8y",
+		"privateChannelMuted": "muted-3KGUWb",
 		"privateChannelLink": "link-39sEB3",
+		"privateChannelBadgeIcon": "badgeIconPrivateMessages-2hN0QU",
 		"privateChannelRecipientsInviteButtonIcon": "privateChannelRecipientsInviteButtonIcon-1ObKXK",
 		"channelsContainer": "container-1NXEtd",
 		"channelsScroller": "scroller-1ox3I2",
@@ -981,16 +984,19 @@ $classes: (
 		"channelsContainerContent": "content-2a4AW9",
 		"channelCategoryContainerDefault": "containerDefault-YUSmu3",
 
-		"channelSelected": "selected-2TbFuo", //different to channelModeSelected; icons use it for showing them.
+		"channelSelected": "selected-3veCBZ", //different to channelModeSelected; icons use it for showing them.
 
+		"channelWrapper": "wrapper-NhbLHG",
 		"channelMainContent": "mainContent-20q_Hp",
 		"channelModeMuted": "modeMuted-2T4MDZ",
 		"channelModeSelected": "modeSelected-3DmyhH",
 		"channelModeUnread": "modeUnread-3Cxepe",
 		"channelModeConnected": "modeConnected-NrO4cP",
 		"channelModeLocked": "modeLocked-3sToxd",
+		"channelIconContainer": "iconContainer-21RCa3",
 		"channelIcon": "icon-2W8DHg",
 		"channelName": "name-28HaxV",
+		"channelNameChild": "channelName-3KPsGw", // houses the text part
 		"channelChildren": "children-1MGS9G",
 		"channelUserLimit": "userLimit-VbEkeM",
 		"channelUserLimitWrapper": "wrapper-2fEmwW",
@@ -1232,7 +1238,8 @@ $classes: (
 		
 		"nitroPage": "container-LUKdw8",
 		"nitroHero": "hero-1aNo0v",
-		"nitroHeroButtons": "heroButtons-357iJy",
+		"nitroPromoBanner": "promoBanner-1pEkqm",
+		"nitroHeroButtons": "heroButtons-CJvWLU",
 		"nitroFeatureGrid": "featureGrid-SSlfD0",
 		"nitroFeature": "feature-2IUcBI",
 		"nitroFeatureImageWrapper": "featureImageWrapper-2ndc8N",
@@ -1251,6 +1258,7 @@ $classes: (
 		
 		"codeRedemptionRedirect": "codeRedemptionRedirect-2hYMSQ",
 
+		"closeButtonContainer": "container-O54IuJ",
 		"closeButton": "closeButton-PCZcma",
 		"closeButtonKeybind": "keybind-13vtq8",
 	),
@@ -1283,20 +1291,21 @@ $classes: (
 			"keybindGroup": "defaultKeybindGroup-3IVc_-",
 			"keybindRemove": "removeKeybind-2YVgVG",
 			"keybindRemoveFilled": "filled-2zYazI",
-			"keybindButton": "keybindShortcut-3zF1P9 span",
+			"keybindButton": "keybindShortcut-3zF1P9",
+			"keybindKey": "key-N5VmHN",
 
-			"gameNotDetected": "notDetected-2HEmAp",
-			"gameNowPlaying": "nowPlaying-zBamm2",
-			"gameName": "gameName-Uw4dbt",
-			"gameNameInput": "gameNameInput-3TuPuA",
-			"gameLastPlayed": "lastPlayed-3aHvxk",
-			"gameOverlayStatusText": "overlayStatusText-AHDYB3",
-			"gameOverlayToggleIconOn": "overlayToggleIconOn-3_-nGm",
-			"gameOverlayToggleIconOff": "overlayToggleIconOff-3hGOmN",
-			"gameOverlayToggleIconFill": "fill-MYciTJ",
+			"gameNotDetected": "notDetected-M3Ghh2",
+			"gameNowPlaying": "nowPlaying-3UpuKc",
+			"gameName": "gameName-zbZetm",
+			"gameNameInput": "gameNameInput-2wbDJ9",
+			"gameLastPlayed": "lastPlayed-1jum9A",
+			"gameOverlayStatusText": "overlayStatusText-In0YrK",
+			"gameOverlayToggleIconOn": "overlayToggleIconOn-21NN2N",
+			"gameOverlayToggleIconOff": "overlayToggleIconOff-ps4gGp",
+			"gameOverlayToggleIconFill": "fill-297bdf",
 			"gameFlowerStar": "flowerStar-2tNFCR",
-			"game": "game-3x3aDt",
-			"gameRemove": "removeGame-3Le1LJ",
+			"game": "game-2f2vPC",
+			"gameRemove": "removeGame-3V7nss",
 
 			"contentTransitionWrap": "contentTransitionWrap-1YD530",
 		),

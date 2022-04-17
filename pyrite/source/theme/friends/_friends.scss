@@ -7,7 +7,7 @@
   }
   #{c(friends voiceSectionIconWrapper)},
   #{c(friends partyMemberOverflow)} {
-    background-color: rgba(0,0,0,0.5);
+    background-color: $card;
   }
   #{c(friends itemCardSeperator)} {
     background-color: $secondary;
@@ -38,25 +38,17 @@
   #{c(friends peopleList)} {
     margin-top: 0;
   }
-  #{c(friends peopleListItem)} {
-    &:hover {
-      background: rgba(255,255,255,0.05);
-    }
-    #{c(friends peopleListUsername)} {
-      color: #fff;
-    }
-  }
 }
 #{c(friends actionButton)} {
   color: $primary;
   border: 1px solid;
-  background-color: rgba(255,255,255,0.05);
+  background-color: $card;
   border-color: currentColor;
   &:hover {
     color: $hover;
   }
   &#{c(friends highlight)} {
-    background-color: rgba(255,255,255,0.05);
+    background-color: $card;
   }
 }
 

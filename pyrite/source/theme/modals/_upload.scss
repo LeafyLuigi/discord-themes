@@ -7,25 +7,25 @@
     #{c(upload footer)} {
         background-color: $middle;
     }
-    #{c(upload inner)} #{c(upload file)} #{c(upload icon)}#{c(upload image)} {
+    // somehow having the not there allows you to select something with only the initial class. it's very nice.
+    #{c(upload inner)} #{c(upload icon)}:not([class*=" "]) {
+        // background is intentionally set to those colors to mirror a grid pattern.
         background: $primary repeating-conic-gradient(#0004 0% 25%, #eee4 0% 50%) center/10px 10px;
         box-shadow: none;
-    }
-}
-#{c(upload image)} {
-    transition: all 0.25s linear;
-    -webkit-user-drag: none;
-    margin-left: 8px !important; // !important reason: inline, cbf with above
-    &:not([style*="width: 416px"]) {
-        cursor: zoom-in;
-        max-width: 80vw;
-        width: initial !important; // !important reason: element.style
+        transition: all 0.25s linear;
+        -webkit-user-drag: none;
+        margin-left: 8px !important; // !important reason: inline, cbf with above
+        &:not([style*="width: 416px"]) {
+            cursor: zoom-in;
+            max-width: 80vw;
+            width: initial !important; // !important reason: element.style
         &:hover {
             height: 30vh !important; // !important reason: element.style
         }
         &:active {
             height: 50vh !important; // !important reason: element.style
         }
+    }
     }
 }
 
@@ -44,7 +44,7 @@
         background-color: $red;
         #{c(upload dropInner)} {
             padding-top: 12px;
-            border-color: rgba(255,255,255,0.4);
+            border-color: var(--background-modifier-active);
         }
     }
 }

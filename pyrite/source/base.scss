@@ -27,21 +27,23 @@
   --text-danger: var(--red-color);
   --text-brand: var(--primary-color);
   --secret-orange: #f57531; // used in only one place - radio bar. converted from hsl.
+  --brand-experiment: var(--primary-color); // fallback for dumb discord stuff
+  --focus-primary: var(--primary-color); // tab around wheeee
+  --channel-icon: inherit; // lazy mode: on
 
-
-  --background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
+  --background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
   --background-attachment: fixed;
   --user-modal-attachment: var(--background-attachment);
   --user-popout-attachment: var(--background-attachment);
-  --primary-color: #FF6F00;
-  --secondary-color: #E06100;
-  --hover-color: #FF801F;
-  --tooltip-color: #B85000;
+  --primary-color: #387eff;
+  --secondary-color: #3298e0;
+  --hover-color: #139dff;
+  --tooltip-color: #1967ab;
   --mention-background: var(--primary-color);
   --mention-opacity: 0.3;
-  --home-icon: url(https://leafyluigi.github.io/images/Sunset%20Nature%2024%20by%20Bouzid27.png);
+  --home-icon: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
   --user-modal-width: 900px;
   --user-modal-height: 600px;
 
@@ -51,6 +53,16 @@
   --link-color: #00aef3;
   --live-color:  #583594;
   --offline-color: #737e8c;
+
+  /* Channels */
+  --category-color: var(--header-primary);
+  --selected-channel-color: var(--header-primary);
+  --unread-channel-color: var(--primary-color);
+  --unread-channel-glow: drop-shadow(0 0 4px);
+  --read-channel-color: var(--interactive-normal);
+  --muted-channel-color: var(--interactive-muted);
+  --show-channel-unread-dot: block;
+  --locked-voice-channel-color: var(--red-color);
 
   /* Advanced Users */
   --code-font: Monaco, Consolas, Courier, monospace;
@@ -103,6 +115,24 @@
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
   --header-shading: rgba(0,0,0,0.7);
+
+  --hover-filter: rgba(0,0,0,0.2);
+  --active-filter: rgba(0,0,0,0.4);
+
+  // below: defaults set by theme
+  --interactive-normal:#b9bbbe;
+  --interactive-hover:#dcddde;
+  --interactive-active:#fff;
+  --interactive-muted:#4f545c;
+  --background-modifier-hover:rgba(79,84,92,0.16);
+  --background-modifier-active:rgba(79,84,92,0.24);
+  --background-modifier-selected:rgba(79,84,92,0.32);
+  --background-modifier-accent:hsla(0,0%,100%,0.06);
+  --input-background: var(--card-background);
+  --control-brand-foreground: var(--primary-color);
+  --control-brand-foreground-new: var(--primary-color);
+  --deprecated-text-input-bg: var(--input-background);
+  --deprecated-text-input-border: var(--primary-color);
 }
 
 /* Feel free to edit these ones for Light Mode */
@@ -112,4 +142,22 @@
   --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);
   --header-shading: rgba(255,255,255,0.5);
+
+  --hover-filter: rgba(255,255,255,0.2);
+  --active-filter: rgba(255,255,255,0.4);
+
+  // below: defaults set by theme
+  --interactive-normal:#4f5660;
+  --interactive-hover:#2e3338;
+  --interactive-active:#060607;
+  --interactive-muted:#c7ccd1;
+  --background-modifier-hover:rgba(116,127,141,0.08);
+  --background-modifier-active:rgba(116,127,141,0.16);
+  --background-modifier-selected:rgba(116,127,141,0.24);
+  --background-modifier-accent:rgba(6,6,7,0.08);
+  --input-background: var(--card-background);
+  --control-brand-foreground: var(--primary-color);
+  --control-brand-foreground-new: var(--primary-color);
+  --deprecated-text-input-bg: var(--input-background);
+  --deprecated-text-input-border: var(--primary-color);
 }

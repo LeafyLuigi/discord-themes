@@ -45,15 +45,18 @@
 }
 
 @mixin card-light {
+  @debug "fixed color";
   border: 1px solid var(--secondary-color);
   background-color: rgba(255,255,255,0.05);
 }
 @mixin card-dark {
+  @debug "fixed color";
   border: 1px solid var(--secondary-color);
   background-color: rgba(0,0,0,0.5);
 }
 
 @mixin header {
+  @debug "fixed color";
   color: #fff;
   text-shadow: 2px 2px 2px #aaa;
 }
@@ -119,6 +122,7 @@ $active-filter: rgba(0,0,0,0.4);
 
 @mixin button-inverted($color: null) {
   @include button-color($color);
+  @debug "fixed color";
   background-color: rgba(255,255,255,0.15);
 }
 

@@ -39,7 +39,7 @@
 }
 #{c(serverList iconWrapper)} {
   #{c(serverList iconChildWrapper)} {
-    background-color: rgba(255,255,255,0.05);
+    background-color: $card;
     transition: background-color .1s ease-out,color .1s ease-out,border-radius 0.1s ease-out;
   }
   &#{c(serverList selected)},
@@ -59,14 +59,13 @@
   }
 }
 #{c(serverList addServer)} {
-  background-color: rgba(255,255,255,0.05);
+  background-color: $card;
   color: $primary;
   border-radius: 50%;
   transition: color .15s ease-out,background-color .15s ease-out,border-radius 0.15s;
   &#{c(serverList addServerSelected)} {
     background-color: $primary;
     border-radius: 33%;
-    color: #fff;
   }
 }
 

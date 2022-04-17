@@ -92,9 +92,11 @@
 
 #{c(stage rtsButtonContainer)},
 #{c(stage rtsButtonContainer)}:hover,
-#{c(stage rtsButtonContainer)}:active {
+#{c(stage rtsButtonContainer)}:active,
+#{c(stage colorable)}#{c(stage white)},
+#{c(stage colorable)}#{c(stage white)}:hover,
+#{c(stage colorable)}#{c(stage white)}#{c(stage active)} {
   background-color: $primary;
-  color: #fff;
 }
 #{c(stage colorable)} {
   &#{c(stage primaryDark)},
@@ -102,23 +104,15 @@
   &#{c(stage primaryDark)}:active {
     background-color: $card;
   }
-  &#{c(stage white)},
-  &#{c(stage white)}:hover,
-  &#{c(stage white)}#{c(stage active)} {
-    background-color: $primary;
-    color: #fff;
-  }
   &#{c(stage red)},
   &#{c(stage red)}:hover,
   &#{c(stage red)}:active {
     background-color: $red;
-    color: #fff;
   }
   &#{c(stage green)},
   &#{c(stage green)}:hover,
   &#{c(stage green)}:active {
     background-color: $green;
-    color: #fff;
   }
 }
 #{c(stage buttonRow)} #{c(stage leaveQuietlyButton)} {
@@ -131,7 +125,7 @@
 }
 #{c(stage audienceVoiceUserIconContainer)} {
   background-color: $primary;
-  color: #fff;
+  color: var(--header-primary);
 }
 #{c(stage speakerRaiseHandBadge)} {
   background-color: $primary;

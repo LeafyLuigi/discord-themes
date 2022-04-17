@@ -1,8 +1,8 @@
 /**
- * @name Pyrite - Océan Bleu
+ * @name Pyrite - Synthscape Orange
  * @author LeafyLuigi
  * @version 0.1.9
- * @description Pyrite for BetterDiscord/BandagedBD. Océan Bleu Edition.
+ * @description Pyrite for BetterDiscord/BandagedBD. Synthscape Orange Edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @invite 7P99YTBRUu
@@ -22,17 +22,25 @@
 /* Optional: HorizontalServerList. Includes the base for the minitheme. Incompatible with Dribbblish. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css); */
 
+/* Optional: Border Radius / Radical Status. Does not include Gibbu's base for Radical Status. Incompatible with it. */
+/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/borders.css) */
+
+
+/* Below are discontinued. They are very likely unstable and could mess with the UI too much. */
+/* Press Ctrl+Comma (Cmd+Comma on Mac) to open settings. */
+
 /* Optional: Dribbblish. Includes the base for the theme. Incompatible with HorizontalServerList. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/dribbblish.css); */
+
 
 /* Theme Base */
 :root {
   /* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
-  --background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
+  --background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
   /* Home icon is for the little button in the top left. */
-  --home-icon: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
+  --home-icon: url(https://leafyluigi.github.io/images/Sunset%20Nature%2024%20by%20Bouzid27.png);
 
   /* Image attachment can be "fixed", "scroll" or "local" */
   /* scroll/local attaches the background to the modal completely while fixed keeps it in line with the background */
@@ -48,11 +56,10 @@
   /* Secondary is an accent colour of sorts. It's not used as often as Primary. It should be a shade or two lighter or darker compared to Primary. */
   /* Hover is a secondary accent colour of sorts and is often used when hovering over something. Like Secondary, it should be a shade or two lighter or darker compared to Primary. */
   /* Tooltip is used for tooltips. It can whatever colour you wish. */
-  --primary-color: #387eff;
-  --secondary-color: #3298e0;
-  --hover-color: #139dff;
-  --tooltip-color: #1967ab;
-
+  --primary-color: #FF6F00;
+  --secondary-color: #E06100;
+  --hover-color: #FF801F;
+  --tooltip-color: #B85000;
   /* These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex. */
   /* Green's default here is the old green. The new green is #3ba55d */
   --green-color: #43b581;
@@ -77,16 +84,18 @@
   --mention-background: var(--primary-color);
   --mention-opacity: 0.3;
 
+
   /* For Advanced Users */
+  /* Code is monospace, Body is normal font. */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
-  /* Below are currently unused but will be used in future. */
-  --background-filters: none;
-  --user-modal-filters: blur(3px);
-  --user-popout-filters: blur(3px);
-  --gradient-colors: var(--primary-color);
-  --gradient-direction: to bottom right;
-  --body-filters: none;
+
+  /* User Modal Layout sizes. Changing these HAS NOT BEEN TESTED. */
+  --user-modal-width: 900px;
+  --user-modal-height: 600px;
+  
+  /* Below are currently unused but will be used in future. They are very much subject to change. */
+  --gradient: to bottom right, var(--primary-color);
 
   /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
   --hide-member-list: 1;
