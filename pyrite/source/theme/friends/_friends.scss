@@ -57,7 +57,7 @@
   width: 360px;
   max-width: 360px;
   position: relative;
-  transition: .5s all ease-out;
+  transition: var(--hide-speed,0.5s) all ease-out;
   left: calc( ( 300px ) * var(--hide-active-now));
   margin-left: calc( -1 * (( 300px ) * var(--hide-active-now)));
   &:hover {

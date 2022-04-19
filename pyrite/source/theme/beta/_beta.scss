@@ -224,7 +224,7 @@ html[lang="fr"] {
 	// code for hide sidebar
 #{c(sidebar sidebar)} {
   width: calc(240px - (168px * var(--hide-channel-list,0)));
-  transition: .5s width ease-out;
+  transition: var(--hide-speed,0.5s) width ease-out;
   
   // right: calc(240px - (168px * var(--hide-channel-list,0)));
 
