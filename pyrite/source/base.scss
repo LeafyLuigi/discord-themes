@@ -73,6 +73,7 @@
   /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
   --hide-member-list: 1;
   --hide-active-now: 1;
+  --hide-channel-list: 0; // plans: similar to member list. default 0. zero will only show avi for panel.
 
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
@@ -105,7 +106,7 @@
 
 
   /* Internal please ignore */
-  // --update-notice-0: none;
+  // --update-notice-1: none;
 }
 
 /* Feel free to edit these ones for Dark Mode */

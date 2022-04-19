@@ -73,3 +73,9 @@
 		fill: $offline;
 	}
 }
+#{c(memberList placeholderMemberGroups)},
+#{c(memberList placeholderAvatar)},
+#{c(memberList placeholderUsername)},
+#{c(memberList placeholderUsernameMultiple)} {
+  background-color: $card;
+}

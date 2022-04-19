@@ -129,3 +129,7 @@
     border-color: $primary;
   }
 }
+
+#{c(friends searchIcon)} {
+  z-index: 0; // messes with active now
+}
