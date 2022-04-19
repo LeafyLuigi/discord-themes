@@ -243,7 +243,7 @@ html[lang="fr"] {
   &::before,
   &::after {
     
-    transition: .5s width ease-out;
+    transition: var(--hide-speed,0.5s) width ease-out;
     width: calc(240px - (168px * var(--hide-channel-list,0)));
   }
 }

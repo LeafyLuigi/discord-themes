@@ -71,7 +71,7 @@
 
 
   /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
-  --hide-speed: 0.5s; // speed for animations for the below
+  --hide-speed: 0.5s; // speed for animations for the below. must be a time value. you can add a second value for delay
   --hide-member-list: 1;
   --hide-active-now: 1;
   --hide-channel-list: 0; // plans: similar to member list. default 0. zero will only show avi for panel.
