@@ -5,12 +5,12 @@
   background-color: transparent;
   @include bg;
   @include bg2;
-  &:before {
+  &::before {
     background-color: $side;
     top: 48px;
     width: 240px;
   }
-  &:after {
+  &::after {
     background-color: $header;
     height: 48px;
     width: 240px;
@@ -18,7 +18,7 @@
   }
 }
 #{c(os mac)} {
-  #{c(sidebar sidebar)}:after {
+  #{c(sidebar sidebar)}::after {
     -webkit-app-region: drag;
   }
 }
@@ -67,7 +67,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  &:before {
+  &::before {
     content: "";
     height: 2px;
     flex-grow: 1;
@@ -115,11 +115,9 @@
     width: 240px;
   }
 }
-#{c(sidebar channelModeUnread)} {
-  #{c(sidebar channelUnreadBlob)} {
-    background-color: $primary;
-    filter: drop-shadow(0 0 2px $primary) drop-shadow(0 0 4px $primary);
-  }
+#{c(sidebar channelModeUnread)} #{c(sidebar channelUnreadBlob)} {
+  background-color: $primary;
+  filter: drop-shadow(0 0 2px $primary) drop-shadow(0 0 4px $primary);
 }
 #{c(sidebar bannerVisible)} #{c(sidebar channelsHeader)} {
   filter: none;
@@ -134,6 +132,10 @@
   background-color: $primary;
 }
 
+#{c(sidebar channelUnreadBanners)} {
+  width: 224px;
+}
+
 // Panels
 #{c(sidebar panels)} {
   background-color: transparent;
@@ -144,24 +146,29 @@
   #{c(sidebar panelContainer)} #{c(sidebar panelButtonRow)},
   #{c(sidebar panelVoiceContainer)} #{c(sidebar panelInner)} ~ #{c(sidebar panelButtonRow)},
   #{c(sidebar panelActivityContainer)} #{c(sidebar panelActivityActions)} {
-    transform: skewX(-15deg);
     border: 1px solid $middle;
+    border-radius: 8px;
   }
 }
 #{c(sidebar panelButton)} {
+  &:first-of-type::before {
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+  }
+  &:last-of-type::before {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
   &:hover {
     background-color: transparent;
   }
   @include bg;
-  &:before {
+  &::before {
     background-color: $primary;
     opacity: 0.6;
   }
-  &:hover:before {
+  &:hover::before {
     background-color: $hover;
-  }
-  > #{c(button contents)} {
-    transform: skewX(15deg);
   }
 }
 
@@ -176,7 +183,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  &:before {
+  &::before {
     content: "";
     height: 2px;
     flex-grow: 1;
@@ -193,7 +200,7 @@
 }
 #{c(sidebar channelTotal)} {
   background-color: transparent;
-  &:after {
+  &::after {
     content: "/";
     width: auto;
     height: auto;
@@ -255,8 +262,11 @@
     color: var(--muted-channel-color);
   }
   &:not(#{c(sidebar categoryCollapsed)}) {
-    #{c(sidebar categoryName)}:before {
+    #{c(sidebar categoryName)}::before {
       background: linear-gradient(to left, currentColor -50%, transparent 50%);
     }
   }
 }
+
+
+

@@ -54,9 +54,17 @@
 
 #{c(chat buttonWrapper)} {
   background: transparent;
-  transform: skewX(-15deg);
   border: 1px solid $middle;
+  border-radius: 8px;
   #{c(chat button)} {
+    &:first-of-type::before {
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+    }
+    &:last-of-type::before {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
     &:hover {
       background-color: transparent;
     }
@@ -65,11 +73,8 @@
       background-color: $primary;
       opacity: 0.6;
     }
-    &:hover:before {
+    &:hover::before {
       background-color: $hover;
-    }
-    #{c(chat buttonIcon)} {
-      transform: skewX(15deg);
     }
   }
 }
@@ -305,6 +310,12 @@
     }
   }
 }
+
+// vc chat
+#{c(call wrapper)}#{c(chat chatSidebarOpen)} #{c(call container)} {
+  border-radius: 0;
+}
+
 
 // Threads
 #{c(chat chat)}#{c(chat threadSidebarOpen)} {

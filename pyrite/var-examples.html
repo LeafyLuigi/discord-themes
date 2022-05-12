@@ -1,0 +1,40 @@
+<html><head><title>Pyrite's Quick Variable List</title><style>.comment{color:#999; display:inline-block;font-style:italic}.psuedoSelector{color:#e84806}.buintIn{color:#fd2f2b}.number,.string{color:#2aa198}.class{color: #268bd2}.var{color:#b58900}</style></head>
+<body style="background:#202225;font-family:monospace;color:#b9bbbe"><div style="white-space:pre-wrap;background-color:rgba(0,0,0,0.5);border:1px solid #3298e0;font-size:16px;line-height:18px;padding:4px"><div class="comment inline">/* The following Variables are used in :root{}, which is the initial part of the HTML tree: html. */</div>
+<span class="psuedoSelector">:root</span> {
+    <div class="comment">/* These two are URLs but can also be a solid color */</div>
+    <span class="var">--background-image</span>: <span class="buintIn">url</span>(<span class="string">'https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png'</span>);
+    <span class="var">--home-icon</span>: <span class="buintIn">url</span>(<span class="string">'https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png'</span>);
+
+    <div class="comment">/* These are the main theme related colors. Though not explicitly stated, tooltip can also be an image. */</div>
+    <span class="var">--primary-color</span>: <span class="number">#387eff</span>;
+    <span class="var">--secondary-color</span>: <span class="number">#3298e0</span>;
+    <span class="var">--hover-color</span>: <span class="number">#139dff</span>;
+    <span class="var">--tooltip-color</span>: <span class="number">#1967ab</span>;
+
+    <div class="comment">/* Used with toggles below, this variable is used as a time for the animations below. You MUST include the time unit if you change the value. It also accepts a second value as an animation delay. */</div>
+    <span class="var">--hide-speed</span>: <span class="number">.5s</span>;
+
+    <div class="comment">/* "Toggles", as I've called them, are used as a way to enable/disable the hiding of different things. Channel list is shown fully by default. These all take values from 0 to 1. Anything above 1 is not fully tested and likely will cause issues. Values below 0 are broken too. */</div>
+    <span class="var">--hide-member-list</span>: <span class="number">1</span>;
+    <span class="var">--hide-active-now</span>: <span class="number">1</span>;
+    <span class="var">--hide-channel-list</span>: <span class="number">0</span>;
+}
+
+<div class="comment">/* The following are used in both .theme-dark and .theme-light but are editable per category. Only the main dark theme class will be used here. */</div>
+<span class="class">.theme-dark</span> {
+    <div class="comment">/* Card background is a very broad catch-all for *most* things. I've relied on it a little too much. */</div>
+    <span class="var">--card-background</span>: <span class="buintIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);
+
+    <div class="comment">/* These "shading" variables are used in the main window and some modals. In the channel you see now, side is the channel, server and member list while main is the chat. Header is the header bar. */</div>
+    <span class="var">--side-shading</span>: <span class="buintIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);
+    <span class="var">--middle-shading</span>: <span class="buintIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.3</span>);
+    <span class="var">--header-shading</span>: <span class="buintIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.7</span>);
+
+    <div class="comment">/* These "filters" are used on the big buttons you may see. */</div>
+    <span class="var">--hover-filter</span>: <span class="buintIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.2</span>);
+    <span class="var">--active-filter</span>: <span class="buintIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.4</span>);
+}
+</div>
+<footer style="width:auto;background-color:rgba(0,0,0,0.5)"><p style="font-size:14px;margin:0">Other links: <a href="https://github.com/leafyluigi/discord-themes/tree/master/pyrite">Theme Repo</a> | <a href="https://discord.gg/7P99YTBRUu">Support Server</a> | <a href="https://github.com/leafyluigi">GitHub</a> | <a href="https://twitter.com/leafyluigi">Twitter</a> | <a href="https://leafyluigi.github.io">GitHub.io site</a></p></footer>
+</body>
+</html>
