@@ -88,20 +88,18 @@ $classes: (
 		"web": "platform-web"
 	),
 	"boost": (
-		"wrapper": "wrapper-1w686E",
-		"navBar": "navigationBar-3r0IQK",
-		"scrollerWrapper": "scrollerWrapper-i8p1JZ",
-		"topBanner": "hero-stXd0P",
-		"topBannerLowSaturation": "heroLowSaturation-1S_eu5",
-		"guildInfoWrapper": "guildInfoWrapper-27qEn2",
-		"progressBarFill": "progressBarFill-r3JZQ7",
-		"progressBarTrack": "progressBarTrack-31JzOY",
-		"progressMarker": "progressBarMarker-2F7kNV",
-		"planCard": "planCard-3heGy1",
-		"planCardImage": "planCardImage-3h8Ojr",
+		"modal": "perksModal-CLcR1c",
+		"ctaBar": "ctaBar-Nhk8yY",
+		"guildIcon": "guildIcon-2xKEtM",
 
-		"perkPopoutImage": "perkPopoutImage-3jZqhq",
-		"perkPopoutAnimation": "perkPopoutAnimation-1TX8XT",
+		"barBackground": "barBackground-unEPDT",
+		"tierMarkerBackground": "tierMarkerBackground-G8FoN4",
+		"tierMarker": "tierMarker-Vw1C95",
+
+		"tierBody": "tierBody-3ju-rc",
+		"tierHeaderLocked": "tierHeaderLocked-3ItHYn",
+
+		"perk": "perk-19D_HN",
 	),
 	"button": (
 		"button": "button-f2h6uQ",
@@ -1377,6 +1375,7 @@ $classes: (
 			"channelTabsClose": "channelTabs-closeTab",
 			"channelTabsNewTab": "channelTabs-newTab",
 			"channelTabsFavContainer": "channelTabs-favContainer",
+			"channelTabsNoFavs": "channelTabs-noFavs",
 			"channelTabsFav": "channelTabs-fav",
 			"channelTabsFavIcon": "channelTabs-favIcon",
 			"channelTabsFavName": "channelTabs-favName",

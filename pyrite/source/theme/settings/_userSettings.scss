@@ -51,10 +51,8 @@
   }
 }
 
-#{c(userSettings contentColumn)} {
-  #{c(userSettings fieldList)} {
-    background-color: transparent;
-  }
+#{c(userSettings contentColumn)} #{c(userSettings fieldList)} {
+  background-color: transparent;
 }
 
 #{c(userSettings accountProfile)} {
@@ -84,6 +82,7 @@
 }
 
 #{c(userSettings radioGroupItem)} {
+  backdrop-filter: blur(3px);
   background-color: var(--background-modifier-accent);
   &:hover:not([aria-checked=true]) {
     background-color: var(--background-modifier-hover);
@@ -93,9 +92,8 @@
   }
 }
 #{c(userSettings radioBar)} {
-  border-left: 3px solid var(--header-primary);
-  border-left-color: var(--offline-color);
-  border-left-color: var(--radio-bar-accent-color);
+  border-left: 3px solid;
+  border-left-color: var(--radio-bar-accent-color, --header-primary);
   &[style*="--radio-bar-accent-color"] {
     #{c(userSettings radioIconForeground)} {
       color: var(--radio-bar-accent-color);

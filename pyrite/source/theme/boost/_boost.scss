@@ -2,35 +2,32 @@
 /* Begin Boosts */
 #{c(main dark)},
 #{c(main light)} {
-	#{c(boost navBar)} {
-		background-color: $header;
+	#{c(boost modal)} {
+		background: $middle none;
 	}
-	#{c(boost topBannerLowSaturation)} {
+	#{c(boost ctaBar)} {
+		@include card;
 		background-image: none;
 	}
-}
-#{c(boost wrapper)} {
-	background-color: transparent;
-}
-#{c(boost scrollerWrapper)} {
-	background-color: $middle;
-}
-#{c(boost topBanner)} {
-	background: transparent none;
-}
-#{c(boost topBannerLowSaturation)} #{c(boost guildInfoWrapper)},
-#{c(boost guildInfoWrapper)},
-#{c(boost progressMarker)} {
-	background-color: $card;
-}
-#{c(boost planCard)} {
-	background-color: $card;
-	padding: 24px 16px;
-	#{c(boost planCardImage)} {
-		display: none;
+	#{c(boost tierMarkerBackground)},
+	#{c(boost barBackground)},
+	#{c(boost tierBody)},
+	#{c(boost perk)} {
+		background-color: $card;
+	}
+	#{c(boost tierHeaderLocked)} {
+		background-color: $header;
 	}
 }
-#{c(boost perkPopoutAnimation)},
-#{c(boost perkPopoutImage)} {
-	display: none;
+#{c(boost guildIcon)} {
+	background-color: transparent;
+}
+#{c(boost tierMarker)} {
+	// filled would be: rgb(255, 115, 250) [both light and dark]
+	// dark mode
+	&[style*="rgb(32, 34, 37)"],
+	// light mode
+	&[style*="rgb(235, 237, 239)"] { 
+		background-color: transparent !important; // !important reason: inline
+	}
 }
