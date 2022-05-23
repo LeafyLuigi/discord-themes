@@ -504,15 +504,15 @@ $helper: (
 }
 
 /* Redownload pls bar */
-#{c(main appContainer)}::before {
-  content: "Your version of Pyrite is outdated. Please redownload.";
-  text-align: center;
-  position: absolute;
-  color: #fff;
-  white-space: pre-wrap;
-  box-sizing: border-box;
-  padding: 10px 0;
-  background-color: $header;
-  display: var(--update-notice-1, block);
-  z-index: 2500;
-}
+// #{c(main appContainer)}::before {
+//   content: "Your version of Pyrite is outdated. Please redownload.";
+//   text-align: center;
+//   position: absolute;
+//   color: #fff;
+//   white-space: pre-wrap;
+//   box-sizing: border-box;
+//   padding: 10px 0;
+//   background-color: $header;
+//   display: var(--update-notice-1, block);
+//   z-index: 2500;
+// }

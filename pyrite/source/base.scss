@@ -59,9 +59,9 @@
   --selected-channel-color: var(--header-primary);
   --unread-channel-color: var(--primary-color);
   --unread-channel-glow: drop-shadow(0 0 4px);
+  --show-channel-unread-dot: block;
   --read-channel-color: var(--interactive-normal);
   --muted-channel-color: var(--interactive-muted);
-  --show-channel-unread-dot: block;
   --locked-voice-channel-color: var(--red-color);
 
   /* Advanced Users */
@@ -113,7 +113,7 @@
 
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
-.theme-dark :not(.previewContainer-1xQAsw) .theme-light {
+.theme-dark :not(div[class*='previewContainer-']) .theme-light {
   --card-background: rgba(0,0,0,0.5);
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
@@ -140,7 +140,7 @@
 
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
-.theme-light :not(.previewContainer-1xQAsw) .theme-dark:not(.sidebar-1tnWFu):not(.guilds-2JjMmN):not(.sidebarRegion-1VBisG) {
+.theme-light :not(div[class*='previewContainer-']) .theme-dark:not(div[class*='sidebar-']):not(nav[class*='guilds-']):not(div[class*='sidebarRegion-']) {
   --card-background: rgba(255,255,255,0.05);
   --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);
