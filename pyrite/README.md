@@ -3,6 +3,10 @@ Pyrite is a Discord Theme inspired by both Basic Background and ClearVision and 
 
 Pyrite is built for [Canary](https://canary.discord.com/) so all class syntax is for that. Due to the differences between Canary, PTB and Stable as well as Discord Experiments you might not have an area themed. Speak up for it on the [Support Server](https://discord.gg/W976FZS) and someone will fix it up for you.
 
+Preview:
+
+![profile](https://leafyluigi.github.io/images/pyrite_profile.png "Profile")
+![main](https://leafyluigi.github.io/images/pyrite_main_window.png "Main Window")
 
 Default Images & Licensing:
 
