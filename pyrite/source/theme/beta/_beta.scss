@@ -220,32 +220,4 @@ html[lang="fr"] {
 	// 	width: 32px;
 	// }
 
-
-	// code for hide sidebar
-#{c(sidebar sidebar)} {
-  width: calc(240px - (168px * var(--hide-channel-list,0)));
-  transition: var(--hide-speed,0.5s) width ease-out;
-  
-  // right: calc(240px - (168px * var(--hide-channel-list,0)));
-
-  // margin-right: calc(-1 * (240px - (168px * var(--hide-channel-list,0))));
-
-  &:hover {
-    width: 240px;
-
-    // right: 0;
-
-    &::before,
-    &::after {
-      width: 240px;
-    }
-  }
-  &::before,
-  &::after {
-    
-    transition: var(--hide-speed,0.5s) width ease-out;
-    width: calc(240px - (168px * var(--hide-channel-list,0)));
-  }
-}
-
 }

@@ -15,6 +15,12 @@
     <span class="var">--hover-color</span>: <span class="number">#139dff</span>;
     <span class="var">--tooltip-color</span>: <span class="number">#1967ab</span>;
 
+    <div class="comment">/* Filters can change the way an image looks without having to edit the image directly. */</div>
+    <span onClick="toggleHelp('filters')">?</span><span id="filters" hidden><br/> The implementation for Pyrite puts every filter type in one variable. I HIGHLY recommend looking up how they work. You can find links here: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter">MDN</a> | <a href="https://www.w3schools.com/cssref/css3_pr_filter.asp">W3Schools</a></span>
+    <span class="var">--background-filter</span>: none;
+    <span class="var">--user-modal-filter</span>: none;
+    <span class="var">--user-popout-filter</span>: none;
+
     <div class="comment">/* Used with toggles below, this variable is used as a time for the animations below. You MUST include the time unit if you change the value. It also accepts a second value as an animation delay. */</div>
     <span onClick="toggleHelp('time')">?</span><span id="time" hidden><br/>    Time units are <i>s</i> for seconds and <i>ms</i> for milliseconds. 1s = 1000ms.</span>
     <span class="var">--hide-speed</span>: <span class="number">.5s</span>;
@@ -37,7 +43,7 @@
     <span onclick="toggleHelp('card')">?</span><span id="card" hidden><br/>    <a href="https://cdn.discordapp.com/attachments/747040126294687764/974646791469416478/unknown.png">I'm serious, it's used a lot.</a></span>
     <span class="var">--card-background</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);
 
-    <div class="comment">/* These "shading" variables are used in the main window and some modals. In the channel you see now, side is the channel, server and member list while main is the chat. Header is the header bar. */</div>
+    <div class="comment">/* These "shading" variables are used in the main window and some modals. If you're looking at Discord: side is the channel, server and member list while middle is the chat. Header is the header bar. */</div>
     <span onclick="toggleHelp('shading')">?</span><span id="shading" hidden><br/>    You can change the last value to make it appear more or less prominent. A higher number means a more prominent color. These can also be a percentage.</span>
     <span class="var">--side-shading</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);
     <span class="var">--middle-shading</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.3</span>);
@@ -48,6 +54,6 @@
     <span class="var">--active-filter</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.4</span>);
 }
 </div>
-<footer style="width:auto;background-color:rgba(0,0,0,0.5)"><p style="font-size:14px;margin:0;font-style:italic">Other links: <a href="https://github.com/leafyluigi/discord-themes/tree/master/pyrite">Theme Repo</a> | <a href="https://discord.gg/7P99YTBRUu">Theme Support Server</a> | <a href="https://github.com/leafyluigi">My GitHub</a> | <a href="https://twitter.com/leafyluigi">My Twitter</a> | <a href="https://leafyluigi.github.io">My GitHub.io site</a></p></footer>
+<footer style="width:auto;background-color:rgba(0,0,0,0.5)"><p style="font-size:14px;margin:0;font-style:italic">Other links: <a href="https://github.com/leafyluigi/discord-themes/tree/master/pyrite">Theme Repo</a> | <a href="https://discord.gg/7P99YTBRUu">Theme Support Server</a> | <a href="https://github.com/leafyluigi">My GitHub</a> | <a href="https://leafyluigi.github.io">My GitHub.io site</a></p></footer>
 </body>
 </html>

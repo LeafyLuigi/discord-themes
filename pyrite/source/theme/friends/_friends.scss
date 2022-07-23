@@ -50,6 +50,12 @@
   &#{c(friends highlight)} {
     background-color: $card;
   }
+  &#{c(friends actionButtonDeny)} {
+    // color: $red;
+    &:hover {
+      color: $red;
+    }
+  }
 }
 
 #{c(friends nowPlayingColumn)} {
@@ -57,11 +63,13 @@
   width: 360px;
   max-width: 360px;
   position: relative;
-  transition: var(--hide-speed,0.5s) all ease-out;
+  transition: var(--hide-speed,0.5s) left ease-out,var(--hide-speed, 0.5s) backdrop-filter ease-out;
   left: calc( ( 300px ) * var(--hide-active-now));
+  backdrop-filter: none;
   margin-left: calc( -1 * (( 300px ) * var(--hide-active-now)));
   &:hover {
     left: 0;
+    backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
   }
   #{c(friends nowPlayingContainer)} {
     background-color: transparent;
@@ -88,7 +96,7 @@
     height: initial;
     width: initial;
     > g > path {
-      fill: var(--text-normal)
+      fill: var(--text-normal);
     }
   }
 }

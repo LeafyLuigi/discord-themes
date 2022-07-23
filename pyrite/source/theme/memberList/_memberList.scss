@@ -7,11 +7,12 @@
   width: 240px;
   background-color: $side;
   left: calc( ( 240px - 60px ) * var(--hide-member-list));
-  transition: var(--hide-speed,0.5s) left ease-out;
+  transition: var(--hide-speed,0.5s) left ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
   margin-left: calc( -1 * (( 240px - 60px ) * var(--hide-member-list)));
   position: relative;
   &:hover {
     left: 0;
+    backdrop-filter: blur(calc(var(--hide-member-list) * 3px));
 	}
 }
 #{c(memberList wrap)} {

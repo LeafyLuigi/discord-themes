@@ -67,40 +67,18 @@
   /* Advanced Users */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
-  --gradient: to bottom right, var(--primary-color), var(--secondary-color);  // currently unused, not final
-
+  --background-filter: none;
+  --user-modal-filter: none;
+  --user-popout-filter: none;
 
   /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
   --hide-speed: 0.5s; // speed for animations for the below. must be a time value. you can add a second value for delay
   --hide-member-list: 1;
   --hide-active-now: 1;
-  --hide-channel-list: 0; // plans: similar to member list. default 0. zero will only show avi for panel.
+  --hide-channel-list: 0;
 
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
-
-	/* Glasscord properties. Don't mess with these if you don't use Glasscord. */
-
-    /* Windows-specific properties */
-    /* Blur mode. Available types: acrylic (strong blur), blurbehind (light blur), transparent */
-    --glasscord-win-blur: blurbehind;
-
-    /* macOS-specific properties */
-    /* Vibrancy mode */
-    --glasscord-macos-vibrancy: fullscreen-ui;
-
-    /* Linux-specific properties */
-    /* Should Glasscord send a request to your window compositor to blur behind Discord's window? */
-    /* It currently supports KWin only */
-    --glasscord-linux-blur: true;
-
-    /* The corner radius of the blurry background */
-    --glasscord-blur-corner-radius: 100px;
-
-    /* Discord-specific properties */
-    /* Custom (forced) titlebar */
-    /* native (your os default), windows, osx, linux (framed) */
-    --glasscord-titlebar: native;
 
   /* Better Discord Toggles and whatnot */
   --channel-tabs-enabled: 0;
@@ -108,7 +86,7 @@
   --channel-tabs-favBar-enabled: 1;
 
   /* Internal please ignore */
-  // --update-notice-1: none;
+  // --update-notice-2-point-oh: none;
 }
 
 /* Feel free to edit these ones for Dark Mode */

@@ -1,13 +1,14 @@
 @use "backend" as *;
 /* Start Server List */
 #{c(serverList wrapper)} {
-  background-color: $side;
+  background-color: transparent;
   &:focus {
     outline: 0;
   }
 }
 
 #{c(serverList tree)} {
+  background-color: $side;
   &:focus {
     outline: none;
   }
@@ -132,4 +133,16 @@
   > svg > foreignObject {
     mask: none;
   }
+}
+
+// Relates to an experiment: 2022-06_spdy_premium_marketing_entrypoint.
+// You might not see these and are likely temp stuff.
+// treatment 1 seems to be impossible to get
+// treatment 2
+#{c(serverList scroller)} div:not([class])+#{c(serverList listItem)} {
+  display: none;
+}
+// treatment 3
+#{c(serverList fixedBottomList)} {
+  display: none;
 }

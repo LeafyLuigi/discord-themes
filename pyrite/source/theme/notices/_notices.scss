@@ -1,116 +1,75 @@
 @use "backend" as *;
 /* Start Notices */
-// since this whole fucking thing is a mess let me explain in these handy comments that anyone who knows
-// what they're doing will be yelling at me over how spaghetti this is
-// first one: windows and mac stuff for setting the height of stuff since it's handled slightly differently on linux/web
-#{c(os windows)},
-#{c(os mac)} {
-  #{c(main base)} #{c(notice base)} ~ #{c(main content)} {
-    #{c(sidebar hasNotice)},
-    #{c(chat chat)},
-    #{c(friends container)},
-    #{c(sidebar sidebar)} {
-      // the extra "22px" here is done for the bar at the top which has been removed using the theme.
-      height: calc(100vh - ( ( 22px + var(--server-container, 0px) ) * var(--horizontal-server-list-enabled, 0) ) - ( 66px * var(--channel-tabs-enabled,0) ) );
-    }
+// local variable
+$nc: var(--notice-count, 0);
+
+// Current goal: Move notice bar to below main header bar wherever it exists.
+#{c(main base)} #{c(notice base)} {
+  ~#{c(main content)} {
+    --notice-count: 1;
   }
-}
-// linux/web has a 22px gap at bottom with above because it lacks the bar at top.
-#{c(os linux)},
-#{c(os web)} {
-  #{c(main base)} #{c(notice base)} ~ #{c(main content)} {
-    #{c(sidebar hasNotice)},
-    #{c(chat chat)},
-    #{c(friends container)},
-    #{c(sidebar sidebar)} {
-      height: calc(100vh - ( ( var(--server-container, 0px) ) * var(--horizontal-server-list-enabled, 0) ) - ( 66px * var(--channel-tabs-enabled,0) ) );
-    }
-  }
-}
-// this is where the main shit is. "main base" is the div above the notice
-#{c(main base)} {
-  #{c(notice base)} {
-    max-height: 36px;
-    top: 48px;
-    left: 240px;
-    // for below: 240 == channels/dms list | 72 == server list.
-    width: calc(100vw - 240px - (72px * ( 1 - var(--horizontal-server-list-enabled, 0) ) ) ); // fits a vertical server list
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
-    // background-color: transparent;
-    
-    // this block is for notice count, max of 3.
-    & + #{c(notice base)} {
-      & ~ #{c(main content)} {
-        --notice-count: 2;
-      }
-      & + #{c(notice base)} {
-        & ~ #{c(main content)} {
-          --notice-count: 3;
-        }
-      }
+
+  +#{c(notice base)} {
+    ~#{c(main content)} {
+      --notice-count: 2;
     }
 
-    // this lot is for moving things into place
-    & ~ #{c(main content)} {
-      --notice-count: 1;
-      // sidebar w/ notice, chat, friends area, sidebar
-      #{c(sidebar hasNotice)},
-      #{c(chat chat)},
-      #{c(friends container)},
-      #{c(sidebar sidebar)} {
-        position: relative;
-        top: calc(-36px * var(--notice-count));
-        // height calc: 77 -> 22, 55 (by default): former being bar at top, latter being server list width
-        height: calc(100vh - ( ( 22px + var(--server-container, 0px) ) - ( 22px * var(--horizontal-server-list-enabled, 0) ) ) - ( 66px * var(--channel-tabs-enabled,0) ) )
-      }
-      // server without chat
-      #{c(chat noChannel)}:before {
-        top: calc(-36px * var(--notice-count));
-      }
-      // region selector when in a call
-      #{c(call regionSelector)} {
-        position: relative;
-        top: calc(36px * var(--notice-count));
-      }
-      // chat stuffs.
-      #{c(chat chat)} {
-        // messages and new message bar
-        #{c(chat chatScroller)},
-        #{c(chat newMessagesBar)} {
-          top: calc(36px * var(--notice-count));
-        }
-        // member list and search
-        #{c(memberList wrap)},
-        #{c(search wrap)} {
-          top: calc(36px * var(--notice-count));
-          height: calc(100% - calc(36px * var(--notice-count)));
-        }
-        // this is for when you're in a chat with an ongoing call
-        #{c(call wrapper)} ~ #{c(chat chatContent)} {
-          #{c(memberList wrap)},
-          #{c(search wrap)} {
-            top: unset;
-            height: unset;
-          }
-          #{c(chat chatScroller)},
-          #{c(chat newMessagesBar)} {
-            top: 0;
-          }
-        }
-      }
-      // this is for the div containing both the friend list proper and the now playing sidebar
-      #{c(friends tabBody)} {
-        top: calc(36px * var(--notice-count));
-        #{c(friends peopleColumn)},
-        #{c(friends nowPlayingScroller)} {
-          height: calc(100% - calc(36px * var(--notice-count)));
-        }
-      }
+    +#{c(notice base)}~#{c(main content)} {
+      --notice-count: 3;
     }
   }
 }
+
+// notice base
+#{c(notice base)} {
+  border-radius: 0;
+  box-shadow: none;
+  max-height: 36px;
+  padding: 0;
+  // movement and width stuff
+  // 72px for server list, 240px for sidebar, undo 72px for HSL addon
+  width: calc(100vw - 72px - 240px + (72px * var(--horizontal-server-list-enabled,0)));
+  left: 240px; // move it over
+  top: 48px; // move it below header
+}
+
+// It works somehow lol
+#{c(notice base)} ~ #{c(main content)} {
+  // unset overflow for these areas: friends, chat, call, side-thread
+  #{c(friends container)},
+  #{c(chat chat)},
+  #{c(call container)},
+  #{c(threads container)} {
+    overflow: unset;
+  }
+
+  // move header and psudo-header for: no channel, discovery page
+  #{c(header header)},
+  #{c(chat noChannel)}::before,
+  #{c(discover pageWrapper)}::before {
+    top: calc(-36px * $nc);
+  }
+
+  // move psudo-header in call (already had -48px calculated into it)
+  #{c(call root)}::before {
+    top: calc(-48px - (36px * $nc));
+  }
+
+  // increase height of resize handle for threads
+  #{c(threads resizeHandle)} {
+    top: calc(-36px * $nc);
+    height: 100vh;
+    position: relative;
+  }
+  
+  // sidebar w/ notice
+  #{c(sidebar sidebar)} {
+    top: calc($nc * -36px);
+    position: relative;
+    height: calc(100vh - (var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px)));
+  }
+}
+
 
 // specific notices
 #{c(notice completeSteps)},
@@ -123,14 +82,17 @@
     &:first-child {
       left: 8px;
     }
-    &:nth-last-child(1) {
+    &:last-child {
       right: 8px;
     }
   }
 }
-#{c(notice colorNotifGreen)} {
+#{c(notice colorSuccess)} {
   background-color: $green;
 }
 #{c(notice colorWarning)} {
   background-color: $yellow;
+}
+#{c(notice colorDanger)} {
+  background-color: $red;
 }

@@ -105,7 +105,4 @@ dist
 .tern-port
 
 # Manual Ignores
-*src/
-*backups/
-buttons-discorddefault
 .vscode/

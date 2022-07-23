@@ -1,0 +1,37 @@
+{
+  "name": "pyrite",
+  "version": "0.1.9",
+  "description": "A repo containing Discord Themes for both BetterDiscord and PowerCord",
+  "private": true,
+  "scripts": {
+    "build": "npm run copyClasses && npm run build-pyrite && npm run build-SlippingGitty",
+    "test": "npm run copyClasses && npm run test-pyrite && npm run test-SlippingGitty",
+    "copyClasses": "npm run copyClasses-pyrite && npm run copyClasses-SlippingGitty",
+    "build-pyrite": "npm run buildsass-pyrite && npm run buildprefix-pyrite",
+    "build-SlippingGitty": "npm run buildsass-SlippingGitty && npm run buildprefix-SlippingGitty",
+    "buildsass-pyrite": "sass pyrite/source:pyrite/build --style=compressed --load-path=pyrite/source --no-source-map",
+    "buildprefix-pyrite": "postcss pyrite/build/*.css --dir=pyrite/build --use=autoprefixer  -b=\"> 5%\" --no-map",
+    "buildsass-SlippingGitty": "sass SlippingGitty/source:SlippingGitty/build --style=compressed --load-path=SlippingGitty/source --no-source-map",
+    "buildprefix-SlippingGitty": "postcss SlippingGitty/build/*.css --dir=SlippingGitty/build --use=autoprefixer  -b=\"> 5%\" --no-map",
+    "test-pyrite": "sass pyrite/source:pyrite/test --load-path=pyrite/source --no-source-map",
+    "test-SlippingGitty": "sass SlippingGitty/source:SlippingGitty/test --load-path=SlippingGitty/source --no-source-map",
+    "copyClasses-pyrite": "cp classes/_classes.scss pyrite/source/classes/_classes.scss",
+    "copyClasses-SlippingGitty": "cp classes/_classes.scss SlippingGitty/source/classes/_classes.scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeafyLuigi/discord-themes/pyrite.git"
+  },
+  "author": "LeafyLuigi",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/LeafyLuigi/discord-themes/issues"
+  },
+  "homepage": "https://github.com/LeafyLuigi/discord-themes#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.8.8",
+    "npm": "^8.12.1",
+    "postcss-cli": "^6.1.3",
+    "sass": "^1.52.3"
+  }
+}

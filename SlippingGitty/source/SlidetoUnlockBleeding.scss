@@ -1,0 +1,1460 @@
+@use "backend" as *;
+@use "classes";
+@use "sass:list";
+@use "sass:map";
+/* Licence https://github.com/SlippingGitty/SlideToUnlock/blob/main/LICENSE 
+
+MIT License
+
+Copyright (c) 2022 SlippingGitty
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+*/
+
+/*
+　 ,、　　　 　,､ ヾＶ'/
+　r'ｰ》'´｀⌒ヾ‐》,//
+　i　 iミ ノ ﾘハﾘ//
+　!　iﾞ瓦ﾟ ヮﾟﾉ!'//|   WARNING!!!! ALL OF THIS IS UNFINSHED. ALL OF IT! CHOSING TO USE THIS INSTEAD OF STABLE
+　!l! ! と.ﾌﾘ{つ/　!   IS ULTIMATELY YOUR FAULT IF YOU BUMP INTO ANY BROKEN SHIT ONE DAY.  
+,,ﾉﾘ |　v/_j_､ i!l　i    FEEL FREE TO HELP FIX OR CONTRIBUTE TO THIS THEME. 
+..ゞノ　 ~じ'ﾌ~ﾙ'ノ
+*/
+
+
+///////////////
+///THEME BACKEND
+///////////////
+
+/*
+///////////////
+///TOP BAR
+///////////////
+*/
+
+/* Wndows Title Bar */
+@debug "other class";
+#{c(other withFrameWindowsTitlebar)} {
+	height: 18px;
+	margin-top: 0px;
+	margin-bottom: 2px;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+}
+#{c(os titleBar)} {
+	margin-top: 1px;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+}
+#{c(os winButton)} {
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+	color: rgb(255, 255, 255);
+	margin-bottom: -1px;
+	border: .5px solid #00000065;
+}
+
+/* macOS Title Bar */
+#{c(os typeMac)} {
+	position: relative;
+	width: 100%;
+	display: flex;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+	border-bottom: 1px solid #00000098;
+	height: 35px;
+}
+#{c(os mac)} #{c(serverList scroller)} {
+	padding-top: 16px;
+}
+#{c(os mac)} #{c(main layer)}#{c(main baseLayer)} {
+	background-color: rgb(32, 34, 37);
+}
+#{c(os mac)} #{c(serverList wrapper)} {
+	padding: 0;
+	margin: 0;
+}
+
+/*
+/////////////////////////
+////USER MODE BANNERS
+/////////////////////////
+*/
+
+/* Preview mode */
+#{c(notice previewServerNotice)} {
+	background: linear-gradient(to bottom, rgba(227, 145, 145, 0.363) 0%,rgb(77, 92, 147) 50%,rgb(112, 131, 197) 100%); 
+	background-color: #4e5d94;
+}
+#{c(button lookOutlined)}#{c(button colorWhite)},
+#{c(stage colorable)}#{c(stage green)},
+#{c(stage colorable)}#{c(stage green)}#{c(stage active)} {
+	background: linear-gradient(to bottom, rgb(180, 227, 145) 0%,rgb(97,196,25) 50%,rgb(180, 227, 145) 100%); 
+	border-color: rgba(0, 0, 0, 0.363);
+}
+
+/* Streamer mode & Nitro Management Tab*/
+#{c(notice colorStreamerMode)},
+#{c(userSettings nitroRedirectContainer)} {
+	background: linear-gradient(to bottom, rgba(227, 145, 145, 0.363) 0%,rgb(147, 77, 141) 50%,rgb(197, 112, 179) 100%); 
+	background-color: #924e94;
+}
+@debug "other class";
+#{c(main dark)} #{c(other buttonNitroManagementTab)},
+#{c(main light)} #{c(other buttonNitroManagementTab)} {
+	background: linear-gradient(to bottom, rgb(222, 233, 213) 0%,rgb(196, 25, 34) 50%,rgb(227, 145, 163) 100%); 
+	border-color: rgba(0, 0, 0, 0.363);
+}
+/* Success banner */
+#{c(notice colorSuccess)} {
+	background: linear-gradient(to bottom, rgb(180, 227, 145) 0%,rgb(97,196,25) 50%,rgb(180, 227, 145) 100%); 
+	border-color: rgba(0, 0, 0, 0.363);
+}
+
+/* Server "Complete these steps" Banner */
+#{c(chatForm followWrapper)},
+#{c(notice completeSteps)},
+#{c(serverProfile notice)} {
+	background: linear-gradient(to bottom, rgb(146, 145, 227) 0%,rgb(77, 92, 147) 50%,rgb(112, 131, 197) 100%); 
+	box-shadow: 0 0 5px 5px #4189c38c;
+}
+#{c(button lookOutlined)}#{c(button colorWhite)},
+#{c(button lookFilled)}#{c(button colorPrimary)}{
+	background: linear-gradient(to bottom, rgb(180, 227, 145) 0%,rgb(97,196,25) 50%,rgb(180, 227, 145) 100%); 
+}
+#{c(button lookOutlined)}#{c(button colorWhite)}:hover,
+#{c(button lookFilled)}#{c(button colorPrimary)}:hover {
+	background: linear-gradient(to bottom, rgb(22, 51, 0) 0%,rgb(33, 77, 2) 50%,rgb(42, 92, 4) 100%); 
+	box-shadow: 0 0 2px 3px #4189c38c;
+	transition: 0.3s;
+}
+
+/* Verify banner */
+#{c(button lookFilled)}#{c(button colorRed)} {
+	color: #fff;
+	background: linear-gradient(to bottom, rgb(227, 145, 145) 0%,rgba(196, 25, 25, 0.705) 50%,rgba(227, 145, 145, 0.397) 100%); 
+}
+
+
+/*
+//////////////
+//SIDEBARS
+//////////////
+*/
+
+/* Members Sidebar */
+#{c(memberList members)},
+#{c(memberList hiddenMembers)},
+#{c(memberList wrap)} {
+background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+}
+#{c(memberList members)}>div {
+background: transparent;
+}
+#{c(memberList container)},
+#{c(memberList wrap)} {
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+}
+#{c(sidebar privateChannelInteractive)} {
+	border: 1px solid transparent;
+}
+#{c(sidebar privateChannelSelected)} {
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+	border-color: #00000065
+}
+#{c(sidebar privateChannelLinkParent)}:hover,
+#{c(sidebar privateChannelInteractive2)}:hover {
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+	border: 1px solid #00000065;
+}
+#{c(sidebar panelButton)}:hover,
+#{c(friends peopleListItem)}:hover {
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+	box-shadow: 0 0 3px 3px #4189c38c;
+}
+
+/* Channels */
+#{c(sidebar channelsContainer)} {
+	background: linear-gradient(rgb(17, 18, 22), rgb(77, 77, 87));
+}
+#{c(sidebar scroller)},
+#{c(store scroller)} {
+	background: linear-gradient(rgb(17, 18, 22), rgb(77, 77, 87));
+}
+#{c(sidebar channelTotal)} {
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	color: rgb(0, 0, 0);
+	&::after {
+		content: "/";
+		left: -7px;
+		top: unset;
+		border-top: unset;
+		border-bottom: unset;
+		border-right: unset;
+		width: unset;
+		height: unset;
+		border-right-color: unset;
+	}
+}
+#{c(sidebar channelModeSelected)} #{c(sidebar channelContent)},
+#{c(sidebar channelModeSelected)}:hover
+#{c(sidebar channelContent)} {
+	background: linear-gradient(rgb(17, 18, 22), rgb(77, 77, 87));
+	border: 1px solid #00000065;
+}
+#{c(sidebar channelContent)}:hover {
+	box-shadow: 0 0 2px 2px #4189c38c;
+	right: 2px;
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	transition: 0.3s;
+}
+#{c(sidebar channelUsers)} {
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	color: rgb(0, 0, 0);
+	box-shadow: 2px 2px 2px #00000036 ;
+}
+
+/* Unread Bartender */
+#{c(serverList unreadMentionsBarBottom)} #{c(serverList unreadMentionsBar)}:before {
+	bottom: -8px;
+}
+#{c(sidebar channelUnreadBlob)} {
+	width: 4px;
+	border-radius: 0px 0px 0px 0px;
+	left: 1.2px;
+	border: 1px solid #000000;
+	background-color: rgb(172, 169, 169);
+}
+
+/* Servers */
+#{c(serverList scroller)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(15, 16, 19), rgb(49, 49, 54));
+	border: 1px solid #00000065;
+}
+#{c(serverList pillItem)} {
+	width: 5px;
+	border-radius: 0%;
+	left: 5px;
+	border: 1px solid #000000;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+}
+#{c(serverList mentionBar)} {
+		border-radius: 3px;
+		font-weight: 700;
+		background: linear-gradient(to bottom, rgb(227, 145, 145) 0%,rgba(196, 25, 25, 0.705) 50%,rgba(227, 145, 145, 0.397) 100%);
+		border: 1px solid #000000;
+		color: rgb(255, 255, 255);
+}
+#{c(serverList serverWrapperSVG)} {
+	border-radius: 50%;
+	transition: border-radius .2s ease-out;
+}
+#{c(serverList serverWrapperSVG)}:hover {
+	border-radius: 33%;
+	box-shadow: 0 0 5px 5px #4189c38c;
+}
+
+/* Server Folders */
+#{c(serverList closedFolderIconWrapper)} {
+	border-radius: 1px;
+}
+#{c(serverList iconChildWrapper)},
+#{c(serverList iconWrapper)} {
+	border-radius: 1px;
+}
+
+/* Server folder custom icons /// LeafyLuigi /// WIP */
+#{c(serverList expandedFolderBackground)} {
+	background: transparent;
+}
+#{c(serverList folder)},
+#{c(serverList folder)}#{c(serverList folderHover)} {
+	background: transparent;
+}
+#{c(serverList serverWrapperSimple)} {
+	border-radius: unset;
+	overflow: unset;
+}
+#{c(serverList folderParentWrapper)} #{c(serverList listItem)} {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	background-image: url(https://cdn.discordapp.com/attachments/830247372244254720/933041341972242453/folder.png);
+}
+#{c(serverList folderParentWrapper)} > #{c(serverList expandedFolderBackground)}:not(#{c(serverList folderCollapsed)}) ~ #{c(serverList listItem)} {
+	background-image: url(https://cdn.discordapp.com/attachments/830247372244254720/933044887593562153/unknown.png);
+}
+#{c(serverList folderParentWrapper)} > #{c(serverList expandedFolderBackground)}:not(#{c(serverList folderCollapsed)}) ~ ul > #{c(serverList listItem)} {
+	background-image: url(https://cdn.discordapp.com/attachments/830247372244254720/933044888075919410/unknown.png);
+}
+#{c(serverList folderParentWrapper)} > #{c(serverList expandedFolderBackground)}:not(#{c(serverList folderCollapsed)}) ~ ul > #{c(serverList listItem)}:last-child {
+	background-image: url(https://cdn.discordapp.com/attachments/830247372244254720/933044887811657839/unknown.png);
+}
+
+#{c(serverList expandedFolderBackground)} {
+	background-repeat: repeat-y;
+	background-size: contain;
+	background-image: url(https://cdn.discordapp.com/attachments/830247372244254720/933055266159726592/folderPadding.png);
+}
+#{c(serverList iconWrapper)} #{c(serverList iconChildWrapper)} {
+	transition: background-color 0.1s ease-out, color 0.1s ease-out, border-radius 0.1s ease-out;
+}
+#{c(serverList iconWrapper)}#{c(serverList selected)}#{c(serverList serverIcon)},
+#{c(serverList iconWrapper)}#{c(serverList selected)}#{c(serverList iconChildWrapper)},
+#{c(serverList iconWrapper)}:hover #{c(serverList serverIcon)},
+#{c(serverList iconWrapper)}:hover #{c(serverList iconChildWrapper)},
+#{c(serverList addServer)}#{c(serverList addServerSelected)} {
+	border-radius: 33%;
+}
+#{c(serverList iconWrapper)} #{c(serverList serverIcon)},
+#{c(serverList iconWrapper)} #{c(serverList iconChildWrapper)} {
+	border-radius: 50%;
+	transition: border-radius 0.1s;
+}
+#{c(serverList addServer)} {
+	border-radius: 50%;
+	transition: color 0.15s ease-out, background-color 0.15s ease-out, border-radius 0.15s;
+}
+
+/* Channel Names ---- enable by fixing name */
+@debug "split class";
+// #{c(sidebar channelMainContent)}:before {
+.mainContent-20q _Hp:before {
+	border-radius: 0px;
+	border-width: px;
+	border: 1px solid #00000065;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+}
+
+/* People List */
+#{c(friends peopleList)} {
+	padding-bottom: 8px;
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+}
+#{c(friends nowPlayingColumn)} {
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+}
+#{c(friends peopleColumn)} {
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+	border: 1px solid #00000065;
+}
+#{c(friends itemCard)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+	border: 1px solid #00000065;
+}
+#{c(friends itemCardBodySection)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+	border: 1px solid #00000065;
+}
+
+#{c(friends nowPlayingContainer)} {
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+}
+/*
+////////////////////////////
+///CHANNELS INFO/SEARCH
+///////////////////////////
+*/
+
+/* Channel Desc. */
+#{c(header header)}#{c(header themed)},
+#{c(sidebar channelsHeaderClickable)} #{c(sidebar channelsHeader)} {
+	background: linear-gradient(rgb(79, 82, 91), rgb(51, 54, 61));
+}
+#{c(chat chatGatedContent)} {
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+}
+
+/* Search */
+#{c(serverSettings roleSearchBar)},
+#{c(userPopout input)} {
+	background: linear-gradient(rgb(0, 0, 0), rgb(16, 16, 17));
+	border: 1px solid #00000065;
+}
+#{c(serverSettings roleSearchBar)}:hover {
+	box-shadow: 0 0 2px 3px #4189c38c;
+	transition: 0.3s;
+}
+#{c(header searchBar)} {
+	background: linear-gradient(rgb(27, 28, 30), rgb(66, 66, 68));
+	border-radius: 4px;
+	border: 1px solid #000000;
+}
+#{c(header searchBar)}:hover {
+	box-shadow: 0 0 2px 3px #4189c38c;
+	transition: 0.3s;
+}
+#{c(sidebar searchBar)} {
+	background: linear-gradient(rgb(79, 82, 91), rgb(51, 54, 61));
+}
+#{c(sidebar searchBar)}b:hover {
+	box-shadow: 0 0 2px 3px #4189c38c;
+}
+#{c(sidebar searchBarComponent)} {
+	background: linear-gradient(rgb(34, 37, 42), rgb(55, 56, 61));
+	border-radius: 1px;
+	border: 1px solid #000000;
+}
+#{c(sidebar searchBarComponent)}:hover {
+	box-shadow: 0 0 2px 3px #4189c38c;
+}
+#{c(search scroller)} {
+	background: linear-gradient(rgb(34, 37, 42), rgb(7, 7, 7));
+	border-radius: 1px;
+	border: 1px solid #000000;
+}
+#{c(search header)} {
+	background: linear-gradient(rgb(51, 54, 61), rgb(79, 82, 91));
+}
+#{c(search message)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+	border-radius: 3px;
+	margin-top: -6px;
+}
+#{c(search channel)} {
+	background: none;
+}
+
+/*
+/////////////////
+///CHAT BOX
+////////////////
+*/
+
+/* Text Box */
+#{c(chatForm scrollableContainer)} {
+	background: linear-gradient(rgb(27, 28, 30), rgb(66, 66, 68));
+	border: 1px solid #00000065;
+	box-shadow: 0 0 10px 3px #0000008c;
+}
+#{c(chatForm scrollableContainer)}:hover {
+	box-shadow: 0 0 2px 3px #4189c38c;
+}
+
+#{c(call root)} {
+	// background-image: url(https://i.postimg.cc/pX47qXRS/chrome-Zv2h-Lqjl-Aq.png);
+	background-image: repeating-linear-gradient(to left, #1c1c1c, #171717 3px, #1c1c1c 6px);
+}
+
+
+/* Upload Preview */
+#{c(chatForm inlineUpload)} {
+	background: linear-gradient(rgb(27, 28, 30), rgb(66, 66, 68));
+	border: 1px solid #00000065;
+	box-shadow: 0 0 2px 3px #4189c38c;
+}
+#{c(chatForm inlineActionBarIcon)} {
+	color: black;
+}
+
+/* Replying Bar */
+#{c(chatForm replyBar)} {
+	background: linear-gradient(to bottom, rgba(227, 145, 145, 0.363) 0%,rgb(51, 51, 51) 50%,rgb(161, 161, 161) 100%);
+	border: 1px solid #00000065;
+	border-radius: 3px;
+}
+
+/*
+////////////////
+///CHAT
+////////////////
+*/
+
+/* Chat */
+#{c(chat chatContentInner)} {
+	background: linear-gradient(rgb(81, 85, 94), rgb(41, 42, 47));
+	border: 1px solid #00000065;
+}
+#{c(embeds embedGrid)} {
+	font-weight: 700;
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+}
+#{c(main dark)} #{c(chatForm form)}:before {
+display: none;
+}
+
+/* Avatars */
+#{c(chat chatAvatar)}#{c(chat chatUsernameClickable)},
+#{c(sidebar panelAvatar)} {
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px #00000036 ;
+	height: 35px;
+	width: 35px;
+}
+
+/* Reactions */
+#{c(chat reaction)},
+#{c(userPopout role)},
+#{c(chat allowedRole)},
+#{c(chat allowedRole2)},
+#{c(header akaBadge)} {
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+	border: 1px solid #00000065;
+}
+#{c(chat reaction)}#{c(chat reactionMe)} {
+	background: linear-gradient(rgb(55, 68, 94), rgb(0, 48, 145));
+	border: 1px solid #000000;
+}
+
+/* Reply Bartender */
+#{c(chatForm replyContainer)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+	border: 1px solid #00000065;
+	border-radius: 3px;
+	left: 15px;
+}
+
+/* Reply Media icon */
+#{c(chat repliedTextContentIcon)} {
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+	border: 1px solid #00000065;
+	border-radius: 3px;
+}
+
+/* New Messages Bartender */
+#{c(chat newMessagesBar)} {
+	border-radius: 3px;
+	padding: 3px 5px 1.5px;
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(227, 145, 145) 0%,rgba(196, 25, 25, 0.705) 50%,rgba(227, 145, 145, 0.397) 100%); 
+	border: 1px solid #000000;
+	color: rgb(255, 255, 255);
+}
+
+@debug "other class";
+#{c(main dark)} #{c(other elevationHighNewMessages)} {
+	background: linear-gradient(to bottom, rgb(227, 145, 145) 0%,rgba(196, 25, 25, 0.705) 50%,rgba(227, 145, 145, 0.397) 100%); 
+}
+
+/* Older Messages Bartender */
+#{c(chatForm jumpToPresentBar)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+	border: 1px solid #00000065;
+	left: 15px;
+}
+
+/* Message options */
+#{c(menus scroller)} {
+	border-radius: 3px;
+	border: 1px solid #000000;
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+	color: rgb(255, 255, 255);
+}
+#{c(menus icon)},
+#{c(menus iconContainer)} {
+	color: white;
+}
+@debug "other class";
+#{c(other optionNameMessageOptions)},
+#{c(other optionIconMessageOptions)} {
+	color: rgb(255, 255, 255);
+}
+#{c(menus label)} {
+	font-weight: 700;
+	color: rgb(255, 255, 255);
+	text-shadow: 2px 2px 2px #00000000;
+}
+#{c(chat buttonWrapper)} {
+	border-radius: 3px;
+	border: 1px solid #000000;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	color: rgb(0, 0, 0);
+}
+#{c(chat buttonIcon)} {
+	color: black;
+}
+
+/* Markup */
+#{c(embeds codeblock)} {
+	background: linear-gradient(rgb(31, 31, 34), rgb(56, 58, 65));
+	border: 1px solid var(--background-tertiary);
+}
+
+/* Invites */
+#{c(embeds invite)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: .2px solid #000000;
+}
+
+/* Audio embeds */
+#{c(main dark)} #{c(media audioWrapper)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+}
+
+/* File embed */
+#{c(embeds attachment)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+		border-radius: 3px;
+}
+
+/* The listening party is over */
+#{c(main dark)} #{c(embeds gameInvite)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+}
+
+/* Invalid poop */
+#{c(embeds giftInvalidPoop)} {
+	border: 1px solid #00000065;
+	border-radius: 3px;
+}
+
+/*
+//////////////
+///BUTTONS
+//////////////
+*/
+
+/* Server Buttons */
+#{c(serverList addServer)},
+#{c(button lookOutlined)}#{c(button colorGreen)} {
+	padding: 6px 10px 5px;
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	color: rgb(0, 0, 0);
+	box-shadow: 2px 2px 2px #00000036 ;
+}
+#{c(friends actionButton)}:first-child,
+#{c(friends actionButton)} {
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	color: rgb(0, 0, 0);
+	box-shadow: 2px 2px 2px #00000036 ;
+}
+#{c(friends actionButton)}:first-child:hover,
+#{c(friends actionButton)}:hover {
+	background: linear-gradient(to bottom, rgb(163, 163, 163) 0%,rgb(131, 131, 131) 50%,rgb(70, 70, 70) 100%);
+}
+
+/* Most Buttons */
+#{c(search headerTabSide)} #{c(header tabBarItemThemed)}#{c(header tabBarItemSelected)}#{c(ipt tab)},
+#{c(ipt topPill)} #{c(header tabBarItemThemed)}#{c(header tabBarItemSelected)}#{c(ipt tab)},
+#{c(header tabBar)} #{c(header tabBarItem)} {
+	border-radius: 3px;
+	padding: 6px 10px 5px;
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	border: 1px solid #000000;
+	color: rgb(0, 0, 0) !important;
+}
+#{c(main dark)} #{c(search tabItem)}#{c(search tabSelected)} {
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	color: rgb(0, 0, 0);
+	box-shadow: 2px 2px 2px #00000036 ;
+}
+#{c(serverList unreadMention)},
+#{c(header iconBadge)} {
+	border-radius: 3px;
+	padding: 3px 5px 1.5px;
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(227, 145, 145) 0%,rgba(196, 25, 25, 0.705) 50%,rgba(227, 145, 145, 0.397) 100%);
+	border: 1px solid #000000;
+	color: rgb(255, 255, 255);
+}
+#{c(button lookFilled)}#{c(button colorGreen)} {
+	background: linear-gradient(to bottom, rgb(180, 227, 145) 0%,rgba(97,196,25,1) 50%,rgb(180, 227, 145) 100%); 
+}
+#{c(button lookFilled)}#{c(button colorGreen)}:hover {
+	box-shadow: 0 0 2px 3px #4189c38c;
+	background: linear-gradient(to bottom, rgb(180, 227, 145) 0%,rgb(60, 129, 11) 50%,rgb(49, 114, 0) 100%); 
+	transition: 0.3s;
+}
+#{c(gse emojiUnicodeShortcut)} {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+#{c(serverList serverIcon)}:hover {
+	box-shadow: 0 0 2px 3px #4189c38c;
+}
+
+/* Selected Button */
+@debug "other class";
+#{c(other selectedButton)} #{c(other layoutSelectedButton)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(143, 143, 143), rgb(83, 83, 83));;
+	border: 1px solid #000000;
+}
+
+/* Gif/Emoji/Sticker buttons */
+#{c(gse navButtonActive)}:hover,
+#{c(gse navButtonActive)} {
+	border-radius: 3px;
+	padding: 3px 5px 1.5px;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	border: 1px solid #000000;
+	color: rgb(0, 0, 0);
+}
+#{c(chat button)} {
+	color: rgb(0, 0, 0);
+}
+@debug "other class";
+#{c(main dark)} #{c(modals root)},
+#{c(gse stickerInspector)},
+#{c(other standardStickerShortcutButton)} {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+#{c(sidebar panelVoiceContainer)},
+#{c(modals autocompleteScroller)} {
+	background-image: repeating-linear-gradient(to left, #1c1c1c, #171717 3px, #1c1c1c 6px);
+}
+
+/* Checkboxes - Slate Theme - Tropical */
+#app-mount #{c(main toggle)} #{c(main sliderInput)},
+#app-mount #{c(main toggle)} #{c(main checkboxInput)},
+#app-mount #{c(main checkboxWrapper)} #{c(main sliderInput)},
+#app-mount #{c(main checkboxWrapper)} #{c(main checkboxInput)} {
+	margin: 0;
+	opacity: 1;
+	height: 14px ;
+	width: 14px ;
+	position: relative;
+	cursor: var(--cursor);
+	-webkit-appearance: checkbox;
+	appearance: checkbox;
+}
+#app-mount #{c(main toggle)},
+#app-mount #{c(main checkboxWrapper)} {
+	width: auto;
+	border-radius: 0;
+	background: transparent !important;
+	display: flex;
+	align-items: center;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	cursor: var(--cursor);
+}
+#app-mount #{c(main toggle)} #{c(main slider)},
+#app-mount #{c(main checkboxWrapper)} #{c(main slider)} {
+		display: none;
+}
+#{c(main dark)} #{c(main checkbox)} {
+	display:none;
+}
+
+/*
+////////////////
+///SETTINGS
+////////////////
+*/
+
+/* User Quick Settings Container */
+#{c(sidebar panelContainer)},
+#{c(sidebar panelContainer)} #{c(sidebar panelAvatar)} {
+	background: linear-gradient(rgb(90, 90, 90), rgb(24, 24, 24));
+	border: 1px solid #00000065;
+}
+#{c(memberList group)} {
+	color: white;
+	text-transform: none;
+}
+
+/* Settings */
+#{c(userSettings accountProfile)} {
+	background: linear-gradient(rgb(66, 66, 68), rgb(27, 28, 30));
+	border: 1px solid #00000065;
+}
+#{c(userSettings sidebarRegionScroller)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+	border: 1px solid #00000065;
+}
+#{c(userSettings contentRegionScroller)} {
+	font-weight: 700;
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+}
+#{c(userSettings fieldList)} {
+	font-weight: 700;
+	background: linear-gradient(rgba(72, 73, 75, 0), rgba(38, 39, 41, 0));
+}
+#{c(userSettings accountProfileBackground)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+	border: 1px solid #00000065;
+}
+#{c(button lookFilled)}#{c(button colorBrand)} {
+	padding: 6px 10px 5px;
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	border: 1px solid #000000;
+	color: rgb(0, 0, 0);
+}
+#{c(main dark)} #{c(userSettings closeButton)} {
+	border-radius: 3px;
+	padding: 6px 10px 5px;
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(227, 145, 145) 0%,rgb(196, 25, 25) 50%,rgb(227, 145, 145) 100%); 
+	border: 1px solid #000000;
+	color: rgb(0, 0, 0);
+}
+#{c(main dark)} #{c(userSettings closeButton)}:hover {
+	background: linear-gradient(to bottom, rgb(104, 0, 0) 0%,rgb(197, 0, 0) 50%,rgb(68, 0, 0) 100%); 
+	box-shadow: 0 0 2px 3px #4189c38c;
+	transition: 0.3s;
+}
+#{c(userSettings disableAccountButton)} {
+	margin-right: 16px;
+	border-radius: 3px;
+	padding: 6px 10px 5px;
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgba(227, 145, 145, 0.363) 0%,rgb(151, 1, 1) 50%,rgb(227, 145, 145) 100%); 
+	border: 1px solid #000000;
+	color: rgb(255, 255, 255);
+}
+#{c(stage colorable)}#{c(stage red)} {
+	background: linear-gradient(to bottom, rgba(227, 145, 145, 0.363) 0%,rgb(151, 1, 1) 50%,rgb(227, 145, 145) 100%); 
+	border: 1px solid #000000;
+	color: rgb(255, 255, 255);
+}
+#{c(stage colorable)}#{c(stage primaryDark)} {
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	color: black !important;
+}
+#{c(userSettings radioGroupItem)}[aria-checked=true] {
+	border-radius: 3px;
+	padding: 3px 5px 2px;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%);
+	color: rgb(0, 0, 0);
+	border-radius: 3px;
+	border: .2px solid #000000;
+}
+#{c(userSettings radioBarName)} {
+	font-weight: 700;
+}
+#{c(userSettings radioGroupItem)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	color: var(--interactive-normal);
+	border-radius: 3px;
+	border: .2px solid #000000;
+}
+#{c(button lookOutlined)}#{c(button colorRed)} {
+	margin-right: 16px;
+	border-radius: 3px;
+	padding: 6px 10px 5px;
+	font-weight: 700;
+	background: linear-gradient(to bottom, rgb(227, 145, 145) 0%,rgba(196, 25, 25, 0.705) 50%,rgba(227, 145, 145, 0.397) 100%); 
+	border: 1px solid #000000;
+	color: rgb(255, 255, 255);
+}
+// previous class .css-1kj8ui-container
+// it's just a guess as to what this was
+#{c(menus dropdownPopoutOption)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border-radius: 3px;
+	border: .2px solid #000000;
+}
+#{c(search emptyResultsWrap)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+}
+#{c(search scroller)} {
+	padding: 0px 0x 0px;
+}
+#{c(button lookFilled)}#{c(button colorBrand)} {
+	background: linear-gradient(to bottom, rgba(235, 235, 235) 0%,rgb(32, 94, 217) 50%,rgb(114, 154, 233) 100%); 
+	border: 1px solid #00000065;
+}
+#{c(button lookFilled)}#{c(button colorBrand)}:hover {
+	background: linear-gradient(to bottom, rgb(38, 0, 100) 0%,rgb(0, 18, 175) 50%,rgb(0, 36, 156) 100%); 
+	box-shadow: 0 0 2px 3px #4189c38c;
+	transition: 0.3s;
+}
+#{c(button lookOutlined)}#{c(button colorRed)} {
+	background: linear-gradient(to bottom, rgb(222, 233, 213) 0%,rgb(196, 25, 34) 50%,rgb(227, 145, 163) 100%); 
+	color: white;
+}
+#{c(button lookOutlined)}#{c(button colorRed)}:hover {
+	background: linear-gradient(to bottom, rgb(104, 0, 0) 0%,rgb(197, 0, 0) 50%,rgb(68, 0, 0) 100%); 
+	box-shadow: 0 0 2px 3px #4189c38c;
+	transition: 0.3s;
+}
+#{c(userSettings accountList)},
+#{c(userSettings connection)},
+#{c(userSettings connectionHeader)},
+#{c(main dark)} #{c(userSettings nitroFeature)},
+#{c(userSettings boostSubscriptionSlots)},
+#{c(userSettings boostCard)},
+#{c(userSettings subscriptionsBillingInformation)},
+#{c(userSettings subscriptionsDetailsBlock)}:last-child,
+#{c(userSettings subscriptionsNoItemsCardCredits)},
+#{c(userSettings giftPromotionCard)},
+#{c(main dark)} #{c(appSettings gameNotDetected)},
+#{c(main dark)} #{c(appSettings addGamePopout)} {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+#{c(userSettings nitroSelectedBackground)} {
+	background: linear-gradient(to bottom, rgba(235, 235, 235) 0%,rgb(217, 32, 208) 50%,rgb(233, 114, 217) 100%); 
+	border: 1px solid #00000065;
+	border-radius: 3px;
+}
+@debug "other class";
+#{c(other guildHeaderSettings)} {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+#{c(userSettings profileBannerPreview)} {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+#{c(search headerTabList)}:hover #{c(ipt tab)}:hover {
+	background: linear-gradient(rgb(18, 19, 21), rgb(63, 66, 75));
+	border: 1px solid #00000065;
+	box-shadow: 0 0 3px 3px #4189c38c;
+	transition: 0.3s;
+}
+
+/*
+///////////////////
+///FLYOUT MENUS
+///////////////////
+*/
+
+/* Inbox */
+#{c(ipt inboxHeader)},
+#{c(ipt inboxHeader)} #{c(ipt inboxTab)} {
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%);
+	 border-radius: 3px;
+	 color: black;
+}
+#{c(ipt mentionsMessageContainer)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+	border-radius: 3px;
+	margin-top: -6px;
+}
+@debug "other class";
+#{c(other messageGroupCozyInbox)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+	border-radius: 3px;
+}
+#{c(ipt inboxChannelHeader)} {
+	background: #00000000 ;
+	color:black;
+	border-radius: 3px;
+}
+#{c(ipt inboxScroller)} {
+	background-image: repeating-linear-gradient(to left, #1c1c1c, #171717 3px, #1c1c1c 6px);
+	border: 1px solid #00000065;
+}
+#{c(ipt inboxCloseButton)},
+#{c(ipt secondary)} {
+	margin-right: 16px;
+	border-radius: 50%;
+	background: linear-gradient(to bottom, rgb(227, 145, 145) 0%,rgba(196, 25, 25, 0.705) 50%,rgba(227, 145, 145, 0.397) 100%); 
+	border: 1px solid #000000;
+	color: rgb(255, 255, 255);
+}
+#{c(ipt inboxChannelMessages)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+	border-radius: 3px;
+	margin-top: -6px;
+}
+#{c(ipt tertiary)} {
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.582) 0%,rgb(27, 179, 72) 50%,rgb(0, 175, 44) 100%);
+	border: 1px solid #000000;
+	color: white;
+}
+#{c(ipt inboxCollapseButton)} {
+	left: -2px;
+}
+#{c(ipt threadDropdownList)} {
+	background-image: repeating-linear-gradient(to left, #1c1c1c, #171717 3px, #1c1c1c 6px);
+	border: 1px solid #00000065;
+}
+@debug "other class";
+#{c(other containerInbox)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #00000065;
+	border-radius: 3px;
+	margin-top: -6px;
+}
+
+
+/* Threads */
+#{c(ipt threadDropdownHeader)} {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+
+/* User info */
+#{c(main dark)} #{c(userPopout footer)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+}
+#{c(main dark)} #{c(userPopout body)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(15, 16, 19), rgb(49, 49, 54));
+	border: 1px solid #00000065;
+}
+#{c(userPopout input)} {
+	color:grey;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	border: 1px solid #00000065;
+}
+#{c(userPopout headerTop)} {
+	background: linear-gradient(rgb(15, 16, 19), rgb(49, 49, 54));
+	border: 1px solid #00000065;
+}
+#{c(userPopout bodyInnerWrapper)},
+#{c(userPopout footer)} {
+	background: #00000000;
+}
+#{c(userPopout popout)} {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+#{c(userPopout popout)}:hover {
+box-shadow: 2px 10px 20px #00b1e750 ;
+transition: 0.3s;
+}
+
+/* Emote info */
+#{c(modals emojiStickerPopoutContainer)},
+#{c(gse emojiHeader)} {
+	border-radius: 3px;
+	border-width: 1px;
+	border: 1px solid #00000065;
+	background: linear-gradient(rgb(0, 0, 0), rrgb(38, 39, 41));
+}
+#{c(modals emojiStickerGuildSection)} {
+	border-radius: 3px;
+	border-width: 1px;
+	border: 1px solid #00000065;
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+}
+
+/* DM Menu */
+#{c(gse seSearchInner)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(15, 16, 19), rgb(49, 49, 54));
+	border: 1px solid #00000065;
+}
+
+/* Quick Switcher */
+#{c(modals quickSwitch)} {
+	background: linear-gradient(rgb(15, 16, 19), rgb(27, 27, 31));
+}
+#{c(modals quickSwitchSearch)} {
+	font-weight: 700;
+	background: linear-gradient(rgb(15, 16, 19), rgb(27, 27, 31));
+}
+#{c(modals quickSwitchScroller)} {
+	background: linear-gradient(rgb(15, 16, 19), rgb(27, 27, 31));
+}
+
+/* Emoji Selector */
+#{c(gse emojiList)} {
+	background-image: repeating-linear-gradient(to left, #1c1c1c, #171717 3px, #1c1c1c 6px);
+	border: 1px solid #00000065;
+}
+
+#{c(modals autocompleteList)},
+#{c(gse stickerGuildHeader)},
+#{c(gse emojiInspector)},
+#{c(gse contentWrapper)} {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+#{c(gse stickerGuildHeader)} {
+	background: linear-gradient(rgba(72, 73, 75, 0), rgba(38, 39, 41, 0));
+	border: 1px solid #00000000;
+}
+#{c(gse emojiDefaultCategorySelected)},
+#{c(gse emojiDefaultCategorySelected)}:hover {
+	background: linear-gradient(rgb(72, 73, 75), rrgb(38, 39, 41));
+	border: 1px solid #00000065;
+}
+
+/* Image uploading preview */
+#{c(modals autocompleteInner)} {
+	background: linear-gradient(to bottom, rgb(87, 87, 87) 0%,rgb(44, 44, 44) 50%,rgb(0, 0, 0) 100%); 
+	border: 1px solid #00000065;
+}
+
+#{c(modals autocompleteInner)}:hover {
+	box-shadow: 0 0 5px 5px #4189c38c;
+	transition: 0.3s;
+}
+
+#{c(chatForm inlineUpload)},
+#{c(chatForm inlineUploadContainer)} {
+	background: linear-gradient(to bottom, rgb(87, 87, 87) 0%,rgb(44, 44, 44) 50%,rgb(0, 0, 0) 100%); 
+}
+
+/* Invite friends */
+#{c(main dark)} #{c(modals inviteFooter)} {
+	background: linear-gradient(rgb(74, 77, 86), rgb(51, 54, 61));
+	border: 1px solid #00000065;
+}
+#{c(button lookOutlined)}#{c(button colorGreen)} {
+	border-radius: 3px;
+	border-width: 1px;
+	border: 1px solid #00000065;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	color: black;
+	font-weight: 700;
+}
+
+/* Pins */
+#{c(ipt ipHeader)} {
+	border-radius: 3px;
+	border-width: 1px;
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+#{c(ipt pinnedScroller)} {
+	background-image: repeating-linear-gradient(to left, #1c1c1c, #171717 3px, #1c1c1c 6px);
+}
+#{c(ipt pinnedFooter)} {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+
+/* User Volume */
+#{c(menus userVolMini)} #{c(appSettings sliderGrabber)} {
+	background-image: -webkit-radial-gradient( 50% 0%, 8% 50%, #ffffff80 0%, #ffffff00 100%),
+		-webkit-radial-gradient( 50% 100%, 12% 50%, #ffffff99 0%, #ffffff00 100%),
+		-webkit-radial-gradient( 0% 50%, 50% 7%, #ffffff80 0%, #ffffff00 100%),
+		-webkit-radial-gradient( 100% 50%, 50% 5%, #ffffff80 0%, #ffffff00 100%),
+		-webkit-repeating-radial-gradient( 50% 50%, 100% 100%, #00000000 0%, #00000000 3%, #0000001a 3.5%),
+		-webkit-repeating-radial-gradient( 50% 50%, 100% 100%, #ffffff00 0%, #ffffff00 6%, #ffffff1a 7.5%),
+		-webkit-repeating-radial-gradient( 50% 50%, 100% 100%, #ffffff00 0%, #ffffff00 1.2%, #ffffff33 2.2%),
+		-webkit-radial-gradient( 50% 50%, 200% 50%, #e6e6e6 5%, #d9d9d9 30%, #999999 100%);
+	border: 1px solid black;
+	border-radius: 50px 50px;
+}
+
+#{c(appSettings sliderBarFill)} {
+	background-image: -webkit-repeating-linear-gradient(left, #ffffff00 0%, #ffffff00 6%, #ffffff1a 7.5%),
+		-webkit-repeating-linear-gradient(left, #00000000 0%, #00000000		4%, #00000008 4.5%),
+		-webkit-repeating-linear-gradient(left, #ffffff00 0%, #ffffff00 1.2%, #ffffff26 2.2%),
+		
+		linear-gradient(180deg, #c7c7c7 0%, 
+		#e6e6e6 47%, 
+		#c7c7c7 53%,
+		#b3b3b3 100%);
+	border-radius: 1px 1px;
+}
+
+#{c(main dark)} #{c(appSettings sliderBar)} {
+	background: #262626;
+	border: 1px solid black;
+	border-radius: 5px 5px;
+}
+
+/*
+////////////////////////
+////DISCOVER (ALPHA)
+////////////////////////
+*/
+#{c(sidebar sidebar)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+}
+#{c(main dark)} #{c(discover card)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #0000007c;
+	border-radius: 3px;
+}
+#{c(discover scroller)} {
+	background: linear-gradient(rgb(74, 77, 86), rgb(51, 54, 61));
+	border: 1px solid #0000007c;
+}
+#{c(discover searchHeader)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: 1px solid #0000007c;
+	border-radius: 3px;
+	&>img {
+		display: none; // fuck your image vozy :P
+	}
+}
+#{c(discover search)},
+#{c(discover searchBox)},
+#{c(discover searchBoxInput)} {
+	background-color: #fff0;
+}
+#{c(modals welcomeToServerOption)} {
+	background: linear-gradient(rgb(72, 73, 75), rgb(17, 18, 19));
+	border: 1px solid #0000007c;
+	border-radius: 3px;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////////////////
+////TEMP HOT FIX FOR SERVER CREATION TOOL THAT WILL BE REMOVED WITH DISCORD GETS IT TOGETHER
+////////////////////////////////////////////////////////////////////////////////////////////
+*/
+#{c(modals footer)},
+#{c(addServer templateButton)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+}
+#{c(addServer footerTitle)},
+#{c(addServer headerTitle)},
+#{c(addServer templateButtonText)},
+#{c(addServer tellUsMoreTitle)},
+#{c(addServer closeButton)} {
+	color: white;
+	text-shadow: 2px 2px 2px #00000000;
+}
+#{c(addServer tellUsMoreSubtitle)},
+#{c(addServer subtitle)} {
+	// these has inline style on it for color
+	color: white !important;
+	text-shadow: 2px 2px 2px #00000000;
+}
+#{c(main light)} #{c(modals root)} {
+	background: linear-gradient(rgb(27, 28, 30), rgb(10, 10, 10));
+}
+
+/*
+///////////
+///LOGIN
+///////////
+*/
+
+/* Mac OS X Linen Image */
+#{c(login artwork)} {
+	display: none;
+}
+#{c(login characterBackground)} {
+	background-image: url("https://i.imgur.com/yJcUW3B.png");
+}
+/* Login Box */
+#{c(main dark)}#{c(login authBox)} {
+	box-shadow: 12px 12px 12px rgba(0, 0, 0, 0);
+	background: none;
+}
+html[lang="en_US"],
+html[lang="en_GB"] {
+	#{c(login title)}:after {
+		content: ' Slide To Unlock.';
+	}
+}
+html[lang="fr"] {
+	#{c(login title)}:after {
+		content: ' Glisser pour déverouiller.';
+	}
+}
+/* QR Code */
+#{c(login qrCodeOverlay)} {
+	box-shadow: 12px 12px 12px black;
+}
+#{c(login title)} {
+	font-family: Helvetica, sans-serif !important; 
+}
+/* Login text feild */
+#{c(login inputField)} {
+	color:grey;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+#{c(login inputField)}:hover,
+#{c(userPopout input)}:hover {
+	box-shadow: 0 0 2px 3px #4189c3;
+	background-color: white;
+	transition: 0.3s;
+}
+
+
+/*
+//////////////////////
+///POWERCORD SETTINGS
+//////////////////////
+*/
+
+/* Manage tabs */
+.powercord-entities-manage-tabs {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: .2px solid #000000;
+}
+
+/* Powercord account */
+.powercord-account {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: .2px solid #000000;
+}
+
+/* Theme manager beta teaser */
+// intended "other" class
+#{c(other developerPortalCtaWrapper)} {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: .2px solid #000000;
+}
+
+/* Powercord products */
+.powercord-product {
+	background: linear-gradient(rrgb(38, 39, 41), rgb(72, 73, 75));
+	border: .2px solid #000000;
+	padding: 9px;
+	margin-bottom: 13px;
+}
+.powercord-product-header h4 {
+	font-size: 16px;
+}
+.powercord-product [class*="divider-"] {
+	display: none;
+}
+.description,
+.powercord-product .metadata,
+.powercord-product-permissions,
+.powercord-product-footer {
+	margin-top: 4px;
+	font-size: 13px;
+}
+
+/* Extra stuff for BetterDiscord-Compat */
+.bdc-plugin .metadata > div {
+	margin-top: 4px;
+	width: 20% !important;
+}
+
+/* Powercord search */
+.powercord-entities-manage-search input {
+	background: linear-gradient(rgb(28, 27, 31), rgb(39, 40, 41));
+	border: .2px solid #000000;
+}
+
+/* Dotted Menu button */
+.powercord-entities-manage-header svg {
+	border-radius: 3px;
+	padding: 3px 5px 2px;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%); 
+	color: rgb(0, 0, 0);
+	box-shadow: 2px 2px 2px #00000036 ;
+}
+
+/* Powercord toast */
+.powercord-toast .header {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+.powercord-toast .contents {
+	background: linear-gradient(rgb(27, 28, 30), rgb(66, 66, 68));
+	border: 1px solid #00000065;
+}
+.powercord-toast .contents .inner {
+	background: linear-gradient(rgb(28, 27, 31), rgb(39, 40, 41));
+	border: .2px solid #000000;
+}
+.powercord-toast .buttons {
+	background: linear-gradient(rgba(29,29,29,255), rgba(1,1,1,255));
+}
+
+/*
+/////////////////////
+///TINY FIXATIONS
+/////////////////////
+*/
+
+/* Force Font Helvetica*/
+* { 
+	font-family: Helvetica, sans-serif !important; 
+	text-rendering: optimizeLegibility !important;
+	text-shadow: 2px 2px 2px #00000052 !important;
+	text-transform: none;
+}
+
+/* Logo */
+#{c(serverList iconChildWrapper)} {
+background: linear-gradient(to bottom, rgba(227, 145, 145, 0.363) 0%,rgb(51, 51, 51) 50%,rgb(161, 161, 161) 100%);
+}
+
+/* Scroll Bar */
+#{c(main dark)} {
+--scrollbar-auto-thumb: #00000060;
+--scrollbar-auto-track: #2e333800;
+}
+
+/* Square */
+#{c(serverList iconChildWrapper)},
+#{c(serverList iconWrapper)} {
+	border-radius: 0 ;
+}
+
+/** 803907978226696213 */
+
+/* etc */
+#{c(header children)}:after {
+	display: none;
+}
+#{c(os windows)} #{c(sidebar sidebar)} {
+	border-radius: 0px 0 0;
+}
+#{c(header icon)} {
+	border-radius: 3px !important;
+	border: 1px solid #000000 !important;
+	background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(189, 189, 189) 50%,rgb(219, 219, 219) 100%) !important; 
+	color: rgb(0, 0, 0) !important;
+}
+#{c(header icon)}:hover {
+	box-shadow: 0 0 2px 3px #4189c38c;
+	background: linear-gradient(to bottom, rgba(227, 145, 145, 0.363) 0%,rgb(51, 51, 51) 50%,rgb(161, 161, 161) 100%) !important;
+	transition: 0.3s;
+}
+@debug "other class";
+#{c(other statusEtc)},
+#{c(other descriptionEtc)} {
+	font-weight: 700;
+	color: white;
+	text-shadow: 2px 2px 2px #00000000;
+}
+@debug "other class";
+#{c(other accountCardEtc)} {
+	background: linear-gradient(to bottom, rgba(227, 145, 145, 0.363) 0%,rgb(77, 92, 147) 50%,rgb(112, 131, 197) 100%); 
+	background-color: #4e5d94;
+}
+/* Unread Badge */
+#{c(serverList numberBadge)},
+#{c(serverSettings newBadge)} {
+	background: linear-gradient(to bottom, rgb(227, 145, 145) 0%,rgba(196, 25, 25, 0.705) 50%,rgba(227, 145, 145, 0.397) 100%); 
+}
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////LUCKFIRE - THEME NOTICES - NOTIFICATION - https://github.com/discord-theme-tools/theme-notices/blob/main/LICENSE
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/
+
+#{c(main light)} #app-mount::after {
+	z-index: 101;
+	position: absolute;
+	content: "For this theme to work properly, you have to enable Dark Mode. \a\aTo enable it, head over to Settings -> Appearance.";
+	white-space: pre-wrap;
+	font-weight: 500;
+	line-height: 21px;
+	right: 10px;
+	bottom: 10px;
+	padding: 15px 15px 15px 100px;
+	width: 299px;
+	max-width: 299px;
+	min-height: 75px;
+	border-radius: 4px;
+	border-left: 4px solid var(--info-danger-foreground);
+	box-shadow: var(--elevation-high);
+	color: var(--text-normal);
+	background-color: var(--background-floating);
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM0IDQxLjc5MTdDMzIuODM4MyA0MS43OTE3IDMxLjg3NSA0MC44MjgzIDMxLjg3NSAzOS42NjY3VjI1LjVDMzEuODc1IDI0LjMzODMgMzIuODM4MyAyMy4zNzUgMzQgMjMuMzc1QzM1LjE2MTcgMjMuMzc1IDM2LjEyNSAyNC4zMzgzIDM2LjEyNSAyNS41VjM5LjY2NjdDMzYuMTI1IDQwLjgyODMgMzUuMTYxNyA0MS43OTE3IDM0IDQxLjc5MTdaIiBmaWxsPSIjRUQ0MjQ1Ii8+CjxwYXRoIGQ9Ik0zNC4wMDAxIDUxLjAwMDJDMzMuODMwMSA1MS4wMDAyIDMzLjYzMTcgNTAuOTcxOCAzMy40MzM0IDUwLjk0MzVDMzMuMjYzNCA1MC45MTUyIDMzLjA5MzQgNTAuODU4NSAzMi45MjM0IDUwLjc3MzVDMzIuNzUzNCA1MC43MTY4IDMyLjU4MzQgNTAuNjMxOCAzMi40MTM0IDUwLjUxODVDMzIuMjcxNyA1MC40MDUyIDMyLjEzMDEgNTAuMjkxOCAzMS45ODg0IDUwLjE3ODVDMzEuNDc4NCA0OS42NDAyIDMxLjE2NjcgNDguOTAzNSAzMS4xNjY3IDQ4LjE2NjhDMzEuMTY2NyA0Ny40MzAyIDMxLjQ3ODQgNDYuNjkzNSAzMS45ODg0IDQ2LjE1NTJDMzIuMTMwMSA0Ni4wNDE4IDMyLjI3MTcgNDUuOTI4NSAzMi40MTM0IDQ1LjgxNTJDMzIuNTgzNCA0NS43MDE4IDMyLjc1MzQgNDUuNjE2OCAzMi45MjM0IDQ1LjU2MDJDMzMuMDkzNCA0NS40NzUyIDMzLjI2MzQgNDUuNDE4NSAzMy40MzM0IDQ1LjM5MDJDMzMuODAxNyA0NS4zMDUyIDM0LjE5ODQgNDUuMzA1MiAzNC41Mzg0IDQ1LjM5MDJDMzQuNzM2NyA0NS40MTg1IDM0LjkwNjcgNDUuNDc1MiAzNS4wNzY3IDQ1LjU2MDJDMzUuMjQ2NyA0NS42MTY4IDM1LjQxNjcgNDUuNzAxOCAzNS41ODY3IDQ1LjgxNTJDMzUuNzI4NCA0NS45Mjg1IDM1Ljg3MDEgNDYuMDQxOCAzNi4wMTE3IDQ2LjE1NTJDMzYuNTIxNyA0Ni42OTM1IDM2LjgzMzQgNDcuNDMwMiAzNi44MzM0IDQ4LjE2NjhDMzYuODMzNCA0OC45MDM1IDM2LjUyMTcgNDkuNjQwMiAzNi4wMTE3IDUwLjE3ODVDMzUuODcwMSA1MC4yOTE4IDM1LjcyODQgNTAuNDA1MiAzNS41ODY3IDUwLjUxODVDMzUuNDE2NyA1MC42MzE4IDM1LjI0NjcgNTAuNzE2OCAzNS4wNzY3IDUwLjc3MzVDMzQuOTA2NyA1MC44NTg1IDM0LjczNjcgNTAuOTE1MiAzNC41Mzg0IDUwLjk0MzVDMzQuMzY4NCA1MC45NzE4IDM0LjE3MDEgNTEuMDAwMiAzNC4wMDAxIDUxLjAwMDJaIiBmaWxsPSIjRUQ0MjQ1Ii8+CjxwYXRoIGQ9Ik01MS4xNjk5IDYyLjc4NjZIMTYuODI5OUMxMS4zMDQ5IDYyLjc4NjYgNy4wODMyNiA2MC43NzQ5IDQuOTI5OTMgNTcuMTQ4M0MyLjgwNDkzIDUzLjUyMTYgMy4wODgyNiA0OC44NDY2IDUuNzc5OTMgNDQuMDAxNkwyMi45NDk5IDEzLjExODNDMjUuNzgzMyA4LjAxODI2IDI5LjY5MzMgNS4yMTMyNiAzMy45OTk5IDUuMjEzMjZDMzguMzA2NiA1LjIxMzI2IDQyLjIxNjYgOC4wMTgyNiA0NS4wNDk5IDEzLjExODNMNjIuMjE5OSA0NC4wMjk5QzY0LjkxMTYgNDguODc0OSA2NS4yMjMzIDUzLjUyMTYgNjMuMDY5OSA1Ny4xNzY2QzYwLjkxNjYgNjAuNzc0OSA1Ni42OTQ5IDYyLjc4NjYgNTEuMTY5OSA2Mi43ODY2Wk0zMy45OTk5IDkuNDYzMjZDMzEuMzM2NiA5LjQ2MzI2IDI4LjcyOTkgMTEuNTAzMyAyNi42NjE2IDE1LjE4NjZMOS41MTk5MyA0Ni4wOTgzQzcuNTkzMjYgNDkuNTU0OSA3LjI4MTYgNTIuNzI4MyA4LjYxMzI3IDU1LjAyMzNDOS45NDQ5MyA1Ny4zMTgzIDEyLjg5MTYgNTguNTY0OSAxNi44NTgzIDU4LjU2NDlINTEuMTk4M0M1NS4xNjQ5IDU4LjU2NDkgNTguMDgzMyA1Ny4zMTgzIDU5LjQ0MzMgNTUuMDIzM0M2MC44MDMzIDUyLjcyODMgNjAuNDYzMyA0OS41ODMzIDU4LjUzNjYgNDYuMDk4M0w0MS4zMzgzIDE1LjE4NjZDMzkuMjY5OSAxMS41MDMzIDM2LjY2MzMgOS40NjMyNiAzMy45OTk5IDkuNDYzMjZaIiBmaWxsPSIjRUQ0MjQ1Ii8+Cjwvc3ZnPgo=);
+	background-repeat: no-repeat;
+	background-position: 16px center;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+/// HOTFIXES AND ADDITIONAL STUFF TO ORGANIZE WHEN IM NOT A LAZY LITTLE SHIT
+////////////////////////////////////////////////////////////////////////////////
+*/

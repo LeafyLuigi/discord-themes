@@ -10,6 +10,9 @@
   &::before {
     content: none;
   }
+  #{c(forums loadingContainer)} {
+    background-color: $middle;
+  }
 }
 #{c(chat chatContentInner)},
 #{c(chat chatScrollerNSFW)},
@@ -316,6 +319,125 @@
   border-radius: 0;
 }
 
+// Home
+#{c(main dark)},
+#{c(main light)} {
+  #{c(chatHome chatBackground)} {
+    background-color: transparent;
+  }
+}
+#{c(chatHome container)} {
+  background-color: $middle;
+}
+#{c(chatHome contentCard)} {
+  @include card;
+  &:hover {
+    border-color: $primary;
+    box-shadow: none;
+  }
+}
+#{c(chatHome widgetChannelContainer)}:hover,
+#{c(chatHome widgetChannelMoreUsers)},
+#{c(chatHome widgetChannelTypingIndicator)} {
+  background-color: transparent;
+}
+#{c(chatHome tagPill)},
+#{c(chatHome widgetChannelIcon)},
+#{c(chatHome tagPill)}#{c(forums sidebarPillClickable)}:not(#{c(forums sidebarPillDisabled)}):hover,
+#{c(chatHome emptyIcon)} {
+  background-color: $card;
+}
+#{c(chatHome widgetGuildContainer)},
+#{c(chatHome widgetChannelsContainer)},
+#{c(chatHome emptyContainer)}#{c(chatHome emptyContainerBackground)} {
+  @include card;
+}
+#{c(chatHome widgetGuildIcon)} {
+  border: none;
+}
+#{c(chatHome widgetGuildDotOffline)} {
+  background-color: $offline;
+}
+#{c(chatHome widgetGuildDotOnline)} {
+  background-color: $green;
+}
+
+// Forums
+#{c(main dark)},
+#{c(main light)} {
+  #{c(forums container)} {
+    background-color: $middle;
+  }
+}
+#{c(forums mainCard)},
+#{c(forums sidebarGuidelinesCard)},
+#{c(forums sidebarCardContainer)},
+#{c(forums loadingCard)} {
+  @include card;
+}
+#{c(forums cardContainer)}:active,
+#{c(forums cardContainer)}:hover {
+  background-color: $card;
+  box-shadow: none;
+  transform: none;
+}
+#{c(forums headerBorder)} {
+  box-shadow: none;
+}
+#{c(forums sortContainer)},
+#{c(forums sortDropdown)} {
+  color: var(--text-normal);
+}
+#{c(forums sortDropdown)} {
+  background-color: $card !important; // !important reason: overwrite css rule
+}
+#{c(forums cardPinIcon)} {
+  background-color: $primary;
+}
+#{c(forums sidebarPillSelected)} {
+  border-color: $primary;
+}
+#{c(forums cardReaction)} {
+  margin: 0 3px 3px 0;
+  border-radius: 3px;
+  background-color: $card;
+  &:hover {
+    border-color: $hover;
+  }
+  &:active {
+    border-color: $primary;
+  }
+  &#{c(forums cardReactionMe)} {
+    border-color: $secondary;
+    #{c(forums cardReactionCount)} {
+      color: $primary;
+    }
+  }
+  #{c(forums cardReactionInner)} {
+    padding: 0 5px;
+  }
+  #{c(forums cardReactionCount)} {
+    color: var(--text-muted);
+  }
+  &#{c(forums cardReactionMe)},
+  &:hover,
+  &:active {
+    background-color: $card;
+  }
+  &#{c(forums cardReactionMe)} {
+    #{c(forums cardReactionCount)},
+    &:hover #{c(forums cardReactionCount)} {
+      color: $primary;
+      text-shadow: 2px 2px 3px;
+    }
+  }
+}
+#{c(forums cardNewBadge)} {
+  background-color: $primary !important;
+}
+#{c(forums cardNewBadgeText)} {
+  color: var(--header-primary);
+}
 
 // Threads
 #{c(chat chat)}#{c(chat threadSidebarOpen)} {

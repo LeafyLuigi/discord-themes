@@ -36,6 +36,11 @@ body#{c(powercord base)} {
     }
   }
   #{c(powercord updaterPage)} {
+    .top-section .icon > svg > path {
+      &[fill="#43b581"] {
+        fill: var(--green-color);
+      }
+    }
     .buttons #{c(button lookFilled)}#{c(button colorBrand)} {
       background-color: var(--green-color);
     }

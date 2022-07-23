@@ -60,6 +60,9 @@
     background-color: var(--card-background);
   }
 }
+#{c(sidebar privateChannelLoadingEmpty)} {
+  fill: $primary;
+}
 
 #{c(sidebar privateChannelsHeader)} {
   color: var(--category-color);
@@ -265,6 +268,24 @@
     #{c(sidebar categoryName)}::before {
       background: linear-gradient(to left, currentColor -50%, transparent 50%);
     }
+  }
+}
+
+// Hide Sidebar
+#{c(sidebar sidebar)} {
+  width: calc(240px - (168px * var(--hide-channel-list, 0)));
+  transition: var(--hide-speed, 0.5s) width ease-out;
+  &:hover {
+    width: 240px;
+    &::before,
+    &::after {
+      width: 240px;
+    }
+  }
+  &::before,
+  &::after {
+    transition: var(--hide-speed, 0.5s) width ease-out;
+    width: calc(240px - (168px * var(--hide-channel-list, 0)));
   }
 }
 
