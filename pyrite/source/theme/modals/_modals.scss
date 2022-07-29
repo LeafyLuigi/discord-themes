@@ -5,7 +5,7 @@
 	#{c(modals root)} {
 		background-color: transparent;
 		box-shadow: none;
-		backdrop-filter: blur(4px);
+		backdrop-filter: blur(5px);
 	}
 }
 
@@ -356,16 +356,13 @@
 	}
 }
 
-#{c(modals addRoleContainer)} {
-	background-color: $card;
-	backdrop-filter: blur(5px);
-}
-
 #{c(modals purgeBody)} {
 	background-color: $middle;
 }
 
-#{c(modals emojiStickerPopoutContainer)} {
+#{c(modals addRoleContainer)},
+#{c(modals emojiStickerPopoutContainer)},
+#{c(modals openThreadsPopout)} {
 	background-color: $card;
 	backdrop-filter: blur(5px);
 }
@@ -387,5 +384,18 @@
 	border: none;
 	&~#{c(embeds textFooter)} {
 		background-color: $card;
+	}
+}
+
+#{c(modals openThreadsModal)} {
+	background-color: transparent !important; // !important reason: css uses important FOR SOME REASON
+}
+#{c(modals openThreadsModalBrowserContainer)} {
+	background-color: transparent;
+}
+#{c(modals openThreadsModalThreadContainer)} {
+	@include card;
+	&:hover {
+		border-color: $hover;
 	}
 }

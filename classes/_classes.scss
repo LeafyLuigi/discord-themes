@@ -862,6 +862,12 @@ $classes: (
 		"boostSelectGuild": "selectGuild-2A4oJC",
 
 		"textContainer": "modalTextContainer-1FUO2W",
+
+		"openThreadsPopout": "popout-TdhJ6Z",
+		"openThreadsModal": "modal-ZdazA8",
+		"openThreadsModalBrowser": "browser-SOGsFd",
+		"openThreadsModalBrowserContainer": "container-18GwIk", // used with browser
+		"openThreadsModalThreadContainer": "container-2rzKKA",
 	),
 		"addServer": (
 			"modal": "container-1Lk8p7",
@@ -1233,7 +1239,7 @@ $classes: (
 		"communityInfoPill": "communityInfoPill-2Mll66",
 		"communityInfoIcon": "communityIcon-28UI1f",
 
-		"channelsContainerContent": "content-2a4AW9",
+		"channelsContainerContent": "content-2a4AW9", // somehow also used for open threads modal
 		"channelCategoryContainerDefault": "containerDefault-YUSmu3",
 
 		"channelSelected": "selected-3veCBZ", //different to channelModeSelected; icons use it for showing them.
@@ -1278,6 +1284,7 @@ $classes: (
 		"panelButtonEnabled": "enabled-9OeuTA",
 		"panelAvatarWrapper": "avatarWrapper-1B9FTW",
 		"panelAvatar": "avatar-1EWyVD",
+		"panelAvatarSpeaking": "avatarSpeaking-33RRJU",
 		"panelName": "nameTag-sc-gpq",
 		"panelNameCanCopy": "canCopy-IgTwyV",
 		"panelStatusSubtext": "subtext-2HDqJ7",
@@ -1586,7 +1593,8 @@ $classes: (
 
 			"contentTransitionWrap": "contentTransitionWrap-1YD530",
 		),
-	"other": ( // This category is for the random stuff that I'm unable to find
+	"other": (
+		// This category is for the random stuff that I'm unable to find
 		// locations of or don't really fit anywhere above.
 		// Former is usually true.
 		// These classes may be paired with another though.
@@ -1596,22 +1604,6 @@ $classes: (
 		"focusStroke": "focusStroke-3V8pid",
 
 		// no idea where these are
-
-		// found while converting SlidetoUnlock, best ask Vozy about these.
-		"withFrameWindowsTitlebar": "withFrame-2dL45i",
-		"buttonNitroManagementTab": "button-1iHNQ2",
-		"elevationHighNewMessages": "elevationHigh-28Pty4",
-		"optionNameMessageOptions": "optionName-1ebPjH",
-		"optionIconMessageOptions": "optionIcon-1Ft8w0",
-		"selectedButton": "selected-1-Z6gm",
-		"layoutSelectedButton": "layout-1qmrhw",
-		"standardStickerShortcutButton": "standardStickerShortcut-ObSns3",
-		"guildHeaderSettings": "guildHeader-1EPPBS",
-		"messageGroupCozyInbox": "messageGroupCozy-3v_RqN",
-		"containerInbox": "container-2rzKKA",
-		"statusEtc": "status-3TYC5W",
-		"descriptionEtc": "description-3Cwkxk",
-		"accountCardEtc": "accountCard-2lki2x",
 	),
 
 	// Client Mods
