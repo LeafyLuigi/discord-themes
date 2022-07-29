@@ -41,6 +41,9 @@
     background-color: transparent;
   }
 }
+#{c(embeds inviteDestinationExpired)} {
+  color: $red;
+}
 
 #{c(embeds embedFull)} {
   background-color: $card;
@@ -86,10 +89,7 @@
 #{c(embeds threadContainer)} {
   @include card;
 }
-#{c(embeds textContainer)} {
-  background-color: transparent;
-  border: none;
-}
+#{c(embeds textContainer)},
 #{c(embeds textFooter)} {
   background-color: transparent;
   border: none;

@@ -5,7 +5,7 @@
 	#{c(modals root)} {
 		background-color: transparent;
 		box-shadow: none;
-		backdrop-filter: blur(4px);
+		backdrop-filter: blur(5px);
 	}
 }
 
@@ -266,9 +266,6 @@
 #{c(modals autocompleteCategorySelected)}:hover {
 	background-color: $card;
 }
-#{c(modals autocompleteCommandBase)}#{c(modals autocompleteCommandSelected)} {
-	background-color: $card;
-}
 #{c(modals autocompleteEmojiInner)} {
 	background-color: $card;
 }
@@ -313,9 +310,6 @@
     backdrop-filter: blur(2px);
 }
 
-#{c(modals toastsContainer)} {
-    z-index: 1200;
-}
 #{c(modals toastsToast)} {
     background-color: $card;
     border-radius: var(--border-radius);
@@ -362,11 +356,46 @@
 	}
 }
 
-#{c(modals addRoleContainer)} {
+#{c(modals purgeBody)} {
+	background-color: $middle;
+}
+
+#{c(modals addRoleContainer)},
+#{c(modals emojiStickerPopoutContainer)},
+#{c(modals openThreadsPopout)} {
 	background-color: $card;
 	backdrop-filter: blur(5px);
 }
+#{c(modals emojiStickerGuildSection)} {
+	background-color: transparent;
+}
+#{c(modals emojiStickerLoadingForeground)} {
+	background-image: linear-gradient(90deg, $primary, $secondary, $primary);
+}
 
-#{c(modals purgeBody)} {
-	background-color: $middle;
+#{c(modals boostSelectGuild)} {
+	&:hover {
+		background-color: var(--background-modifier-hover);
+	}
+}
+
+#{c(modals textContainer)} {
+	background-color: $card;
+	border: none;
+	&~#{c(embeds textFooter)} {
+		background-color: $card;
+	}
+}
+
+#{c(modals openThreadsModal)} {
+	background-color: transparent !important; // !important reason: css uses important FOR SOME REASON
+}
+#{c(modals openThreadsModalBrowserContainer)} {
+	background-color: transparent;
+}
+#{c(modals openThreadsModalThreadContainer)} {
+	@include card;
+	&:hover {
+		border-color: $hover;
+	}
 }

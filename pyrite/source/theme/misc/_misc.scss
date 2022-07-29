@@ -118,6 +118,7 @@ code,
 		height: 100%;
 		width: 100%;
 		background: var(--background-image) center/cover no-repeat var(--background-attachment);
+    filter: blur(--background-filter);
 	}
 }
 
@@ -348,17 +349,11 @@ a[href^="http://"] {
   font-style: italic;
 }
 
+
+/* A few blurs */
 #{c(main loadingContainer)} {
   backdrop-filter: blur(5px);
 }
-
-#{c(memberList wrap)}:hover {
-  backdrop-filter: blur(calc(var(--hide-member-list) * 3px));
-}
-#{c(friends nowPlayingColumn)}:hover {
-  backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
-}
-
 #{c(main backdrop)},
 #{c(main backdropWithLayer)} {
   backdrop-filter: blur(3px);
@@ -366,7 +361,6 @@ a[href^="http://"] {
 }
 
 /* Animations */
-
 #{c(main fullMotion)}#{c(main focused)} {
   #{c(serverList numberBadge)} {
     animation: numberBadgeFlash 5s linear infinite;
@@ -454,7 +448,7 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
   // synthscape orange
   &#message-accessories-965224792238215218 {
     #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
-      background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
+      background-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
     }
   }
   // yellow flower
@@ -463,7 +457,7 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
       background-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
     }
   }
-  // ocean blue, also current default
+  // ocean blue, current default
   &#message-accessories-965224604350160966,
   &#message-accessories-965224956780744735 {
     #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
@@ -483,11 +477,12 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
 }
 
 $dev: (
-  "309976820109803520", // Leafy (my username changes a lot)
+  "309976820109803520", // Leafy
 );
 $helper: (
   "126652966265421824", // Scars
   "393900343135830016", // Nyx
+  "359175647257690113", // Vozer
 );
 
 #{c(chat chatAvatar)} {
@@ -504,15 +499,15 @@ $helper: (
 }
 
 /* Redownload pls bar */
-// #{c(main appContainer)}::before {
-//   content: "Your version of Pyrite is outdated. Please redownload.";
-//   text-align: center;
-//   position: absolute;
-//   color: #fff;
-//   white-space: pre-wrap;
-//   box-sizing: border-box;
-//   padding: 10px 0;
-//   background-color: $header;
-//   display: var(--update-notice-1, block);
-//   z-index: 2500;
-// }
+#{c(main appContainer)}::before {
+  content: "Your version of Pyrite is outdated. Please redownload.";
+  text-align: center;
+  position: absolute;
+  color: #fff;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  padding: 10px 0;
+  background-color: $header;
+  display: var(--update-notice-2-point-oh, block);
+  z-index: 2500;
+}

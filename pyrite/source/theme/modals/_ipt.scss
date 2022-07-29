@@ -1,8 +1,7 @@
 @use "backend" as *;
 // Also includes recent mentions.
 #{c(ipt ipHeader)},
-#{c(ipt threadDropdownModal)},
-#{c(ipt threadDropdownControls)} {
+#{c(ipt threadDropdownModal)} {
     #{c(ipt topPill)} #{c(ipt tab)}#{c(ipt tabSelected)} {
         background-color: $primary;
         color: var(--interactive-active);

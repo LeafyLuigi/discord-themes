@@ -63,7 +63,8 @@
 // without the parent tags, effects autocomplete
 #{c(gse contentWrapper)},
 #{c(gse floatingEmojiPicker)} {
-    #{c(gse stickerGuildHeader)} {
+    #{c(gse stickerGuildHeader)},
+    #{c(gse stickerGuildHeaderWrapper)} {
         background: transparent linear-gradient(to right, $card 15%, transparent 50%);
     }
 }
@@ -88,18 +89,27 @@
     &[style*="background-color: rgb(146,"] {
         background-color: $primary !important; // !important reason: inline
         filter: grayscale(0.2) brightness(1.3);
-
     }
     &[style*="background-color: hsl(244,"] {
         background-color: $primary !important; // !important reason: inline
         filter: grayscale(0.2);
-
     }
     &[style*="background-color: hsl(228,"] {
         background-color: $primary !important; // !important reason: inline
         filter: brightness(1.2);
-
     }
+}
+
+#{c(gse stickerCategoryGeneric)}:hover {
+    background-color: var(--background-modifier-hover);
+    color: var(--interactive-hover);
+}
+
+#{c(gse stickerPremiumCategorySelected)},
+#{c(gse stickerPremiumCategorySelected)}:hover,
+#{c(gse stickerCategoryGenericSelected)},
+#{c(gse stickerCategoryGenericSelected)}:hover {
+    background-color: $card;
 }
 
 #{c(gse stickerHeader)} {

@@ -87,6 +87,9 @@
     background-color: $card;
   }
 }
+#{c(userModal connectedAccountContainer)} {
+  background-color: transparent;
+}
 #{c(userModal avatar)} {
   border-color: transparent;
   background-color: transparent;

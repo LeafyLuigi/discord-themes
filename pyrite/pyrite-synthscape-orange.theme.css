@@ -1,7 +1,7 @@
 /**
  * @name Pyrite - Synthscape Orange
  * @author LeafyLuigi
- * @version 0.1.9
+ * @version 0.2.0
  * @description Pyrite for BetterDiscord/BandagedBD. Synthscape Orange Edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
@@ -19,21 +19,15 @@
 
 /* Import for optional things: */
 
-/* Optional: HorizontalServerList. Includes the base for the minitheme. Incompatible with Dribbblish. */
+/* Optional: HorizontalServerList. Includes the base for the minitheme. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css); */
 
 /* Optional: Border Radius / Radical Status. Does not include Gibbu's base for Radical Status. Incompatible with it. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/borders.css) */
 
-
-/* Below are discontinued. They are very likely unstable and could mess with the UI too much. */
-/* Press Ctrl+Comma (Cmd+Comma on Mac) to open settings. */
-
-/* Optional: Dribbblish. Includes the base for the theme. Incompatible with HorizontalServerList. */
-/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/dribbblish.css); */
-
-
 /* Theme Base */
+/* If you wish to read what these variables mean, open this link in your browser: */
+/* https://leafyluigi.github.io/discord-themes/pyrite/var-examples.html */
 :root {
   /* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
   --background-image: url(https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png);
@@ -61,7 +55,7 @@
   --hover-color: #FF801F;
   --tooltip-color: #B85000;
   /* These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex. */
-  /* Green's default here is the old green. The new green is #3ba55d */
+  /* Green's default here is the old green. The current green is #3ba55d */
   --green-color: #43b581;
   --yellow-color: #f9a719;
   --red-color: #ec4144;
@@ -84,26 +78,25 @@
   --mention-background: var(--primary-color);
   --mention-opacity: 0.3;
 
-
   /* For Advanced Users */
-  /* Code is monospace, Body is normal font. */
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
-
+  --background-filter: none;
+  --user-modal-filter: none;
+  --user-popout-filter: none;
+  
   /* User Modal Layout sizes. Changing these HAS NOT BEEN TESTED. */
   --user-modal-width: 900px;
   --user-modal-height: 600px;
-  
-  /* Below are currently unused but will be used in future. They are very much subject to change. */
-  --gradient: to bottom right, var(--primary-color);
 
   /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
+  --hide-speed: 0.5s;
   --hide-member-list: 1;
   --hide-active-now: 1;
+  --hide-channel-list: 0;
 
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
-
 
   /* Using HSL? Uncomment this chunk below. */
 
@@ -113,10 +106,11 @@
 
   /* Using any of the below plugins? Change the 0 to a 1 */
   --channel-tabs-enabled: 0;
-
+  --channel-tabs-tabBar-enabled: 1;
+  --channel-tabs-favBar-enabled: 1;
 
   /* Debug; please do not touch */
-  --update-notice-1: none;
+  --update-notice-2-point-oh: none;
 }
 
 
@@ -142,7 +136,7 @@
   --header-shading: rgba(255,255,255,0.5);
 
   /* The following are applied to buttons to indicate hover and being held down. */
-  --hover-filter: rgba(255,255,255,0.2); 
+  --hover-filter: rgba(255,255,255,0.2);
   --active-filter: rgba(255,255,255,0.4);
 }
 

@@ -62,15 +62,14 @@ body {
 			height: calc(var(--channelTabs-favHeight) + 3px); // +3 from margin. makes it the same height as regular bar
 		}
 	}
-	#{c(bdPlugin channelTabsUnreadBadge)} {
-	}
+	// #{c(bdPlugin channelTabsUnreadBadge)} {
+	// }
 	#{c(bdPlugin channelTabsMentionBadge)} {
 		background-color: $primary;
 	}
 	#{c(os typeMac)}#{c(os titleBar)} ~ div #channelTabs-container > :first-child > :first-child {
 		margin-left: 3px;
 	}
-	 
 }
 #{c(os windows)} body {
 	#{c(os typeWindows)} {

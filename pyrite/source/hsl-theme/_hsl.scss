@@ -6,7 +6,6 @@
 
 @use "classes" as *;
 
-/* Incompatible with Dribbblish */
 /* Gibbu, the creator, decided to use a lot of #app-mount. Blame him. */
 
 /* Begin HSL Addon */
@@ -25,7 +24,7 @@
   #{c(serverList servers)} {
     z-index: 1010;
   }
-  #{c(serverList scroller)} {
+  #{c(serverList tree)} {
     background-color: var(--header-shading);
   }
 }
@@ -127,7 +126,7 @@ html#{c(os mac)} #app-mount #{c(main base)} {
 #{c(os web)} {
   #{c(serverList servers)} {
     &::before {
-      display: none; // !important reason: main overrides it
+      display: none; // reason: main overrides it
     }
     > #{c(serverList tree)} {
       top: unset;

@@ -80,6 +80,12 @@
     background-color: $side;
   }
 }
+#{c(userSettings nitroRedirectContainer)} {
+  background-color: $card;
+}
+#{c(userSettings nitroRedirectWarningIcon)} {
+  color: $yellow;
+}
 
 #{c(userSettings radioGroupItem)} {
   backdrop-filter: blur(3px);
@@ -173,14 +179,19 @@
   #{c(friends itemCardOuter)} {
     background-color: transparent;
   }
-  #{c(userSettings boostCardNoIcon)} {
-    background-color: $card;
-  }
+}
+#{c(userSettings boostCardNoIcon)} {
+  background-color: $card;
 }
 #{c(userSettings boostDealWrapper)} {
   &:before {
     content: none;
   }
+}
+#{c(userSettings boostSubscriptionSlots)},
+#{c(userSettings subscriptionsDetailsBlock)},
+#{c(userSettings giftPromotionCard)} {
+  background-color: $card;
 }
 
 #{c(userSettings closeButtonContainer)} {
