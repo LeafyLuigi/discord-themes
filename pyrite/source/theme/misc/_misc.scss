@@ -411,10 +411,10 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
 
 /* Official Preset Previews */
 #{c(chat messageAttachmentsContainer)} {
-  &#message-accessories-965224792238215218,
-  &#message-accessories-965224852233523200,
-  &#message-accessories-965224604350160966,
-  &#message-accessories-965224956780744735 {
+  &#message-accessories-1002402379188146278,
+  &#message-accessories-1002402500336439426,
+  &#message-accessories-1002402447769211020,
+  &#message-accessories-1002402572524597328 {
     margin-bottom: 20px;
     #{c(embeds textContainerUp)} {
       border: none;
@@ -446,20 +446,20 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
     }
   }
   // synthscape orange
-  &#message-accessories-965224792238215218 {
+  &#message-accessories-1002402379188146278 {
     #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
       background-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
     }
   }
   // yellow flower
-  &#message-accessories-965224852233523200 {
+  &#message-accessories-1002402500336439426 {
     #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
       background-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
     }
   }
   // ocean blue, current default
-  &#message-accessories-965224604350160966,
-  &#message-accessories-965224956780744735 {
+  &#message-accessories-1002402447769211020,
+  &#message-accessories-1002402572524597328 {
     #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
       background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
     }
