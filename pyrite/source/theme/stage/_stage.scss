@@ -12,7 +12,7 @@
   &:before {
     background-color: $header;
     height: 48px;
-    top: -48px;
+    top: calc(-48px - (36px * $nc)); // move psudo-header in call for notice
   }
 }
 #{c(stage sidebarVisible)} {
@@ -22,10 +22,6 @@
   #{c(stage root)}:before {
     content: none;
   }
-}
-#{c(stage container)},
-#{c(stage callContainer)} {
-  background-color: transparent;
 }
 #{c(stage root)} {
   #{c(stage videoControls)} {
@@ -51,10 +47,7 @@
   background-color: transparent;
   padding-top: 16px;
 }
-#{c(stage rowContainer)},
-#{c(stage participants)} {
-  background-color: transparent;
-}
+
 
 #{c(stage participantsButton)},
 #{c(stage participantsButton)}:hover {
@@ -136,6 +129,10 @@
     animation: numberBadgeFlash 5s linear infinite;
   }
 }
-#{c(stage avatar)} {
+#{c(stage container)},
+#{c(stage callContainer)},
+#{c(stage avatar)},
+#{c(stage rowContainer)},
+#{c(stage participants)} {
   background-color: transparent;
 }

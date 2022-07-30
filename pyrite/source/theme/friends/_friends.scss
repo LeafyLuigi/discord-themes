@@ -2,24 +2,20 @@
 /* Start Friends Area */
 #{c(main dark)},
 #{c(main light)} {
-  #{c(friends container)} {
+  #{c(friends container)},
+  #{c(friends multipleIconWrapper)} {
     background-color: transparent;
-  }
-  #{c(friends voiceSectionIconWrapper)},
-  #{c(friends partyMemberOverflow)} {
-    background-color: $card;
   }
   #{c(friends itemCardSeperator)} {
     background-color: $secondary;
     margin: 4px 8px;
   }
-  #{c(friends multipleIconWrapper)} {
-    background-color: transparent;
-  }
+  #{c(friends voiceSectionIconWrapper)},
+  #{c(friends partyMemberOverflow)},
   #{c(friends itemCard)} {
   &#{c(friends itemCardInteractive)}:hover,
   &#{c(friends itemCardActive)} {
-    background-color: var(--card-background);
+    background-color: $card;
   }
 }
 }
@@ -51,7 +47,6 @@
     background-color: $card;
   }
   &#{c(friends actionButtonDeny)} {
-    // color: $red;
     &:hover {
       color: $red;
     }

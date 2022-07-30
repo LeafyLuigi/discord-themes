@@ -19,25 +19,10 @@
   background-color: transparent;
   min-width: auto;
   flex-basis: 0px;
-	#{c(memberList members)} {
-    background-color: transparent;
-    &>div {
-      background-color: transparent;
-    }
-    #{c(memberList offline)} {
-      opacity: 0.7;
-      transition: 0.25s all ease-in-out;
-      #{c(memberList avatar)} {
-        filter: grayscale(100%);
-      }
-      &:hover {
-        opacity: 1;
-        #{c(memberList avatar)} {
-          filter: none;
-        }
-      }
-    }
-	}
+}
+#{c(memberList members)},
+#{c(memberList members)}>#{c(memberList content)} {
+  background-color: transparent;
 }
 #{c(memberList group)} {
   color: var(--category-color);
@@ -79,4 +64,17 @@
 #{c(memberList placeholderUsername)},
 #{c(memberList placeholderUsernameMultiple)} {
   background-color: $card;
+}
+#{c(memberList offline)} {
+  opacity: 0.7;
+  transition: 0.25s all ease-in-out;
+  #{c(memberList avatar)} {
+    filter: grayscale(100%);
+  }
+  &:hover {
+    opacity: 1;
+    #{c(memberList avatar)} {
+      filter: none;
+    }
+  }
 }

@@ -54,13 +54,13 @@
     color: $primary;
     text-shadow: 2px 2px 4px currentColor;
   }
-  #{c(chatForm replyActions)} {
-    #{c(chatForm colorLink)} {
-      color: $green;
-    }
-    #{c(chatForm colorMuted)} {
-      color: $red;
-    }
+}
+#{c(chatForm mentionButton)} {
+  &#{c(chatForm colorLink)} {
+    color: $green;
+  }
+  &#{c(chatForm colorMuted)} {
+    color: $red;
   }
 }
 #{c(chatForm textArea)} {

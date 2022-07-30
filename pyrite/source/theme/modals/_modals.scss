@@ -13,24 +13,23 @@
 	#{c(modals searchResultsGroup)},
 	#{c(modals searchDatePicker)},
 	#{c(modals footer)},
-	#{c(modals inviteFromBrowserContentWrapper)} {
+	#{c(modals inviteFromBrowserContentWrapper)},
+	#{c(modals reactionReactors)} {
 		background-color: $middle;
 	}
-	#{c(modals unpinMessage)} {
+	#{c(modals unpinMessage)},
+	// used in calls
+	#{c(modals regionSelectDropdown)} {
 		@include card;
 		box-shadow: none;
 	}
-	#{c(modals shortcutsModal)} {
+	#{c(modals shortcutsModal)},
+	#{c(modals autocomplete)} {
 		background-color: transparent;
 	}
 	#{c(modals quickSwitchModal)} {
 		backdrop-filter: none;
 		min-height: 365px;
-	}
-	// used in calls
-	#{c(modals regionSelectDropdown)} {
-		@include card;
-		box-shadow: none;
 	}
 	// search has a lot of theme-d/l beforehand.
 	#{c(modals searchDropdown)} {
@@ -49,6 +48,24 @@
 	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)},
 	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)}:hover {
 		background-color: $primary;
+	}
+	#{c(modals reactionsSidebar)} {
+		background-color: $side;
+	}
+	#{c(modals reactionDefault)}:hover {
+		background-color: var(--background-modifier-hover);
+	}
+	#{c(modals reactionDefault)}:active,
+	#{c(modals reactionSelected)} {
+		background-color: var(--background-modifier-active);
+	}
+	#{c(modals contentWarningPopout)} {
+		backdrop-filter: blur(5px);
+		background-color: $card;
+		box-shadow: none;
+	}
+	#{c(modals contentWarningFooter)} {
+		background-color: transparent;
 	}
 }
 #{c(modals header)} {
@@ -83,16 +100,8 @@
 		border: 1px solid $primary;
 	}
 }
-
-#{c(modals createEventProgressBar)},
-#{c(modals createEventRSVPCount)} {
-	background-color: $card;
-}
 #{c(modals createEventProgressBarSelected)} {
 	background-color: $primary;
-}
-#{c(modals createEventTextInput)} {
-	@include card;
 }
 #{c(modals eventCard)},
 #{c(modals eventCard)}:hover {
@@ -101,9 +110,6 @@
 }
 #{c(modals eventInfoHeader)} {
 	background-color: $header;
-}
-#{c(modals eventInfoGuildIcon)} {
-	background-color: transparent;
 }
 #{c(modals warningCard)} {
 	background-color: $yellow;
@@ -136,7 +142,6 @@
 	@include card;
 	backdrop-filter: blur(5px);
 }
-
 #{c(modals shortcutsModal)} #{c(scroller base)} {
 	background-color: $middle;
 }
@@ -148,35 +153,11 @@
 	background: $header;
 	padding-top: 5px;
 }
-
 #{c(modals beforeTalkSidebar)} {
 	background-color: $side;
 }
-#{c(modals beforeTalkBody)} {
-	background-color: transparent;
-}
-#{c(modals beforeTalkFieldWrapper)} {
-	@include card;
-}
-
 #{c(modals welcomeToServerMain)}#{c(modals root)} {
 	background-color: $middle;
-}
-#{c(modals welcomeToServerOption)},
-#{c(modals welcomeToServerOption)}:hover {
-	background-color: $card;
-}
-
-#{c(main dark)},
-#{c(main light)} {
-	#{c(modals contentWarningPopout)} {
-		backdrop-filter: blur(5px);
-		background-color: $card;
-		box-shadow: none;
-	}
-	#{c(modals contentWarningFooter)} {
-		background-color: transparent;
-	}
 }
 #{c(modals contentWarningBody)} {
 	#{c(modals contentWarningContent)} {
@@ -189,7 +170,6 @@
 #{c(modals contentWarningAnimation)} {
 	display: none;
 }
-
 #{c(modals toolbar)} {
 	background-color: $card;
 	box-shadow: none;
@@ -198,24 +178,6 @@
 		border-top-color: $card;
 	}
 }
-
-#{c(main dark)},
-#{c(main light)} {
-	#{c(modals reactionsSidebar)} {
-		background-color: $side;
-	}
-	#{c(modals reactionDefault)}:hover {
-		background-color: var(--background-modifier-hover);
-	}
-	#{c(modals reactionDefault)}:active,
-	#{c(modals reactionSelected)} {
-		background-color: var(--background-modifier-active);
-	}
-	#{c(modals reactionReactors)} {
-		background-color: $middle;
-	}
-}
-
 #{c(modals quickSwitch)} {
 	box-shadow: none;
 	background-color: $middle;
@@ -228,13 +190,6 @@
 	background-color: transparent;
 	&::-webkit-scrollbar-track {
 		background-color: transparent !important; // !important reason: discord uses important
-	}
-}
-
-#{c(main dark)},
-#{c(main light)} {
-	#{c(modals autocomplete)} {
-		background-color: transparent;
 	}
 }
 #{c(modals autocomplete)} {
@@ -254,17 +209,6 @@
 	background-color: $side;
 	backdrop-filter: blur(5px);
 }
-#{c(modals autocompleteRailInner)} {
-	background-color: transparent;
-}
-#{c(modals autocompleteCategorySelected)},
-#{c(modals autocompleteCategorySelected)}:hover {
-	background-color: $card;
-}
-#{c(modals autocompleteEmojiInner)} {
-	background-color: $card;
-}
-
 #{c(modals stickerSuggestMask)} > foreignObject {
 	mask: none;
 }
@@ -281,17 +225,6 @@
 		content: none;
 	}
 }
-
-#{c(modals problemInfoRoot)} {
-	background-color: $card;
-}
-
-#{c(modals timedOutContainer)} {
-    background-color: $card;
-}
-#{c(modals timedOutIconContainer)} {
-    background-color: transparent;
-}
 #{c(modals timedOutIcon)},
 #{c(modals timedOutBannerIcon)} {
     path {
@@ -304,7 +237,6 @@
     background-color: $header;
     backdrop-filter: blur(2px);
 }
-
 #{c(modals toastsToast)} {
     background-color: $card;
     border-radius: var(--border-radius);
@@ -317,14 +249,12 @@
         fill: $red;
     }
 }
-
 #{c(modals searchResultsGroup)}::before {
 	content: none;
 }
 #{c(modals searchDatePicker)} #{c(modals searchCalendarPicker)} {
 	#{c(modals reactDatePicker)},
-	#{c(modals reactDPHeader)}
-	{
+	#{c(modals reactDPHeader)} {
 		background-color: transparent;
 	}
 	#{c(modals reactDPDay)} {
@@ -341,7 +271,6 @@
 		}
 	}
 }
-
 #{c(modals bannedUserModal)} {
 	#{c(modals bannedUserHeader)} {
 		padding: 20px 16px;
@@ -350,43 +279,27 @@
 		padding: 20px 8px 20px 16px;
 	}
 }
-
 #{c(modals purgeBody)} {
 	background-color: $middle;
 }
-
 #{c(modals addRoleContainer)},
 #{c(modals emojiStickerPopoutContainer)},
 #{c(modals openThreadsPopout)} {
 	background-color: $card;
 	backdrop-filter: blur(5px);
 }
-#{c(modals emojiStickerGuildSection)} {
-	background-color: transparent;
-}
 #{c(modals emojiStickerLoadingForeground)} {
 	background-image: linear-gradient(90deg, $primary, $secondary, $primary);
 }
-
-#{c(modals boostSelectGuild)} {
-	&:hover {
-		background-color: var(--background-modifier-hover);
-	}
+#{c(modals boostSelectGuild)}:hover {
+	background-color: var(--background-modifier-hover);
 }
-
 #{c(modals textContainer)} {
 	background-color: $card;
 	border: none;
-	&~#{c(embeds textFooter)} {
-		background-color: $card;
-	}
 }
-
 #{c(modals openThreadsModal)} {
 	background-color: transparent !important; // !important reason: css uses important FOR SOME REASON
-}
-#{c(modals openThreadsModalBrowserContainer)} {
-	background-color: transparent;
 }
 #{c(modals openThreadsModalThreadContainer)} {
 	@include card;
@@ -394,28 +307,46 @@
 		border-color: $hover;
 	}
 }
-// activities
-#{c(modals scrollTierBackground)} {
-	background-color: transparent;
-}
 #{c(modals activitiesItem)} {
 	background-color: $card;
 	box-shadow: none;
-	&:hover {
-		background-color: $card;
-	}
-}
-#{c(modals activitiesTag)} {
-	background-color: $card;
-}
-
-// upload avi/banner
-#{c(modals uploadOptionBox)} {
-	background-color: $card;
 }
 #{c(modals uploadContentCircle)} {
 	background-color: $primary;
 }
 #{c(modals uploadGifPicker)} {
 	padding-top: 0;
+}
+
+#{c(modals autocompleteCategorySelected)},
+#{c(modals autocompleteCategorySelected)}:hover,
+#{c(modals autocompleteEmojiInner)},
+#{c(modals createEventProgressBar)},
+#{c(modals createEventRSVPCount)},
+#{c(modals welcomeToServerOption)},
+#{c(modals welcomeToServerOption)}:hover,
+#{c(modals problemInfoRoot)},
+#{c(modals timedOutContainer)},
+#{c(modals textContainer)}~#{c(embeds textFooter)},
+#{c(modals activitiesItem)}:hover,
+#{c(modals activitiesTag)},
+#{c(modals uploadOptionBox)} {
+	background-color: $card;
+}
+
+#{c(modals emojiStickerGuildSection)},
+#{c(modals scrollTierBackground)},
+#{c(modals openThreadsModalBrowserContainer)},
+#{c(modals searchDatePicker)} #{c(modals searchCalendarPicker)} #{c(modals reactDatePicker)},
+#{c(modals searchDatePicker)} #{c(modals searchCalendarPicker)} #{c(modals reactDPHeader)},
+#{c(modals timedOutIconContainer)},
+#{c(modals autocompleteRailInner)},
+#{c(modals beforeTalkBody)},
+#{c(modals eventInfoGuildIcon)} {
+	background-color: transparent;
+}
+
+#{c(modals createEventTextInput)},
+#{c(modals beforeTalkFieldWrapper)} {
+	@include card;
 }

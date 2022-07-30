@@ -9,23 +9,6 @@
   &#{c(call noChat)} {
     background-color: transparent;
   }
-  #{c(call container)} {
-    background-color: transparent;
-    #{c(call root)} {
-      background-color: $card;
-      #{c(call avatarBorder)} {
-        &#{c(call avatarSpeaking)} {
-          box-shadow: inset 0 0 10px 2px $primary;
-        }
-      }
-      &#{c(call idle)} {
-        #{c(call topControls)} {
-          opacity: 1;
-          transform: none;
-        }
-      }
-    }
-  }
   #{c(call resizeHandle)} {
     background: linear-gradient(0deg, $primary 50%, transparent 50% 100%);
     &:hover,
@@ -34,18 +17,29 @@
     }
   }
 }
+#{c(call avatarBorder)}#{c(call avatarSpeaking)} {
+  box-shadow: inset 0 0 10px 2px $primary;
+}
+#{c(call root)}#{c(call idle)} {
+  #{c(call topControls)} {
+    opacity: 1;
+    transform: none;
+  }
+}
+#{c(call container)},
 #{c(call video)},
-#{c(call videoEnded)} {
+#{c(call videoEnded)},
+#{c(call streamBackground)} { 
   background-color: transparent;
+}
+#{c(call root)} {
+  background-color: $side;
 }
 #{c(call status)} {
   background-color: $primary;
 }
 #{c(call videoBorder)}#{c(call videoSpeaking)} {
   box-shadow: inset 0 0 25px 10px $primary;
-}
-#{c(call streamBackground)} { 
-  background-color: transparent;
 }
 #{c(call liveQualityIndicator)} {
   background-color: $card !important; // !important reason: element.style

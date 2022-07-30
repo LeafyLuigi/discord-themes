@@ -3,9 +3,7 @@
 #{c(main dark)},
 #{c(main light)} {
   #{c(search searchFilter)},
-  #{c(search searchAnswer)} {
-    background-color: $primary;
-  }
+  #{c(search searchAnswer)},
   #{c(search activeButton)},
   #{c(search activeButton)}:hover {
     background-color: $primary;

@@ -16,9 +16,6 @@
   background-color: $primary;
   min-height: 40px;
 }
-#{c(scroller thin)}::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
 
 #{c(scroller auto)}::-webkit-scrollbar {
   width: 16px;
@@ -37,6 +34,7 @@
   background-color: $primary;
   min-height: 40px;
 }
+#{c(scroller thin)}::-webkit-scrollbar-corner,
 #{c(scroller auto)}::-webkit-scrollbar-corner {
   background-color: transparent;
 }
@@ -51,10 +49,7 @@
   visibility: hidden;
 }
 #{c(scroller fade)}:hover::-webkit-scrollbar-thumb,
-#{c(scroller fade)}:hover::-webkit-scrollbar-track {
-  visibility: visible;
-}
-
+#{c(scroller fade)}:hover::-webkit-scrollbar-track,
 #{c(scroller scrolling)}#{c(scroller fade)}::-webkit-scrollbar-thumb,
 #{c(scroller scrolling)}#{c(scroller fade)}::-webkit-scrollbar-track {
   visibility: visible;

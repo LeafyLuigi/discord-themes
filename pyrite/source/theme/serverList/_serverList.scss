@@ -14,10 +14,7 @@
   }
 }
 
-#{c(serverList scroller)} {
-  background-color: transparent;
-}
-
+#{c(serverList scroller)},
 #{c(serverList folder)},
 #{c(serverList folder)}#{c(serverList folderHover)} {
   background-color: transparent;
@@ -121,8 +118,8 @@
 }
 
 #{c(serverList iconBadge)}#{c(serverList participating)} {
-    background-color: $green;
-    filter: none;
+  background-color: $green;
+  filter: none;
 }
 
 #{c(serverList placeholderInner)} {
@@ -138,10 +135,10 @@
 // Relates to an experiment: 2022-06_spdy_premium_marketing_entrypoint.
 // You might not see these and are likely temp stuff.
 // treatment 1 seems to be impossible to get
-// treatment 2
-#{c(serverList scroller)} div:not([class])+#{c(serverList listItem)} {
-  display: none;
-}
+// treatment 2 - breaks something with how i did it
+// #{c(serverList scroller)} div:not([class])+#{c(serverList listItem)} {
+//   display: none;
+// }
 // treatment 3
 #{c(serverList fixedBottomList)} {
   display: none;

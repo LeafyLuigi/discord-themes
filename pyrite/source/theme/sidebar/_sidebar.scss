@@ -2,6 +2,11 @@
 /* Start Sidebar */
 // Base
 #{c(sidebar sidebar)} {
+  // notice stuff
+  top: calc($nc * -36px);
+  position: relative;
+  height: calc(100vh - (var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px)));
+  // end notice stuff
   background-color: transparent;
   @include bg;
   @include bg2;

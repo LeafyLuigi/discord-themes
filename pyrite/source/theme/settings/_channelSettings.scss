@@ -1,24 +1,42 @@
 @use "backend" as *;
 /* Begin Channel Settings */
+#{c(main dark)},
+#{c(main light)} {
+  #{c(channelSettings inviteRow)} {
+    padding: 10px 0;
+    &::before {
+      content: none;
+    }
+    #{c(channelSettings revokeInvite)} {
+      opacity: 1;
+      top: 8px;
+      right: 0;
+      z-index: 1;
+    }
+    #{c(channelSettings inviteDefault)} {
+      transition: 0.25s background-color ease-in-out;
+      background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
+      &:not(:hover) {
+        background-color: transparent;
+      }
+      &:hover {
+        background-color: $red;
+      }
+    }
+  }
+  #{c(channelSettings integrationCard)},
+  #{c(channelSettings webhookCard)},
+  #{c(channelSettings followedChannelCard)} {
+    border-color: var(--secondary-color);
+  }
+}
 #{c(channelSettings channelName)} {
   &#{c(channelSettings channelNameFocused)},
   &:focus {
     border-color: $primary;
   }
 }
-#{c(channelSettings roleScroller)} {
-  background-color: transparent;
-}
-#{c(channelSettings settingsCard)},
-#{c(channelSettings settingsCard)}#{c(channelSettings settingsCardActive)} {
-  background-color: transparent;
-}
-#{c(channelSettings cardContent)} {
-  padding: 16px 6px;
-}
-#{c(channelSettings cardFolder)} {
-  background-color: transparent;
-}
+#{c(channelSettings cardContent)},
 #{c(channelSettings folderHeader)} {
   padding: 16px 6px;
 }
@@ -74,41 +92,10 @@
     cursor: pointer;
   }
 }
-
-#{c(main dark)},
-#{c(main light)} {
-  #{c(channelSettings inviteRow)} {
-    padding: 10px 0;
-    &::before {
-      content: none;
-    }
-    #{c(channelSettings revokeInvite)} {
-      opacity: 1;
-      top: 8px;
-      right: 0;
-      z-index: 1;
-    }
-    #{c(channelSettings inviteDefault)} {
-      transition: 0.25s background-color ease-in-out;
-      background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
-      &:not(:hover) {
-        background-color: transparent;
-      }
-      &:hover {
-        background-color: $red;
-      }
-    }
-  }
-}
-
-#{c(main dark)},
-#{c(main light)} {
-  #{c(channelSettings integrationCard)},
-  #{c(channelSettings webhookCard)},
-  #{c(channelSettings followedChannelCard)} {
-    border-color: var(--secondary-color);
-  }
-}
+#{c(channelSettings roleScroller)},
+#{c(channelSettings settingsCard)},
+#{c(channelSettings settingsCard)}#{c(channelSettings settingsCardActive)},
+#{c(channelSettings cardFolder)},
 #{c(channelSettings integrationIconWrapper)},
 #{c(channelSettings webhookAvatarUploader)},
 #{c(channelSettings followedChannelAvatar)} {

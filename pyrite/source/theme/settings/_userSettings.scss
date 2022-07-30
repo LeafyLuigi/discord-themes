@@ -1,9 +1,23 @@
 @use "backend" as *;
 /* Start User Settings */
-#{c(main layer)},
-#{c(userSettings standardSidebarView)},
-#{c(userSettings contentRegion)} {
-  background-color: transparent;
+#{c(main dark)},
+#{c(main light)} {
+  #{c(userSettings codeRedemptionRedirect)} {
+    @include card;
+  }
+  #{c(userSettings nitroFeature)} {
+    @include card;
+    min-height: unset;
+    padding: 16px;
+    #{c(userSettings nitroFeatureImageWrapper)} {
+      display: none;
+    }
+  }
+  #{c(userSettings boostCardGemContainer)},
+  #{c(userSettings subscriptionsNoItemsIconSubs)},
+  #{c(userSettings subscriptionsNoItemsIconCredits)} {
+    background-color: transparent;
+  }
 }
 #{c(userSettings sidebarRegionScroller)} {
   background-color: $side;
@@ -43,18 +57,12 @@
   // @debug "fixed color";
   // }
 }
-
 #{c(userSettings contentRegionScroller)} {
   background-color: $middle;
   #{c(serverSettings auditScroller)} {
     background-color: transparent;
   }
 }
-
-#{c(userSettings contentColumn)} #{c(userSettings fieldList)} {
-  background-color: transparent;
-}
-
 #{c(userSettings accountProfile)} {
   background-color: $card;
   #{c(userSettings accountProfileBackground)} {
@@ -66,7 +74,6 @@
     background-color: transparent;
   }
 }
-
 #{c(userSettings profileNitroNotice)} {
   display: none;
 }
@@ -74,19 +81,12 @@
   border-color: transparent;
   background-color: transparent;
 }
-#{c(userSettings profileBannerPreview)} { 
-  background-color: transparent;
-  #{c(userSettings profilePopoutInfo)} {
-    background-color: $side;
-  }
-}
-#{c(userSettings nitroRedirectContainer)} {
-  background-color: $card;
+#{c(userSettings profilePopoutInfo)} {
+  background-color: $side;
 }
 #{c(userSettings nitroRedirectWarningIcon)} {
   color: $yellow;
 }
-
 #{c(userSettings radioGroupItem)} {
   backdrop-filter: blur(3px);
   background-color: var(--background-modifier-accent);
@@ -121,55 +121,15 @@
 #{c(userSettings radioIconForeground)} {
   color: $primary;
 }
-
-#{c(userSettings cardPrimary)},
-#{c(userSettings cardPrimaryEditable)},
-#{c(userSettings cardPrimaryOutline)},
-#{c(userSettings cardPrimaryOutlineEditable)} {
-  @include card;
-}
-
-#{c(userSettings accountList)} {
-  @include card;
-}
 #{c(userSettings accountButton)} #{c(userSettings accountButtonInner)} {
   background-color: var(--background-modifier-accent);
   &:hover {
     background-color: var(--background-modifier-hover);
   }
 }
-#{c(userSettings connection)} {
-  @include card;
-  #{c(userSettings connectionHeader)} {
-    background-color: $card;
-    padding: 10px 20px;
-  }
-}
-
-#{c(main dark)},
-#{c(main light)} {
-  #{c(userSettings codeRedemptionRedirect)} {
-    @include card;
-  }
-}
-
-#{c(main dark)},
-#{c(main light)} {
-  #{c(userSettings nitroFeature)} {
-    @include card;
-    min-height: unset;
-    padding: 16px;
-    #{c(userSettings nitroFeatureImageWrapper)} {
-      display: none;
-    }
-  }
-}
-
-#{c(main dark)},
-#{c(main light)} {
-  #{c(userSettings boostCardGemContainer)} {
-    background-color: transparent;
-  }
+#{c(userSettings connectionHeader)} {
+  background-color: transparent;
+  padding: 10px 20px;
 }
 #{c(userSettings boostGuildsSection)} {
   margin-bottom: 32px;
@@ -180,21 +140,9 @@
     background-color: transparent;
   }
 }
-#{c(userSettings boostCardNoIcon)} {
-  background-color: $card;
+#{c(userSettings boostDealWrapper)}::before {
+  content: none;
 }
-#{c(userSettings boostDealWrapper)} {
-  &:before {
-    content: none;
-  }
-}
-#{c(userSettings boostSubscriptionSlots)},
-#{c(userSettings subscriptionsDetailsBlock)},
-#{c(userSettings giftPromotionCard)},
-#{c(userSettings boostGuildHeader)} {
-  background-color: $card;
-}
-
 #{c(userSettings closeButtonContainer)} {
   color: $primary;
   &:hover,
@@ -216,16 +164,28 @@
     color: currentColor;
   }
 }
-
-#{c(main dark)},
-#{c(main light)} {
-  #{c(userSettings subscriptionsNoItemsIconSubs)},
-  #{c(userSettings subscriptionsNoItemsIconCredits)} {
-    background-color: transparent;
-  }
-}
-
 #{c(userSettings subscriptionsNoItemsCardSubs)},
-#{c(userSettings subscriptionsNoItemsCardCredits)} {
+#{c(userSettings subscriptionsNoItemsCardCredits)},
+#{c(userSettings connection)},
+#{c(userSettings cardPrimary)},
+#{c(userSettings cardPrimaryEditable)},
+#{c(userSettings cardPrimaryOutline)},
+#{c(userSettings cardPrimaryOutlineEditable)},
+#{c(userSettings accountList)} {
   @include card;
+}
+#{c(userSettings boostSubscriptionSlots)},
+#{c(userSettings subscriptionsDetailsBlock)},
+#{c(userSettings giftPromotionCard)},
+#{c(userSettings boostGuildHeader)},
+#{c(userSettings boostCardNoIcon)},
+#{c(userSettings nitroRedirectContainer)} {
+  background-color: $card;
+}
+#{c(main layer)},
+#{c(userSettings standardSidebarView)},
+#{c(userSettings contentRegion)},
+#{c(userSettings contentColumn)} #{c(userSettings fieldList)},
+#{c(userSettings profileBannerPreview)} {
+  background-color: transparent;
 }

@@ -27,6 +27,7 @@ $nc: var(--notice-count, 0);
   max-height: 36px;
   padding: 0;
   // movement and width stuff
+  @debug "broken with hide channel list";
   // 72px for server list, 240px for sidebar, undo 72px for HSL addon
   width: calc(100vw - 72px - 240px + (72px * var(--horizontal-server-list-enabled,0)));
   left: 240px; // move it over
@@ -50,11 +51,6 @@ $nc: var(--notice-count, 0);
     top: calc(-36px * $nc);
   }
 
-  // move psudo-header in call (already had -48px calculated into it)
-  #{c(call root)}::before {
-    top: calc(-48px - (36px * $nc));
-  }
-
   // increase height of resize handle for threads
   #{c(threads resizeHandle)} {
     top: calc(-36px * $nc);
@@ -62,12 +58,6 @@ $nc: var(--notice-count, 0);
     position: relative;
   }
   
-  // sidebar w/ notice
-  #{c(sidebar sidebar)} {
-    top: calc($nc * -36px);
-    position: relative;
-    height: calc(100vh - (var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px)));
-  }
 }
 
 

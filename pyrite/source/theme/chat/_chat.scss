@@ -98,13 +98,6 @@
         top: 2px;
       }
     }
-    // &#{c(chat dividerUnread)} {
-    //   #{c(chat dividerContent)} {
-    //     color: var(--text-normal);
-    //     background-color: var(--divider-color);
-    //     font-weight: 600;
-    //   }
-    // }
   }
 }
 
@@ -114,7 +107,6 @@
   font-weight: normal;
   margin: 0 8px;
   padding: 2px 10px;
-  // width: fit-content;
 }
 
 #{c(chat newMessagesBar)} {
@@ -445,8 +437,6 @@
   #{c(header toolbar)} {
     right: 0;
   }
-  // &#{c(chat threadSidebarFloating)} {
-  // }
 }
 #{c(threads resizeHandle)} {
   width: 4px;

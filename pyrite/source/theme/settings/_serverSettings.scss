@@ -16,7 +16,6 @@
     border-color: $primary;
   }
 }
-
 #{c(main appInner)}:not([style*="transform"]) {
   #{c(serverSettings noticeRegion)} {
     #{c(serverSettings noticeContainer)} {
@@ -35,16 +34,10 @@
     }
   }
 }
-
-#{c(serverSettings serverIconUploadInner)} {
-  background-color: transparent;
-}
-
 // commented bc idk where to get it
 // #{c(serverSettings newBadge)} {
 //   background-color: $red !important; // !important reason: element.style
 // }
-
 #{c(serverSettings roleCircleButton)} {
   background-color: $primary;
   &:hover {
@@ -59,16 +52,6 @@
     }
   }
 }
-#{c(serverSettings rolePage)} {
-  #{c(serverSettings rolePageScroller)} {
-    background-color: transparent;
-  }
-}
-#{c(serverSettings roleTitleContainer)},
-#{c(serverSettings roleHeader)} {
-  background-color: transparent;
-}
-
 #{c(serverSettings roleHeader)} {
   &#{c(serverSettings roleHeaderStickyElevated)} {
     box-shadow: none;
@@ -92,13 +75,10 @@
   background-color: $card;
   border: $primary;
 }
-#{c(serverSettings roleEveryoneIcon)} {
-  background-color: $card;
-}
+#{c(serverSettings roleEveryoneIcon)},
 #{c(serverSettings rolePreviewContainer)} {
   background-color: $card;
 }
-
 #{c(serverSettings emojiAliasPlaceholder)} {
   display: none;
 }
@@ -116,23 +96,14 @@
     }
   }
 }
-
 #{c(serverSettings auditScroller)} {
   background-color: $middle;
 }
-
-#{c(serverSettings templateDescriptionBox)} {
-  @include card;
-}
-
+#{c(serverSettings templateDescriptionBox)},
 #{c(serverSettings enableCommunityFeatureCard)},
 #{c(serverSettings enableCommunityGuildDetails)} {
   @include card;
 }
-#{c(serverSettings enableCommunityFeatureIcon)} {
-  background-color: transparent;
-}
-
 #{c(serverSettings templateDescriptionIcon)} circle {
 	&[fill="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
 		fill: $green;
@@ -140,4 +111,11 @@
 	&[fill="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
 		fill: $red;
 	}
+}
+#{c(serverSettings rolePage)} #{c(serverSettings rolePageScroller)},
+#{c(serverSettings roleTitleContainer)},
+#{c(serverSettings roleHeader)},
+#{c(serverSettings enableCommunityFeatureIcon)},
+#{c(serverSettings serverIconUploadInner)} {
+  background-color: transparent;
 }

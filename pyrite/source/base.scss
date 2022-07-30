@@ -16,6 +16,7 @@
 /* Default Variables */
 :root {
   /* forced by theme */
+  --font-display: var(--header-font);
   --background-message-hover: transparent;
   --background-mentioned: transparent;
   --background-mentioned-hover: transparent;
@@ -63,6 +64,7 @@
   --locked-voice-channel-color: var(--red-color);
 
   /* Advanced Users */
+  --header-font: "ABC Ginto Normal", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --code-font: Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
   --background-filter: none;
@@ -107,20 +109,6 @@
   --background-modifier-active:rgba(79,84,92,0.24);
   --background-modifier-selected:rgba(79,84,92,0.32);
   --background-modifier-accent:hsla(0,0%,100%,0.06);
-  --input-background: var(--card-background);
-  --control-brand-foreground: var(--primary-color);
-  --control-brand-foreground-new: var(--primary-color);
-  --deprecated-text-input-bg: var(--input-background);
-  --deprecated-text-input-border: var(--primary-color);
-
-  // below: colors set to same as variables above
-  --info-positive-foreground: var(--green-color);
-  --info-warning-foreground: var(--yellow-color);
-  --info-danger-foreground: var(--red-color);
-  --info-help-foreground: var(--link-color);
-  --status-positive-background: var(--green-color);
-  --status-warning-background: var(--yellow-color);
-  --status-danger-background: var(--red-color);
 }
 
 /* Feel free to edit these ones for Light Mode */
@@ -143,6 +131,11 @@
   --background-modifier-active:rgba(116,127,141,0.16);
   --background-modifier-selected:rgba(116,127,141,0.24);
   --background-modifier-accent:rgba(6,6,7,0.08);
+}
+
+.theme-dark,
+.theme-light {
+  // below: defaults set by theme
   --input-background: var(--card-background);
   --control-brand-foreground: var(--primary-color);
   --control-brand-foreground-new: var(--primary-color);

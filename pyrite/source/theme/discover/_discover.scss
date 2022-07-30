@@ -78,20 +78,23 @@
   }
 }
 
-#{c(discover searchPlaceholder)} {
-  background-color: $card;
-}
-
 #{c(discover searchCategoryPill)}#{c(discover searchCategorySelected)} {
   background-color: $primary;
 }
-
 #{c(discover studentScroller)} {
   background-color: $middle;
 }
+#{c(discover searchPlaceholder)},
 #{c(discover studentCard)} {
   background-color: $card;
 }
-#{c(discover studentIconContainer)} {
+#{c(discover studentIconContainer)},
+#{c(discover dotOnline)} {
   background-color: $green;
+}
+#{c(discover dotOffline)} {
+  background-color: $offline;
+}
+#{c(discover footerImage)} {
+  display: none;
 }
