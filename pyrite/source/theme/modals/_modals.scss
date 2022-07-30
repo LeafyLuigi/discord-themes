@@ -7,16 +7,12 @@
 		box-shadow: none;
 		backdrop-filter: blur(5px);
 	}
-}
-
-#{c(main dark)},
-#{c(main light)} {
-	#{c(modals footer)} {
-		background-color: $middle;
-	}
 	#{c(modals createEventPreviewCard)} {
 		@include card;
 	}
+	#{c(modals searchResultsGroup)},
+	#{c(modals searchDatePicker)},
+	#{c(modals footer)},
 	#{c(modals inviteFromBrowserContentWrapper)} {
 		background-color: $middle;
 	}
@@ -50,10 +46,6 @@
 	#{c(modals searchQueryHeader)} {
 		background-color: $header;
 	}
-	#{c(modals searchResultsGroup)},
-	#{c(modals searchDatePicker)} {
-		background-color: $middle;
-	}
 	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)},
 	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)}:hover {
 		background-color: $primary;
@@ -68,11 +60,14 @@
 #{c(modals closeIcon)} {
 	color: $primary;
 	&:hover {
-			color: $hover;
+		color: $hover;
 	}
 }
 #{c(modals body)} {
 	background-color: $middle;
+}
+#{c(modals divider)} {
+	display: none;
 }
 // fuckers have the close button moved.
 #{c(modals createChannelHeader)} {
@@ -398,4 +393,29 @@
 	&:hover {
 		border-color: $hover;
 	}
+}
+// activities
+#{c(modals scrollTierBackground)} {
+	background-color: transparent;
+}
+#{c(modals activitiesItem)} {
+	background-color: $card;
+	box-shadow: none;
+	&:hover {
+		background-color: $card;
+	}
+}
+#{c(modals activitiesTag)} {
+	background-color: $card;
+}
+
+// upload avi/banner
+#{c(modals uploadOptionBox)} {
+	background-color: $card;
+}
+#{c(modals uploadContentCircle)} {
+	background-color: $primary;
+}
+#{c(modals uploadGifPicker)} {
+	padding-top: 0;
 }

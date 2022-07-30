@@ -139,6 +139,12 @@ $classes: (
 		"hasHover": "hasHover-26V98q",
 		"icon": "buttonIcon-1TxM6f", // found at top of channel
 
+		"shinyButton": "shinyButton-2Q9MDB",
+		"shineContainerDefault": "shineContainerDefault-3f8X_o",
+		"shineContainer": "shineContainer-NmlfaV",
+		"buttonShine": "buttonShine-p5V5TB",
+		"shine": "shine-ZNDEKg",
+
 		//colors / hovers
 		"colorBrand": "colorBrand-I6CyqQ",
 		"colorBrandNew": "colorBrandNew-2-gGsS",
@@ -181,6 +187,7 @@ $classes: (
 		"lowQualityWarningIcon": "warningIcon-3Mtahk",
 		"regionSelector": "quickSelect-384d3G",
 		"watchStreamButton": "cta-3-AFNF",
+		"inviteButton": "buttonColor-28DXIe", 
 	),
 	"channelSettings": (
 		"channelName": "input-2g-os5",
@@ -732,6 +739,7 @@ $classes: (
 		"closeIcon": "closeIcon-11LhXr",
 		"body": "content-2hZxGK",
 		"footer": "footer-31IekZ", // apparently it still uses theme-dark and theme-light. wankers.
+		"divider": "modalDivider-MtZbPb", // found on activity modal
 
 		"createChannelHeader": "header-o8wV_s", // has extra top/bottom margins
 		"createChannelClose": "closeButton-32emop", // it's moved up for some reason
@@ -868,6 +876,32 @@ $classes: (
 		"openThreadsModalBrowser": "browser-SOGsFd",
 		"openThreadsModalBrowserContainer": "container-18GwIk", // used with browser
 		"openThreadsModalThreadContainer": "container-2rzKKA",
+
+		// activities
+		"activitiesRoot": "root-CyPAbQ",
+		"shelfTopBackground": "shelfTopBackground-R55ED9", // also on fg class
+		"shelfTopForeground": "shelfTopForeground-3OmdTs", // z index only
+		"activitiesShelfTitle": "activityShelfTitle-1rkbSI",
+		"activitiesBetaTag": "betaTag-1BuJUk", // background-color in inline
+		"slideContentOuterContainer": "slideContentOuterContainer-3rk6mq",
+		"scrollContainer": "scrollContainer-1C3AzW",
+		"scrollBackgroundContainer": "scrollBackgroundContainer-1gy1Hx",
+		"scrollTierBackground": "scrollTierBackground-BnWR8k",
+		"activitiesShelf": "shelf-3D6g4D",
+		"activitiesItem": "activityItem-1Z9CTr",
+		"activitiesImageContainer": "activityImageContainer-3FIpli",
+		"activitiesImage": "activityImage-3308Ih",
+		"activitiesVideo": "activityVideo-3VVUcy", // also has image class, has anim and pos. duplicated as child with video tag rather than div
+		"activitiesOverlayBadge": "overlayBadge-2HAW2N",
+		"activitiesBadgeContainer": "badgeContainer-2a1nPp",
+		"activitiesTextContainer": "activityTextContainer-2l4Dnr", // body of item
+		"activitiesTagsContainer": "activityTagsContainer-2tHK0W",
+		"activitiesTag": "activityTag-3C3YK5",
+
+		// upload avi/banner
+		"uploadOptionBox": "optionBox-1UOevl",
+		"uploadContentCircle": "contentCircle-15IFyT",
+		"uploadGifPicker": "gifPicker-3ATLsE",
 	),
 		"addServer": (
 			"modal": "container-1Lk8p7",
@@ -926,6 +960,7 @@ $classes: (
 			"stickerPremiumCategorySelected": "premiumCategorySelected-2KWLhN",
 			"stickerCategoryGeneric": "stickerCategoryGeneric-29JiZ2",
 			"stickerCategoryGenericSelected": "stickerCategoryGenericSelected-DnO2K8",
+			"stickerSearchSuggestion": "searchSuggestion-PfUKKS",
 
 			"emojiInExpressionPicker": "emojiPickerInExpressionPicker-2nOwH8",
 			"emojiPicker": "emojiPicker-6YCk8a",
@@ -1478,6 +1513,7 @@ $classes: (
 		"fieldList": "fieldList-in8WkP",
 		"field": "field-21XZwa",
 
+		"profileImageUploader": "imageUploader-1X7wVc",
 		"profileNitroNotice": "premiumInlineNotice-N_oPBN",
 		"profileAvatarUploader": "avatarUploaderInner-p38nm2",
 		"profileBannerPreview": "profileBannerPreview-3mLIdO",
@@ -1523,6 +1559,7 @@ $classes: (
 		"boostDealAction": "action-MXk_HA",
 		// top box when you have nitro
 		"boostGuild": "guild-2Fq4I5",
+		"boostGuildHeader": "guildHeader-1EPPBS",
 		"boostSubscriptionSlots": "guildSubscriptionSlots-1i_C21",
 		"boostSubscriptionSlot": "guildSubscriptionSlot-1mef6n",
 
@@ -1628,6 +1665,11 @@ $classes: (
 		"smartTypersPreview": "smartTypers-preview",
 		"textReactButton": "text-react-button",
 		"connections": "pc-connections",
+		"shcLocked": "shc-locked-chat-content",
+		"shcNotice": "shc-locked-notice",
+		"shcNoticeLock": "shc-notice-lock",
+		"shcLockedText": "shc-locked-channel-text",
+		"shcNoAccessText": "shc-no-access-text",
 	),
 	"glasscord": (
 		"base": "glasscord",

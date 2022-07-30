@@ -190,7 +190,8 @@
 }
 #{c(userSettings boostSubscriptionSlots)},
 #{c(userSettings subscriptionsDetailsBlock)},
-#{c(userSettings giftPromotionCard)} {
+#{c(userSettings giftPromotionCard)},
+#{c(userSettings boostGuildHeader)} {
   background-color: $card;
 }
 

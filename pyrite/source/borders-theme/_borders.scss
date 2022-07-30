@@ -42,7 +42,13 @@ $card: var(--card-background);
 #{c(call avatar)},
 
 // hover over avatar in popout to see this
-#{c(userPopout avatarHint)}
+#{c(userPopout avatarHint)},
+
+// edit profile fake popout avatar and hint
+#{c(userSettings profileAvatarUploader)},
+
+// upload avi/banner modal
+#{c(modals uploadContentCircle)}
 {
 	border-radius: calc(var(--avatar-radius) * var(--br-multi, 1));
 }
@@ -93,7 +99,9 @@ $card: var(--card-background);
 // MAYBE:
 // server icons, server folders
 
-#{c(userPopout popout)} {
+#{c(userPopout popout)},
+#{c(userSettings profileImageUploader)},
+#{c(modals uploadContentCircle)} {
 	--br-multi: 2.5;
 }
 #{c(userModal root)} {
