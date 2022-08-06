@@ -720,6 +720,8 @@ $classes: (
 		"members": "members-3WRCEx",
 		"content": "content-2a4AW9",
 		"group": "membersGroup-2eiWxl",
+		"member": "member-2gU6Ar",
+		"memberContainer": "container-1oeRFJ",
 		"avatar": "avatar-6qzftW",
 		"avatarMask": "mask-1FEkla",
 		"contentName": "content-1U25dZ",
@@ -872,6 +874,12 @@ $classes: (
 		"emojiStickerLoadingForeground": "popoutLoadingForeground-3xnRkg", // contains background-image
 
 		"boostSelectGuild": "selectGuild-2A4oJC",
+		"boostSubscription": "subscription-1wJwQk",
+		"boostGuildCard": "guildCard-u7HSAA", // used alongside sub
+		"boostSubscriptionInfo": "subscriptionInfo-2W0COT",
+		"boostGuildName": "guildName-31s6aW",
+		"boostTierInfo": "tierInfo-2VmQOo",
+		"boostTierPill": "tierPill-l7DvKo",
 
 		"textContainer": "modalTextContainer-1FUO2W",
 
@@ -1060,6 +1068,8 @@ $classes: (
 			"itemHideInteraction": "hideInteraction-2jPGL_",
 			"colorDefault": "colorDefault-CDqZdO",
 			"colorBrand": "colorBrand-3cPPsm",
+			"colorGreen": "colorGreen-pAT2NS",
+			"colorPremium": "colorPremium-vwmYZQ", // "boost color" #ff73fa
 			"colorDanger": "colorDanger-3n-KnP",
 			"label": "label-2gNW3x",
 			"iconContainer": "iconContainer-1-SsTR",
@@ -1717,5 +1727,21 @@ $classes: (
 		"xenoLibNotifs": "xenoLib-notifications",
 		"xenoLibNotifContentWrapper": "xenoLib-notification-content-wrapper",
 		"xenoLibNotifLoadbar": "xenoLib-notification-loadbar",
+	),
+
+	// I've done my best to list *all* classes relating to that experiment (and treatment if applicable) but no chances.
+	// These may get merged in with the rest above so this area is far more chaotic than the others.
+	"experiments": (
+		// 2022-07_channel_highlights - Currently seems to replace the "New messages" and "Jumpt to present" bars.
+		"newMessagesPillContainer": "newMessagesPillContainer-1EFmTu",
+		"newMessagesPill": "newMessagesPill-2YdO-e",
+		"newMessagesPillIcon": "newMessagesPillIcon-2gBipC",
+		"newMessagesClear": "newMessagesClear-2LQVHt",
+		"newMessagesClearIcon": "newMessagesClearIcon-1hFLsw",
+		"jumpToPresentButtonContainer": "jumpToPresentButtonContainer-2_0XV-",
+		"jumpToPresentButton": "jumpToPresentButton-1bFSxT",
+		"jumpToPresentButtonIcon": "jumpToPresentButtonIcon-1JtyPZ",
+		"jumpToPresentSpinner": "jumpToPresentSpinner-9AqQA5",
+		"jumpToPresentSpinnerItem": "jumpToPresentSpinnerItem-2Kph5A",
 	)
 );

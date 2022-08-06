@@ -24,7 +24,8 @@
 		box-shadow: none;
 	}
 	#{c(modals shortcutsModal)},
-	#{c(modals autocomplete)} {
+	#{c(modals autocomplete)},
+	#{c(modals boostTierPill)} {
 		background-color: transparent;
 	}
 	#{c(modals quickSwitchModal)} {
@@ -330,7 +331,8 @@
 #{c(modals textContainer)}~#{c(embeds textFooter)},
 #{c(modals activitiesItem)}:hover,
 #{c(modals activitiesTag)},
-#{c(modals uploadOptionBox)} {
+#{c(modals uploadOptionBox)},
+#{c(modals boostSubscription)} {
 	background-color: $card;
 }
 

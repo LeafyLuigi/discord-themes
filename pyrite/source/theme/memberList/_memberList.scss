@@ -21,7 +21,7 @@
   flex-basis: 0px;
 }
 #{c(memberList members)},
-#{c(memberList members)}>#{c(memberList content)} {
+#{c(memberList members)}>div {
   background-color: transparent;
 }
 #{c(memberList group)} {

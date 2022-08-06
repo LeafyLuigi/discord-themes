@@ -62,10 +62,16 @@ body {
 			height: calc(var(--channelTabs-favHeight) + 3px); // +3 from margin. makes it the same height as regular bar
 		}
 	}
-	// #{c(bdPlugin channelTabsUnreadBadge)} {
-	// }
+	#{c(bdPlugin channelTabsUnreadBadge)} {
+		&#{c(bdPlugin channelTabsNoUnread)} {
+			background-color: transparent;
+		}
+	}
 	#{c(bdPlugin channelTabsMentionBadge)} {
 		background-color: $primary;
+		&#{c(bdPlugin channelTabsNoMention)} {
+			background-color: transparent;
+		}
 	}
 	#{c(os typeMac)}#{c(os titleBar)} ~ div #channelTabs-container > :first-child > :first-child {
 		margin-left: 3px;
@@ -79,6 +85,9 @@ body {
 			height: calc(18px - 18px * var(--channel-tabs-enabled,0));
 		}
 	}
+}
+html:not(#{c(os windows)}) div#{c(sidebar sidebar)} {
+	border-radius: 0;
 }
 
 // Better Image Viewer Plugin

@@ -221,3 +221,34 @@ html[lang="fr"] {
 	// }
 
 }
+
+/* Begin Experiments */
+// 2022-07_channel_highlights
+#{c(experiments jumpToPresentButton)}:hover	#{c(experiments jumpToPresentButtonIcon)},
+#{c(experiments newMessagesPill)}:hover #{c(experiments newMessagesPillIcon)},
+#{c(experiments newMessagesClear)}:hover #{c(experiments newMessagesClearIcon)} {
+	color: $hover;
+}
+#{c(experiments newMessagesPillIcon)},
+#{c(experiments jumpToPresentButtonIcon)},
+#{c(experiments newMessagesClearIcon)},
+#{c(experiments newMessagesClear)} {
+	color: $primary;
+}
+#{c(experiments jumpToPresentSpinner)},
+#{c(experiments jumpToPresentButton)},
+#{c(experiments newMessagesPill)},
+#{c(experiments newMessagesClear)} {
+	color: $primary;
+	border: 1px solid currentColor;
+	background-color: $card;
+	backdrop-filter: blur(5px);
+}
+#{c(experiments jumpToPresentButton)},
+#{c(experiments newMessagesPill)},
+#{c(experiments newMessagesClear)} {
+	&:hover {
+		background-color: $card;
+		color: $hover;
+	}
+}
