@@ -36,10 +36,6 @@
 }
 #{c(userPopout body)} {
 	padding-top: 8px;
-	#{c(userPopout bodyInnerWrapper)} {
-		padding-right: 0;
-		background-color: transparent;
-	}
 	#{c(userPopout bodyTitle)} {
 		color: var(--header-primary);
 	}
@@ -48,6 +44,10 @@
 			background-color: transparent;
 		}
 	}
+}
+#{c(userPopout bodyInnerWrapper)} {
+	padding-right: 0;
+	background-color: transparent;
 }
 #{c(userPopout input)} {
 	background-color: transparent;
