@@ -7,10 +7,8 @@
 /// changes to Zerthox's code: `map.get` -> `map-get`, adds a dot at end.
 @function class($query) {
 	$class: $classes;
-
 	@each $el in $query {
 		$class: map-get($class, "#{$el}");
-
 		@if not $class {
 			@error "Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
 		}
@@ -22,7 +20,6 @@
 @function c($query) {
 	@return class($query);
 }
-
 @function C($query) {
 	@return class($query);
 }
@@ -69,9 +66,11 @@ $classes: (
 		"loadingSquare": "wanderingCubesItem-3Us-UG",
 		"pictureInPicture": "pictureInPicture-1GQX91",
 		"anchorLink": "anchor-1MIwyf",
+		"anchorLinkUnderlineOnHover": "anchorUnderlineOnHover-2qPutX",
 		"toggle": "container-2nx-BQ", // that sliding selection thing
 		"slider": "slider-32CRPX",
 		"sliderInput": "input-2XRLou",
+		"desaturate": "desaturate-_Twf3u", // has a filter relating to the saturation factor variable
 
 		// find this by joining a server with a captcha thing
 		// "areYouARobotContainer": "container-2vhgEz",
@@ -1821,6 +1820,7 @@ $classes: (
 		"avatarPositionPremium": "avatarPositionPremium-1zPBq9",
 		"avatarImg": "avatar-b5OQ1N",
 		"headerTop": "headerTop-3GPUSF",
+		"headerText": "headerText-1-WmDq",
 		"avatarHint": "avatarHint-k7pYop",
 		"badges": "profileBadges-2pItdR",
 		"body": "body-2wLx-E",
@@ -1830,19 +1830,78 @@ $classes: (
 		"activity": "activity-1gTu-L",
 		"divider": "divider-1wtgZ3",
 		"roleList": "rolesList-3uZoaa",
-		"role": "role-2TIOKu",
-		"roleCircle": "roleCircle-3K9O3d",
-		"addButton": "addButton-1_dZYu",
+		"role": "role-2TIOKu", // also in new
+		"roleCircle": "roleCircle-3K9O3d", // also in new
+		"addButton": "addButton-1_dZYu", // also in new
 		"note": "note-Go5ZP2",
-		"noteTextArea": "textarea-_59yqs",
-		"actionButton": "actionButton-1YKTU0",
+		"noteTextArea": "textarea-_59yqs", // also in new
+		"actionButton": "actionButton-1YKTU0", // also in new
 		"footer": "footer-3naVBw",
-		"input": "input-2z42oC",
+		"input": "input-2z42oC", // also in new
 		"focused": "focused-1AtTHC",
 
 		// NOTE: since 2022-08-30, a new profile popout modal was introduced which allows for customisation.
 		// The above classes likely still work elsewhere and still apply in the status-changing profile modal.
 		// On ya, Discord. Cunts.
+	),
+	"userPopoutNew": (
+		// Below: HTML Tree's classes with banner, not in server
+		"popout": "userPopout-3fydSP",
+		"profileColors": "profileColors-3Y0XaR", // - default variables supplied with this, a few with dark/light
+		"popoutThemed": "userPopoutThemed-3BZ4by",
+			"inner": "userPopoutInner-PA9zkU", // has before
+			"innerNonPremium": "userPopoutInnerNonPremium-3zrFkp",
+			"innerWithoutTheme": "userPopoutInnerWithoutTheme-23vLID", // has before
+			"innerWithTheme": "userPopoutInnerWithTheme-71l1ON", // has before
+			"innerWithBanner": "userPopoutInnerWithBanner-wsoegj",
+				"banner": "banner-2boKnS",
+				"popoutBanner": "popoutBanner-16rVDY",
+				"popoutBannerPremium": "popoutBannerPremium-2RvDNZ",
+				"bannerPremium": "bannerPremium-86naOf",
+					"premiumIconWrapper": "premiumIconWrapper-yyGDql",
+					"premiumIconWrapperClickable": "clickable-1LpIFn",
+							"premiumIcon": "premiumIcon-3WfDzD",
+					"pencilContainer": "pencilContainer-11Kuga",
+						"pencilIcon": "pencilIcon-1MUmnO",
+				"avatarWrapperNormal": "avatarWrapperNormal-1tQ3Je",
+				"avatarWrapper": "avatarWrapper-3y0KZ1",
+				"avatarPositionPremium": "avatarPositionPremiumBanner-2nq2Fy",
+				"avatarClickable": "clickable-3iBWTO",
+					"avatarHoverTarget": "avatarHoverTarget-l77PhT",
+						"avatar": "avatar-2OC07D",
+					"avatarHint": "avatarHint-2g3Mcd",
+							"avatarHintInner": "avatarHintInner-3gk_Yx",
+				"badges": "profileBadges-31rDHI",
+				"badgesContainer": "container-5SvbtF",
+				"badgesWithContent": "containerWithContent-2_V0PM",
+					"badgeClickable": "clickable-28QF7i",
+						"badge22": "profileBadge22-3OAigE",
+						"badge": "profileBadge-2YySEb", // has before
+				"overlayBackground": "overlayBackground-arbZMT",
+					"bodySection": "section-3FmfOT",
+							"userText": "userText-148fun",
+								"userTagNoNickname": "userTagNoNickname-2MJ9HD",
+								"userTag": "userTag-PXLYzP",
+								"nameTag": "nameTag-H6kSJ0",
+									"username": "username-3JLfHz",
+									"userTagUsernameNoNickname": "userTagUsernameNoNickname-2e_xaO",
+									"userTagUsernameBase": "userTagUsernameBase-3Nfr5j",
+									"userTagDiscriminatorNoNickname": "userTagDiscriminatorNoNickname-2HLaIE",
+									"discrimBase": "discrimBase-KriZSj",
+					"divider": "divider-1tWBgZ",
+					"bodyScroller": "scroller-1jBQYo",
+							"bodySectionTitle": "title-1r9MQ6",
+						"messageSection": "section--1D3ev",
+						"lastSection": "lastSection-3_1yKt",
+							"messageInputContainer": "messageInputContainer-2rGDH8",
+								"messageInput": "messageInput-1KI8l8",
+								"root": "root-jbEB5E",
+								"roles": "roles-1waBHC",
+									"rolePill": "rolePill-2Lo5dd",
+										"roleRemoveButton": "roleRemoveButton-17oXnT",
+											"desaturateUserColors": "desaturateUserColors-1O-G89",
+										"roleName": "roleName-2ZJJYR",
+										"addButtonIcon": "addButtonIcon-3HZ_2f",
 	),
 	"userSettings": (
 		"standardSidebarView": "standardSidebarView-E9Pc3j",

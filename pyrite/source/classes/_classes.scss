@@ -7,15 +7,12 @@
 /// changes to Zerthox's code: `map.get` -> `map-get`, adds a dot at end.
 @function class($query) {
 	$class: $classes;
-
 	@each $el in $query {
 		$class: map-get($class, "#{$el}");
-
 		@if not $class {
 			@error "Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
 		}
 	}
-
 	@return "."+$class;
 }
 
@@ -23,7 +20,6 @@
 @function c($query) {
 	@return class($query);
 }
-
 @function C($query) {
 	@return class($query);
 }
@@ -70,15 +66,68 @@ $classes: (
 		"loadingSquare": "wanderingCubesItem-3Us-UG",
 		"pictureInPicture": "pictureInPicture-1GQX91",
 		"anchorLink": "anchor-1MIwyf",
+		"anchorLinkUnderlineOnHover": "anchorUnderlineOnHover-2qPutX",
 		"toggle": "container-2nx-BQ", // that sliding selection thing
 		"slider": "slider-32CRPX",
 		"sliderInput": "input-2XRLou",
+		"desaturate": "desaturate-_Twf3u", // has a filter relating to the saturation factor variable
 
 		// find this by joining a server with a captcha thing
 		// "areYouARobotContainer": "container-2vhgEz",
 		// "robotContent": "content-1jf0rq",
 		// "robotTitle": "title-dHonOz",
 		// "robotLogo": "logoContainer-2oll5D",
+	),
+	"text": (
+		// weird text-xx- and heading-xx classes. can have inline style for color.
+		// entirety of line 12 (2022-08-29 @ 11:49) canary build 82b0d29 version 144219. 
+		// can easily be found by selecting the sidebar panel avi name thingy.
+		"headingSMNormal": "heading-sm-normal-2Mn_Al",
+		"headingSMMedium": "heading-sm-medium-7K3WMh",
+		"headingSMBold": "heading-sm-bold-1FcNP-",
+		"headingMDNormal": "heading-md-normal-3Ytn6I",
+		"headingMDMedium": "heading-md-medium-2DVCeJ",
+		"headingMDBold": "heading-md-bold-qvVVvk",
+		"headingLGNormal": "heading-lg-normal-1bqh2L",
+		"headingLGMedium": "heading-lg-medium-3gUJeM",
+		"headingLGBold": "heading-lg-bold-3uwrwG",
+		"headingXLNormal": "heading-xl-normal-1z58RU",
+		"headingXLMedium": "heading-xl-medium-_XBxHT",
+		"headingXLBold": "heading-xl-bold-NSc3DL",
+		"headingXXLNormal": "heading-xxl-normal-3zbV4t",
+		"headingXXLMedium": "heading-xxl-medium-1hl0GL",
+		"headingXXLBold": "heading-xxl-bold-3iEWjT",
+		"eyebrow": "eyebrow-Ejf06y",
+
+		"headingDeprecatedNormal": "heading-deprecated-14-normal-1R_Vhv",
+		"headingDeprecatedMedium": "heading-deprecated-14-medium-1V2wki",
+		"headingDeprecatedBold": "heading-deprecated-14-bold-25ZKE0",
+
+		"textXSSNormal": "text-xxs-normal-3WTeJU",
+		"textXSSMedium": "text-xxs-medium-333Dkr",
+		"textXSSSemibold": "text-xxs-semibold-3gffAM",
+		"textXSSBold": "text-xxs-bold-1-1AOx",
+		"textXSNormal": "text-xs-normal-3SiVjE",
+		"textXSMedium": "text-xs-medium-2LRpEj",
+		"textXSSemibold": "text-xs-semibold-3E_l31",
+		"textXSBold": "text-xs-bold-1NF1lz",
+		"textSMNormal": "text-sm-normal-3Zj3Iv",
+		"textSMMedium": "text-sm-medium-3Pz3rB",
+		"textSMSemibold": "text-sm-semibold-3TWn25",
+		"textSMBold": "text-sm-bold-1Dtt0R",
+		"textMDNormal": "text-md-normal-304U3g",
+		"textMDMedium": "text-md-medium-2avxhQ",
+		"textMDSemibold": "text-md-semibold-3xVVGu",
+		"textMDBold": "text-md-bold-22PzaZ",
+		"textLGNormal": "text-lg-normal-1s-VnS",
+		"textLGMedium": "text-lg-medium-3LMagp",
+		"textLGSemibold": "text-lg-semibold-2iEErr",
+		"textLGBold": "text-lg-bold-2qE8R-",
+
+		"displayMD": "display-md-3I4dlu",
+		"displayLG": "display-lg-DP1JoJ",
+
+		"code": "code-3Z6ejW",
 	),
 	"login": (
 		"characterBackground": "characterBackground-1BPOOJ", // seemingly a parent class for the whole thing
@@ -137,7 +186,7 @@ $classes: (
 		"lookOutlined": "lookOutlined-3yKVGo",
 		"lookLink": "lookLink-15mFoz",
 		"hasHover": "hasHover-26V98q",
-		"icon": "buttonIcon-1TxM6f", // found at top of channel
+		"icon": "buttonIcon-1TxM6f", // found at top of channel you can edit, before first message
 
 		"shinyButton": "shinyButton-2Q9MDB",
 		"shineContainerDefault": "shineContainerDefault-3f8X_o",
@@ -166,18 +215,99 @@ $classes: (
 		"hoverYellow": "hoverYellow--uLfPr",
 	),
 	"call": (
+		// There's a bit of overlap with "stage". feel free to jump down to there.
+		// gradients use stage. more video stuff would be under stage too.
 		"wrapper": "wrapper-1gVUIN",
 		"noChat": "noChat-2UYgeE",
-		"video": "wrapper-9CUbzN",
-		"videoEnded": "tile-2TcwiO",
 		"minimum": "minimum-fXpVNc",
+		"normal": "normal-qRirv5", // used when videos are enabled
 		"container": "callContainer-HtHELf",
 		"root": "root-22AK9z",
-		"idle": "idle-39sGPO",
-		"resizeHandle": "resizeHandle-1zU8BL",
+		"idle": "idle-39sGPO", // applied when screen sharing and not hovered, hides controls (and children of)
+		"rootChild": "root-3J4La5", // a child to root above
+		"voiceCallWrapper": "voiceCallWrapper-3UtDiC", // paired with rootChild
+		"transition": "transition-3ij7TS",
+		"participant": "participant-1l6khj",
+		"spriteWrapper": "spriteWrapper-bZBDk8", // this to crossWhite seem to relate to the little animation when leaving a call
+		"sprite": "sprite-1bxGvV",
+		"crossBase": "base-3G-1g8",
+		"cross": "cross-1SI0z1",
+		"crossBlurple":	"crossBlurple-xAYtl0",
+		"crossGrey": "crossGrey-15mEQ2",
+		"crossWhite": "crossWhite-2JRhdZ",
+		"avatarWrapper": "wrapper-3mYmFS",
+		"avatarClickable": "clickable-3mbTtV",
+		"callAvatarMask": "callAvatarMask-fiNMWy",
+		"voiceAvatar": "voiceAvatar-lRbblo",
 		"avatarBorder": "border-2BJQjd",
 		"avatarSpeaking": "speaking-3RWJBr",
-		"topControls": "topControls-23RE3h",
+
+		"videoControls": "videoControls-353CsJ",
+		"controlSection": "controlSection-1mNixL", // both top and bottom are paired with this depending on location
+		"topControls": "topControls-23RE3h", // contains header and region selector
+		"headerWrapper": "headerWrapper-1ULEPv",
+		"quickSelect": "quickSelect-384d3G", // for region
+		"quickSelectLabel": "quickSelectLabel-ArUyd9",
+		"quickSelectClick": "quickSelectClick-2ycwN",
+		"quickSelectValue": "quickSelectValue-rmtkbe",
+		"quickSelectArrow": "quickSelectArrow-1dOOHb",
+		"bottomControls": "bottomControls-31YuPK",
+		"eventPromptsContainer": "eventPromptsContainer-ru7sNW",
+		"buttonsWrapper": "wrapper-3t3Yqv",
+		"controlButton": "controlButton-2PMNom",
+		"fauxDisabled": "fauxDisabled-VBw6wH", // used when camera isn't plugged in
+		"contextMenuContainer": "contextMenuContainer-1RO4DQ", // contains the little drop arrow, display none'd when discord is tiny thin see unmasked
+		"contextMenuNub": "contextMenuNub-NuTZ_U", // said drop down arrow
+		"contextMenuCaret": "contextMenuCaret-1swU58", // the ^ symbol
+		"caretTransition": "transition-30IQBn",
+		"caretOpen": "open-2fqtdy", // paired with contextMenuCaret to rotate
+		"caretDirectionDown": "directionDown-2w0MZz",
+		"controlButtonUnmaked": "unmasked-3zpww7", // display none unless screen is tiny thin, thinner than discord would otherwise allow. notably seen when using popout call
+
+		"colorable": "colorable-3rVGna",
+		"primaryDark": "primaryDark-2UJt1G",
+		"white": "white-11auuQ",
+		"red": "red-3T8maV",
+		"green": "green-3wkLbx",
+
+		"videoRow": "row-jreWvj",
+		"videoTile": "tile-3GyaDQ",
+		"noVerticalMargin": "noVerticalMargin-3CFVBz", // paired with videoTile, can't describe usage
+		"noHorizontalMargin": "noHorizontalMargin-3n9XfV", // paired with videoTile, used on last tile of row
+		"tileOuter": "outer-VAWfYQ",
+		"tileSizer": "tileSizer-4EltaN",
+		"tileInner": "inner-3je51t",
+		"videoWrapper": "wrapper-9CUbzN",
+		"tile": "tile-3FtID0", // god these names are shit
+		"tileChildFlex": "tile-2Dr6M1", // contains flex properties
+		"tileChildIdle": "idle-3MGs7O",
+		"tileChildVideoLayer": "videoLayer-bqJJzG",
+		"tileChildBackground": "tile-2TcwiO", // despite being on the same element as the flex, contains background color 
+		"tileChild": "tileChild-2k7Wqh", // haha fuck you not actually on the same class as the four above
+		"tileContent": "content-3u3YYB",
+		"tileBackground": "background-L8lGH6", // has inline style background applied to it
+		"tileAvatarWrapper": "avatarWrapper-24Rbpj",
+		"tileIndicators": "indicators-7iWi8t",
+		"streamQualityIndicator": "streamQualityIndicator-n62BFt",
+		"liveIndicator": "liveIndicator-1_RyZS",
+		"liveIndicatorChild": "liveIndicator-3bhXBF",
+		"live": "live-1V2D-f",
+		"liveLarge": "liveLarge-IxMVzY",
+		"textBadge": "textBadge-1fdDPJ",
+		"liveBase": "base-3IDx3L",
+		"liveShapeRound": "liveShapeRound-2Tgi2d",
+		"tileOverlay": "overlay-2RIWoZ",
+		"tileOverlayTitle": "overlayTitle-2efoIF",
+		"tileOverlayTitleText": "overlayTitleText-3xOA3Q",
+		"tileStatusContainer": "statusContainer-2yJ1oM",
+		"tileStatus": "status-15kcmy",
+		"tileVideo": "video-35SHWt",
+		"tileVideoContain": "videoContain-3Kfu1x",
+		"tileVideoPreview": "previewWrapper--xCwTW",
+		"videoEnded": "tile-2TcwiO",
+		"leftTrayIcon": "leftTrayIcon-3kMl25",
+		"rightTrayIcon": "rightTrayIcon-1m3hnG",
+
 		"status": "status-1ZXjSF",
 		"videoBorder": "border-2Vy6FN",
 		"videoSpeaking": "speaking-7QZEkv",
@@ -185,10 +315,119 @@ $classes: (
 		"avatar": "avatar-b5OQ1N",
 		"liveQualityIndicator": "liveQualityIndicator-2GyS_e",
 		"lowQualityWarningIcon": "warningIcon-3Mtahk",
-		"regionSelector": "quickSelect-384d3G",
 		"watchStreamButton": "cta-3-AFNF",
-		"inviteButton": "buttonColor-28DXIe", 
-	),
+		"inviteButton": "buttonColor-28DXIe",
+		
+		"resizeHandle": "resizeHandle-1zU8BL",
+		"channelChatWrapper": "channelChatWrapper-35N3nR", // invisible class to the right side of the call. 0 width.
+
+		"chatButtonContainer": "buttonContainer-2zLp7E",
+
+	),  // indented as heavily relates to call
+		"stage": (
+			"container": "container-cH6QoY", // sibling to uploadArea, child of chat
+			"callContainer": "callContainer-BGIngG", // child
+			"sidebarVisible": "sidebarVisible-3bgZKv", // same, relates to raised hand
+			// child being call root, children of scroller, call videoControls, some other classes without suffixes
+			"scroller": "scroller-35tvpe", // child
+			// children being div no class, headerContainer, rowContainer, divider, roleContainer, participants, spacer
+			"headerContainer": "container-3r7mfc",
+			"height": "height-1Wk858", // child
+			"stageSummary": "stageSummary-3IiMsf", // child, children are summaryIcon, text, summaryDotSeparator, summaryIcon, text
+			"summaryIcon": "icon-19laEi",
+			"summaryDotSeparator": "dotSeparator-1V0QPn",
+			"rowContainer": "rowContainer-jDvyA4", // child of everywhere content
+			"spaceBetweenTiles": "spaceBetweenTiles-1AqWYp", // child, children of tileOuter (see call)
+			"tile": "tile-WBhv6B", // child of call tileInner, not to be confused with every other fucking tile class 
+			"moderatorContainer": "container-yn4cwV", // shield-like design, sibling of stage tile
+			"divider": "divider-vv_iHh",
+			
+			// videoControls, children being gradientContainer+gradientBottom, controlSection[top, bottom]
+			"gradientContainer": "gradientContainer-phMG8d", // child
+			"gradientBottom": "gradientBottom-uB_-4E",
+			"gradientTop": "gradientTop-1UBZHm",
+			// controlSection (either top or bottom)
+			"controlsParticipants": "participants-3hk3ND", // used as header
+			"topRightContainer": "topRightContainer-2i_gyJ", // child div>button
+			"raisedHandButtonContainer": "raisedHandButtonContainer-ztlAy1", // used again as child of self??
+			"raisedHandIcon": "raisedHandIcon-3mZpd6", // paired with above when above is child of self
+			// within bottom, 3 children all same classes and inline except middle is `flex: 1 1 auto;`, rest are `flex: 0 1 50%;`
+			// from left to right...
+			"iconButton": "iconButton-27GGu7", // has a min-width media display none, button color has max width one
+			"iconButtonLineReset": "lineHeightReset-1WxXXk", // child, also used for participants button
+			// "leftTrayIcon": "",
+			"controlIcon": "controlIcon-10O-4h", // child but not used on leave call button
+			// middle child
+			"containerColumn": "containerColumn-1y0VaZ", // two children - event prompts and buttonRow
+			"eventPrompts": "eventPrompts-11wEpt", 
+			"openStageContainer": "container-1IyjjY",
+			"openStagePulse": "pulse-6-ba-V",
+			"openStageIcon": "icon-3CZSYe", // inline background color green
+			"openStageTextContainer": "textContainer-2SFhPw",
+			"openStageCaret": "caret-2p45hs",
+			"eventPromptsSeparator": "separator-1zwi-s",
+			"buttonRow": "container-a_NK-C",
+			"avControls": "avControls-1rQROI", // mic, parent to contextMenuContainer + unmaksed
+			"leaveStageButton": "primaryButtonColor-3yAd8m",
+			"buttonWithTextInnerContainer": "buttonWithTextInnerContainer-2Vl7uJ", 
+			"buttonWithTextIcon": "buttonWithTextIcon-YDu3bb",
+			"buttonSpacing": "buttonSpacing-ZuQU_D",
+			// right
+			"rightTrayIcon": "rightTrayIcon-1gEoki",
+
+			"roleContainer": "roleContainer-WStCpt",
+			"roleName": "roleName-1vI9vz",
+
+			"participants": "participants-3hk3ND", // children usually are tileContainer and tileBaseContainer
+			"tileBaseContainer": "tileBaseContainer-2zuu3-",
+			"tileContainer": "tileContainer-Os085F",
+			"avatarContainer": "avatarContainer-1IdZvt",
+			"avatar": "avatar-rC0Atp",
+			"textContainer": "textContainer-37W3Ry",
+			"text": "text-NKMwrd", // what a useful class name i hope you can memorize this list.
+
+			"spacer": "spacer-LSz5ul",
+
+			// child to callContainer, sibling to sidebarVisible only if this is open
+			"requestToSpeakContainer": "container-lqPArA",
+			"rtsHeaderContainer": "headerContainer-21E-jZ",
+			"rtsHeaderTitle": "headerTitle-me7jU9",
+			"rtsHeaderClose": "headerClose-2iIpCp",
+
+			"rtsContentContainer": "contentContainer-dKJ2Bn",
+			"rtsAllowFromEveryoneContainer": "container-1zDvAE",
+			"rtsToggle": "toggle-fbIE0z", // paired with ^
+			"rtsLabelRow": "labelRow-2jl9gK",
+			"rtsDivider": "divider-_0um2u",
+			"rtsDividerDefault": "dividerDefault-3C2-ws",
+
+			"rtsListTitle": "listTitle-2F1eUy",
+			"rtsEmptyStateContainer": "emptyStateContainer-2wiHQ3",
+			"rtsEmptyImage": "container-2GuWaQ", // children of this aren't listed here.
+			"rtsEmptyStateTitle": "emptyStateTitle-Qlq-Jr",
+			"rtsEmptyStateBody":"emptyStateBody-3fqk07",
+			"rtsParticipantsRowContainer": "participantRowContainer-1Fyb5z",
+			"rtsParticipantMemberContainer": "participantMemberContainer-m-hetW",
+			"rtsParticipantAvatar": "participantAvatar-3U4t_W",
+			"rtsParticipantTextContainer": "participantTextContainer-2wvQ_J",
+			"rtsParticipantName": "participantName-1FTX6x",
+
+			// sidebar stuff
+			"sidebarContainer": "container-2Y4CWj",
+			"channelNotice": "channelNotice-K4UfZY",
+			"channelNoticeTextBlock": "textBlock-3rqvcj", // children and siblings not listed
+			"audienceContainer": "audienceContainer-1zTPME",
+			"audienceContainerCollapsed": "audienceContainerCollapsed-2OXkcm",
+			"audienceVoiceIconContainer": "audienceIconContainer-1xndyK",
+			"audienceIcon": "audienceIcon-2HoEJ2",
+
+			// no clue, legacy shit or whatever
+			"participantsButton": "participantsButton-1WBdFP",
+			"rtsButtonContainer": "buttonContainer-1QM2ob",
+			"leaveQuietlyButton": "leaveQuietlyButton-3Vhswc",
+			"active": "active-3D763s",
+			"speakerRaiseHandBadge": "speakerRaiseHandBadge-1hA2Uh",
+		),
 	"channelSettings": (
 		"channelName": "input-2g-os5",
 		"channelNameFocused": "focused-1AtTHC",
@@ -224,32 +463,39 @@ $classes: (
 	),
 	"chat": (
 		"cozy": "cozy-VmLDNB",
-
+		"compact": "compact-2Nkcau",
 		"chat": "chat-2ZfjoI",
 		"chatSidebarOpen": "chatSidebarOpen--YCxhs",
 		"threadSidebarOpen": "threadSidebarOpen-1LSXvU",
 		"threadSidebarFloating": "threadSidebarFloating-uC2s6v",
 		"noChat": "noChat-sb1z07",
 		"chatContent": "content-1jQy2l",
+		"messagesWrapper": "messagesWrapper-RpOMA3",
 		"chatScroller": "scroller-kQBbkU",
 		"chatScrollerNSFW": "scroller-3KyaqJ",
 		"chatGatedContent": "gatedContent-31-gID",
 		"chatContentInner": "chatContent-3KubbW",
 		"chatLoadingWrapper": "wrapper-3HVHpV",
+		"scrollerSpacer": "scrollerSpacer-3AqkT9", // placed at bottom of message list
 		"messageLoadingWrapper": "wrapper-15CKyy",
 		"noChannel": "noChannel-1GDIAZ", // in a server without any channels or loading in
+		"backgroundFlash": "backgroundFlash-1X5jVs",
+		"messageListItem": "messageListItem-ZZ7v6g",
+		"messageGroupStart": "groupStart-3Mlgv1",
+		"cozyMessage": "cozyMessage-1DWF9U",
 		"markup": "markup-eYLPri",
 		"message": "message-2CShn3",
+		"messageWrapper": "wrapper-30-Nkg",
 		"replying": "replying-eZ7p5z",
 		"mentioned": "mentioned-Tre-dv",
-		"botMention": "ephemeral-2nDdnn",
-		"botMessageBottom": "ephemeralMessage-11q8XZ",
-		"selected": "selected-2LX7Jy",
+		"messageSelected": "selected-2LX7Jy",
 		"buttons": "buttons-3dF5Kd",
 		"buttonWrapper": "wrapper-2vIMkT",
 		"button": "button-3bklZh",
+		"buttonSelected": "selected-69H4ua",
 		"buttonIcon": "icon-1zidb7",
 		"divider": "divider-IqmEqJ",
+		"divider2": "divider-2rZFJK", // paired with above, also used in chat form unpaired with attached file
 		"dividerHasContent": "hasContent-1y12-u",
 		"dividerContent": "content-3spvdd",
 		"dividerUnread": "isUnread-3Lojb-",
@@ -263,11 +509,18 @@ $classes: (
 		"repliedTextContentIcon": "repliedTextContentIcon-1LQXRB",
 		"replyBadge": "replyBadge-LMm_Ic",
 
+		"blockedSystemMessage": "blockedSystemMessage-3FmE9n",
+		"blockedContent": "content-vSHmMD",
+
 		"chatHeader": "container-1yy5xN",
 		"chatHeaderH1": "header-1dhDWV", // h1
 		"chatHeaderDesc": "description-22d6ux",
+		"chatHeaderButtons": "channelSettingButtons-sCQ_2T",
 		"chatHeaderButton": "button-1kija8",
 		"emptyChannelIcon": "emptyChannelIcon-1YdEz2",
+		"chatHeaderMembers": "members-1CYCy_",
+		"allowedAvatars": "avatars-37eU13",
+		"allowedRoleButton": "role-1tM_X0", // element kind button
 		"allowedRole": "role-23oyrw",
 		"allowedRole2": "role-1adzi2", // paired with above
 
@@ -275,8 +528,11 @@ $classes: (
 		"messageAttachmentsContainer": "container-2sjPya",
 		"messageAttachment": "messageAttachment-CZp8Iv",
 		"chatAvatar": "avatar-2e8lTP",
+		"chatIconContainer": "iconContainer-2rPbqG", // usually used for pinned message, welcome message and kicked from gc stuff
 		"chatHeaderUsername": "header-2jRmjb",
+		"chatHeaderText": "headerText-2z4IhQ",
 		"chatTimestamp": "timestamp-p1Df1m",
+		"chatTimestampInline": "timestampInline-_lS3aK",
 		"chatEdited": "edited-1v5nT8",
 		"chatUsername": "username-h_Y3Us",
 		"chatUsernameClickable": "clickable-31pE3P",
@@ -286,6 +542,8 @@ $classes: (
 		"spoilerText": "spoilerText-27bIiA",
 		"spoilerHidden": "hidden-3B-Rum",
 		"spoilerContent": "inlineContent-2YnoDy",
+
+		"chatWelcomeContainer": "container-x059i8",
 
 		"botTag": "botTagRegular-kpctgU",
 		"gifTag": "gifTag-1TvtGO",
@@ -309,6 +567,15 @@ $classes: (
 		"welcomeCTA": "welcomeCTA-3GMMRK",
 
 		"channelLinkUserMentionWrapper": "wrapper-1ZcZW-",
+
+		"ephemeral": "ephemeral-2nDdnn",
+		"ephemeralAccessories": "ephemeralAccessories-bpsPBL",
+		"ephemeralMessage": "ephemeralMessage-11q8XZ",
+		"ephemeralIcon": "icon-2XqU5M",
+
+		"automodMessage": "automodMessage-265YwJ",
+		"automodBlockedNoticeContainer": "blockedNoticeContainer-2svSMC",
+		"automodShield": "shieldIcon-2QHlhC",
 	),
 		// indented because "HOME" on some servers. it's bollocks imo
 		"chatHome": (
@@ -325,6 +592,7 @@ $classes: (
 			"contentContainer": "container-Jqlbgl",
 			"contentCard": "card-3x20HF",
 			"contentCardInteractive": "interactiveCard-2iMtdk",
+			"contentCardSelected": "selected-sszUNx",
 			"contentCardContainer": "container-2AOBgv",
 			"contentCardClickableTarget": "clickableTarget-38GHFo",
 			"feedItemHeader": "feedItemHeader-txJq98",
@@ -375,7 +643,6 @@ $classes: (
 			"loadingContainer": "loader-1iM037",
 			"container": "container-3wLKDe",
 			"list": "list-3FIpnh",
-			"content": "content-2a4AW9", // inline style contains height
 			"row": "row-uezxzk",
 			"headerRow": "headerRow-1MKoR-", // css rule for this also applies to .list(above)>div:first-child
 			"header": "header-1Uy0p6", // applies to first card
@@ -389,6 +656,12 @@ $classes: (
 			"searchIcon": "searchIcon-2Nw0OL",
 			"closeIcon": "closeIcon-3xe5xL",
 
+			"postChat": "chat-25x62K",
+			"postIconWrapper": "iconWrapper-3FqQ75",
+			"postTags": "tags-2Siay7",
+			"postShareContainer": "container-3YcgdM",
+			"postButtonInner": "buttonInner-3aRbcx",
+
 			"loaderContainer": "loaderContainer-u6LK5n",
 			"loader": "loader-9SdUOa", // seems to be... border 3px solid $muted, left color $normal
 
@@ -397,6 +670,7 @@ $classes: (
 			"inputDefault": "inputDefault-3FGxgL",
 
 			"sortContainer": "sortContainer-33Xf0u",
+			"archivedDividerRow": "archivedDividerRow-2gZFEk",
 			"label": "label-svxvPF",
 			"sortDropdown": "sort-37NWdz", // has an important to background making it transparent
 			"value": "value-26hJ01",
@@ -410,6 +684,9 @@ $classes: (
 			"cardHasUnreads": "hasUnreads-3kKLnS",
 			"cardHeader": "header-2W779F",
 			"cardHeaderText": "headerText-3MQ6n4",
+			"cardUploadContainer": "container-3Om6RL",
+			"cardUploadInput": "uploadInput-3fblkw",
+			"cardUploadMultiPopout": "popout-2vZMlk",
 			"cardChannelName": "channelName-1On3TJ",
 			"cardChannelNameSpan": "channelNameSpan-2CGJt7",
 			"cardNewBadge": "newBadge-1LcB6t", // important to background-color
@@ -457,6 +734,7 @@ $classes: (
 			"chat": "chat-1-OBC7",
 			"iconWrapper": "iconWrapper-3plkqh",
 			"header": "chatHeaderBar-2fUORh", // usually contains "this thread is/was archived..."
+			"subtitle": "subtitle-C_i4IN", // usually contains "started by..."
 
 			// these are for when creating a thread
 			"newChat": "chat-1rZYgu",
@@ -469,15 +747,17 @@ $classes: (
 		"channelTextAreaBase": "channelTextArea-1VQBuV", // base being applied to *every* form
 		"channelTextAreaMain": "channelTextArea-1FufC0", // used at bottom of text channels
 		"channelTextAreaDisabled": "channelTextAreaDisabled-1p2fQv", // you can't type into this channel
+		"innerDisabled": "innerDisabled-2dbG11", // paired with inner
 		"scrollableContainer": "scrollableContainer-15eg7h",
 		"inner": "inner-NQg18Y",
-		"sansAttachButton": "sansAttachButton-1ERHue", // always on the main bar for some reason.
+		"sansAttachButton": "sansAttachButton-1ERHue", // always on the main bar for some reason
 		"uploadInput": "uploadInput-YH_iku",
 		"attachWrapper": "attachWrapper-3slhXI",
 		"attachButton": "attachWrapper-3slhXI",
 		"attachButtonInner": "attachButtonInner-2mwer8",
 		"attachButtonPlus": "attachButtonPlus-3IYelE",
 		"textArea": "textArea-2CLwUE",
+		"textAreaDisabled": "textAreaDisabled-10ObTX",
 		"textAreaSlate": "textAreaSlate-9-y-k2",
 		"placeholder": "placeholder-1rCBhr", // phantom text usually saying "Message $channel/$user"
 		"buttons": "buttons-uaqb-5",
@@ -514,11 +794,14 @@ $classes: (
 		"codeLine": "codeLine-2C-9aH",
 		"codeBlockText": "codeBlockText-28BOxV",
 
+		"uploadDivider": "divider-2rZFJK", // before uploading a file, this shows up between uploads and main bar
 		"inlineUpload": "upload-vLbqu-",
 		"inlineUploadContainer": "uploadContainer-TCg-Ji",
 		"inlineSpoilerTag": "altTag-3DeQpq",
 		"inlineActionBarIcon": "actionBarIcon-2vVzNZ",
 
+		"typingBase": "base-3bcbY3",
+		"typing": "typing-2J1mQU",
 		"typingDots": "dots-1BwzZQ",
 		"typingDotsThemed": "themed-3T-OPr", // found in chatHome's widgets may not apply elsewhere
 	),
@@ -565,19 +848,38 @@ $classes: (
 	"embeds": (
 		"codeblock": "markup-eYLPri code",
 		"codeblockInline": "markup-eYLPri code.inline",
+		"embedIframe": "embedIframe-1UpXja",
 
 		"invite": "wrapper-1HIH0j",
 		"inviteDestinationExpired": "inviteDestinationExpired-1n9a5a",
 		"inviteServerIcon": "guildIcon-3ZfRfI",
+		"inviteServerIconImage": "guildIconImage-74OdmM",
 		"inviteServerIconExpired": "guildIconExpired-2BFmZC",
 		"inviteResolvingBackground": "resolvingBackground-1MSH01",
+		"inviteSplash": "inviteSplash-2nkLRX",
+		"inviteSplashImage": "inviteSplashImage-3f6SDQ",
+		"inviteSplashImageLoaded": "inviteSplashImageLoaded-PnU-4Q",
 
+		"giftContainer": "giftCodeContainer-3ObH0O",
 		"gift": "tile-2mmK5T",
+		"tileHorizontal": "tileHorizontal-1DBMDZ",
+		"embedHorizontal": "embedHorizontal-2GF6zV",
+		"embedVertical": "embedVertical-2vpt72",
+		"giftMedia": "media-1cVFCz",
+		"giftMediaHorizontal": "mediaHorizontal-1eDgDq",
 		"giftInvalidPoop": "invalidPoop--w1123",
+		"giftInvalidPoopHorizontal": "invalidPoopHorizontal-lVJuEM",
+		"giftDescription": "description-X8_53U",
+		"giftTitle": "title-oJa_A6",
+		"giftTagline": "tagline-3DhQWg",
+		"giftActions": "actions-3Gkxv6",
 
 		"embedFull": "embedFull-1HGV2S",
 		"embedGrid": "grid-1aWVsE", // always there?
+		"embedGridContainer": "gridContainer-1cF_Ic",
 		"embedSuppressButton": "removeAttachmentButton-1iO1qS",
+		"embedSuppressButton2": "embedSuppressButton-1rZHq6",
+		"embedVideo": "embedVideo-2ixt5A",
 		"attachment": "attachment-1PZZB2",
 		"textContainerUp": "container-rr3Ruk", // parent of below class
 		"textContainer": "textContainer-36wgKK",
@@ -605,9 +907,9 @@ $classes: (
 		"uploadProgressBar": "progressBar-1T6LYX",
 		"videoPlayWrapper": "wrapper-1FP9YQ",
 		"imageWrapper": "imageWrapper-oMkQl4",
+		"imageWrapperBackground": "imageWrapperBackground-3Vss_C",
 		"threadContainer": "container-3i3IzO",
-	),
-		//indented as it's a subset of embeds
+	),	//indented as it's a subset of embeds
 		"media": (
 			"barInteraction": "mediaBarInteraction-tUE5dq",
 			"barInteractionDragging": "mediaBarInteractionDragging-3XLL8k", // hover required for grabber
@@ -633,10 +935,12 @@ $classes: (
 	"error": (
 		"errorPage": "errorPage-2pZ2Kq",
 		"wrapper": "wrapper-3AZUiP",
+		"flexWrapper": "flexWrapper-2VyHoE",
 		"image": "image-35kDIs",
 		"text": "text-3IbNaT",
 		"title": "title-NjUt5y",
 		"note": "note-Ph806N",
+		"buttons": "buttons-228G5H",
 	),
 	"friends": (
 		"container": "container-2cd8Mz",
@@ -644,21 +948,35 @@ $classes: (
 		"inviteToolbar": "inviteToolbar-2k2nqz",
 		"peopleColumn": "peopleColumn-1wMU14",
 		"peopleList": "peopleList-2VBrVI",
+		"peopleListTitle": "title-x4dI75",
 		"peopleListItem": "peopleListItem-u6dGxF",
+		"peopleListItemActive": "active-2UF8Zh",
 		"peopleListUsername": "username-Qpc78p",
 		"actionButton": "actionButton-3-B2x-",
+		"actionButtonAccept": "actionAccept-2nmnLv",
 		"actionButtonDeny": "actionDeny-1pQVuZ",
 		"highlight": "highlight-3DSi7b",
+
+		"addFriendHeader": "header-30YxSJ",
+		"addFriendTitle": "title-3sFEQD", // h2
+		"addFriendDescription": "description-30xx7u",
 		"addFriendInputWrapper": "addFriendInputWrapper-kkoSV9",
+
+		"empty": "friendsEmpty-gs15T1",
+		"emptyImageWrapper": "wrapper-5BaSTh",
 
 		"nowPlayingColumn": "nowPlayingColumn-1eCBCN",
 		"nowPlayingContainer": "container-1oAagU",
 		"nowPlayingScroller": "scroller-hE2gWq",
 		"nowPlayingHeader": "header-Imy05m",
+		"consentCard": "card-YtRIQ2",
 		"emptyCard": "emptyCard-KDifrB",
 		"itemCard": "itemCard-3Etziu",
+		"itemCardWrapper": "wrapper-2RrXDg", // on same element as itemCard
 		"itemCardBody": "body-16rSsp",
+		"itemCardBodyInset": "inset-SbsSFp", // on same as body, has background?
 		"itemCardBodySection": "section-3G9aLW",
+		"itemCardActivitySection": "activitySection-20iylG",
 		"itemCardSeperator": "separator-2OaeRP",
 		"itemCardActive": "active-1W_Gl9",
 		"itemCardInteractive": "interactive-2zD88a",
@@ -671,11 +989,20 @@ $classes: (
 		"activeNowAvatar": "headerAvatar-GgCKcl",
 
 		"searchIcon": "icon-3CDcPB",
+
+		"explorePublicHeader": "header-2N7BYf",
+		"explorePublicTitle": "title-27qTOX",
+		"explorePublicGrid": "grid-1-I1AZ",
+		"explorePublicContainer": "container-3tKtM_",
+		"explorePublicIcon": "icon-2O29O0",
+		"explorePublicText": "text-1eol0X",
+		"explorePublicArrow": "arrow-3Bdb2W",
 	),
 	"header": (
 		"header": "container-ZMc96U",
 		"headerTitle": "title-31SJ6t", // used with above, not always though
 		"themed": "themed-Hp1KC_",
+		"transparent": "transparent-1lUmft",
 		"children": "children-3xh0VB",
 		"divider": "divider-q3P9HC",
 		"iconWrapper": "iconWrapper-2awDjA",
@@ -690,8 +1017,8 @@ $classes: (
 		"input": "input-1nrc5P",
 		"toolbar": "toolbar-3_r2xA",
 		"iconSelected": "selected-29KTGM",
-		"search": "search-39IXmY",
-		"searchInner": "search-2Mwzzq",
+		"search": "search-39IXmY", // contains margin
+		"searchInner": "search-2Mwzzq", // gets open applied to it
 		"searchOpen": "open-1F8u2c",
 		"searchBar": "searchBar-jGtisZ",
 		"searchIcon": "icon-18rqoe",
@@ -718,10 +1045,13 @@ $classes: (
 		"wrap": "membersWrap-3NUR2t",
 		"hiddenMembers": "hiddenMembers-8kpYM0",
 		"members": "members-3WRCEx",
-		"content": "content-2a4AW9",
 		"group": "membersGroup-2eiWxl",
 		"member": "member-2gU6Ar",
+		"memberClickable": "clickable-28SzVr",
 		"memberContainer": "container-1oeRFJ",
+		"selected": "selected-1-Z6gm",
+		"layout": "layout-1qmrhw",
+		"muted": "muted-14PyqW",
 		"avatar": "avatar-6qzftW",
 		"avatarMask": "mask-1FEkla",
 		"contentName": "content-1U25dZ",
@@ -1129,6 +1459,7 @@ $classes: (
 		"fade": "fade-1R6FHN",
 		"scrolling": "scrolling-20Of9p",
 		"disableScrollAnchor": "disableScrollAnchor-6TwzvM",
+		"content": "content-2a4AW9", // USED EVERYWHERE AS A CHILD CLASS TO BASE.
 	),
 	"search": (
 		"wrap": "searchResultsWrap-5RVOkx",
@@ -1143,11 +1474,15 @@ $classes: (
 		"tabThemed": "themed-2-lozF",
 		"scroller": "scroller-3iiyhZ",
 		"channel": "channelName-3w2Y3c",
+		"resultsGroup": "searchResultGroup-1lU_-i",
 		"resultContainer": "container-rZM65Y",
 		"result": "searchResult-O9NDji",
 		"message": "message-24k8JL",
 		"blocked": "resultsBlocked-2lCGyA",
 		"buttonContainer": "buttonsContainer-Nmgy7x",
+		"navContainer": "container-1-h9mY",
+		"pageControlContainer": "pageControlContainer-6nt7kY",
+		"pageControl": "pageControl-1XvHg0",
 		"button": "button-cfOvv-",
 		"pageButton": "pageButton-1GMGeJ",
 		"activeButton": "activeButton-LRWFC_",
@@ -1173,22 +1508,27 @@ $classes: (
 		"scroller": "scroller-3X7KbA",
 		"homeContainer": "tutorialContainer-1pL9QS",
 		"homeIcon": "homeIcon-r0w4ny",
+		"listItemWrapper": "listItemWrapper-3d87LP", // seems to be only on home, add new and discovery
 		"listItem": "listItem-3SmSlK",
 		"serverSeparator": "guildSeparator-a4uisj",
 		"placeholderMask": "placeholderMask-2FHNZU",
 		"placeholderInner": "dragInner-1CUBf_",
 		"pill": "pill-L_aLMQ",
 		"pillItem": "item-2LIpTv",
+		"blobContainer": "blobContainer-ikKyFs", // seems to be inverse of listItemWrapper, except not folders
 		"serverWrapper": "wrapper-28eC3z",
 		"serverWrapperSVG": "svg-2zuE5p", // holds defs, mask and foreignObject
 		"serverWrapperSimple": "wrapperSimple-Js2rIO",
 		"iconWrapper": "wrapper-3kah-n",
 		"iconChildWrapper": "childWrapper-1j_1ub",
+		"acronym": "acronym-2zrAHN", // servers without icons
+		"acronymFolder": "acronym-vuwTO7", // above but within a folder
 		"serverIcon": "icon-3AqZ2e",
 		"selected": "selected-1Drb7Z",
 		"addServerContainer": "tutorialContainer-2jwoiB",
 		"addServer": "circleIconButton-1VxDrg",
 		"addServerSelected": "selected-2r1Hvo",
+		"addServerIcon": "circleIcon-3489FI",
 		"lowerBadge": "lowerBadge-3WTshO",
 		"numberBadge": "numberBadge-37OJ3S",
 		"upperBadge": "upperBadge-1V6Iyi",
@@ -1206,6 +1546,8 @@ $classes: (
 		"folderCollapsed": "collapsed-uGXEbi",
 		"folderHover": "hover-3m7-WT",
 		"closedFolderIconWrapper": "closedFolderIconWrapper-3tRb2d",
+		"folderGuildIcon": "guildIcon-2I5sfu", // tiny server icons
+		"folderNoIcon": "noIcon-3gSX9V", // shared in settings/boosts?
 		"expandedFolderBackground": "expandedFolderBackground-1kSAf6",
 		"folderIconWrapper": "folderIconWrapper-1oRIZr",
 		"expandedFolderIconWrapper": "expandedFolderIconWrapper-3RwQpD",
@@ -1269,10 +1611,11 @@ $classes: (
 		"privateChannel": "channel-1Shao0",
 		"privateChannelInteractive": "interactive-1vLZ_I",
 		"privateChannelInteractive2": "interactive-iyXY_x", // paired with above
-		"privateChannelLinkParent": "linkButton-2NshQj", // paired with above
+		"privateChannelLinkButton": "linkButton-2NshQj", // used for home, nitro, library etc
 		"privateChannelSelected": "interactiveSelected-29CP8y",
 		"privateChannelMuted": "muted-3KGUWb",
 		"privateChannelLink": "link-39sEB3",
+		"privateChannelLayout": "layout-1LjVue",
 		"privateChannelBadgeIcon": "badgeIconPrivateMessages-2hN0QU",
 		"privateChannelRecipientsInviteButtonIcon": "privateChannelRecipientsInviteButtonIcon-1ObKXK",
 		"privateChannelLoadingEmpty": "empty-yQo7LQ",
@@ -1280,19 +1623,33 @@ $classes: (
 		"channelsScroller": "scroller-1ox3I2",
 		"channelsHeaderContainer": "container-1-ERn5",
 		"channelsHeaderClickable": "clickable-vvKY2q",
-		"channelsHeaderContainerSelected": "selected-2TbFuo",
+		"channelsHeaderContainerSelected": "selected-1GtAC5",
 		"channelsHeader": "header-3OsQeK",
+		"communityInfoVisible": "communityInfoVisible-3zc5_s",
 		"serverName": "name-3Uvkvr",
 
 		"communityInfo": "communityInfo-3YsNIn",
 		"communityInfoPill": "communityInfoPill-2Mll66",
 		"communityInfoIcon": "communityIcon-28UI1f",
 
-		"channelsContainerContent": "content-2a4AW9", // somehow also used for open threads modal
-		"channelCategoryContainerDefault": "containerDefault-YUSmu3",
-
+		"containerDragAfter": "containerDragAfter-1J_-1V",
+		"containerDragBefore": "containerDragBefore-ei4h1m",
+		"containerUserOver": "containerUserOver-3woq86",
+		
 		"channelSelected": "selected-3veCBZ", //different to channelModeSelected; icons use it for showing them.
-
+		
+		"boostContainer": "container-2giAcK",
+		"boostTextArea": "textArea-7J7xQx",
+		"boostGoalTextContainer": "goalTextContainer-28XMHR",
+		"boostGoalText": "goalText-mbRUAP",
+		"boostProgressFraction": "progressFraction-LUvqt3",
+		"boostBar": "bar-H6j3_Q",
+		"boostProgressBar": "progressBar-2yl2pi", // boost background
+		"boostProgressBarContainer": "progressBarContainer-1efroK", // dark background
+		"boostDivider": "divider-3qUeLQ",
+		
+		"channelContainerDefault": "containerDefault-YUSmu3",
+		"channelContainerSelected": "selected-2TbFuo",
 		"channelWrapper": "wrapper-NhbLHG",
 		"channelContent": "content-1gYQeQ",
 		"channelMainContent": "mainContent-20q_Hp",
@@ -1312,6 +1669,7 @@ $classes: (
 		"channelUnreadBlob": "unread-36eUEm",
 		"channelUnreadBanners": "unread-XRkyaQ",
 
+		"categoryContainerDefault": "containerDefault-3TQ5YN",
 		"categoryWrapper": "wrapper-1S43wv",
 		"categoryMainContent": "mainContent-uDGa6R",
 		"categoryMuted": "muted-19J0ih",
@@ -1326,12 +1684,16 @@ $classes: (
 		"panelVoiceContainer": "container-1zzFcN",
 		"panelActivityContainer": "activityPanel-9icbyU",
 		"panelActivityActions": "actions-zk2vB_",
-		"panelContainer": "container-YkUktl",
 		"panelInner": "inner-llGtyq",
+		"panelContainer": "container-YkUktl",
 		"panelButtonRow": "directionRow-2Iu2A9",
 		"panelButton": "button-12Fmur",
 		"panelButtonEnabled": "enabled-9OeuTA",
+		"panelButtonContents": "contents-3ca1mk",
+		"panelButtonRedIcon": "redIcon-1ppjsM", // used with server muted/deafened
 		"panelAvatarWrapper": "avatarWrapper-1B9FTW",
+		"panelWithTag": "withTagAsButton-OsgQ9L",
+		"panelWithTagless": "withTagless-10ooWt",
 		"panelAvatar": "avatar-1EWyVD",
 		"panelAvatarSpeaking": "avatarSpeaking-33RRJU",
 		"panelName": "nameTag-sc-gpq",
@@ -1352,42 +1714,17 @@ $classes: (
 		"animatedContainer": "animatedContainer-2laTjx",
 		"bannerImage": "bannerImage-ubW8K-",
 
+		"voiceListDefault": "listDefault-2F-w65",
+		"voiceListCollapse": "listCollapse-2kZTz1",
+		"voiceList": "list-2x9Cl9",
+		"voiceCollapsed": "collapsed-1oYzUu",
+		"voiceUser": "voiceUser-3nRK-K",
+		"voiceUserClickable": "clickable-1ctZ-H",
+		"voiceUserOverlap": "overlap-1yhayD", // for collapsed/hide names
+		"voiceUserContent": "content-1Tgc42",
 		"voiceAvatar": "avatar-3FKimL",
 		"voiceSpeaking": "avatarSpeaking-2pCGrZ",
 		"voiceUsernameSpeaking": "usernameSpeaking-3FKv6H",
-	),
-	"stage": (
-		"container": "container-cH6QoY",
-		"callContainer": "callContainer-BGIngG",
-		"sidebarVisible": "sidebarVisible-3bgZKv",
-		"root": "root-22AK9z",
-		"scroller": "scroller-35tvpe",
-		"videoControls": "videoControls-353CsJ",
-		"videoControlSection": "controlSection-1mNixL",
-		"videoControlBottom": "bottomControls-31YuPK",
-		"gradientContainer": "gradientContainer-phMG8d",
-		"headerContainer": "container-3r7mfc",
-		"rowContainer": "rowContainer-jDvyA4",
-		"participants": "participants-3hk3ND",
-		"participantsButton": "participantsButton-1WBdFP",
-		"tileContainer": "tileContainer-Os085F",
-		"requestToSpeakContainer": "container-lqPArA",
-		"rtsHeaderContainer": "headerContainer-21E-jZ",
-		"rtsContentContainer": "contentContainer-dKJ2Bn",
-		"rtsEmptyImage": "container-2GuWaQ",
-		"rtsButtonContainer": "buttonContainer-1QM2ob",
-		"openTheStageContainer": "container-1IyjjY",
-		"buttonRow": "container-a_NK-C",
-		"colorable": "colorable-3rVGna",
-		"primaryDark": "primaryDark-2UJt1G",
-		"white": "white-11auuQ",
-		"red": "red-3T8maV",
-		"green": "green-3wkLbx",
-		"leaveQuietlyButton": "leaveQuietlyButton-3Vhswc",
-		"active": "active-3D763s",
-		"speakerRaiseHandBadge": "speakerRaiseHandBadge-1hA2Uh",
-		"audienceVoiceUserIconContainer": "audienceVoiceUserIconContainer-1aQGLF",
-		"avatar": "avatar-rC0Atp",
 	),
 	"store": (
 		"store": "applicationStore-2nk7Lo",
@@ -1483,6 +1820,7 @@ $classes: (
 		"avatarPositionPremium": "avatarPositionPremium-1zPBq9",
 		"avatarImg": "avatar-b5OQ1N",
 		"headerTop": "headerTop-3GPUSF",
+		"headerText": "headerText-1-WmDq",
 		"avatarHint": "avatarHint-k7pYop",
 		"badges": "profileBadges-2pItdR",
 		"body": "body-2wLx-E",
@@ -1492,15 +1830,78 @@ $classes: (
 		"activity": "activity-1gTu-L",
 		"divider": "divider-1wtgZ3",
 		"roleList": "rolesList-3uZoaa",
-		"role": "role-2TIOKu",
-		"roleCircle": "roleCircle-3K9O3d",
-		"addButton": "addButton-1_dZYu",
+		"role": "role-2TIOKu", // also in new
+		"roleCircle": "roleCircle-3K9O3d", // also in new
+		"addButton": "addButton-1_dZYu", // also in new
 		"note": "note-Go5ZP2",
-		"noteTextArea": "textarea-_59yqs",
-		"actionButton": "actionButton-1YKTU0",
+		"noteTextArea": "textarea-_59yqs", // also in new
+		"actionButton": "actionButton-1YKTU0", // also in new
 		"footer": "footer-3naVBw",
-		"input": "input-2z42oC",
+		"input": "input-2z42oC", // also in new
 		"focused": "focused-1AtTHC",
+
+		// NOTE: since 2022-08-30, a new profile popout modal was introduced which allows for customisation.
+		// The above classes likely still work elsewhere and still apply in the status-changing profile modal.
+		// On ya, Discord. Cunts.
+	),
+	"userPopoutNew": (
+		// Below: HTML Tree's classes with banner, not in server
+		"popout": "userPopout-3fydSP",
+		"profileColors": "profileColors-3Y0XaR", // - default variables supplied with this, a few with dark/light
+		"popoutThemed": "userPopoutThemed-3BZ4by",
+			"inner": "userPopoutInner-PA9zkU", // has before
+			"innerNonPremium": "userPopoutInnerNonPremium-3zrFkp",
+			"innerWithoutTheme": "userPopoutInnerWithoutTheme-23vLID", // has before
+			"innerWithTheme": "userPopoutInnerWithTheme-71l1ON", // has before
+			"innerWithBanner": "userPopoutInnerWithBanner-wsoegj",
+				"banner": "banner-2boKnS",
+				"popoutBanner": "popoutBanner-16rVDY",
+				"popoutBannerPremium": "popoutBannerPremium-2RvDNZ",
+				"bannerPremium": "bannerPremium-86naOf",
+					"premiumIconWrapper": "premiumIconWrapper-yyGDql",
+					"premiumIconWrapperClickable": "clickable-1LpIFn",
+							"premiumIcon": "premiumIcon-3WfDzD",
+					"pencilContainer": "pencilContainer-11Kuga",
+						"pencilIcon": "pencilIcon-1MUmnO",
+				"avatarWrapperNormal": "avatarWrapperNormal-1tQ3Je",
+				"avatarWrapper": "avatarWrapper-3y0KZ1",
+				"avatarPositionPremium": "avatarPositionPremiumBanner-2nq2Fy",
+				"avatarClickable": "clickable-3iBWTO",
+					"avatarHoverTarget": "avatarHoverTarget-l77PhT",
+						"avatar": "avatar-2OC07D",
+					"avatarHint": "avatarHint-2g3Mcd",
+							"avatarHintInner": "avatarHintInner-3gk_Yx",
+				"badges": "profileBadges-31rDHI",
+				"badgesContainer": "container-5SvbtF",
+				"badgesWithContent": "containerWithContent-2_V0PM",
+					"badgeClickable": "clickable-28QF7i",
+						"badge22": "profileBadge22-3OAigE",
+						"badge": "profileBadge-2YySEb", // has before
+				"overlayBackground": "overlayBackground-arbZMT",
+					"bodySection": "section-3FmfOT",
+							"userText": "userText-148fun",
+								"userTagNoNickname": "userTagNoNickname-2MJ9HD",
+								"userTag": "userTag-PXLYzP",
+								"nameTag": "nameTag-H6kSJ0",
+									"username": "username-3JLfHz",
+									"userTagUsernameNoNickname": "userTagUsernameNoNickname-2e_xaO",
+									"userTagUsernameBase": "userTagUsernameBase-3Nfr5j",
+									"userTagDiscriminatorNoNickname": "userTagDiscriminatorNoNickname-2HLaIE",
+									"discrimBase": "discrimBase-KriZSj",
+					"divider": "divider-1tWBgZ",
+					"bodyScroller": "scroller-1jBQYo",
+							"bodySectionTitle": "title-1r9MQ6",
+						"messageSection": "section--1D3ev",
+						"lastSection": "lastSection-3_1yKt",
+							"messageInputContainer": "messageInputContainer-2rGDH8",
+								"messageInput": "messageInput-1KI8l8",
+								"root": "root-jbEB5E",
+								"roles": "roles-1waBHC",
+									"rolePill": "rolePill-2Lo5dd",
+										"roleRemoveButton": "roleRemoveButton-17oXnT",
+											"desaturateUserColors": "desaturateUserColors-1O-G89",
+										"roleName": "roleName-2ZJJYR",
+										"addButtonIcon": "addButtonIcon-3HZ_2f",
 	),
 	"userSettings": (
 		"standardSidebarView": "standardSidebarView-E9Pc3j",
@@ -1658,10 +2059,12 @@ $classes: (
 	),
 
 	// Client Mods
+	// despite powercord being discontinued, this section is used with Replugged.
 	"powercord": (
 		"base": "powercord",
 		"notice": "powercord-notice",
 		"codeblockCopy": "powercord-codeblock-copy-btn",
+		"codeblockCopied": "copied",
 		"entitiesManageTabs": "powercord-entities-manage-tabs",
 		"quickCSS": "powercord-quickcss",
 		"poppedOut": "popped-out",
@@ -1674,6 +2077,8 @@ $classes: (
 		"codeMirrorHintsActive": "CodeMirror-hint-active",
 		"updaterPage": "powercord-updater",
 		"toast": "powercord-toast",
+		"pluginDownloaderApply": "PluginDownloaderApply", // also used with themes
+		"pluginDownloaderApplied": "applied",
 	),
 	"pcPlugin": (
 		"smartTypersPreview": "smartTypers-preview",
@@ -1684,9 +2089,6 @@ $classes: (
 		"shcNoticeLock": "shc-notice-lock",
 		"shcLockedText": "shc-locked-channel-text",
 		"shcNoAccessText": "shc-no-access-text",
-	),
-	"glasscord": (
-		"base": "glasscord",
 	),
 	"bd": (
 		"addonList": "bd-addon-list",

@@ -35,7 +35,7 @@
 }
 
 #{c(chat mentioned)},
-#{c(chat botMention)} {
+#{c(chat ephemeral)} {
   &::before {
     @include bg;
     background-color: var(--mention-background);
@@ -46,12 +46,12 @@
   }
 }
 #{c(chat mentioned)},
-#{c(chat botMention)} {
+#{c(chat ephemeral)} {
   &:hover:before {
     opacity: calc( var(--mention-opacity) + 0.2 );
   }
 }
-#{c(chat botMessageBottom)} {
+#{c(chat ephemeralMessage)} {
   color: var(--text-normal);
 }
 

@@ -1,13 +1,7 @@
-@use "start";
 @use "start" as *;
 /*! #{$theme-name} v#{$version} by LeafyLuigi */
-// Import Classes
-@use "classes";
 
-// Import Functions, Variables, Mixins and Default Vars
-@use "backend";
-// @use "backend/_variables.scss"; //needs own vars
-
+// Import Functions, Variables, Mixins and Class list functionality.
 @use "backend" as *;
 
 // Contains the theme proper.
@@ -154,3 +148,8 @@
   --status-warning: var(--yellow-color);
   --status-danger: var(--red-color);
 }
+
+// .automodMessage-265YwJ
+// bg var(--background-message-automod)
+// before bg var(--text-danger)
+// hover bg var(--background-message-automod-hover)
