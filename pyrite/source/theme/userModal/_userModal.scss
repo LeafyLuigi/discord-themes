@@ -4,8 +4,13 @@
 #{c(main light)} {
   #{c(userModal root)} {
     box-shadow: none;
-    background: var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover;
-    // background: linear-gradient(var(--gradient));
+    @include bg;
+    &:before {
+      height: 100%;
+      width: 100%;
+      background: var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover;
+      filter: var(--user-modal-filter);
+    }
   }
 }
 

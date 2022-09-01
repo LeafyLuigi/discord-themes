@@ -118,7 +118,7 @@ code,
 		height: 100%;
 		width: 100%;
 		background: var(--background-image) center/cover no-repeat var(--background-attachment);
-    filter: blur(--background-filter);
+    filter: var(--background-filter);
 	}
 }
 

@@ -15,6 +15,7 @@
 		left: 0;
 		background: var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment);
 		z-index: -1;
+		filter: var(--user-popout-filter);
 	}
 }
 #{c(userPopout body)},
