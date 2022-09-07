@@ -73,12 +73,12 @@ body {
 			background-color: transparent;
 		}
 	}
-	#{c(os typeMac)}#{c(os titleBar)} ~ div #channelTabs-container > :first-child > :first-child {
+	#{c(os mac type)}#{c(os titleBar)} ~ div #channelTabs-container > :first-child > :first-child {
 		margin-left: 3px;
 	}
 }
-#{c(os windows)} body {
-	#{c(os typeWindows)} {
+#{c(os win platform)} body {
+	#{c(os win type)} {
 		// i hate math.
 		top: calc(var(--channel-tabs-enabled,0) * ( var(--channel-tabs-tabBar-enabled,1) * (var(--channelTabs-tabHeight) + 3px ) + var(--channel-tabs-favBar-enabled,1) * (var(--channelTabs-favHeight) + 8px) ));
 		&::before {
@@ -86,7 +86,7 @@ body {
 		}
 	}
 }
-html:not(#{c(os windows)}) div#{c(sidebar sidebar)} {
+html:not(#{c(os win platform)}) div#{c(sidebar sidebar)} {
 	border-radius: 0;
 }
 

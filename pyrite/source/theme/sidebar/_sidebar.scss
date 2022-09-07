@@ -10,13 +10,8 @@
   
   // end notice stuff
   background-color: transparent;
-  @include bg;
+  @include bg($bg:$side,$top:48px,$w:240px);
   @include bg2;
-  &::before {
-    background-color: $side;
-    top: 48px;
-    width: 240px;
-  }
   &::after {
     background-color: $header;
     height: 48px;
@@ -24,7 +19,7 @@
     z-index: 1001;
   }
 }
-#{c(os mac)} {
+#{c(os mac platform)} {
   #{c(sidebar sidebar)}::after {
     -webkit-app-region: drag;
   }
@@ -173,11 +168,7 @@
   &:hover {
     background-color: transparent;
   }
-  @include bg;
-  &::before {
-    background-color: $primary;
-    opacity: 0.6;
-  }
+  @include bg($bg:$primary,$o:.6);
   &:hover::before {
     background-color: $hover;
   }

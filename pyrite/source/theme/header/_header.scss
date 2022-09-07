@@ -40,7 +40,7 @@
   @include header;
   overflow: visible;
 }
-#{c(os mac)} {
+#{c(os mac platform)} {
   #{c(header title)},
   #{c(header children)},
   #{c(header topic)} {
@@ -109,6 +109,7 @@
     }
     // and the blocked tab
     &#{c(header tabBarItemThemed)} {
+      @warn "aria controls used";
       &[aria-controls="blocked-tab"] {
         color: #fff; // interactive-normal to mirror online/all/pending, white to mirror add friends. both light and dark.
         background-color: $red;

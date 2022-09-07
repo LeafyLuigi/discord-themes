@@ -18,6 +18,7 @@
 		filter: var(--user-popout-filter);
 	}
 }
+#{c(userPopoutNew popout)}:not(#{c(userPopoutNew popoutThemed)}) :is(#{c(userPopoutNew overlayBackground)},#{c(userPopoutNew badges)}),
 #{c(userPopout body)},
 #{c(userPopout footer)} {
 	background-color: $side;
@@ -116,8 +117,6 @@
 // --profile-body-divider-color - dividers within body - supplied with extra light/dark
 // --profile-message-input-border-color - message border - supplied with extra light/dark
 
-#{c(userPopoutNew popout)}>div:not(#{c(userPopoutNew innerWithTheme)}) {
-	#{c(userPopoutNew inner)} {
+#{c(userPopoutNew popout)}:not(#{c(userPopoutNew popoutThemed)}) #{c(userPopoutNew inner)} {
 		background: transparent;
-	}
 }

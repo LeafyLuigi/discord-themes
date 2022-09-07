@@ -21,15 +21,7 @@
     #{c(serverSettings noticeContainer)} {
       &:not([style*="240, 71, 71"]) {
         background-color: transparent !important; // !important reason: element.style
-        @include bg;
-        &:before {
-          right: 20px;
-          left: 20px;
-          bottom: 20px;
-          background-color: $primary;
-          opacity: 0.9;
-          border-radius: 5px;
-        }
+        @include bg($right:20px,$left:20px,$bottom:20px,$bg:$primary,$o:.9,$br:5px);
       }
     }
   }

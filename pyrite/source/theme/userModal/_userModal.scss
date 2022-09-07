@@ -4,13 +4,7 @@
 #{c(main light)} {
   #{c(userModal root)} {
     box-shadow: none;
-    @include bg;
-    &:before {
-      height: 100%;
-      width: 100%;
-      background: var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover;
-      filter: var(--user-modal-filter);
-    }
+    @include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter));
   }
 }
 
@@ -29,12 +23,7 @@
   margin: 0 4px;
   border: 2px solid $primary;
   border-radius: 5px;
-  @include bg;
-  &:before {
-    background-color: transparent;
-    opacity: 0.2;
-    border-radius: 5px;
-	}
+  @include bg($bg:transparent,$o:0.2,$br:5px);
   &:hover,
 	&:active {
     border-color: $hover;

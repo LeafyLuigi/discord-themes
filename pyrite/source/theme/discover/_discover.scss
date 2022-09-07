@@ -4,12 +4,7 @@
 #{c(main dark)} {
   #{c(discover pageWrapper)} {
     background-color: transparent;
-    @include bg;
-    &:before {
-      background-color: $header;
-      height: 48px;
-      z-index: 1001;
-    }
+    @include bg($z:1001,$bg:$header,$h:48px);
   }
   #{c(discover card)},
   #{c(discover cardIconMask)},

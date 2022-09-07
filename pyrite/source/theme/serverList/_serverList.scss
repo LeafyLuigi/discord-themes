@@ -110,11 +110,7 @@
 #{c(serverList numberBadge)} {
   background-color: transparent !important; // !important reason: element.style
   filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
-  @include bg;
-  &:before {
-    background: $primary;
-    border-radius: 50%;
-  }
+  @include bg($bg:$primary,$br:50%);
 }
 
 #{c(serverList iconBadge)}#{c(serverList participating)} {

@@ -113,13 +113,7 @@ code,
 // Background
 #{c(main appMount)} {
   background: transparent;
-	@include bg;
-	&:before {
-		height: 100%;
-		width: 100%;
-		background: var(--background-image) center/cover no-repeat var(--background-attachment);
-    filter: var(--background-filter);
-	}
+	@include bg($h:100%,$w:100%,$bgf:var(--background-image) center/cover no-repeat var(--background-attachment),$f:var(--background-filter));
 }
 
 // Transparency to allow the background to work.
@@ -148,8 +142,8 @@ body, // this one is here for transparency in bd to work
 }
 
 // Windows
-#{c(os windows)} {
-  #{c(os typeWindows)} {
+#{c(os win platform)} {
+  #{c(os win type)} {
     padding-top: 0;
     margin-top: 0;
     height: 0;
@@ -170,19 +164,15 @@ body, // this one is here for transparency in bd to work
   #{c(serverList servers)} {
     margin-top: 48px;
     overflow: visible;
-    @include bg;
-    &:before {
-      z-index: 1010;
-      background-color: $header;
-      width: 72px;
-      height: 48px;
-      top: -48px;
-    }
+    @include bg($z:1010,$bg:$header,$w:72px,$h:48px,$top:-48px);
   }
-  #{c(os winButton)} {
+  #{c(os win button)} {
     width: var(--win-min-max-close-button-width);
+    position: relative;
+    top: 0;
+    height: 48px;
   }
-  #{c(os winButtonClose)}:hover {
+  #{c(os win buttonClose)}:hover {
     background: $red;
     color: var(--interactive-hover);
   }
@@ -194,37 +184,24 @@ body, // this one is here for transparency in bd to work
   #{c(header topic)} {
     margin-right: calc(3 * var(--win-min-max-close-button-width));
   }
-  #{c(os winButton)} {
-    position: relative;
-    top: 0;
-    height: 48px;
-  }
 }
 
 // Mac
-#{c(os mac)} {
-  #{c(os macButtonMinimize)},
-  #{c(os macButtonMaximize)} {
+#{c(os mac platform)} {
+  #{c(os mac buttonMin)},
+  #{c(os mac buttonMax)} {
     margin-left: 7px;
   }
-  #{c(os typeMac)} {
+  #{c(os mac type)} {
     top: calc(var(--channel-tabs-enabled,0) * calc(66px * var(--channel-tabs-enabled,0)));
-    #{c(os macButtons)} {
+    #{c(os mac buttons)} {
       height: 48px;
     }
   }
   #{c(serverList servers)} {
     margin-top: 48px;
     overflow: visible;
-    @include bg;
-    &:before {
-      z-index: 1050;
-      background-color: $header;
-      width: 72px;
-      height: 48px;
-      top: -48px;
-      -webkit-app-region: drag;
-    }
+    @include bg($z:1050,$bg:$header,$w:72px,$h:48px,$top:-48px,$war:drag);
   }
   #{c(serverList scroller)} {
     padding-top: 4px;
@@ -419,11 +396,8 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
       border: none;
       background-color: transparent;
       #{c(embeds textContainer)} {
-        @include bg;
+        @include bg($bgf: center/ cover no-repeat);
         @include bg2;
-        &:before {
-          background: center/ cover no-repeat;
-        }
         &:after {
           background: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat;
         }
@@ -498,15 +472,15 @@ $helper: (
 }
 
 /* Redownload pls bar */
-#{c(main appContainer)}::before {
-  content: "Your version of Pyrite is outdated. Please redownload.";
-  text-align: center;
-  position: absolute;
-  color: #fff;
-  white-space: pre-wrap;
-  box-sizing: border-box;
-  padding: 10px 0;
-  background-color: $header;
-  display: var(--update-notice-2-point-oh, block);
-  z-index: 2500;
-}
+// #{c(main appContainer)}::before {
+//   content: "Your version of Pyrite is outdated. Please redownload.";
+//   text-align: center;
+//   position: absolute;
+//   color: #fff;
+//   white-space: pre-wrap;
+//   box-sizing: border-box;
+//   padding: 10px 0;
+//   background-color: $header;
+//   display: var(--update-notice-2-point-oh, block);
+//   z-index: 2500;
+// }

@@ -123,11 +123,7 @@
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   background-color: $side;
-  @include bg;
-  &:before {
-    background-color: $header;
-    height: 48px;
-  }
+  @include bg($bg:$header,$h:48px);
 }
 #{c(stage rtsEmptyImage)} {
   display: none;

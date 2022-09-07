@@ -21,12 +21,8 @@
 }
 
 #{c(chat noChannel)} {
-  @include bg;
+  @include bg($h:48px,$bg:$header);
   @include bg2;
-  &::before {
-    height: 48px;
-    background-color: $header;
-  }
   &::after {
     top: 48px;
     height: calc(100vh - 48px);
@@ -36,14 +32,7 @@
 
 #{c(chat mentioned)},
 #{c(chat ephemeral)} {
-  &::before {
-    @include bg;
-    background-color: var(--mention-background);
-    opacity: var(--mention-opacity);
-    transition: all ease-in-out;
-    width: -webkit-fill-available;
-    z-index: -1;
-  }
+  @include bg($bg:var(--mention-background),$o:var(--mention-opacity),$w:-webkit-fill-available,$tr:all ease-out);
 }
 #{c(chat mentioned)},
 #{c(chat ephemeral)} {
@@ -71,11 +60,7 @@
     &:hover {
       background-color: transparent;
     }
-    @include bg;
-    &::before {
-      background-color: $primary;
-      opacity: 0.6;
-    }
+    @include bg($bg:$primary,$o:0.6);
     &:hover::before {
       background-color: $hover;
     }
@@ -282,13 +267,7 @@
     background-color: transparent;
     color: var(--interactive-hover);
     transition: color 50ms ease-out;
-    @include bg;
-    &::before {
-      transition: opacity 50ms ease-out;
-      border-radius: 3px;
-      background-color: $primary;
-      opacity: .25;
-    }
+    @include bg($tr:opacity 50ms ease-out,$br:3px,$bg:$primary,$o:.25);
     &:hover {
       color: var(--interactive-active);
       &::before {

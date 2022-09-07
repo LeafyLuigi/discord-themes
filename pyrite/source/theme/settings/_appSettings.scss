@@ -1,7 +1,6 @@
 @use "backend" as *;
 /* Start App Settings */
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(appSettings sliderBar)} {
     background-color: $card;
   }
@@ -32,8 +31,7 @@
     #{c(appSettings gameOverlayStatusText)} {
       color: var(--text-muted);
     }
-    #{c(appSettings gameOverlayToggleIconOn)} #{c(appSettings gameOverlayToggleIconFill)},
-    #{c(appSettings gameOverlayToggleIconOff)} #{c(appSettings gameOverlayToggleIconFill)} {
+    :is(#{c(appSettings gameOverlayToggleIconOn)},#{c(appSettings gameOverlayToggleIconOff)}) #{c(appSettings gameOverlayToggleIconFill)} {
       fill: $primary;
     }
     #{c(appSettings gameNameInput)} {

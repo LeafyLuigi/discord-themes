@@ -36,13 +36,13 @@
 }
 
 // Windows
-#{c(os windows)} {
+#{c(os win platform)} {
   #app-mount {
     #{c(serverList servers)} {
       top: calc(var(--server-container) - 48px);
     }
   }
-  #{c(os typeWindows)} {
+  #{c(os win type)} {
     height: 0;
     margin-top: 0;
   }
@@ -58,7 +58,7 @@
   #{c(header nicknames)} {
     padding-right: 0;
   }
-  #{c(os winButton)} {
+  #{c(os win button)} {
     position: relative;
     height: 22px;
     top: 0;
@@ -66,9 +66,9 @@
 }
 
 // Mac
-#{c(os mac)} {
+#{c(os mac platform)} {
   #app-mount {
-    #{c(os typeMac)} #{c(os macButtons)} {
+    #{c(os mac type)} #{c(os mac buttons)} {
       padding: 10px;
       margin-top: -22px;
       &::before,
@@ -84,7 +84,7 @@
       }
     }
   }
-  #{c(os typeMac)} {
+  #{c(os mac type)} {
     height: 0;
     &:before {
       content: "";
@@ -94,7 +94,7 @@
       -webkit-app-region: drag;
     }
   }
-  #{c(main appMount)} #{c(os typeMac)} #{c(os macButtons)} {
+  #{c(main appMount)} #{c(os mac type)} #{c(os mac buttons)} {
     height: 12px;
   }
   #{c(serverList servers)} {
@@ -117,7 +117,7 @@
     -webkit-app-region: unset;
   }
 }
-html#{c(os mac)} #app-mount #{c(main base)} {
+html#{c(os mac platform)} #app-mount #{c(main base)} {
   top: var(--server-container) !important; // !important reason: import overrides it
 }
 

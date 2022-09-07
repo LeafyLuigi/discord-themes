@@ -13,13 +13,7 @@
     }
     #{c(gse gifFavoritesFade)} {
         background-color: transparent;
-        @include bg;
-        &::before {
-            background-color: $primary;
-            opacity: 0.8;
-            border-radius: 4px;
-            transition: opacity .15s ease-out;
-        }
+        @include bg($bg:$primary,$o:0.8,$br:4px,$tr:opacity .15s ease-out);
         &:hover::before {
             opacity: 0.95;
         }

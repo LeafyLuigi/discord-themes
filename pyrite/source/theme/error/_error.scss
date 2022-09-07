@@ -1,224 +1,165 @@
 @use "backend" as *;
 /* Start Error Page */
-#{c(main dark)},
-#{c(main light)} {
-  #{c(error wrapper)} {
-    background-image: none;
-    background-color: $middle;
-  }
+:is(#{c(main dark)},#{c(main light)}) {
+	#{c(error wrapper)} {
+		background: $middle none;
+	}
 }
-#{c(os windows)} {
-  &[lang="en-GB"],
-  &[lang="fr"] {
-    #{c(error errorPage)} {
-      #{c(error image)} {
-        display: none;
-      }
-      #{c(error text)} {
-        width: 70vw;
-        padding: 100px;
-        background-color: #0078d7; // Intended color; Fake BSoD.
-        #{c(error title)} {
-          line-height: 7.5vw;
-          font-size: 0;
-          margin-bottom: 0;
-          text-align: left;
-          &:after {
-            content: ":(";
-            font-size: 14vw;
-            font-family: Comic Sans MS, cursive;
-          }
-        }
-        #{c(error note)} {
-          text-align: left;
-          white-space: pre-line;
-          > div > p {
-            font-size: 0;
-            margin: 0;
-            &:before,
-            &:after {
-              font-size: 2.5vw;
-              display: block;
-              font-family: Comic Sans MS, cursive;
-              color: #fff;
-            }
-            &:first-child {
-              &:before {
-                content: "Oopsie Woopsie! Uwu We made a fucky wucky!! A wittle";
-              }
-              &:after {
-                content: "fucko boingo! The code monkeys at our headquaters are";
-              }
-            }
-            &:last-child {
-              &:before {
-                content: "working VEWY HAWD to fix this!";
-              }
-              &:after {
-                content: "If you'd like to know more, you can search online later for this error: OOPSIE_WOOPSIE";
-                font-size: 1.25vw;
-                margin-top: 5vw;
-              }
-            }
-          }
-        }
-      }
-      #{c(button contents)} {
-        font-size: 0;
-        &:after {
-          content: "please click this";
-          font-size: 14px;
-          top: 1px;
-          position: relative;
-        }
-      }
-    }
-  }
-}
+:is([lang="en-GB"],[lang="fr"]) {
+	// Win + Mac + Linux
+	#{c(error image)}  {
+		display: none;
+	}
+	#{c(error page)} {
+		#{c(button contents)} {
+			font-size: 0;
+			&:after {
+				content: "please click this";
+				font-size: 14px;
+				top: 1px;
+				position: relative;
+			}
+		}
+	}
+	#{c(error note)} {
+		p {
+			font-size: 0;
+			margin: 0;
+		}
+	}
 
-#{c(os mac)} {
-  &[lang="en-GB"],
-  &[lang="fr"] {
-    #{c(main dark)},
-    #{c(main light)} {
-      #{c(error wrapper)} {
-        background-color: transparent;
-      }
-    }
-    #{c(error errorPage)} {
-      @include bg;
-      &:before {
-        background-color: $middle;
-      }
-      #{c(error image)} {
-        display: none;
-      }
-      #{c(error text)} {
-        background: transparent url(https://leafyluigi.github.io/images/fakemacerror.png) no-repeat center;
-        height: 255px;
-        width: 472px;
-        #{c(error title)} {
-          font-size: 0;
-          margin-bottom: 18px;;
-        }
-        #{c(error note)} {
-          text-align: left;
-          white-space: pre-line;
-          > div > p {
-            font-size: 0;
-            margin: 0;
-            &:before,
-            &:after {
-              display: block;
-              margin-top: 1em;
-              margin-bottom: 1em;
-              margin-left: 0;
-              margin-right: 0;
+	// Win + Mac
+	&:is(#{c(os win platform)},#{c(os mac platform)}) {
+		#{c(error note)} {
+			text-align: left;
+			white-space: pre-line;
+			p {
+				&:first-child::before {
+					content: "Oopsie Woopsie! Uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headquaters are working VEWY HAWD to fix this!";
+				}
+				&:before,
+				&:after {
+					display: block;
+					color: #fff;
+					font-family: Comic Sans MS, cursive;
+				}
+			}
+		}
+	}
 
-              font-size: 10px;
-              font-family: Comic Sans MS, cursive;
-              color: #fff;
-              max-width: 400px;
-              padding-left: 54px;
-              line-height: 15px;
-            }
-            &:first-child {
-              &:before {
-                content: "Oopsie Woopsie! Uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headquaters are working VEWY HAWD to fix this!";
-              }
-              &:after {
-                content: "Qué mierda acabas de decir sobre mí, pequeña perra? Te haré saber que me gradué de honor en mi clase de los Navy Seals,he estado envuelto en numerosos ataques sorpresa a Al-Quaeda, y tengo 300 asesinatos confirmados.";
-              }
-            }
-            &:last-child {
-              &:before {
-                content: "Внимание! Продаётся Х5ый 93его года. Карбюратор, инжектор, инспектор проректор, ИК-порт, блютуз, туз, козырь, валет, дама, румба, сальса, танго, манго, Мис Бахар, сеть магазинов \"Сабина\".";
-              }
-              &:after {
-                content: "バーガーキングの足のレタス。バーガーキングのハンバーガーに一番入れたくないのは、誰かの足の菌ですよね。";
-              }
-            }
-          }
-          > div:after {
-            content: "DO NOT RESTART YOUR COMPUTER.";
-            display: block;
-            margin-top: 1em;
-            margin-bottom: 1em;
-            text-align: center;
-            font-size: 12px;
-            color: #555;
-            line-height: 15px;
-            font-weight: 600;
-          }
-        }
-      }
-      #{c(button contents)} {
-        font-size: 0;
-        &:after {
-          content: "please click this";
-          font-size: 14px;
-          top: 1px;
-          position: relative;
-        }
-      }
-    }
-  }
-  &#{c(main fullMotion)} {
-    &[lang="en-GB"],
-    &[lang="fr"] {
-      #{c(error errorPage)} {
-        &:before {
-          animation: errorScrollMac 3.2s linear;
-        }
-      }
-      #{c(error text)},
-      #{c(error note)},
-      #{c(error errorPage)} button {
-        animation: errorPopMac 3.2s linear;
-      }
-    }
-  }
-}
-#{c(os linux)} {
-  &[lang="en-GB"],
-  &[lang="fr"] {
-    #{c(error errorPage)} {
-      #{c(error title)},
-      #{c(error image)} {
-        display: none;
-      }
-      #{c(error note)} {
-        text-align: unset;
-        &>div {
-          p {
-            font-size: 0;
-          }
-          p:first-child::before {
-            content: "[  344.160864] EIP is at sysrq_handle_crash+0x17/0x20a\a[  344.160921] EAX: 00000063 EBX: 00000063 ECX: c191d9d0 EDX: f7be1604\a[  344.160973] ESI: 00000292 EDI: 00000004 EBP: eda23f14 ESP: eda23f14\a[  344.161026]   DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068\a[  344.161080] CRO: 80050033 CR2: 00000000 CR3: 2da04000 CR4: 000006f0\a[  344.161150] Stack:\a[  344.161187]  eda23f34 c13c24f9 c17e97a1 c18704f5 c191d9d0 00000002 edd13000 013c2920\a[  344.161291]  eda23f40 c13c2944 f0bdc0c0 eda23f60 c11bab48 eda23f98 00000002 0973dc08\a[  344.162047]  edd13000 00000002 c11bab00 eda23f88 c116a78d eda23f98 edd13000 00000000\a[  344.163472] Call Trace:\a[  344.163489]  [<c13c24f9>] __handle_sysrq+0xe9/0x140\a[  344.163489]  [<c13c2920>] ? sysrq_filter+0x3a0/0x3a0\a[  344.163489]  [<c13c2944>] write_sysrq_trigger+0x24/0x40\a[  344.163489]  [<c11bab48>] proc_reg_write+0x48/0x80\a[  344.163489]  [<c11bab00>] ? prog_reg_poll+0x70/0x70\a[  344.163489]  [<c116a78d>] vfs_write+0x9d/0x1b0\a[  344.163489]  [<c116ae39>] SyS_write+0x49/0x90\a[  344.163489]  [<c1632ccd>] sysenter_do_call+0x12/0x28\a[  344.163489] Code: 77 20 75 e5 89 f8 e8 09 f9 ff ff eb dc 66 90 66 90 66 90 90 55 89 e5 3e 8d 74 26 00 c7 05 d0 97 a5 c1 01 00 00 00 0f ae f8 89 f6 <c6> 05 00 00 00 00 01 5d c3 55 89 e5 53 83 ec 08 3e 8d 74 26 00\a[  344.163489] EIP: [<c13c1db7>] sysrq_handle_crash+0x17/0x20 SS:ESP 0068:eda23f14\a[  344.163489] CR2: 0000000000000000\a[  344.163489] ---[ end trace 684bef7567bc583c ]---\a[  344.163489] Kernel panic - not syncing: I typed this all out";
-            position: absolute;
-            padding: 1px 0;
-            top: 0;
-            left: 0;
-            font-family: var(--code-font);
-            font-size: 14px;
-            background-color: black;
-            color: #ccc;
-            white-space: pre;
-            display: block;
-          }
-        }
-      }
-      #{c(button contents)} {
-        font-size: 0;
-        &:after {
-          content: "click here to ignore that ever happened";
-          font-size: 14px;
-          top: 1px;
-          position: relative;
-        }
-      }
-    }
-  }
-}
+	// Win
+	&#{c(os win platform)} {
+		#{c(error text)} {
+			width: 70vw;
+			padding: 100px;
+			background-color: #0078d7; // Intended color; Fake BSoD.
+		}
+		#{c(error title)} {
+			line-height: 7.5vw;
+			font-size: 0;
+			margin: 0;
+			text-align: left;
+			&:after {
+				content: ":(";
+				font-size: 14vw;
+				font-family: Comic Sans MS, cursive;
+			}
+		}
+		#{c(error note)} p {
+			&:before,
+			&:after {
+				font-size: 2.5vw;
+				line-height: 2.3vw;
+			}
+			&:first-child {
+				&:after {
+					content: "If you'd like to know more, you can search online later for this error: OOPSIE_WOOPSIE";
+					font-size: 1.25vw;
+					margin-top: 5vw;
+				}
+			}
+		}
+	}
 
+	// Mac
+	&#{c(os mac platform)} {
+		#{c(error page)} {
+			@include bg($bg: $middle);
+		}
+		#{c(error text)} {
+			background: transparent url(https://leafyluigi.github.io/images/fakemacerror.png) no-repeat center;
+			height: 255px;
+			width: 472px;
+		}
+		#{c(error title)} {
+			font-size: 0;
+			margin: 0 0 18px;;
+		}
+		#{c(error note)} p {
+			&:before,
+			&:after {
+				margin: 1em 0;
+				font-size: 10px;
+				max-width: 400px;
+				padding-left: 54px;
+				line-height: 15px;
+			}
+			&:first-child {
+				&:after {
+					content: "Qué mierda acabas de decir sobre mí, pequeña perra? Te haré saber que me gradué de honor en mi clase de los Navy Seals,he estado envuelto en numerosos ataques sorpresa a Al-Quaeda, y tengo 300 asesinatos confirmados.";
+				}
+			}
+			&:last-child {
+				&:before {
+					content: "Внимание! Продаётся Х5ый 93его года. Карбюратор, инжектор, инспектор проректор, ИК-порт, блютуз, туз, козырь, валет, дама, румба, сальса, танго, манго, Мис Бахар, сеть магазинов \"Сабина\".";
+				}
+				&:after {
+					content: "バーガーキングの足のレタス。バーガーキングのハンバーガーに一番入れたくないのは、誰かの足の菌ですよね。";
+				}
+			}
+			div:after {
+				content: "DO NOT RESTART YOUR COMPUTER.";
+				display: block;
+				margin: 1em 0;
+				text-align: center;
+				font-size: 12px;
+				color: #555;
+				line-height: 15px;
+				font-weight: 600;
+			}
+		}
+		&#{c(main fullMotion)} {
+			#{c(error page)}:before {
+				animation: errorScrollMac 3.2s linear;
+			}
+			:is(#{c(error text)},#{c(error note)},#{c(error page)} button) {
+				animation: errorPopMac 3.2s linear;
+			}
+		}
+	}
+
+	// Linux
+	&#{c(os linux)} {
+		#{c(error title)} {
+			display: none;
+		}
+		#{c(error note)} {
+			text-align: unset;
+			p:first-child::before {
+				content: "[  344.160864] EIP is at sysrq_handle_crash+0x17/0x20a\a[  344.160921] EAX: 00000063 EBX: 00000063 ECX: c191d9d0 EDX: f7be1604\a[  344.160973] ESI: 00000292 EDI: 00000004 EBP: eda23f14 ESP: eda23f14\a[  344.161026]   DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068\a[  344.161080] CRO: 80050033 CR2: 00000000 CR3: 2da04000 CR4: 000006f0\a[  344.161150] Stack:\a[  344.161187]  eda23f34 c13c24f9 c17e97a1 c18704f5 c191d9d0 00000002 edd13000 013c2920\a[  344.161291]  eda23f40 c13c2944 f0bdc0c0 eda23f60 c11bab48 eda23f98 00000002 0973dc08\a[  344.162047]  edd13000 00000002 c11bab00 eda23f88 c116a78d eda23f98 edd13000 00000000\a[  344.163472] Call Trace:\a[  344.163489]  [<c13c24f9>] __handle_sysrq+0xe9/0x140\a[  344.163489]  [<c13c2920>] ? sysrq_filter+0x3a0/0x3a0\a[  344.163489]  [<c13c2944>] write_sysrq_trigger+0x24/0x40\a[  344.163489]  [<c11bab48>] proc_reg_write+0x48/0x80\a[  344.163489]  [<c11bab00>] ? prog_reg_poll+0x70/0x70\a[  344.163489]  [<c116a78d>] vfs_write+0x9d/0x1b0\a[  344.163489]  [<c116ae39>] SyS_write+0x49/0x90\a[  344.163489]  [<c1632ccd>] sysenter_do_call+0x12/0x28\a[  344.163489] Code: 77 20 75 e5 89 f8 e8 09 f9 ff ff eb dc 66 90 66 90 66 90 90 55 89 e5 3e 8d 74 26 00 c7 05 d0 97 a5 c1 01 00 00 00 0f ae f8 89 f6 <c6> 05 00 00 00 00 01 5d c3 55 89 e5 53 83 ec 08 3e 8d 74 26 00\a[  344.163489] EIP: [<c13c1db7>] sysrq_handle_crash+0x17/0x20 SS:ESP 0068:eda23f14\a[  344.163489] CR2: 0000000000000000\a[  344.163489] ---[ end trace 684bef7567bc583c ]---\a[  344.163489] Kernel panic - not syncing: I typed this all out";
+				position: absolute;
+				padding: 1px 0;
+				top: 0;
+				left: 0;
+				font-family: var(--code-font);
+				font-size: 14px;
+				background: black;
+				color: #ccc;
+				white-space: pre;
+				display: block;
+			}
+		}
+	}
+}
+// 140.2 kb - 143,586
 //   content: "Error: 'Unknown class \"2note\" in category: error 2note. Was the classes file not saved?'\a    \2577 \a 21 \2502    @return class($query);\d\a    \2502            ^^^^^^^^^^^^^\a    \2575 \a   pyrite/source/classes/_classes.scss 21:11    c()\a   pyrite/source/theme/error/_error.scss 190:9  @forward\a   pyrite/source/theme/error/_index.scss 1:1    @forward\a   pyrite/source/theme/_index.scss 9:1          @use\a   pyrite/source/base.scss 15:1                 root stylesheet";

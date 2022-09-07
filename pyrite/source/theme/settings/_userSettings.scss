@@ -44,12 +44,7 @@
   &[style*="background-color: rgba(114, 137, 218, 0.1)"] {
     background-color: transparent !important; // !important reason: element.style
     color: $primary;
-    @include bg;
-    &:before {
-      background-color: $primary;
-      opacity: 0.1;
-      border-radius: 6px;
-    }
+    @include bg($o:.1,$bg:$primary,$br:6px);
   }
   // &[style*="background-color: rgb(114, 137, 218)"] {
   //   background-color: $primary !important; // !important reason: element.style

@@ -82,50 +82,54 @@ $classes: (
 		// weird text-xx- and heading-xx classes. can have inline style for color.
 		// entirety of line 12 (2022-08-29 @ 11:49) canary build 82b0d29 version 144219. 
 		// can easily be found by selecting the sidebar panel avi name thingy.
-		"headingSMNormal": "heading-sm-normal-2Mn_Al",
-		"headingSMMedium": "heading-sm-medium-7K3WMh",
-		"headingSMBold": "heading-sm-bold-1FcNP-",
-		"headingMDNormal": "heading-md-normal-3Ytn6I",
-		"headingMDMedium": "heading-md-medium-2DVCeJ",
-		"headingMDBold": "heading-md-bold-qvVVvk",
-		"headingLGNormal": "heading-lg-normal-1bqh2L",
-		"headingLGMedium": "heading-lg-medium-3gUJeM",
-		"headingLGBold": "heading-lg-bold-3uwrwG",
-		"headingXLNormal": "heading-xl-normal-1z58RU",
-		"headingXLMedium": "heading-xl-medium-_XBxHT",
-		"headingXLBold": "heading-xl-bold-NSc3DL",
-		"headingXXLNormal": "heading-xxl-normal-3zbV4t",
-		"headingXXLMedium": "heading-xxl-medium-1hl0GL",
-		"headingXXLBold": "heading-xxl-bold-3iEWjT",
+		"heading": (
+			"sNormal": "heading-sm-normal-2Mn_Al",
+			"sMedium": "heading-sm-medium-7K3WMh",
+			"sBold": "heading-sm-bold-1FcNP-",
+			"mNormal": "heading-md-normal-3Ytn6I",
+			"mMedium": "heading-md-medium-2DVCeJ",
+			"mBold": "heading-md-bold-qvVVvk",
+			"lNormal": "heading-lg-normal-1bqh2L",
+			"lMedium": "heading-lg-medium-3gUJeM",
+			"lBold": "heading-lg-bold-3uwrwG",
+			"xlNormal": "heading-xl-normal-1z58RU",
+			"xlMedium": "heading-xl-medium-_XBxHT",
+			"xlBold": "heading-xl-bold-NSc3DL",
+			"xxlNormal": "heading-xxl-normal-3zbV4t",
+			"xxlMedium": "heading-xxl-medium-1hl0GL",
+			"xxlBold": "heading-xxl-bold-3iEWjT",
+		),
 		"eyebrow": "eyebrow-Ejf06y",
-
+		
 		"headingDeprecatedNormal": "heading-deprecated-14-normal-1R_Vhv",
 		"headingDeprecatedMedium": "heading-deprecated-14-medium-1V2wki",
 		"headingDeprecatedBold": "heading-deprecated-14-bold-25ZKE0",
 
-		"textXSSNormal": "text-xxs-normal-3WTeJU",
-		"textXSSMedium": "text-xxs-medium-333Dkr",
-		"textXSSSemibold": "text-xxs-semibold-3gffAM",
-		"textXSSBold": "text-xxs-bold-1-1AOx",
-		"textXSNormal": "text-xs-normal-3SiVjE",
-		"textXSMedium": "text-xs-medium-2LRpEj",
-		"textXSSemibold": "text-xs-semibold-3E_l31",
-		"textXSBold": "text-xs-bold-1NF1lz",
-		"textSMNormal": "text-sm-normal-3Zj3Iv",
-		"textSMMedium": "text-sm-medium-3Pz3rB",
-		"textSMSemibold": "text-sm-semibold-3TWn25",
-		"textSMBold": "text-sm-bold-1Dtt0R",
-		"textMDNormal": "text-md-normal-304U3g",
-		"textMDMedium": "text-md-medium-2avxhQ",
-		"textMDSemibold": "text-md-semibold-3xVVGu",
-		"textMDBold": "text-md-bold-22PzaZ",
-		"textLGNormal": "text-lg-normal-1s-VnS",
-		"textLGMedium": "text-lg-medium-3LMagp",
-		"textLGSemibold": "text-lg-semibold-2iEErr",
-		"textLGBold": "text-lg-bold-2qE8R-",
+		"text": (
+			"xxsNormal": "text-xxs-normal-3WTeJU",
+			"xxsMedium": "text-xxs-medium-333Dkr",
+			"xxsSemibold": "text-xxs-semibold-3gffAM",
+			"xxsBold": "text-xxs-bold-1-1AOx",
+			"xsNormal": "text-xs-normal-3SiVjE",
+			"xsMedium": "text-xs-medium-2LRpEj",
+			"xsSemibold": "text-xs-semibold-3E_l31",
+			"xsBold": "text-xs-bold-1NF1lz",
+			"sNormal": "text-sm-normal-3Zj3Iv",
+			"sMedium": "text-sm-medium-3Pz3rB",
+			"sSemibold": "text-sm-semibold-3TWn25",
+			"sBold": "text-sm-bold-1Dtt0R",
+			"mNormal": "text-md-normal-304U3g",
+			"mMedium": "text-md-medium-2avxhQ",
+			"mSemibold": "text-md-semibold-3xVVGu",
+			"mBold": "text-md-bold-22PzaZ",
+			"lNormal": "text-lg-normal-1s-VnS",
+			"lMedium": "text-lg-medium-3LMagp",
+			"lSemibold": "text-lg-semibold-2iEErr",
+			"lBold": "text-lg-bold-2qE8R-",
+		),
 
-		"displayMD": "display-md-3I4dlu",
-		"displayLG": "display-lg-DP1JoJ",
+		"mDisplay": "display-md-3I4dlu",
+		"lDisplay": "display-lg-DP1JoJ",
 
 		"code": "code-3Z6ejW",
 	),
@@ -140,26 +144,31 @@ $classes: (
 		"qrCodeOverlay": "qrCodeOverlay-2bLtKl",
 		"inputField": "inputField-2RZxdl",
 	),
-	// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 	"os": (
+		// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
 		"titleBar": "titleBar-1it3bQ",
 
-		"windows": "platform-win",
-		"typeWindows": "typeWindows-2-g3UY",
-		"winButton": "winButton-3UMjdg",
-		"winButtonClose": "winButtonClose-3Q8ZH5",
-		"winButtonMinMax": "winButtonMinMax-3RsPUg",
 		"wordmark": "wordmark-2u86JB",
 
-		"mac": "platform-osx",
-		"typeMac": "typeMacOS-3V4xXE",
-		"focused": "focused-Xb9BI5",
-		"unfocused": "unfocused-1U-yOa",
-		"macButtons": "macButtons-eIdy0e",
-		"macButton": "macButton-2M5W_9",
-		"macButtonClose": "macButtonClose-3IXwAm",
-		"macButtonMinimize": "macButtonMinimize-Q8clSI",
-		"macButtonMaximize": "macButtonMaximize-1vTCwt",
+		"win": (
+			"platform": "platform-win",
+			"type": "typeWindows-2-g3UY",
+			"button": "winButton-3UMjdg",
+			"buttonClose": "winButtonClose-3Q8ZH5",
+			"buttonMinMax": "winButtonMinMax-3RsPUg",
+		),
+
+		"mac": (
+			"platform": "platform-osx",
+			"type": "typeMacOS-3V4xXE",
+			"focused": "focused-Xb9BI5",
+			"unfocused": "unfocused-1U-yOa",
+			"buttons": "macButtons-eIdy0e",
+			"button": "macButton-2M5W_9",
+			"buttonClose": "macButtonClose-3IXwAm",
+			"buttonMin": "macButtonMinimize-Q8clSI",
+			"buttonMax": "macButtonMaximize-1vTCwt",
+		),
 
 		"linux": "platform-linux",
 		"web": "platform-web"
@@ -429,6 +438,8 @@ $classes: (
 			"speakerRaiseHandBadge": "speakerRaiseHandBadge-1hA2Uh",
 		),
 	"channelSettings": (
+		"overview": "channel-settings-overview", // not even a replugged class. nice.
+
 		"channelName": "input-2g-os5",
 		"channelNameFocused": "focused-1AtTHC",
 
@@ -576,6 +587,8 @@ $classes: (
 		"automodMessage": "automodMessage-265YwJ",
 		"automodBlockedNoticeContainer": "blockedNoticeContainer-2svSMC",
 		"automodShield": "shieldIcon-2QHlhC",
+
+		"roleDotBackground": "background-3X6N7I",
 	),
 		// indented because "HOME" on some servers. it's bollocks imo
 		"chatHome": (
@@ -815,25 +828,38 @@ $classes: (
 		"scroller": "scroller-3j5xK2",
 		"searchHeader": "searchHeader-3ZIh2x",
 		"searchHeaderImage": "headerImage-2D5D-v",
+		"searchHeaderContentWrapper": "headerContentWrapper-1u9R_E",
+		"searchHeaderContent": "headerContent-2Z-1wE",
+		"searchTitle": "searchTitle-1qceKb",
+		"searchSubtitle": "searchSubtitle-C5P4gh",
 		"search": "search-25t1e9",
 		"searchBox": "searchBox-pyIJJj",
 		"searchBoxInput": "searchBoxInput-3h4etz",
 		"searchCloseIcon": "closeIcon-BMGxx0",
 		"searchSearchIcon": "searchIcon-3X4BYL",
+		"cardListSection": "guildListSection-3UxZHY",
 		"cardList": "guildList-3GXKvP",
 		"cardPlaceholder": "cardPlaceholder-1E2FEs",
 		"card": "card-2TuZPZ",
 		"cardLoading": "loading-3ozbwt",
+		"cardHeader": "cardHeader-1kPMOm",
+		"cardIcon": "guildIcon-1nnIAv",
 		"cardIconMask": "iconMask-2fMR98",
 		"spinner": "spinner-2bMWLW",
 		"footer": "footer-26kPv_",
 		"footerImage": "footerImage-3DpC_8",
 
 		"searchPage": "searchPage-1Rxeav",
+		"searchPageContainer": "container-3gW0Nv",
+		"searchPageHeader": "searchHeader-gz2NXf",
+		"searchResults": "results-1Lsvf8",
+		"searchResultsList": "guildList-QjZKeK",
 		"searchSpinner": "spinner-1JhZ2F",
+		"searchCard": "card-1rhKXq",
 		"searchEmptyContainer": "emptyContainer-poti7J",
 		"searchEmptyImage": "emptyImage-2pCD2j",
 		"searchErrorImage": "errorImage-1n5rtg",
+		"searchCategories": "categories-2LoSbA",
 		"searchCategoryPill": "categoryPill-1zjNrr",
 		"searchCategorySelected": "selected-bLcqYK",
 		"searchPlaceholder": "placeholder-2jEh13",
@@ -933,7 +959,7 @@ $classes: (
 			"bubble": "bubble-3XikHF",
 		),
 	"error": (
-		"errorPage": "errorPage-2pZ2Kq",
+		"page": "errorPage-2pZ2Kq",
 		"wrapper": "wrapper-3AZUiP",
 		"flexWrapper": "flexWrapper-2VyHoE",
 		"image": "image-35kDIs",
@@ -1037,8 +1063,66 @@ $classes: (
 		"tabBarItemThemed": "themed-2-lozF",
 	),
 	"hljs": (
+
+		// The usage of the hljs-[type] variables varies depending on language and will probably be best
+		// to use the docs of https://highlightjs.org/ to find what langs use what class and in what way
+		// Using SCSS as an example
+		// comment is used for the // and /* */  comments
+		// selector-class and selector-id are used for .class and #id respectively
+		// selector-tag are used for any html tags (think "div", "span", "p", etc)
+		// selector-pseudo is used for things like :not() and ::before
+		// attribute is used for any valid css rule within the curly brackets {} (examples being "background" or "display")
+		// keyword is used for anything using @ - this would be @media, @mixin, @include, @import etc
+
+		// Any comments within HLJS relate to the color between that comment and the next one
+		"hljs": "hljs",
+		// var interactive muted
 		"comment": "hljs-comment",
 		"quote": "hljs-quote",
+		// #859900 , olive
+		"addition": "hljs-addition",
+		"keyword": "hljs-keyword",
+		"selectorTag": "hljs-selector-tag",
+		// #2aa198 , teal
+		"doctag": "hljs-doctag",
+		"literal": "hljs-literal",
+		"meta": "hljs-meta",
+		"metaString": "hljs-meta-string",
+		"number": "hljs-number",
+		"regexp": "hljs-regexp",
+		"string": "hljs-string",
+		// #268bd2 , blue
+		"name": "hljs-name",
+		"section": "hljs-section",
+		"selectorClass": "hljs-selector-class",
+		"selectorId": "hljs-selector-id",
+		"title": "hljs-title",
+		// #b58900 , yellow-brown
+		"attr": "hljs-attr",
+		"attribute": "hljs-attribute",
+		"class": "hljs-class",
+		"templateVariable": "hljs-template-variable",
+		"type": "hljs-type",
+		"variable": "hljs-variable",
+		// #cb4b16 , slightly darker orange / "tawny"
+		"bullet": "hljs-bullet",
+		"link": "hljs-link",
+		"selectorAttr": "hljs-selector-attr",
+		"selectorPseudo": "hljs-selector-pseudo",
+		"subst": "hljs-subst",
+		"symbol": "hljs-symbol",
+		// #dc322f , persian red
+		"built_in": "hljs-built_in",
+		"deletion": "hljs-deletion",
+		// formula uses a background of #073642, kinda grey-dark-blue
+		"formula": "hljs-formula",
+		// no more colors apply after this
+		"emphasis": "hljs-emphasis",
+		"strong": "hljs-strong",
+		"markdown": "markdown-19oyJN",
+		"blockquote": "blockquote-2mppuN",
+		"codeInline": "codeInline-1RFl81",
+		"paragraph": "paragraph-9M861H",
 	),
 	"memberList": (
 		"container": "container-2o3qEW",
@@ -1669,6 +1753,10 @@ $classes: (
 		"channelUnreadBlob": "unread-36eUEm",
 		"channelUnreadBanners": "unread-XRkyaQ",
 
+		"threadsContainer": "container-1Bj0eq",
+		"threadsSpine": "spine-29OFwR",
+		"threadsTypeThread": "typeThread-2Aqh6X",
+
 		"categoryContainerDefault": "containerDefault-3TQ5YN",
 		"categoryWrapper": "wrapper-1S43wv",
 		"categoryMainContent": "mainContent-uDGa6R",
@@ -1854,6 +1942,10 @@ $classes: (
 			"innerWithoutTheme": "userPopoutInnerWithoutTheme-23vLID", // has before
 			"innerWithTheme": "userPopoutInnerWithTheme-71l1ON", // has before
 			"innerWithBanner": "userPopoutInnerWithBanner-wsoegj",
+				"upsellWrapper": "wrapper-400BN2",
+					"upsellHidden": "upsellHidden-2_CoRC",
+					"upsellVisible": "upsellVisible-evDwII",
+					"upsell": "upsell-27kXsw",
 				"banner": "banner-2boKnS",
 				"popoutBanner": "popoutBanner-16rVDY",
 				"popoutBannerPremium": "popoutBannerPremium-2RvDNZ",
@@ -1908,25 +2000,48 @@ $classes: (
 		"sidebarRegion": "sidebarRegion-1VBisG",
 		"sidebarRegionScroller": "sidebarRegionScroller-FXiQOh",
 		"sidebar": "sidebar-nqHbhN",
+		"sidebarSide": "side-2ur1Qk",
 		"sidebarHeader": "header-2Kx1US",
 		"sidebarSeparator": "separator-2wx7h6",
+		"sidebarItemDisabled": "disabled-1nofHP",
 		"sidebarItem": "item-3XjbnG",
 		"sidebarItemSelected": "selected-g-kMVV",
 		"sidebarItemThemed": "themed-2-lozF",
 		"sidebarSocialLinks": "socialLinks-3ywLUf",
 		"sidebarInfo": "info-3pQQBb",
 
+		"sectionTitle": "sectionTitle-3j2YI1",
+		"children": "children-1xdcWE",
+		"marginReset": "marginReset-28ZZyF",
+		"marginCenterHorz": "marginCenterHorz-574Oxy",
+		"marginTop4": "marginTop4-2JFJJI",
+		"marginTop8": "marginTop8-24uXGp",
+		"marginTop20": "marginTop20-2T8ZJx",
+		"marginTop40": "marginTop40-Q4o1tS",
+		"marginTop60": "marginTop60-38vAjL",
+		"marginBottom4": "marginBottom4-1fdMNe",
+		"marginBottom8": "marginBottom8-emkd0_",
+		"marginBottom20": "marginBottom20-315RVT",
+		"marginBottom40": "marginBottom40-fvAlAV",
+		"marginBottom60": "marginBottom60-2XQEx8",
+		"marginLeft8": "marginLeft8-3meqg8",
+		"divider": "divider-_0um2u",
+		"description": "description-30xx7u",
+		"title": "title-3hptVQ",
+
 		"disableAccountButton": "disableButton-3BR0Vj",
 
 		"contentRegion": "contentRegion-3HkfJJ",
 		"contentRegionScroller": "contentRegionScroller-2_GT_N",
 		"contentColumn": "contentColumn-1C7as6",
+		"contentColumnWide": "contentColumnWide-2CgNjO",
 
 		"accountProfile": "accountProfileCard-lbN7n-",
 		"accountProfileAvatar": "avatar-3mTjvZ",
 		"accountProfileBackground": "background-3d_SjE",
 		"fieldList": "fieldList-in8WkP",
 		"field": "field-21XZwa",
+		"accountSettingsSecurity": "userSettingsSecurity-2kODPN",
 
 		"profileImageUploader": "imageUploader-1X7wVc",
 		"profileNitroNotice": "premiumInlineNotice-N_oPBN",
@@ -1937,14 +2052,31 @@ $classes: (
 		"radioGroupItem": "item-2idW98",
 		"radioBar": "radioBar-3w9XY-",
 		"radioBarInfo": "info-2FZci4",
-		"radioBarName": "text-md-medium-2avxhQ", // priamary text
+		"radioBarName": "text-md-medium-2avxhQ", // primary text
 		"radioBarDesc": "text-sm-normal-3Zj3Iv", // small print
 		"radioIconForeground": "radioIconForeground-2BMavi", // selected radio button's circle inner
+
+		"formNotice": "formNotice-2nS8ey", // "Check out our Terms of Service and Privacy Policy", authorized apps box at top
 
 		"cardPrimary": "cardPrimary-3qRT__",
 		"cardPrimaryEditable": "cardPrimaryEditable-2mz_3i",
 		"cardPrimaryOutline": "cardPrimaryOutline-1ofwVz",
 		"cardPrimaryOutlineEditable": "cardPrimaryOutlineEditable-1VE28Z",
+
+		"authedApp": "authedApp-8q3NA9",
+		"authedPermission": "permission-CbNHIg",
+
+		"sessionsDecription": "description-21ac5O",
+		"devicesSessions": "sessions-2KZ0-Q",
+		"devicesSession": "session-9khLqt",
+		"devicesSessionCurrent": "currentSession-1g_u10",
+		"devicesSessionIcon": "sessionIcon-2fwSzb",
+		"devicesSessionInfo": "sessionInfo-HxfESS",
+		"devicesSessionInfoRow": "sessionInfoRow-pEX9fY",
+		"devicesSessionsOther": "otherSessions-3BQszU",
+		"devicesSessionMoreButton": "sessionMoreButton-2cApSx",
+		"devicesSessionsLegacy": "legacySession-UoUT_h",
+		"devicesSessionsLogOutAllButton": "logOutAllButton-11uhew",
 
 		"accountList": "accountList-Wii_T5",
 		"accountButton": "accountBtn-3pgcgr",
@@ -1957,15 +2089,40 @@ $classes: (
 		"nitroSelectedBackground": "selectedBackground-1t6xXq", // in sidebar
 		"nitroPage": "container-LUKdw8",
 		"nitroHero": "hero-1aNo0v",
+		"nitroHeroIcon": "heroIcon-3kmupU",
 		"nitroPromoBanner": "promoBanner-1pEkqm",
 		"nitroHeroButtons": "heroButtons-CJvWLU",
 		"nitroFeatureGrid": "featureGrid-SSlfD0",
 		"nitroFeature": "feature-2IUcBI",
+		"nitroFeatureTitle": "featureTitle-3N9Stg",
+		"nitroFeatureNewBadge": "featureNewBadge-27qr_t",
 		"nitroFeatureImageWrapper": "featureImageWrapper-2ndc8N",
 		"nitroRedirectContainer": "subscriptionsRedirectContainer-zD3U79",
 		"nitroRedirectWarningIcon": "subscriptionsRedirectWarningIcon-3a4KPu",
+		"nitroFeatureProfile": "featureProfile-2h92hd",
+		"nitroFeaturePerGuildProfile": "featurePerGuildProfile-3nTrFP",
+		"nitroFeatureVideoBackground": "featureVideoBackgrounds-3-ItPq",
+		"nitroFeatureStickers": "stickers-2JFQr2",
+		"nitroFeatureEmoji": "featureEmoji-cnSD0D",
+		"nitroFeatureBoost": "featurePremiumGuild-2uV6-N",
+		"nitroFeatureBadge": "featureBadge-1FNGAH",
+		"nitroFeatureUpload": "featureUploadSize-3k1zif",
+		"nitroFeatureHDVideo": "featureGoLive-15Pf6l",
+		"nitroFeatureLongerMessage": "featureLongerMessageContent-4BIM8v",
+		"nitroFeatureMoreServers": "featureMoreServers-3eY3SW",
+		"nitroMarketingRefreshTier2Cta": "marketingRefreshTier2Cta-2dN2zP",
+		"nitroMarketingRefreshSectionTier1": "marketingRefreshSectionTier1-1chtWC",
+		"nitroMarketingRefreshTeir1Graphic": "marketingRefreshTier1Graphic-1mUnMb",
 
+		"boostDivider": "divider-1wnNcY",
+		"boostHeader": "marketingHeader-CpUYrf",
+		"boostFeatures": "features-2OVNMp",
+		"boostFullFeatures": "guildFullFeatures-2jRvaJ",
+		"boostLogo": "marketingLogo-2BXAdA",
 		"boostGuildsSection": "guildsSection-30CJxX",
+		"boostGuildSubscriptionHeading": "guildSubscriptionHeading-3Gp8lO",
+		"boostGuildBlurb": "guildsBlurb-1ouzU-",
+		"boostGuilds": "guilds-XTTuu3",
 		"boostCardWrapper": "cardWrapper-1bSePP",
 		"boostCard": "card-2xlCYc",
 		"boostCardNoIcon": "noIcon-3gSX9V",
@@ -1978,6 +2135,7 @@ $classes: (
 		"boostSubscriptionSlots": "guildSubscriptionSlots-1i_C21",
 		"boostSubscriptionSlot": "guildSubscriptionSlot-1mef6n",
 
+		"subscriptionsSectionDescroption": "sectionDescription-2ealM1",
 		"subscriptionsNoItemsCardSubs": "noItemsCard-2V85P5",
 		"subscriptionsNoItemsIconSubs": "noItemsIcon-1rZlXZ",
 		"subscriptionsNoItemsCardCredits": "noItemsCard-5EOcCl",
@@ -2000,6 +2158,9 @@ $classes: (
 			"sliderBarFill": "barFill-2Bh7CX",
 			"sliderGrabber": "grabber-2GQyvM",
 
+			"appearencePreview": "preview-QJ3OG3",
+
+			"accessabilityPreview": "preview-3k9WhO",
 			"previewMessage": "previewMessage-2g_aBv",
 
 			"voicePage": "userSettingsVoice-1fEtsL",
@@ -2050,7 +2211,7 @@ $classes: (
 		// locations of or don't really fit anywhere above.
 		// Former is usually true.
 		// These classes may be paired with another though.
-		// Shit deffinitely needs sorting.
+		// Shit definitely needs sorting.
 		"developerPortalCtaWrapper": "developerPortalCtaWrapper-2PniQs",
 		"ring": "ring-370dIp",
 		"focusStroke": "focusStroke-3V8pid",
@@ -2059,7 +2220,7 @@ $classes: (
 	),
 
 	// Client Mods
-	// despite powercord being discontinued, this section is used with Replugged.
+	// despite Powercord being discontinued, this section is used with Replugged.
 	"powercord": (
 		"base": "powercord",
 		"notice": "powercord-notice",
@@ -2145,5 +2306,19 @@ $classes: (
 		"jumpToPresentButtonIcon": "jumpToPresentButtonIcon-1JtyPZ",
 		"jumpToPresentSpinner": "jumpToPresentSpinner-9AqQA5",
 		"jumpToPresentSpinnerItem": "jumpToPresentSpinnerItem-2Kph5A",
-	)
+	),
+	"test": (
+		"a": (
+			"foo": "bar",
+			"foo2": "bar2",
+		),
+		"b": (
+			"foo": "bar2",
+		),
+		"c": (
+			"a": "a",
+			"b": "b",
+			"foo": "bar",
+		)
+	),
 );
