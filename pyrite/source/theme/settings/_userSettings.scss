@@ -1,7 +1,6 @@
 @use "backend" as *;
 /* Start User Settings */
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(userSettings codeRedemptionRedirect)} {
     @include card;
   }
@@ -9,13 +8,8 @@
     @include card;
     min-height: unset;
     padding: 16px;
-    #{c(userSettings nitroFeatureImageWrapper)} {
-      display: none;
-    }
   }
-  #{c(userSettings boostCardGemContainer)},
-  #{c(userSettings subscriptionsNoItemsIconSubs)},
-  #{c(userSettings subscriptionsNoItemsIconCredits)} {
+  :is(#{c(userSettings boostCardGemContainer)},#{c(userSettings subscriptionsNoItemsIconSubs)},#{c(userSettings subscriptionsNoItemsIconCredits)}) {
     background-color: transparent;
   }
 }
@@ -69,6 +63,7 @@
     background-color: transparent;
   }
 }
+#{c(userSettings nitroFeatureImageWrapper)},
 #{c(userSettings profileNitroNotice)} {
   display: none;
 }

@@ -1,16 +1,11 @@
 @use "backend" as *;
 /* Start Discovery Page */
-#{c(main light)},
-#{c(main dark)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(discover pageWrapper)} {
     background-color: transparent;
     @include bg($z:1001,$bg:$header,$h:48px);
   }
-  #{c(discover card)},
-  #{c(discover cardIconMask)},
-  #{c(discover card)}:hover,
-  #{c(discover card)}:hover #{c(discover cardIconMask)},
-  #{c(discover cardIconMask)}:hover {
+  :is(#{c(discover card)},#{c(discover cardIconMask)},#{c(discover card)}:hover,#{c(discover card)}:hover #{c(discover cardIconMask)},#{c(discover cardIconMask)}:hover) {
     background-color: $card;
   }
 }

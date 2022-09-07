@@ -1,23 +1,18 @@
 @use "backend" as *;
 /* Start Friends Area */
-#{c(main dark)},
-#{c(main light)} {
-  #{c(friends container)},
-  #{c(friends multipleIconWrapper)} {
+:is(#{c(main dark)},#{c(main light)}) {
+  :is(#{c(friends container)},#{c(friends multipleIconWrapper)}) {
     background-color: transparent;
   }
   #{c(friends itemCardSeperator)} {
     background-color: $secondary;
     margin: 4px 8px;
   }
-  #{c(friends voiceSectionIconWrapper)},
-  #{c(friends partyMemberOverflow)},
-  #{c(friends itemCard)} {
-  &#{c(friends itemCardInteractive)}:hover,
-  &#{c(friends itemCardActive)} {
-    background-color: $card;
+  :is(#{c(friends voiceSectionIconWrapper)},#{c(friends partyMemberOverflow)},#{c(friends itemCard)}) {
+    &:is(#{c(friends itemCardInteractive)}:hover,#{c(friends itemCardActive)}) {
+      background-color: $card;
+    }
   }
-}
 }
 #{c(friends tabBody)} {
   &:before {

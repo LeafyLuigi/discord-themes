@@ -20,8 +20,7 @@
 @debug "redo menu dropdown to use a variable for checks?";
 #{c(menus item)} {
     // checkbox + radio
-    #{c(menus checkbox)},
-    #{c(menus radioSelection)} {
+    :is(#{c(menus checkbox)},#{c(menus radioSelection)}) {
         color: $primary;
     }
     // colors
@@ -29,9 +28,7 @@
         color: $primary;
     }
     // hover/active
-    &#{c(menus itemFocused)},
-    &#{c(menus itemFocused)}:active,
-    &:active:not(#{c(menus itemHideInteraction)}) {
+    &:is(#{c(menus itemFocused)},#{c(menus itemFocused)}:active,:active:not(#{c(menus itemHideInteraction)})) {
         background-color: $primary;
         // colors
         &#{c(menus colorDanger)} {
@@ -46,22 +43,11 @@
             color: $primary;
         }
     }
-    &#{c(menus colorDanger)} {
-        color: $red;
-        &#{c(menus itemFocused)},
-        &:active:not(#{c(menus itemHideInteraction)}),
-        &:hover {
-            color: #fff;
-        }
-    }
     // make block and remove friend red
-    &#user-context-block,
-    &#user-context-remove-friend {
+    &:is(#{c(menus colorDanger)},#user-context-block,#user-context-remove-friend) {
         color: $red;
-        &#{c(menus itemFocused)},
-        &:active:not(#{c(menus itemHideInteraction)}),
-        &:hover {
-            color: #fff; // mirrors red ones. also overrides something set by theme
+        &:is(#{c(menus itemFocused)},:active:not(#{c(menus itemHideInteraction)}),:hover) {
+            color: #fff;
             background-color: $red;
         }
     }
@@ -100,9 +86,7 @@
     border: 1px solid $primary;
 }
 #{c(menus dropdownPopoutOption)} {
-    &:hover,
-    &:focus,
-    #{c(menus dropdownPopoutOptionFocused)} {
+    &:is(:hover,:focus,#{c(menus dropdownPopoutOptionFocused)}) {
         background-color: var(--background-modifier-hover);
     }
     &[aria-selected="true"] {

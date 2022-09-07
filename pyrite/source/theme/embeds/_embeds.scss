@@ -1,7 +1,6 @@
 @use "backend" as *;
 /* Start Embeds */
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(embeds gift)} {
     @include card;
     &:hover {
@@ -36,8 +35,7 @@
 }
 
 #{c(embeds invite)} {
-  #{c(embeds inviteServerIcon)},
-  #{c(embeds inviteServerIconExpired)} {
+  :is(#{c(embeds inviteServerIcon)},#{c(embeds inviteServerIconExpired)}) {
     background-color: transparent;
   }
 }
@@ -68,10 +66,7 @@
   opacity: 0.5;
 }
 
-#{c(media barBuffer)},
-#{c(media barWrapper)},
-#{c(media barPreview)},
-#{c(media barProgress)} {
+:is(#{c(media barBuffer)},#{c(media barWrapper)},#{c(media barPreview)},#{c(media barProgress)}) {
   &:before,
   &:after {
     content: none;

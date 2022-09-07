@@ -35,11 +35,7 @@
   
   // &#{c(button colorWhite)} {
   // }
-  &#{c(button colorBrand)},
-  &#{c(button colorBrandNew)} {
-    @include button-bg($color: $primary);
-  }
-  &#{c(button colorPrimary)} {
+  &:is(#{c(button colorBrand)},#{c(button colorBrandNew)},#{c(button colorPrimary)}) {
     @include button-bg($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -63,11 +59,7 @@
   }
   // &#{c(button colorWhite)} {
   // }
-  &#{c(button colorBrand)},
-  &#{c(button colorBrandNew)} {
-    @include button-inverted($color: $primary);
-  }
-  &#{c(button colorPrimary)} {
+  &:is(#{c(button colorBrand)},#{c(button colorBrandNew)},#{c(button colorPrimary)}) {
     @include button-inverted($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -91,11 +83,7 @@
   }
   // &#{c(button colorWhite)} {
   // }
-  &#{c(button colorBrand)},
-  &#{c(button colorBrandNew)} {
-    @include button-border($color: $primary);
-  }
-  &#{c(button colorPrimary)} {
+  &:is(#{c(button colorBrand)},#{c(button colorBrandNew)},#{c(button colorPrimary)}) {
     @include button-border($color: $primary);
   }
   &#{c(button colorLink)} {
@@ -116,11 +104,7 @@
   }
   // &#{c(button colorWhite)} {
   // }
-  &#{c(button colorBrand)},
-  &#{c(button colorBrandNew)} {
-    @include button-link($color: $primary);
-  }
-  &#{c(button colorPrimary)} {
+  &:is(#{c(button colorBrand)},#{c(button colorBrandNew)},#{c(button colorPrimary)}) {
     @include button-link($color: $primary);
   }
   &#{c(button colorLink)} {

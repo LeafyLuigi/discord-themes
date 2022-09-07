@@ -8,12 +8,10 @@ $nc: var(--notice-count, 0);
   ~#{c(main content)} {
     --notice-count: 1;
   }
-
   +#{c(notice base)} {
     ~#{c(main content)} {
       --notice-count: 2;
     }
-
     +#{c(notice base)}~#{c(main content)} {
       --notice-count: 3;
     }
@@ -37,17 +35,12 @@ $nc: var(--notice-count, 0);
 // It works somehow lol
 #{c(notice base)} ~ #{c(main content)} {
   // unset overflow for these areas: friends, chat, call, side-thread
-  #{c(friends container)},
-  #{c(chat chat)},
-  #{c(call container)},
-  #{c(threads container)} {
+  :is(#{c(friends container)},#{c(chat chat)},#{c(call container)},#{c(threads container)}) {
     overflow: unset;
   }
 
   // move header and psudo-header for: no channel, discovery page
-  #{c(header header)},
-  #{c(chat noChannel)}::before,
-  #{c(discover pageWrapper)}::before {
+  :is(#{c(header header)},#{c(chat noChannel)}::before,#{c(discover pageWrapper)}::before) {
     top: calc(-36px * $nc);
   }
 

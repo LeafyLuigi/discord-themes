@@ -40,18 +40,15 @@
     background-color: $card;
     transition: background-color .1s ease-out,color .1s ease-out,border-radius 0.1s ease-out;
   }
-  &#{c(serverList selected)},
-  &:hover {
+  &:is(#{c(serverList selected)},:hover) {
     #{c(serverList iconChildWrapper)} {
       background-color: $primary;
     }
-    #{c(serverList serverIcon)},
-    #{c(serverList iconChildWrapper)} {
+    :is(#{c(serverList serverIcon)},#{c(serverList iconChildWrapper)}) {
       border-radius: 33%;
     }
   }
-  #{c(serverList serverIcon)},
-  #{c(serverList iconChildWrapper)} {
+  :is(#{c(serverList serverIcon)},#{c(serverList iconChildWrapper)}) {
     border-radius: 50%;
     transition: border-radius 0.1s;
   }
@@ -76,8 +73,7 @@
   }
 }
 
-#{c(serverList centerDragOver)}:before, 
-#{c(serverList targetDragOver)}:before {
+:is(#{c(serverList centerDragOver)},#{c(serverList targetDragOver)}):before {
   background-color: $green; //moving bar thing
 }
 
@@ -87,8 +83,7 @@
       background: $home center/cover no-repeat scroll;
       color: transparent;
     }
-    &#{c(serverList selected)},
-    &:hover {
+    &:is(#{c(serverList selected)},:hover) {
       #{c(serverList iconChildWrapper)} {
         background-color: $primary;
       }

@@ -1,6 +1,5 @@
 @use "backend" as *;
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
     #{c(gse gifHeader)} {
         box-shadow: none;
     }

@@ -1,9 +1,7 @@
 @use "backend" as *;
 /* Start Member List */
 
-#{c(chat chatContentInner)} ~ div,
-#{c(chat chatContentInner)} ~ aside,
-#{c(chat chatContent)} > #{c(memberList container)} {
+:is(#{c(chat chatContentInner)} ~ div,#{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}) {
   width: 240px;
   background-color: $side;
   left: calc( ( 240px - 60px ) * var(--hide-member-list));
@@ -20,8 +18,7 @@
   min-width: auto;
   flex-basis: 0px;
 }
-#{c(memberList members)},
-#{c(memberList members)}>div {
+:is(#{c(memberList members)},#{c(memberList members)}>div) {
   background-color: transparent;
 }
 #{c(memberList group)} {

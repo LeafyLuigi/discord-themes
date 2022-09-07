@@ -149,9 +149,9 @@
   #{c(sidebar panelUsername)} {
     @include header;
   }
-  #{c(sidebar panelContainer)} #{c(sidebar panelButtonRow)},
+  :is(#{c(sidebar panelContainer)} #{c(sidebar panelButtonRow)},
   #{c(sidebar panelVoiceContainer)} #{c(sidebar panelInner)} ~ #{c(sidebar panelButtonRow)},
-  #{c(sidebar panelActivityContainer)} #{c(sidebar panelActivityActions)} {
+  #{c(sidebar panelActivityContainer)} #{c(sidebar panelActivityActions)}) {
     border: 1px solid $middle;
     border-radius: 8px;
   }

@@ -143,16 +143,6 @@ body, // this one is here for transparency in bd to work
 
 // Windows
 #{c(os win platform)} {
-  #{c(os win type)} {
-    padding-top: 0;
-    margin-top: 0;
-    height: 0;
-    position: relative;
-    @include bg($war:drag,$h:18px,$pos:fixed);
-    & > #{c(os wordmark)} {
-      display: none;
-    }
-  }
   #{c(sidebar sidebar)} {
     border-radius: 0;
   }
@@ -161,38 +151,37 @@ body, // this one is here for transparency in bd to work
     overflow: visible;
     @include bg($z:1010,$bg:$header,$w:72px,$h:48px,$top:-48px);
   }
-  #{c(os win button)} {
-    width: var(--win-min-max-close-button-width);
-    position: relative;
-    top: 0;
-    height: 48px;
-  }
-  #{c(os win buttonClose)}:hover {
-    background: $red;
-    color: var(--interactive-hover);
-  }
   #{c(header toolbar)} {
     padding-right: calc(3 * var(--win-min-max-close-button-width));
     margin-right: -6px;
   }
-  #{c(header nicknames)},
-  #{c(header topic)} {
+  :is(#{c(header nicknames)},#{c(header topic)}) {
     margin-right: calc(3 * var(--win-min-max-close-button-width));
   }
+}
+#{c(os win type)} {
+  padding-top: 0;
+  margin-top: 0;
+  height: 0;
+  position: relative;
+  @include bg($war:drag,$h:18px,$pos:fixed);
+  & > #{c(os wordmark)} {
+    display: none;
+  }
+}
+#{c(os win button)} {
+  width: var(--win-min-max-close-button-width);
+  position: relative;
+  top: 0;
+  height: 48px;
+}
+#{c(os win buttonClose)}:hover {
+  background: $red;
+  color: var(--interactive-hover);
 }
 
 // Mac
 #{c(os mac platform)} {
-  #{c(os mac buttonMin)},
-  #{c(os mac buttonMax)} {
-    margin-left: 7px;
-  }
-  #{c(os mac type)} {
-    top: calc(var(--channel-tabs-enabled,0) * calc(66px * var(--channel-tabs-enabled,0)));
-    #{c(os mac buttons)} {
-      height: 48px;
-    }
-  }
   #{c(serverList servers)} {
     margin-top: 48px;
     overflow: visible;
@@ -202,9 +191,18 @@ body, // this one is here for transparency in bd to work
     padding-top: 4px;
   }
 }
+#{c(os mac buttonMin)},
+#{c(os mac buttonMax)} {
+  margin-left: 7px;
+}
+#{c(os mac type)} {
+  top: calc(var(--channel-tabs-enabled,0) * calc(66px * var(--channel-tabs-enabled,0)));
+}
+#{c(os mac buttons)} {
+  height: 48px;
+}
 // Linux, Web
-#{c(os linux)},
-#{c(os web)} {
+:is(#{c(os linux)},#{c(os web)}) {
   #{c(serverList scroller)} {
     padding: 4px 0 0 0;
   }
@@ -285,9 +283,7 @@ body, // this one is here for transparency in bd to work
 }
 // Goto Message Links
 #{c(main anchorLink)} {
-  &[href^="https://canary.discord.com/channels/"],
-  &[href^="https://ptb.discord.com/channels/"],
-  &[href^="https://discord.com/channels/"] {
+  &:is([href^="https://canary.discord.com/channels/"],[href^="https://ptb.discord.com/channels/"],[href^="https://discord.com/channels/"]) {
     font-size: 0;
     &:hover {
       text-decoration: none;
@@ -335,11 +331,8 @@ a[href^="http://"] {
 #{c(main fullMotion)}#{c(main focused)} {
   #{c(serverList numberBadge)} {
     animation: numberBadgeFlash 5s linear infinite;
-    &:before {
-      animation: numberBadgeFlashBefore 5s linear infinite;
-    }
   }
-  #{c(ipt inboxUnreadMessagesCountWrapper)} {
+  :is(#{c(serverList numberBadge)}:before,#{c(ipt inboxUnreadMessagesCountWrapper)}) {
     animation: numberBadgeFlashBefore 5s linear infinite;
   }
 }
@@ -382,35 +375,34 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
 
 /* Official Preset Previews */
 #{c(chat messageAttachmentsContainer)} {
-  &#message-accessories-1002402379188146278,
-  &#message-accessories-1002402500336439426,
-  &#message-accessories-1002402447769211020,
-  &#message-accessories-1002402572524597328 {
+  &:is(
+  #message-accessories-1002402379188146278,
+  #message-accessories-1002402500336439426,
+  #message-accessories-1002402447769211020,
+  #message-accessories-1002402572524597328
+  ) {
     margin-bottom: 20px;
     #{c(embeds textContainerUp)} {
       border: none;
       background-color: transparent;
-      #{c(embeds textContainer)} {
-        @include bg($bgf: center/ cover no-repeat);
-        @include bg2;
-        &:after {
-          background: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat;
-        }
-        pre {
-          display: none;
-        }
+    }
+    #{c(embeds textContainer)} {
+      @include bg($bgf: center/ cover no-repeat);
+      @include bg2;
+      &:after {
+        background: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat;
+      }
+      pre {
+        display: none;
       }
     }
     #{c(embeds textFooter)} {
       width: 300px;
       position: relative;
       bottom: -40px;
-      #{c(embeds toggleExpandedPreview)},
-      #{c(embeds attachmentName)},
-      #{c(embeds attachmentSize)},
-      #{c(embeds codeIcon)} {
-        display: none;
-      }
+    }
+    :is(#{c(embeds toggleExpandedPreview)},#{c(embeds attachmentName)},#{c(embeds attachmentSize)},#{c(embeds codeIcon)}) {
+      display: none;
     }
   }
   // synthscape orange
@@ -426,8 +418,10 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
     }
   }
   // ocean blue, current default
-  &#message-accessories-1002402447769211020,
-  &#message-accessories-1002402572524597328 {
+  &:is(
+  #message-accessories-1002402447769211020,
+  #message-accessories-1002402572524597328
+  ) {
     #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
       background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
     }

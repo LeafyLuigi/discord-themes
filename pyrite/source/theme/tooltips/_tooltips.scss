@@ -9,13 +9,8 @@
 #{c(tooltips pointer)} {
   display: none;
 }
-#{c(main dark)},
-#{c(main light)} {
-  #{c(tooltips black)},
-  #{c(tooltips brand)},
-  #{c(tooltips grey)},
-  #{c(tooltips primary)},
-  #{c(media bubble)} {
+:is(#{c(main dark)},#{c(main light)}) {
+  :is(#{c(tooltips black)},#{c(tooltips brand)},#{c(tooltips grey)},#{c(tooltips primary)},#{c(media bubble)}) {
     background: $tooltip;
     color: var(--header-primary);
     text-shadow: 2px 2px 2px var(--header-secondary);

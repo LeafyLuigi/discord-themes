@@ -1,7 +1,6 @@
 @use "backend" as *;
 /* Start Server Settings */
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(serverSettings emojiRemoveDefault)} {
     background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
     &:not(:hover) {

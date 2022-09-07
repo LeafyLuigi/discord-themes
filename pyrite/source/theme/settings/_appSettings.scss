@@ -27,24 +27,21 @@
     #{c(appSettings gameName)} {
       color: var(--text-normal);
     }
-    #{c(appSettings gameLastPlayed)},
-    #{c(appSettings gameOverlayStatusText)} {
+    :is(#{c(appSettings gameLastPlayed)},#{c(appSettings gameOverlayStatusText)}) {
       color: var(--text-muted);
     }
     :is(#{c(appSettings gameOverlayToggleIconOn)},#{c(appSettings gameOverlayToggleIconOff)}) #{c(appSettings gameOverlayToggleIconFill)} {
       fill: $primary;
     }
     #{c(appSettings gameNameInput)} {
-      &:focus,
-      &:hover {
+      &:is(:focus,:hover) {
         border-color: $primary;
         background-color: transparent;
       }
     }
   }
   #{c(appSettings gameNameInput)} {
-    &:focus,
-    &:hover {
+    &:is(:focus,:hover) {
       border-color: $primary;
       background-color: transparent;
     }
@@ -83,8 +80,7 @@
 #{c(appSettings overlayWrapper)} {
   border-color: $primary;
   #{c(appSettings overlayOption)} {
-    &:hover,
-    &#{c(appSettings overlaySelected)} {
+    &:is(:hover,#{c(appSettings overlaySelected)}) {
       background-color: $primary;
     }
   }
@@ -93,8 +89,7 @@
   }
 }
 #{c(appSettings overlayDisabled)} {
-  &#{c(appSettings overlaySelected)},
-  &:hover {
+  &:is(:hover,#{c(appSettings overlaySelected)}) {
     color: $red;
   }
 }

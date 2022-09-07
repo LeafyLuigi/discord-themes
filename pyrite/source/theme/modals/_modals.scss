@@ -1,7 +1,6 @@
 @use "backend" as *;
 /* Begin Modals */
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
 	#{c(modals root)} {
 		background-color: transparent;
 		box-shadow: none;
@@ -10,22 +9,14 @@
 	#{c(modals createEventPreviewCard)} {
 		@include card;
 	}
-	#{c(modals searchResultsGroup)},
-	#{c(modals searchDatePicker)},
-	#{c(modals footer)},
-	#{c(modals inviteFromBrowserContentWrapper)},
-	#{c(modals reactionReactors)} {
+	:is(#{c(modals searchResultsGroup)},#{c(modals searchDatePicker)},#{c(modals footer)},#{c(modals inviteFromBrowserContentWrapper)},#{c(modals reactionReactors)}) {
 		background-color: $middle;
 	}
-	#{c(modals unpinMessage)},
-	// used in calls
-	#{c(modals regionSelectDropdown)} {
+	:is(#{c(modals unpinMessage)},#{c(modals regionSelectDropdown)}) {
 		@include card;
 		box-shadow: none;
 	}
-	#{c(modals shortcutsModal)},
-	#{c(modals autocomplete)},
-	#{c(modals boostTierPill)} {
+	:is(#{c(modals shortcutsModal)},#{c(modals autocomplete)},#{c(modals boostTierPill)},#{c(modals contentWarningFooter)}) {
 		background-color: transparent;
 	}
 	#{c(modals quickSwitchModal)} {
@@ -46,8 +37,7 @@
 	#{c(modals searchQueryHeader)} {
 		background-color: $header;
 	}
-	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)},
-	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} #{c(modals searchDateHintValue)}:hover {
+	#{c(modals searchDatePicker)} #{c(modals searchDatePickerHint)} :is(#{c(modals searchDateHintValue)},#{c(modals searchDateHintValue)}:hover) {
 		background-color: $primary;
 	}
 	#{c(modals reactionsSidebar)} {
@@ -56,17 +46,13 @@
 	#{c(modals reactionDefault)}:hover {
 		background-color: var(--background-modifier-hover);
 	}
-	#{c(modals reactionDefault)}:active,
-	#{c(modals reactionSelected)} {
+	:is(#{c(modals reactionDefault)}:active,#{c(modals reactionSelected)}) {
 		background-color: var(--background-modifier-active);
 	}
 	#{c(modals contentWarningPopout)} {
 		backdrop-filter: blur(5px);
 		background-color: $card;
 		box-shadow: none;
-	}
-	#{c(modals contentWarningFooter)} {
-		background-color: transparent;
 	}
 }
 #{c(modals header)} {
@@ -226,12 +212,9 @@
 		content: none;
 	}
 }
-#{c(modals timedOutIcon)},
-#{c(modals timedOutBannerIcon)} {
-    path {
-        &[fill="#ED4245"] {
-            fill: $red;
-        }
+:is(#{c(modals timedOutIcon)},#{c(modals timedOutBannerIcon)}) path {
+	&[fill="#ED4245"] {
+		fill: $red;
     }
 }
 #{c(modals timedOutSpamBanner)} {
@@ -242,7 +225,7 @@
     background-color: $card;
     border-radius: var(--border-radius);
 }
-#{c(modals toastsIcon)} path{
+#{c(modals toastsIcon)} path {
     &[fill="#3BA55C"] {
         fill: $green;
     }
@@ -254,20 +237,14 @@
 	content: none;
 }
 #{c(modals searchDatePicker)} #{c(modals searchCalendarPicker)} {
-	#{c(modals reactDatePicker)},
-	#{c(modals reactDPHeader)} {
+	:is(#{c(modals reactDatePicker)},#{c(modals reactDPHeader)}) {
 		background-color: transparent;
 	}
 	#{c(modals reactDPDay)} {
-		&:hover,
-		&#{c(modals reactDPDayOutsideMonth)}:hover,
-		&#{c(modals reactDPDaySelected)}::after,
-		&#{c(modals reactDPDayKeyboardSelected)} {
+		&:is(:hover,#{c(modals reactDPDayOutsideMonth)}:hover,#{c(modals reactDPDaySelected)}::after,#{c(modals reactDPDayKeyboardSelected)}) {
 			background-color: $primary;
 		}
-		&#{c(modals reactDPDayOutsideMonth)},
-		&#{c(modals reactDPDayDisabled)},
-		&#{c(modals reactDPDayDisabled)}:hover {
+		&:is(#{c(modals reactDPDayOutsideMonth)},#{c(modals reactDPDayDisabled)},#{c(modals reactDPDayDisabled)}:hover) {
 			background-color: transparent;
 		}
 	}
@@ -320,16 +297,14 @@
 }
 
 #{c(modals autocompleteCategorySelected)},
-#{c(modals autocompleteCategorySelected)}:hover,
 #{c(modals autocompleteEmojiInner)},
 #{c(modals createEventProgressBar)},
 #{c(modals createEventRSVPCount)},
 #{c(modals welcomeToServerOption)},
-#{c(modals welcomeToServerOption)}:hover,
 #{c(modals problemInfoRoot)},
 #{c(modals timedOutContainer)},
 #{c(modals textContainer)}~#{c(embeds textFooter)},
-#{c(modals activitiesItem)}:hover,
+:is(#{c(modals autocompleteCategorySelected)},#{c(modals welcomeToServerOption)},#{c(modals activitiesItem)}):hover,
 #{c(modals activitiesTag)},
 #{c(modals uploadOptionBox)},
 #{c(modals boostSubscription)} {
@@ -339,8 +314,7 @@
 #{c(modals emojiStickerGuildSection)},
 #{c(modals scrollTierBackground)},
 #{c(modals openThreadsModalBrowserContainer)},
-#{c(modals searchDatePicker)} #{c(modals searchCalendarPicker)} #{c(modals reactDatePicker)},
-#{c(modals searchDatePicker)} #{c(modals searchCalendarPicker)} #{c(modals reactDPHeader)},
+#{c(modals searchDatePicker)} #{c(modals searchCalendarPicker)} :is(#{c(modals reactDatePicker)},#{c(modals reactDPHeader)}),
 #{c(modals timedOutIconContainer)},
 #{c(modals autocompleteRailInner)},
 #{c(modals beforeTalkBody)},

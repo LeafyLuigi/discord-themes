@@ -1,11 +1,7 @@
 @use "backend" as *;
 /* Begin Search */
-#{c(main dark)},
-#{c(main light)} {
-  #{c(search searchFilter)},
-  #{c(search searchAnswer)},
-  #{c(search activeButton)},
-  #{c(search activeButton)}:hover {
+:is(#{c(main dark)},#{c(main light)}) {
+  :is(#{c(search searchFilter)},#{c(search searchAnswer)},#{c(search activeButton)},#{c(search activeButton)}:hover) {
     background-color: $primary;
   }
 }
@@ -14,8 +10,7 @@
 }
 #{c(search headerTabList)} {
   #{c(search tabItem)}#{c(search tabThemed)} {
-    &#{c(search tabSelected)},
-    &#{c(search tabSelected)}:hover {
+    &:is(#{c(search tabSelected)},#{c(search tabSelected)}:hover) {
       background-color: $secondary;
     }
   }

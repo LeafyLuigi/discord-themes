@@ -93,14 +93,9 @@ $hover-filter: var(--hover-filter);
 $active-filter: var(--active-filter);
 /// Button : (background / border) color will need to be defined.
 @mixin button-base($color: null) {
-	@include bg;
+	@include bg($br:3px,$bg:transparent,$z:1);
 	> .contents-3ca1mk {
 		z-index: 2;
-	}
-	&::before {
-		border-radius: 3px;
-		background: transparent;
-		z-index: 1;
 	}
 	&:hover:not(:disabled) {
 		background-color: $color;
@@ -141,14 +136,9 @@ $active-filter: var(--active-filter);
 	border-color: $color;
 	color: $color;
 	background-color: transparent;
-	@include bg;
+	@include bg($br:3px,$bg:transparent,$z:1);
 	> .contents-3ca1mk {
 		z-index: 2;
-	}
-	&::before {
-		border-radius: 3px;
-		background-color: transparent;
-		z-index: 1;
 	}
 	&:hover:not(:disabled) {
 		background-color: transparent;

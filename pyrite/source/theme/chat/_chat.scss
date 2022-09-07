@@ -67,25 +67,19 @@
   }
 }
 
-#{c(main groupSpacing16)} {
-  #{c(chat divider)} {
-    --divider-color: var(--red-color);
-    text-align: center;
-    display: block;
-    z-index: 0;
-    &:not(#{c(chat dividerUnread)}) {
-      border-top: none;
-    }
-    &#{c(chat dividerHasContent)} {
-      margin: 0.5rem auto 1.5rem auto;
-      border-top: none;
-      #{c(chat unreadPill)} {
-        top: 2px;
-      }
-    }
+#{c(chat divider)} {
+  --divider-color: var(--red-color);
+  text-align: center;
+  display: block;
+  z-index: 0;
+  border-top: none;
+  &#{c(chat dividerHasContent)} {
+    margin: 0.5rem auto 1.5rem auto;
   }
 }
-
+#{c(chat unreadPill)} {
+  top: 2px;
+}
 #{c(chat dividerContent)} {
   background-color: $card;
   color: $primary;
@@ -153,8 +147,7 @@
     }
   }
 }
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(chat spoilerText)}#{c(chat spoilerHidden)},
   #{c(chat spoilerText)}#{c(chat spoilerHidden)}:hover {
     background-color: $card;
@@ -261,8 +254,7 @@
   width: unset;
 }
 
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(chat channelLinkUserMentionWrapper)} {
     background-color: transparent;
     color: var(--interactive-hover);
@@ -291,8 +283,7 @@
 }
 
 // Home
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(chatHome chatBackground)} {
     background-color: transparent;
   }
@@ -334,8 +325,7 @@
 }
 
 // Forums
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(forums container)} {
     background-color: $middle;
   }

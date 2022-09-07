@@ -1,7 +1,6 @@
 @use "backend" as *;
 /* Begin Boosts */
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
 	#{c(boost modal)} {
 		background: $middle none;
 	}
@@ -9,10 +8,7 @@
 		@include card;
 		background-image: none;
 	}
-	#{c(boost tierMarkerBackground)},
-	#{c(boost barBackground)},
-	#{c(boost tierBody)},
-	#{c(boost perk)} {
+	:is(#{c(boost tierMarkerBackground)},#{c(boost barBackground)},#{c(boost tierBody)},#{c(boost perk)}) {
 		background-color: $card;
 	}
 	#{c(boost tierHeaderLocked)} {

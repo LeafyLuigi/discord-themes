@@ -1,7 +1,6 @@
 @use "backend" as *;
 /* Start User Modal */
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(userModal root)} {
     box-shadow: none;
     @include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter));
@@ -24,15 +23,13 @@
   border: 2px solid $primary;
   border-radius: 5px;
   @include bg($bg:transparent,$o:0.2,$br:5px);
-  &:hover,
-	&:active {
+  &:is(:hover,:active) {
     border-color: $hover;
     &:before {
 			background-color: $hover;
 		}
   }
-  &#{c(userModal tabBarItemSelected)},
-	&[style*="(255, 255, 255)"] {
+  &:is(#{c(userModal tabBarItemSelected)},[style*="(255, 255, 255)"]) {
 		&:before {
 			background-color: $primary;
 		}
@@ -45,10 +42,8 @@
 	&[style*="transparent"] {
 		border: 2px solid $primary !important; // !important reason: element.style
 	}
-	// not selected, hovered
-	&[style*="(255, 255, 255, 0.6)"],
-	// selected
-	&[style*="(255, 255, 255)"] {
+	// not selected, hovered | selected
+	&:is([style*="(255, 255, 255, 0.6)"],[style*="(255, 255, 255)"]) {
 		border: 2px solid $hover !important; // !important reason: element.style
 	}
 }

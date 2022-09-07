@@ -1,7 +1,6 @@
 @use "backend" as *;
 /* Start Header */
-#{c(main dark)},
-#{c(main light)} {
+:is(#{c(main dark)},#{c(main light)}) {
   #{c(header akaBadge)} {
     background-color: $secondary;
     color: var(--header-primary);
@@ -41,9 +40,7 @@
   overflow: visible;
 }
 #{c(os mac platform)} {
-  #{c(header title)},
-  #{c(header children)},
-  #{c(header topic)} {
+  :is(#{c(header title)},#{c(header children)},#{c(header topic)}) {
     -webkit-app-region: no-drag;
   }
 }
@@ -75,7 +72,7 @@
   #{c(header icon)} {
     color: $primary;
   }
-  &:hover #{c(header icon)}{
+  &:hover #{c(header icon)} {
     color: $hover;
     filter: drop-shadow(0 0 2px currentColor);
   }
