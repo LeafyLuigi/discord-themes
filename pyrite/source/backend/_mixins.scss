@@ -1,7 +1,7 @@
 // Mixins
 
 /// Create background using a static, opaque color with the ability to change opacity
-@mixin bg($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$f:null,$bgf:null,$war:null,$top:null,$right:null,$bottom:null,$left:null) {
+@mixin bg($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$f:null,$bgf:null,$war:null,$top:null,$right:null,$bottom:null,$left:null,$pos:null) {
 	&::before {
 		content: "";
 		top: 0;
@@ -25,6 +25,7 @@
 		@if $right {right: $right;} 
 		@if $bottom {bottom: $bottom;} 
 		@if $left {left: $left;}
+		@if $pos {position: $pos;}
 	}
 }
 

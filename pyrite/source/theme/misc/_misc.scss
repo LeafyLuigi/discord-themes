@@ -148,12 +148,7 @@ body, // this one is here for transparency in bd to work
     margin-top: 0;
     height: 0;
     position: relative;
-    @include bg;
-    &:before {
-      -webkit-app-region: drag;
-      height: 18px;
-      position: fixed;
-    }
+    @include bg($war:drag,$h:18px,$pos:fixed);
     & > #{c(os wordmark)} {
       display: none;
     }
