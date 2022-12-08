@@ -1,57 +1,64 @@
-<!DOCTYPE html><html><head><title>Pyrite's Quick Variable List</title><style>span[onClick]{color:#0ff;font-style:italic;cursor:pointer}span.clientMod{color:#3e82e5}.comment{color:#999;display:inline-block;font-style:italic}.psuedoSelector{color:#e84806}.builtIn{color:#fd2f2b}.number,.string{color:#2aa198}.class{color: #268bd2}.var{color:#b58900}a{color:#00aef3;text-decoration:none}a:hover{text-decoration:underline}</style><script>function toggleHelp(id){var i=document.getElementById(id);if(i.hasAttribute("hidden")){i.removeAttribute("hidden");return;}else{i.setAttribute("hidden", 0);}}</script></head>
+<!DOCTYPE html><html><head><title>Pyrite's Quick Variable List</title><style>span[onClick]{color:#0ff;font-style:italic;cursor:pointer}span.clientMod{color:#3e82e5}.comment{color:#999;display:inline-block;font-style:italic}.psuedoSelector{color:#e84806}.builtIn{color:#fd2f2b}.number,.string{color:#2aa198}.class{color:#268bd2}.var{color:#b58900}.keyword{color:#859900}a{color:#00aef3;text-decoration:none}a:hover{text-decoration:underline}.small{font-size:12px;line-height:14px}</style><script>function toggleHelp(id){var i=document.getElementById(id);if(i.hasAttribute("hidden")){i.removeAttribute("hidden");return;}else{i.setAttribute("hidden", 0);}}</script></head>
 <body style="background:#202225;font-family:monospace;color:#b9bbbe"><div style="white-space:pre-wrap;background-color:rgba(0,0,0,0.5);border:1px solid #3298e0;font-size:16px;line-height:18px;padding:4px"><div class="comment inline">/* The following Variables are used in :root{}, which is the initial part of the HTML tree: html. */</div>
 <span class="comment">/* Every value you see is the default value for the theme. You can click on the <span style="color:#0ff">cyan text</span> for some more info, click again to hide.*/</span>
 <span class="comment">/* If you wish to learn CSS for yourself, please visit one of these links: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN Web Docs</a> | <a href="https://www.w3schools.com/Css/">W3Schools</a> */</span>
-<span class="psuedoSelector">:root</span> {
-    <div class="comment">/* These two are URLs but can also be a solid color */</div>
-    <span onClick="toggleHelp('url')">?</span><span id="url" hidden><br/>    Using <i class="builtIn">url</i><i>()</i>, you can point to an external resource such as an image. You can also use it with raw <i>data</i>, which doesn't call any external resources.</span>
-    <span class="var">--background-image</span>: <span class="builtIn">url</span>(<span class="string">'https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png'</span>);
-    <span class="var">--home-icon</span>: <span class="builtIn">url</span>(<span class="string">'https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png'</span>);
+<span class="psuedoSelector">:root</span> {<div style="margin-left:4em">
+<div class="comment">/* These two are URLs but can also be a solid color */</div>
+<span onClick="toggleHelp('url')">?</span><span id="url" hidden><br/>Using <i class="builtIn">url</i><i>()</i>, you can point to an external resource such as an image. You can also use it with raw <i>data</i>, which doesn't call any external resources.<br/></span>
+<span class="var">--background-image</span>: <span class="builtIn">url</span>(<span class="string">'https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png'</span>);
+<span class="var">--home-icon</span>: <span class="builtIn">url</span>(<span class="string">'https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png'</span>);
 
-    <div class="comment">/* These are the main theme related colors. Though not explicitly stated, tooltip can also be an image. */</div>
-    <span onClick="toggleHelp('color')">?</span><span id="color" hidden><br/>    Colors in CSS can be written in one of a few ways:<br/>    - HEX (displayed below)<br/>    - RGB (displayed at the bottom)<br>    - HSL (Discord uses this for the saturation slider)<br/>    HEX is the most compact, RGB is the most readable and HSL allows easy tinkering.<br/>    None of the custom variables in this theme use HSL(A).<br/>    Does none of this make sense? <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">This</a> or <a href="https://www.w3schools.com/colors/default.asp">this</a> might be easier to understand.<br/>    Tooltip can also be an image because it's the only one that doesn't use <span class="var">background-color</span> or <span class="var">color</span> anywhere.</span>
-    <span class="var">--primary-color</span>: <span class="number">#387eff</span>;
-    <span class="var">--secondary-color</span>: <span class="number">#3298e0</span>;
-    <span class="var">--hover-color</span>: <span class="number">#139dff</span>;
-    <span class="var">--tooltip-color</span>: <span class="number">#1967ab</span>;
+<div class="comment">/* These are the main theme related colors. Though not explicitly stated, tooltip can also be an image. */</div>
+<span onClick="toggleHelp('color')">?</span><span id="color" hidden><br/>Colors in CSS can be written in one of a few ways:<br/>- HEX (displayed below)<br/>- RGB (displayed at the bottom of page)<br>- HSL (Discord uses this for the saturation slider)<br/>HEX is the most compact byte-wise, RGB is the most human-readable and HSL allows easy tinkering via <span class="builtIn">calc</span>().<br/>The addition of an "A" at the end of the abbreviation or 4/8 digit long HEX allows for Alpha/Opacity.<br/>None of the custom variables in this theme use HSL.<br/>Does none of this make sense? <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">This</a> or <a href="https://www.w3schools.com/colors/default.asp">this</a> might be easier to understand.<br/>Tooltip can also be an image because it's the only one that doesn't use <span class="var">background-color</span> or <span class="var">color</span> anywhere.<br/></span>
+<span class="var">--primary-color</span>: <span class="number">#387eff</span>;
+<span class="var">--secondary-color</span>: <span class="number">#3298e0</span>;
+<span class="var">--hover-color</span>: <span class="number">#139dff</span>;
+<span class="var">--tooltip-color</span>: <span class="number">#1967ab</span>;
 
-    <div class="comment">/* Filters can change the way an image looks without having to edit the image directly. */</div>
-    <span onClick="toggleHelp('filters')">?</span><span id="filters" hidden><br/> The implementation for Pyrite puts every filter type in one variable. I HIGHLY recommend looking up how they work. You can find links here: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter">MDN</a> | <a href="https://www.w3schools.com/cssref/css3_pr_filter.asp">W3Schools</a></span>
-    <span class="var">--background-filter</span>: none;
-    <span class="var">--user-modal-filter</span>: none;
-    <span class="var">--user-popout-filter</span>: none;
+<div class="comment">/* Alter how the text itself looks. */</div>
+<span onClick="toggleHelp('fonts')">?</span><span id="fonts" hidden><br/><i class="small">Note: <span class="var">--header-font</span> isn't listed in the .theme.css file but uses the same fonts as <span class="var">--body-font</span> by default. It can be manually added for customization.<br/>Note: "Code" fonts are generally monospace/fixed-width.</i><br/>Multiple font names within the same variable are for fallbacks and offer more compatibility for those without said font.<br/>The default body font is the same as Discord's own with previously-used "Whitney" being before "gg sans".<br/><span class="var">--header-font</span> is used in-place of Discord's <span class="var">--font-headline</span> and for some headings.<br/><span class="var">--code-font</span> is primarily used for codeblocks and sent txt files.<br/><span class="var">--body-font</span> is otherwise used.<br/>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" class="small"><i>Click here for MDN page for @font-face at-rule.</i></a><br/><i>Getting an external font:</i><br/>You must know the name and source URL to use an external font.<br/>Each <span class="keyword">@font-face</span> at-rule always contain a <span class="var">font-family</span> and a <span class="var">src</span> descriptor.<br/>These are used as the name of the font and the source URL, respectively.<br/>The <span class="var">font-family</span> is what you add to any of the below variables.<br/>Other optional descriptors may be used such as <span class="var">font-style</span> or <span class="var">font-weight</span>. You can read up on these at the above link.<br/><i class="small">Some fonts can be added via a standard <span class="keyword">@import</span>; though these usually have a <span class="keyword">@font-face</span> within the file.</i><br/><br/><a href="font-reasons.html" class="small"><i>You can see my reasoning for the fonts here.</i></a><br/></span>
+<span class="var">--header-font</span>: Whitney, <span class="string">"gg sans"</span>, <span class="string">"Noto Sans"</span>, <span class="string">"Helvetica Neue"</span>, Helvetica, sans-serif;
+<span class="var">--code-font</span>: Hack, Monaco, Consolas, Courier, monospace;
+<span class="var">--body-font</span>: Whitney, <span class="string">"gg sans"</span>, <span class="string">"Noto Sans"</span>, <span class="string">"Helvetica Neue"</span>, Helvetica, sans-serif;
 
-    <div class="comment">/* Used with toggles below, this variable is used as a time for the animations below. You MUST include the time unit if you change the value. It also accepts a second value as an animation delay. */</div>
-    <span onClick="toggleHelp('time')">?</span><span id="time" hidden><br/>    Time units are <i>s</i> for seconds and <i>ms</i> for milliseconds. 1s = 1000ms.</span>
-    <span class="var">--hide-speed</span>: <span class="number">.5s</span>;
-    <div class="comment">/* "Toggles", as I've called them, are used as a way to enable/disable the hiding of different things. Channel list is shown fully by default. These all take values from 0 to 1. NOTE: Anything above 1 and below 0 will likely cause issues. */</div>
-    <span onclick="toggleHelp('toggle')">?</span><span id="toggle" hidden><br/>    If you want to fully hide something, the values you will want to use are as follows: 1.333333, 1.2, 1.4226.</span>
-    <span class="var">--hide-member-list</span>: <span class="number">1</span>;
-    <span class="var">--hide-active-now</span>: <span class="number">1</span>;
-    <span class="var">--hide-channel-list</span>: <span class="number">0</span>;
+<div class="comment">/* Filters can change the way an image looks without having to edit the image directly. */</div>
+<span onClick="toggleHelp('filters')">?</span><span id="filters" hidden><br/>The implementation for Pyrite puts every filter type in one variable. I HIGHLY recommend looking up how they work. You can find links here: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter">MDN</a> | <a href="https://www.w3schools.com/cssref/css3_pr_filter.asp">W3Schools</a><br/></span>
+<span class="var">--background-filter</span>: none;
+<span class="var">--user-modal-filter</span>: none;
+<span class="var">--user-popout-filter</span>: none;
 
-    <span onClick="toggleHelp('clientMod')" class="clientMod">/* Client Mod Stuff */</span><span id="clientMod" hidden><br/>    The following will only apply if you're using a certain supported plugin.<br/><br/>    The following only apply if you're using <a href="https://github.com/l0c4lh057/BetterDiscordStuff/blob/master/Plugins/ChannelTabs/ChannelTabs.plugin.js">this Channel Tabs plugin</a> and have the Better Discord addon enabled.
-    <span class="var">--channel-tabs-enabled</span>: <span class="number">0</span>; <span class="comment">/* This is a toggle, change the value to 1 if you're using the plugin "Channel Tabs" */</span>
-    <span class="var">--channel-tabs-tabBar-enabled</span>: <span class="number">1</span>; <span class="comment">/* This is a toggle, it mirrors the plugin's default value for having the tabs enabled. Change it to 0 if you do not use this feature. */</span>
-    <span class="var">--channel-tabs-favBar-enabled</span>: <span class="number">1</span>; <span class="comment">/* This is a toggle, it mirrors the plugin's default value for having favorites enabled Change it to 0 if you do not use this feature. */</span></span>
+<div class="comment">/* Used with toggles below, this variable is used as a time for the animations below. You MUST include the time unit if you change the value. It also accepts a second value as an animation delay. */</div>
+<span onClick="toggleHelp('time')">?</span><span id="time" hidden><br/>Time units are <i>s</i> for seconds and <i>ms</i> for milliseconds. 1s = 1000ms.<br/></span>
+<span class="var">--hide-speed</span>: <span class="number">.5s</span>;
+<div class="comment">/* "Toggles", as I've called them, are used as a way to enable/disable the hiding of different things. Channel list is shown fully by default. These all take values from 0 to 1. NOTE: Anything above 1 and below 0 will likely cause issues. */</div>
+<span onclick="toggleHelp('toggle')">?</span><span id="toggle" hidden><br/>If you want to fully hide something, the values you will want to use are as follows: 1.333333, 1.2, 1.4226.<br/></span>
+<span class="var">--hide-member-list</span>: <span class="number">1</span>;
+<span class="var">--hide-active-now</span>: <span class="number">1</span>;
+<span class="var">--hide-channel-list</span>: <span class="number">0</span>;
+
+<span onClick="toggleHelp('clientMod')" class="clientMod">/* Client Mod Stuff */</span><span id="clientMod" hidden><br/>The following will only apply if you're using a certain supported plugin.<br/><br/>The following only apply if you're using <a href="https://github.com/l0c4lh057/BetterDiscordStuff/blob/master/Plugins/ChannelTabs/ChannelTabs.plugin.js">this Channel Tabs plugin</a> and have the Better Discord addon enabled.
+<span class="var">--channel-tabs-enabled</span>: <span class="number">0</span>; <span class="comment">/* This is a toggle, change the value to 1 if you're using the plugin "Channel Tabs" */</span>
+<span class="var">--channel-tabs-tabBar-enabled</span>: <span class="number">1</span>; <span class="comment">/* This is a toggle, it mirrors the plugin's default value for having the tabs enabled. Change it to 0 if you do not use this feature. */</span>
+<span class="var">--channel-tabs-favBar-enabled</span>: <span class="number">1</span>; <span class="comment">/* This is a toggle, it mirrors the plugin's default value for having favorites enabled Change it to 0 if you do not use this feature. */</span></span></div>
 }
 
 
 <div class="comment">/* The following are used in both .theme-dark and .theme-light but are editable per category. Only the main dark theme class will be used here. */</div>
-<span class="class">.theme-dark</span> {
-    <div class="comment">/* Card background is a very broad catch-all for <b>most</b> things. I've relied on it too much so changing it will change a LOT of things. */</div>
-    <span onclick="toggleHelp('card')">?</span><span id="card" hidden><br/>    <a href="https://cdn.discordapp.com/attachments/747040126294687764/974646791469416478/unknown.png">I'm serious, it's used a lot.</a></span>
-    <span class="var">--card-background</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);
+<span class="class">.theme-dark</span> {<div style="margin-left:4em">
+<div class="comment">/* Card background is a very broad catch-all for <b>most</b> things. I've relied on it too much so changing it will change a LOT of things. */</div>
+<span onclick="toggleHelp('card')">?</span><span id="card" hidden><br/><a href="https://cdn.discordapp.com/attachments/747040126294687764/974646791469416478/unknown.png">I'm serious, it's used a lot.</a><br/></span>
+<span class="var">--card-background</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);
 
-    <div class="comment">/* These "shading" variables are used in the main window and some modals. If you're looking at Discord: side is the channel, server and member list while middle is the chat. Header is the header bar. */</div>
-    <span onclick="toggleHelp('shading')">?</span><span id="shading" hidden><br/>    You can change the last value to make it appear more or less prominent. A higher number means a more prominent color. These can also be a percentage.</span>
-    <span class="var">--side-shading</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);
-    <span class="var">--middle-shading</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.3</span>);
-    <span class="var">--header-shading</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.7</span>);
+<div class="comment">/* These "shading" variables are used in the main window and some modals. If you're looking at Discord: side is the channel, server and member list while middle is the chat. Header is the header bar. */</div>
+<span onclick="toggleHelp('shading')">?</span><span id="shading" hidden><br/>You can change the last value to make it appear more or less prominent. A higher number means a more prominent color. These can also be a percentage.<br/></span>
+<span class="var">--side-shading</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);
+<span class="var">--middle-shading</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.3</span>);
+<span class="var">--header-shading</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.7</span>);
 
-    <div class="comment">/* These "filters" are used on the big buttons you may see. */</div>
-    <span class="var">--hover-filter</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.2</span>);
-    <span class="var">--active-filter</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.4</span>);
+<div class="comment">/* These "filters" are used on the big buttons you may see. */</div>
+<span class="var">--hover-filter</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.2</span>);
+<span class="var">--active-filter</span>: <span class="builtIn">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.4</span>);</div>
 }
 </div>
 <footer style="width:auto;background-color:rgba(0,0,0,0.5)"><p style="font-size:14px;margin:0;font-style:italic">Other links: <a href="https://github.com/leafyluigi/discord-themes/tree/master/pyrite">Theme Repo</a> | <a href="https://discord.gg/7P99YTBRUu">Theme Support Server</a> | <a href="https://github.com/leafyluigi">My GitHub</a> | <a href="https://leafyluigi.github.io">My GitHub.io site</a></p></footer>
