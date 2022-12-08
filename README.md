@@ -13,7 +13,7 @@ This repo is for where I put the (mini) themes I make for Discord.
 
 ### Big Thanks:
 
-| <a href="https://github.com/Overimagine1" target="_blank"> <img src="" alt="" width="48px" height="48px"/> </a> |
+| <a href="https://github.com/Overimagine1" target="_blank"> <img src="https://avatars.githubusercontent.com/u/79660414?v=4" alt="" width="48px" height="48px"/> </a> |
 |:-:|
 | Overimagine1 |
 | <a href="https://github.com/Overimagine1/old-discord-font" target="_blank">"Whitney" file</a> |
