@@ -1,0 +1,6 @@
+@use "backend" as *;
+:is(#{c(main dark)}, #{c(main light)}) {
+    #{c(modals keybinds modal)} {
+        background: var(--modal-background);
+    }
+}

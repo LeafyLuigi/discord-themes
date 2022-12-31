@@ -83,10 +83,8 @@
 }
 
 // delete gift nitro button. might cock up a few plugins.
-#{c(chatForm buttons)} {
-  > #{c(chatForm button)} {
+#{c(chatForm buttons)} > #{c(chatForm button)}, #{c(main snowsgivingGift)} {
     display: none;
-  }
 }
 
 // text colors that may be used elsewhere

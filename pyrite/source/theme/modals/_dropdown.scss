@@ -1,0 +1,23 @@
+@use "backend" as *;
+#{c(modals dropdown filled)}#{c(modals dropdown select)} {
+    @include card;
+    &#{c(modals dropdown open)} {
+        border-bottom-width: 0;
+    }
+}
+#{c(modals dropdown popout)} {
+    background-color: $card;
+    backdrop-filter: blur(5px);
+    border: 1px solid $secondary;
+}
+#{c(modals dropdown option)} {
+    &:is(:hover,:focus,#{c(modals dropdown optionFocused)}) {
+        background-color: var(--background-modifier-hover);
+    }
+    &[aria-selected="true"] {
+        background-color: var(--background-modifier-active);
+    }
+}
+#{c(modals dropdown selectedIcon)} {
+    color: $primary;
+}

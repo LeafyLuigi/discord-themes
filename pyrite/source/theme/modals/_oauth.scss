@@ -1,0 +1,8 @@
+@use "backend" as *;
+#{c(modals oauth wrapper)} {
+    background: var(--modal-background);
+}
+#{c(modals oauth authorize)},
+#{c(modals oauth footer)} {
+    background: transparent;
+}

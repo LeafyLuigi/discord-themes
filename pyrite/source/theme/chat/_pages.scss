@@ -1,0 +1,45 @@
+@use "backend" as *;
+/* Browse Channels page */
+:is(#{c(main dark)},#{c(main light)}) {
+    :is(
+        #{c(pages container)},
+        #{c(pages customise scrollerContainer)},
+        #{c(pages customise emptyPage)}
+    ) {
+        background: transparent;
+    }
+    #{c(pages header container)} {
+        background: $middle;
+    }
+}
+
+#{c(pages channelsDismissable container)} {
+    @include card;
+}
+#{c(pages channelsDismissable image)} {
+    display: none;
+}
+
+#{c(pages channels channelRow)} {
+    color: var(--text-normal); // this is only here because i'm lazy with the icons, of which they broke this section
+    &,&:hover:not(#{c(pages channels disabled)}) {
+        background: $card;
+    }
+}
+
+#{c(pages customise prompt)} {
+    @include card;
+}
+#{c(pages customise profileCard)} {
+    background: $card;
+}
+#{c(pages customiseOptions optionButton)} {
+    border-color: $primary;
+    &:hover {
+        border-color: $hover;
+    }
+    &#{c(pages customiseOptions selected)} {
+        border-color: $primary;
+        background: transparent;
+    }
+}

@@ -106,3 +106,5 @@ dist
 
 # Manual Ignores
 .vscode/
+realgar/
+realgar-package.json

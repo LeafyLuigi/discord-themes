@@ -1,0 +1,7 @@
+@use "backend" as *;
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(modals pin message)} {
+        background: $card;
+        box-shadow: none;
+    }
+}

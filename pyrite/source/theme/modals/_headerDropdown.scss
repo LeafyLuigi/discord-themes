@@ -1,0 +1,10 @@
+@use "backend" as *;
+// inbox's unread is here because it can be
+#{c(modals headerDropdown messagesPopoutWrap)}, #{c(modals inbox unread popout)} {
+    background: var(--modal-background);
+    top: 4px;
+    backdrop-filter: blur(5px);
+}
+#{c(modals headerDropdown header)} {
+    background: transparent;
+}

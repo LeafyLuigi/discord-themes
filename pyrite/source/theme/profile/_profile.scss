@@ -1,0 +1,23 @@
+@use "backend" as *;
+/* Start Profile */
+
+// #{c(profile panel panel)} {
+//     --background: transparent;
+// }
+
+// Default profile colors for unthemed profiles
+#{c(profile outer unthemed)} {
+    --profile-gradient-primary-color: transparent;
+    --profile-gradient-secondary-color: transparent;
+    --profile-gradient-overlay-color: transparent;
+    // --profile-gradient-button-color: a; // popout only: streaming, listening to spotify or playing a game
+    --profile-avatar-border-color: transparent; // appears in settings and no where else???
+    --profile-message-input-border-color: var(--primary-color);
+    --profile-body-background-color: var(--card-background);
+    // --profile-body-background-hover: a; // applies to mutual servers/friends when hovered
+    --profile-body-divider-color: var(--primary-color); // applies to dividers and connection's borders
+    --profile-role-pill-background-color: var(--card-background); // popout only: roles
+    // --profile-role-pill-border-color: a; // border doesn't seem to apply to unthemed
+    --account-profile-popout-menu-hover: var(--primary-color); // status picker - despite variable name, primary is used for parity with menus
+    --profile-note-background-color: transparent; // focused note textarea, also for some reason not defined in profile colors
+}

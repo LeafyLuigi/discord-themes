@@ -1,0 +1,10 @@
+@use "backend" as *;
+#{c(modals bannedUser modal)} {
+    #{c(modals bannedUser header)} {
+        justify-content: unset;
+        padding: 16px;
+    }
+    #{c(modals bannedUser content)} {
+        padding-bottom: 0;
+    }
+}

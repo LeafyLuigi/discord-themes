@@ -126,9 +126,9 @@ body, // this one is here for transparency in bd to work
 }
 
 // Set z-index
-#{c(main backdropWithLayer)} {
-  z-index: -1000;
-}
+// #{c(main backdropWithLayer)} {
+//   z-index: -1000;
+// }
 #{c(main pictureInPicture)} {
   z-index: 1050;
 }
@@ -227,6 +227,20 @@ body, // this one is here for transparency in bd to work
   }
 }
 
+/* show/hide for side-panels (like member list and profile panels) */
+:is(#{c(chat chatContentInner)} ~ div,#{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}) {
+  background-color: var(--background,var(--side-shading));
+  left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled));
+  transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
+  margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled)));
+  position: relative;
+  &:hover,
+  &:focus-within {
+    transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, --hide-fallback-enabled))));
+    backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));
+	}
+}
+
 // EGGS!
 #{c(main focused)}#{c(main fullMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)},
 #{c(main focused)}#{c(main reduceMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)}:hover {
@@ -271,40 +285,17 @@ body, // this one is here for transparency in bd to work
 #{c(other developerPortalCtaWrapper)} {
   background-color: $card;
 }
-// Rings - tab around and you'll find it.
-#{c(other ring)} {
+// Rings - tab around and you'll find it. Appears to have a class sans suffix/reroll.
+#{c(main ring)} {
   &[style*="var(--focus-primary)"] {
     --__adaptive-focus-color: var(--primary-color) !important; // !important reason: element.style
   }
 }
-#{c(main keyboardMode)} #{c(other focusStroke)} {
-  fill: $primary;
-  stroke: $primary;
-}
-// Goto Message Links
-#{c(main anchorLink)} {
-  &:is([href^="https://canary.discord.com/channels/"],[href^="https://ptb.discord.com/channels/"],[href^="https://discord.com/channels/"]) {
-    font-size: 0;
-    &:hover {
-      text-decoration: none;
-    }
-    &:hover:before {
-      background-color: $primary;
-      color: var(--interactive-normal);
-    }
-    &:before {
-      content: var(--jumpToMessage, "Jump to message");
-      font-size: 1rem;
-      padding: 0 3px;
-      border-radius: 3px;
-      color: $primary;
-      text-decoration-color: currentColor;
-    }
-  }
-}
-html[lang="fr"] {
-  --jumpToMessage: "Aller au message";
-}
+// #{c(main keyboardMode)} #{c(other focusStroke)} {
+//   fill: $primary;
+//   stroke: $primary;
+// }
+
 // insecure links
 a[href^="http://"] {
   color: $red;
@@ -332,44 +323,8 @@ a[href^="http://"] {
   #{c(serverList numberBadge)} {
     animation: numberBadgeFlash 5s linear infinite;
   }
-  :is(#{c(serverList numberBadge)}:before,#{c(ipt inboxUnreadMessagesCountWrapper)}) {
+  :is(#{c(serverList numberBadge)}:before,#{c(modals inbox unread mentionBadge)}) {
     animation: numberBadgeFlashBefore 5s linear infinite;
-  }
-}
-
-/* Version */
-#{c(userSettings sidebarInfo)} {
-  &::after {
-    content: $theme-name str-insert($version, " - ", 0);
-    font-style: italic;
-    color: var(--interactive-normal);
-    font-size: 12px;
-    line-height: 16px;
-  }
-}
-/* Beta Version */
-html[lang="en-GB"] #{c(userSettings sidebarInfo)} {
-  &::after {
-    content: $theme-name str-insert($version, " Beta Branch - ", 0);
-  }
-}
-html[lang="fr"] #{c(userSettings sidebarInfo)} {
-  &::after {
-    content: $theme-name str-insert($version, " Branche Bêta - ", 0);
-  }
-}
-#{c(userSettings contentColumn)} > div > :nth-child(2) > :only-child > div > div > {
-  :nth-child(3) > #{c(userSettings radioBar)} > :nth-child(2) > div:after {
-    content: "Pyrite Beta Branch";
-    font-size: 14px;
-    color: $primary;
-    font-style: italic;
-  }
-  :nth-child(6) > #{c(userSettings radioBar)} > :nth-child(2) > div:after {
-    content: "Branche Bêta de Pyrite";
-    font-size: 14px;
-    color: $primary;
-    font-style: italic;
   }
 }
 
@@ -383,6 +338,7 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
   ) {
     margin-bottom: 20px;
     #{c(embeds textContainerUp)} {
+      transform: rotate(0deg);
       border: none;
       background-color: transparent;
     }
@@ -438,28 +394,6 @@ html[lang="fr"] #{c(userSettings sidebarInfo)} {
   transform: skewX(-15deg);
 }
 
-$dev: (
-  "309976820109803520", // Leafy
-);
-$helper: (
-  "126652966265421824", // Scars
-  "393900343135830016", // Nyx
-  "359175647257690113", // Vozer
-);
-
-#{c(chat chatAvatar)} {
-  @each $userID in $dev {
-    &[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
-      --local-tag: "Theme Dev";
-    }
-  }
-  @each $userID in $helper {
-    &[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
-      --local-tag: "Theme Helper";
-    }
-  }
-}
-
 /* Redownload pls bar */
 // #{c(main appContainer)}::before {
 //   content: "Your version of Pyrite is outdated. Please redownload.";
@@ -470,6 +404,6 @@ $helper: (
 //   box-sizing: border-box;
 //   padding: 10px 0;
 //   background-color: $header;
-//   display: var(--update-notice-2-point-oh, block);
+//   display: var(--update-notice-NY-2023, block);
 //   z-index: 2500;
 // }

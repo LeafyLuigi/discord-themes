@@ -1,0 +1,19 @@
+@use "backend" as *;
+#{c(modals expressionPicker resizeHandle)} {
+    border-radius: 8px 0 0 8px;
+    background: $primary;
+    &:hover,&:active {
+        background: $hover;
+    }
+}
+#{c(modals expressionPicker contentWrapper)} {
+    background: var(--modal-background);
+    backdrop-filter: blur(5px);
+}
+#{c(modals expressionPicker navButtonActive)} {
+    background: $primary;
+}
+
+#{c(modals expressionPicker inspector)} {
+    background: transparent;
+}

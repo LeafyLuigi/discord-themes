@@ -1,0 +1,10 @@
+@use "backend" as *;
+/* Start Modals (enjoy hell) */
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(modals footer)} {
+        background: transparent;
+    }
+    :is(#{c(modals separator)},#{c(modals footerSeparator)}) {
+        box-shadow: none;
+    }
+}

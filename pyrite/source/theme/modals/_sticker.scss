@@ -1,0 +1,35 @@
+@use "backend" as *;
+
+#{c(modals sticker categoryGeneric)}:hover {
+    background-color: var(--background-modifier-hover);
+    color: var(--interactive-hover);
+}
+#{c(modals sticker searchWrapper)} {
+    background: $card;
+}
+#{c(modals sticker premiumCategorySelected)},
+#{c(modals sticker premiumCategorySelected)}:hover,
+#{c(modals sticker categoryGenericSelected)},
+#{c(modals sticker categoryGenericSelected)}:hover,
+#{c(modals sticker stickerSearchSuggestion)} {
+    background-color: $card;
+}
+#{c(modals sticker listGuildIcon)} {
+    background: transparent;
+}
+#{c(modals sticker header)} {
+    box-shadow: none;
+}
+#{c(modals sticker upsell)} {
+    display: none;
+}
+#{c(modals sticker packHeader)} {
+    background: transparent;
+    position: unset;
+    top: unset;
+}
+#{c(modals sticker inspected)} #{c(modals sticker inspectedIndicator)} {
+    mask: none;
+    background-color: $card;
+    border-radius: 12px;
+}

@@ -66,15 +66,40 @@
 
 @mixin header {
 	color: var(--header-primary);
-	text-shadow: 2px 2px 2px var(--header-secondary);
+	text-shadow: 2px 2px 4px var(--header-secondary);
+}
+@mixin header-line-before {
+	@include header;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&::before {
+		content: "";
+		height: 2px;
+		flex-grow: 1;
+		background: linear-gradient(to left, currentColor -50%, transparent 50%);
+		margin-right: 5px;
+	}
+}
+@mixin header-line-after {
+	@include header;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&::after {
+		content: "";
+		height: 2px;
+		flex-grow: 1;
+		background: linear-gradient(to right, currentColor -50%, transparent 50%);
+		margin-left: 5px;
+	}
 }
 @mixin header-line {
 	@include header;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	&::before,
-	&::after {
+	&:is(::before,::after) {
 		content: "";
 		height: 2px;
 		flex-grow: 1;

@@ -1,0 +1,15 @@
+@use "backend" as *;
+#{c(modals eventCard rsvpCount)} {
+    background: $card;
+}
+#{c(modals eventCard card)},
+#{c(modals eventCard card)}:hover {
+	background-color: $card;
+	border-color: $primary;
+}
+#{c(modals eventCard header)} {
+	background-color: $header;
+}
+#{c(modals eventCard guildIcon)} {
+	background-color: transparent;
+}

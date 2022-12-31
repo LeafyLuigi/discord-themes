@@ -1,78 +1,49 @@
 @use "backend" as *;
 /* Theme's User Modal Layout */
-#{c(userModal root)} {
+#{c(profile modal root)} {
   display: flex;
   flex-direction: row;
   width: var(--user-modal-width,900px);
   height: var(--user-modal-height,600px);
   min-width: 300px;
-  max-width: 100vw;
+  max-width: calc(100vw - 20px);
   min-height: 200px;
-  max-height: 100vh;
+  max-height: calc(100vh - 20px);
+}
+#{c(profile modal outer)} {
+  width: 100%;
 }
 
-#{c(userModal topSection)} {
+#{c(profile modal topSection)} {
+  margin: 0;
   display: flex;
   flex-direction: column;
   width: calc(var(--user-modal-width,900px) * 2/3);
 }
-#{c(userModal profileBanner)},
-#{c(userModal profileBannerPremium)} {
+#{c(profile modal profileBanner)},
+#{c(profile modal profileBannerPremium)} {
+  border-radius: 0;
   width: calc(var(--user-modal-width,900px) * 2/3);
 }
 
-#{c(userModal header)} {
+#{c(profile modal header)} {
   display: flex;
   min-height: 86px;
 }
-#{c(userModal headerTop)} {
-  padding: 10px 0;
-  flex-direction: column-reverse;
-  align-items: flex-end;
-}
-#{c(userModal relationshipButtons)} {
-  padding-bottom: 12px;
-}
-#{c(userModal additionalActionsIcon)} {
-  margin: 0 8px;
-}
-#{c(userModal profileBadges)} {
-  margin: 0 0 -6px 0;
-}
-
-#{c(userModal tabBarContainer)} #{c(userModal top)} #{c(userModal tabBarItem)} {
-	flex-shrink: 1;
-	flex-grow: 1;
-	flex-basis: 10%;
-  justify-content: center;
-  margin-right: 0;
-  &:hover,
-	&:active {
-    flex-grow: 3;
-		justify-content: center;
-  }
-	&#{c(userModal tabBarItemSelected)},
-	&[style*="(255, 255, 255)"] {
-		flex-shrink: 3;
-    flex-grow: 3;
-		flex-basis: 10%;
-		overflow: visible;
-	}
-}
-#{c(userModal activity)} {
+#{c(profile modal activity)} {
   padding: 5px 20px;
-  ~ #{c(userModal activityProfile)} {
-    + #{c(userModal tabBarContainer)} {
+  ~ #{c(profile activity activity profile)} {
+    + #{c(profile modal tabBarContainer)} {
       top: -366px;
     }
   }
-  + #{c(userModal tabBarContainer)} {
+  + #{c(profile modal tabBarContainer)} {
     top: -278px;
   }
 }
 
-#{c(userModal activityBody)} {
-  #{c(userModal actionsProfile)} {
+#{c(profile modal userProfileActivity)} {
+  #{c(profile activity activity profile)} {
     margin-left: 0;
     flex-direction: row;
     align-self: flex-end;
@@ -82,70 +53,158 @@
     }
   }
 }
+#{c(profile modal divider)} {
+  display: none;
+}
 
-#{c(userModal tabBarContainer)} {
+#{c(profile modal inner)}#{c(profile inner themedWithBanner)} {
+  --banner-height: 301px;
+  --row: var(--row-banner,4);
+  background: transparent;
+}
+#{c(profile modal inner)}#{c(profile inner themedPremiumWithoutBanner)} {
+  background: transparent;
+}
+
+#{c(profile modal overlay)} {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
   position: absolute;
-  z-index: 1;
-  bottom: 0;
-  margin: 0 0 5px 5px;
-  width: calc(var(--user-modal-width,900px) * 2/5);
+  margin: 0;
+  height: calc(var(--user-modal-height,600px) - 8px);
+  width: calc(var(--user-modal-width,900px) - 8px);
 }
+#{c(profile modal body)} {
+  padding: 16px;
 
-#{c(userModal body)} {
-  height: auto;
-  width: calc(var(--user-modal-width,900px) * 1/3);
-  #{c(userModal activityBody)} {
-    flex-direction: column;
-  }
-  #{c(userModal activityName)} {
-    max-width: 252px;
-    white-space: normal;
-  }
-  #{c(userModal assets)},
-  #{c(userModal gameIcon)} {
+  // HEIGHT OF TOP FOR POSITION
+  // BANNER, THEMED : 301 | userProfileInnerThemedWithBanner-
+  // NO BANNER, THEMED: 195 | userProfileInnerThemedPremiumWithoutBanner-
+  // NO BANNER, UNTHEMED: 195 | userProfileInnerThemedNonPremium-
+  #{c(profile modal usernameContainer)} {
+    padding: 0;
+    background: var(--profile-body-background-color);
+    top: calc(var(--banner-height, 195px) - 16px);
     position: absolute;
-    left: 20px;
-    opacity: 0.5;
-    filter: blur(2px);
-    transition: all 0.2s ease-in-out;
-    &:hover {
-      opacity: 1.0;
-      filter: none;
-      z-index: 5;
-    }
+    height: calc(var(--user-modal-height,600px) - var(--banner-height,195px));
+    width: calc(var(--user-modal-width,900px) * 2 / 3);
+    border-radius: 8px 0 0 8px;
   }
-  #{c(userModal bodyNormalContent)} {
-    align-self: flex-end;
-    margin-left: 0;
-    text-align: right;
+  #{c(profile modal nameTag)},
+  #{c(profile modal customStatus)} {
+    margin: 12px 12px 0;
   }
-  #{c(userModal timeBarProfile)} {
-    width: 200px;
+  #{c(profile modal tabBarContainer)} {
+    max-width: calc(var(--user-modal-width,900px) * 2 / 3 - 16px);
+    position: absolute;
+    z-index: 1;
+    bottom: 8px;
+    border-bottom: 0;
+    margin: 0;
   }
-  #{c(userModal timestampLeft)},
-  #{c(userModal timestampRight)} {
-    flex: 1 1 auto !important; // !important reason: inline
-  }
-  #{c(userModal timestampLeft)} {
-    text-align: left;
-  }
-  #{c(userModal timestampRight)} {
-    text-align: right;
+  #{c(profile modal userProfileActivity)} {
+    padding: 0 8px;
   }
 }
-#{c(userModal infoScroller)},
-#{c(userModal listScroller)} {
-	padding-top: 8px;
+#{c(profile modal infoScroller)},
+#{c(profile modal listScroller)} {
+  position: absolute;
+  right: 8px;
+  top: 16px;
+  bottom: 8px;
+  padding: 8px 0 !important; // !important reason: inline style for right and bottom
+  height: auto;
+  width: calc((var(--user-modal-width,900px) / 3 ) - 32px);
+  background: var(--profile-body-background-color);
+  border-radius: 8px 8px 8px 0;
 }
-#{c(userModal noteTextArea)} {
+#{c(profile modal noteTextarea)} {
   max-height: unset;
 }
-
-#{c(userModal nameTag)} {
-  margin-bottom: 0;
-  margin-top: 0;
-  margin-left: 24px;
-} 
-#{c(userModal customStatusActivity)} {
-  padding: 8px 0 0 24px;
+#{c(profile modal connectedAccountsColumn)} {
+  width: auto;
+  + #{c(profile modal connectedAccountsColumn)} {
+    margin: 0;
+  }
 }
+@debug "activities broken for UML";
+
+// Horizontal Connections
+// #{c(profile modal infoScroller)} {
+//   overflow: visible !important;
+//   width: calc(var(--user-modal-width,900px) - 32px); // 32px for [16px | CONTENT | 16px]
+//   background: transparent;
+//   padding: 0 !important;
+//   border-radius: 0;
+//   #{c(profile modal userInfoSection)}:first-child {
+//     position: absolute;
+//     right: 0;
+//     // height: 328px; // find calc
+//     width: calc(var(--user-modal-width,900px) / 3 - 40px);
+//     background: transparent;
+//     padding: 8px 0 0 8px;
+//     @include bg($bg:var(--profile-body-background-color),$h:calc(var(--user-modal-height,600px) - 32px),$br:8px 8px 8px 0);
+//   }
+// }
+// #{c(profile modal connectedAccounts)} {
+//   border-top: none !important;
+//   position: absolute;
+//   width: calc(var(--col,4) * 200px);
+//   max-width: calc(var(--user-modal-width,900px) - 32px); // should be 868
+//   padding: 0;
+//   bottom: 0;
+//   max-height: calc(var(--row,5) * 50px);
+//   overflow-y: auto;
+//   &::-webkit-scrollbar {
+//     width: 0;
+//     height: 0;
+//   }
+// }
+// #{c(profile modal connectedAccountsColumn)} {
+//   display: flex;
+//   flex-flow: row wrap;
+//   width: calc(var(--col,4) / 2 * 200px);
+//   align-content: flex-start;
+//   align-items: flex-start;
+//   max-width: calc(var(--user-modal-width,900px) * 2 / 3);
+//   &:first-child #{c(profile modal connectedAccountContainer)}:nth-child(even) {
+//     transform: translateX(200px);
+//   }
+//   &:last-child #{c(profile modal connectedAccountContainer)}:nth-child(odd) {
+//     transform: translateX(-200px);
+//   }
+// }
+// #{c(profile modal connectedAccountsColumn)} #{c(profile modal connectedAccountContainer)}:nth-child(even) {
+//   z-index: 1;
+// }
+// #{c(profile modal connectedAccountContainer)} {
+//   margin: 4px;
+//   max-height: 24px;
+//   padding: 8px;
+//   transform: rotate(0deg);
+//   width: calc(var(--user-modal-width,900px) * 2 / 3 / 3 - 8px - 16px - 2px); // output needs to be 200 total (inc margin, padding, border, content)
+// }
+// #{c(profile modal connectedAccountContainerWithMetadata)} {
+//   display: -webkit-box;
+//   align-items: unset;;
+//   #{c(profile modal connectedAccountIcon)} {
+//     position: fixed;
+//   }
+//   #{c(profile modal connectedAccountNameContainer)} {
+//     margin: 0 32px;
+//     overflow: visible;
+//   }
+//   #{c(profile modal connectedAccountName)}>a {
+//     position: fixed;
+//     top: 12px;
+//     right: 8px;
+//   }
+// }
+// :root {
+//   --col: 4; // max columns
+//   --row: 5; // max rows for users without a banner
+//   --row-banner: 4; // max rows for users with a banner
+// }
+// height of item: 50px
+// width of item: 200px

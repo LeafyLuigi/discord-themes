@@ -1,10 +1,19 @@
 @use "sass:string";
 @use "sass:list";
 @use "sass:map";
+@use "sass:meta";
 // @use "map" as *;
+
+////////////////////
+/// VERY IMPORTANT INFO FOR SEARCHING CLASS NAMES
+/// Remove the preceding full stop/period before the class name!
+/// The function below adds that before CSS generation and thus is not needed
+////////////////////
 
 /// Get a class from the Classes Map. Code stolen entirely from Zerthox.
 /// changes to Zerthox's code: `map.get` -> `map-get`, adds a dot at end.
+/// Also checks for sub-maps and throws error if that's true.
+/// TO ADD: a function from the map list: if "$alias " is the starting class name, it'll use the remainder as an alias
 @function class($query) {
 	$class: $classes;
 	@each $el in $query {
@@ -13,8 +22,50 @@
 			@error "Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
 		}
 	}
+	@if type-of($class) == map {
+		@error "Map used as input: #{$query}. Please fix and try again.";
+	}
+	@if string.slice($class,1,1) == "." or string.slice($class,1,1) == "#" {
+		@error "Period or Hash at start of string within list. Please fix and try again. Do not use IDs.";
+	}
 	@return "."+$class;
 }
+
+
+// // i wanted to add some kind of alias method but never got it to work. best i could do was output the eventual string of characters
+// // eg "test d foobar" became "test a foo" but not "bar". (see test category at end of file)
+// @function d($query) {
+// 	$initQuery: $query;
+// 	$class: $classes;
+// 	@each $el in $query {
+// 		$class: map-get($class, "#{$el}");
+// 		@if not $class {
+// 			@error "Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
+// 		}
+// 	}
+// 	@if type-of($class) == map {
+// 		@error "Map used as input: #{$query}. Please fix and try again.";
+// 	}
+// 	// @if string.slice($class,1,7) == "$alias " {
+// 	// 	// @debug "Alias used!";
+// 	// 	@return d(string.slice($class, 8));
+// 	// 	// @return #{c($aliasQuery)};
+// 	// 	// $query2: string.slice(#{$class},8);
+// 	// 	// @return #{d($query2)};
+// 	// } @else {
+// 		@return "."+$class;
+// 	// }
+// }
+
+// @function cn($query) {
+//   $result: d($query);
+//   @debug "#{d(#{$query})}";
+//   @if string.slice($result, 1, 7) == "$alias " {
+//     @return #{d(string.slice($result, 8))};
+//   } @else {
+//     @return $result;
+//   }
+// }
 
 ///extreme lazy shorthand with capital just in case
 @function c($query) {
@@ -30,6 +81,8 @@
 // WHEN CONVERTING YOUR OWN THEME TO THIS LIST, WHAT CATEGORY EACH CLASS FALLS UNDER MAY BE UNUSUAL, THIS INDICATES A SHARED CLASS BETWEEN AREAS.
 // CURRENT CATEGORY NAME IS MORE OR LESS WHAT AREA OF PYRITE WAS THEMED AT THE TIME.
 // IF AN ELEMENT HAS MULTIPLE CLASSES, TRY ALL OF THEM AS ONLY ONE WAS LIKELY USED WHEN THEMING.
+// EACH LINE OF DISCORD'S BASE CSS SEEMS TO BE RELATED TO ONE PART OF THE SITE, EACH LONE NUMBER IS A REFERENCE TO THAT LINE AND IS BASED ON THE CSS FILE LINKED NEARBY.
+// BROAD CLASSES SUCH AS THOSE THAT APPLY IN MULTIPLE UNRELATED AREAS (ie directionRow-2Iu2A9) ARE NOT CURRENTLY LISTED HERE AND IF THEY ARE THE LABEL IS WORSE THAN USELESS.
 // THIS LIST IS NOT AND NEVER WILL BE 100% COMPLETE AS CLASSES CHANGE CONSTANTLY, THINGS GET ADDED OR REMOVED AND DISCORD IS AN ABSOLUTE PAIN TO DEAL WITH.
 ////////////////
 
@@ -43,6 +96,7 @@ $classes: (
 		"backdropWithLayer": "withLayer-2VVmpp",
 		"bg": "bg-1QIAus",
 		"dark": "theme-dark",
+		"amoled": "theme-amoled", // experiment 2022-08_amoled_mode_web: currently applies on the following lines of the linked css: 61 (variable definitions), 696 (header container), 832 ("home" channel for chat), 1526 (forums) https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
 		"light": "theme-light",
 		"mouseMode": "mouse-mode",
 		"keyboardMode": "keyboard-mode",
@@ -72,11 +126,11 @@ $classes: (
 		"sliderInput": "input-2XRLou",
 		"desaturate": "desaturate-_Twf3u", // has a filter relating to the saturation factor variable
 
-		// find this by joining a server with a captcha thing
-		// "areYouARobotContainer": "container-2vhgEz",
-		// "robotContent": "content-1jf0rq",
-		// "robotTitle": "title-dHonOz",
-		// "robotLogo": "logoContainer-2oll5D",
+		"ring": "focus-rings-ring",
+
+		// snowsgiving 2022 is under this category because yes 
+		"snowsgivingLink": "snowsgivingLink-1TZi3c",
+		"snowsgivingGift": "container-3Csys8",
 	),
 	"text": (
 		// weird text-xx- and heading-xx classes. can have inline style for color.
@@ -101,9 +155,9 @@ $classes: (
 		),
 		"eyebrow": "eyebrow-Ejf06y",
 		
-		"headingDeprecatedNormal": "heading-deprecated-14-normal-1R_Vhv",
-		"headingDeprecatedMedium": "heading-deprecated-14-medium-1V2wki",
-		"headingDeprecatedBold": "heading-deprecated-14-bold-25ZKE0",
+		"headingDeprecatedNormal": "heading-deprecated-12-normal-LCvef_",
+		"headingDeprecatedMedium": "heading-deprecated-12-medium-2N8KlC",
+		"headingDeprecatedBold": "heading-deprecated-12-bold-19Pt5x",
 
 		"text": (
 			"xxsNormal": "text-xxs-normal-3WTeJU",
@@ -128,10 +182,29 @@ $classes: (
 			"lBold": "text-lg-bold-2qE8R-",
 		),
 
+		"sDisplay": "display-sm-154alU",
 		"mDisplay": "display-md-3I4dlu",
 		"lDisplay": "display-lg-DP1JoJ",
 
 		"code": "code-3Z6ejW",
+	),
+	// Tab bars, found in multiple locations but best seen in friends list
+	// each location has other classes attached to the elements
+	// listed locations may be used in other areas too
+	"tab": (
+		"header": "header-2Kx1US", // used in sidebar of settings areas
+		"separator": "separator-2wx7h6", // see header
+
+		"bar": "topPill-3DJJNV", // used in friends list header, inbox dropdown
+		"top": "top-K_jibn", // used in profile popout, roles list (edit)
+		"side": "side-2ur1Qk", // used in channel search
+
+		"item": "item-3XjbnG", // an individual tab
+		"brand": "brand-3g5E0C", //
+		"themed": "themed-2-lozF", // 
+
+		"selected": "selected-g-kMVV",
+		"disabled": "disabled-1nofHP",
 	),
 	"login": (
 		"characterBackground": "characterBackground-1BPOOJ", // seemingly a parent class for the whole thing
@@ -171,7 +244,7 @@ $classes: (
 		),
 
 		"linux": "platform-linux",
-		"web": "platform-web"
+		"web": "platform-web",
 	),
 	"boost": (
 		"modal": "perksModal-CLcR1c",
@@ -195,6 +268,7 @@ $classes: (
 		"lookOutlined": "lookOutlined-3yKVGo",
 		"lookLink": "lookLink-15mFoz",
 		"hasHover": "hasHover-26V98q",
+		"lookBlank": "lookBlank-21BCro", // no combos with colors
 		"icon": "buttonIcon-1TxM6f", // found at top of channel you can edit, before first message
 
 		"shinyButton": "shinyButton-2Q9MDB",
@@ -257,7 +331,7 @@ $classes: (
 		"headerWrapper": "headerWrapper-1ULEPv",
 		"quickSelect": "quickSelect-384d3G", // for region
 		"quickSelectLabel": "quickSelectLabel-ArUyd9",
-		"quickSelectClick": "quickSelectClick-2ycwN",
+		"quickSelectClick": "quickSelectClick-2ycwNA",
 		"quickSelectValue": "quickSelectValue-rmtkbe",
 		"quickSelectArrow": "quickSelectArrow-1dOOHb",
 		"bottomControls": "bottomControls-31YuPK",
@@ -433,7 +507,7 @@ $classes: (
 			// no clue, legacy shit or whatever
 			"participantsButton": "participantsButton-1WBdFP",
 			"rtsButtonContainer": "buttonContainer-1QM2ob",
-			"leaveQuietlyButton": "leaveQuietlyButton-3Vhswc",
+			// "leaveQuietlyButton": "leaveQuietlyButton-3Vhswc", // NOT FOUND - removed?
 			"active": "active-3D763s",
 			"speakerRaiseHandBadge": "speakerRaiseHandBadge-1hA2Uh",
 		),
@@ -507,7 +581,7 @@ $classes: (
 		"buttonIcon": "icon-1zidb7",
 		"divider": "divider-IqmEqJ",
 		"divider2": "divider-2rZFJK", // paired with above, also used in chat form unpaired with attached file
-		"dividerHasContent": "hasContent-1y12-u",
+		"dividerHasContent": "hasContent-31hcsn",
 		"dividerContent": "content-3spvdd",
 		"dividerUnread": "isUnread-3Lojb-",
 		"unreadPill": "unreadPill-3nEWYM",
@@ -654,12 +728,12 @@ $classes: (
 		// Named so because aria-label for the chat bubble icon is "Forum" in English (and French)
 		"forums": (
 			"loadingContainer": "loader-1iM037",
-			"container": "container-3wLKDe",
+			"container": "container-3wLKDe", // seems to relate to line 1526 of https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
 			"list": "list-3FIpnh",
 			"row": "row-uezxzk",
 			"headerRow": "headerRow-1MKoR-", // css rule for this also applies to .list(above)>div:first-child
 			"header": "header-1Uy0p6", // applies to first card
-			"headerBorder": "headerBorder-jrk0Ic", // doesn't seem to be given with focus(-within)
+			"headerWithMatchingPosts": "headerWithMatchingPosts-1lTrVT",
 			"collapsed": "collapsed-23aTv6", // css rule also applies to .collapsed(this) .title(below) input
 			"formContainer": "formContainer-1zrOWf",
 			"form": "form-25Aujy",
@@ -675,10 +749,10 @@ $classes: (
 			"postShareContainer": "container-3YcgdM",
 			"postButtonInner": "buttonInner-3aRbcx",
 
-			"loaderContainer": "loaderContainer-u6LK5n",
+			"loaderContainer": "loaderContainer-5yVo05",
 			"loader": "loader-9SdUOa", // seems to be... border 3px solid $muted, left color $normal
 
-			"searchInput": "searchInput-3NGPfp",
+			// "searchInput": "searchInput-3NGPfp", // NOT FOUND - removed? while i doubt it, it could've been replaced by searchInput-3pIoTy
 			"input": "input-2g-os5",
 			"inputDefault": "inputDefault-3FGxgL",
 
@@ -700,10 +774,9 @@ $classes: (
 			"cardUploadContainer": "container-3Om6RL",
 			"cardUploadInput": "uploadInput-3fblkw",
 			"cardUploadMultiPopout": "popout-2vZMlk",
-			"cardChannelName": "channelName-1On3TJ",
-			"cardChannelNameSpan": "channelNameSpan-2CGJt7",
+			// "cardChannelName": "channelName-1On3TJ", // NOT FOUND - likely headerText-3MQ6n4
+			// "cardChannelNameSpan": "channelNameSpan-2CGJt7", // NOT FOUND - likely postTitleText-2ARr84
 			"cardNewBadge": "newBadge-1LcB6t", // important to background-color
-			"cardNewBadgeText": "newBadgeText-1y7fMO",
 			"cardTextBadge": "textBadge-1fdDPJ", // seems to only apply to new
 			"cardBase": "base-3IDx3L", // seems to only apply to new
 			"cardBaseShapeRound": "baseShapeRound-3epLEv", // seems to only apply to new
@@ -722,11 +795,12 @@ $classes: (
 			"cardMessageCountText": "messageCountText-J-9pag",
 			"cardFooterBullet": "bullet-3kDmK0",
 
-			"sidebarContainer": "sidebarContainer-1kWKqZ",
-			"sidebarGuidelinesCard": "sidebarCard-1Gn1ch",
-			"guidelinesHeader": "guidelinesHeader-3MJnw8",
-			"sidebarCardContainer": "container-2IhveL",
-			"sidebarTags": "tags-3s41VI",
+			// The sidebar stuff seems to have been moved into a dropdown of sorts. click the book with checkmark 1577.
+			// "sidebarContainer": "sidebarContainer-1kWKqZ", // NOT FOUND
+			// "sidebarGuidelinesCard": "sidebarCard-1Gn1ch", // NOT FOUND
+			// "guidelinesHeader": "guidelinesHeader-3MJnw8", // NOT FOUND
+			// "sidebarCardContainer": "container-2IhveL", // NOT FOUND
+			// "sidebarTags": "tags-3s41VI", // NOT FOUND
 			"sidebarPillClickable": "clickable-3YTfAq",
 			"sidebarPillDisabled": "disabled-3Rezaw",
 			"sidebarPillSelected": "selected-24z1Ou",
@@ -753,6 +827,116 @@ $classes: (
 			"newChat": "chat-1rZYgu",
 			"newTextAreaFocused": "channelTextAreaInnerFocused-3oQcB2",
 			"newTextAreaError": "channelTextAreaInnerError-iNytdJ",
+		),
+		// indented and not the same as chatHome because... why?
+		// line numbers are from 2022-12-28 https://canary.discord.com/assets/40532.2ddbe3ee69f647c0b5d1.css
+		"pages": (
+			// 933, page itself
+			"page": "page-1VIOEm",
+			"pageBody": "pageBody-23bo4p",
+			"pageHeader": "header-2e2w0L",
+			"search": "search-kg4MrS",
+			"createButton": "createButton-2BBU0x",
+			"createButtonInner": "createButtonInner-3Qz1g7",
+			"createIcon": "createIcon-1oY65y",
+			"browser": "browser-2ea0yq",
+			"returnButton": "returnButton-2eBJ7a",
+			"returnButtonText": "returnButtonText--AiFUz",
+			"returnIcon": "returnIcon-34fW6v",
+			"scrollerInner": "scrollerInner-3E75Lj",
+			"container": "container-1um7CU", // has background with dark/light
+
+			// 931, dismissable "Choose your channels" container
+			"channelsDismissable": (
+				"container": "container-27tlK1", // background
+				"nuxContent": "nuxContent-2OA4ud",
+				"adminUpsell": "adminUpsell-31mP9I", // combined with container has background
+				"closeButton": "closeButton-TVK2OG",
+				"image": "image-I6enhm",
+				"heading": "heading-aUCJOF",
+				"tip": "tip-cJXFrl",
+				"checkItOut": "checkItOut-2QMw8Z",
+			),
+			// 932, channel order sort of thing
+			"channels": (
+				"categoryRow": "categoryRow-2VIZ6m",
+				"uncategorized": "uncategorized-1FhuHv", // when combined with categoryRow class, removes top padding
+				"categoryText": "categoryText-35ACGA",
+				"channelText": "channelText-30KI3D",
+				"titleBadge": "titleBadge-13kJKi",
+				"selectAll": "selectAll-1ZP46u",
+				"selectAllCheckbox": "selectAllCheckbox-2NxPOR",
+				"channelRow": "channelRow-4X_3fi", // background, also one with :hover:not(disabled class)
+				"disabled": "disabled-3cfocy",
+				"firstChannel": "firstChannel-3vAGDY", // both this and next class apply border radius to the channel row ..
+				"lastChannel": "lastChannel-21yyBC", // .. with the first being top left/right and last being bottom left/right
+				"channelInfo": "channelInfo-4IC4dY",
+				"channelActions": "channelActions-2FvDct",
+				"channelSubtitles": "channelSubtitles-11R-z-",
+				"channelSubtitle": "channelSubtitle-2k6z5J",
+				"subtitleSeparator": "subtitleSeparator-276LUA", // though just a dot has background
+				"topic": "topic-3svq3-",
+				"channelName": "channelName-2TeYVY",
+				"separator": "separator-3vTHjS", // horizontal line, background
+				"viewChannelButton": "viewChannelButton-59XD70",
+				"checkboxInner": "checkboxInner-1gZxkv",
+				"scrollerInner": "scrollerInner-1kQEqs",
+			),
+
+			// 934, customize options
+			"customiseOptions": (
+				"optionButton": "optionButton-1W9f7G",
+				"selected": "selected-KQBgNS", // with option background 
+				"pressed": "pressed-2AiKRB",
+				"checkIcon": "checkIcon-3eAeN_", // background brand experiment
+				"memberCount": "memberCount-2G9rxE", // background brand experiment
+				"buttonEmoji": "buttonEmoji-3kD7fS",
+				"buttonText": "buttonText-11iKIG",
+			),
+			// 935, customize page
+			"customise": (
+				"scrollerContainer" :"scrollerContainer-y16Rs9",
+				"scroller" :"scroller-1fIBSS", // background with dark/light
+				"pageBody" :"pageBody-29jwEZ",
+				"header" :"header-UOslIl",
+				"returnButton" :"returnButton-1qnrYS",
+				"returnButtonText" :"returnButtonText-2r95FF",
+				"returnIcon" :"returnIcon-2A2LPb",
+				"prompt" :"prompt-1sE27N", // background primary
+				"promptTitle" :"promptTitle-1ID-ZY",
+				"required" :"required-2b9vjX", // background accent 
+				"error" :"error-nWpAd-", 
+				"requiredBadge" :"requiredBadge-1Rx-p2",
+				"promptOptions" :"promptOptions-3jDyZ4",
+				"promptSeparator" :"promptSeparator-3E8EOR", // background modif accent
+				"emptyPage" :"emptyPage-2TGR7j", // background with dark/light
+				"emptyContainer" :"emptyContainer-8KVAv2",
+				"emptyIcon" :"emptyIcon-IW8ndV",
+				"emptyHeader" :"emptyHeader-EJ4kiy",
+				"helpText" :"helpText-2SCsDl",
+				"profile" :"profile-3xd-Cg",
+				"profileCard" :"profileCard-2gVmvm", // background primary
+				"separator" :"separator-2prxtM", // background modif accent
+				"username" :"username-YfeGz8",
+				"bio" :"bio-3IBPZG",
+				"title" :"title-20kNQS",
+				"roles" :"roles-3uq8X6",
+				"role" :"role-3uAPnQ", // background sec alt
+				"roleDot" :"roleDot-1quttI",
+			),
+
+			// 936, header stuff
+			"header": (
+				"returnButton": "returnButton-1xn3Ii",
+				"returnButtonText": "returnButtonText-27U_ef",
+				"returnIcon": "returnIcon-1i98Bp",
+				"container": "container-2IKOsH", // page container
+				"tabBar": "tabBar-1_P75h",
+				"tabBarItem": "tabBarItem-onx_ng",
+				"newBadge": "newBadge-24ERrk",
+				"header": "header-3xB4vB", // has background, overwritten from different rule
+				"innerHeader": "innerHeader-1cC3Fp",
+			),
 		),
 	"chatForm": (
 		"form": "form-3gdLxP",
@@ -977,7 +1161,11 @@ $classes: (
 		"peopleListTitle": "title-x4dI75",
 		"peopleListItem": "peopleListItem-u6dGxF",
 		"peopleListItemActive": "active-2UF8Zh",
+		"peopleListItemText": "text-3j8t_e",
+		"peopleListItemDiscordTag": "discordTag-3HiQI9",
 		"peopleListUsername": "username-Qpc78p",
+		"peopleListDiscriminator": "discriminator-WV5K5s",
+		"peopleListBotTag": "botTag-sv50Yq",
 		"actionButton": "actionButton-3-B2x-",
 		"actionButtonAccept": "actionAccept-2nmnLv",
 		"actionButtonDeny": "actionDeny-1pQVuZ",
@@ -1058,6 +1246,7 @@ $classes: (
 		"status": "status-12NUUC",
 		"tabBar": "tabBar-ra-EuL",
 		"topPill": "topPill-3DJJNV",
+		"addFriend": "addFriend-emTWY1",
 		"tabBarItem": "item-3mHhwr",
 		"tabBarItemSelected": "selected-g-kMVV",
 		"tabBarItemThemed": "themed-2-lozF",
@@ -1066,6 +1255,7 @@ $classes: (
 
 		// The usage of the hljs-[type] variables varies depending on language and will probably be best
 		// to use the docs of https://highlightjs.org/ to find what langs use what class and in what way
+
 		// Using SCSS as an example
 		// comment is used for the // and /* */  comments
 		// selector-class and selector-id are used for .class and #id respectively
@@ -1131,6 +1321,7 @@ $classes: (
 		"members": "members-3WRCEx",
 		"group": "membersGroup-2eiWxl",
 		"member": "member-2gU6Ar",
+		"memberBackground": "member-48YF_l",
 		"memberClickable": "clickable-28SzVr",
 		"memberContainer": "container-1oeRFJ",
 		"selected": "selected-1-Z6gm",
@@ -1150,378 +1341,6 @@ $classes: (
 		"placeholderUsername": "placeholderUsername-3iQi_D",
 		"placeholderUsernameMultiple": "mulitplePlaceholderUsername-2T3DCI",
 	),
-	"modals": (
-		"layer": "layer-1Ixpg3",
-		"focusLock": "focusLock-2tveLW",
-		"root": "root-g14mjS",
-		"header": "header-1zd7se",
-		"close": "close-1mLglB",
-		"closeIcon": "closeIcon-11LhXr",
-		"body": "content-2hZxGK",
-		"footer": "footer-31IekZ", // apparently it still uses theme-dark and theme-light. wankers.
-		"divider": "modalDivider-MtZbPb", // found on activity modal
-
-		"createChannelHeader": "header-o8wV_s", // has extra top/bottom margins
-		"createChannelClose": "closeButton-32emop", // it's moved up for some reason
-		"createChannelSearchBar": "searchBar-3OIGe3", // make a private channel and click next
-		"createChannelTag": "tag-15zcD_", // add a user or role to the list
-		"createEventProgressBar": "progressBar-18rmp1", // tab at top, unselected
-		"createEventProgressBarSelected": "selectedProgressBar-11z5d9", // above selected
-		"createEventTextInput": "textInput-3g8y92",
-		"createEventPreviewCard": "previewCard-E137i2",
-		"createEventRSVPCount": "rsvpCount-iCkObl",
-
-		"eventCard": "card-8UsK4b",
-		"eventInfoHeader": "container-3EBHNg",
-		"eventInfoGuildIcon": "guildIcon-1t7MRZ",
-		"warningCard": "cardWarning-WRe-Qa",
-
-		"inviteFromBrowserContentWrapper": "contentWrapper-3oy4Xo",
-		"inviteFromBrowserInviteSplash": "inviteSplash-2Q0PLE",
-		"pillIconOnline": "pillIconOnline-2JLgFw",
-		"pillIconTotal": "pillIconTotal-3rJafa",
-
-		"inviteScroller": "scroller-3nFW5p",
-		"inviteFooter": "footer-1hTRRZ",
-
-		"timeoutDurationGroupBar": "group-1_ptLP",
-		"timeoutDuration": "item-2OyinQ",
-		"timeoutDurationSelected": "selectorButtonSelected-1VZ6hz",
-
-		"unpinMessage": "message-G6O-Wv",
-
-		"incomingCall": "root-1e2tfc",
-
-		"shortcutsModal": "keyboardShortcutsModal-2CRmCm",
-		"shortcutsTitle": "modalTitle-2skSKy",
-		"shortcutsSubtitle": "modalSubtitle-2lx7qk",
-
-		"beforeTalkSidebar": "guildSidebar-UHnQqs",
-		"beforeTalkBody": "modal-2TOYtq",
-		"beforeTalkFieldWrapper": "formFieldWrapper-2LV3S6",
-
-		"welcomeToServerMain": "main-jX9p1r",
-		"welcomeToServerOption": "optionContainer-yOpaLq",
-
-		// @everyone with a larger server
-		"contentWarningPopout": "contentWarningPopout-WKdbDG",
-		"contentWarningBody": "body-2rDNbs",
-		"contentWarningAnimation": "animation-17phMk",
-		"contentWarningContent": "content-2BDyq1",
-		"contentWarningHeaderText": "header-DRA95Q",
-		"contentWarningFooter": "footer-2aeMle",
-
-		"toolbar": "toolbar-37BrJ5",
-
-		"reactionsSidebar": "scroller-2GkvCq",
-		"reactionDefault": "reactionDefault-1Sjj1f",
-		"reactionSelected": "reactionSelected-1aMb2K",
-		"reactionReactors": "reactors-1VXca7",
-
-		"quickSwitchModal": "container-qBnZJg",
-		"quickSwitch": "quickswitcher-pKcM9U",
-		"quickSwitchSearch": "input-3r5zZY",
-		"quickSwitchScroller": "scroller-2qwVWY",
-
-		"autocomplete": "autocomplete-3NRXG8",
-		"autocompleteInner": "autocompleteInner-y1mjDl",
-		"autocompleteRail": "rail-1BiMhk", // sidebar thingy w/ default commands and bot icons
-		"autocompleteRailInner": "list-33W-Tv", // of course this had a background
-		"autocompleteCategory": "wrapper-1wwiGV",
-		"autocompleteCategorySelected": "selected-3B2w1z",
-		"autocompleteScroller": "scroller-2MALzE",
-		"autocompleteList": "list-obNEuP",
-		"autocompleteCategoryHeader": "categoryHeader-OpJ1Ly",
-		"autocompleteCommandBase": "base-2v-uc0",
-		"autocompleteEmojiInner": "autocompleteInner-2tOQrf",
-
-		"stickerSuggestExpressionFocused": "suggestedExpressionFocused-1KCZvA",
-		"stickerSuggestMask": "mask-899QXq",
-		"stickerSuggestMaskBackground": "maskBackground-F7QD-A",
-		"stickerSuggestBackground": "containerBackground-Ang24O",
-
-		"problemInfo": "problemInfo-1QppuA",
-		"problemInfoRoot": "root-cw9rWQ",
-		"problemInfoOption": "option-1O-Hwt",
-
-		"timedOutContainer": "container-lJuBHq",
-		"timedOutIconContainer": "iconContainer-2k2ykS",
-		"timedOutIcon": "icon-2PhspP",
-		"timedOutSpamBanner": "spamBanner-1auiob",
-		"timedOutBannerIcon": "bannerIcon-1AJ6ir",
-
-		"toastsContainerTop": "containerTop-xFczB0", // contains z-index and alignment stuff. rule paired with bottom
-		"toastsContainerBottom": "containerBottom-1BvegH",
-		"toastsToast": "toast-q3Y4wI",
-		"toastsIcon": "icon-2QUmmw",
-
-		"regionSelectDropdown": "regionSelectPopout-3sEzVB",
-
-		"searchDropdown": "container-2McqkF",
-		"searchOption": "option-ayUoaq",
-		"searchQueryHeader": "queryContainer-ZunrLZ",
-		"searchResultsGroup": "resultsGroup-cfY57t",
-		"searchDatePicker": "datePicker-3iA7_k",
-		"searchDatePickerHint": "datePickerHint-Ir4715",
-		"searchDateHintValue": "hintValue-V9hd8l",
-		"searchCalendarPicker": "calendarPicker-sDhzdi",
-		"reactDatePicker": "react-datepicker",
-		"reactDPHeader": "react-datepicker__header",
-		"reactDPDay": "react-datepicker__day",
-		"reactDPDayDisabled": "react-datepicker__day--disabled",
-		"reactDPDaySelected": "react-datepicker__day--selected",
-		"reactDPDayOutsideMonth": "react-datepicker__day--outside-month",
-		"reactDPDayKeyboardSelected": "react-datepicker__day--keyboard-selected",
-
-		"bannedUserModal": "bannedUserModal-9XjyCI",
-		"bannedUserHeader": "header-2An-Ws",
-
-		"addRoleContainer": "container-2O1UgZ",
-
-		"purgeBody": "content-1x29-w",
-
-		"emojiStickerPopoutContainer": "popoutContainer-2wbmiM",
-		"emojiStickerEmojiSection": "emojiSection-3QtaWO", // also used with sticker
-		"emojiStickerGuildSection": "guildSection-2Zyzy8",
-		"emojiStickerGuildTitle": "guildTitle-1yMWvh",
-		"emojiStickerLoadingBackground": "popoutLoadingBackground-qs-T5i", // contains mask
-		"emojiStickerLoadingForeground": "popoutLoadingForeground-3xnRkg", // contains background-image
-
-		"boostSelectGuild": "selectGuild-2A4oJC",
-		"boostSubscription": "subscription-1wJwQk",
-		"boostGuildCard": "guildCard-u7HSAA", // used alongside sub
-		"boostSubscriptionInfo": "subscriptionInfo-2W0COT",
-		"boostGuildName": "guildName-31s6aW",
-		"boostTierInfo": "tierInfo-2VmQOo",
-		"boostTierPill": "tierPill-l7DvKo",
-
-		"textContainer": "modalTextContainer-1FUO2W",
-
-		"openThreadsPopout": "popout-TdhJ6Z",
-		"openThreadsModal": "modal-ZdazA8",
-		"openThreadsModalBrowser": "browser-SOGsFd",
-		"openThreadsModalBrowserContainer": "container-18GwIk", // used with browser
-		"openThreadsModalThreadContainer": "container-2rzKKA",
-
-		// activities
-		"activitiesRoot": "root-CyPAbQ",
-		"shelfTopBackground": "shelfTopBackground-R55ED9", // also on fg class
-		"shelfTopForeground": "shelfTopForeground-3OmdTs", // z index only
-		"activitiesShelfTitle": "activityShelfTitle-1rkbSI",
-		"activitiesBetaTag": "betaTag-1BuJUk", // background-color in inline
-		"slideContentOuterContainer": "slideContentOuterContainer-3rk6mq",
-		"scrollContainer": "scrollContainer-1C3AzW",
-		"scrollBackgroundContainer": "scrollBackgroundContainer-1gy1Hx",
-		"scrollTierBackground": "scrollTierBackground-BnWR8k",
-		"activitiesShelf": "shelf-3D6g4D",
-		"activitiesItem": "activityItem-1Z9CTr",
-		"activitiesImageContainer": "activityImageContainer-3FIpli",
-		"activitiesImage": "activityImage-3308Ih",
-		"activitiesVideo": "activityVideo-3VVUcy", // also has image class, has anim and pos. duplicated as child with video tag rather than div
-		"activitiesOverlayBadge": "overlayBadge-2HAW2N",
-		"activitiesBadgeContainer": "badgeContainer-2a1nPp",
-		"activitiesTextContainer": "activityTextContainer-2l4Dnr", // body of item
-		"activitiesTagsContainer": "activityTagsContainer-2tHK0W",
-		"activitiesTag": "activityTag-3C3YK5",
-
-		// upload avi/banner
-		"uploadOptionBox": "optionBox-1UOevl",
-		"uploadContentCircle": "contentCircle-15IFyT",
-		"uploadGifPicker": "gifPicker-3ATLsE",
-	),
-		"addServer": (
-			"modal": "container-1Lk8p7",
-			"templatesList": "templatesList-uohY49",
-			"templateButton": "container-x8Y1ix",
-			"templateButtonText": "text-PdAsFQ",
-			"optionsList": "optionsList-dmHy1l",
-			"createServer": "createGuild-2m1V10",
-			"subtitle": "subtitle-3m-md1",
-			"headerTitle": "title-1_TkpU",
-			"footerTitle": "footerTitle-3Bslxi",
-			"tellUsMoreTitle": "title-OdeD-o", // second screen
-			"tellUsMoreSubtitle": "subtitle-1cc8Nz", // second screen
-			"closeButton": "closeButton-3wDOHY",
-		),
-		// gif sticker emoji (and add reaction)
-		"gse": (
-			"resizeHandle": "resizeHandle-T_gFJR",
-			"contentWrapper": "contentWrapper-3vHNP2",
-
-			"nav": "nav-1zWVQw",
-			"navButtonActive": "navButtonActive-1EqC5l",
-
-			"gifContainer": "container-3u7RcY",
-			"gifHeader": "header-2TLOnc",
-			"gifContent": "content-A8TzKf",
-			"gifScroller": "container-3eG4QA",
-			"gifResultPlaceholder": "placeholder-T1Tuu8",
-			"gifResult": "result-pzZrwj",
-			"gifResultFocused": "focused-16Owih", // press arrow keys
-			"gifFavoritesFade": "categoryFadeBlurple-1l49_Q",
-			"gifCategoryFade": "categoryFade-3RRG67",
-			"gifEndContainer": "endContainer-22e-US",
-			"gifResults": "results-2CQlZp",
-			"gifNoResultsWrapper": "wrapper-2g4olo",
-			"gifSadImage": "sadImage-2_mw0p", // search "hentai" or something
-
-			"seSearchInner": "inner-1NoIT5",
-
-			"stickerHeader": "header-uVCAlo",
-			"stickerSearchContainer": "container-1SX9VC",
-			"stickerDisabled": "disabled-2QaYSb", // for search bar opacity and cursor
-			"stickersWrapper": "wrapper-i1awk3", // holds stickers in grid
-			"stickersScroller": "scroller-2MALzE",
-			"stickerListItems": "listItems-6eZzQ1", // role also applies to server list because of course it does
-			"stickerGuildHeaderWrapper": "wrapper-1NNaWG",
-			"stickerGuildHeader": "header-1ULbqO", // shared with above in emoji
-			"stickerPackHeader": "packHeader-w9jpYl", // has a pos sticky and top 0
-			"stickerInspected": "stickerInspected-mwnU6w",
-			"stickerInspectedIndicator": "inspectedIndicator-27zwNZ", // hover over a sticker
-			"stickerUpsell": "upsell-3B1lnN", //"upload x+ custom stickers with boosting" how about no
-			"stickerGuildListWrapper": "categoryList-2GgCrD",
-			"stickerGuildListIcon": "guildIcon-2SUGiq",
-			"stickerInspector": "inspector-DFKXwB", // bar at bottom
-			"stickerPremiumCategory": "premiumCategory-1bZwXQ",
-			"stickerPremiumCategorySelected": "premiumCategorySelected-2KWLhN",
-			"stickerCategoryGeneric": "stickerCategoryGeneric-29JiZ2",
-			"stickerCategoryGenericSelected": "stickerCategoryGenericSelected-DnO2K8",
-			"stickerSearchSuggestion": "searchSuggestion-PfUKKS",
-
-			"emojiInExpressionPicker": "emojiPickerInExpressionPicker-2nOwH8",
-			"emojiPicker": "emojiPicker-6YCk8a",
-			"emojiHeader": "header-11eigE",
-			"emojiPickerListWrapper": "emojiPickerListWrapper-1T3YI3",
-			"emojiScroller": "scroller-2MALzE",
-			"emojiList": "list-3V14yy",
-			"emojiInspector": "inspector-2A2Chb", // bar at bottom
-			"emojiListItems": "listItems-6eZzQ1",
-			"emojiItem": "emojiItem-277VFM",
-			"emojiItemSelected": "emojiItemSelected-2Lg50V",
-			"emojiPlaceholder": "imageLoading-2uloYN",
-			"emojiGuildList": "categoryList-2qRrlj",
-			"emojiSkinColorOptions": "diversitySelectorOptions-3DhNYs",
-			"emojiDefaultCategory": "categoryItemDefaultCategory-3haEDq",
-			"emojiDefaultCategorySelected": "categoryItemDefaultCategorySelected-2YeRUu",
-			"emojiUnicodeShortcut": "unicodeShortcut-3N8oDe", // for all the non-server emotes
-			"emojiPremiumRetention": "premiumRetentionNotice-A_Ke4K",
-
-			"floatingEmojiPicker": "wrapper-3u51GQ",
-		),
-		// inbox pinned threads
-		"ipt": (
-			"topPill": "topPill-3DJJNV",
-			"tab": "item-3XjbnG",
-			"tabSelected": "selected-g-kMVV",
-
-			"secondary": "secondary-2bzKEX",
-			"tertiary": "tertiary-1e-lAP",
-
-			// ip = shared between inbox and pinned
-			"ipHeader": "header-1w9Q93",
-
-			"inboxModal": "recentMentionsPopout-2bI1ZN",
-			"inboxHeader": "header-145e10",
-			"inboxTab": "tab-TRrPC8",
-			"inboxBody": "container-nwU-8G", // Inbox: Nothing is read | Recent Mentions: At bottom of list
-			"inboxIconContainer": "iconContainer-33_6mP",
-			"inboxScroller": "scroller-145h9c",
-			"inboxTutorial": "tutorial-Nb3Zz5", // "Stay up to date with the latest messages!". this gonna be display none'd
-			"inboxChannel": "channel-3NJZ1V",
-			"inboxChannelHeader": "channelHeader-DFRX8q",
-			"inboxUnreadMessagesCountWrapper": "wrapper-2olG5t",
-			"inboxChannelMessages": "messages-23can0",
-			"inboxMessageContainer": "messageContainer-8dSNjf",
-			"inboxCollapseButton": "collapseButton-39-IRc",
-			"inboxCollapsed": "collapsed-1HsWsD",
-			"inboxJumpButton": "jumpButton-1V_1FA",
-			"inboxRoundButton": "button-1_oXub",
-			"inboxCloseButton": "closeButton-3CiW2j",
-			"inboxRoundButtonDisabled": "disabled-184-il",
-
-			"mentionsMessagesPopoutWrap": "messagesPopoutWrap-3zryHW", // also used by pinned
-			"mentionsGuildIcon": "guildIcon-IklRcj",
-			"mentionsScroller": "scroller-MIi2ab",
-			"mentionsMessageContainerParent": "container-iA3Qrz", // parent to below class
-			"mentionsMessageContainer": "messageContainer-3VTXBC",
-			"mentionsScrollingFooterWrap": "scrollingFooterWrap-grqTU8",
-
-			"pinnedModal": "messagesPopoutWrap-3zryHW",
-			"pinnedScroller": "messagesPopout-eVzQcI",
-			"pinnedMessageWrapper": "messageGroupWrapper-1jf_7C",
-			"pinnedActionButtons": "actionButtons-2mNSAB",
-			"pinnedJumpButton": "jumpButton-1ZwI_j",
-			"pinnedCloseIcon": "closeIcon-2IriN1", // used when removing pinned message
-			"pinnedPlaceholderImage": "image-t6rLT3", // image when no pins
-			"pinnedFooter": "footer-5ji8u1",
-
-			"threadDropdownModal": "browser-mnQ1T7",
-			"threadDropdownHeader": "header-3_zmOb",
-			"threadDropdownTabBar": "tabBar-2WhZ9G",
-			"threadDropdownList": "list-3YHPPb",
-			"threadDropdownContainer": "container-2c4_8A",
-			"threadDropdownBodyIcon": "icon-mJhEWn",
-			"threadDropdownBodyStars": "stars-3UP9-A",
-		),
-		"groupDm": (
-			"popout": "popout-3gby1q",
-			"header": "header-1zd7se",
-			"searchBarContainer": "container-1SX9VC",
-			"searchBarTag": "tag-15zcD_", // yet-to-be added but-still-selected user
-			"noResults": "noResults-1ceiMB",
-			"bodyScroller": "scroller-1Kbkqa",
-			"friendSelected": "friendSelected-3cwmD7",
-			"footerSeparator": "footerSeparator-b6VH1V",
-			"footer": "footer-C9oLp9",
-		),
-		"menus": (
-			"menu": "menu-1QACrS",
-			"scroller": "scroller-1bVxF5",
-			"item": "item-1OdjEX",
-			"itemFocused": "focused-3qFvc8",
-			"itemHideInteraction": "hideInteraction-2jPGL_",
-			"colorDefault": "colorDefault-CDqZdO",
-			"colorBrand": "colorBrand-3cPPsm",
-			"colorGreen": "colorGreen-pAT2NS",
-			"colorPremium": "colorPremium-vwmYZQ", // "boost color" #ff73fa
-			"colorDanger": "colorDanger-3n-KnP",
-			"label": "label-2gNW3x",
-			"iconContainer": "iconContainer-1-SsTR",
-			"icon": "icon-E4cW1l",
-			"checkbox": "checkbox-hADx5o",
-			"checkboxCheck": "check-3HZJs4",
-			"radioSelection": "radioSelection-1UHp0b",
-			"quickReactionButton": "button-1zW0-r",
-			"userVolMini": "mini-2qY9iv",
-			"status": "status-2DiCMd",
-
-			"dropdownFilled": "lookFilled-1GseHa",
-			"dropdownSelect": "select-1Ia3hD",
-			"dropdownSelectTop": "selectPositionTop-1Xy1Sp",
-			"dropdownOpen": "open-1FRZsK",
-			"dropdownPopout": "popout-1KHNAq",
-			"dropdownPopoutTop": "popoutPositionTop-1GenHR",
-			"dropdownPopoutOption": "option-2eIyOn",
-			"dropdownPopoutOptionFocused": "focused-ODgjnC",
-			"dropdownPopoutSelectedIcon": "selectedIcon-19TbzU",
-		),
-		"upload": (
-			"modal": "uploadModal-2ie9O_",
-			"inner": "inner-rBP-MS",
-			"file": "file-163EuR",
-			"icon": "icon-HW4tZ-",
-			"image": "image-2ssF8k",
-			"footer": "footer-VCsJQY",
-			"hasSpoilers": "hasSpoilers-33hwf_",
-
-			"area": "uploadArea-2Nu_Vc",
-			"modalIn": "uploadModalIn-2w48Zf",
-			"dropModal": "uploadDropModal-13Kd20",
-			"dropError": "error-3lNz4C", // unsupported file type (or a folder), too many uploads, size limits
-			"dropBg": "bgScale-1iWuPF",
-			"dropInner": "inner-rBP-MS",
-			"dropIcons": "icons-1UZPvE",
-		),
 	"notice": (
 		"base": "notice-2HEN-u",
 		"closeButton": "closeButton-30b1gR", // "X" on right
@@ -1580,11 +1399,12 @@ $classes: (
 		"emptyResultsText": "emptyResultsText-3vgtSn",
 		"noResults": "noResults-ASk8Ae", // paired with above
 	),
-	"serverProfile": (
-		"notice": "notice-5OG6bf",
-		"warningCircleIcon": "warningCircleIcon-JjxdGS",
-		"upsellContainer": "upsellContainer-3qKRln",
-	),
+	// Whatever this was, I cannot remember what.
+	// "serverProfile": (
+		// "notice": "notice-5OG6bf", // NOT FOUND
+		// "warningCircleIcon": "warningCircleIcon-JjxdGS", // NOT FOUND
+		// "upsellContainer": "upsellContainer-3qKRln", // NOT FOUND
+	// ),
 	"serverList": (
 		"servers": "guilds-2JjMmN",
 		"wrapper": "wrapper-1_HaEi",
@@ -1778,7 +1598,7 @@ $classes: (
 		"panelButton": "button-12Fmur",
 		"panelButtonEnabled": "enabled-9OeuTA",
 		"panelButtonContents": "contents-3ca1mk",
-		"panelButtonRedIcon": "redIcon-1ppjsM", // used with server muted/deafened
+		"panelButtonRedIcon": "redIcon-1ppjsM", // used with server muted/deafened - see also profile/status/panel
 		"panelAvatarWrapper": "avatarWrapper-1B9FTW",
 		"panelWithTag": "withTagAsButton-OsgQ9L",
 		"panelWithTagless": "withTagless-10ooWt",
@@ -1813,6 +1633,35 @@ $classes: (
 		"voiceAvatar": "avatar-3FKimL",
 		"voiceSpeaking": "avatarSpeaking-2pCGrZ",
 		"voiceUsernameSpeaking": "usernameSpeaking-3FKv6H",
+
+		"notice": (
+			"container": "container-2Y4CWj", // background canvas when forced enabled colors is true
+		),
+		// shit name - used for Quickswitch, Boost this server (inc friends, community and "box picture"), Student Hubs...
+		// it's not just about nitro here
+		"upsellNotice": (
+			"notice": "channelNotice-Bfew9I",
+			"close": "close-3lLvLs",
+			"closeIcon": "closeIcon-21uh7S",
+			"title": "title-qKoe7x",
+			"message": "message-3Yzf6W",
+			"btn": "btn-2t4qw2",
+			"imageContainer": "imageContainer-3YWhdp",
+			"image": "image-2PSmxw",
+		),
+		"eventNotice": (
+			"notice": "channelNotice-K4UfZY",
+			"textBlock": "textBlock-3rqvcj",
+			"liveNowText": "liveNowText-v8cd6m",
+			"eventName": "eventName-63zAuJ",
+			"channelName": "channelName-qk56Fc",
+			"dotDivider": "dotDivider-MhkRZy",
+			"liveIndicator": "liveIndicator-TJKS7N",
+			"stageIcon": "stageIcon-1Gi-1l",
+			"userNames": "userNames-2j2GW-",
+			"joinButton": "joinButton-1HdI2a",
+			"closeIcon": "closeIcon-1AEDhI",
+		),
 	),
 	"store": (
 		"store": "applicationStore-2nk7Lo",
@@ -1842,159 +1691,501 @@ $classes: (
 		"reactionTooltipEmoji": "reactionTooltipEmoji-1Rv8jQ",
 		"stageListenerPill": "stageListenerPill-1_QAPA",
 	),
-	"userModal": (
-		"root": "root-8LYsGj",
-		"topSection": "topSection-13QKHs",
-		"profileBanner": "profileBanner-1owKI5",
-		"profileBannerPremium": "profileBannerPremium-KD60EB",
-		"header": "header-S26rhB",
-		"avatar": "avatar-3QF_VA",
-		"headerTop": "headerTop-1PNKck",
-		"profileBadges": "badgeList-2aoHPw",
-		"relationshipButtons": "relationshipButtons-3ByBpj",
-		"nameTag": "nameTag-2Nlmsy",
-		"customStatusActivity": "customStatusActivity-WKWGD-",
-		"customStatus": "customStatus-kFfkj5",
 
-		"tabBarContainer": "tabBarContainer-sCZC4w",
-		"tabBar": "tabBar-2hXqzU",
-		"top": "top-K_jibn",
-		"tabBarItem": "tabBarItem-30Te4-",
-		"tabBarItemSelected": "selected-g-kMVV",
-		"tabBarThemed": "themed-2-lozF",
-		"tabBarItemNoPrefix": "item-3XjbnG",
+	// Profiles are for anything involving an Avatar, Username, #0000 number and optionally customization.
+	// Anything not within a sub-category are used across the other sub-categories.
+	// Assuming an un-altered fork/repo, you can see more info within ../pyrite/source/theme/profile/_index.scss
+	"profile": (
+				// Generic-ish classes
+		"colors": "profileColors-3Y0XaR", // default variables supplied with this, a few with dark/light
 
-		"additionalActionsIcon": "additionalActionsIcon-3Cy8UU",
-		"activity": "userProfileActivity-sal5no",
+		"overlayBackground": "overlayBackground-1KgwVi",
+		"bannerSVGWrapper": "bannerSVGWrapper-qc0szY",
 
-		"body": "body-1Ukv50",
-		"infoScroller": "infoScroller-1QMpon",
-		"userInfoSection": "userInfoSection-2u2hir",
-		"userInfoSectionHeader": "userInfoSectionHeader-2mYYun",
-		"note": "note-3M15gE",
-		"noteTextArea": "textarea-_59yqs",
-		"connectedAccounts": "connectedAccounts-1YaT2t",
-		"connectedAccountContainer": "connectedAccountContainer-SlCC-S",
-		"connectedAccount": "connectedAccount-1xKpli",
-		"connectedAccountVerifiedIcon": "connectedAccountVerifiedIcon-3XCxT8",
+		"outer": (
+			"outer": "userProfileOuter-1K_BYU",
+			"themed": "userProfileOuterThemed-3EfHmv",
+			"unthemed": "userProfileOuterUnthemed-2b2rsv",
+		),
 
-		"listScroller": "listScroller-entkMk",
-		"activityProfile": "activityProfile-1712BN",
-		"activityBody": "body-u1Y8uL",
-		"gameIcon": "gameIcon-1siQqm",
-		"assets": "assets-3PQvAh",
-		"assetsLargeImageProfile": "assetsLargeImage-8U5dlz",
-		"assetsLargeImageProfileTwitch": "assetsLargeImageProfileTwitch-1SbNkP",
-		"activityName": "nameNormal-2fPMD2",
+		"inner": (
+			"inner": "userProfileInner-3F03PX",
+			"unthemed": "userProfileInnerUnthemed-1XxIZu",
+			"themed": "userProfileInnerThemed-27tvAp",
+			"themedPremiumWithoutBanner": "userProfileInnerThemedPremiumWithoutBanner-1yMS1H",
+			"themedWithBanner": "userProfileInnerThemedWithBanner-2624Yx",
+			"themedNonPremium": "userProfileInnerThemedNonPremium-1gT-zY", // so basically "without theme"
+		),
 
-		"bodyAlignCenter": "bodyAlignCenter-3E27PU",
-		"bodyNormal": "bodyNormal-250CQK",
-		"bodyNormalContent": "content-tXPNDw",
-		"actionsProfile": "actionsProfile-31n1ca",
-		"bodyNoTabBar": "noTabBar-2Q-iE_",
-		"guildAvatarWithoutIcon": "guildAvatarWithoutIcon-6EjPQF",
+		// only here because Yes
+		// what classes are actually used i have no fucking idea.
+		// this was all from ONE line. it's cancer.
+		"activity": (
+			"ellipsis": "ellipsis-23LXbI",
+			"headerContainer": "headerContainer-1wJjOa",
+			"headerText": "headerText-3g1XK9",
+			"headerTextNormal": "headerTextNormal-Z8we9g",
+			"headerTextEmptyBody": "headerTextEmptyBody-11A64X",
+			"body": "body-u1Y8uL",
+			"bodyAlignCenter": "bodyAlignCenter-3E27PU",
+			"bodyNormal": "bodyNormal-250CQK",
+			"gameIcon": "gameIcon-1siQqm",
+			"screenshareIcon": "screenshareIcon-QVBxGK",
+			"textRow": "textRow-1sENuL",
+			"details": "details-2-ciHo",
+			"nameNormal": "nameNormal-2fPMD2",
+			"playTime": "playTime-3fSgOm",
+			"state": "state-2NT76I",
+			"timestamp": "timestamp-2f1NmH",
+			"detailsWrap": "detailsWrap-omKn0b",
+			"nameWrap": "nameWrap-3TyM52",
+			"name": "name-1-Q7l2",
+			"activityName": "activityName-3YXl6e",
+			"bodyLink": "bodyLink-1E-g-R",
+			"twitchImageContainer": "twitchImageContainer-3x_4hf",
+			"twitchImageOverlay": "twitchImageOverlay-23Tzye",
+			"twitchBackgroundImage": "twitchBackgroundImage-fgOupM",
+			"streamUsername": "streamUsername-1alWqh",
+			"streamName": "streamName-qiZQ5c",
+			"streamGame": "streamGame-2eHF-V",
+			"activityVoiceChannel": "activityVoiceChannel-2vojOH",
+			"platformIcon": "platformIcon-k3yytQ",
+			"icon": "icon-2TIjXF",
 
-		"timeBarProfile": "timeBarProfile-1z_HH-",
-		"timestampLeft": "textLeft-1Noen0",
-		"timestampRight": "textRight-2IW704",
+			"assets": (
+				"assets": "assets-3PQvAh",
+				"assetsProfile": "assetsProfile-3DqdQK",
+				"assetsProfileV2": "assetsProfileV2-24BuIe",
+
+				"largeMask": (
+					"streamPreview": "assetsLargeMaskStreamPreview--ugZjW",
+					"userPopout": "assetsLargeMaskUserPopout-3N96A8",
+					"userPopoutV2": "assetsLargeMaskUserPopoutV2-2oZjbP",
+					"voiceChannel": "assetsLargeMaskVoiceChannel-3IlDCA",
+					"activityFeed": "assetsLargeMaskActivityFeed-1IwNdL",
+					"profile": "assetsLargeMaskProfile-9q3P0C",
+					"profileV2": "assetsLargeMaskProfileV2-23iq8Y",
+				),
+
+				"largeImage": (
+					"image": "assetsLargeImage-8U5dlz",
+					"spotify": "assetsLargeImageSpotify-17ME3M",
+					"streamPreview": "assetsLargeImageStreamPreview-3peV91",
+					"streamPreviewXbox": "assetsLargeImageStreamPreviewXbox-2pmV5G",
+					"userPopout": "assetsLargeImageUserPopout-pY2WJv",
+					"userPopoutV2": "assetsLargeImageUserPopoutV2-9ksyvz",
+					"userPopoutV2Xbox": "assetsLargeImageUserPopoutV2Xbox-e2lWUu",
+					"userPopoutXbox": "assetsLargeImageUserPopoutXbox-tkbJgJ",
+					"activityFeed": "assetsLargeImageActivityFeed-3zBude",
+					"activityFeedXbox": "assetsLargeImageActivityFeedXbox-3gGXXV",
+					"profile": "assetsLargeImageProfile-1TX9jP",
+					"profileV2": "assetsLargeImageProfileV2-2nujZI",
+					"voiceChannel": "assetsLargeImageVoiceChannel-1z72N6",
+					"activityFeedTwitch": "assetsLargeImageActivityFeedTwitch-jesxcF",
+					"profileV2Xbox": "assetsLargeImageProfileV2Xbox-2nWP94",
+					"profileXbox": "assetsLargeImageProfileXbox-2nm5p9",
+					"profileTwitch": "assetsLargeImageProfileTwitch-1SbNkP",
+					"profileV2Twitch": "assetsLargeImageProfileV2Twitch-11sssv",
+				),
+
+				"smallImage": (
+					"image": "assetsSmallImage-2JNB1y",
+					"streamPreview": "assetsSmallImageStreamPreview-3kFSXs",
+					"userPopout": "assetsSmallImageUserPopout-3cjxZQ",
+					"userPopoutV2": "assetsSmallImageUserPopoutV2-1goF56",
+					"boiceChannel": "assetsSmallImageVoiceChannel-ak_e88",
+					"activityFeed": "assetsSmallImageActivityFeed-2e1l_G",
+					"profile": "assetsSmallImageProfile-NPfu8b",
+					"profileV2": "assetsSmallImageProfileV2-q0ptvV",
+
+					"withoutLarge": (
+						"activityFeed": "assetsSmallImageActivityFeedWithoutLargeImage-2WY65u",
+						"profileV2": "assetsSmallImageProfileV2WithoutLargeImage-39hnn7",
+						"profile": "assetsSmallImageProfileWithoutLargeImage-35nix-",
+						"streamPreview": "assetsSmallImageStreamPreviewWithoutLargeImage-Iyik4B",
+						"userPopoutV2": "assetsSmallImageUserPopoutV2WithoutLargeImage-2Zvlcu",
+						"userPopout": "assetsSmallImageUserPopoutWithoutLargeImage-2l1D0Y",
+						"voiceChannel": "assetsSmallImageVoiceChannelWithoutLargeImage-1idSIb",
+					),
+				),
+			),
+
+			"content": (
+				"content": "content-tXPNDw",
+				"images": (
+					"activityFeed": "contentImagesActivityFeed-2rPjYe",
+					"profile": "contentImagesProfile-27BIzt",
+					"profileV2": "contentImagesProfileV2-2Z-K9I",
+					"streamPreview": "contentImagesStreamPreview-38HyRm",
+					"userPopout": "contentImagesUserPopout-Kqai8z",
+					"userPopoutV2": "contentImagesUserPopoutV2-2Mcg9w",
+					"voiceChannel": "contentImagesVoiceChannel-OHm3LY",
+				),
+				"noImages": (
+					"activityFeed": "contentNoImagesActivityFeed-BKTRap",
+					"profile": "contentNoImagesProfile-Xss4dS",
+					"profileV2": "contentNoImagesProfileV2-2Z9YIj",
+					"streamPreview": "contentNoImagesStreamPreview-3mNrPH",
+					"userPopout": "contentNoImagesUserPopout-12NyFa",
+					"userPopoutV2": "contentNoImagesUserPopoutV2-4TbAqF",
+					"voiceChannel": "contentNoImagesVoiceChannel-3L0HH3",
+				),
+				"gameImages": (
+					"profile": "contentGameImageProfile-24ty00",
+					"profileV2": "contentGameImageProfileV2-2dewzu",
+					"streamPreview": "contentGameImageStreamPreview-IxMSBl",
+					"userPopout": "contentGameImageUserPopout-34d8To",
+					"userPopoutV2": "contentGameImageUserPopoutV2-2ZQfvW",
+					"voiceChannel": "contentGameImageVoiceChannel-2Rxty2",
+				),
+			),
+
+			"timeBar": (
+				"activityFeed": "timeBarActivityFeed-1cJFea",
+				"profile": "timeBarProfile-1z_HH-",
+				"profileV2": "timeBarProfileV2-14KewZ",
+				"userPopout": "timeBarUserPopout-qLXZaR",
+				"userPopoutV2": "timeBarUserPopoutV2-32DL06",
+				"voiceChannel": "timeBarVoiceChannel-2M2m58",
+			),
+
+			"activity": (
+				"activityFeed": "activityActivityFeed-22M25p",
+				"profile": "activityProfile-1712BN",
+				"profileV2": "activityProfileV2-1N7pee",
+				"streamPreview": "activityStreamPreview-uBr6hk",
+				"userPopout": "activityUserPopout-2MzGCj",
+				"userPopoutV2": "activityUserPopoutV2-3eKqzY",
+			),
+
+			// these were not on the same line tho
+			"actions": (
+				"activityFeed": "actionsActivityFeed-2h72B3",
+				"profile": "actionsProfile-31n1ca",
+				"profileV2": "actionsProfileV2-2xJe2L",
+				"streamPreview": "actionsStreamPreview-2iZmau",
+
+				"errorImage": "errorImage-13dCu0",
+				"cannotLaunchImage": "cannotLaunchImage-3tBJo-",
+			),
+		),
+
+		// The spotify playback bar seems to be on its own line and could be used elsewhere, not just in profiles
+		"playbackBar": (
+			"bar": "bar-1GpknY",
+			"barInMultiLine": "barInMultiLine-WXdxfg",
+			"barInner": "barInner-3dHef4",
+			"barInSingleLine": "barInSingleLine-2HWcqa",
+			"singleLineContainer": "singleLineContainer-3n3v4e",
+			
+			"themed": "themed-1LCNAV",
+			
+			"text": "text-31kWmP",
+			"textLeft": "textLeft-1Noen0",
+			"textRight": "textRight-2IW704",
+			"textLeftInSingleLine": "textLeftInSingleLine-2mRSG1",
+		),
+		
+		// Modal: right click on user in same spots and click "View Profile"
+		"modal": (
+			"root": "root-2uUafN", // 1533
+			
+			"overlay": "userProfileModalOverlayBackground-8p3-eU",
+			"outer": "userProfileModalOuter-1FYL8T",
+			"inner": "userProfileModalInner-3fh3QA",
+
+			"topSection": "topSection-1Khgkv", // 1533
+
+			"profileBanner": "profileBanner-2zIsK7", // 145
+			"profileBannerPremium": "profileBannerPremium-3xIFwS",
+
+			"premiumIconWrapper": "premiumIconWrapper-yyGDql", // 145
+			"premiumIconWrapperClickable": "clickable-1LpIFn", // 145
+			"premiumIcon": "premiumIcon-3WfDzD", // 145
+
+			"header": "header-1_vWwx", // 1531
+			"avatar": "avatar-1YsFQ1", // 1531
+			"headerTop": "headerTop-212g15", // 1531
+			"badgeList": "badgeList-2pMvZX", // 1531
+			"badge24": "profileBadge24-3UMhUO", // 209
+
+			"relationshipButtons": "relationshipButtons-pZ_UWl", // 1531
+			"actionButton": "actionButton-D1ZvXj", // 1530
+			"pendingIncoming": "pendingIncoming-2bTL4E", // wraps action buttons when incoming fr // 1530
+			"actionButtonRight": "actionRightButton-1mSYVl", // incoming fr // 1530
+			"applicationInstallButton": "applicationInstallButton-3pdW3-", // bots only // 1531
+			"applicationInstallButtonContent": "applicationInstallButtonContent-15_WLD", // 1531
+			"applicationInstallButtonText": "applicationInstallButtonText-s3BVt8", // 1531
+			"launchIcon": "launchIcon-PrAYVH", // within install button // 1531
+			"additionalActionsIcon": "additionalActionsIcon-1IPuHI", // 1531
+
+			"body": "body-_QAKrE", // 1533
+
+			"usernameContainer": "container-1U-qVy", // 1532
+			"nameTag": "nameTag-2ysfG3", // 1532
+			"username": "username-28Thtk", // 1532
+			"discriminator": "discriminator-3_S3CG", // 1532
+			"customStatusText": "customStatusText-3ca2B1", // 1532
+			"customStatus": "customStatus-3QV7IG", // 1532
+			"customStatusEmoji": "customStatusEmoji-3wK_iB", // 1532
+			"customStatusSoloEmoji": "customStatusSoloEmoji-2ZSk6X", // 1532
+			
+			"divider": "divider-1NpGam", // 1533
+
+			// includes other classes from 305 for colors
+			"tabBarContainer": "tabBarContainer-2UG0vy", // 1533
+			"tabBar": "tabBar-2StdUa", // 1533
+			"tabBarItem": "tabBarItem-3VvT2z", // 1533
+			
+			"infoScroller": "infoScroller-3MqKC5", // 1528
+			"userInfoSection": "userInfoSection-1gptv0", // 1528
+			"userInfoSectionHeader": "userInfoSectionHeader-48g5Qj", // 1528
+			"userInfoText": "userInfoText-3GOMzH", // 1528
+			"note": "note-3TX9O7", // 1528
+			"noteTextarea": "textarea-_59yqs", // also in popout. could be elsewhere // 156
+
+
+			// cannot find these but they're in the same rule as connections
+			// discordMemberCreatedAt-2lxWI_
+			// discordMemberCreatedAtIconContainer-3eHGyl
+			// discordMemberCreatedAtIcon-1KOAQ6
+			// discordMemberCreatedAtText-3THXI2
+			"connectedAccounts": "connectedAccounts-1HaiEx", // 173
+			"connectedAccountsColumn": "connectedAccountsColumn-1I3naf", // 173
+			"connectedAccountContainer": "connectedAccountContainer-2TWiXT", // 173
+			"connectedAccountContainerWithMetadata": "connectedAccountContainerWithMetadata-3NgWeX",
+			"connectedAccount": "connectedAccount-2NOwd0", // 173
+			"connectedAccountChildren": "connectedAccountChildren-2jEgw3",
+			"connectedAccountChildrenNoIcon": "connectedAccountChildrenNoIcon-3gfG-B",
+			"connectedAccountPoweredBy": "connectedAccountPoweredBy-1tysNm",
+			"connectedAccountPoweredByText": "connectedAccountPoweredByText-3m5_YE",
+			"connectedAccountIcon": "connectedAccountIcon-2szOw-", // 173
+			"connectedAccountNameContainer": "connectedAccountNameContainer-3v4pIj", // 173
+			"connectedAccountName": "connectedAccountName-1e_h-k", // 173
+			"connectedAccountNameTextContainer": "connectedAccountNameTextContainer-lNExEJ", // 173
+			"connectedAccountNameText": "connectedAccountNameText-3VHIcl", // 173
+			"connectedAccountVerifiedIcon": "connectedAccountVerifiedIcon-2IthzC", // 173
+			"connectedAccountHideIcon": "connectedAccountHideIcon-u4tTsG",
+			"connectedAccountOpenIcon": "connectedAccountOpenIcon-OngaxI", // 173
+
+			"listScroller": "listScroller-XCVa1H", // 1527
+			"listRow": "listRow-Y5zoF8", // 1527
+			"listAvatar": "listAvatar-2GhWlb", // applied to server icons too // 1527
+			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon-1EVd9c", // 1529
+			"listRowContent": "listRowContent-3fhsZ_", // 1527
+			"listName": "listName-3bDgY6", // 1527
+			"listDiscriminator": "listDiscriminator-2XvfH2", // 1527
+			"guildNick": "guildNick-HT7Pgu", // 1529
+			"userProfileActivity": "userProfileActivity-1JPDhh", // 1526
+
+			"empty": "empty-2-ONJW", // 1527
+			"emptyIcon": "emptyIcon-LaP3ij", // 1527
+			"emptyIconFriends": "emptyIconFriends-3MCBQa", // 1527
+			"emptyIconGuilds": "emptyIconGuilds-8ibZfz", // 1527
+			"emptyIconStreamerMode": "emptyIconStreamerMode-2hkVAw", // 1527
+			"emptyText": "emptyText-7HFu4Y", // 1527
+
+			"activity": "userProfileActivity-1JPDhh",
+			"activityButtonColor": "actionColor-3JIzOn",
+		),
+
+		// Panel: Go to the DMs of someone while your screen is larger than
+		// 820px wide and you've not disabled the panel via header
+		"panel": (
+			"panel": "profilePanel-2PWEok",
+			
+			"overlayBackground": "userPanelOverlayBackground-3xwDMp",
+			"outer": "userPanelOuter-xc-WYi",
+			"inner": "userPanelInner-1UAR7g",
+
+			"innerThemed": "userPanelInnerThemed-2xZFjl", // still on non-nitro
+
+			"banner": "panelBanner-13bsBR",
+
+			"avatarPosition": "avatarPositionPanel-3P4Ted",
+
+			"badgeListGroup": "badgelistGroup-2XjSQi",
+			"badgeList": "badgeList-1EecKl",
+
+			// not stuff like twitter or steam tho
+			"connections": "profilePanelConnections-qFuH1k",
+			"friends": "mutualFriendsList-7kySbG",
+			"friend": "mutualFriendItem-1uCRKm",
+			"discriminator": "discriminator-M18hq0",
+			"guilds": "mutualGuildsList-37Q6HT",
+			"guild": "mutualGuildItem-2q2U_O",
+			"guildProfile": "guildProfile-dTwVNt", // nickname
+			"guildAvatar": "guildAvatar-zq8LmS", // not for icons but rather people with nitro and custom avi
+
+			"collapsed": "isCollapsed-3HYXjL",
+			"collapseButton": "collapseBtn-2sFINR",
+			"collapseButtonContent": "collapseBtnContent-1Vx20c",
+			"collapseButtonIcon": "iconWrapper-991FEf",
+
+			"connectionDivider": "mutualFriendsDivider-2LiKsc",
+			"connectionItem": "profilePanelConnectionItem-1YmGsC",
+			"connectionAvatar": "connectionAvatar-1uCjV5",
+			"connectionText": "textGroup-lPkZhZ",
+		),
+
+		// Popoout: click on user in chat or member list
+		"popout": (
+			"overlayBackground": "userPopoutOverlayBackground-dKOOda",
+			"outer": "userPopoutOuter-3AVBmJ",
+			"inner": "userPopoutInner-1hXSeY",
+
+			"upsellWrapper": "wrapper-400BN2", // 211
+			"upsellBanner": "banner-2JvDVu",
+			"upsellHidden": "bannerHidden-27Sfdl", // 211
+			"upsellVisible": "bannerVisible-AQ0tmH", // 211
+			"upsellContent": "content-133XEn",
+			"upsellText": "text-3tgIhA", // 211
+			"upsellPremiumIcon": "premiumIcon-3iTnzm", // 211
+			"upsellDismissButton": "dismissButton-GdOPhI", // 211
+			"upsellCloseIcon": "closeIcon-1M5JCS",
+			
+			"banner": "banner-2boKnS", // 145
+			"popoutBanner": "popoutBanner-16rVDY", // 145
+			"popoutBannerPremium": "popoutBannerPremium-2RvDNZ", // 145
+			"bannerPremium": "bannerPremium-86naOf", // 145
+			"roundedBanner": "roundedBanner-TdlJGa", // 145
+
+			"pencilContainer": "pencilContainer-11Kuga", // 145
+			"pencilIcon": "pencilIcon-1MUmnO", // 145
+
+			"avatarClickable": "clickable-3iBWTO", // 210
+			"avatarWrapperNormal": "avatarWrapperNormal-1tQ3Je", // 210
+			"avatarWrapper": "avatarWrapper-3y0KZ1", // 210
+			"avatarPositionNormal": "avatarPositionNormal-V4Mjtq", // 210
+			"avatarPositionPremium": "avatarPositionPremiumBanner-2nq2Fy", // 210
+			"avatarHoverTarget": "avatarHoverTarget-l77PhT", // 210
+			"avatarHint": "avatarHint-2g3Mcd", // 210
+			"avatarHintInner": "avatarHintInner-3gk_Yx", // 210
+
+			"badges": "profileBadges-31rDHI", // 210
+			"badgesContainer": "container-5SvbtF", // 209
+			"badgesWithContent": "containerWithContent-2_V0PM", // 209
+			"badgeClickable": "clickable-28QF7i", // 209
+			"badge22": "profileBadge22-3OAigE", // 209
+			"badge": "profileBadge-2YySEb", // has before // 209
+
+			"bodySection": "section-3FmfOT", // 193
+			"lastSection": "lastSection-3_1yKt", // 193
+
+			"divider": "divider-1gzPrC", // 191
+
+			"userText": "userText-148fun", // 206
+			"userTagNoNickname": "userTagNoNickname-2MJ9HD", // 206
+			"userTagWithNickname": "userTagWithNickname-3-znkC", // 206
+			"userTag": "userTag-PXLYzP", // 206
+			"nameTag": "nameTag-H6kSJ0", // 175
+			"nickname": "nickname-2rimyL", // 206
+			"username": "username-3JLfHz", // 175
+			"userTagUsernameNoNickname": "userTagUsernameNoNickname-2e_xaO", // 206
+			"userTagUsernameBase": "userTagUsernameBase-3Nfr5j", // 206
+			"userTagDiscriminatorNoNickname": "userTagDiscriminatorNoNickname-2HLaIE", // 206
+			"discrimBase": "discrimBase-KriZSj", // 206
+
+			"bodyScroller": "scroller-1jBQYo", // 207
+			"bodySectionTitle": "title-1r9MQ6", // 196
+
+			"memberSinceContainer": "memberSinceContainer-3biwiY", // 202
+			"discordIcon": "discordIcon-JXet1k", // 202
+			"body": "body-2Fhyoo", // same line as body section title // 196
+			"memberSinceDivider": "divider-D-Vspq", // 202
+
+			"rolesRoot": "root-jbEB5E", // 155
+			"roles": "roles-3zC7MX", // 205
+			"role": "role-2TIOKu", // 155
+			"rolePill": "rolePill-2IJ1vo", // 205
+			"rolePillBorder": "rolePillBorder-RiRiuN", // 205
+			"roleRemoveButton": "roleRemoveButton-17oXnT", // 155
+			"roleCircle": "roleCircle-3K9O3d", // 139
+			"desaturateUserColors": "desaturateUserColors-1O-G89", // 2
+			"roleName": "roleName-2ZJJYR", // 155
+			"roleAddButton": "addButton-1_dZYu", // 155
+			"roleActionButton": "actionButton-1YKTU0", // 155
+			"addButtonIcon": "addButtonIcon-3HZ_2f", // 155
+
+			"note": "note-6O4w9y", // 203
+			"noteTextarea": "textarea-_59yqs", // also in modal. could be elsewhere. // 156
+
+			"messageSection": "section--1D3ev", // 201
+			"messageInputContainer": "messageInputContainer-2rGDH8", // 201
+			"messageInput": "messageInput-1KI8l8", // 201
+			"input": "input-2z42oC", // 187
+			// NEW USER, NEED MESSAGES ENABLED FOR SERVER
+			"wumpusWrapper": "wumpusWrapper-3jyMw-", // 201
+			"wumpus": "wumpus-3Ue90v", // 201
+			"wumpusShown": "wumpusShown-2xOoew", // 201
+			"wumpusImage": "wumpusImage-35cffY", // 201
+			"wumpusTooltip": "wumpusTooltip-2r8Y-a", // has after // 201
+		),
+
+		// for status picker, has a bit of overlap with popout
+		// some classes apply to the panel containing mute/deafen/settings icons
+		// redIcon class is in one of the rules but is under a different area in this file. it's applied to icons when server muted/deafend
+		"status": (
+			"popoutWrapper": "accountProfilePopoutWrapper-3GskID",
+			"menu": "menu-KSaHL1",
+			"menuItemFocused": "menuItemFocused-2cC4Ku",
+			"menuItemFocusedPremium": "menuItemFocusedPremium-UxIFvE",
+
+			"mainStatusIcon": "mainStatusIcon-2yyCJB", // >foreignObject>div has inline style
+			"dividier": "divider-1i5sVV", // used after about me/joined discord
+
+			// submenu for picking status
+			"statusItem": "statusItem-2a1giL",
+			"icon": "icon-OgaO6F", // >foreignObject>div has inline style
+			"status": "status-qmUf7L", // contains text
+			"description": "description-22_U3B", // used with do not disturb and invis
+
+			"panel": (
+				"container": "container-YkUktl",
+				"avatarWrapper": "avatarWrapper-1B9FTW", // applies to whole thing
+				"avatar": "avatar-1EWyVD",
+
+				"withTagAsButton": "withTagAsButton-OsgQ9L",
+				"withTagless": "withTagless-10ooWt",
+
+				"nameTag": "nameTag-sc-gpq",
+				"usernameContainer": "usernameContainer-3PPkWq",
+
+				"canCopy": "canCopy-IgTwyV",
+				"customStatus": "customStatus-1UAQAK",
+				"customStatusEmoji": "emoji-11a5QE",
+			),
+
+			"accountSwitcher": (
+				"focused": "focused-3RdCfX", // put on a parent class, one actually with an "item-" class
+				"item": "userMenuItem-2pMhk-", // nested inside *another* item
+				"username": "userMenuUsername-2xdVcJ",
+				"text": "userMenuText-2e3Dry",
+				"discriminator": "userMenuDiscriminator-2Vj2p9",
+				"activeIcon": "activeIcon-1ykRnF", // child "circle" changes fill via js
+			),
+
+			// other classes without any idea as to where they exist
+			// in "panel" rule
+			"hasBuildOverride": "hasBuildOverride-3V9MZN",
+			"buildOverrideButton": "buildOverrideButton-1cRvTc",
+			"copySuccess": "copySuccess-z29fqF",
+			"godlike": "godlike-2668Fo",
+			"statusTooltip": "statusTooltip-2xssGB",
+			"strikethrough": "strikethrough-2Kl6HF",
+			"poggermodeFeatureEducation": "poggermodeFeatureEducation-27E-0u",
+			"poggermodeFeatureEducationArt": "poggermodeFeatureEducationArt-1A0vwE",
+
+			// in account switcher rule
+			"userMenuItemAvatar": "userMenuItemAvatar-1G5wRl",
+
+			// in other rules
+			"statusPickerModalMenu": "statusPickerModalMenu-1Z8KUX",
+			"modal": "modal-36x7us",
+		),
 	),
-	"userPopout": (
-		"loadingPopout": "loadingPopout-1feYe_",
-		"loadingPopoutInner": "inner-26JK4f",
-		"popout": "userPopout-2j1gM4",
-		"headerNormal": "headerNormal-3Zn_yu",
-		"profileBanner": "banner-1YaD3N",
-		"avatar": "avatar-2Vndt_",
-		"avatarPositionPremium": "avatarPositionPremium-1zPBq9",
-		"avatarImg": "avatar-b5OQ1N",
-		"headerTop": "headerTop-3GPUSF",
-		"headerText": "headerText-1-WmDq",
-		"avatarHint": "avatarHint-k7pYop",
-		"badges": "profileBadges-2pItdR",
-		"body": "body-2wLx-E",
-		"bodyInnerWrapper": "bodyInnerWrapper-2bQs1k",
-		"bodyTitle": "bodyTitle-2Az3VQ",
-		"customStatus": "customStatus-3XAoF9",
-		"activity": "activity-1gTu-L",
-		"divider": "divider-1wtgZ3",
-		"roleList": "rolesList-3uZoaa",
-		"role": "role-2TIOKu", // also in new
-		"roleCircle": "roleCircle-3K9O3d", // also in new
-		"addButton": "addButton-1_dZYu", // also in new
-		"note": "note-Go5ZP2",
-		"noteTextArea": "textarea-_59yqs", // also in new
-		"actionButton": "actionButton-1YKTU0", // also in new
-		"footer": "footer-3naVBw",
-		"input": "input-2z42oC", // also in new
-		"focused": "focused-1AtTHC",
-
-		// NOTE: since 2022-08-30, a new profile popout modal was introduced which allows for customisation.
-		// The above classes likely still work elsewhere and still apply in the status-changing profile modal.
-		// On ya, Discord. Cunts.
-	),
-	"userPopoutNew": (
-		// Below: HTML Tree's classes with banner, not in server
-		"popout": "userPopout-3fydSP",
-		"profileColors": "profileColors-3Y0XaR", // - default variables supplied with this, a few with dark/light
-		"popoutThemed": "userPopoutThemed-3BZ4by",
-			"inner": "userPopoutInner-PA9zkU", // has before
-			"innerNonPremium": "userPopoutInnerNonPremium-3zrFkp",
-			"innerWithoutTheme": "userPopoutInnerWithoutTheme-23vLID", // has before
-			"innerWithTheme": "userPopoutInnerWithTheme-71l1ON", // has before
-			"innerWithBanner": "userPopoutInnerWithBanner-wsoegj",
-				"upsellWrapper": "wrapper-400BN2",
-					"upsellHidden": "upsellHidden-2_CoRC",
-					"upsellVisible": "upsellVisible-evDwII",
-					"upsell": "upsell-27kXsw",
-				"banner": "banner-2boKnS",
-				"popoutBanner": "popoutBanner-16rVDY",
-				"popoutBannerPremium": "popoutBannerPremium-2RvDNZ",
-				"bannerPremium": "bannerPremium-86naOf",
-					"premiumIconWrapper": "premiumIconWrapper-yyGDql",
-					"premiumIconWrapperClickable": "clickable-1LpIFn",
-							"premiumIcon": "premiumIcon-3WfDzD",
-					"pencilContainer": "pencilContainer-11Kuga",
-						"pencilIcon": "pencilIcon-1MUmnO",
-				"avatarWrapperNormal": "avatarWrapperNormal-1tQ3Je",
-				"avatarWrapper": "avatarWrapper-3y0KZ1",
-				"avatarPositionPremium": "avatarPositionPremiumBanner-2nq2Fy",
-				"avatarClickable": "clickable-3iBWTO",
-					"avatarHoverTarget": "avatarHoverTarget-l77PhT",
-						"avatar": "avatar-2OC07D",
-					"avatarHint": "avatarHint-2g3Mcd",
-							"avatarHintInner": "avatarHintInner-3gk_Yx",
-				"badges": "profileBadges-31rDHI",
-				"badgesContainer": "container-5SvbtF",
-				"badgesWithContent": "containerWithContent-2_V0PM",
-					"badgeClickable": "clickable-28QF7i",
-						"badge22": "profileBadge22-3OAigE",
-						"badge": "profileBadge-2YySEb", // has before
-				"overlayBackground": "overlayBackground-arbZMT",
-					"bodySection": "section-3FmfOT",
-							"userText": "userText-148fun",
-								"userTagNoNickname": "userTagNoNickname-2MJ9HD",
-								"userTag": "userTag-PXLYzP",
-								"nameTag": "nameTag-H6kSJ0",
-									"username": "username-3JLfHz",
-									"userTagUsernameNoNickname": "userTagUsernameNoNickname-2e_xaO",
-									"userTagUsernameBase": "userTagUsernameBase-3Nfr5j",
-									"userTagDiscriminatorNoNickname": "userTagDiscriminatorNoNickname-2HLaIE",
-									"discrimBase": "discrimBase-KriZSj",
-					"divider": "divider-1tWBgZ",
-					"bodyScroller": "scroller-1jBQYo",
-							"bodySectionTitle": "title-1r9MQ6",
-						"messageSection": "section--1D3ev",
-						"lastSection": "lastSection-3_1yKt",
-							"messageInputContainer": "messageInputContainer-2rGDH8",
-								"messageInput": "messageInput-1KI8l8",
-								"root": "root-jbEB5E",
-								"roles": "roles-1waBHC",
-									"rolePill": "rolePill-2Lo5dd",
-										"roleRemoveButton": "roleRemoveButton-17oXnT",
-											"desaturateUserColors": "desaturateUserColors-1O-G89",
-										"roleName": "roleName-2ZJJYR",
-										"addButtonIcon": "addButtonIcon-3HZ_2f",
-	),
+	
+	// probably want to rewrite/reorder the settings stuff akin to the modals.
 	"userSettings": (
 		"standardSidebarView": "standardSidebarView-E9Pc3j",
 		"sidebarRegion": "sidebarRegion-1VBisG",
@@ -2044,7 +2235,7 @@ $classes: (
 		"accountSettingsSecurity": "userSettingsSecurity-2kODPN",
 
 		"profileImageUploader": "imageUploader-1X7wVc",
-		"profileNitroNotice": "premiumInlineNotice-N_oPBN",
+		// "profileNitroNotice": "premiumInlineNotice-N_oPBN", // NOT FOUND
 		"profileAvatarUploader": "avatarUploaderInner-p38nm2",
 		"profileBannerPreview": "profileBannerPreview-3mLIdO",
 		"profilePopoutInfo": "popoutInfo-16MuYF",
@@ -2078,9 +2269,16 @@ $classes: (
 		"devicesSessionsLegacy": "legacySession-UoUT_h",
 		"devicesSessionsLogOutAllButton": "logOutAllButton-11uhew",
 
-		"accountList": "accountList-Wii_T5",
-		"accountButton": "accountBtn-3pgcgr",
-		"accountButtonInner": "accountBtnInner-3ttD-i",
+		// "accountList": "accountList-Wii_T5", // NOT FOUND
+		// "accountButton": "accountBtn-1-d0rV", // moved to modals/addAccounts
+		// "accountButtonInner": "accountBtnInner-1DCgBm", // moved to modals/addAccounts
+		"addConnectionContainer": "connectContainer-1hylYM",
+		"addConnectionHeader": "connectHeader-2VkFiv",
+		"addConnectionsContainer": "connectionsContainer-3wRUc6",
+		"addAccountButton": "accountButton-234qAZ",
+		"addAccountButtonInner": "accountButtonInner-33vCDY",
+		"addAccountWrapper": "accountAddWrapper-2pfoJc",
+		"addAccountWrapperInner": "accountAddInner-2y9WLL",
 		"connection": "connection-YOVI9j",
 		"connectionHeader": "connectionHeader-Ixbb1s",
 		"connectionIcon": "connectionIcon-1iZ6F_",
@@ -2154,6 +2352,7 @@ $classes: (
 		// indented as it's a subset
 		"appSettings": (
 			"slider": "slider-1NC-Gf",
+			"sliderMini": "mini-2qY9iv",
 			"sliderBar": "bar-1Bhnl9",
 			"sliderBarFill": "barFill-2Bh7CX",
 			"sliderGrabber": "grabber-2GQyvM",
@@ -2213,8 +2412,8 @@ $classes: (
 		// These classes may be paired with another though.
 		// Shit definitely needs sorting.
 		"developerPortalCtaWrapper": "developerPortalCtaWrapper-2PniQs",
-		"ring": "ring-370dIp",
-		"focusStroke": "focusStroke-3V8pid",
+
+		// "focusStroke": "focusStroke-3V8pid", // not found?
 
 		// no idea where these are
 	),
@@ -2292,13 +2491,14 @@ $classes: (
 		"xenoLibNotifLoadbar": "xenoLib-notification-loadbar",
 	),
 
+
 	// I've done my best to list *all* classes relating to that experiment (and treatment if applicable) but no chances.
 	// These may get merged in with the rest above so this area is far more chaotic than the others.
 	"experiments": (
-		// 2022-07_channel_highlights - Currently seems to replace the "New messages" and "Jumpt to present" bars.
+		// 2022-07_channel_highlights - Currently seems to replace the "New messages" and "Jump to present" bars.
 		"newMessagesPillContainer": "newMessagesPillContainer-1EFmTu",
 		"newMessagesPill": "newMessagesPill-2YdO-e",
-		"newMessagesPillIcon": "newMessagesPillIcon-2gBipC",
+		// "newMessagesPillIcon": "newMessagesPillIcon-2gBipC", // NOT FOUND ANYMORE??
 		"newMessagesClear": "newMessagesClear-2LQVHt",
 		"newMessagesClearIcon": "newMessagesClearIcon-1hFLsw",
 		"jumpToPresentButtonContainer": "jumpToPresentButtonContainer-2_0XV-",
@@ -2307,18 +2507,1342 @@ $classes: (
 		"jumpToPresentSpinner": "jumpToPresentSpinner-9AqQA5",
 		"jumpToPresentSpinnerItem": "jumpToPresentSpinnerItem-2Kph5A",
 	),
+
+	// // TO BE DELETED OR PHASED OUT
+	// "userModal": (
+	// 	"root": "root-8LYsGj",
+	// 	"topSection": "topSection-13QKHs",
+	// 	"profileBanner": "profileBanner-1owKI5",
+	// 	"profileBannerPremium": "profileBannerPremium-KD60EB",
+	// 	"header": "header-S26rhB",
+	// 	"avatar": "avatar-3QF_VA",
+	// 	"headerTop": "headerTop-1PNKck",
+	// 	"profileBadges": "badgeList-2aoHPw",
+	// 	"relationshipButtons": "relationshipButtons-3ByBpj",
+	// 	"nameTag": "nameTag-2Nlmsy",
+	// 	"customStatusActivity": "customStatusActivity-WKWGD-",
+	// 	"customStatus": "customStatus-kFfkj5",
+	// 	"tabBarContainer": "tabBarContainer-sCZC4w",
+	// 	"tabBar": "tabBar-2hXqzU",
+	// 	"top": "top-K_jibn",
+	// 	"tabBarItem": "tabBarItem-30Te4-",
+	// 	"tabBarItemSelected": "selected-g-kMVV",
+	// 	"tabBarThemed": "themed-2-lozF",
+	// 	"tabBarItemNoPrefix": "item-3XjbnG",
+	// 	"additionalActionsIcon": "additionalActionsIcon-3Cy8UU",
+	// 	"activity": "userProfileActivity-sal5no",
+	// 	"body": "body-1Ukv50",
+	// 	"infoScroller": "infoScroller-1QMpon",
+	// 	"userInfoSection": "userInfoSection-2u2hir",
+	// 	"userInfoSectionHeader": "userInfoSectionHeader-2mYYun",
+	// 	"note": "note-3M15gE",
+	// 	"noteTextArea": "textarea-_59yqs",
+	// 	"listScroller": "listScroller-entkMk",
+	// 	"activityProfile": "activityProfile-1712BN",
+	// 	"activityBody": "body-u1Y8uL",
+	// 	"gameIcon": "gameIcon-1siQqm",
+	// 	"assets": "assets-3PQvAh",
+	// 	"assetsLargeImageProfile": "assetsLargeImage-8U5dlz",
+	// 	"assetsLargeImageProfileTwitch": "assetsLargeImageProfileTwitch-1SbNkP",
+	// 	"activityName": "nameNormal-2fPMD2",
+	// 	"bodyAlignCenter": "bodyAlignCenter-3E27PU",
+	// 	"bodyNormal": "bodyNormal-250CQK",
+	// 	"bodyNormalContent": "content-tXPNDw",
+	// 	"actionsProfile": "actionsProfile-31n1ca",
+	// 	// "bodyNoTabBar": "noTabBar-2Q-iE_", // CLASS REMOVED
+	// 	// "guildAvatarWithoutIcon": "guildAvatarWithoutIcon-6EjPQF", // CLASS REMOVED
+	// 	"timeBarProfile": "timeBarProfile-1z_HH-",
+	// 	"timestampLeft": "textLeft-1Noen0",
+	// 	"timestampRight": "textRight-2IW704",
+	// ),
+	// "userPopout": (
+	// 	"loadingPopout": "loadingPopout-1feYe_", // 29
+	// 	"loadingPopoutInner": "inner-26JK4f", // 1
+	// 	"popout": "userPopout-2j1gM4", // 149
+	// 	"headerNormal": "headerNormal-3Zn_yu", // 149
+	// 	"profileBanner": "banner-1YaD3N", // 148
+	// 	"avatar": "avatar-2Vndt_", // 186
+	// 	"avatarPositionPremium": "avatarPositionPremium-1zPBq9", // 186
+	// 	"avatarImg": "avatar-b5OQ1N", // 38
+	// 	"headerTop": "headerTop-3GPUSF", // 186
+	// 	"headerText": "headerText-1-WmDq", // 186
+	// 	"avatarHint": "avatarHint-k7pYop", // 186
+	// 	"badges": "profileBadges-2pItdR", // 186
+	// 	"body": "body-2wLx-E", // 149
+	// 	"bodyInnerWrapper": "bodyInnerWrapper-2bQs1k", // 169
+	// 	"bodyTitle": "bodyTitle-2Az3VQ", // 169
+	// 	"customStatus": "customStatus-3XAoF9", // 186
+	// 	"activity": "activity-1gTu-L", // 169
+	// 	"divider": "divider-1wtgZ3", // 186
+	// 	"roleList": "rolesList-3uZoaa", // 169
+	// 	"note": "note-Go5ZP2", // 169
+	// 	"footer": "footer-3naVBw", // 188
+	// 	"focused": "focused-1AtTHC", // 19
+
+	// 	// NOTE: since 2022-08-30, a new profile popout modal was introduced which allows for customisation.
+	// 	// The above classes likely still work elsewhere and still apply in the status-changing profile modal.
+	// 	// On ya, Discord. Cunts.
+	// ),
+
+    "modals": (
+		"layer": "layer-1Ixpg3",
+        "hidden": "hidden-3PPAly", // best way to get this class is to change banner/avi and click gifs
+		"focusLock": "focusLock-2tveLW",
+		"root": "root-g14mjS",
+		"header": "header-1zd7se",
+        // header text doesn't have its own class per se but can be targeted with header>h2
+		"close": "close-1mLglB", // most modals that have this also have a second class attached
+		"closeIcon": "closeIcon-11LhXr",
+		"body": "content-2hZxGK",
+		"footer": "footer-31IekZ", // apparently it still uses theme-dark and theme-light. wankers.
+
+		// both rules are basically box shadows
+		"separator": "separator-2lLxgC",
+		"footerSeparator": "footerSeparator-VzAYwb",
+
+        // line 424 of https://canary.discord.com/assets/40532.124517ed4ae423ff1aa8.css - Current Canary CSS as of 2022-09-10_17:20 UTC+8 
+		// best-seen locations for each class are listed if apllicable
+        // these are classes used on all search bars within modals and some non-modal search bars too
+        "searchBar": (
+            "container": "container-1SX9VC",
+            "disabled": "disabled-2QaYSb", // Best seen in non-nitro stickers
+            "inner": "inner-1NoIT5",
+            "input": "input-2FSSDe", // text, usually. often has a `value=` when typing
+            "tag": "tag-15zcD_", // add/create dms' username
+            "close": "close-3-lUJg", // add/create dms' username's cross
+            "richTagInput": "richTagInput-xF2rgz", // input text of create channel, set to private
+			"richTag": "richTag-20_n21", // create channel, set to private
+            "tagRoleColor": "tagRoleColor-1rZDyG", // role color dot in create private channel
+            "tagLabel": "tagLabel-1CV02L", // text within rich
+            
+            // can be found in threads dropdown/modal, clear being visible when you search something
+            "iconLayout": "iconLayout-SqV3nb",
+            "iconContainer": "iconContainer-1RqWJj",
+            "icon": "icon-18rqoe",
+            "iconVisible": "visible-2yTnyW",
+            "iconClear": "clear-2KQ7l1",
+            
+            "small": "small-1hw8IT", // Server settings -> members tab + bans
+            "medium": "medium-13kyaW", // Used on gifs, stickers, emoji, create/add to dm
+            "large": "large-3rD1c7", // If you've got experiments enabled, check that tab
+        ),
+
+        // When creating a new channel
+        "createChannel": (
+			// different line for some reason
+            "searchBar": "searchBar-3OIGe3", // make a private channel and click next
+
+			// more
+			"modal": "modal-1Kmy_E",
+			"modalContent": "modalContent-33IoUE",
+			"modalFooter": "modalFooter-2XY3GW",
+			"footer": "footer-3Qw_YA",
+			"description": "description-3_aBgC",
+			"name": "name-2pGuEz",
+			"type": "type-170HeD",
+			"icon": "icon-1ykL9s",
+			"error": "error-fZAH7V",
+			"header": "header-o8wV_s",
+			"title": "title-CDVS9k",
+			"subtitle": "subtitle-3Lv1uG",
+			"subtitleIcon": "subtitleIcon-F-NKTD",
+			"closeButton": "closeButton-32emop",
+			"sectionTitle": "sectionTitle-34s8y3",
+			"clone": "clone-2btwuL",
+			"permissionsTitle": "permissionsTitle-3JkXB8",
+			"background": "background-2neGeL",
+			"foreground": "foreground-1dSmCM",
+			"inputWrapper": "inputWrapper-BB4B-o",
+			"inputInner": "inputInner-vW14RT",
+			"inputPrefix": "inputPrefix-1HHwWv",
+			"switchIcon": "switchIcon-3IwSZ_",
+			"channelTypeDescription": "channelTypeDescription-2q6SPz",
+			"storeChannelOptionSelector": "storeChannelOptionSelector-3aLfuI",
+			"username": "username-Hafp6V",
+			"emptyRoles": "emptyRoles-2uplak",
+			"owner": "owner-2I4jtz",
+			"addMembersContainer": "addMembersContainer-1q4XUy",
+			"addMemberError": "addMemberError-2oYLeR",
+			"createError": "createError-1RrkXR",
+			"channelNameNote": "channelNameNote-2UNKZX",
+			"radioLabelName": "radioLabelName-3FiyYq",
+			"radioLabelDescription": "radioLabelDescription-2ZSE0N",
+			"newBadge": "newBadge-1gKXB8",
+			"radioBar": "radioBar-3_FqUK",
+			"radioBarLabel": "radioBarLabel-1MDA6y",
+			"radioBarIcon": "radioBarIcon-EiCq-C",
+			"radioItemName": "radioItemName-3F4dmu",
+        ),
+
+        // When creating a new event
+        "createEvent": (
+            "progressBar": "progressBar-18rmp1", // tab at top, unselected
+            "progressBarSelected": "selectedProgressBar-11z5d9", // above selected
+            "textInput": "textInput-3g8y92",
+            "previewCard": "previewCard-E137i2",
+		),
+
+		// In a server with pending/active events, click "x Event(s)" at the top of the sidebar
+		"eventsList": (
+			"header": "header-1sd0RU",
+			"content": "content-GYGe57",
+			"icon": "icon-3DnmvF", // if cihld of iconButton, it's the close button
+			"divider": "divider-2_8P_2",
+			"button": "button-3tENlF",
+			"eventCard": "eventCard-2ZL9GD",
+			"iconButton": "iconButton-2rHy7x",
+		),
+
+		// Within modal above, click an event
+		// two major rules apply to this modal
+		"eventFull": (
+			"modal": "root-wwggTZ",
+			"banner": "banner-ppi-o1",
+			"container": "container-3eB5yh",
+			"contentContainer": "contentContainer-BWAau5",
+			"footer": "footer-2NMtcb",
+		),
+			
+		// When reading an event, either in preview modal or list modal
+		"eventCard": (
+			"card": "card-8UsK4b",
+			"header": "container-3EBHNg",
+			"guildIcon": "guildIcon-1t7MRZ",
+			"rsvpCount": "rsvpCount-iCkObl",
+            "warning": "cardWarning-WRe-Qa", // also applies when changing another's username
+        ),
+
+		// Clicking on an invite in your browser while not signed in and being redirect to the app
+        // above: [broken? non-linux only? firefox settings likely]
+		// Not sure how to get this anymore. 
+        "browserInvite": (
+            "contentWrapper": "contentWrapper-3oy4Xo",
+            "inviteSplash": "inviteSplash-2Q0PLE", // has style for background image
+            "scroller": "scroller-Q9d9Di",
+            "headerContainer": "container-2xOgW-", // houses guild icon, guild name, online/total count
+            "guildIcon": "guildIcon-3bwCCn",
+            "title": "title-10kb1R",
+            "activityCount": "activityCount-2n5Mj9",
+            "pill": "pill-qMtBTq",
+            "pillOnline": "pillOnline-345ee0",
+            "pillIcon": "pillIcon-1OYf40",
+            "pillIconOnline": "pillIconOnline-2JLgFw",
+            "pillMessage": "pillMessage-3pHz6R",
+            "pillIconTotal": "pillIconTotal-3rJafa",
+        ),
+
+        // Click "Invite People" in the server header dropdown
+        "inviteOthers": (
+            "scroller": "scroller-3nFW5p",
+            "footer": "footer-1hTRRZ",
+			"boostUpsell": "inviteBannerUpsell-1t_LYM",
+        ),
+
+        // "Time Out" on another user
+        "timeoutDuration": (
+            "groupBar": "group-1_ptLP",
+            "item": "item-2OyinQ",
+            "selected": "selectorButtonSelected-1VZ6hz",
+        ),
+
+        // Click the x next to a pinned message OR pin a message WITHOUT holding shift
+        // Not to be confused with pinned; this isn't a dropdown
+        "pin": (
+            "message": "message-G6O-Wv",
+        ),
+
+        // Get an incoming call
+		"incomingCall": (
+            "root": "root-1e2tfc"
+        ),
+
+        // Ctrl+/ (CMD on Mac) to pull this modal up
+        "keybinds": (
+            "modal": "keyboardShortcutsModal-2CRmCm",
+            "title": "modalTitle-2skSKy",
+            "subtitle": "modalSubtitle-2lx7qk",
+            "list": "keyboardShortcutList-3VFAYS",
+            "group": "keyboardShortcutListGroup-2m9BJ_",
+            "firstGroup": "firstGroup-2N8rxd",
+
+            "ddrArrows": "ddrArrows-24s05s",
+            "arrow": "arrow-hkea5Y",
+            "active": "active-2gIs0U",
+            "left": "left-n0qLrU",
+            "down": "down-3tFLkY",
+            "up": "up-C6wQCy",
+            "right": "right-2w8sx7",
+        ),
+
+        // Join a server with the "Rules Screening" set up. It's got a checkbox at the bottom. Rules are on a few lines.
+        "rulesScreening": (
+			// one line, main shit really
+			"container": "container-2E0bff", // whole modal
+			"guildSidebar": "guildSidebar-UHnQqs", // sidebar, has background color
+			"guildDescription": "guildDescription-2-W9iK",
+			"guildIcon": "guildIcon-uYC13g",
+			"guildIconNoIcon": "guildIconNoIcon-3jIMum", // has background color
+			"guildName": "guildName-2vueLm",
+			"emojisContainer": "emojisContainer-1ecRUC",
+			"emoji": "emoji--dImts", // the extra +n emoji has an inline style, uses header secondary
+			"onlineCount": "onlineCount-33vUWg",
+			"dot": "dot-10cPg0",
+			"dotOnline": "dotOnline-r4Z_bf",
+			"dotMembers": "dotMembers-71yF9W",
+			"divider": "divider-1zHRlg",
+			"modal": "modal-2TOYtq", // actually for the main body of the modal in question. wankers.
+			"sequencer": "sequencer-2TR9f1",
+			"modalContent": "modalContent--XtfCV ",
+			"content": "content-228In8",
+			"centerContent": "centerContent-3LaXMq",
+			"closeButton": "closeButton-1xiiER",
+			"applicationIcon": "applicationIcon-3FCnmq",
+			"animationAndSparklesContainer": "animationAndSparklesContainer-7Fwx3i", // within content has an animation, a title and a description
+			"sparkleIcon": "sparkleIcon-3NUosU",
+			"sparkleTop": "sparkleTop-1Uevoa",
+			"sparkleBottom": "sparkleBottom-394WEI",
+			"animation": "animation-1uq3bq",
+			"header": "header-EmaVAp",
+			"subheader": "subheader-37bSfX",
+			"footer": "footer-11k_3m",
+			"submitButton": "submitButton-34IPxt",
+			"formItem": "formItem-3AtEHu",
+			"resendButton": "resendButton-2x91rx",
+			"confirmation": "confirmation-3SHnUt",
+			"confirmationContent": "confirmationContent-1AZsIH",
+			"confirmationButtonRow": "confirmationButtonRow-1b1Md2",
+			"confirmationButton": "confirmationButton-3MTpW_",
+			"confirmationButtonColumn": "confirmationButtonColumn-3zr_Pk",
+			"notice": "notice-21vGm5",
+			"rejectionReasonLabel": "rejectionReasonLabel-fza4de",
+			"rejectionReason": "rejectionReason-1q3Ghz",
+
+			// questions stuff, different line
+			"questions": (
+				"questionContainer": "questionContainer-17Tl2_",
+				"questionTitle": "questionTitle-1HcZrq",
+				"requirementContainer": "requirementContainer-1YZZty",
+				"requirementIcon": "requirementIcon-11XMbf",
+				"requirementText": "requirementText-XdssLR",
+				"requirementSuccess": "requirementSuccess-1zod_Q",
+				"requirementFailure": "requirementFailure-1xgI6l",
+				"container": "container-3vv7tk",
+				"footnote": "footnote-2Uo5Vq",
+			),
+
+			// rules stuff, different line again
+			"rules": (
+				"formItem": "formItem-2TYWZP",
+				"settingsFormItem": "settingsFormItem-OZ0LhY",
+				"wrapperBase": "wrapperBase-36NbJ_",
+				"formFieldWrapper": "formFieldWrapper-3_VcT0",
+				"settingsFormFieldWrapper": "settingsFormFieldWrapper-3fCDsb",
+				"verificationFieldWrapper": "verificationFieldWrapper-2SaQwI",
+				"verificationIcon": "verificationIcon-zc5DNZ",
+				"verificationLabel": "verificationLabel-1QKV07",
+				"verificationCheckmark": "verificationCheckmark-18tMx5",
+				"verificationConfirmation": "verificationConfirmation-I9j8BF",
+				"termsRow": "termsRow-2I3Fqz",
+				"termsRowContent": "termsRowContent-3SAZDa",
+				"checkbox": "checkbox-2mSqDq",
+				"formItemDescription": "formItemDescription-AGwRIQ",
+				"verifyConfirmText": "verifyConfirmText-cjZOD-",
+				"settingsLink": "settingsLink-2hhQUa",
+				"radioItem": "radioItem-3LmSmU",
+				"fieldBackground": "fieldBackground-3nYcw0",
+				"termsFieldBody": "termsFieldBody-3kS99u",
+				"textInputFieldBodyInput": "textInputFieldBodyInput-3XkPms",
+				"paragraphFieldBody": "paragraphFieldBody-2TKxh3",
+				"multipleChoiceIcon": "multipleChoiceIcon-2Ixjts",
+			)
+        ),
+
+        // Join a server with "Welcome Screen" set up
+        "welcome": (
+            "main": "main-jX9p1r", // modal itself
+            "options": "options-3Wncp7",
+            "optionContainer": "optionContainer-yOpaLq",
+        ),
+
+		// @everyone with a larger server
+        "mentionWarning": (
+            "popout": "contentWarningPopout-WKdbDG",
+            "body": "body-2rDNbs",
+            "animation": "animation-17phMk",
+            "content": "content-2BDyq1",
+            "header": "header-DRA95Q",
+            "footer": "footer-2aeMle",
+        ),
+
+        // Write a message and select some text
+        "formattingToolbar": (
+            "toolbar": "toolbar-37BrJ5",
+        ),
+
+        // On a message with reactions, right click and click "Show reactions"
+        "reactions": (
+			"modal": "container-KM8BU6",
+            "sidebar": "scroller-2GkvCq",
+            "default": "reactionDefault-1Sjj1f",
+            "selected": "reactionSelected-1aMb2K",
+            "reactors": "reactors-1VXca7",
+        ),
+        
+        // Ctrl+K or Ctrl+T to open (CMD on Mac)
+        "quickswitch": (
+            "container": "container-qBnZJg",
+            "modal": "quickswitcher-pKcM9U",
+            "search": "input-3r5zZY",
+            "scroller": "scroller-2qwVWY",
+        ),
+
+        // Start a message with a `/`
+        "autocomplete": (
+            "modal": "autocomplete-3NRXG8", // apply :not(emojiAutocomplete modal) to target only this
+            "inner": "autocompleteInner-y1mjDl", // apply not with emoji to target only this
+            "rail": "rail-1BiMhk", // sidebar thingy w/ default commands and bot icons
+            "railWrapper": "wrapper-3z7DuG", // background applied to this class. ugh.
+            "category": "wrapper-1wwiGV",
+			"categorySelectable": "selectable-fgiA2c",
+            "categorySelected": "selected-3B2w1z",
+			"categoryIcon": "icon-1kx1ir",
+            "sidebarList": "list-obNEuP", // if you see below at the category of the same name, this is paired with WRAPPER.
+            "categoryHeader": "categoryHeader-OpJ1Ly",
+            "autocompleteRowVertical": "autocompleteRowVertical-EA9dCg", // there's nothing on this rule
+            "clickable": "clickable-2V8YKY",
+            "base": "base-2v-uc0", // wanna apply theming to this? background-modifier-hover: clickable[aria-disabled=false]>:hover,clickable[aria-selected=true]> 
+			// option does not cover optional stuff
+			"option": "option-Tt7anD",
+			"optionError": "error-1SecXe",
+			"optionActive": "active-WHsd77",
+        ),
+
+        // Shoody name? Yes. Multiple modals use it? Also yes, sadly.
+        // It's in the Emojis, Command Autocomplete and Stickers. Open any of them.
+        // Line 404 of 2022-09-14_15:33 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css 
+        "sidebarList": (
+            "wrapper": "wrapper-22rqw6",
+            "list": "list-33W-Tv",
+            "scroller": "scroller-2MALzE", // this one is on line 28. likely used in a lot more than just modals
+        ),
+        
+        // Emoji wants to be special
+        // Type a message starting with `:` followed by two non-breaking ASCII characters
+        "emojiAutocomplete": (
+            "modal": "autocomplete-3jLKbj",
+            "inner": "autocompleteInner-2tOQrf",
+            "scroller": "scroller-18M1mG",
+        ),
+
+        // Likely need nitro for this
+        // Type any message with a name or subject similar to a sticker
+        "stickerSuggestion": (
+            "expressionFocused": "suggestedExpressionFocused-1KCZvA",
+            "mask": "mask-899QXq",
+            "maskBackground": "maskBackground-F7QD-A",
+            "background": "containerBackground-Ang24O",
+        ),
+
+        // Quickly join and leave a server for a modal with this to show up
+        // Will show up if you select anything but happy in the "How'd x go?" rating modal
+        // You'll also have to have not clicked the "don't show me this again" box
+        "problemInfo": (
+            "section": "problemInfo-1QppuA",
+            "root": "root-cw9rWQ",
+            "option": "option-1O-Hwt",
+            "text": "text-3MkjKY",
+            "caret": "caret-2qZrqJ",
+        ),
+
+		// Submit feedback in above 
+		"submitFeedback": (
+			// literally on own rule for no margin
+			"title": "title-1kQYU2",
+		),
+
+        // Get timed out. Use an alt to time you out. Best not to attempt it on any non-private servers
+        "timedOut": (
+            "container": "container-lJuBHq", // This one can be closed by clicking "okay"
+            "iconContainer": "iconContainer-2k2ykS",
+            "icon": "icon-2PhspP",
+            "header": "header-2a3o4x",
+            "headerText": "headerText-1pbePi",
+            "button": "button-13dRcN",
+
+            "spamBanner": "spamBanner-1auiob",
+            "bannerIcon": "bannerIcon-1AJ6ir",
+            "bannerText": "bannerText-VlCuQm",
+        ),
+
+        // Time someone out, yes that's really the best way to get these to show up
+		// Or you can switch account 
+        "toasts": (
+            "containerTop": "containerTop-xFczB0", // contains z-index and alignment stuff. rule paired with bottom
+            "containerBottom": "containerBottom-1BvegH",
+            "toast": "toast-q3Y4wI",
+            "icon": "icon-2QUmmw",
+        ),
+
+        // Be in a private call, change region
+        "regionSelect": (
+            "popout": "regionSelectPopout-3sEzVB",
+        ),
+
+        // Click the in-chat search bar in header
+        "search": (
+            "dropdown": "container-2McqkF",
+			"learnMore": "searchLearnMore-1gNL3A", // (?) link
+            "option": "option-ayUoaq",
+			"searchOption": "searchOption-3u1gRt",
+            "queryHeader": "queryContainer-ZunrLZ",
+            "resultsGroup": "resultsGroup-cfY57t",
+        ),
+
+        // While searching, click "before", "after" or "during" to pull the cal/date picker up
+        "calendar": (
+            "datePicker": "datePicker-3iA7_k", // outer class
+            "picker": "calendarPicker-sDhzdi", // inner class
+
+			"react": (
+				"datePicker": "react-datepicker",
+				"header": "react-datepicker__header",
+
+				"day-names": "react-datepicker__day-names",
+				"day-name": "react-datepicker__day-name",
+				"day": "react-datepicker__day",
+				"dayDisabled": "react-datepicker__day--disabled",
+				"daySelected": "react-datepicker__day--selected",
+				"dayOutsideMonth": "react-datepicker__day--outside-month",
+				"dayKeyboardSelected": "react-datepicker__day--keyboard-selected",
+
+				"week": "react-datepicker__week",
+				
+				"month": "react-datepicker__month",
+				"currnetMonth": "react-datepicker__current-month",
+
+				"navigation": "react-datepicker__navigation",
+				"navigation--next": "react-datepicker__navigation--next",
+				"navigation--previous": "react-datepicker__navigation--previous",
+				"navigation-icon": "react-datepicker__navigation-icon",
+			),
+
+            "datePickerHint": "datePickerHint-Ir4715",
+            "dateHintValue": "hintValue-V9hd8l",
+        ),
+        
+        // Click on a banned user under the bans tab in server settings
+        "bannedUser": (
+            "modal": "bannedUserModal-9XjyCI",
+            "header": "header-2An-Ws",
+            "username": "userUsername-26gqKj",
+            "discrim": "userDiscrim-vaUAuA",
+            "content": "content-rSeJ_y", // contains reason
+            "reasonHeader": "reasonHeader-QJnMZ5",
+            "footer": "footer-1s73En",
+        ),
+
+        // Change Nickname of another user in a server
+        // Alternatively enable the friends_nicknames experiment and use that. IMPLEMENT IT ALREADY.
+        "nicknameChange": (
+            "modalContent": "modalContent-RZal_5",
+            "card": "card-1AUjv4",
+            "warningText": "warning-39fhcZ",
+            "itemGroup": "itemGroup-3Zbsys", // used for "Nickname" title
+
+            // This one is the experiment
+            "friends": (
+                "description": "description-2pRfjZ",
+                "input": "input-2i7ay7",
+                "reset": "reset-Gp82ub",
+            ),
+        ),
+
+        // Within a user's popup profile, click the + to add roles,
+        // Within server settings, go to members and click "Display role"
+        // Within audit log, click either filter by user or filter by action
+        "searchPopup": (
+            "container": "container-2O1UgZ",
+            "inner": "inner-2pOSmK",
+            "iconLayout": "iconLayout-3Bjizv",
+            "iconContainer": "iconContainer-6pgShY",
+            "icon": "icon-3CDcPB",
+            "iconVisible": "visible-CwPfRb",
+            "iconClear": "clear-3102V9",
+        ),
+
+        // Within server settings, click "members" and then "prune" at the top
+		// aka "purge"
+        "prune": (
+            "content": "content-1x29-w",
+            "spacing": "spacing-1dHSoA",
+        ),
+
+        // Click either an Emoji or a Sticker within chat
+        "emojiStickerPopout": (
+            "container": "popoutContainer-2wbmiM",
+            "emojiSection": "emojiSection-3QtaWO", // also used with sticker
+            "guildSection": "guildSection-2Zyzy8",
+            "guildTitle": "guildTitle-1yMWvh",
+
+            "loading": "popoutLoader-GQkzqY",
+            "loadingBackground": "popoutLoadingBackground-qs-T5i", // contains mask
+            "loadingForeground": "popoutLoadingForeground-3xnRkg", // contains background-image
+        ),
+
+        // Within the boost page, click "Boost This Server"
+        "boost": (
+			"header": "header-kxb7f7",
+			"content": "content-2eQb8J", // may be applied elsewhere
+			"guildBackground": "guildBackground-3BSNJY", // that lottie thing is in here
+			"guildStar": "guildStar-2w95PD",
+            "selectGuild": "selectGuild-2A4oJC",
+            "subscription": "subscription-1wJwQk",
+            "guildCard": "guildCard-u7HSAA", // used alongside sub
+            "subscriptionInfo": "subscriptionInfo-2W0COT",
+            "guildName": "guildName-31s6aW",
+            "tierInfo": "tierInfo-2VmQOo",
+            "tierPill": "tierPill-l7DvKo",
+			"upsellFooter": "upsellFooter-1H_OCF",
+        ),
+
+        // ..On the other hand, clicking the x/y boosts panel brings this up
+        "boostInfo": (
+            "wrapper": "wrapper-poygym",
+            "closeButton": "closeButton-3ZDr7w",
+            "image": "heroImage-1BTx4r",
+            "heading": "heading-2jcBDo",
+            "perks": "perks-2IIbWQ",
+            "footer": "footer-2iOddC",
+        ),
+
+		// Create Group DM
+		// classes could be used elsewhere; all classes ripped from two rules, both nowhere near each other
+		// Click the plus in the header of the private messages sidebar
+		// Alternatively within the DMs of someone, click the person with a plus in the headerbar
+		"groupDm": (
+			"popout": "popout-3gby1q",
+			"searchBar": "searchBar-14YqL-",
+			"searchBarComponent": "searchBarComponent-18D6hD",
+			"addButton": "addButton-cr4zLw",
+			"subtitleWarning": "subtitleWarning-1sdVEW",
+			"scroller": "scroller-1Kbkqa",
+			"mobileToolsContainer": "mobileToolsContainer-3CSSTs",
+			"mobileToolsCloseIcon": "mobileToolsCloseIcon-3-Njik",
+			"copyInput": "copyInput-2-fBVE",
+			"noBorder": "noBorder-1XR_5c",
+			"copyButton": "copyButton-2o2Hlg",
+			"errorState": "errorState-1R6bBt",
+			"errorStateIcon": "errorStateIcon-3y6XWh",
+			"notFriends": "notFriends-lSusTz",
+			"noFriends": "noFriends-1Y8EWR",
+			"partyFull": "partyFull-kwAvJT",
+			"noResults": "noResults-1ceiMB",
+			"footerSeparator": "footerSeparator-b6VH1V",
+			"footer": "footer-C9oLp9",
+			"weightMedium": "weightMedium-3imUCS",
+			"selectExistingFormHeader": "selectExistingFormHeader-3hS--B",
+			"confirmChannelItemContainer": "confirmChannelItemContainer-3uoW8_",
+			"confirmChannelName": "confirmChannelName-3vhUmX",
+			"lastActiveTimestamp": "lastActiveTimestamp-1Y8jOH",
+			"confirmInviteScroller": "confirmInviteScroller-4ATmlS",
+			"subtitle": "subtitle-3v29zT",
+			"footerText": "footerText-30uH1h",
+		),
+
+        // Perks
+        // These appear in a few modals - best seen when clicking the x/y boosts panel.
+        // Line 258 of 2022-09-14_15:25 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css
+        "perks": (
+            "row": "perkRow-10K6XE",
+            "iconContainer": "perkIconContainer-25jfLV",
+            "icon": "perkIcon-2DG0tJ",
+            "description": "perkDescription-3e1T_w",
+        ),
+
+        // Upload a text-based file and click expand (beer emoji in theme)
+        "textFileExpanded": (
+            "container": "modalTextContainer-1FUO2W",
+        ),
+
+        // In a channel with active threads, hover over it and click "see all". These may apply to the dropdown
+        "openThreadsPopout": (
+            "popout": "popout-TdhJ6Z",
+			"modal": "modal-ZdazA8",
+            "browser": "browser-SOGsFd",
+        ),
+
+        // Stay within a voice channel/call or run an activity to show this up
+        // You'll also have to have not ticked the "don't show me this again" box
+        // All of this is done within the base-modal header
+        "rating": (
+            "headerContainer": "headerContainer-qKC1wd",
+            "body": "ratingBody-1GrX6N",
+            "ratingSelector": "ratingsSelector-1RciCi",
+            "emojis": "emojis-2ZPdTX",
+            "emoji": "emoji-1pQ5Lb",
+            "emojiSelected": "selected-2ydMSu",
+            "sad": "emojiSad-3LNJSS",
+            "neutral": "emojiNeutral-2bmgFi",
+            "happy": "emojiHappy-1XST7V",
+        ),
+
+		// Click the rocket within the chat bar or 
+        // Click the rocket within the panel within the voice panel
+        "activities": (
+            "root": "root-CyPAbQ",
+
+            "shelfTopBackground": "shelfTopBackground-R55ED9", // also on fg class
+            "shelfTopForeground": "shelfTopForeground-3OmdTs", // z index only
+
+            "header": "modalHeader-3X0A4K",
+            "shelfTitle": "activityShelfTitle-1rkbSI",
+            // "betaTag": "betaTag-1BuJUk", // background-color in inline // NOT FOUND
+            "closeButton": "modalCloseButton-35fetH",
+
+            "divider": "modalDivider-MtZbPb",
+
+            "slideContainerSquished": "slideContentOuterContainerSquished-2DtPtj",
+            "slideContainerTall": "slideContentOuterContainerTall-1G4gq9",
+            "scrollContainer": "scrollContainer-1C3AzW",
+
+            "scrollBackgroundContainer": "scrollBackgroundContainer-1gy1Hx",
+            "scrollTierBackground": "scrollTierBackground-BnWR8k",
+            "scrollTierBackgroundUpsell": "scrollTierBackgroundUpsell-2oh_9T",
+
+            "scrollSection": "scrollSection-HnJkHK",
+			"nitroCTAContainer": "tierCtaContainer-f-B1mz",
+            "shelf": "shelf-3D6g4D",
+            "item": "activityItem-1Z9CTr",
+            // "imageContainer": "activityImageContainer-3FIpli", // NOT FOUND
+            "image": "activityImage-3308Ih",
+            "video": "activityVideo-3VVUcy", // also has image class, has anim and pos. duplicated as child with video tag rather than div
+            // "videoFadeout": "videoFadeOut-1qkfRd", // NOT FOUND
+            "overlayBadge": "overlayBadge-2HAW2N",
+            "badgeContainer": "badgeContainer-2a1nPp",
+            "textContainer": "activityTextContainer-2l4Dnr", // body of item
+            "tagsContainer": "activityTagsContainer-2tHK0W",
+            "tag": "activityTag-3C3YK5",
+
+            "footer": "footer-yVEuwO",
+
+            // Don't have nitro and want to host something stupidly locked behind nitro?
+            // These classes might show up with nitro
+            "nitroLocked": (
+                "container": "container-2oiTwm",
+                "scroller": "scroll-2wB1Q4",
+
+                "imageContainer": "imageContainer-36ELsC",
+                "video": "video-2B12w1",
+
+                "description": "descriptionArea-2k0n2c",
+                "descriptionText": "descriptionAreaText-UT4M9x",
+
+                "perksContainer": "perksContainer-1HyK1I",
+                "perksHeader": "perksHeader-jkHU3s",
+                "perksUpsellIcon": "upsellIcon-14jcSk",
+                "perks": "perks-2tKutx",
+                "perkText": "activitiesPerk-1-3r7G",
+
+            ),
+        ),
+
+		// Change your avatar (or banner w/ nitro) or a server's icon
+        "avatarUpload": (
+            "header": "modalHeader-1nzW1E",
+            "title": "modalTitle-2rlE_E",
+            "closeButton": "modalCloseButton-19Fmel",
+            "content": "modalContent-1uVMnp",
+            "imagePickerContainer": "imagePickerContainer-1VjOgi",
+            "optionBox": "optionBox-1UOevl",
+            "text": "optionBoxText-3NXexb",
+            "description": "optionBoxDescription-1s4xch",
+            "contentCircle": "contentCircle-15IFyT",
+            "uploadIcon": "uploadIcon-2zMtOT",
+            "gifGrid": "gifGrid-2qiEW6",
+            "gif": "gif-38WdXH",
+            "gifIconContainer": "gifIconContainer-3os21a",
+            "gifIcon": "gifIcon-3NzDDk",
+
+            // Gif Picker
+            // no nitro preview thing
+            "nitroPreview": (
+                "notice": "notice-1Qe0b_",
+                "upsell": "nitroPreviewUpsell-3Tk6cW",
+                "withoutRightPadding": "noticeWithoutRightPadding-8tvUxG",
+                "left": "noticeLeft-1Bcjql",
+                "icon": "icon-1YUWIM",
+                "text": "text-3bXy2L",
+            ),
+            // Picker itself, uses the main gif modal as children classes
+            "gifPicker": (
+                "header": "modalHeader-1pRUhs",
+                "titleCase": "titleCase-LTXtEO",
+                "closeButton": "modalCloseButton-2SRpkl",
+                "picker": "gifPicker-3ATLsE",
+            ),
+            
+        ),
+
+        // bot/external application authentication/oauth
+        // Quickest way might be starting an activity that requires an external application, like youtube/"watch together"
+        "oauth": (
+            "wrapper": "oauth2Wrapper-p_8bbd",
+            "authorize": "authorize-2xTTr-",
+            "scrollContent": "scrollContent-_1I-44",
+            "header": "header-3cN3a_",
+            "headerIcons": "headerIcons-ICsYI5",
+            "label": "label-r9Wugd",
+            
+            "scopes": "scopes-uCLYQv", // basically permissions of application
+            "sectionLabel": "sectionLabel-eOcIZ3",
+            "scope": "scope-J9cQRk",
+            "scopeCheck": "scopeCheck-3trytX",
+            "scopeTimes": "scopeTimes-KsAOBb", // it's a cross
+            "scopeIcon": "icon-hDztL8",
+            "scopeInner": "scopeInner-13uy_j",
+
+            "applicationDetails": "applicationDetails-3O3kc-",
+            "entry": "entry-2w47SK",
+            "entryIcon": "entryIcon-2bcrKV",
+            "entryInner": "entryInner-1tOOER",
+
+            "footer": "footer-3Gu_Tl"
+        ),
+
+        // Ctrl+N or click the green + at the bottom of the server list
+		"addServer": (
+			"modal": "container-1Lk8p7",
+			"backButton": "backButton-2Ps-B8",
+			"templatesList": "templatesList-uohY49",
+			"templateButton": "container-x8Y1ix",
+			"templateButtonText": "text-PdAsFQ",
+			"optionsList": "optionsList-dmHy1l",
+			"createServer": "createGuild-2m1V10",
+			"subtitle": "subtitle-3m-md1",
+			"headerTitle": "title-1_TkpU",
+			"footerTitle": "footerTitle-3Bslxi",
+			"tellUsMoreTitle": "title-OdeD-o", // second screen
+			"tellUsMoreSubtitle": "subtitle-1cc8Nz", // second screen
+			"closeButton": "closeButton-3wDOHY",
+
+			"uploadIcon": "uploadIcon-2wV7s_",
+		),
+
+        // Click on the emoji, sticker or gif within the chatbar
+        "expressionPicker": (
+			"positionLayer": "positionLayer-1cndvf", // has relevant theme-[dark/light] class applied to it
+			"positionContainer": "positionContainer-dMArNx",
+			"drawerSizingWrapper": "drawerSizingWrapper-1txdWG",
+            "resizeHandle": "resizeHandle-T_gFJR",
+            "contentWrapper": "contentWrapper-3vHNP2",
+            "nav": "nav-1zWVQw",
+            "navItem": "navItem-3McpmW",
+            "navButton": "navButton-1XuvI-",
+            "navButtonActive": "navButtonActive-1EqC5l",
+
+            "inspector": "inspector-DFKXwB",
+        ),
+
+		// Gif within chatbar combined popout
+		"gif": (
+			"container": "container-3u7RcY", // has ID on it
+			"header": "header-2TLOnc",
+            "searchBar": "searchBar-3aIzc-",
+			"content": "content-A8TzKf",
+			"scroller": "container-3eG4QA",
+			"resultPlaceholder": "placeholder-T1Tuu8",
+			"result": "result-pzZrwj",
+			"resultFocused": "focused-16Owih", // press arrow keys
+			"favoritesFade": "categoryFadeBlurple-1l49_Q",
+			"categoryFade": "categoryFade-3RRG67",
+			"endContainer": "endContainer-22e-US",
+			"results": "results-2CQlZp",
+			"noResultsWrapper": "wrapper-2g4olo",
+			"sadImage": "sadImage-2_mw0p", // search "hentai" or something
+        ),
+
+        // Sticker within chatbar combined popout
+        "sticker": (            
+            "wrapper": "wrapper-1NB3WY", // has ID on it
+			"header": "header-uVCAlo",
+            "searchWrapper": "wrapper-n2dlvs",
+			// for the bar, use child of above
+            "listWrapper": "listWrapper-2DwCYS",
+			"gridWrapper": "wrapper-i1awk3", // holds stickers in grid
+
+			"packHeader": "packHeader-w9jpYl", // has a pos sticky and top 0
+            "packRow": "row-2mBMW2",
+            "sticker": "sticker-H2HhJD", // border radius and padding, doesn't apply to in-chat sticker
+            "stickerCursor": "sticker-2Yb_-L", // only cursor, doesn't apply to in-chat sticker
+			"inspected": "stickerInspected-mwnU6w",
+			"inspectedIndicator": "inspectedIndicator-27zwNZ", // hover over a sticker
+			"upsell": "upsell-3B1lnN", // In a server you can manage stickers on with at least 1 free slot
+            "emptyGuildUpsell": "emptyGuildUpsell-2s9mrR", // also above but zero stickers
+			// bar at bottom should be under GSE
+
+			"categoryList": "categoryList-2GgCrD",
+            "categorySeparator": "guildCategorySeparator-1YkjLr",
+			"listGuildIcon": "guildIcon-2SUGiq",
+            "category": "stickerCategory-2f6iSo",
+            "premiumCategory": "premiumCategory-1bZwXQ",
+			"premiumCategorySelected": "premiumCategorySelected-2KWLhN",
+			"categoryGeneric": "stickerCategoryGeneric-29JiZ2", // used on freq used
+			"categoryGenericSelected": "stickerCategoryGenericSelected-DnO2K8",
+
+			"stickerSearchSuggestion": "searchSuggestion-PfUKKS", // search result empty
+        ),
+        
+        // Emoji within charbar combined popout
+        "emoji": (
+            "wrapper": "wrapper-3u51GQ", // want just floating? :not( below ). has ID
+            "inExpressionPicker": "emojiPickerInExpressionPicker-2nOwH8",
+			"picker": "emojiPicker-6YCk8a",
+
+			"header": "header-11eigE",
+            "searchBar": "searchBar-2M9mRP",
+            "skinSelector": "diversitySelector-P-W_tU",
+            "skinSelectorButton": "diversitySelectorButton-2CGlo5",
+            "skinSelectorImage": "diversityEmojiItemImage-1pfGqI", // uses style for image, asset will likely change with each update though
+            // click the clapping emoji for these
+			"skinOptions": "diversitySelectorOptions-3DhNYs",
+            "skinOptionsInExpressionPicker": "diversitySelectorOptionsInExpressionPicker-3wybQR",
+            "skinOptionsEmojiItem": "diversityEmojiItem-2bgZKv",
+            // if you wish to select one skin type, the above class has `data-list-item-id="diversity___item-n"`
+            // where n is 0-5; 0 being yellow, 1 being lightest and 5 being darkest
+
+            "body": "bodyWrapper-1eSOtW",
+			"pickerListWrapper": "emojiPickerListWrapper-1T3YI3",
+            "listWrapper": "listWrapper-2nHLP8",
+			"list": "list-3V14yy",
+            "categorySection": "categorySection-3j71bm",
+            "categoryHeader": "header-1ULbqO",
+            // "listRow": "emojiListRow-3hshyU", // NOT FOUND
+            "listRowLarge": "emojiListRowLargeSize-2ydLSH", // widen the modal above 400px wide for rows
+			"item": "emojiItem-277VFM",
+            "itemLarge": "emojiItemLarge-3fJwCk",
+			"itemSelected": "emojiItemSelected-2Lg50V",
+            "itemDisabled": "emojiItemDisabled-3VVnwp", // no nitro? use a plugin. that's what you're here for, right?
+			"imageLoading": "imageLoading-2uloYN",
+            
+			"inspectorGrid": "inspector-2A2Chb", // bar at bottom should use the class under expressionPicker.
+            "graphicPrimary": "graphicPrimary-jNHB2G",
+            "emoji": "emoji-4YP39J",
+            "textWrapper": "textWrapper-3m4b4D",
+            "titlePrimary": "titlePrimary-23rNQQ",
+            "favorite": "favorite-1t1nOZ", // it's a star~
+            "titleSecondary": "titleSecondary-3hcpuB",
+            "graphicSecondary": "graphicSecondary-37AA_Y",
+
+			"categoryList": "categoryList-2qRrlj",
+
+            "categoryItem": "categoryItem-1sHzUv",
+			"defaultCategory": "categoryItemDefaultCategory-3haEDq",
+			"defaultCategorySelected": "categoryItemDefaultCategorySelected-2YeRUu",
+            "categoryIcon": "categoryIcon-2cYeku",
+            "categorySeparator": "guildCategorySeparator-3QYkij",
+			"unicodeShortcut": "unicodeShortcut-3N8oDe", // for all the non-server emotes
+			"unicodeShortcutInvisible": "unicodeShortcutInvisible-27MSUJ",
+
+			"premiumRetention": "premiumRetentionNotice-A_Ke4K",
+		),
+
+        // Right click!
+        // Other menu types may do other funky things, such as changing your status
+		"menus": (
+			"menu": "menu-1QACrS",
+            "styleFlexible": "styleFlexible-x0_sIC",
+			"scroller": "scroller-1bVxF5",
+            "separator": "separator-1So4YB",
+            "customItem": "customItem-2CxBSo", // found in quick react
+			"item": "item-1OdjEX",
+            "labelContainer": "labelContainer-2vJzYL",
+            "itemDisabled": "disabled-oOAXat",
+			"itemFocused": "focused-3qFvc8",
+			"itemHideInteraction": "hideInteraction-2jPGL_", // best seen in the css rules with :not(), banner in status has it
+			"label": "label-2gNW3x",
+            "subtext": "subtext-2GlkbE", // "muted until $time" for easiest way of bringing this up
+			"iconContainer": "iconContainer-1-SsTR",
+            "iconContainerLeft": "iconContainerLeft-2NHJgN", // change status has this
+			"icon": "icon-E4cW1l",
+
+            "caret": "caret-2MOQD6",
+            "arrow": "arrow-2HswgU",
+            // "imageContainer": "imageContainer-1wSPgI", // LMAO WHERE
+            // "image": "image-21g2ca", // LMAO WHERE
+			"checkbox": "checkbox-hADx5o",
+			"checkboxCheck": "check-3HZJs4",
+			"radioSelection": "radioSelection-1UHp0b",
+
+            "sliderContainer": "sliderContainer-2nidiS", // right click another user
+            "slider": "slider-BEB8u7",  // rest of the slider stuff is under app settings
+
+			"colorDefault": "colorDefault-CDqZdO",
+			"colorBrand": "colorBrand-3cPPsm", // invite people
+			"colorDanger": "colorDanger-3n-KnP", // leave server, report raid, server mute/deaf, kick, ban, disconnect, timeout etc
+			"colorPremium": "colorPremium-vwmYZQ", // sets icon to boost color
+
+            // Anything related to a secondary menu
+            "submenuContainer": "submenuContainer-3EVTeH", // change status for easiest
+            "submenuPaddingContainer": "submenuPaddingContainer-_k62dJ",
+            "submenu": "submenu-1apzyU",
+
+            // Right click a message in a channel you can add reactions to
+            "quickReactWrapper": "wrapper--nA0oy",
+			"quickReactionButton": "button-1zW0-r",
+
+            // Change status
+			"profileGroup": "profileGroup-1yKk23", // top when changing status
+            "profileBody": "profileBody-3QbfPe",
+            "mainStatusIcon": "mainStatusIcon-25wiNY",
+            "hintContainer": "hintContainer-2UwhLP", // this is the remove custom status thing
+            "statusItem": "statusItem-38ArJn", // within submenu 
+            "statusMask": "mask-2Me5HY",
+            "status": "status-2DiCMd", // inline background color
+
+
+			// "colorGreen": "colorGreen-pAT2NS", // IT'S IN THE CSS. NO IDEA WHERE.
+		),
+
+        // Best seen in Voice + Video settings, right at the top there's two
+        "dropdown": (
+            "wrapper": "wrapper-1b33hy",
+			"select": "select-1Ia3hD",
+            "filled": "lookFilled-1GseHa",
+
+			"open": "open-1FRZsK",
+            
+            "value": "value-26hJ01",
+            "icons": "icons-2dXYop",
+
+			"popout": "popout-1KHNAq",
+            "measurement": "measurement-3UpG9x", // there's a hidden one next to the popout???
+			"option": "option-2eIyOn",
+			"selectedIcon": "selectedIcon-19TbzU",
+			"optionFocused": "focused-ODgjnC", // i can't find this class but it's in a rule
+            "optionMulti": "multi-1HXDiv", // i can't find this class but it's in a rule
+            
+            // Can't find these??
+			// "dropdownSelectTop": "selectPositionTop-1Xy1Sp",
+			// "dropdownPopoutTop": "popoutPositionTop-1GenHR",
+        ),
+
+        // Inbox, Pinned and Threads dropdowns.
+        // You can also think of these as "Has a distinct header"
+        // There seriously might be NOTHING shared
+        "headerDropdown": (
+            "messagesPopoutWrap": "messagesPopoutWrap-3zryHW", // MENTIONS + PINNED
+            "messagesPopout": "messagesPopout-eVzQcI", // MENTIONS + PINNED
+            "header": "header-1w9Q93", // MENTIONS + UNREAD + PINNED
+        ),
+
+        "inbox": (
+            "popout": "recentMentionsPopout-2bI1ZN",
+            "header": "header-145e10",
+            "tabBar": "tabBar-1qdMr5",
+            "tab": "tab-TRrPC8",
+            "tabActive": "active-1grPyy",
+            "controls": "controls-1rku3l",
+            "roundButton": "button-1_oXub",
+            "secondary": "secondary-2bzKEX", // background secondary, hover primary
+            "tertiary": "tertiary-1e-lAP", // background tertiary, hover floating
+            "buttonDisabled": "disabled-184-il",
+            "size32": "size32-1NLMUP",
+            "channelHeader": "channelHeader-DFRX8q",
+            "guildIcon": "guildIcon-IklRcj",
+            "dmIcon": "dmIcon-1ZeAqq",
+            "channelNameSection": "channelNameSection-3OgeRa",
+            "channelNameHeader": "channelNameHeader-51gJbl",
+            "channelName": "channelName-3APnhp",
+            "channelNameSpan": "channelNameSpan-1rY63L",
+            "subtextContainer": "subtextContainer-1jbEbB",
+            "subtext": "subtext-2-lYzF",
+            "guildName": "guildName-y1svcU",
+            "jumpButton": "jumpButton-1V_1FA",
+            "jumpButtonText": "text-2ifC_x",
+            "emptyContainer": "container-nwU-8G",
+            "emptyIconContainer": "iconContainer-33_6mP",
+            "emptyIcon": "icon-2yhmi8",
+            "emptyStars": "stars-2vhEVR",
+            "emptyHeader": "header-3rvP-v",
+            "emptyProtip": "protip-3Kd73Y",  // inline color
+            
+            "mentions": (
+                "scroller": "scroller-MIi2ab",
+                "container": "container-iA3Qrz",
+                "close": "closeButton-3CiW2j",
+                "messageContainer": "messageContainer-3VTXBC",
+                "jumpButton": "jumpButton-1ITAeq",
+                "message": "message-3g3FYR",
+                "scrollingFooterWrap": "scrollingFooterWrap-grqTU8",
+            ),
+
+            "unread": (
+                "popout": "container-2ebMPP",
+                "scroller": "scroller-145h9c",
+                "tutorial": "tutorial-Nb3Zz5", // "Stay up to date with the latest messages"
+                "tutorialIcon": "tutorialIcon-25VF3Q",
+                "channel": "channel-3NJZ1V",
+                "mentionBadge": "badge-1ImhlC",
+                "markRead": "markReadButton-28SmPf",
+                "collapseButton": "collapseButton-39-IRc",
+                "collapsed": "collapsed-1HsWsD",
+                "messages": "messages-23can0",
+                "messageContainer": "messageContainer-8dSNjf",
+                "jumpButton": "jumpButton-2936DI",
+                "message": "message-372Ods",
+				"divider": "divider-3NCgnL",
+
+                // Click the "mark inbox as read" button and another modal pops up
+                "markAll": (
+                    "content": "content-26qlhD",
+                )
+            ),
+        ),
+
+        "pinned": (
+            "messageGroup": "messageGroupWrapper-1jf_7C",
+            "messageGroupCozy": "messageGroupCozy-3v_RqN",
+            "actionButtons": "actionButtons-2mNSAB",
+            "jumpButton": "jumpButton-1ZwI_j",
+            "loading": "loading-37Swh2",
+            "loadingVisible": "visible-2w9j_f",
+            "remove": "closeIcon-2IriN1",
+            "emptyPlaceholder": "emptyPlaceholder-1-a1LK",
+            "emptyBottom": "bottom-3-6RzO", // in a rule
+            "emptyImage": "image-t6rLT3",
+            "emptyBody": "body-GBnhET",
+            "footer": "footer-5ji8u1",
+            "block": "block-3Xiiq7", // discord put this on the rules for some reason? lots of inline
+            "protip": "pro-3GwLMX", // inline color
+            "tip": "tip-Jl__cG",
+        ),
+
+        // Either dropdown in header bar or from hovering on a channel with an active thread
+        // Line numbers based on 2022-09-11 https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
+        "threads": (
+            "browser": "browser-mnQ1T7", // 1456, same line as modal above
+            "container": "container-18GwIk", // 1055 
+            "header": "header-3_zmOb",
+            "threadIcon": "threadIcon-rd1kqG",
+            "title": "title-10Au0i",
+            "divider": "divider-2xk5N2",
+            "searchBox": "searchBox-3IjAC1",
+            "spacer": "spacer-180E7A",
+            "createButton": "createButton-oruGBs",
+            "closeIcon": "closeIcon-11tHJX",
+
+            "list": "list-3YHPPb", // 1054
+            "listHeader": "sectionHeader-QsOv68",
+            "listItem": "container-2rzKKA",
+            "left": "left-1tSH9F", // 1053, sibling being facepile
+            "threadNameLine": "threadNameLine-1FNzAW",
+            "threadName": "threadName-2k9mLl",
+            "subtext": "subtext-21DUaG",
+            "avatar": "avatar-2jnSDw",
+            "authorName": "authorName-1zsPTp",
+            "messageContent": "messageContent-3pWDKW",
+            "facepile": "facepile-10m-zx",
+
+            // empty list - 1052
+            "emptyContainer": "container-2c4_8A",
+            "emptyCompact": "compact-3p0UFo", // no idea how to get this, seems to be unrelated to compact mode
+            "emptyIconContainer": "iconContainer-3XSL3J",
+            "emptyIcon": "icon-mJhEWn",
+            "emptyStars": "stars-3UP9-A",
+            "emptyHeader": "header-En5hqg",
+            "emptyCreateButton": "cta-35vqLn",
+        ),
+
+		// User Settings, within Connections, click the rightward chevron ">"
+		// Modals contains all possible connectable external accounts
+		// Found on line 1511 of https://discord.com/assets/40532.4504e481dffd14102809.css, 2022-12-06_15:45 UTC+8
+		"addConnections": (
+			"container": "container-mZ48EJ",
+			"header": "header-22-Eiw",
+			"title": "title-IYrlrK",
+			"connectionsContainer": "connectionsContainer-crWFPm",
+			"accountButton": "accountBtn-1-d0rV",
+			"accountButtonInner": "accountBtnInner-1DCgBm", // has hover
+
+			// can't find the following
+			"applicationsHeader": "applicationsHeader-QCdIR4",
+			"applicationsContainer": "applicationsContainer-3I57wu",
+			"application": "application-2d68Kk",
+			"applicationIcon": "applicationIcon-1RuMCx",
+			"applicationNameContainer": "applicationNameContainer-RITfPr",
+			"applicationNameText": "applicationNameText-3MfzW-",
+			"searchBar": "searchBar-1xRFo1",
+		),
+
+        // Upload a file. That's really all there is to it.
+        // For subcategories:
+        // "drop" is when you drag and drop a file onto discord
+        // "fileTypes" are for the different icons, likely mostly unused lol
+        // "pop" refers to the little elements that appear briefly, named after one of the elements
+        // "modify" is when you've clicked the pencil icon in the chatbar, it's got some overlap with drop most likely
+        // "fail" is the popup saying "it's too big" either with or without nitro, needs testing
+		"upload": (
+            "areaPosition": "uploadArea-2uvx-B", // line 767, applies position fixed and other things with thread sidebar open/floating
+            "inner": "inner-rBP-MS", // Line 531, Used in drop and modify
+
+            // Seems to be line 531 of 2022-09-14_15:33 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css 
+            "drop": (
+                "area": "uploadArea-2Nu_Vc",
+                "droppable": "droppable-hM-pBE",
+                "modalIn": "uploadModalIn-2w48Zf",
+
+                "modal": "uploadDropModal-13Kd20",
+                "error": "error-3lNz4C", // upload a folder to get this to appear
+                // "pops" are in another (sub) category
+                "bgScale": "bgScale-1iWuPF",
+                "icons": "icons-1UZPvE",
+                // While the icons in this list are in order, the html tree order is one-three-two
+                // the "uses" comment are other classes on the same element. they're listed all below under "fileTypes"
+                    "wrapOne": "wrapOne-2VKwBJ",
+                    "one": "one-NzgGbt", // uses document
+                    
+                    "wrapTwo": "wrapTwo-3T9wbh",
+                    "two": "two-1t2_74", // uses unage
+                    
+                    "wrapThree": "wrapThree-3wCMkN",
+                    "three": "three-fZYihQ", // uses code
+                "instructions": "instructions-272j2A",
+                "title": "title-3ChJ_v",
+            ),
+
+
+            // All of these rules have a background-image applied to them. You can find these under the same line as drop, above
+            // After the first the rules all seem to be prefixed by uploadModal inner(from drop) file(from drop) icon.[type]
+            "fileTypes": (
+                "icon": "icon-HW4tZ-", // Base class for all of them
+                "document": "document-1u6V3N",
+                "image": "image-2ssF8k",
+                "code": "code-rRQnfi",
+                "video": "video-L7uQxc",
+                "acrobat": "acrobat-2-m_um",
+                "ae": "ae-1bPydY",
+                "sketch": "sketch-t3m6M1",
+                "ai": "ai-1QhRgT",
+                "archive": "archive-2bNoJA",
+                "photoshop": "photoshop-LN9Et_",
+                "ps": "ps-1C6rg4", // This class uses the same image as photoshop. why there's two is anyone's guess
+                "spreadsheet": "spreadsheet-1wEQpO",
+                "webcode": "webcode-18ObW7",
+                "audio": "audio-YC1s9s", // This class also has a margin applied to it
+                "unknown": "unknown-3ClW7Z",
+            ),
+
+            // These little things appear briefly and are VERY LIKELY used elsewhere within modals or the app itself.
+            // Colors, Types and Base are on line 606 of 2022-09-14_15:25 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css 
+            // Numbered Sparkles, Crosses, Pops and Lights are on the same line as drop
+            "pop": (
+                "base": "base-3G-1g8",
+                "sparkle": "sparkle-3PY9_W",
+                "pop": "pop-1ywoKR",
+                "light": "light-RK7d-n",
+                "cross": "cross-1SI0z1",
+
+                "sparkleOne": "sparkleOne-1irkHJ",
+                "sparkleTwo": "sparkleTwo-XoWERM",
+                "popOne": "popOne-DQdCoi", // There doesn't seem to be a popTwo
+                "lightOne": "lightOne-14Y4Mp",
+                "lightTwo": "lightTwo-22kK5G",
+                "crossOne": "crossOne-thyRJE",
+                "crossTwo": "crossTwo-1iQdhQ",
+
+                // Colors use images
+                "sparkleWhite": "sparkleWhite-3feD4l",
+                "sparkleGrey": "sparkleGrey-3-2SWb",
+                "sparkleBlurple": "sparkleBlurple-1RvNwy",
+                "popWhite": "popWhite-3SV9xY",
+                "popGrey": "popGrey-25HExo",
+                "popBlurple": "popBlurple-euq4qQ",
+                "lightWhite": "lightWhite-lEUEux",
+                "lightGrey": "lightGrey-y5I6rE",
+                "lightBlurple": "lightBlurple-2E9bKg",
+                "crossWhite": "crossWhite-2JRhdZ",
+                "crossGrey": "crossGrey-15mEQ2",
+                "crossBlurple": "crossBlurple-xAYtl0",
+            ),
+
+            "modify": (
+                "modal": "uploadModal-2ie9O_",
+                "file": "file-163EuR",
+                "expandable": "expandable-2-lrzP", // used with images and gifs
+                "description": "description-2AJi-V",
+                "filename": "filename-1r50Xu",
+                "comment": "comment-1kpwc5",
+                "label": "label-21vOgf", // section header thingy
+                "filenameInputWrapper": "channelTextAreaUpload-30SRDh", // it's unique here
+                "optional": "optional-2lmRBw", // found in css
+                "footer": "footer-VCsJQY",
+                "hasSpoilers": "hasSpoilers-33hwf_",
+                "footerRightAlign": "footerRightAlign-3Xr2jN",
+                "cancelAllButton": "cancelAllButton-2TbQSM", // found within css
+            ),
+
+            // Line 532 of 2022-09-14: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css
+            // Line 533 also applies here and anything on that line is mentioned
+            "fail": (
+                "modal": "root-1DvBsn",
+                "artContainer": "artContainer-1yaXct",
+                "artContainerAlign": "artContainer-23sQ1F", // line 533
+                "content": "content-3562Do",
+                "hedaer": "header-3aaXHi",
+                "body": "body-1WcPyw", // line 533
+                "footer": "footer-1KGV6y",
+                "primaryActions": "primaryActions-F8pgS7",
+
+                // The rest were found in css but I couldn't find them in the modal and are listed in the css list order
+                "secondaryAction": "secondaryAction-2F_AUr",
+                "artContainerBoxShadow": "artContainerBoxShadow-2PjEg_",
+                "art": "art-3-BV8m",
+                "sparkleBadge": "sparkleBadge-mPdAgc",
+                "newBadge": "newBadge-2r8BkJ",
+                "learnMoreLink": "learnMoreLink-wjmX7V",
+                "context": "context-2w50q4",
+            ),
+		),
+
+		// unless the popout profile has previously loaded, click on a username in chat or someone in the member list
+		// the line this on appears to be the only rule.
+		// Line 29 of 2022-12-29: https://discord.com/assets/40532.f7b1e10347ef10e790ac.css
+		"loadingPopout": (
+			"popout": "loadingPopout-1feYe_",
+		),
+
+	// holy shit end of modals	
+	),
+
+	// Test stuff because sometimes it's needed
 	"test": (
+		// category to test simple shit; foo = bar, foo2 = bar2
 		"a": (
 			"foo": "bar",
 			"foo2": "bar2",
 		),
+		// category to test different base name, "a foo" != "b foo". bar2 is example in this case.
 		"b": (
 			"foo": "bar2",
 		),
+		// category to test category names as classes (they worked)
 		"c": (
 			"a": "a",
 			"b": "b",
 			"foo": "bar",
+		),
+		// category for attempted alias (didn't work, see commented out script at top)
+		"d": (
+			"foobar": "$alias test a foo", // output should be "bar"
+		),
+		// category to test dots (for class names) and hashes (for ids) etc
+		"e": (
+			"dot": ".dot", // should throw error, this list does not need "." before classes
+			"hash": "#hash", // should throw error, generation adds "." before final output and is incompatable with ids
 		)
 	),
+	
 );
+
+// @debug #{cn(test a foo)};
+// @debug #{cn(test d too)};

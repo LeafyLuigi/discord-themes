@@ -1,24 +1,16 @@
 @use "backend" as *;
 /* Start Member List */
-
-:is(#{c(chat chatContentInner)} ~ div,#{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}) {
-  width: 240px;
-  background-color: $side;
-  left: calc( ( 240px - 60px ) * var(--hide-member-list));
-  transition: var(--hide-speed,0.5s) left ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
-  margin-left: calc( -1 * (( 240px - 60px ) * var(--hide-member-list)));
-  position: relative;
-  &:hover {
-    left: 0;
-    backdrop-filter: blur(calc(var(--hide-member-list) * 3px));
-	}
+// both have to be listed for both servers and group dms
+#{c(memberList container)}, #{c(memberList wrap)} {
+  --width: 240px;
+  --hide-var: var(--hide-member-list);
 }
 #{c(memberList wrap)} {
   background-color: transparent;
   min-width: auto;
   flex-basis: 0px;
 }
-:is(#{c(memberList members)},#{c(memberList members)}>div) {
+#{c(memberList members)} {
   background-color: transparent;
 }
 #{c(memberList group)} {
@@ -34,25 +26,37 @@
     margin-left: 5px;
   }
 }
+#{c(memberList avatarMask)}>svg>rect {
+  &[fill="#3ba55c"] {
+    fill: $green;
+  }
+  &[fill="#faa61a"] {
+    fill: $yellow;
+  }
+    &[fill="#ed4245"] {
+    fill: $red;
+  }
+    &[fill="#593695"] {
+    fill: $live;
+  }
+    &[fill="#747f8d"] {
+    fill: $offline;
+  }
+}
 #{c(memberList status)} {
-	[mask*="online"],
-	[fill*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+	&[mask*="online"] {
 		fill: $green;
 	}
-	[mask*="idle"],
-	[fill*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
+	&[mask*="idle"] {
 		fill: $yellow;
 	}
-	[mask*="dnd"],
-	[fill*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
+	&[mask*="dnd"] {
 		fill: $red;
 	}
-	[mask*="streaming"],
-	[fill*="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"] {
+	&[mask*="streaming"] {
 		fill: $live;
 	}
-	[mask*="offline"],
-	[fill*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
+	&[mask*="offline"] {
 		fill: $offline;
 	}
 }
@@ -74,4 +78,7 @@
       filter: none;
     }
   }
+}
+#{c(memberList memberBackground)} {
+  background-color: transparent;
 }

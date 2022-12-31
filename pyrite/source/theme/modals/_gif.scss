@@ -1,0 +1,54 @@
+@use "backend" as *;
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(modals gif header)} {
+        box-shadow: none;
+    }
+    :is(#{c(modals gif result)}:hover,
+    #{c(modals gif resultFocused)}) {
+        box-shadow: none;
+        &::after {
+            box-shadow: inset 0 0 0 2px $primary, inset 0 0 0 3px $card;
+        }
+    }
+    #{c(modals gif favoritesFade)} {
+        background-color: transparent;
+        @include bg($bg:$primary,$o:0.8,$br:4px,$tr:opacity .15s ease-out);
+        &:hover::before {
+            opacity: 0.95;
+        }
+    }
+    :is(#{c(modals gif categoryFade)},
+    #{c(modals gif resultPlaceholder)}) {
+        background-color: $card;
+    }
+    #{c(modals gif noResultsWrapper)} {
+        font-size: 24px;
+    }
+    #{c(modals gif sadImage)} {
+        display: none;
+    }
+}
+
+#{c(modals gif result)} {
+    // loading category in
+    &[style*="dark"] {
+        background-color: $card !important; // !important reason: inline
+    }
+    // loading gif from category/trending/search/favs
+    &[style*="purple"] {
+        background-color: $primary !important; // !important reason: inline
+        filter: grayscale(0.2) brightness(1.3);
+    }
+    &[style*="blue"] {
+        background-color: $primary !important; // !important reason: inline
+        filter: grayscale(0.2);
+    }
+    &[style*="(146,"] {
+        background-color: $primary !important; // !important reason: inline
+        filter: brightness(1.2);
+    }
+}
+
+#{c(modals gif container)}:after {
+    content: none;
+}

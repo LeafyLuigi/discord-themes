@@ -42,13 +42,13 @@ $card: var(--card-background);
 #{c(call avatar)},
 
 // hover over avatar in popout to see this
-#{c(userPopout avatarHint)},
+#{c(profile popout avatarHint)},
 
 // edit profile fake popout avatar and hint
 #{c(userSettings profileAvatarUploader)},
 
 // upload avi/banner modal
-#{c(modals uploadContentCircle)}
+#{c(modals avatarUpload contentCircle)}
 {
 	border-radius: calc(var(--avatar-radius) * var(--br-multi, 1));
 }
@@ -91,7 +91,10 @@ $card: var(--card-background);
 #{c(memberList avatarWrapper)} > svg > foreignObject,
 
 // hover over avatar in popout to see this
-#{c(userPopout avatarHint)} > foreignObject
+#{c(profile popout avatarHint)} > foreignObject,
+
+// this one's for the banner, mainly due to the new avatar decorations
+#{c(profile bannerSVGWrapper)}
 {
 	mask: none;
 }
@@ -99,16 +102,21 @@ $card: var(--card-background);
 // MAYBE:
 // server icons, server folders
 
-#{c(userPopout popout)},
+// size = 80
+#{c(profile popout outer)},
+#{c(profile panel panel)},
 #{c(userSettings profileImageUploader)},
-#{c(modals uploadContentCircle)} {
+#{c(modals avatarUpload contentCircle)} {
 	--br-multi: 2.5;
 }
-#{c(userModal root)} {
+// size = 120
+#{c(profile modal root)} {
 	--br-multi: 4;
-	#{c(userModal body)} {
-		--br-multi: 1;
-	}
+}
+// and revert back to size = 40
+#{c(profile modal body)},
+#{c(profile panel connections)} {
+	--br-multi: 1;
 }
 
 #{c(friends activeNowAvatar)} svg,
@@ -117,22 +125,32 @@ $card: var(--card-background);
 	overflow: visible;
 }
 #{c(memberList avatarWrapper)} #{c(memberList avatarMask)} {
-	&[height="24"]{
-		--height: 24px;
+	>foreignObject[height="24"] {
+		&,&~rect,&~circle {
+			--size: 24px;
+		}
 	}
-	&[height="32"]{
-		--height: 32px;
+	>foreignObject[height="32"] {
+		&,&~rect,&~circle {
+			--size: 32px;
+		}
 	}
-	&[height="40"]{
-		--height: 40px;
+	>foreignObject[height="40"] {
+		&,&~rect,&~circle {
+			--size: 40px;
+		}
 	}
-	&[height="80"]{
-		--height: 80px;
-		--stroke-width: 3px;
+	>foreignObject[height="80"] {
+		&,&~rect,&~circle {
+			--size: 80px;
+			--stroke-width: 3px;
+		}
 	}
-	&[height="120"]{
-		--height: 120px;
-		--stroke-width: 4px;
+	>foreignObject[height="120"] {
+		&,&~rect,&~circle {
+			--size: 120px;
+			--stroke-width: 4px;
+		}
 	}
 
 	#{c(chatForm typingDots)} {
@@ -201,23 +219,28 @@ $card: var(--card-background);
 		rx: calc(var(--avatar-radius) * var(--br-multi, 1));
 		ry: calc(var(--avatar-radius) * var(--br-multi, 1));
 		stroke-width: var(--stroke-width, 2px);
-		height: var(--height);
-		width: var(--height);
+		height: var(--size);
+		width: var(--size);
 		stroke: var(--color);
-		&[fill="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+		&:is([mask*="online"],[fill="#3ba55c"]) {
 			--color: var(--green-color);
 		}
-		&[fill="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
+		&:is([mask*="idle"],[fill="#faa61a"]) {
 			--color: var(--yellow-color);
 		}
-		&[fill="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
+		&:is([mask*="dnd"],[fill="#ed4245"]) {
 			--color: var(--red-color);
 		}
-		&[fill="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"] {
+		&:is([mask*="streaming"],[fill="#593695"]) {
 			--color: var(--live-color);
 		}
-		&[fill="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
+		&:is([mask*="offline"],[fill="#747f8d"]) {
 			--color: var(--offline-color);
 		}
+	}
+	circle {
+		r: calc(var(--size) * 0.5);
+		cx: calc(var(--size) * 0.5);
+		cy: calc(var(--size) * 0.5);
 	}
 }

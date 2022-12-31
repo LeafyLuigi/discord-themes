@@ -1,0 +1,63 @@
+@use "backend" as *;
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(modals emoji imageLoading)} {
+        background-image: none;
+    }
+}
+#{c(modals emoji searchBar)} {
+    background-color: $card;
+}
+#{c(modals emoji picker)} {
+    border-radius: 0;
+}
+#{c(modals emoji item)}#{c(modals emoji itemSelected)} {
+    background-color: $card;
+}
+#{c(modals emoji skinOptions)} {
+    background: transparent;
+    backdrop-filter: blur(5px);
+    border-color: transparent;
+}
+#{c(modals emoji defaultCategorySelected)},
+#{c(modals emoji defaultCategorySelected)}:hover {
+    background-color: $card;
+}
+#{c(modals emoji categoryList)} {
+    height: 392px;
+    overflow: visible;
+}
+#{c(modals emoji unicodeShortcut)} {
+    bottom: -48px;
+}
+#{c(modals emoji unicodeShortcutInvisible)} {
+    transform: none;
+    opacity: 1;
+}
+
+#{c(modals emoji header)},
+#{c(modals emoji picker)} {
+    background: transparent;
+}
+#{c(modals emoji categoryHeader)} {
+    background: transparent;
+    position: unset;
+    top: unset;
+}
+#{c(modals emoji wrapper)} {
+    background: var(--modal-background);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+}
+#{c(modals emoji inExpressionPicker)} {
+    &#{c(modals emoji wrapper)} {
+        background: transparent;
+        backdrop-filter: unset;
+        border-radius: unset;
+    }
+    #{c(modals emoji picker)} {
+        height: 440px;
+    }
+    #{c(modals emoji categoryList)} {
+        height: 352px;
+    }
+}

@@ -1,0 +1,47 @@
+@use "backend" as *;
+#{c(modals activities shelfTopBackground)},
+#{c(modals activities shelfTopForeground)},
+#{c(modals activities divider)},
+#{c(modals activities nitroCTAContainer)} {
+    display: none;
+}
+
+#{c(modals activities header)},
+#{c(modals activities scrollTierBackground)},
+#{c(modals activities scrollTierBackgroundUpsell)} {
+    background: transparent;
+}
+
+#{c(modals activities shelfTitle)} {
+    margin: 0;
+}
+
+#{c(modals activities tag)} {
+    background: transparent;
+    border: 1px solid $primary;
+}
+
+#{c(modals activities item)},
+#{c(modals activities item)}:hover {
+    background: $card;
+}
+
+// Add text describing disabled usage for non-nitro users
+#{c(modals activities nitroCTAContainer)} + #{c(modals activities shelf)} {
+    margin-top: 2em;
+    &:before {
+        content: var(--modal-activities-non-nitro);
+        position: absolute;
+        color: var(--header-primary);
+        font-size: 1em;
+        font-style: italic;
+        margin-top: -1.5em;
+        justify-self: center;
+    }
+    // ...and disable cursor for those items
+    #{c(modals activities item)} {
+        opacity: 0.5;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+}

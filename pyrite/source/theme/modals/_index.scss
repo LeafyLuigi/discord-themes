@@ -1,25 +1,67 @@
-@forward "modals";
-// what's in "modals"?
-// the basic stuff of modals such as the "root" element and whatnot
-// smaller (css wise) things mostly
-// notification settings, privacy settings, create channel/category/event, change nick (of another)
-// "punishments" of timeout, kick, ban, delete/unpin message
-// invites of group messages, change group dm image (including resize)
-// incoming call, custom status, keyboard shortcuts, before you can talk,
-// @everyone warning, toolbar (double click a word), current reactions
-// quickswitcher, leave server w/ options modal, toasts
+// These are for more general modals. searchbar also exists outside of modals
+@forward "_base";
+@forward "_searchBar.scss";
 
-@forward "menus"; // includes dropdowns
+// The locations of the modals can be found within the classes file.
+@forward "_activities.scss"; // haha i disabled the "you need nitro" part of the modal :^)
+@forward "_addConnections.scss";
+@forward "_addServer.scss";
+@forward "_autocomplete.scss";
+@forward "_avatarUpload.scss"; // also includes banners/gifs
+@forward "_bannedUser.scss";
+@forward "_boost.scss";
+@forward "_boostInfo.scss";
+// @forward "_browserInvite.scss"; // I CANNOT FIND THIS MODAL.
+@forward "_calendar.scss";
+@forward "_createChannel.scss";
+@forward "_createEvent.scss";
+// @forward "_emojiAutocomplete.scss"; // surprisingly this seems to have already been covered by autocomplete
+@forward "_emojiStickerPopout.scss";
+@forward "_formattingToolbar.scss";
+@forward "_groupDm.scss";
+@forward "_incomingCall.scss";
+@forward "_inviteOthers.scss";
+@forward "_keybinds.scss";
+@forward "_loadingPopout.scss";
+@forward "_mentionWarning.scss";
+@forward "_nicknameChange.scss"; // includes changing a friend's nick though there's no edits for that
+@forward "_oauth.scss";
+@forward "_openThreadsPopout.scss";
+// @forward "_perks.scss"; // no edits applied via theme
+@forward "_pin.scss"; // does not apply to any previously pinned messages, only adding/removing
+@forward "_problemInfo.scss";
+// @forward "_prune.scss"; // or "purge" // no edits applied via theme
+@forward "_quickswitch.scss";
+// @forward "_rating.scss"; // no edits applied via theme
+@forward "_reactions.scss";
+@forward "_regionSelect.scss";
+@forward "_rulesScreening.scss";
+@forward "_search.scss";
+@forward "_searchPopup.scss";
+@forward "_sidebarList.scss"; // poorly named category because it's used in multiple modals. check autocomplete for more.
+// @forward "_stickerSuggestion.scss"; // surprisingly this seems to have already been covered by autocomplete
+// @forward "_submitFeedback.scss"; // no edits applied via theme
+@forward "_textFileExpanded.scss";
+@forward "_timedOut.scss";
+@forward "_timeoutDuration.scss"; // or "time out modal"
+@forward "_toasts.scss";
+@forward "_upload.scss";
+@forward "_welcome.scss";
 
-// the following may affect other modals. this whole lot will be shortened down to remove excess rules
-// (ie inboxModal inboxHeader, pinnedModal pinnedHeader assuming both inboxHeader and pinnedHeader are the same class)
+// Groups below are highly related
+@forward "_expressionPicker.scss";
+@forward "_gif.scss";
+@forward "_sticker.scss";
+@forward "_emoji.scss";
 
-@forward "groupDm";
-@forward "ipt"; // inbox (inc recent mentions) pinned threads combined
-@forward "upload"; // unrelated to upload avi/banner/server icon
-@forward "gse"; // gif sticker emoji combined
-@forward "addServer";
+@forward "_menus.scss";
+@forward "_dropdown.scss";
 
-// still to do:
+@forward "_eventFull.scss";
+@forward "_eventCard.scss";
+@forward "_eventsList.scss";
 
-
+@forward "_headerDropdown.scss";
+@forward "_inbox.scss"; // both mentions and unread
+@forward "_pinned.scss";
+@forward "_threads.scss";

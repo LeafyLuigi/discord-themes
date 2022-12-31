@@ -45,19 +45,24 @@
   }
 }
 #{c(header status)} > svg > rect {
-  &[fill*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+  // &[fill*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"],
+  &[fill*="rgba(59, 165, 92, 1)"] {
     fill: $green;
   }
-  &[fill*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
+  // &[fill*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"],
+  &[fill*="rgba(250, 166, 26, 1)"] {
     fill: $yellow;
   }
-  &[fill*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
+  // &[fill*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"],
+  &[fill*="rgba(237, 66, 69, 1)"] {
     fill: $red;
   }
-  &[fill*="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"] {
+  // &[fill*="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"],
+  &[fill*="rgba(89, 54, 149, 1)"] {
     fill: $live;
   }
-  &[fill*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
+  // &[fill*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"],
+  &[fill*="rgba(116, 127, 141, 1)"] {
     fill: $offline;
   }
 }
@@ -98,22 +103,21 @@
 #{c(header tabBar)}#{c(header topPill)} {
   #{c(header tabBarItem)} {
     // these two are for the "add friend" thing
-    &[style*="background-color: hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
+    &#{c(header addFriend)}:not(#{c(header tabBarItemSelected)}) {
       background-color: $green !important; // !important reason: element.style
     }
-    &[style*="color: hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"]:not([style*="background-color"]) {
+    &#{c(header addFriend)}#{c(header tabBarItemSelected)} {
       color: $green !important; // !important reason: element.style
     }
     // and the blocked tab
     &#{c(header tabBarItemThemed)} {
-      @warn "aria controls used";
-      &[aria-controls="blocked-tab"] {
+      &:nth-child(4) {
         color: #fff; // interactive-normal to mirror online/all/pending, white to mirror add friends. both light and dark.
         background-color: $red;
       }
     }
     &#{c(header tabBarItemSelected)}#{c(header tabBarItemThemed)} {
-      &[aria-controls="blocked-tab"] {
+      &:nth-child(4) {
         color: $red;
         background-color: transparent;
         // for parity

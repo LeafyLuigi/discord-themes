@@ -1,0 +1,30 @@
+@use "backend" as *;
+#{c(groupDm popout)} {
+    top: 4px;
+    position: relative;
+    #{c(groupDm header)} {
+        background-color: $header;
+    }
+    #{c(groupDm searchBarContainer)} {
+        background-color: transparent;
+        backdrop-filter: blur(2px);
+    }
+    #{c(groupDm searchBarTag)} {
+        background-color: $primary;
+        color: var(--header-primary)
+    }
+    #{c(main checkbox)}#{c(main checkboxChecked)}[style*="border-color:"] {
+        border-color: $primary !important; // !important reason: element.style
+        > svg > path {
+            fill: $primary;
+        }
+    }
+    #{c(groupDm bodyScroller)},
+    #{c(groupDm footer)} {
+        background-color: $middle;
+    }
+    #{c(groupDm footerSeparator)} {
+        box-shadow: 0 -1px 0 $primary;
+        margin: 0;
+    }
+}

@@ -1,0 +1,10 @@
+@use "backend" as *;
+#{c(modals eventFull modal)} {
+    // override card header
+    #{c(modals eventCard header)} {
+        background: transparent;
+    }
+}
+#{c(modals eventFull contentContainer)} {
+    background: transparent;
+}

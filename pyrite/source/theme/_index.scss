@@ -10,15 +10,14 @@
 @forward "friends";
 @forward "header";
 @forward "memberList";
-@forward "modals";
+@forward "modals"; // All non-profile modals are in this file. locations are in the classes file.
 @forward "notices";
+@forward "profile"; // Includes Modal, Popout and Panel. Locations in index file.
 @forward "scrollbar";
 @forward "search";
 @forward "serverList";
-@forward "settings";
+@forward "settings"; // the classes might want to be sorted akin to modals
 @forward "sidebar";
 @forward "tooltips";
-@forward "userModal";
-@forward "userPopout";
 
 @forward "beta";

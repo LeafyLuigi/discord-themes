@@ -1,0 +1,20 @@
+@use "backend" as *;
+#{c(modals threads container)},
+#{c(modals threads header)} {
+    background: transparent;
+}
+// background is applied to this transparent threads container gets applied to the openThreadsModal as well
+#{c(modals threads browser)} {
+    top: 4px;
+    position: relative;
+    background: var(--modal-background);
+    backdrop-filter: blur(5px);
+}
+
+#{c(modals threads listItem)} {
+    background: transparent;
+    border: 1px solid $primary;
+    &:hover {
+        border-color: $hover;
+    }
+}

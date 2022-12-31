@@ -154,14 +154,6 @@
     background-color: $green;
   }
 }
-#{c(stage buttonRow)} #{c(stage leaveQuietlyButton)} {
-  &::before {
-    border-radius: 28px;
-  }
-  #{c(button contents)} {
-    z-index: 1;
-  }
-}
 #{c(stage audienceVoiceIconContainer)} {
   background-color: $primary;
   color: var(--header-primary);

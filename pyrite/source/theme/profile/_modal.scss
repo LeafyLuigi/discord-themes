@@ -1,0 +1,102 @@
+@use "backend" as *;
+/* Start User Modal */
+#{c(profile modal root)} {
+  #{c(profile outer unthemed)} {
+    @include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter));
+  }
+}
+#{c(profile modal premiumIconWrapper)} {
+  display: none;
+}
+// // failed attempt at making border around avi
+// #{c(profile modal header)} {z-index: -1;}
+// #{c(profile modal header)}>div:not([class]):before {
+//   content: "";
+//   clip-path: circle(68px at center);
+//   // clip-path: path(evenodd,"M 0 68 A 68 68 90 0 1 136 68 A 68 68 90 0 1 0 68 Z M 7.9968 68 A 30.0016 30.0016 90 0 1 128.0032 68 A 30.0016 30.0016 90 0 1 7.9968 68 Z M 88.6576 110.3288 A 22.6576 22.6576 90 0 1 134 110.3288 A 22.6576 22.6576 90 0 1 88.6576 110.3288 Z");
+//   width: 136px;
+//   height: 136px;
+//   position: absolute;
+//   background-color: var(--profile-avatar-border-color);
+//   top: -76px;
+//   left: 14px;
+//   z-index: 1;
+// }
+// #{c(profile modal header)}>div:not([class]):after {
+//   content: "";
+//   clip-path: circle(20px at 108px 108px);
+//   // clip-path: path(evenodd,"M 0 68 A 68 68 90 0 1 136 68 A 68 68 90 0 1 0 68 Z M 7.9968 68 A 30.0016 30.0016 90 0 1 128.0032 68 A 30.0016 30.0016 90 0 1 7.9968 68 Z M 88.6576 110.3288 A 22.6576 22.6576 90 0 1 134 110.3288 A 22.6576 22.6576 90 0 1 88.6576 110.3288 Z");
+//   width: 136px;
+//   height: 136px;
+//   position: absolute;
+//   background-color: var(--profile-avatar-border-color);
+//   top: -76px;
+//   left: 14px;
+//   z-index: 1;
+// }
+
+#{c(profile modal relationshipButtons)} {
+  padding: 4px;
+  background-color: var(--profile-body-background-color);
+  margin: -4px;
+  border-radius: 8px;
+  // literally just for self
+  &:empty {
+    display: none;
+  }
+}
+#{c(profile modal actionButton)}:nth-last-child(2) {
+  margin-right: 8px;
+}
+#{c(profile modal additionalActionsIcon)} {
+  margin-left: 0;
+}
+#{c(profile modal tabBar)} {
+  gap: unset;
+  overflow-x: scroll; // scroll for languages with longer strings
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+#{c(profile modal tabBarContainer)} {
+  margin-top: 18px;
+  padding-bottom: 2px;
+}
+#{c(profile modal tabBarItem)} {
+  --local-border: var(--primary-color);
+  padding: 0 10px;
+  margin: 0 4px;
+  height: unset;
+  border: 2px solid var(--local-border) !important; // !important reason: override tab bar line's removal of bottom border
+  border-radius: 5px;
+  z-index: 1;
+  @include bg($bg:transparent,$o:0.2,$br:5px);
+  &:is(:hover,:active) {
+    --local-border: var(--hover-color);
+    &:before {
+			background-color: $hover;
+		}
+  }
+	&#{c(tab selected)} {
+    --local-border: var(--hover-color);
+		&:before {
+			background-color: $primary;
+		}
+	}
+}
+
+#{c(profile modal body)} {
+  #{c(profile modal noteTextarea)} {
+		background-color: transparent;
+  }
+  #{c(profile modal guildAvatarWithoutIcon)} {
+    background-color: $card;
+  }
+}
+#{c(profile modal connectedAccountContainer)} {
+  background-color: transparent;
+}
+#{c(memberList avatarWrapper)}svg>foreignObject circle,
+#{c(profile modal avatar)}>svg>foreignObject+:is(circle,rect:not(:last-child)) {
+  opacity: 0 !important; // !important reason: inline style
+}

@@ -10,7 +10,10 @@
 /* Default Variables */
 :root {
   /* forced by theme */
-  --font-display: var(--header-font);
+  --font-headline: var(--header-font); // removes the ABC Ginto Nord font
+  --font-display: var(--header-font); // display is used for headers
+  --font-code: var(--code-font);
+  --font-primary: var(--body-font);
   --background-message-hover: transparent;
   --background-mentioned: transparent;
   --background-mentioned-hover: transparent;
@@ -23,6 +26,8 @@
   --brand-experiment: var(--primary-color); // fallback for dumb discord stuff
   --focus-primary: var(--primary-color); // tab around wheeee
   --channel-icon: inherit; // lazy mode: on
+  --hide-fallback-enabled: 1; // used for hidable elements, default "hidden"
+  --hide-fallback-disabled: 0; // used for hidable elements, default visible
 
   --background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
   --user-modal-image: var(--background-image);
@@ -58,9 +63,9 @@
   --locked-voice-channel-color: var(--red-color);
 
   /* Advanced Users */
-  --header-font: "ABC Ginto Normal", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --code-font: Monaco, Consolas, Courier, monospace;
-  --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
+  --header-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: Hack, Monaco, Consolas, Courier, monospace;
+  --body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
   --background-filter: none;
   --user-modal-filter: none;
   --user-popout-filter: none;
@@ -69,6 +74,7 @@
   --hide-speed: 0.5s; // speed for animations for the below. must be a time value. you can add a second value for delay
   --hide-member-list: 1;
   --hide-active-now: 1;
+  --hide-profile-panel: 1;
   --hide-channel-list: 0;
 
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
@@ -83,9 +89,12 @@
   // --update-notice-2-point-oh: none;
 }
 
+// hey if you're wondering why so many ":not()" stuff it's because...
+// previewContainer is used in role editing
+// default-colors is used on other-themed profiles
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
-.theme-dark :not(div[class*='previewContainer-']) .theme-light {
+.theme-dark :not(div[class*='previewContainer-']) .theme-light:not(div[class*="default-colors"]) {
   --card-background: rgba(0,0,0,0.5);
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
@@ -104,10 +113,11 @@
   --background-modifier-selected:rgba(79,84,92,0.32);
   --background-modifier-accent:hsla(0,0%,100%,0.06);
 }
-
+// ...(cont from dark's comment)
+// sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
-.theme-light :not(div[class*='previewContainer-']) .theme-dark:not(div[class*='sidebar-']):not(nav[class*='guilds-']):not(div[class*='sidebarRegion-']) {
+.theme-light :not(div[class*='previewContainer-']) .theme-dark:not(div[class*='sidebar-']):not(nav[class*='guilds-']):not(div[class*='sidebarRegion-']):not(div[class*="default-colors"]) {
   --card-background: rgba(255,255,255,0.05);
   --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);
@@ -135,6 +145,20 @@
   --control-brand-foreground-new: var(--primary-color);
   --deprecated-text-input-bg: var(--input-background);
   --deprecated-text-input-border: var(--primary-color);
+  --modal-background: var(--card-background);
+  --modal-footer-background: transparent;
+  
+  // below: remove elevation box shadows
+  --dark-elevation-low: unset;
+  --dark-elevation-high: unset;
+  --dark-elevation-border: unset;
+  --light-elevation-low: unset;
+  --light-elevation-high: unset;
+  --light-elevation-border: unset;
+  --elevation-stroke: unset;
+  --elevation-low: unset;
+  --elevation-medium: unset;
+  --elevation-high: unset;
 
   // below: colors set to same as variables above
   --info-positive-foreground: var(--green-color);

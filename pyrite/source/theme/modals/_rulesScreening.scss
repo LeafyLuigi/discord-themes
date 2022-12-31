@@ -1,0 +1,25 @@
+@use "backend" as *;
+#{c(modals rulesScreening guildIconNoIcon)} {
+    background: $card;
+}
+#{c(modals rulesScreening guildSidebar)}, #{c(modals rulesScreening modal)} {
+    background: transparent;
+}
+#{c(modals rulesScreening rules fieldBackground)}#{c(modals rulesScreening rules termsFieldBody)} {
+    background: $card !important; // !important reason: LOOK AT THE RULE FOR FIELD BACKGROUND IT'S ABSOLUTELY SHIT.
+    border-color: $primary !important; // !important reason: see above
+    padding: 8px;
+}
+
+#{c(modals rulesScreening dotOnline)} {
+    background-color: $green;
+}
+#{c(modals rulesScreening dotMembers)} {
+    background-color: $offline;
+}
+
+// waving hand container and divider removal
+#{c(modals rulesScreening animationAndSparklesContainer)},
+#{c(modals rulesScreening content)}>#{c(modals rulesScreening divider)} {
+    display: none;
+}

@@ -1,0 +1,25 @@
+// @forward "modals";
+// // what's in "modals"?
+// // the basic stuff of modals such as the "root" element and whatnot
+// // smaller (css wise) things mostly
+// // notification settings, privacy settings, create channel/category/event, change nick (of another)
+// // "punishments" of timeout, kick, ban, delete/unpin message
+// // invites of group messages, change group dm image (including resize)
+// // incoming call, custom status, keyboard shortcuts, before you can talk,
+// // @everyone warning, toolbar (double click a word), current reactions
+// // quickswitcher, leave server w/ options modal, toasts
+
+// @forward "menus"; // includes dropdowns
+
+// // the following may affect other modals. this whole lot will be shortened down to remove excess rules
+// // (ie inboxModal inboxHeader, pinnedModal pinnedHeader assuming both inboxHeader and pinnedHeader are the same class)
+
+// @forward "groupDm";
+// @forward "ipt"; // inbox (inc recent mentions) pinned threads combined
+// @forward "upload"; // unrelated to upload avi/banner/server icon
+// @forward "gse"; // gif sticker emoji combined
+// @forward "addServer";
+
+// // still to do:
+
+

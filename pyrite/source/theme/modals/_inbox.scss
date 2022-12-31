@@ -1,0 +1,65 @@
+@use "backend" as *;
+#{c(modals inbox guildIcon)} {
+    background-color: transparent;
+}
+#{c(modals inbox mentions container)} {
+    padding: 0;
+}
+#{c(modals inbox channelHeader)} {
+    background: transparent;
+    padding: 12px 16px 0;
+    position: unset;
+    top: unset;
+}
+#{c(modals inbox mentions messageContainer)} {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+#{c(modals inbox roundButton)} {
+    background: $primary;
+    color: var(--interactive-active);
+    &:hover:not(#{c(modals inbox buttonDisabled)}) {
+        background: $hover;
+    }
+}
+
+// This box shows up when you've got shit unread but haven't clicked the button inside it. Doesn't add anything.
+#{c(modals inbox unread tutorial)},
+// This shows up when nothing's read and is basically a placeholder image thing.
+#{c(modals inbox emptyIconContainer)} {
+    display: none;
+}
+
+#{c(modals inbox emptyContainer)} {
+    min-height: unset;
+    padding: 16px;
+}
+
+#{c(modals inbox jumpButton)} {
+    opacity: 1;
+    background-color: $card;
+}
+
+
+#{c(modals inbox unread messages)} {
+    background: transparent;
+    border-radius: unset;
+}
+#{c(modals inbox unread mentionBadge)} {
+    background: $primary;
+}
+#{c(modals inbox unread collapseButton)} {
+    left: 0;
+}
+#{c(modals inbox unread divider)} {
+    margin: unset;
+    text-align: center;
+}
+
+#{c(modals inbox tab)} {
+    background: transparent !important; // !important reason: parity with expressionPicker, also fuck discord
+}
+#{c(modals inbox tabActive)} {
+    background-color: $primary !important; // !important reason: parity with expressionPicker, also fuck discord
+}

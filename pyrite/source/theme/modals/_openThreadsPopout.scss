@@ -1,0 +1,8 @@
+@use "backend" as *;
+#{c(modals openThreadsPopout popout)} {
+    background: var(--modal-background);
+    backdrop-filter: blur(5px);
+}
+#{c(modals openThreadsPopout modal)} {
+    background: var(--modal-background) !important; // !important reason: important in discord css
+}

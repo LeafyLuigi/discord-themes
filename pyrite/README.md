@@ -24,3 +24,7 @@ Default Images & Licensing:
 [Synthwave Orange](https://github.com/LeafyLuigi/pyrite-synthscape-orange)
 [Background](https://www.deviantart.com/axiomdesign/art/Synthscape-4k-820089811) is titled "Synthscape (4k)" and is by AxiomDesign and is licensed under [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/).
 [Home Icon](https://www.deviantart.com/bouzid27/art/Sunset-nature-24-682097453) is titled "Sunset nature 24" and is by bouzid27 and is licensed under [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/). Both images are rehosted as .pngs under my own github.io page with the latter being scaled down.
+
+[Coucher de Soleil Rose (Pink Sunset)](https://github.com/LeafyLuigi/pyrite-coucher-de-soleil-rose)
+[Background](https://flickr.com/photos/128779402@N06/25364299985) is titled "Long Exposure Sunset at Hull, MA" and is by user [Eric Moreno](https://flickr.com/photos/emotakespictures/) and is licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).
+[Home Icon](https://www.flickr.com/photos/focx/4488653335/) is titled "Cherry blossom I" and is by user [Christoph Rupprecht](https://www.flickr.com/photos/focx/) and is licensed under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Both images are rehosted as .pngs and are scaled down using GIMP's Cubic interpolation to 1920x1280 and 256x192 (then being cropped to 192x192) respectively.

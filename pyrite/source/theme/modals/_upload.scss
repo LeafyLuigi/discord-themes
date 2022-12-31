@@ -1,24 +1,16 @@
 @use "backend" as *;
-#{c(upload modal)} {
-    #{c(upload inner)} {
-        background-color: $middle;
-        margin: 0;
-    }
-    #{c(upload footer)} {
-        background-color: $middle;
-    }
-    // somehow having the not there allows you to select something with only the initial class. it's very nice.
-    #{c(upload inner)} #{c(upload icon)}:not([class*=" "]) {
-        // background is intentionally set to those colors to mirror a grid pattern.
-        background: $primary repeating-conic-gradient(#0004 0% 25%, #eee4 0% 50%) center/10px 10px;
-        box-shadow: none;
-        transition: all 0.25s linear;
-        -webkit-user-drag: none;
-        margin-left: 8px !important; // !important reason: inline, cbf with above
-        &:not([style*="width: 416px"]) {
-            cursor: zoom-in;
-            max-width: 80vw;
-            width: initial !important; // !important reason: element.style
+// somehow having the not there allows you to select something with only the initial class. it's very nice.
+#{c(modals upload inner)} #{c(modals upload fileTypes icon)}:not([class*=" "]) {
+    // background is intentionally set to those colors to mirror a grid pattern.
+    background: $primary repeating-conic-gradient(#0004 0% 25%, #eee4 0% 50%) center/10px 10px;
+    box-shadow: none;
+    transition: all 0.25s linear;
+    -webkit-user-drag: none;
+    margin-left: 8px !important; // !important reason: inline, cbf with above
+    &:not([style*="width: 416px"]) {
+        cursor: zoom-in;
+        max-width: 80vw;
+        width: initial !important; // !important reason: element.style
         &:hover {
             height: 30vh !important; // !important reason: element.style
         }
@@ -26,28 +18,37 @@
             height: 50vh !important; // !important reason: element.style
         }
     }
-    }
 }
 
-#{c(upload area)} {
-    background-color: transparent;
-    backdrop-filter: blur(4px);
+#{c(modals upload drop area)} {
+    background: transparent;
+    backdrop-filter: blur(5px);
 }
-#{c(upload modalIn)} #{c(upload dropModal)} {
-    #{c(upload dropBg)} {
-        background-color: $card;
+#{c(modals upload drop modal)} {
+    #{c(modals upload drop bgScale)} {
+        background: var(--modal-background);
     }
-    #{c(upload dropInner)} {
+    #{c(modals upload inner)} {
         border-color: $primary;
     }
-    &#{c(upload dropError)} {
-        background-color: $red;
-        #{c(upload dropInner)} {
+    &#{c(modals upload drop error)} {
+        background: $red;
+        #{c(modals upload inner)} {
             padding-top: 12px;
             border-color: var(--background-modifier-active);
         }
     }
 }
-#{c(upload dropIcons)} {
+#{c(modals upload drop icons)} {
     display: none;
+}
+
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(modals upload modify modal)} {
+        background: var(--modal-background);
+        backdrop-filter: blur(5px);
+    }
+    #{c(modals upload modify footer)} {
+        background: transparent;
+    }
 }

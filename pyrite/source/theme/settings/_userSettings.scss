@@ -63,8 +63,7 @@
     background-color: transparent;
   }
 }
-#{c(userSettings nitroFeatureImageWrapper)},
-#{c(userSettings profileNitroNotice)} {
+#{c(userSettings nitroFeatureImageWrapper)} {
   display: none;
 }
 #{c(userSettings profileAvatarUploader)} {
@@ -111,7 +110,8 @@
 #{c(userSettings radioIconForeground)} {
   color: $primary;
 }
-#{c(userSettings accountButton)} #{c(userSettings accountButtonInner)} {
+#{c(userSettings addAccountButton)} #{c(userSettings addAccountButtonInner)},
+#{c(userSettings addAccountWrapper)} #{c(userSettings addAccountWrapperInner)} {
   background-color: var(--background-modifier-accent);
   &:hover {
     background-color: var(--background-modifier-hover);
@@ -161,7 +161,7 @@
 #{c(userSettings cardPrimaryEditable)},
 #{c(userSettings cardPrimaryOutline)},
 #{c(userSettings cardPrimaryOutlineEditable)},
-#{c(userSettings accountList)} {
+#{c(userSettings addConnectionContainer)} {
   @include card;
 }
 #{c(userSettings boostSubscriptionSlots)},

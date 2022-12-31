@@ -1,0 +1,9 @@
+@use "backend" as *;
+#{c(modals formattingToolbar toolbar)} {
+	background-color: $card;
+	box-shadow: none;
+	backdrop-filter: blur(5px);
+	&::before {
+		border-top-color: $card;
+	}
+}

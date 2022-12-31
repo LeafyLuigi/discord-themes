@@ -1,0 +1,10 @@
+// Profiles include anything involving an Avatar, Username, Discriminator and (optionally) can be customized.
+// Basically this means a popout, modal and the side in a dm.
+
+@forward "profile"; // Generic classes only.
+
+@forward "modal"; // Right click a user's avatar/username in chat/sidebar/member list and click "Profile", click the avatar in a popout
+@forward "popout"; // Click a user's avatar/username in chat or member list
+@forward "panel"; // Within the DMs of another user, this is on the right side.
+// @forward "status"; // Status picker, does not include submenus or submodals (file currently empty)
+// @forward "settings"; // See "My Account" and "Profiles" for these, includes nitro preview

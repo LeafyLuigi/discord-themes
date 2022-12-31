@@ -1,0 +1,5 @@
+@use "backend" as *;
+#{c(modals searchPopup container)} {
+    background: var(--modal-background);
+	backdrop-filter: blur(5px);
+}

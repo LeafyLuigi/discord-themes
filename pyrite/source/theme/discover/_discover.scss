@@ -36,6 +36,10 @@
 }
 #{c(discover card)} {
   border: 2px solid $primary;
+  // issues with the button's background solved by this
+  #{c(chat button)} {
+    z-index: 1;
+  }
 }
 
 #{c(discover cardLoading)} {

@@ -28,23 +28,25 @@
 <span class="var">--user-modal-filter</span>: none;
 <span class="var">--user-popout-filter</span>: none;
 
-<div class="comment">/* Used with toggles below, this variable is used as a time for the animations below. You MUST include the time unit if you change the value. It also accepts a second value as an animation delay. */</div>
-<span onClick="toggleHelp('time')">?</span><span id="time" hidden><br/>Time units are <i>s</i> for seconds and <i>ms</i> for milliseconds. 1s = 1000ms.<br/></span>
+<div class="comment">/* Used with toggles below, this variable is used for timing the animations below. You MUST include the time unit if you change the value. */</div>
+<span onClick="toggleHelp('time')">?</span><span id="time" hidden><br/>Time units are <i>s</i> for seconds and <i>ms</i> for milliseconds. 1s = 1000ms.<br/>It also accepts a second value as an animation delay.<br/></span>
 <span class="var">--hide-speed</span>: <span class="number">.5s</span>;
 <div class="comment">/* "Toggles", as I've called them, are used as a way to enable/disable the hiding of different things. Channel list is shown fully by default. These all take values from 0 to 1. NOTE: Anything above 1 and below 0 will likely cause issues. */</div>
-<span onclick="toggleHelp('toggle')">?</span><span id="toggle" hidden><br/>If you want to fully hide something, the values you will want to use are as follows: 1.333333, 1.2, 1.4226.<br/></span>
+<span onclick="toggleHelp('toggle')">?</span><span id="toggle" hidden><br/>If you want to fully hide something, the values you will want to use are as follows: 1.333333, 1.2, 1.214284, 1.4226.<br/>Both the member list and profile panel can still be disabled using the header bar's respective icons.</span>
 <span class="var">--hide-member-list</span>: <span class="number">1</span>;
 <span class="var">--hide-active-now</span>: <span class="number">1</span>;
+<span class="var">--hide-profile-panel</span>: <span class="number">1</span>;
 <span class="var">--hide-channel-list</span>: <span class="number">0</span>;
 
 <span onClick="toggleHelp('clientMod')" class="clientMod">/* Client Mod Stuff */</span><span id="clientMod" hidden><br/>The following will only apply if you're using a certain supported plugin.<br/><br/>The following only apply if you're using <a href="https://github.com/l0c4lh057/BetterDiscordStuff/blob/master/Plugins/ChannelTabs/ChannelTabs.plugin.js">this Channel Tabs plugin</a> and have the Better Discord addon enabled.
 <span class="var">--channel-tabs-enabled</span>: <span class="number">0</span>; <span class="comment">/* This is a toggle, change the value to 1 if you're using the plugin "Channel Tabs" */</span>
-<span class="var">--channel-tabs-tabBar-enabled</span>: <span class="number">1</span>; <span class="comment">/* This is a toggle, it mirrors the plugin's default value for having the tabs enabled. Change it to 0 if you do not use this feature. */</span>
-<span class="var">--channel-tabs-favBar-enabled</span>: <span class="number">1</span>; <span class="comment">/* This is a toggle, it mirrors the plugin's default value for having favorites enabled Change it to 0 if you do not use this feature. */</span></span></div>
+<span class="var">--channel-tabs-tabBar-enabled</span>: <span class="number">1</span>; <span class="comment">/* This is a toggle, it mirrors the plugin's default value for having tabs enabled. Change it to 0 if you do not use this feature. */</span>
+<span class="var">--channel-tabs-favBar-enabled</span>: <span class="number">1</span>; <span class="comment">/* This is a toggle, it mirrors the plugin's default value for having favorites enabled. Change it to 0 if you do not use this feature. */</span></span></div>
 }
 
 
 <div class="comment">/* The following are used in both .theme-dark and .theme-light but are editable per category. Only the main dark theme class will be used here. */</div>
+<span onClick="toggleHelp('baseThemes')">?</span><span id="baseThemes" hidden><br/>An omitted line from this contains much more than just <span class="class">.theme-dark</span>; this allows the other theme to take precedence instead.<br/>You might want to edit both of the default light/dark theme variables just in case.<br/>However, <strong>don't just copy/paste one theme to the other</strong> as this is incredibly destructive and will mess with Discord's own in-built toggles.<br/></span>
 <span class="class">.theme-dark</span> {<div style="margin-left:4em">
 <div class="comment">/* Card background is a very broad catch-all for <b>most</b> things. I've relied on it too much so changing it will change a LOT of things. */</div>
 <span onclick="toggleHelp('card')">?</span><span id="card" hidden><br/><a href="https://cdn.discordapp.com/attachments/747040126294687764/974646791469416478/unknown.png">I'm serious, it's used a lot.</a><br/></span>

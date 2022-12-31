@@ -1,0 +1,22 @@
+@use "backend" as *;
+#{c(modals pinned messageGroup)} {
+    margin: 0 0 16px;
+    background-color: transparent;
+    border: none;
+}
+#{c(modals pinned jumpButton)} {
+    background-color: $card;
+}
+#{c(modals pinned actionButtons)} {
+    display: flex;
+}
+#{c(modals pinned actionButtons)} #{c(modals pinned remove)} {
+    color: $primary;
+    &:hover {
+        color: $hover;
+    }
+}
+#{c(modals pinned emptyImage)},
+#{c(modals pinned footer)} {
+    display: none;
+}

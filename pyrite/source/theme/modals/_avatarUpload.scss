@@ -1,0 +1,12 @@
+@use "backend" as *;
+#{c(modals avatarUpload optionBox)} {
+    background: transparent;
+    border: 1px solid $primary;
+    &:hover {
+        border-color: $hover;
+    }
+}
+#{c(modals avatarUpload nitroPreview upsell)} {
+    display: none;
+}
+@debug "not done: final animated avi/banner nitro preview modal";

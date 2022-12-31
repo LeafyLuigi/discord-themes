@@ -1,0 +1,18 @@
+@use "backend" as *;
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(modals mentionWarning popout)} {
+        background: var(--modal-background);
+        box-shadow: none;
+        backdrop-filter: blur(5px);
+        @debug "modal filter variable?";
+    }
+    :is(#{c(modals mentionWarning body)},#{c(modals mentionWarning footer)}) {
+        background: transparent;
+    }
+    #{c(modals mentionWarning header)} {
+        color: $red;
+    }
+}
+#{c(modals mentionWarning animation)} {
+    display: none;
+}

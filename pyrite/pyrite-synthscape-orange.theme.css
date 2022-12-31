@@ -19,6 +19,9 @@
 
 /* Import for optional things: */
 
+/* Optional: Whitney Font support. Font file basically stolen from https://github.com/Overimagine1/old-discord-font. */
+@import url(https://leafyluigi.github.io/discord-themes/whitney.css);
+
 /* Optional: HorizontalServerList. Includes the base for the minitheme. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css); */
 
@@ -79,8 +82,8 @@
   --mention-opacity: 0.3;
 
   /* For Advanced Users */
-  --code-font: Monaco, Consolas, Courier, monospace;
-  --body-font: Whitney, Helvetica Neue, Helvetica, sans-serif;
+  --code-font: Hack, Monaco, Consolas, Courier, monospace;
+  --body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
   --background-filter: none;
   --user-modal-filter: none;
   --user-popout-filter: none;
@@ -93,6 +96,7 @@
   --hide-speed: 0.5s;
   --hide-member-list: 1;
   --hide-active-now: 1;
+  --hide-profile-panel: 1;
   --hide-channel-list: 0;
 
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
@@ -110,13 +114,13 @@
   --channel-tabs-favBar-enabled: 1;
 
   /* Debug; please do not touch */
-  --update-notice-2-point-oh: none;
+  --update-notice-NY-2023: none;
 }
 
 
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
-.theme-dark :not(.previewContainer-1xQAsw) .theme-light {
+.theme-dark :not(div[class*='previewContainer-']) .theme-light:not(div[class*="default-colors"]) {
   --card-background: rgba(0,0,0,0.5);
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
@@ -129,7 +133,7 @@
 
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
-.theme-light :not(.previewContainer-1xQAsw) .theme-dark:not(.sidebar-1tnWFu):not(.guilds-2JjMmN):not(.sidebarRegion-1VBisG) {
+.theme-light :not(div[class*='previewContainer-']) .theme-dark:not(div[class*='sidebar-']):not(nav[class*='guilds-']):not(div[class*='sidebarRegion-']):not(div[class*="default-colors"]) {
   --card-background: rgba(255,255,255,0.05);
   --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);

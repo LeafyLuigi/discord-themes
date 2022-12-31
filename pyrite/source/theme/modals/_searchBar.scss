@@ -1,0 +1,16 @@
+@use "backend" as *;
+#{c(modals searchBar container)} {
+    background: transparent;
+}
+#{c(modals searchBar tag)} {
+    background: $primary;
+    color: var(--text-normal);
+    &:hover {
+        background: $hover;
+        opacity: 1;
+    }
+}
+#{c(modals searchBar richTag)},
+#{c(modals searchBar richTag)}:hover {
+    background: $card;
+}

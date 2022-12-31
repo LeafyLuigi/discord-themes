@@ -1,0 +1,11 @@
+@use "backend" as *;
+#{c(modals timedOut container)} {
+    background: var(--modal-background);
+}
+#{c(modals timedOut iconContainer)} {
+    display: none;
+}
+#{c(modals timedOut spamBanner)} {
+    background: $header;
+    backdrop-filter: blur(2px);
+}

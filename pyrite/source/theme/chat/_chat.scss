@@ -67,25 +67,26 @@
   }
 }
 
-#{c(chat divider)} {
-  --divider-color: var(--red-color);
-  text-align: center;
-  display: block;
-  z-index: 0;
-  border-top: none;
-  &#{c(chat dividerHasContent)} {
-    margin: 0.5rem auto 1.5rem auto;
+#{c(chat dividerHasContent)} {
+  border-top-color: transparent;
+  &#{c(chat dividerUnread)} {
+    #{c(chat dividerContent)} {
+      font-weight: bold;
+    }
+    #{c(chat unreadPill)} {
+      top: unset;
+    }
   }
 }
-#{c(chat unreadPill)} {
-  top: 2px;
-}
+
 #{c(chat dividerContent)} {
+  text-align: center;
   background-color: $card;
   color: $primary;
   font-weight: normal;
   margin: 0 8px;
   padding: 2px 10px;
+  flex: 1 1 auto;
 }
 
 #{c(chat newMessagesBar)} {
@@ -112,6 +113,7 @@
   // allows for spoiler hover
   #{c(chat repliedTextPreview)} #{c(chat repliedTextContent)} {
     pointer-events: unset;
+    // disallow click links
     a, span {
       pointer-events: none;
     }
@@ -331,8 +333,6 @@
   }
 }
 #{c(forums mainCard)},
-#{c(forums sidebarGuidelinesCard)},
-#{c(forums sidebarCardContainer)},
 #{c(forums loadingCard)} {
   @include card;
 }
@@ -342,7 +342,7 @@
   box-shadow: none;
   transform: none;
 }
-#{c(forums headerBorder)} {
+#{c(forums headerWithMatchingPosts)} {
   box-shadow: none;
 }
 #{c(forums sortContainer)},
@@ -395,8 +395,6 @@
 }
 #{c(forums cardNewBadge)} {
   background-color: $primary !important;
-}
-#{c(forums cardNewBadgeText)} {
   color: var(--header-primary);
 }
 

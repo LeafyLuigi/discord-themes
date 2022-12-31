@@ -225,11 +225,9 @@ html[lang="fr"] {
 /* Begin Experiments */
 // 2022-07_channel_highlights
 #{c(experiments jumpToPresentButton)}:hover	#{c(experiments jumpToPresentButtonIcon)},
-#{c(experiments newMessagesPill)}:hover #{c(experiments newMessagesPillIcon)},
 #{c(experiments newMessagesClear)}:hover #{c(experiments newMessagesClearIcon)} {
 	color: $hover;
 }
-#{c(experiments newMessagesPillIcon)},
 #{c(experiments jumpToPresentButtonIcon)},
 #{c(experiments newMessagesClearIcon)},
 #{c(experiments newMessagesClear)} {
@@ -251,4 +249,18 @@ html[lang="fr"] {
 		background-color: $card;
 		color: $hover;
 	}
+}
+
+// Christmas/"Snowsgiving" 2022
+@warn "snowsgiving removal could break after event is over"; 
+// Remove Home Icon
+#{c(serverList homeContainer)} #{c(serverList iconWrapper)} #{c(serverList iconChildWrapper)} {
+	&>svg {
+		height: 0 !important;
+		width: 0 !important;
+	}
+}
+// remove link in private messages
+#{c(main snowsgivingLink)} {
+	display: none;
 }

@@ -19,10 +19,9 @@
     content: none;
   }
 }
-#{c(friends container)} {
-  #{c(friends inviteToolbar)} {
-    display: none;
-  }
+// remove "new private group" button in header, "explore public servers" button/header in add friends
+#{c(friends container)} #{c(friends inviteToolbar)}, #{c(friends explorePublicHeader)}, #{c(friends explorePublicGrid)} {
+  display: none;
 }
 #{c(friends peopleColumn)} {
   background-color: $middle;
@@ -47,18 +46,23 @@
     }
   }
 }
+// move bot tag over, move it over again on hover
+#{c(friends peopleListDiscriminator)},
+#{c(main mouseMode)} :is(#{c(friends peopleListItemActive)},#{c(friends peopleListItem)}:hover) #{c(friends peopleListBotTag)} {
+  order: 1;
+}
 
 #{c(friends nowPlayingColumn)} {
   background-color: $side;
   width: 360px;
   max-width: 360px;
   position: relative;
-  transition: var(--hide-speed,0.5s) left ease-out,var(--hide-speed, 0.5s) backdrop-filter ease-out;
+  transition: var(--hide-speed,0.5s) transform ease-out,var(--hide-speed, 0.5s) backdrop-filter ease-out;
   left: calc( ( 300px ) * var(--hide-active-now));
   backdrop-filter: none;
   margin-left: calc( -1 * (( 300px ) * var(--hide-active-now)));
   &:hover {
-    left: 0;
+    transform: translateX(calc( ( -300px ) * var(--hide-active-now)));
     backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
   }
   #{c(friends nowPlayingContainer)} {
@@ -97,10 +101,10 @@
 }
 
 #{c(friends itemCardOuter)} {
-  @include card-dark;
+  @include card;
 }
 #{c(friends emptyCard)} {
-  @include card-light;
+  @include card;
   margin-top: 8px;
 }
 #{c(friends itemCard)} {

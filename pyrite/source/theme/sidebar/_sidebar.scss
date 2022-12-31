@@ -2,6 +2,8 @@
 /* Start Sidebar */
 // Base
 #{c(sidebar sidebar)} {
+  // for hide channel list
+  overflow-x: hidden;
   // notice stuff
   top: calc($nc * -36px);
   position: relative;
@@ -59,7 +61,7 @@
 #{c(sidebar searchBar)} {
   #{c(sidebar searchBarComponent)} {
     -webkit-app-region: no-drag;
-    background-color: var(--card-background);
+    background-color: $card;
   }
 }
 #{c(sidebar privateChannelLoadingEmpty)} {
@@ -92,9 +94,7 @@
     box-shadow: none;
     #{c(sidebar serverName)} {
       @include header;
-      overflow: visible;
       display: flex;
-      align-items: center;
       justify-content: center;
     }
     #{c(sidebar channelsHeader)} {
@@ -274,7 +274,7 @@
 #{c(sidebar sidebar)} {
   width: calc(240px - (168px * var(--hide-channel-list, 0)));
   transition: var(--hide-speed, 0.5s) width ease-out;
-  &:hover {
+  &:hover,&:focus-within {
     width: 240px;
     &::before,
     &::after {
@@ -288,5 +288,7 @@
   }
 }
 
-
-
+// notices (ie "how to use quickswitch", "boost this server" etc) and event notices
+#{c(sidebar notice container)} {
+  width: 240px;
+}

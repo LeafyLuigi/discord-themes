@@ -1,0 +1,53 @@
+@use "backend" as *;
+#{c(upload modal)} {
+    #{c(upload inner)} {
+        background-color: $middle;
+        margin: 0;
+    }
+    #{c(upload footer)} {
+        background-color: $middle;
+    }
+    // somehow having the not there allows you to select something with only the initial class. it's very nice.
+    #{c(upload inner)} #{c(upload icon)}:not([class*=" "]) {
+        // background is intentionally set to those colors to mirror a grid pattern.
+        background: $primary repeating-conic-gradient(#0004 0% 25%, #eee4 0% 50%) center/10px 10px;
+        box-shadow: none;
+        transition: all 0.25s linear;
+        -webkit-user-drag: none;
+        margin-left: 8px !important; // !important reason: inline, cbf with above
+        &:not([style*="width: 416px"]) {
+            cursor: zoom-in;
+            max-width: 80vw;
+            width: initial !important; // !important reason: element.style
+        &:hover {
+            height: 30vh !important; // !important reason: element.style
+        }
+        &:active {
+            height: 50vh !important; // !important reason: element.style
+        }
+    }
+    }
+}
+
+#{c(upload area)} {
+    background-color: transparent;
+    backdrop-filter: blur(4px);
+}
+#{c(upload modalIn)} #{c(upload dropModal)} {
+    #{c(upload dropBg)} {
+        background-color: $card;
+    }
+    #{c(upload dropInner)} {
+        border-color: $primary;
+    }
+    &#{c(upload dropError)} {
+        background-color: $red;
+        #{c(upload dropInner)} {
+            padding-top: 12px;
+            border-color: var(--background-modifier-active);
+        }
+    }
+}
+#{c(upload dropIcons)} {
+    display: none;
+}

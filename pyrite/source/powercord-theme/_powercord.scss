@@ -52,7 +52,7 @@ body#{c(powercord base)} {
     filter: none;
   }
   #{c(pcPlugin connections)} {
-    #{c(userModal connectedAccounts)}:empty::before {
+    #{c(profile modal connectedAccounts)}:empty::before {
       content: none;
     }
   }

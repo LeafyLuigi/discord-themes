@@ -1,6 +1,6 @@
 @use "backend" as *;
-#{c(menus menu)} {
-    background-color: $card;
+#{c(modals menus menu)} {
+    background-color: var(--modal-background);
     max-height: 60vh;
     &::before {
         content: "";
@@ -16,51 +16,58 @@
         backdrop-filter: blur(5px);
     }
 }
+// profile "status" has an inner menu. the not allows the submenus to work
+#{c(profile status popoutWrapper)} #{c(modals menus menu)}:not(#{c(modals menus submenu)}) {
+    background: transparent;
+    &:before {
+        content: none;
+    }
+}
 
 @debug "redo menu dropdown to use a variable for checks?";
-#{c(menus item)} {
+#{c(modals menus item)} {
     // checkbox + radio
-    :is(#{c(menus checkbox)},#{c(menus radioSelection)}) {
+    :is(#{c(modals menus checkbox)},#{c(modals menus radioSelection)}) {
         color: $primary;
     }
     // colors
-    &#{c(menus colorBrand)} {
+    &#{c(modals menus colorBrand)} {
         color: $primary;
     }
     // hover/active
-    &:is(#{c(menus itemFocused)},#{c(menus itemFocused)}:active,:active:not(#{c(menus itemHideInteraction)})) {
-        background-color: $primary;
+    &:is(#{c(modals menus itemFocused)},#{c(modals menus itemFocused)}:active,:active:not(#{c(modals menus itemHideInteraction)})) {
+        background: $primary;
         // colors
-        &#{c(menus colorDanger)} {
-            background-color: $red;
+        &#{c(modals menus colorDanger)} {
+            background: $red;
         }
-        &#{c(menus colorBrand)} {
-            background-color: $primary;
-            color: #fff; // overwrite what's overwritten. uses discord's default
+        &#{c(modals menus colorBrand)} {
+            background: $primary;
+            color: var(--interactive-active); // overwrite what's overwritten. uses discord's default
         }
         // checkbox + radio
-        #{c(menus checkboxCheck)} {
+        #{c(modals menus checkboxCheck)} {
             color: $primary;
         }
     }
     // make block and remove friend red
-    &:is(#{c(menus colorDanger)},#user-context-block,#user-context-remove-friend) {
+    &:is(#{c(modals menus colorDanger)},#user-context-block,#user-context-remove-friend) {
         color: $red;
-        &:is(#{c(menus itemFocused)},:active:not(#{c(menus itemHideInteraction)}),:hover) {
-            color: #fff;
-            background-color: $red;
+        &:is(#{c(modals menus itemFocused)},:active:not(#{c(modals menus itemHideInteraction)}),:hover) {
+            color: var(--interactive-active);
+            background: $red;
         }
     }
 
 }
 
-#{c(menus quickReactionButton)} {
-    background-color: transparent;
+#{c(modals menus quickReactionButton)} {
+    background: transparent;
     &:hover {
-        background-color: var(--background-modifier-hover);
+        background: var(--background-modifier-hover);
     }
     &:active {
-        background-color: var(--background-modifier-active);
+        background: var(--background-modifier-active);
     }
 }
 
@@ -71,43 +78,17 @@
   display: none;
 }
 
-#{c(menus dropdownFilled)}#{c(menus dropdownSelect)} {
-    @include card;
-    &#{c(menus dropdownOpen)} {
-        border-bottom-width: 0;
-        &#{c(menus dropdownSelectTop)} {
-            border-bottom-width: 1px;
-        }
+#{c(modals menus status)} {
+    &[style*="green"] {
+        background: $green !important; // !important reason: inline style
     }
-}
-#{c(menus dropdownPopout)} {
-    background-color: $card;
-    backdrop-filter: blur(5px);
-    border: 1px solid $primary;
-}
-#{c(menus dropdownPopoutOption)} {
-    &:is(:hover,:focus,#{c(menus dropdownPopoutOptionFocused)}) {
-        background-color: var(--background-modifier-hover);
+    &[style*="yellow"] {
+        background: $yellow !important; // !important reason: inline style
     }
-    &[aria-selected="true"] {
-        background-color: var(--background-modifier-active);
+    &[style*="red"] {
+        background: $red !important; // !important reason: inline style
     }
-}
-#{c(menus dropdownPopoutSelectedIcon)} {
-    color: $primary;
-}
-
-#{c(menus status)} {
-    &[style*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
-        background-color: $green !important; // !important reason: inline style
-    }
-    &[style*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"] {
-        background-color: $yellow !important; // !important reason: inline style
-    }
-    &[style*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"] {
-        background-color: $red !important; // !important reason: inline style
-    }
-    &[style*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"] {
-        background-color: $offline !important; // !important reason: inline style
+    &[style*="grey"] {
+        background: $offline !important; // !important reason: inline style
     }
 }

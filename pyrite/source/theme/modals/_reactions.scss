@@ -1,0 +1,9 @@
+@use "backend" as *;
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(modals reactions modal)} {
+        background: var(--modal-background);
+    }
+    :is(#{c(modals reactions sidebar)}, #{c(modals reactions reactors)}) {
+        background: transparent;
+    }
+}
