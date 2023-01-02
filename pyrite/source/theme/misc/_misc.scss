@@ -207,18 +207,7 @@ body, // this one is here for transparency in bd to work
     padding: 4px 0 0 0;
   }
   #{c(serverList servers)} {
-    &:before {
-      content: "";
-      background-color: $header;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 48px;
-      z-index: 1010;
-    }
+    @include bg($bg:$header,$w:100%,$h:48px,$z:1010);
     > #{c(serverList tree)} {
       top: 48px;
       position: relative;
@@ -228,14 +217,16 @@ body, // this one is here for transparency in bd to work
 }
 
 /* show/hide for side-panels (like member list and profile panels) */
-:is(#{c(chat chatContentInner)} ~ div,#{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}) {
+:is(
+#{c(chat chatContentInner)} ~ div,
+#{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}
+) {
   background-color: var(--background,var(--side-shading));
   left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled));
   transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
   margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled)));
   position: relative;
-  &:hover,
-  &:focus-within {
+  &:is(:hover,:focus-within) {
     transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, --hide-fallback-enabled))));
     backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));
 	}
@@ -329,60 +320,53 @@ a[href^="http://"] {
 }
 
 /* Official Preset Previews */
-#{c(chat messageAttachmentsContainer)} {
-  &:is(
-  #message-accessories-1002402379188146278,
-  #message-accessories-1002402500336439426,
-  #message-accessories-1002402447769211020,
-  #message-accessories-1002402572524597328
-  ) {
-    margin-bottom: 20px;
-    #{c(embeds textContainerUp)} {
-      transform: rotate(0deg);
-      border: none;
-      background-color: transparent;
-    }
-    #{c(embeds textContainer)} {
-      @include bg($bgf: center/ cover no-repeat);
-      @include bg2;
-      &:after {
-        background: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat;
-      }
-      pre {
-        display: none;
-      }
-    }
-    #{c(embeds textFooter)} {
-      width: 300px;
-      position: relative;
-      bottom: -40px;
-    }
-    :is(#{c(embeds toggleExpandedPreview)},#{c(embeds attachmentName)},#{c(embeds attachmentSize)},#{c(embeds codeIcon)}) {
+:is(
+#message-accessories-1059357046648090695,
+#message-accessories-1059357338349342801,
+#message-accessories-1059357294279794738,
+#message-accessories-1059357367327785060
+) {
+  #{c(embeds textContainerUp)} {
+    transform: rotate(0deg);
+    border: none;
+    background-color: transparent;
+  }
+  #{c(embeds textContainer)} {
+    @include bg($bgf: var(--local-image) center/ cover no-repeat);
+    @include bg2($bgf: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat);
+    pre {
       display: none;
     }
   }
-  // synthscape orange
-  &#message-accessories-1002402379188146278 {
-    #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
-      background-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
-    }
+  #{c(embeds textFooter)} {
+    width: 300px;
   }
-  // yellow flower
-  &#message-accessories-1002402500336439426 {
-    #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
-      background-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
-    }
-  }
-  // ocean blue, current default
-  &:is(
-  #message-accessories-1002402447769211020,
-  #message-accessories-1002402572524597328
-  ) {
-    #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
-      background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
-    }
+  :is(#{c(embeds toggleExpandedPreview)},#{c(embeds attachmentName)},#{c(embeds attachmentSize)},#{c(embeds codeIcon)}) {
+    display: none;
   }
 }
+// synthscape orange
+#message-accessories-1059357046648090695 {
+  #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
+    --local-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
+  }
+}
+// yellow flower
+#message-accessories-1059357338349342801 {
+  #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
+    --local-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
+  }
+}
+// ocean blue, current default
+:is(
+#message-accessories-1059357294279794738,
+#message-accessories-1059357367327785060
+) {
+  #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
+    --local-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
+  }
+}
+
 
 /* Tags */
 #{c(chat messageContents)} > #{c(chat chatAvatar)} ~ #{c(chat chatHeaderUsername)} #{c(chat chatUsername)}:after {
@@ -393,17 +377,3 @@ a[href^="http://"] {
   margin-left: 4px;
   transform: skewX(-15deg);
 }
-
-/* Redownload pls bar */
-// #{c(main appContainer)}::before {
-//   content: "Your version of Pyrite is outdated. Please redownload.";
-//   text-align: center;
-//   position: absolute;
-//   color: #fff;
-//   white-space: pre-wrap;
-//   box-sizing: border-box;
-//   padding: 10px 0;
-//   background-color: $header;
-//   display: var(--update-notice-NY-2023, block);
-//   z-index: 2500;
-// }

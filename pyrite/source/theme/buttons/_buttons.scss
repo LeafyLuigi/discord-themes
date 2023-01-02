@@ -17,6 +17,8 @@
 
 // shiny (any kind) : server boost
 
+@debug "Switch buttons to variables";
+
 #{c(button lookFilled)} {
   &::before {
     transition: background-color .17s ease;

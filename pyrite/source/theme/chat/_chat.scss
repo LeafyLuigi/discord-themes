@@ -22,12 +22,7 @@
 
 #{c(chat noChannel)} {
   @include bg($h:48px,$bg:$header);
-  @include bg2;
-  &::after {
-    top: 48px;
-    height: calc(100vh - 48px);
-    background-color: $middle;
-  }
+  @include bg2($bg:$middle,$h:calc(100vh - 48px),$top:48px);
 }
 
 #{c(chat mentioned)},
@@ -394,7 +389,7 @@
   }
 }
 #{c(forums cardNewBadge)} {
-  background-color: $primary !important;
+  background-color: $primary !important; // !important reason: inline style
   color: var(--header-primary);
 }
 

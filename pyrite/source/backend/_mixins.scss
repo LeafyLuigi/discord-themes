@@ -1,14 +1,14 @@
 // Mixins
 
 /// Create background using a static, opaque color with the ability to change opacity
-@mixin bg($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$f:null,$bgf:null,$war:null,$top:null,$right:null,$bottom:null,$left:null,$pos:null) {
+@mixin bg($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$f:null,$bgf:null,$war:null,$top:0,$right:0,$bottom:0,$left:0,$pos:absolute) {
 	&::before {
 		content: "";
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		position: absolute;
+		@if $top {top: $top;} // default 0
+		@if $right {right: $right;} // default 0
+		@if $bottom {bottom: $bottom;} // default 0
+		@if $left {left: $left;} // default 0
+		@if $pos {position: $pos;} // default absolute
 		@if $z {z-index: $z;} // default -1
 		pointer-events: none;
 		// What will need to be defined:
@@ -21,28 +21,29 @@
 		@if $f {filter: $f;}
 		@if $bgf {background: $bgf;} // background full
 		@if $war {-webkit-app-region: $war;}
-		@if $top {top: $top;}
-		@if $right {right: $right;} 
-		@if $bottom {bottom: $bottom;} 
-		@if $left {left: $left;}
-		@if $pos {position: $pos;}
 	}
 }
 
-@mixin bg2 {
+@mixin bg2($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$f:null,$bgf:null,$war:null,$top:0,$right:0,$bottom:0,$left:0,$pos:absolute) {
 	&::after {
 		content: "";
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		position: absolute;
-		z-index: -1;
+		@if $top {top: $top;} // default 0
+		@if $right {right: $right;} // default 0
+		@if $bottom {bottom: $bottom;} // default 0
+		@if $left {left: $left;} // default 0
+		@if $pos {position: $pos;} // default absolute
+		@if $z {z-index: $z;} // default -1
 		pointer-events: none;
 		// What will need to be defined:
-		// opacity
-		// border-radius
-		// background-color
+		@if $o {opacity: $o;}
+		@if $br {border-radius: $br;}
+		@if $bg {background-color: $bg;}
+		@if $h {height: $h;}
+		@if $w {width: $w;}
+		@if $tr {transition: $tr;}
+		@if $f {filter: $f;}
+		@if $bgf {background: $bgf;} // background full
+		@if $war {-webkit-app-region: $war;}
 	}
 }
 

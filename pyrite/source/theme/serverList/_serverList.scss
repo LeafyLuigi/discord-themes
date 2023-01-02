@@ -19,15 +19,6 @@
 #{c(serverList folder)}#{c(serverList folderHover)} {
   background-color: transparent;
 }
-// #{c(serverList folderIconWrapper)} {
-//   @include bg;
-//   @include bg2;
-//   &:before,
-//   &:after {
-//     background-color: inherit;
-//     border-radius: 33%;
-//   }
-// }
 #{c(serverList expandedFolderBackground)} {
   background-color: $card;
 }

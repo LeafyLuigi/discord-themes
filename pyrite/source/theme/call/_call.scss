@@ -58,12 +58,8 @@
   background-color: $middle;
   top: 48px;
   height: calc(100% - 48px);
-  @include bg;
-  &:before {
-    background-color: $header;
-    height: 48px;
-    top: calc(-48px - (36px * $nc)); // move psudo-header in call for notice
-  }
+  padding-top: 0 !important; // !important reason: inline style
+  @include bg($bg:$header,$h:48px,$top:calc(-48px - (36px * $nc))); // $top: move psudo-header in call for notice
 }
 #{c(stage sidebarVisible)} {
   margin-right: 0;

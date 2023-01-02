@@ -13,13 +13,7 @@
   // end notice stuff
   background-color: transparent;
   @include bg($bg:$side,$top:48px,$w:240px);
-  @include bg2;
-  &::after {
-    background-color: $header;
-    height: 48px;
-    width: 240px;
-    z-index: 1001;
-  }
+  @include bg2($bg:$header,$h:48px,$w:240px,$z:1001);
 }
 #{c(os mac platform)} {
   #{c(sidebar sidebar)}::after {

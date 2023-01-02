@@ -10,10 +10,12 @@ html {
     --tag-dev: "Theme Dev";
     --tag-translator: "Theme Translator";
     --tag-helper: "Theme Helper";
+    
     --settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
+    --theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
 
     // Jump to message
-    --jumpToMessage: "Jump to message";
+    --jump-to-message: "Jump to message";
 
     // Within error file
     // Error page partial jokes - Not every joke will be listed and instead this is only the button for the time being.
@@ -34,7 +36,7 @@ html {
 [lang="fr"] {
     --theme-name: "Pyrite";
     --theme-name-beta: "Branche Bêta de Pyrite";
-    --jumpToMessage: "Aller au message";
+    --jump-to-message: "Aller au message";
 }
 
 // Current Untranslated Discord Languages (2022-09-02) - Uncomment whatever one you'd like to edit and go for it.
@@ -141,7 +143,7 @@ html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
             color: var(--interactive-normal);
         }
         &:before {
-            content: var(--jumpToMessage);
+            content: var(--jump-to-message);
             font-size: 1rem;
             padding: 0 3px;
             border-radius: 3px;
@@ -150,3 +152,17 @@ html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
         }
     }
 }
+
+/* Redownload pls bar */
+// #{c(main appContainer)}::before {
+//   content: var(--theme-update-warning);
+//   text-align: center;
+//   position: absolute;
+//   color: #fff;
+//   white-space: pre-wrap;
+//   box-sizing: border-box;
+//   padding: 10px 0;
+//   background-color: $header;
+//   display: var(--update-notice-NY-2023, block);
+//   z-index: 2500;
+// }
