@@ -334,46 +334,32 @@ a[href^="http://"] {
   #{c(embeds textContainer)} {
     @include bg($bgf: var(--local-image) center/ cover no-repeat);
     @include bg2($bgf: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat);
-    pre {
-      display: none;
-    }
   }
   #{c(embeds textFooter)} {
     width: 300px;
   }
-  :is(#{c(embeds toggleExpandedPreview)},#{c(embeds attachmentName)},#{c(embeds attachmentSize)},#{c(embeds codeIcon)}) {
+  :is(
+  #{c(embeds toggleExpandedPreview)},
+  #{c(embeds attachmentName)},
+  #{c(embeds attachmentSize)},
+  #{c(embeds codeIcon)},
+  pre
+  ) {
     display: none;
   }
 }
 // synthscape orange
 #message-accessories-1059357046648090695 {
-  #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
-    --local-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
-  }
+  --local-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
 }
 // yellow flower
 #message-accessories-1059357338349342801 {
-  #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
-    --local-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
-  }
+  --local-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
 }
 // ocean blue, current default
 :is(
 #message-accessories-1059357294279794738,
 #message-accessories-1059357367327785060
 ) {
-  #{c(embeds textContainerUp)} #{c(embeds textContainer)}:before {
-    --local-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
-  }
-}
-
-
-/* Tags */
-#{c(chat messageContents)} > #{c(chat chatAvatar)} ~ #{c(chat chatHeaderUsername)} #{c(chat chatUsername)}:after {
-  content: var(--local-tag, none);
-  color: currentcolor;
-  font-size: 11px;
-  display: inline-block;
-  margin-left: 4px;
-  transform: skewX(-15deg);
+  --local-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
 }

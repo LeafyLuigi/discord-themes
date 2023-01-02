@@ -98,6 +98,16 @@ $translator: (
     }
 }
 
+/* Tags */
+#{c(chat messageContents)} > #{c(chat chatAvatar)} ~ #{c(chat chatHeaderUsername)} #{c(chat chatUsername)}:after {
+  content: var(--local-tag, none);
+  color: currentcolor;
+  font-size: 11px;
+  display: inline-block;
+  margin-left: 4px;
+  transform: skewX(-15deg);
+}
+
 /* Version */
 #{c(userSettings sidebarInfo)} {
     &::after {
