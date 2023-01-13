@@ -14,8 +14,9 @@
     "addWhitney-test-pyrite": "x=`echo \"@import url(https://leafyluigi.github.io/discord-themes/whitney.css);\"; cat pyrite/test/base.css` && echo \"$x\" > pyrite/test/base.css",
     "copyClasses-pyrite": "cp classes/_classes.scss pyrite/source/classes/_classes.scss",
     "test-pyrite-borders": "cat pyrite/test/borders.css >> pyrite/test/base.css",
-    "test-pyrite-hsl": "cat pyrite/test/horizontal-server-list.css >> pyrite/test/base.css",
-    "test-pyrite-uml": "cat pyrite/test/userModalLayout.css >> pyrite/test/base.css"
+    "test-pyrite-hsl": "cat pyrite/test/horizontal-server-list.css >> pyrite/test/base.css && pnpm run test-pyrite-fix-imports",
+    "test-pyrite-uml": "cat pyrite/test/userModalLayout.css >> pyrite/test/base.css",
+    "test-pyrite-fix-imports": "cat pyrite/test/base.css | grep @import > pyrite/test/tmp.css && cat pyrite/test/base.css | grep -v @import >> pyrite/test/tmp.css && mv pyrite/test/tmp.css pyrite/test/base.css"
   },
   "repository": {
     "type": "git",
