@@ -1,0 +1,40 @@
+@use "backend" as *;
+// Home
+:is(#{c(main dark)},#{c(main light)}) {
+  #{c(homePage background)} {
+    background-color: transparent;
+  }
+}
+#{c(homePage container)} {
+  background-color: $middle;
+}
+#{c(homePage contentCard)} {
+  @include card;
+  &:hover {
+    border-color: $primary;
+    box-shadow: none;
+  }
+}
+#{c(homePage widgetChannelContainer)}:hover,
+#{c(homePage widgetChannelMoreUsers)},
+#{c(homePage widgetChannelTypingIndicator)} {
+  background-color: transparent;
+}
+#{c(homePage widgetChannelIcon)},
+#{c(homePage emptyIcon)} {
+  background-color: $card;
+}
+#{c(homePage widgetGuildContainer)},
+#{c(homePage widgetChannelsContainer)},
+#{c(homePage emptyContainer)}#{c(homePage emptyContainerBackground)} {
+  @include card;
+}
+#{c(homePage widgetGuildIcon)} {
+  border: none;
+}
+#{c(homePage widgetGuildDotOffline)} {
+  background-color: $offline;
+}
+#{c(homePage widgetGuildDotOnline)} {
+  background-color: $green;
+}

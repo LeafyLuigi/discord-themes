@@ -114,12 +114,12 @@
 }
 
 #{c(stage requestToSpeakContainer)} {
+  @include bg($bg:$header,$h:48px);
   height: calc(100vh - 48px);
   align-self: flex-end;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   background-color: $side;
-  @include bg($bg:$header,$h:48px);
 }
 #{c(stage rtsEmptyImage)} {
   display: none;

@@ -70,16 +70,20 @@
   color: var(--header-primary);
 }
 #{c(header iconBadge)} {
-  filter: drop-shadow($primary 0 0 4px) drop-shadow($primary 0 0 4px);
   background-color: $secondary;
 }
 #{c(header iconClickable)} {
   #{c(header icon)} {
     color: $primary;
   }
-  &:hover #{c(header icon)} {
-    color: $hover;
-    filter: drop-shadow(0 0 2px currentColor);
+  &:hover {
+    #{c(header icon)} {
+      color: $hover;
+      filter: drop-shadow(0 0 2px currentColor);
+    }
+    #{c(header iconBadge)} {
+      filter: drop-shadow(0 0 2px currentColor);
+    }
   }
 }
 #{c(header updateDownloadingIcon)} {

@@ -1,0 +1,231 @@
+@use "backend" as *;
+// Forums
+#{c(forums container)} {
+    background: $middle;
+}
+
+#{c(forums header)},
+#{c(forums guidelines container)} {
+    @include card;
+}
+#{c(forums headerWithMatchingPosts)} {
+    border-bottom: 0;
+}
+#{c(forums matchingPostsRow)} {
+    @include card;
+    border-top: 0;
+}
+
+#{c(forums form)} #{c(forums submitButton)} {
+    border-radius: 3px;
+}
+
+#{c(forums tags tagsButton)} {
+    background: $card;
+    &[aria-expanded="true"] {
+        border-color: $primary;
+    }
+    #{c(forums tags tagsButtonInner)} {
+        font-weight: 600;
+        color: var(--text-normal);
+    }
+}
+
+#{c(forums tags dropdownContainer)} {
+    background: transparent;
+    border-radius: unset;
+    width: unset;
+}
+
+#{c(forums tags popout container)} {
+    @include menu;
+}
+
+#{c(forums guidelines descriptionContainer)},
+#{c(forums guidelines gradient)},
+#{c(forums guidelines showMoreLinkContainer)} {
+    background: transparent;
+}
+
+#{c(forums loadingCard card)} {
+    @include card;
+}
+// #{c(forums loadingCard opacity33)} {}
+// #{c(forums loadingCard opacity66)} {}
+// #{c(forums loadingCard opacity100)} {}
+
+
+#{c(forums grid card)},
+#{c(forums grid card)}:hover,
+#{c(forums grid card)}:active {
+    @include card;
+    margin: -1px;
+}
+#{c(forums grid card)}:hover,
+#{c(forums grid card)}:active {
+    transform: none;
+}
+
+#{c(forums grid card)}:is(#{c(forums grid isOpen)},:hover,:active) #{c(forums grid dots)},
+#{c(forums grid dots)} {
+    background: transparent;
+    border-color: transparent;
+}
+#{c(forums grid contentPreview)} {
+    padding: 12px 0 0;
+    border-color: transparent;
+}
+
+#{c(forums grid bullet)} {
+    display: none;
+}
+
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(forums grid textContentFooter)} {
+        &,&#{c(forums grid noTags)} {
+            background: none;
+        }
+    }
+    :is(
+        #{c(forums grid tagPill)},
+        #{c(forums grid moreImagesPill)},
+        #{c(forums grid mediaIcon)}
+    ) {
+        background: $card;
+    }
+}
+
+:is(#{c(main dark)},#{c(main light)}) {
+    // the is open is the only reason it's in here
+    :is(
+    #{c(forums list card)},
+    #{c(forums list card)}#{c(forums list isOpen)},
+    #{c(forums list card)}:hover,
+    #{c(forums list card)}:active
+    ) {
+        @include card;
+        margin: -1px;
+    }
+}
+
+#{c(forums list card)}:hover,
+#{c(forums list card)}:active {
+    transform: none;
+}
+
+#{c(forums list card)}:is(
+    #{c(forums list isOpen)},
+    :hover,
+    :active
+) #{c(forums list dots)},
+#{c(forums list dots)} {
+    background: transparent;
+    border-color: transparent;
+}
+#{c(forums list bullet)} {
+    display: none;
+}
+
+
+// removes initial fake on hover
+#{c(forums upload container)}:hover {
+    &>:first-child:not(#{c(forums upload uploadInput)}) {
+        opacity: 0;
+        transition: opacity ease-in 0.1s;
+    }
+}
+#{c(forums upload uploadInput)} {
+    background: $card;
+    &:hover #{c(forums upload uploadIcon)} {
+        color: $hover;
+    }
+}
+#{c(forums upload uploadIcon)} {
+    color: $primary;
+}
+#{c(forums upload popoutContainer)} {
+    padding: 0;
+    top: -9px;
+    right: -9px;
+}
+#{c(forums upload popout)} {
+    @include menu-on-item;
+    border-color: transparent;
+    #{c(chatForm inlineUpload)} {
+        background-color: transparent;
+    }
+}
+
+#{c(forums reactions reactionBtn)} {
+    &#{c(forums reactions forceShow)} {
+        &,&:hover {
+            border-color: transparent;
+            background: $card;
+        }
+    }
+}
+
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(forums reactions reaction)} {
+        &,&#{c(forums reactions me)},&:hover,&:active {
+            background: $card;
+        }
+        &:hover {
+            border-color: $hover;
+        }
+        &:active {
+            border-color: $primary;
+        }
+        &#{c(forums reactions me)} {
+            border-color: $secondary;
+            #{c(forums reactions count)} {
+                color: $primary;
+            }
+        }
+    }
+}
+#{c(forums reactions reaction)} {
+    margin: 0 .1875rem .1875rem 0;
+    border-radius: .1875rem;
+}
+#{c(forums reactions reaction)} #{c(forums reactions inner)} {
+    padding: 0 .3125rem;
+}
+#{c(forums reactions me)} #{c(forums reactions count)} {
+    text-shadow: .125rem .125rem .1875rem;
+}
+#{c(forums reactions count)} {
+    color: var(--text-muted);
+}
+#{c(forums reactions reactionBtn)}#{c(forums reactions active)} {
+    border-color: $primary;
+    background: $card;
+}
+
+#{c(forums open header iconWrapper)} {
+    background: $card;
+}
+#{c(forums open scrollerContent)} {
+    &>#{c(forums open topBarDividerSibling)} {
+        display: none;
+    }
+}
+#{c(forums open topBar container)} {
+    background: transparent;
+}
+#{c(forums open topBar addReactButton)}, #{c(forums open topBar buttonInner)} {
+    height: 20px;
+    background: $card;
+    &:hover {
+        background-color: $card;
+        border-color: $hover;
+    }
+}
+#{c(forums open topBar buttonInner)}#{c(forums open topBar active)} {
+    border-color: $primary;
+    background: $card;
+    color: $primary;
+    &:hover {
+        color: $primary;
+    }
+}

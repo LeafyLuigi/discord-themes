@@ -1,20 +1,10 @@
 @use "backend" as *;
 /* Start User Popout */
 #{c(profile popout outer)}:not(#{c(profile outer themed)}) {
+	@include bg($f:var(--user-popout-filter),$bgf:var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment));
 	position: relative;
 	box-shadow: none;
 	background-color: transparent;
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment);
-		z-index: -1;
-		filter: var(--user-popout-filter);
-	}
 }
 #{c(profile popout roleActionButton)} {
 	color: $primary;

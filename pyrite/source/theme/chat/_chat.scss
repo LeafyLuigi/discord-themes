@@ -44,6 +44,7 @@
   border: 1px solid $middle;
   border-radius: 8px;
   #{c(chat button)} {
+    @include bg($bg:$primary,$o:0.6);
     &:first-of-type::before {
       border-bottom-left-radius: 8px;
       border-top-left-radius: 8px;
@@ -55,7 +56,6 @@
     &:hover {
       background-color: transparent;
     }
-    @include bg($bg:$primary,$o:0.6);
     &:hover::before {
       background-color: $hover;
     }
@@ -168,6 +168,11 @@
 
 #{c(chat botTag)} {
   background-color: $primary;
+  &#{c(chat botTagOp)} {
+    background-color: $card;
+    color: $primary;
+    font-weight: 600;
+  }
 }
 
 #{c(chat gifFavoriteButton)} {
@@ -201,9 +206,11 @@
 }
 
 #{c(chat reaction)} {
-  margin: 0 3px 3px 0;
-  border-radius: 3px;
-  background-color: $card;
+  margin: 0 .1875rem .1875rem 0;
+  border-radius: .1875rem;
+  &,&#{c(chat reactionMe)},&:hover,&:active {
+    background: $card;
+  }
   &:hover {
     border-color: $hover;
   }
@@ -214,26 +221,14 @@
     border-color: $secondary;
     #{c(chat reactionCount)} {
       color: $primary;
+      text-shadow: .125rem .125rem .1875rem;
     }
   }
   #{c(chat reactionInner)} {
-    padding: 0 5px;
+    padding: 0 .3125rem;
   }
   #{c(chat reactionCount)} {
     color: var(--text-muted);
-  }
-  &#{c(chat reactionMe)},
-  &:hover,
-  &:active {
-    background-color: $card;
-  }
-
-  &#{c(chat reactionMe)} {
-    #{c(chat reactionCount)},
-    &:hover #{c(chat reactionCount)} {
-      color: $primary;
-      text-shadow: 2px 2px 3px;
-    }
   }
 }
 
@@ -277,162 +272,4 @@
 // vc chat
 #{c(call wrapper)}#{c(chat chatSidebarOpen)} #{c(call container)} {
   border-radius: 0;
-}
-
-// Home
-:is(#{c(main dark)},#{c(main light)}) {
-  #{c(chatHome chatBackground)} {
-    background-color: transparent;
-  }
-}
-#{c(chatHome container)} {
-  background-color: $middle;
-}
-#{c(chatHome contentCard)} {
-  @include card;
-  &:hover {
-    border-color: $primary;
-    box-shadow: none;
-  }
-}
-#{c(chatHome widgetChannelContainer)}:hover,
-#{c(chatHome widgetChannelMoreUsers)},
-#{c(chatHome widgetChannelTypingIndicator)} {
-  background-color: transparent;
-}
-#{c(chatHome tagPill)},
-#{c(chatHome widgetChannelIcon)},
-#{c(chatHome tagPill)}#{c(forums sidebarPillClickable)}:not(#{c(forums sidebarPillDisabled)}):hover,
-#{c(chatHome emptyIcon)} {
-  background-color: $card;
-}
-#{c(chatHome widgetGuildContainer)},
-#{c(chatHome widgetChannelsContainer)},
-#{c(chatHome emptyContainer)}#{c(chatHome emptyContainerBackground)} {
-  @include card;
-}
-#{c(chatHome widgetGuildIcon)} {
-  border: none;
-}
-#{c(chatHome widgetGuildDotOffline)} {
-  background-color: $offline;
-}
-#{c(chatHome widgetGuildDotOnline)} {
-  background-color: $green;
-}
-
-// Forums
-:is(#{c(main dark)},#{c(main light)}) {
-  #{c(forums container)} {
-    background-color: $middle;
-  }
-}
-#{c(forums mainCard)},
-#{c(forums loadingCard)} {
-  @include card;
-}
-#{c(forums cardContainer)}:active,
-#{c(forums cardContainer)}:hover {
-  background-color: $card;
-  box-shadow: none;
-  transform: none;
-}
-#{c(forums headerWithMatchingPosts)} {
-  box-shadow: none;
-}
-#{c(forums sortContainer)},
-#{c(forums sortDropdown)} {
-  color: var(--text-normal);
-}
-#{c(forums sortDropdown)} {
-  background-color: $card !important; // !important reason: overwrite css rule
-}
-#{c(forums cardPinIcon)} {
-  background-color: $primary;
-}
-#{c(forums sidebarPillSelected)} {
-  border-color: $primary;
-}
-#{c(forums cardReaction)} {
-  margin: 0 3px 3px 0;
-  border-radius: 3px;
-  background-color: $card;
-  &:hover {
-    border-color: $hover;
-  }
-  &:active {
-    border-color: $primary;
-  }
-  &#{c(forums cardReactionMe)} {
-    border-color: $secondary;
-    #{c(forums cardReactionCount)} {
-      color: $primary;
-    }
-  }
-  #{c(forums cardReactionInner)} {
-    padding: 0 5px;
-  }
-  #{c(forums cardReactionCount)} {
-    color: var(--text-muted);
-  }
-  &#{c(forums cardReactionMe)},
-  &:hover,
-  &:active {
-    background-color: $card;
-  }
-  &#{c(forums cardReactionMe)} {
-    #{c(forums cardReactionCount)},
-    &:hover #{c(forums cardReactionCount)} {
-      color: $primary;
-      text-shadow: 2px 2px 3px;
-    }
-  }
-}
-#{c(forums cardNewBadge)} {
-  background-color: $primary !important; // !important reason: inline style
-  color: var(--header-primary);
-}
-
-// Threads
-#{c(chat chat)}#{c(chat threadSidebarOpen)} {
-  border-radius: 0;
-  #{c(header toolbar)} {
-    right: 0;
-  }
-}
-#{c(threads resizeHandle)} {
-  width: 4px;
-  &:hover,
-  &:active {
-    transition: background-color 0.25s ease-in-out 0.25s; 
-    background-color: $primary;
-  }
-}
-#{c(threads container)} {
-  border-radius: 0;
-  background-color: transparent;
-}
-#{c(threads chat)},
-#{c(threads newChat)} {
-  &::before {
-    content: none;
-  }
-}
-#{c(threads header)},
-#{c(threads newChat)} {
-  background-color: $middle;
-}
-#{c(threads iconWrapper)} {
-  background-color: $card;
-}
-#{c(threads newTextAreaFocused)} {
-  border-color: transparent;
-}
-#{c(threads newTextAreaError)} {
-  border-color: $red;
-}
-#{c(chat cozy)}#{c(threads msgHasThread)}::after,
-#{c(threads msgSpine)} {
-  border-color: $primary;
-  filter: drop-shadow(2px 2px 2px $secondary);
 }

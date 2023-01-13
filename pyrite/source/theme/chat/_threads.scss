@@ -1,0 +1,47 @@
+@use "backend" as *;
+// Threads
+#{c(threads jump)} {
+  background-color: $card;
+}
+#{c(chat chat)}#{c(chat threadSidebarOpen)} {
+  border-radius: 0;
+  #{c(header toolbar)} {
+    right: 0;
+  }
+}
+#{c(threads resizeHandle)} {
+  width: 4px;
+  &:hover,
+  &:active {
+    transition: background-color 0.25s ease-in-out 0.25s; 
+    background-color: $primary;
+  }
+}
+#{c(threads container)} {
+  border-radius: 0;
+  background-color: transparent;
+}
+#{c(threads chat)},
+#{c(threads newChat)} {
+  &::before {
+    content: none;
+  }
+}
+#{c(threads header)},
+#{c(threads newChat)} {
+  background-color: $middle;
+}
+#{c(threads iconWrapper)} {
+  background-color: $card;
+}
+#{c(threads newTextAreaFocused)} {
+  border-color: transparent;
+}
+#{c(threads newTextAreaError)} {
+  border-color: $red;
+}
+#{c(chat cozy)}#{c(threads msgHasThread)}::after,
+#{c(threads msgSpine)} {
+  border-color: $primary;
+  filter: drop-shadow(2px 2px 2px $secondary);
+}

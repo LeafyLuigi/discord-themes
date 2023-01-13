@@ -5,33 +5,6 @@
 // ALWAYS USE FULL MOTION BEFORE ANIMATION.
 
 // used in: misc
-@keyframes numberBadgeFlash {
-  0% {
-    background-color: $primary;
-    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
-  }
-  50% {
-    background-color: $secondary;
-    filter: drop-shadow(0 0 3px $primary) drop-shadow(0 0 5px $primary);
-  }
-  100% {
-    background-color: $primary;
-    filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
-  }
-}
-@keyframes numberBadgeFlashBefore {
-  0% {
-    background-color: $primary;
-  }
-  50% {
-    background-color: $secondary;
-  }
-  100% {
-    background-color: $primary;
-  }
-}
-
-// used in: misc
 @keyframes monke {
   0% {
     transform: rotate(0deg);
@@ -226,6 +199,7 @@ body, // this one is here for transparency in bd to work
   transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
   margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled)));
   position: relative;
+  z-index: 2; // just in case of buttons
   &:is(:hover,:focus-within) {
     transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, --hide-fallback-enabled))));
     backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));
@@ -307,16 +281,6 @@ a[href^="http://"] {
 #{c(main backdropWithLayer)} {
   backdrop-filter: blur(3px);
   background-color: transparent !important;
-}
-
-/* Animations */
-#{c(main fullMotion)}#{c(main focused)} {
-  #{c(serverList numberBadge)} {
-    animation: numberBadgeFlash 5s linear infinite;
-  }
-  :is(#{c(serverList numberBadge)}:before,#{c(modals inbox unread mentionBadge)}) {
-    animation: numberBadgeFlashBefore 5s linear infinite;
-  }
 }
 
 /* Official Preset Previews */

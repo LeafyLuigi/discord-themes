@@ -1,0 +1,16 @@
+@use "backend" as *;
+#{c(pages tags pill)} {
+    background: $card;
+    &#{c(pages tags clickable)}:not(#{c(pages tags disabled)}):hover {
+        background: $card;
+        border-color: $hover;
+    }
+    &#{c(pages tags selected)} {
+        &,&#{c(pages tags clickable)}:not(#{c(pages tags disabled)}):hover {
+            border-color: $primary;
+        }
+    }
+}
+#{c(pages tags closeCircle)} {
+    background: $card;
+}

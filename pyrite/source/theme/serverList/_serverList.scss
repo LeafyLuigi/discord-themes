@@ -57,11 +57,6 @@
 
 #{c(serverList pillItem)} {
   background-color: $primary;
-  filter: drop-shadow(0 0 4px $primary) drop-shadow(0 0 4px $primary);
-  transform: translateX(-4px) !important; // !important reason: element.style
-  &[style*="height: 8px"] {
-    transform: translateX(-3px) !important; // !important reason: element.style
-  }
 }
 
 :is(#{c(serverList centerDragOver)},#{c(serverList targetDragOver)}):before {
@@ -94,9 +89,7 @@
 }
 
 #{c(serverList numberBadge)} {
-  background-color: transparent !important; // !important reason: element.style
-  filter: drop-shadow(0 0 3px $secondary) drop-shadow(0 0 5px $secondary);
-  @include bg($bg:$primary,$br:50%);
+  background-color: $primary !important; // !important reason: element.style
 }
 
 #{c(serverList iconBadge)}#{c(serverList participating)} {

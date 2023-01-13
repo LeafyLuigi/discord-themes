@@ -29,6 +29,7 @@
     box-shadow: none;
   }
   #{c(sidebar scroller)} {
+    margin-top: calc(36px * $nc);
     background-color: transparent;
     width: 240px;
     #{c(sidebar privateChannelLink)}[href="/store"],
@@ -98,7 +99,7 @@
   }
   #{c(sidebar animatedContainer)} {
     background-color: transparent;
-    top: 48px;
+    top: calc(48px + (36px * $nc));
     z-index: 2;
     &[style*="(-90px)"] {
       z-index: -3000;
@@ -110,13 +111,13 @@
     }
   }
   #{c(sidebar channelsScroller)} {
+    margin-top: calc(36px * $nc);
     background-color: transparent;
     width: 240px;
   }
 }
 #{c(sidebar channelModeUnread)} #{c(sidebar channelUnreadBlob)} {
   background-color: $primary;
-  filter: drop-shadow(0 0 2px $primary) drop-shadow(0 0 4px $primary);
 }
 #{c(sidebar bannerVisible)} #{c(sidebar channelsHeader)} {
   filter: none;

@@ -83,8 +83,8 @@
 }
 
 // delete gift nitro button. might cock up a few plugins.
-#{c(chatForm buttons)} > #{c(chatForm button)}, #{c(main snowsgivingGift)} {
-    display: none;
+#{c(chatForm buttons)} > #{c(chatForm button)} {
+  display: none;
 }
 
 // text colors that may be used elsewhere
@@ -93,4 +93,17 @@
 }
 #{c(chatForm colorError)} {
   color: $red;
+}
+
+// send button
+:is(#{c(main dark)},#{c(main light)}) {
+  #{c(chatForm sendButton)}:is(:hover,:active,[class]) #{c(chatForm sendButtonActiveChild)} {
+    color: var(--color);
+  }
+}
+#{c(chatForm sendButton)} {
+  --color: var(--primary-color);
+  &:is(:hover,:active) {
+    --color: var(--hover-color);
+  }
 }

@@ -3,7 +3,7 @@
 :is(#{c(main dark)},#{c(main light)}) {
   #{c(discover pageWrapper)} {
     background-color: transparent;
-    @include bg($z:1001,$bg:$header,$h:48px);
+    @include bg($z:1001,$bg:$header,$h:48px,$top:calc(-36px * $nc));
   }
   :is(#{c(discover card)},#{c(discover cardIconMask)},#{c(discover card)}:hover,#{c(discover card)}:hover #{c(discover cardIconMask)},#{c(discover cardIconMask)}:hover) {
     background-color: $card;
@@ -17,7 +17,7 @@
 }
 
 #{c(discover header)} {
-  margin-top: 60px;
+  margin-top: calc(60px + (36px * $nc));
   text-align: center;
   z-index: 1001;
   @include header;

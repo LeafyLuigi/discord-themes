@@ -1,7 +1,7 @@
 // Mixins
 
 /// Create background using a static, opaque color with the ability to change opacity
-@mixin bg($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$f:null,$bgf:null,$war:null,$top:0,$right:0,$bottom:0,$left:0,$pos:absolute) {
+@mixin bg($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$bdf:null,$f:null,$bgf:null,$war:null,$top:0,$right:0,$bottom:0,$left:0,$pos:absolute) {
 	&::before {
 		content: "";
 		@if $top {top: $top;} // default 0
@@ -19,6 +19,7 @@
 		@if $w {width: $w;}
 		@if $tr {transition: $tr;}
 		@if $f {filter: $f;}
+		@if $bdf {backdrop-filter: $bdf;}
 		@if $bgf {background: $bgf;} // background full
 		@if $war {-webkit-app-region: $war;}
 	}
@@ -47,8 +48,14 @@
 	}
 }
 
-@mixin list {
-
+@mixin menu {
+	@include bg($br:4px,$bdf:blur(5px),$bg:transparent);
+	background-color: var(--modal-background);
+}
+@mixin menu-on-item {
+	background-color: var(--modal-background);
+	border-radius: 4px;
+	backdrop-filter: blur(5px);
 }
 
 @mixin card {

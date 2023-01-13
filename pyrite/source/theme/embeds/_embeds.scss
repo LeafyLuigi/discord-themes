@@ -75,9 +75,13 @@
 
 #{c(media barInteractionDragging)},
 #{c(media barInteraction)}:hover {
-   #{c(media barGrabber)} {
+  #{c(media barGrabber)} {
     background-color: $secondary;
   }
+}
+
+#{c(hljs hljs)} {
+  background: transparent;
 }
 
 #{c(embeds textContainerUp)},

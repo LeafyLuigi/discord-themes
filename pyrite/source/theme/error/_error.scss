@@ -13,7 +13,7 @@
 	#{c(error page)} {
 		#{c(button contents)} {
 			font-size: 0;
-			&:after {
+			&::after {
 				content: var(--error-reload);
 				font-size: 14px;
 				top: 1px;
@@ -37,8 +37,8 @@
 				&:first-child::before {
 					content: "Oopsie Woopsie! Uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headquaters are working VEWY HAWD to fix this!";
 				}
-				&:before,
-				&:after {
+				&::before,
+				&::after {
 					display: block;
 					color: #fff;
 					font-family: Comic Sans MS, cursive;
@@ -59,20 +59,20 @@
 			font-size: 0;
 			margin: 0;
 			text-align: left;
-			&:after {
+			&::after {
 				content: ":(";
 				font-size: 14vw;
 				font-family: Comic Sans MS, cursive;
 			}
 		}
 		#{c(error note)} p {
-			&:before,
-			&:after {
+			&::before,
+			&::after {
 				font-size: 2.5vw;
 				line-height: 2.3vw;
 			}
 			&:first-child {
-				&:after {
+				&::after {
 					content: "If you'd like to know more, you can search online later for this error: OOPSIE_WOOPSIE";
 					font-size: 1.25vw;
 					margin-top: 5vw;
@@ -96,8 +96,8 @@
 			margin: 0 0 18px;;
 		}
 		#{c(error note)} p {
-			&:before,
-			&:after {
+			&::before,
+			&::after {
 				margin: 1em 0;
 				font-size: 10px;
 				max-width: 400px;
@@ -105,20 +105,20 @@
 				line-height: 15px;
 			}
 			&:first-child {
-				&:after {
+				&::after {
 					content: "Qué mierda acabas de decir sobre mí, pequeña perra? Te haré saber que me gradué de honor en mi clase de los Navy Seals,he estado envuelto en numerosos ataques sorpresa a Al-Quaeda, y tengo 300 asesinatos confirmados.";
 				}
 			}
 			&:last-child {
-				&:before {
+				&::before {
 					content: "Внимание! Продаётся Х5ый 93его года. Карбюратор, инжектор, инспектор проректор, ИК-порт, блютуз, туз, козырь, валет, дама, румба, сальса, танго, манго, Мис Бахар, сеть магазинов \"Сабина\".";
 				}
-				&:after {
+				&::after {
 					content: "バーガーキングの足のレタス。バーガーキングのハンバーガーに一番入れたくないのは、誰かの足の菌ですよね。";
 				}
 			}
 		}
-		#{c(error note)} div:after {
+		#{c(error note)} div::after {
 			content: var(--error-mac-do-not-restart);
 			display: block;
 			margin: 1em 0;
@@ -129,7 +129,7 @@
 			font-weight: 600;
 		}
 		&#{c(main fullMotion)} {
-			#{c(error page)}:before {
+			#{c(error page)}::before {
 				animation: errorScrollMac 3.2s linear;
 			}
 			:is(#{c(error text)},#{c(error note)},#{c(error page)} button) {

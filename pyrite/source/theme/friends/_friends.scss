@@ -14,10 +14,8 @@
     }
   }
 }
-#{c(friends tabBody)} {
-  &:before {
-    content: none;
-  }
+#{c(friends tabBody)}:before {
+  content: none;
 }
 // remove "new private group" button in header, "explore public servers" button/header in add friends
 #{c(friends container)} #{c(friends inviteToolbar)}, #{c(friends explorePublicHeader)}, #{c(friends explorePublicGrid)} {
@@ -100,15 +98,15 @@
   margin-left: 0;
 }
 
-#{c(friends itemCardOuter)} {
+#{c(friends itemCardOuter)},
+#{c(friends emptyCard)},
+#{c(friends itemCard)} {
   @include card;
 }
 #{c(friends emptyCard)} {
-  @include card;
   margin-top: 8px;
 }
 #{c(friends itemCard)} {
-  @include card;
   padding: 8px;
   &#{c(friends itemCardInteractive)}:hover,
   &#{c(friends itemCardActive)} {

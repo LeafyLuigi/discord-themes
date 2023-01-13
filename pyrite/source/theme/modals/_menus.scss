@@ -1,26 +1,25 @@
 @use "backend" as *;
 #{c(modals menus menu)} {
-    background-color: var(--modal-background);
-    max-height: 60vh;
-    &::before {
-        content: "";
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        position: absolute;
-        pointer-events: none;
-        background-color: transparent;
-        border-radius: 4px;
-        backdrop-filter: blur(5px);
-    }
+    @include menu;
+    max-height: 80vh;
 }
 // profile "status" has an inner menu. the not allows the submenus to work
 #{c(profile status popoutWrapper)} #{c(modals menus menu)}:not(#{c(modals menus submenu)}) {
     background: transparent;
     &:before {
         content: none;
+    }
+}
+#{c(modals menus submenuPaddingContainer)} {
+    padding: 0;
+    position: relative;
+}
+#{c(modals menus item)}+#{c(main layer)} {
+    &[style*="right"] #{c(modals menus submenuPaddingContainer)} {
+        right: 8px;
+    }
+    &[style*="left"] #{c(modals menus submenuPaddingContainer)} {
+        left: 8px;
     }
 }
 
