@@ -1,6 +1,6 @@
 {
   "name": "sulfide-backend",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A repo containing Discord Themes for Discord Client Mods.",
   "private": true,
   "scripts": {
@@ -8,9 +8,9 @@
     "test": "pnpm run copyClasses && pnpm run test-pyrite && pnpm run addWhitney-test-pyrite",
     "copyClasses": "pnpm run copyClasses-pyrite",
     "build-pyrite": "pnpm run buildsass-pyrite && pnpm run buildprefix-pyrite",
-    "buildsass-pyrite": "sass pyrite/source:pyrite/build --style=compressed --load-path=pyrite/source --no-source-map",
-    "buildprefix-pyrite": "postcss pyrite/build/*.css --dir=pyrite/build --use=autoprefixer  -b=\"> 5%\" --no-map",
-    "test-pyrite": "sass pyrite/source:pyrite/test --load-path=pyrite/source --no-source-map",
+    "buildsass-pyrite": "sass pyrite/source:pyrite/build -s compressed -I pyrite/source --no-source-map",
+    "buildprefix-pyrite": "postcss pyrite/build/*.css -d pyrite/build -u autoprefixer --no-map",
+    "test-pyrite": "sass pyrite/source:pyrite/test -I pyrite/source --no-source-map",
     "addWhitney-test-pyrite": "x=`echo \"@import url(https://leafyluigi.github.io/discord-themes/whitney.css);\"; cat pyrite/test/base.css` && echo \"$x\" > pyrite/test/base.css",
     "copyClasses-pyrite": "cp classes/_classes.scss pyrite/source/classes/_classes.scss",
     "test-pyrite-borders": "cat pyrite/test/borders.css >> pyrite/test/base.css",
@@ -29,11 +29,21 @@
   },
   "homepage": "https://github.com/LeafyLuigi/discord-themes#readme",
   "devDependencies": {
-    "autoprefixer": "^10.4.8",
-    "npm": "^8.19.0",
-    "pnpm": "^7.9.5",
-    "postcss": "^8.4.16",
-    "postcss-cli": "^10.0.0",
-    "sass": "^1.54.8"
-  }
+    "autoprefixer": "^10.4.13",
+    "browsertest": "^0.2.2",
+    "cat": "^0.2.0",
+    "cp": "^0.2.0",
+    "grep": "^0.1.0",
+    "mv": "^2.1.1",
+    "npm": "^8.19.3",
+    "pnpm": "^7.25.0",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.57.1"
+  },
+  "browserslist": [
+    "Chrome 98",
+    "Firefox ESR",
+    "not dead"
+  ]
 }

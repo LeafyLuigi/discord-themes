@@ -1493,6 +1493,8 @@ $classes: (
 		// attribute is used for any valid css rule within the curly brackets {} (examples being "background" or "display")
 		// keyword is used for anything using @ - this would be @media, @mixin, @include, @import etc
 
+		// This class list DOES NOT include languages. You can find a list of languages in the codelangs file.
+
 		// Any comments within HLJS relate to the color between that comment and the next one
 		"hljs": "hljs",
 		// var interactive muted
