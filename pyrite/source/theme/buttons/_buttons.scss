@@ -15,9 +15,126 @@
 // link brand : reset nickname
 // blank link : in header of channel you can edit
 
+// sizes:
+// Min: [lookLink] "Show Email" in User Settings -> My Account | [lookFilled] Keybinds -> New
+// Max: NO IDEA.
+// Full Width: (shared with grow) "Button Example" in User Settings -> Customize Profile
+
 // shiny (any kind) : server boost
 
+// themed buttons unrelated to these colors - there's definitely more than these listed, most likely using lookBlank. Avoid important.
+// "Invite" button within active voice call or stage within server. uses filled and no color.
+// "Back" button within New Server Modal, uses lookBlank which has no color rules applied to it as well as colorBrand
+
+////////////////////////
+/// from what i can tell...
+/// colors that use .(dark|light) are all hoverColors and .(border|color)(Primary|Transparent). if it's listed below, it's required
+/// .button .contents has underline color variable as does .button+.color:hover .contents
+/// said variable is also applied via .lookLink.hoverColor.hasHover:hover .contents
+/// each combo of look+color has either a background, color or both
+/// every :disabled is also paired with a [aria-disabled=true], including as a :not
+/// all borderColor classes use !important, .efc.(dark|light) .button(:disabled|look*:not\(:disabled\)(|:hover|:active)) also have it. all border color
+/// under .enable-forced-colors, :active also applies with [aria-(expanded|selected)=true]
+/// spinnerItem class also exists. bgcolor is applied as .look.color .spinner. each look has a different background color
+/// 
+/// 
+////////////////////////
+
 @debug "Switch buttons to variables";
+
+$hover-filter: var(--hover-filter);
+$active-filter: var(--active-filter);
+/// Button : (background / border) color will need to be defined.
+@mixin button-base($color: null) {
+  &:before {
+    border-radius: 3px;
+    background-color: transparent;
+    z-index: 1;
+    content: "";
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+		pointer-events: none;
+  }
+	> #{c(button contents)} {
+		z-index: 2;
+	}
+	&:hover:not(:disabled) {
+		background-color: $color;
+		&::before {
+			background: $hover-filter;
+		}
+	}
+	&:active:not(:disabled) {
+		background-color: $color;
+		&::before {
+			background: $active-filter;
+		}
+	}
+}
+
+@mixin button-bg($color: null) {
+	background: $color;
+	@include button-base($color);
+	&:disabled {
+		background: $color;
+	}
+}
+
+@mixin button-color($color: null) {
+	color: $color;
+	@include button-base($color);
+}
+
+@mixin button-inverted($color: null) {
+	@include button-color($color);
+	background-color: var(--card-background);
+	&:disabled {
+		background-color: var(--card-background);
+	}
+}
+
+@mixin button-border($color: null) {
+	border-color: $color;
+	color: $color;
+	background-color: transparent;
+	@include bg($br:3px,$bg:transparent,$z:1);
+	> .contents-3ca1mk {
+		z-index: 2;
+	}
+	&:hover:not(:disabled) {
+		background-color: transparent;
+		&::before {
+			background-color: $color;
+			opacity: 0.15;
+		}
+	}
+	&:active:not(:disabled) {
+		background-color: transparent;
+		&::before {
+			background-color: $color;
+			opacity: 0.2;
+		}
+	}
+}
+
+@mixin button-link($color: null) {
+	color: $color;
+	background-color: transparent;
+	> .contents-3ca1mk {
+		z-index: 2;
+	}
+	&:hover:not(:disabled),
+	&:active:not(:disabled) {
+		>.contents-3ca1mk {
+			background-image: linear-gradient(0deg,transparent,transparent 1px, $color 0,$color 2px,transparent 0);
+		}
+	}
+}
+
+
 
 #{c(button lookFilled)} {
   &::before {

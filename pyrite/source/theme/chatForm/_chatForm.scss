@@ -19,11 +19,15 @@
 #{c(chatForm channelTextAreaBase)} {
   @include card-light;
   border-width: 0;
-  backdrop-filter: blur(2px);
+  margin-bottom: 24px;
   &:focus-within {
     border-width: 0;
     box-shadow: 0 0 2px 2px $primary;
   }
+}
+
+#{c(chatForm typingBase)} {
+  bottom: 1px;
 }
 
 #{c(chatForm jumpToPresentBar)} {
@@ -48,6 +52,8 @@
 }
 #{c(chatForm scrollableContainer)} {
   max-height: 30vh;
+  backdrop-filter: blur(2px);
+  margin-bottom: 24px;
 }
 #{c(chatForm replyContainer)} {
   #{c(chatForm replyName)} {

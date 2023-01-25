@@ -5,7 +5,7 @@
 // @use "map" as *;
 
 ////////////////////
-/// VERY IMPORTANT INFO FOR SEARCHING CLASS NAMES
+/// VERY IMPORTANT INFO FOR SEARCHING OR ADDING CLASS NAMES
 /// Remove the preceding full stop/period before the class name!
 /// The function below adds that before CSS generation and thus is not needed
 ////////////////////
@@ -277,15 +277,31 @@ $classes: (
 		"lookLink": "lookLink-15mFoz",
 		"hasHover": "hasHover-26V98q",
 		"lookBlank": "lookBlank-21BCro", // no combos with colors
-		"icon": "buttonIcon-1TxM6f", // found at top of channel you can edit, before first message
+		"icon": "buttonIcon-1TxM6f", // found at top of channel you can edit, before first message. not in the same line as the others
+		"spinnerItem": "spinnerItem-3dCJpG", // i don't know where this is in comparison to everything else. it's likely on the same element as path-lhsLSV
 
+		// shiny buttons are on a different line to the others
 		"shinyButton": "shinyButton-2Q9MDB",
 		"shineContainerDefault": "shineContainerDefault-3f8X_o",
 		"shineContainer": "shineContainer-NmlfaV",
 		"buttonShine": "buttonShine-p5V5TB",
 		"shine": "shine-ZNDEKg",
 
-		//colors / hovers
+		// sizes
+		"sizeTiny": "sizeTiny-3y2SSK",
+		"sizeSmal": "sizeSmall-wU2dO",
+		"sizeMedium": "sizeMedium-2bFIHr",
+		"sizeLarge": "sizeLarge-3mScP9",
+		"sizeXlarge": "sizeXlarge-2TyITf",
+		// min/max sizes aren't fixed in size
+		"sizeMin": "sizeMin-DfpWCE",
+		"sizeMax": "sizeMax-1iNmdF",
+		// other size related classes
+		"grow": "grow-2sR_-F",
+		"sizeIcon": "sizeIcon-1kBo12",
+		"fullWidth": "fullWidth-fJIsjq",
+
+		// colors / hovers / borders
 		"colorBrand": "colorBrand-I6CyqQ",
 		"colorBrandNew": "colorBrandNew-2-gGsS",
 		"colorGreen": "colorGreen-3y-Z79",
@@ -297,6 +313,7 @@ $classes: (
 		"colorYellow": "colorYellow-Pgtmch",
 
 		"hoverBrand": "hoverBrand-9W5Bs0",
+		"hoverBrandNew": "hoverBrandNew-2zxGm3",
 		"hoverGreen": "hoverGreen-1KfT6K",
 		"hoverLink": "hoverLink-3tFUy_",
 		"hoverPrimary": "hoverPrimary-2hqNIm",
@@ -304,6 +321,16 @@ $classes: (
 		"hoverTransparent": "hoverTransparent-1F6BzX",
 		"hoverWhite": "hoverWhite-1CeNNr",
 		"hoverYellow": "hoverYellow--uLfPr",
+
+		"borderBrand": "borderBrand-P_n17U",
+		"borderBrandNew": "borderBrandNew-W1AvIG",
+		"borderGreen": "borderGreen-3MJerR",
+		"borderLink": "borderLink-3I8OeL",
+		"borderPrimary": "borderPrimary-1ygM7_",
+		"borderRed": "borderRed-2gxqqb",
+		"borderTransparent": "borderTransparent-2P3AAk",
+		"borderWhite": "borderWhite-3ebM0n",
+		"borderYellow": "borderYellow-3pQ4TY",
 	),
 	"call": (
 		// There's a bit of overlap with "stage". feel free to jump down to there.
@@ -981,7 +1008,7 @@ $classes: (
 			"rowGroup": "rowGroup-19oKNW",
 			"postCreationTimestamp": "postCreationTimestamp-lQFti2",
 			"messageCountContainer": "messageCountContainer-2xybkY",
-			"newBadge": "newBadge-3reGJW",
+			"newBadge": "newBadge-3reGJW", // background-color: var(--brand-260);
 			"textContentUnread": "textContentUnread-3U6Rsu",
 			"textContentRead": "textContentRead-299RoJ",
 			"tagPill": "tagPill-1kSbgP",
@@ -4011,3 +4038,44 @@ $classes: (
 
 // @debug #{cn(test a foo)};
 // @debug #{cn(test d too)};
+
+// $cll: ();
+
+// $cla: (
+// 	"bar": (
+// 		"baz": "barfoo"	
+// 	)
+// );
+
+// $cll: map.deep-merge($cll, $cla);
+
+// $cla: (
+// 	"bar": (
+// 		"foo": "foo",
+// 		),
+// 	"bob": (
+// 		"greg": "tech"
+// 	)
+// );
+
+
+// $cll: map.deep-merge($cll, $cla);
+
+// @function e($query) {
+// 	$class: $cll;
+// 	@each $el in $query {
+// 		$class: map-get($class, "#{$el}");
+// 		@if not $class {
+// 			@error "Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
+// 		}
+// 	}
+// 	@if type-of($class) == map {
+// 		@error "Map used as input: #{$query}. Please fix and try again.";
+// 	}
+// 	@if string.slice($class,1,1) == "." or string.slice($class,1,1) == "#" {
+// 		@error "Period or Hash at start of string within list. Please fix and try again. Do not use IDs.";
+// 	}
+// 	@return "."+$class;
+// }
+
+// @debug #{e(bar foo)};

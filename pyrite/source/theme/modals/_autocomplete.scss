@@ -1,7 +1,7 @@
 @use "backend" as *;
 :is(#{c(main dark)},#{c(main light)}) {
     #{c(modals autocomplete modal)} {
-        background: var(--modal-background);
+        @include menu;
     }
     #{c(modals autocomplete option)} {
         background: $primary;
