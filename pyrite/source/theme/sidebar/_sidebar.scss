@@ -1,5 +1,14 @@
 @use "backend" as *;
 /* Start Sidebar */
+// backgrounds.. ugh.
+:is(#{c(main dark)}, #{c(main light)})
+:is(
+#{c(sidebar channelsContainer)},
+#{c(sidebar panelContainer)},
+#{c(sidebar panelVoiceContainer)}) {
+  background: transparent;
+}
+
 // Base
 #{c(sidebar sidebar)} {
   // for hide channel list
@@ -79,7 +88,6 @@
 }
 // Area - Channels
 #{c(sidebar channelsContainer)} {
-  background: transparent;
   #{c(scroller content)} {
     >div[style="height: 84px;"]{
       height: 132px !important; // !important reason: element.style
@@ -139,7 +147,7 @@
 
 // Panels
 #{c(sidebar panels)} {
-  background-color: transparent;
+  background: transparent;
   width: 240px;
   #{c(sidebar panelUsername)} {
     @include header;

@@ -85,7 +85,6 @@ code,
 
 // Background
 #{c(main appMount)} {
-  background: transparent;
 	@include bg($h:100%,$w:100%,$bgf:var(--background-image) center/cover no-repeat var(--background-attachment),$f:var(--background-filter));
 }
 
@@ -95,6 +94,9 @@ body, // this one is here for transparency in bd to work
 #{c(main appInner)},
 #{c(main bg)},
 #{c(main loadingContainer)} {
+  background: transparent;
+}
+:is(#{c(main dark)},#{c(main light)}) #{c(main appMount)} {
   background: transparent;
 }
 

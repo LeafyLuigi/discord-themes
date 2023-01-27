@@ -14,7 +14,10 @@
   }
 }
 
-#{c(serverList scroller)},
+:is(#{c(main dark)},#{c(main light)}) #{c(serverList scroller)} {
+  background: transparent;
+}
+
 #{c(serverList folder)},
 #{c(serverList folder)}#{c(serverList folderHover)} {
   background-color: transparent;

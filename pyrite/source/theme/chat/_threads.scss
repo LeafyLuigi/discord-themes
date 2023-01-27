@@ -9,12 +9,13 @@
     right: 0;
   }
 }
-#{c(threads resizeHandle)} {
+:is(#{c(main dark)},#{c(main light)}) #{c(threads resizeHandle)} {
+  background: transparent;
   width: 4px;
+  transition: background-color 0.25s ease-in-out 0.25s; 
   &:hover,
   &:active {
-    transition: background-color 0.25s ease-in-out 0.25s; 
-    background-color: $primary;
+    background: $primary;
   }
 }
 #{c(threads container)} {

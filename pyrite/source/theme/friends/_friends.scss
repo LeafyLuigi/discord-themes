@@ -63,33 +63,33 @@
     transform: translateX(calc( ( -300px ) * var(--hide-active-now)));
     backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
   }
-  #{c(friends nowPlayingContainer)} {
-    background-color: transparent;
+}
+#{c(friends nowPlayingContainer)} {
+  background-color: transparent;
+}
+#{c(friends nowPlayingHeader)} {
+  @include header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8px 0;
+  &:after {
+    content: "";
+    height: 2px;
+    flex-grow: 1;
+    background: linear-gradient(to right, currentColor -50%, transparent 50%);
+    margin-left: 5px;
   }
-  #{c(friends nowPlayingHeader)} {
-    @include header;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 8px 0;
-    &:after {
-      content: "";
-      height: 2px;
-      flex-grow: 1;
-      background: linear-gradient(to right, currentColor -50%, transparent 50%);
-      margin-left: 5px;
-    }
-  }
-  #{c(friends multipleIconWrapper)} {
-    border-radius: 0%;
-  }
-  #{c(friends multipleIcon)} {
-    height: initial;
-    width: initial;
-    > g > path {
-      fill: var(--text-normal);
-    }
+}
+#{c(friends multipleIconWrapper)} {
+  border-radius: 0%;
+}
+#{c(friends multipleIcon)} {
+  height: initial;
+  width: initial;
+  > g > path {
+    fill: var(--text-normal);
   }
 }
 

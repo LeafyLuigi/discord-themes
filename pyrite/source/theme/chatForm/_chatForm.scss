@@ -40,7 +40,9 @@
   opacity: 1;
 }
 
-#{c(chatForm scrollableContainer)},
+:is(#{c(main dark)},#{c(main light)}) #{c(chatForm scrollableContainer)} {
+  background: transparent;
+}
 #{c(chatForm attachedBars)},
 #{c(chatForm replyBar)},
 #{c(chatForm threadSuggestionBar)} {
