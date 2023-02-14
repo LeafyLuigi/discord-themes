@@ -5,7 +5,8 @@
 :is(
 #{c(sidebar channelsContainer)},
 #{c(sidebar panelContainer)},
-#{c(sidebar panelVoiceContainer)}) {
+#{c(sidebar panelVoiceContainer)},
+#{c(sidebar panelActivityContainer)}) {
   background: transparent;
 }
 

@@ -269,16 +269,20 @@ $classes: (
 		"perk": "perk-19D_HN",
 	),
 	"button": (
-		"button": "button-f2h6uQ",
-		"contents": "contents-3ca1mk", // DO NOT FORGET TO UPDATE MIXINS FILE IF UPDATING THIS CLASS
-		"lookFilled": "lookFilled-yCfaCM",
-		"lookInverted": "lookInverted-2mDUMi",
-		"lookOutlined": "lookOutlined-3yKVGo",
-		"lookLink": "lookLink-15mFoz",
-		"hasHover": "hasHover-26V98q",
-		"lookBlank": "lookBlank-21BCro", // no combos with colors
+		"button": "button-ejjZWC",
+		"contents": "contents-3NembX", // DO NOT FORGET TO UPDATE MIXINS FILE IF UPDATING THIS CLASS
+		"lookFilled": "lookFilled-1H2Jvj",
+		"lookInverted": "lookInverted-2GrLaB",
+		"lookOutlined": "lookOutlined-3RTC7c",
+		"lookLink": "lookLink-13iF2K",
+		"hasHover": "hasHover-3y7IPU",
+		"lookBlank": "lookBlank-FgPMy6", // no combos with colors
 		"icon": "buttonIcon-1TxM6f", // found at top of channel you can edit, before first message. not in the same line as the others
-		"spinnerItem": "spinnerItem-3dCJpG", // i don't know where this is in comparison to everything else. it's likely on the same element as path-lhsLSV
+		"spinner": "spinner-Whw2qx",
+		"spinnerItem": "spinnerItem-3Y5NsU", // i don't know where this is in comparison to everything else. it's likely on the same element as path-lhsLSV
+		"submitting": "submitting-3t0sbC",
+		"disabledWrapper": "disabledButtonWrapper-1m0hYZ",
+		"disabledOverlay": "disabledButtonOverlay-10gJ0t",
 
 		// shiny buttons are on a different line to the others
 		"shinyButton": "shinyButton-2Q9MDB",
@@ -288,49 +292,49 @@ $classes: (
 		"shine": "shine-ZNDEKg",
 
 		// sizes
-		"sizeTiny": "sizeTiny-3y2SSK",
-		"sizeSmal": "sizeSmall-wU2dO",
-		"sizeMedium": "sizeMedium-2bFIHr",
-		"sizeLarge": "sizeLarge-3mScP9",
-		"sizeXlarge": "sizeXlarge-2TyITf",
+		"sizeTiny": "sizeTiny-2AAolP",
+		"sizeSmal": "sizeSmall-3R2P2p",
+		"sizeMedium": "sizeMedium-2oH5mg",
+		"sizeLarge": "sizeLarge-2xP3-w",
+		"sizeXlarge": "sizeXlarge-2GQ4VO",
 		// min/max sizes aren't fixed in size
-		"sizeMin": "sizeMin-DfpWCE",
-		"sizeMax": "sizeMax-1iNmdF",
+		"sizeMin": "sizeMin-3Yqxk5",
+		"sizeMax": "sizeMax-1S8zKN",
 		// other size related classes
-		"grow": "grow-2sR_-F",
-		"sizeIcon": "sizeIcon-1kBo12",
-		"fullWidth": "fullWidth-fJIsjq",
+		"grow": "grow-2T4nbg",
+		"sizeIcon": "sizeIcon-29J6C-",
+		"fullWidth": "fullWidth-3M-YBR",
 
 		// colors / hovers / borders
-		"colorBrand": "colorBrand-I6CyqQ",
-		"colorBrandNew": "colorBrandNew-2-gGsS",
-		"colorGreen": "colorGreen-3y-Z79",
-		"colorLink": "colorLink-1Md3RZ",
-		"colorPrimary": "colorPrimary-2AuQVo",
-		"colorRed": "colorRed-rQXKgM",
-		"colorTransparent": "colorTransparent-13Bvvi",
-		"colorWhite": "colorWhite-1H92hK",
-		"colorYellow": "colorYellow-Pgtmch",
+		"colorBrand": "colorBrand-2M3O3N",
+		"colorBrandNew": "colorBrandNew-abZT3v",
+		"colorGreen": "colorGreen-jIPCAS",
+		"colorLink": "colorLink-34zig_",
+		"colorPrimary": "colorPrimary-2-Lusz",
+		"colorRed": "colorRed-2VFhM4",
+		"colorTransparent": "colorTransparent-2SBJ8-",
+		"colorWhite": "colorWhite-Eshn2o",
+		"colorYellow": "colorYellow-_9KFXL",
 
-		"hoverBrand": "hoverBrand-9W5Bs0",
-		"hoverBrandNew": "hoverBrandNew-2zxGm3",
-		"hoverGreen": "hoverGreen-1KfT6K",
-		"hoverLink": "hoverLink-3tFUy_",
-		"hoverPrimary": "hoverPrimary-2hqNIm",
-		"hoverRed": "hoverRed-1gTvle",
-		"hoverTransparent": "hoverTransparent-1F6BzX",
-		"hoverWhite": "hoverWhite-1CeNNr",
-		"hoverYellow": "hoverYellow--uLfPr",
+		"hoverBrand": "hoverBrand-20zQAE",
+		"hoverBrandNew": "hoverBrandNew-3CWLfn",
+		"hoverGreen": "hoverGreen-2uVfsU",
+		"hoverLink": "hoverLink-2x5mtr",
+		"hoverPrimary": "hoverPrimary-3dWXRY",
+		"hoverRed": "hoverRed-2GS7Rt",
+		"hoverTransparent": "hoverTransparent-2WkMPh",
+		"hoverWhite": "hoverWhite-27IZTy",
+		"hoverYellow": "hoverYellow-2sBijX",
 
-		"borderBrand": "borderBrand-P_n17U",
-		"borderBrandNew": "borderBrandNew-W1AvIG",
-		"borderGreen": "borderGreen-3MJerR",
-		"borderLink": "borderLink-3I8OeL",
-		"borderPrimary": "borderPrimary-1ygM7_",
-		"borderRed": "borderRed-2gxqqb",
-		"borderTransparent": "borderTransparent-2P3AAk",
-		"borderWhite": "borderWhite-3ebM0n",
-		"borderYellow": "borderYellow-3pQ4TY",
+		"borderBrand": "borderBrand-dgox0N",
+		"borderBrandNew": "borderBrandNew-2SIdEy",
+		"borderGreen": "borderGreen-1aVjyv",
+		"borderLink": "borderLink-1WFQnX",
+		"borderPrimary": "borderPrimary-1HrinF",
+		"borderRed": "borderRed-1R14vb",
+		"borderTransparent": "borderTransparent-2adzs-",
+		"borderWhite": "borderWhite-3UfEYY",
+		"borderYellow": "borderYellow-21hDFd",
 	),
 	"call": (
 		// There's a bit of overlap with "stage". feel free to jump down to there.
@@ -2498,12 +2502,12 @@ $classes: (
 		"profileBannerPreview": "profileBannerPreview-3mLIdO",
 		"profilePopoutInfo": "popoutInfo-16MuYF",
 
-		"radioGroupItem": "item-2idW98",
-		"radioBar": "radioBar-3w9XY-",
-		"radioBarInfo": "info-2FZci4",
+		"radioGroupItem": "item-1TA5qI",
+		"radioBar": "radioBar-1XgZqD",
+		"radioBarInfo": "info-3cKxwI",
 		"radioBarName": "text-md-medium-2avxhQ", // primary text
 		"radioBarDesc": "text-sm-normal-3Zj3Iv", // small print
-		"radioIconForeground": "radioIconForeground-2BMavi", // selected radio button's circle inner
+		"radioIconForeground": "radioIconForeground-3wH3aU", // selected radio button's circle inner
 
 		"formNotice": "formNotice-2nS8ey", // "Check out our Terms of Service and Privacy Policy", authorized apps box at top
 

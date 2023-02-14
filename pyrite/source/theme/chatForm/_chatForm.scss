@@ -52,9 +52,12 @@
   margin-top: 0;
   padding-top: 0;
 }
+#{c(chatForm replyBar)},
+#{c(chatForm scrollableContainer)} {
+  backdrop-filter: blur(2px);
+}
 #{c(chatForm scrollableContainer)} {
   max-height: 30vh;
-  backdrop-filter: blur(2px);
   margin-bottom: 24px;
 }
 #{c(chatForm replyContainer)} {

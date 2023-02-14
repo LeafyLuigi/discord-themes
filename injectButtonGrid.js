@@ -1,18 +1,18 @@
 // Define Constants
 const target = document.getElementsByClassName("layerContainer-2v_Sit")[1]; // Everything will be targeted towards this element
-const types = ["lookFilled-yCfaCM", "lookInverted-2mDUMi", "lookOutlined-3yKVGo", "lookLink-15mFoz", "lookBlank-21BCro"];
+const types = ["lookFilled-1H2Jvj", "lookInverted-2GrLaB", "lookOutlined-3RTC7c", "lookLink-13iF2K", "lookBlank-FgPMy6"];
 const typesName = ["Filled", "Inverted", "Outlined", "Link", "Blank"];
-const colors = ["colorBrand-I6CyqQ", "colorBrandNew-2-gGsS", "colorGreen-3y-Z79", "colorLink-1Md3RZ", "colorPrimary-2AuQVo", "colorRed-rQXKgM", "colorTransparent-13Bvvi", "colorWhite-1H92hK", "colorYellow-Pgtmch"];
+const colors = ["colorBrand-2M3O3N", "colorBrandNew-abZT3v", "colorGreen-jIPCAS", "colorLink-34zig_", "colorPrimary-2-Lusz", "colorRed-2VFhM4", "colorTransparent-2SBJ8-", "colorWhite-Eshn2o", "colorYellow-_9KFXL"];
 const colorsName = ["Brand", "BrandNew", "Green", "Link", "Primary", "Red", "Transparent", "White", "Yellow"];
-const colorsHover = ["hoverBrand-9W5Bs0", "hoverBrandNew-2zxGm3", "hoverGreen-1KfT6K", "hoverLink-3tFUy_", "hoverPrimary-2hqNIm", "hoverRed-1gTvle", "hoverTransparent-1F6BzX", "hoverWhite-1CeNNr", "hoverYellow--uLfPr"];
-const colorsBorder = ["borderBrand-P_n17U", "borderBrandNew-W1AvIG", "borderGreen-3MJerR", "borderLink-3I8OeL", "borderPrimary-1ygM7_", "borderRed-2gxqqb", "borderTransparent-2P3AAk", "borderWhite-3ebM0n", "borderYellow-3pQ4TY"];
-const sizes = ["sizeTiny-3y2SSK", "sizeSmall-wU2dO-", "sizeMedium-2bFIHr", "sizeLarge-3mScP9", "sizeXlarge-2TyITf", "sizeTiny-3y2SSK"]; // tiny at end for loops
-const classButton = "button-f2h6uQ";
-const classHasHover = "hasHover-26V98q";
-const classContent = "contents-3ca1mk";
-const classSpinnerItem = "spinnerItem-3dCJpG";
-const classGrow = "grow-2sR_-F";
-const classSubmitting = "submitting-3uDn4C";
+const colorsHover = ["hoverBrand-20zQAE", "hoverBrandNew-3CWLfn", "hoverGreen-2uVfsU", "hoverLink-2x5mtr", "hoverPrimary-3dWXRY", "hoverRed-2GS7Rt", "hoverTransparent-2WkMPh", "hoverWhite-27IZTy", "hoverYellow-2sBijX"];
+const colorsBorder = ["borderBrand-dgox0N", "borderBrandNew-2SIdEy", "borderGreen-1aVjyv", "borderLink-1WFQnX", "borderPrimary-1HrinF", "borderRed-1R14vb", "borderTransparent-2adzs-", "borderWhite-3UfEYY", "borderYellow-21hDFd"];
+const sizes = ["sizeTiny-2AAolP", "sizeSmall-3R2P2p", "sizeMedium-2oH5mg", "sizeLarge-2xP3-w", "sizeXlarge-2GQ4VO", "sizeTiny-2AAolP"]; // tiny at end for loops
+const classButton = "button-ejjZWC";
+const classHasHover = "hasHover-3y7IPU";
+const classContent = "contents-3NembX";
+const classSpinnerItem = "spinnerItem-3Y5NsU";
+const classGrow = "grow-2T4nbg";
+const classSubmitting = "submitting-3t0sbC";
 const themes = ["theme-dark", "theme-light"]; // amoled nor custom will apply to this
 
 const buttonGridClass = "buttonGridButton"; // This will be used for selecting elements and not for theming
