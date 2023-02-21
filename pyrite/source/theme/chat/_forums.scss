@@ -31,7 +31,11 @@
     }
 }
 
-#{c(forums tags dropdownContainer)} {
+#{c(forums tags dropdown)} {
+    background: $card;
+}
+
+#{c(forums tags dropdownPopoutContainer)} {
     background: transparent;
     border-radius: unset;
     width: unset;
@@ -74,6 +78,7 @@
 #{c(forums grid contentPreview)} {
     padding: 12px 0 0;
     border-color: transparent;
+    background: transparent;
 }
 
 #{c(forums grid bullet)} {

@@ -59,6 +59,8 @@
   left: calc( ( 300px ) * var(--hide-active-now));
   backdrop-filter: none;
   margin-left: calc( -1 * (( 300px ) * var(--hide-active-now)));
+}
+#{c(main focused)} #{c(friends nowPlayingColumn)} {
   &:is(:hover,:focus-within) {
     transform: translateX(calc( ( -300px ) * var(--hide-active-now)));
     backdrop-filter: blur(calc(var(--hide-active-now) * 3px));

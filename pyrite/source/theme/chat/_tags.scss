@@ -5,9 +5,14 @@
         background: $card;
         border-color: $hover;
     }
-    &#{c(pages tags selected)} {
+}
+:is(#{c(main dark)},#{c(main light)}) {
+    #{c(pages tags pill)}#{c(pages tags selected)} {
         &,&#{c(pages tags clickable)}:not(#{c(pages tags disabled)}):hover {
             border-color: $primary;
+            background: transparent;
+            transform: rotate(0deg);
+            @include bg($bg:$primary,$br:20px,$o:.15)
         }
     }
 }
