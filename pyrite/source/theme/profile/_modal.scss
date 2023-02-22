@@ -45,7 +45,7 @@
     display: none;
   }
 }
-#{c(profile modal actionButton)}:nth-last-child(2) {
+:not(#{c(profile modal pendingIncoming)})>#{c(profile modal actionButton)}:nth-last-child(2) {
   margin-right: 8px;
 }
 #{c(profile modal additionalActionsIcon)} {
