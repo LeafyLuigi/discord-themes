@@ -103,7 +103,7 @@ $classes: (
 		"fullMotion": "full-motion",
 		"reduceMotion": "reduce-motion",
 		"focused": "app-focused",
-		"layerContainer": "layerContainer-2v_Sit",
+		"layerContainer": "layerContainer-2lfOPe",
 		"groupSpacing16": "group-spacing-16",
 		"container": "container-1eFtFS",
 		"content": "content-1SgpWY",
@@ -3552,43 +3552,55 @@ $classes: (
         // Right click!
         // Other menu types may do other funky things, such as changing your status
 		"menus": (
-			"menu": "menu-1QACrS",
-            "styleFlexible": "styleFlexible-x0_sIC",
-			"scroller": "scroller-1bVxF5",
-            "separator": "separator-1So4YB",
-            "customItem": "customItem-2CxBSo", // found in quick react
-			"item": "item-1OdjEX",
-            "labelContainer": "labelContainer-2vJzYL",
-            "itemDisabled": "disabled-oOAXat",
-			"itemFocused": "focused-3qFvc8",
-			"itemHideInteraction": "hideInteraction-2jPGL_", // best seen in the css rules with :not(), banner in status has it
-			"label": "label-2gNW3x",
-            "subtext": "subtext-2GlkbE", // "muted until $time" for easiest way of bringing this up
-			"iconContainer": "iconContainer-1-SsTR",
-            "iconContainerLeft": "iconContainerLeft-2NHJgN", // change status has this
-			"icon": "icon-E4cW1l",
+			"menu": "menu-2TXYjN",
+            "flexible": "flexible-3B4jwn", // mostly elsewhere
+			"fixed": "fixed-2BUuhP", // click server name
+			"scroller": "scroller-nxCRu_",
+            "separator": "separator-12G2Op",
+            "customItem": "customItem-1KYL7t", // found in quick react
+			"item": "item-5ApiZt",
+            "labelContainer": "labelContainer-35-WEd",
+            "itemDisabled": "disabled--8Sav3",
+			"itemFocused": "focused-3LIdPu",
+			"itemHideInteraction": "hideInteraction-1vQrZJ", // best seen in the css rules with :not(), banner in status has it
+			"label": "label-3CEiKJ",
+            "subtext": "subtext-1mqKVB", // "muted until $time" for easiest way of bringing this up
+			"iconContainer": "iconContainer-Ksy8Oj",
+            "iconContainerLeft": "iconContainerLeft-1Kr6X4", // change status has this
+			"icon": "icon-3XHs8t",
 
-            "caret": "caret-2MOQD6",
-            "arrow": "arrow-2HswgU",
-            // "imageContainer": "imageContainer-1wSPgI", // LMAO WHERE
-            // "image": "image-21g2ca", // LMAO WHERE
-			"checkbox": "checkbox-hADx5o",
-			"checkboxCheck": "check-3HZJs4",
-			"radioSelection": "radioSelection-1UHp0b",
-
-            "sliderContainer": "sliderContainer-2nidiS", // right click another user
-            "slider": "slider-BEB8u7",  // rest of the slider stuff is under app settings
-
-			"colorDefault": "colorDefault-CDqZdO",
-			"colorBrand": "colorBrand-3cPPsm", // invite people
-			"colorDanger": "colorDanger-3n-KnP", // leave server, report raid, server mute/deaf, kick, ban, disconnect, timeout etc
-			"colorPremium": "colorPremium-vwmYZQ", // sets icon to boost color
-
-            // Anything related to a secondary menu
+            "caret": "caret-1TZU-U",
+            "imageContainer": "imageContainer-3UDrmv", // no idea where but there you go
+            "image": "image-2c9fiD", // no idea where but there you go
+			"checkbox": "checkbox-397WsK",
+			"checkboxCheck": "check-3-73a4",
+			"radioSelection": "radioSelection-3PDNAQ",
+			
+			"colorDefault": "colorDefault-2_rLdz",
+			"colorBrand": "colorBrand-26tvUE", // invite people
+			"colorDanger": "colorDanger-3umuSx", // leave server, report raid, server mute/deaf, kick, ban, disconnect, timeout etc
+			"colorPremium": "colorPremium-2N9Y8_", // sets icon to boost color
+			"colorPremiumGradient": "colorPremiumGradient-38tGFG", // gradient to focused and :active:not(:hideInteraction)
+			"colorSuccess": "colorSuccess-1ZVGh2", // if you can find greens...
+			
             "submenuContainer": "submenuContainer-3EVTeH", // change status for easiest
-            "submenuPaddingContainer": "submenuPaddingContainer-_k62dJ",
-            "submenu": "submenu-1apzyU",
+            "submenuPaddingContainer": "submenuPaddingContainer-QgnL1r",
+            "submenu": "submenu-3ycVEH",
+			
+            "hintContainer": "hintContainer-CsCBWg", // this is the remove custom status thing
 
+			"groupLabel": "groupLabel-KyZarI", // no idea where
+			"loader": "loader-2Y0Rb7", // no idea where
+			"sparkles": "sparkles-FICo2i", // no idea where
+
+			// Arrow in different rule, along with "open" 
+            "arrow": "arrow-2HswgU",
+			"arrowOpen": "open-3oj_jh",
+
+			// Sliders in a different rule
+			"sliderContainer": "sliderContainer-2nidiS", // right click another user
+            "slider": "slider-BEB8u7",  // rest of the slider stuff is under app settings
+			
             // Right click a message in a channel you can add reactions to
             "quickReactWrapper": "wrapper--nA0oy",
 			"quickReactionButton": "button-1zW0-r",
@@ -3597,36 +3609,61 @@ $classes: (
 			"profileGroup": "profileGroup-1yKk23", // top when changing status
             "profileBody": "profileBody-3QbfPe",
             "mainStatusIcon": "mainStatusIcon-25wiNY",
-            "hintContainer": "hintContainer-2UwhLP", // this is the remove custom status thing
             "statusItem": "statusItem-38ArJn", // within submenu 
             "statusMask": "mask-2Me5HY",
             "status": "status-2DiCMd", // inline background color
-
-
-			// "colorGreen": "colorGreen-pAT2NS", // IT'S IN THE CSS. NO IDEA WHERE.
 		),
 
         // Best seen in Voice + Video settings, right at the top there's two
         "dropdown": (
-            "wrapper": "wrapper-1b33hy",
-			"select": "select-1Ia3hD",
-            "filled": "lookFilled-1GseHa",
+            "wrapper": "wrapper-mJT04A",
+			"select": "select-Zz0IcO",
+            "filled": "lookFilled-GPyucw",
 
-			"open": "open-1FRZsK",
+			"open": "open-LeyjhI",
             
-            "value": "value-26hJ01",
-            "icons": "icons-2dXYop",
+            "value": "value-2en4z7",
+            "icons": "icons-2ibyma",
 
-			"popout": "popout-1KHNAq",
-            "measurement": "measurement-3UpG9x", // there's a hidden one next to the popout???
-			"option": "option-2eIyOn",
-			"selectedIcon": "selectedIcon-19TbzU",
-			"optionFocused": "focused-ODgjnC", // i can't find this class but it's in a rule
-            "optionMulti": "multi-1HXDiv", // i can't find this class but it's in a rule
+			"popout": "popout-15UxD6",
+            "measurement": "measurement-1XGiA2", // there's a hidden one next to the popout???
+			"option": "option-Uc12mm",
+			"selectedIcon": "selectedIcon-122rMx", // checkmark
+			"focused": "focused-10mbp-", // hover over item
+            "multi": "multi-2vPqc4", // i can't find this class but it's in a rule
             
-            // Can't find these??
-			// "dropdownSelectTop": "selectPositionTop-1Xy1Sp",
-			// "dropdownPopoutTop": "popoutPositionTop-1GenHR",
+			// idk where lmao
+			"searchable": "searchable-YgS2mV",
+			"searchInput": "searchInput-2-KiNf",
+			"editing": "editing-1Eiup2",
+			"label": "label-2Q8KYa",
+			"selectPositionTop": "selectPositionTop-3OGkHL",
+			"disabled": "disabled-1fN2B6",
+			"hidden": "hidden-1JgVPk",
+			"iconsContainer": "iconsContainer-1qihUz",
+			"iconsCenter": "iconsCenter-1knmfX",
+			"placeholder": "placeholder-2k_BvH",
+			"popoutPositionTop": "popoutPositionTop-3Uhefd",
+			"clear": "clear-yCUVq1",
+			"dropdownIcon": "dropdownIcon-2sYF18",
+			"noResults": "noResults-1j32So",
+			"loading": "loading-12eZsx",
+			"loadingSpinner": "loadingSpinner-2wMr_S",
+			"searchableSelect": "searchableSelect-S6iCGx",
+			"prefix": "prefix-27AmRL",
+			"suffix": "suffix-29vHdH",
+			"content": "content-1xEk7l",
+			"optionPillWrapper": "optionPillWrapper-pPH8kE",
+			"optionPillContainer": "optionPillContainer-L79tKn",
+			"optionPillItem": "optionPillItem-3txbiP",
+			"optionPill": "optionPill-3Vud9d",
+			"optionPillBtn": "optionPillBtn-AFsMhb",
+			"deleteOptionIcon": "deleteOptionIcon-163ZJ_",
+			"noScrollbar": "noScrollbar-29KP7N",
+			"multiSelectCheckbox": "multiSelectCheckbox-3fXRzN",
+			"unchecked": "unchecked-2AzrwF",
+			"checked": "checked-3ppkUx",
+			"multiSelectCheck": "multiSelectCheck-6N75Jl",
         ),
 
         // Inbox, Pinned and Threads dropdowns.

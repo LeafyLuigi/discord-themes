@@ -11,11 +11,14 @@
     border: 1px solid $secondary;
 }
 #{c(modals dropdown option)} {
-    &:is(:hover,:focus,#{c(modals dropdown optionFocused)}) {
+    &:is(:hover,:focus,#{c(modals dropdown focused)}) {
         background-color: var(--background-modifier-hover);
     }
-    &[aria-selected="true"] {
+    &:active {
         background-color: var(--background-modifier-active);
+    }
+    &[aria-selected="true"] {
+        background-color: var(--background-modifier-selected);
     }
 }
 #{c(modals dropdown selectedIcon)} {
