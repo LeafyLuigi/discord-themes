@@ -1,48 +1,48 @@
 @use "backend" as *;
 // Threads
 #{c(threads jump)} {
-  background-color: $card;
+	background-color: $card;
 }
 #{c(chat chat)}#{c(chat threadSidebarOpen)} {
-  border-radius: 0;
-  #{c(header toolbar)} {
-    right: 0;
-  }
+	border-radius: 0;
+	#{c(header toolbar)} {
+		right: 0;
+	}
 }
 :is(#{c(main dark)},#{c(main light)}) #{c(threads resizeHandle)} {
-  background: transparent;
-  width: 4px;
-  transition: background-color 0.25s ease-in-out 0.25s; 
-  &:hover,
-  &:active {
-    background: $primary;
-  }
+	background: transparent;
+	width: 4px;
+	transition: background-color 0.25s ease-in-out 0.25s; 
+	&:hover,
+	&:active {
+		background: $primary;
+	}
 }
 #{c(threads container)} {
-  border-radius: 0;
-  background-color: transparent;
+	border-radius: 0;
+	background-color: transparent;
 }
 #{c(threads chat)},
 #{c(threads newChat)} {
-  &::before {
-    content: none;
-  }
+	&::before {
+		content: none;
+	}
 }
 #{c(threads header)},
 #{c(threads newChat)} {
-  background-color: $middle;
+	background-color: $middle;
 }
 #{c(threads iconWrapper)} {
-  background-color: $card;
+	background-color: $card;
 }
 #{c(threads newTextAreaFocused)} {
-  border-color: transparent;
+	border-color: transparent;
 }
 #{c(threads newTextAreaError)} {
-  border-color: $red;
+	border-color: $red;
 }
 #{c(chat cozy)}#{c(threads msgHasThread)}::after,
 #{c(threads msgSpine)} {
-  border-color: $primary;
-  filter: drop-shadow(2px 2px 2px $secondary);
+	border-color: $primary;
+	filter: drop-shadow(2px 2px 2px $secondary);
 }

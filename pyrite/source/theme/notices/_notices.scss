@@ -5,77 +5,77 @@ $nc: var(--notice-count, 0);
 
 // Current goal: Move notice bar to below main header bar wherever it exists.
 #{c(main base)} #{c(notice base)} {
-  ~#{c(main content)} {
-    --notice-count: 1;
-  }
-  +#{c(notice base)} {
-    ~#{c(main content)} {
-      --notice-count: 2;
-    }
-    +#{c(notice base)}~#{c(main content)} {
-      --notice-count: 3;
-    }
-  }
+	~#{c(main content)} {
+		--notice-count: 1;
+	}
+	+#{c(notice base)} {
+		~#{c(main content)} {
+			--notice-count: 2;
+		}
+		+#{c(notice base)}~#{c(main content)} {
+			--notice-count: 3;
+		}
+	}
 }
 
 // notice base
 #{c(notice base)} {
-  border-radius: 0;
-  box-shadow: none;
-  max-height: 36px;
-  padding: 0;
-  // movement and width stuff
-  @debug "broken with hide channel list";
-  // 72px for server list, undo 72px for HSL addon
-  width: calc(100vw - 72px + (72px * var(--horizontal-server-list-enabled,0)));
-  // left: 240px; // move it over
-  top: 48px; // move it below header
+	border-radius: 0;
+	box-shadow: none;
+	max-height: 36px;
+	padding: 0;
+	// movement and width stuff
+	@debug "broken with hide channel list";
+	// 72px for server list, undo 72px for HSL addon
+	width: calc(100vw - 72px + (72px * var(--horizontal-server-list-enabled,0)));
+	// left: 240px; // move it over
+	top: 48px; // move it below header
 }
 
 // It works somehow lol
 #{c(notice base)} ~ #{c(main content)} {
-  // unset overflow for these areas: friends, chat, call, side-thread
-  :is(#{c(friends container)},#{c(chat chat)},#{c(call container)},#{c(threads container)}) {
-    overflow: unset;
-  }
+	// unset overflow for these areas: friends, chat, call, side-thread
+	:is(#{c(friends container)},#{c(chat chat)},#{c(call container)},#{c(threads container)}) {
+		overflow: unset;
+	}
 
-  // move header, sidebar searchbar and psudo-header for: no channel, discovery page, sidebar (again)
-  :is(#{c(header header)},#{c(chat noChannel)}::before,#{c(discover pageWrapper)}::before) {
-    top: calc(-36px * $nc);
-  }
+	// move header, sidebar searchbar and psudo-header for: no channel, discovery page, sidebar (again)
+	:is(#{c(header header)},#{c(chat noChannel)}::before,#{c(discover pageWrapper)}::before) {
+		top: calc(-36px * $nc);
+	}
 
-  // increase height of resize handle for threads
-  #{c(threads resizeHandle)} {
-    top: calc(-36px * $nc);
-    height: 100vh;
-    position: relative;
-  }
-  
+	// increase height of resize handle for threads
+	#{c(threads resizeHandle)} {
+		top: calc(-36px * $nc);
+		height: 100vh;
+		position: relative;
+	}
+	
 }
 
 
 // specific notices
 #{c(notice completeSteps)},
 #{c(notice previewServerNotice)} {
-  height: 36px;
+	height: 36px;
 }
 #{c(notice viewServerAsRole)} {
-  height: 36px;
-  > button {
-    &:first-child {
-      left: 8px;
-    }
-    &:last-child {
-      right: 8px;
-    }
-  }
+	height: 36px;
+	> button {
+		&:first-child {
+			left: 8px;
+		}
+		&:last-child {
+			right: 8px;
+		}
+	}
 }
 #{c(notice colorSuccess)} {
-  background-color: $green;
+	background-color: $green;
 }
 #{c(notice colorWarning)} {
-  background-color: $yellow;
+	background-color: $yellow;
 }
 #{c(notice colorDanger)} {
-  background-color: $red;
+	background-color: $red;
 }

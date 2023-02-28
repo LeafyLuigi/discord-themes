@@ -1,92 +1,92 @@
 @use "backend" as *;
 /* Begin Channel Settings */
 :is(#{c(main dark)},#{c(main light)}) {
-  :is(#{c(channelSettings integrationCard)},#{c(channelSettings webhookCard)},#{c(channelSettings followedChannelCard)}) {
-    border-color: var(--secondary-color);
-  }
+	:is(#{c(channelSettings integrationCard)},#{c(channelSettings webhookCard)},#{c(channelSettings followedChannelCard)}) {
+		border-color: var(--secondary-color);
+	}
 }
 #{c(channelSettings inviteRow)} {
-  #{c(channelSettings inviteDefault)} {
-    transition: 0.25s background-color ease-in-out;
-    background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
-    &:not(:hover) {
-      background-color: transparent;
-    }
-    &:hover {
-      background-color: $red;
-    }
-  }
+	#{c(channelSettings inviteDefault)} {
+		transition: 0.25s background-color ease-in-out;
+		background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
+		&:not(:hover) {
+			background-color: transparent;
+		}
+		&:hover {
+			background-color: $red;
+		}
+	}
 }
 #{c(channelSettings revokeInvite)} {
-  opacity: 1;
-  top: 8px;
-  right: 0;
-  z-index: 1;
+	opacity: 1;
+	top: 8px;
+	right: 0;
+	z-index: 1;
 }
 #{c(channelSettings inviteRow)}::before {
-  content: none;
+	content: none;
 }
 #{c(channelSettings channelName)} {
-  &#{c(channelSettings channelNameFocused)},
-  &:focus {
-    border-color: $primary;
-  }
+	&#{c(channelSettings channelNameFocused)},
+	&:focus {
+		border-color: $primary;
+	}
 }
 #{c(channelSettings cardContent)},
 #{c(channelSettings folderHeader)} {
-  padding: 16px 6px;
+	padding: 16px 6px;
 }
 #{c(channelSettings folderRoleMemberList)} {
-  padding: 0 6px 16px 6px !important; // !important reason: element.style (padding right)
+	padding: 0 6px 16px 6px !important; // !important reason: element.style (padding right)
 }
 
 #{c(channelSettings permGroup)} {
-  border: none;
+	border: none;
 }
 #{c(channelSettings permItem)} {
-  background-color: $card;
-  border-radius: 50%;
-  width: 28px;
-  > svg {
-    display: none;
-  }
+	background-color: $card;
+	border-radius: 50%;
+	width: 28px;
+	> svg {
+		display: none;
+	}
 }
 #{c(channelSettings permDeny)} {
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  background-color: $red;
-  &#{c(channelSettings permSelected)} {
-    background-color: currentColor;
-    border: 8px solid $red;
-  }
-  &:hover:not(#{c(channelSettings permSelected)}) {
-    background-color: $red;
-    cursor: pointer;
-  }
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+	background-color: $red;
+	&#{c(channelSettings permSelected)} {
+		background-color: currentColor;
+		border: 8px solid $red;
+	}
+	&:hover:not(#{c(channelSettings permSelected)}) {
+		background-color: $red;
+		cursor: pointer;
+	}
 }
 #{c(channelSettings permNoop)} {
-  background-color: $offline;
-  &#{c(channelSettings permSelected)} {
-    background-color: currentColor;
-    border: 8px solid $offline;
-  }
-  &:hover:not(#{c(channelSettings permSelected)}) {
-    background-color: $offline;
-    cursor: pointer;
-  }
+	background-color: $offline;
+	&#{c(channelSettings permSelected)} {
+		background-color: currentColor;
+		border: 8px solid $offline;
+	}
+	&:hover:not(#{c(channelSettings permSelected)}) {
+		background-color: $offline;
+		cursor: pointer;
+	}
 }
 #{c(channelSettings permAllow)} {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: $green;
-  &#{c(channelSettings permSelected)} {
-    background-color: currentColor;
-    border: 8px solid $green;
-  }
-  &:hover:not(#{c(channelSettings permSelected)}) {
-    background-color: $green;
-    cursor: pointer;
-  }
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background-color: $green;
+	&#{c(channelSettings permSelected)} {
+		background-color: currentColor;
+		border: 8px solid $green;
+	}
+	&:hover:not(#{c(channelSettings permSelected)}) {
+		background-color: $green;
+		cursor: pointer;
+	}
 }
 #{c(channelSettings roleScroller)},
 #{c(channelSettings settingsCard)},
@@ -95,5 +95,5 @@
 #{c(channelSettings integrationIconWrapper)},
 #{c(channelSettings webhookAvatarUploader)},
 #{c(channelSettings followedChannelAvatar)} {
-  background-color: transparent;
+	background-color: transparent;
 }

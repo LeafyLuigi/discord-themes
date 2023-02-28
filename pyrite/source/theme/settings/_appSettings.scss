@@ -1,143 +1,143 @@
 @use "backend" as *;
 /* Start App Settings */
 :is(#{c(main dark)},#{c(main light)}) {
-  #{c(appSettings sliderBar)} {
-    background-color: $card;
-  }
-  #{c(appSettings keybindButton)} #{c(appSettings keybindKey)} {
-    color: var(--header-primary);
-    font-weight: 600;
-    background-color: $primary;
-    border: 1px solid $secondary;
-    box-shadow: inset 0 -4px 0 $secondary;
-    &:active {
-      color: var(--header-secondary);
-      border: 1px solid $secondary;
-      box-shadow: inset 0 -2px 0 $secondary;
-    }
-  }
-  #{c(appSettings voiceNotches)} {
-    background-image: none;
-  }
-  #{c(appSettings gameNotDetected)} {
-    @include card-light;
-  }
-  #{c(appSettings gameNowPlaying)} {
-    @include card-dark;
-    #{c(appSettings gameName)} {
-      color: var(--text-normal);
-    }
-    :is(#{c(appSettings gameLastPlayed)},#{c(appSettings gameOverlayStatusText)}) {
-      color: var(--text-muted);
-    }
-    :is(#{c(appSettings gameOverlayToggleIconOn)},#{c(appSettings gameOverlayToggleIconOff)}) #{c(appSettings gameOverlayToggleIconFill)} {
-      fill: $primary;
-    }
-    #{c(appSettings gameNameInput)} {
-      &:is(:focus,:hover) {
-        border-color: $primary;
-        background-color: transparent;
-      }
-    }
-  }
-  #{c(appSettings gameNameInput)} {
-    &:is(:focus,:hover) {
-      border-color: $primary;
-      background-color: transparent;
-    }
-  }
-  #{c(appSettings gameRemove)} {
-    background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
-    &:not(:hover) {
-      background-color: transparent;
-    }
-    &:hover {
-      background-color: $red;
-    }
-  }
-  #{c(appSettings appearencePreview)} {
-    background: transparent;
-    border-color: $primary;
-  }
+	#{c(appSettings sliderBar)} {
+		background-color: $card;
+	}
+	#{c(appSettings keybindButton)} #{c(appSettings keybindKey)} {
+		color: var(--header-primary);
+		font-weight: 600;
+		background-color: $primary;
+		border: 1px solid $secondary;
+		box-shadow: inset 0 -4px 0 $secondary;
+		&:active {
+			color: var(--header-secondary);
+			border: 1px solid $secondary;
+			box-shadow: inset 0 -2px 0 $secondary;
+		}
+	}
+	#{c(appSettings voiceNotches)} {
+		background-image: none;
+	}
+	#{c(appSettings gameNotDetected)} {
+		@include card-light;
+	}
+	#{c(appSettings gameNowPlaying)} {
+		@include card-dark;
+		#{c(appSettings gameName)} {
+			color: var(--text-normal);
+		}
+		:is(#{c(appSettings gameLastPlayed)},#{c(appSettings gameOverlayStatusText)}) {
+			color: var(--text-muted);
+		}
+		:is(#{c(appSettings gameOverlayToggleIconOn)},#{c(appSettings gameOverlayToggleIconOff)}) #{c(appSettings gameOverlayToggleIconFill)} {
+			fill: $primary;
+		}
+		#{c(appSettings gameNameInput)} {
+			&:is(:focus,:hover) {
+				border-color: $primary;
+				background-color: transparent;
+			}
+		}
+	}
+	#{c(appSettings gameNameInput)} {
+		&:is(:focus,:hover) {
+			border-color: $primary;
+			background-color: transparent;
+		}
+	}
+	#{c(appSettings gameRemove)} {
+		background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
+		&:not(:hover) {
+			background-color: transparent;
+		}
+		&:hover {
+			background-color: $red;
+		}
+	}
+	#{c(appSettings appearencePreview)} {
+		background: transparent;
+		border-color: $primary;
+	}
 }
 #{c(appSettings sliderBarFill)} {
-  background-color: $primary;
+	background-color: $primary;
 }
 
 #{c(appSettings previewMessage)} {
-  padding: 0;
-  background-color: transparent;
+	padding: 0;
+	background-color: transparent;
 }
 #{c(appSettings voicePreviewContainer)} {
-  @include card;
-  #{c(main mediaEngineVideo)} {
-    background: transparent;
-  }
+	@include card;
+	#{c(main mediaEngineVideo)} {
+		background: transparent;
+	}
 }
 #{c(appSettings voiceBackgroundOptionRing)} {
-  border-color: $primary;
+	border-color: $primary;
 }
 #{c(appSettings voiceBackgroundOptionInner)} {
-  background-color: $card;
+	background-color: $card;
 }
 
 #{c(appSettings overlayWrapper)} {
-  border-color: $primary;
-  #{c(appSettings overlayOption)} {
-    &:is(:hover,#{c(appSettings overlaySelected)}) {
-      background-color: $primary;
-    }
-  }
-  &#{c(appSettings overlayDisabledSelected)} {
-    border-color: $red;
-  }
+	border-color: $primary;
+	#{c(appSettings overlayOption)} {
+		&:is(:hover,#{c(appSettings overlaySelected)}) {
+			background-color: $primary;
+		}
+	}
+	&#{c(appSettings overlayDisabledSelected)} {
+		border-color: $red;
+	}
 }
 #{c(appSettings overlayDisabled)} {
-  &:is(:hover,#{c(appSettings overlaySelected)}) {
-    color: $red;
-  }
+	&:is(:hover,#{c(appSettings overlaySelected)}) {
+		color: $red;
+	}
 }
 
 #{c(appSettings soundRow)} {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 #{c(appSettings soundRow)} #{c(appSettings soundRowDividerDefault)} {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
 #{c(appSettings keybindCard)} {
-  padding: 10px 0;
-  &:before {
-    content: none;
-  }
-  #{c(appSettings keybindRemove)} {
-    opacity: 1;
-    top: 8px;
-    right: 0;
-    z-index: 1;
-  }
-  #{c(appSettings keybindRemoveFilled)} {
-    transition: 0.25s background-color ease-in-out;
-    &:not(:hover) {
-      background-color: transparent;
-    }
-  }
+	padding: 10px 0;
+	&:before {
+		content: none;
+	}
+	#{c(appSettings keybindRemove)} {
+		opacity: 1;
+		top: 8px;
+		right: 0;
+		z-index: 1;
+	}
+	#{c(appSettings keybindRemoveFilled)} {
+		transition: 0.25s background-color ease-in-out;
+		&:not(:hover) {
+			background-color: transparent;
+		}
+	}
 }
 #{c(appSettings keybindDefault)} {
-  height: unset;
-  padding: 9px 0;
+	height: unset;
+	padding: 9px 0;
 }
 
 #{c(appSettings gameFlowerStar)} > path {
-  fill: $secondary;
+	fill: $secondary;
 }
 #{c(appSettings game)} {
-  #{c(appSettings gameLastPlayed)} + div {
-    position: relative;
-    right: 32px;
-  }
-  #{c(appSettings gameRemove)} {
-    opacity: 1;
-    top: 15px;
-  }
+	#{c(appSettings gameLastPlayed)} + div {
+		position: relative;
+		right: 32px;
+	}
+	#{c(appSettings gameRemove)} {
+		opacity: 1;
+		top: 15px;
+	}
 }

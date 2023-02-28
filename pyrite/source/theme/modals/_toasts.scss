@@ -1,14 +1,14 @@
 @use "backend" as *;
 // each toast has its own id; it's not used by css
 #{c(modals toasts toast)} {
-    background: $header;
-    backdrop-filter: blur(2px);
+	background: $header;
+	backdrop-filter: blur(2px);
 }
 #{c(modals toasts icon)} path {
-    &[fill="#3BA55C"] {
-        fill: $green;
-    }
-    &[fill="#ED4245"] {
-        fill: $red;
-    }
+	&[fill="#3BA55C"] {
+		fill: $green;
+	}
+	&[fill="#ED4245"] {
+		fill: $red;
+	}
 }

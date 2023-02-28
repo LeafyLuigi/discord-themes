@@ -1,94 +1,94 @@
 @use "backend" as *;
 /* Start Discovery Page */
 :is(#{c(main dark)},#{c(main light)}) {
-  #{c(discover pageWrapper)} {
-    background-color: transparent;
-    @include bg($z:1001,$bg:$header,$h:48px,$top:calc(-36px * $nc));
-  }
-  :is(#{c(discover card)},#{c(discover cardIconMask)},#{c(discover card)}:hover,#{c(discover card)}:hover #{c(discover cardIconMask)},#{c(discover cardIconMask)}:hover) {
-    background-color: $card;
-  }
+	#{c(discover pageWrapper)} {
+		background-color: transparent;
+		@include bg($z:1001,$bg:$header,$h:48px,$top:calc(-36px * $nc));
+	}
+	:is(#{c(discover card)},#{c(discover cardIconMask)},#{c(discover card)}:hover,#{c(discover card)}:hover #{c(discover cardIconMask)},#{c(discover cardIconMask)}:hover) {
+		background-color: $card;
+	}
 }
 
 #{c(discover scroller)} {
-  margin-top: 48px;
-  background-color: $middle;
-  height: calc(100% - 48px);
+	margin-top: 48px;
+	background-color: $middle;
+	height: calc(100% - 48px);
 }
 
 #{c(discover header)} {
-  margin-top: calc(60px + (36px * $nc));
-  text-align: center;
-  z-index: 1001;
-  @include header;
+	margin-top: calc(60px + (36px * $nc));
+	text-align: center;
+	z-index: 1001;
+	@include header;
 }
 #{c(discover categoryItem)} {
-  &#{c(discover categoryItemSelected)} #{c(discover categoryItemInner)} {
-    background-color: $primary;
-  }
+	&#{c(discover categoryItemSelected)} #{c(discover categoryItemInner)} {
+		background-color: $primary;
+	}
 }
 #{c(discover searchHeaderImage)} {
-  max-height: 0;
+	max-height: 0;
 }
 #{c(discover spinner)},
 #{c(discover searchSpinner)} {
-  background-color: $card;
+	background-color: $card;
 }
 #{c(discover card)} {
-  border: 2px solid $primary;
-  // issues with the button's background solved by this
-  #{c(chat button)} {
-    z-index: 1;
-  }
+	border: 2px solid $primary;
+	// issues with the button's background solved by this
+	#{c(chat button)} {
+		z-index: 1;
+	}
 }
 
 #{c(discover cardLoading)} {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 #{c(discover viewWrapper)} {
-  #{c(discover search)} #{c(discover searchBox)} {
-    background-color: $card;
-    box-shadow: none;
-    &:focus,
-    &:focus-within {
-      border-color: $primary;
-      box-shadow: 0 0 3px 3px $primary;
-    }
-    #{c(discover searchBoxInput)},
-    #{c(discover searchCloseIcon)},
-    #{c(discover searchCloseIcon)}:hover,
-    #{c(discover searchSearchIcon)} {
-      color: var(--text-normal);
-    }
-  }
+	#{c(discover search)} #{c(discover searchBox)} {
+		background-color: $card;
+		box-shadow: none;
+		&:focus,
+		&:focus-within {
+			border-color: $primary;
+			box-shadow: 0 0 3px 3px $primary;
+		}
+		#{c(discover searchBoxInput)},
+		#{c(discover searchCloseIcon)},
+		#{c(discover searchCloseIcon)}:hover,
+		#{c(discover searchSearchIcon)} {
+			color: var(--text-normal);
+		}
+	}
 }
 
 #{c(discover searchEmptyContainer)} {
-  padding: 0;
-  background-color: transparent;
-  #{c(discover searchEmptyImage)} {
-    display: none;
-  }
+	padding: 0;
+	background-color: transparent;
+	#{c(discover searchEmptyImage)} {
+		display: none;
+	}
 }
 
 #{c(discover searchCategoryPill)}#{c(discover searchCategorySelected)} {
-  background-color: $primary;
+	background-color: $primary;
 }
 #{c(discover studentScroller)} {
-  background-color: $middle;
+	background-color: $middle;
 }
 #{c(discover searchPlaceholder)},
 #{c(discover studentCard)} {
-  background-color: $card;
+	background-color: $card;
 }
 #{c(discover studentIconContainer)},
 #{c(discover dotOnline)} {
-  background-color: $green;
+	background-color: $green;
 }
 #{c(discover dotOffline)} {
-  background-color: $offline;
+	background-color: $offline;
 }
 #{c(discover footerImage)} {
-  display: none;
+	display: none;
 }

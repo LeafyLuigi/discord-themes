@@ -1,26 +1,26 @@
 @use "backend" as *;
 #{c(modals dropdown filled)}#{c(modals dropdown select)} {
-    @include card;
-    &#{c(modals dropdown open)} {
-        border-bottom-width: 0;
-    }
+	@include card;
+	&#{c(modals dropdown open)} {
+		border-bottom-width: 0;
+	}
 }
 #{c(modals dropdown popout)} {
-    background-color: $card;
-    backdrop-filter: blur(5px);
-    border: 1px solid $secondary;
+	background-color: $card;
+	backdrop-filter: blur(5px);
+	border: 1px solid $secondary;
 }
 #{c(modals dropdown option)} {
-    &:is(:hover,:focus,#{c(modals dropdown focused)}) {
-        background-color: var(--background-modifier-hover);
-    }
-    &:active {
-        background-color: var(--background-modifier-active);
-    }
-    &[aria-selected="true"] {
-        background-color: var(--background-modifier-selected);
-    }
+	&:is(:hover,:focus,#{c(modals dropdown focused)}) {
+		background-color: var(--background-modifier-hover);
+	}
+	&:active {
+		background-color: var(--background-modifier-active);
+	}
+	&[aria-selected="true"] {
+		background-color: var(--background-modifier-selected);
+	}
 }
 #{c(modals dropdown selectedIcon)} {
-    color: $primary;
+	color: $primary;
 }

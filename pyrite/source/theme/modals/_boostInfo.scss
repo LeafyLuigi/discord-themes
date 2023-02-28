@@ -1,8 +1,8 @@
 @use "backend" as *;
 #{c(modals boostInfo image)} {
-    display: none;
+	display: none;
 }
 #{c(modals boostInfo perks)} {
-    background: transparent;
-    border: 1px solid var(--guild-boosting-pink);
+	background: transparent;
+	border: 1px solid var(--guild-boosting-pink);
 }

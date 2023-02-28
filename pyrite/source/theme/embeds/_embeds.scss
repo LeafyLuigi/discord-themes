@@ -1,133 +1,133 @@
 @use "backend" as *;
 /* Start Embeds */
 :is(#{c(main dark)},#{c(main light)}) {
-  #{c(embeds gift)} {
-    @include card;
-    &:hover {
-      background-color: var(--card-background);
-    }
-    #{c(embeds giftInvalidPoop)} {
-      background-color: transparent;
-    }
-  }
-  #{c(media audioWrapper)} {
-    @include card;
-    width: 100% !important; // !important reason: element.style
-  }
-  #{c(embeds inviteResolvingBackground)} {
-    background-image: linear-gradient(90deg,$primary,$secondary,$primary);
-  }
-  #{c(embeds gameInvite)} {
-    @include card;
-    height: 250px;
-    max-width: 250px;
-    padding: 10px;
-  }
+	#{c(embeds gift)} {
+		@include card;
+		&:hover {
+			background-color: var(--card-background);
+		}
+		#{c(embeds giftInvalidPoop)} {
+			background-color: transparent;
+		}
+	}
+	#{c(media audioWrapper)} {
+		@include card;
+		width: 100% !important; // !important reason: element.style
+	}
+	#{c(embeds inviteResolvingBackground)} {
+		background-image: linear-gradient(90deg,$primary,$secondary,$primary);
+	}
+	#{c(embeds gameInvite)} {
+		@include card;
+		height: 250px;
+		max-width: 250px;
+		padding: 10px;
+	}
 }
 #{c(embeds codeblock)},
 #{c(embeds invite)},
 #{c(embeds attachment)} {
-  @include card;
+	@include card;
 }
 
 #{c(embeds uploadProgressBar)} {
-  background-color: $primary !important; // !important reason: element.style
+	background-color: $primary !important; // !important reason: element.style
 }
 
 #{c(embeds invite)} {
-  :is(#{c(embeds inviteServerIcon)},#{c(embeds inviteServerIconExpired)}) {
-    background-color: transparent;
-  }
+	:is(#{c(embeds inviteServerIcon)},#{c(embeds inviteServerIconExpired)}) {
+		background-color: transparent;
+	}
 }
 #{c(embeds inviteDestinationExpired)} {
-  color: $red;
+	color: $red;
 }
 
 #{c(embeds embedFull)} {
-  background-color: $card;
-  border-left-color: $primary;
-  #{c(embeds embedSuppressButton)} {
-    top: 0;
-    right: 0;
-    color: $primary;
-    &:hover {
-      color: $hover;
-      filter: drop-shadow(0 0 2px currentColor);
-    }
-  }
+	background-color: $card;
+	border-left-color: $primary;
+	#{c(embeds embedSuppressButton)} {
+		top: 0;
+		right: 0;
+		color: $primary;
+		&:hover {
+			color: $hover;
+			filter: drop-shadow(0 0 2px currentColor);
+		}
+	}
 }
 
 #{c(media barGrabber)},
 #{c(media barProgress)} {
-  background-color: $primary;
+	background-color: $primary;
 }
 
 #{c(media barBuffer)} {
-  opacity: 0.5;
+	opacity: 0.5;
 }
 
 :is(#{c(media barBuffer)},#{c(media barWrapper)},#{c(media barPreview)},#{c(media barProgress)}) {
-  &:before,
-  &:after {
-    content: none;
-  }
+	&:before,
+	&:after {
+		content: none;
+	}
 }
 
 #{c(media barInteractionDragging)},
 #{c(media barInteraction)}:hover {
-  #{c(media barGrabber)} {
-    background-color: $secondary;
-  }
+	#{c(media barGrabber)} {
+		background-color: $secondary;
+	}
 }
 
 #{c(hljs hljs)} {
-  background: transparent;
-  transform: rotate(0deg); // this is for codelangs :)
+	background: transparent;
+	transform: rotate(0deg); // this is for codelangs :)
 }
 
 #{c(embeds textContainerUp)},
 #{c(embeds threadContainer)} {
-  @include card;
+	@include card;
 }
 #{c(embeds textContainer)},
 #{c(embeds textFooter)} {
-  background-color: transparent;
-  border: none;
+	background-color: transparent;
+	border: none;
 }
 
 #{c(embeds gameInvite)} {
-  #{c(embeds gameCoverImageWrapper)} {
-    max-width: unset;
-    &~ #{c(embeds gameFullHeight)} {
-      #{c(embeds gameArtwork)} {
-        display: none;
-      }
-      #{c(embeds gameState)} {
-        display: flex;
-        font-size: 0;
-        > span {
-          font-size: 16px;
-        }
-      }
-    }
-  }
-  #{c(embeds gameCoverImage)} {
-    -webkit-mask: none;
-    mask: none;
-    &#{c(embeds gameCoverImageActionable)} {
-      &#{c(embeds gameCoverImageBlured)} {
-        filter: none;
-      }
-    }
-    &#{c(embeds gameCoverImageNotActionable)} {
-      filter: none;
-    }
-  }
-  #{c(embeds gameHeader)} {
-    @include header;
-  }
+	#{c(embeds gameCoverImageWrapper)} {
+		max-width: unset;
+		&~ #{c(embeds gameFullHeight)} {
+			#{c(embeds gameArtwork)} {
+				display: none;
+			}
+			#{c(embeds gameState)} {
+				display: flex;
+				font-size: 0;
+				> span {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	#{c(embeds gameCoverImage)} {
+		-webkit-mask: none;
+		mask: none;
+		&#{c(embeds gameCoverImageActionable)} {
+			&#{c(embeds gameCoverImageBlured)} {
+				filter: none;
+			}
+		}
+		&#{c(embeds gameCoverImageNotActionable)} {
+			filter: none;
+		}
+	}
+	#{c(embeds gameHeader)} {
+		@include header;
+	}
 }
 
 #{c(media audioControls)} {
-  min-width: 400px;
+	min-width: 400px;
 }

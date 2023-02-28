@@ -4,38 +4,38 @@
 /* If you wish to translate strings from this file into another language, copy below as a base and send a message in the support server. */
 /* In doing so you'll be given a translator tag and a role on said support server. */
 html {
-    // By default this is entirely used for the en-GB and en-US langs. fallback below for en-US
-    --theme-name: "Pyrite";
-    --theme-name-beta: "Pyrite Beta Branch";
-    --tag-dev: "Theme Dev";
-    --tag-translator: "Theme Translator";
-    --tag-helper: "Theme Helper";
-    
-    --settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
-    --theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
+	// By default this is entirely used for the en-GB and en-US langs. fallback below for en-US
+	--theme-name: "Pyrite";
+	--theme-name-beta: "Pyrite Beta Branch";
+	--tag-dev: "Theme Dev";
+	--tag-translator: "Theme Translator";
+	--tag-helper: "Theme Helper";
+	
+	--settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
+	--theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
 
-    // Jump to message
-    --jump-to-message: "Jump to message";
+	// Jump to message
+	--jump-to-message: "Jump to message";
 
-    // Used within codelangs file for Codeblocks sans formatting or language
-    --code-plain-text: "Plain Text";
+	// Used within codelangs file for Codeblocks sans formatting or language
+	--code-plain-text: "Plain Text";
 
-    // Within error file
-    // Error page partial jokes - Not every joke will be listed and instead this is only the button for the time being.
-    --error-reload: "please click this";
-    --error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
+	// Within error file
+	// Error page partial jokes - Not every joke will be listed and instead this is only the button for the time being.
+	--error-reload: "please click this";
+	--error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
 
-    // Within Modals/Activities file
-    --modal-activities-non-nitro: "Below will not work without Nitro.";
+	// Within Modals/Activities file
+	--modal-activities-non-nitro: "Below will not work without Nitro.";
 
-    // Currently within Experiments file
-    // Client themes are intentionally broken by the theme.
-    --client-preset-disabled: var(--theme-name) " intentionally breaks these presets.";
-    --client-preset-disabled2: "If you wish to edit the way your theme looks, you can edit your theme file. If you need help in doing so, please join the support server.";
+	// Currently within Experiments file
+	// Client themes are intentionally broken by the theme.
+	--client-preset-disabled: var(--theme-name) " intentionally breaks these presets.";
+	--client-preset-disabled2: "If you wish to edit the way your theme looks, you can edit your theme file. If you need help in doing so, please join the support server.";
 
-    // Below within this rule aren't to be copied but are always applied globally. Both British English and French are used as beta branches.
-    --beta-en-GB: "Pyrite Beta Branch";
-    --beta-fr: "Branche Bêta de Pyrite";
+	// Below within this rule aren't to be copied but are always applied globally. Both British English and French are used as beta branches.
+	--beta-en-GB: "Pyrite Beta Branch";
+	--beta-fr: "Branche Bêta de Pyrite";
 }
 // Just in case of stupid American spellings
 // [lang="en-US"] {
@@ -43,9 +43,9 @@ html {
 // }
 // Partially translated by Leafy
 [lang="fr"] {
-    --theme-name: "Pyrite";
-    --theme-name-beta: "Branche Bêta de Pyrite";
-    --jump-to-message: "Aller au message";
+	--theme-name: "Pyrite";
+	--theme-name-beta: "Branche Bêta de Pyrite";
+	--jump-to-message: "Aller au message";
 }
 
 // Current Untranslated Discord Languages (2022-09-02) - Uncomment whatever one you'd like to edit and go for it.
@@ -80,31 +80,31 @@ html {
 // Below are things that use the translations above.
 /* User Tags */
 $dev: (
-    "309976820109803520", // Leafy
+	"309976820109803520", // Leafy
 );
 $helper: (
-    "126652966265421824", // Scars
-    "393900343135830016", // Nyx
+	"126652966265421824", // Scars
+	"393900343135830016", // Nyx
 );
 $translator: (
 
 );
 #{c(chat chatAvatar)} {
-    @each $userID in $dev {
-        &[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
-            --local-tag: var(--tag-dev);
-        }
-    }
-    @each $userID in $helper {
-        &[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
-            --local-tag: var(--tag-helper);
-        }
-    }
-    @each $userID in $translator {
-        &[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
-            --local-tag: var(--tag-translator);
-        }
-    }
+	@each $userID in $dev {
+		&[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
+			--local-tag: var(--tag-dev);
+		}
+	}
+	@each $userID in $helper {
+		&[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
+			--local-tag: var(--tag-helper);
+		}
+	}
+	@each $userID in $translator {
+		&[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
+			--local-tag: var(--tag-translator);
+		}
+	}
 }
 
 /* Tags */
@@ -119,57 +119,57 @@ $translator: (
 
 /* Version */
 #{c(userSettings sidebarInfo)} {
-    &::after {
-        content: $theme-name str-insert($version, " - ", 0);
-        font-style: italic;
-        color: var(--text-muted);
-        font-size: 12px;
-        line-height: 16px;
-    }
+	&::after {
+		content: $theme-name str-insert($version, " - ", 0);
+		font-style: italic;
+		color: var(--text-muted);
+		font-size: 12px;
+		line-height: 16px;
+	}
 }
 
 /* Beta Version (only for French and British English) */
 html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
-    &::after {
-        content: var(--theme-name-beta) str-insert($version, " - ", 0);
-    }
+	&::after {
+		content: var(--theme-name-beta) str-insert($version, " - ", 0);
+	}
 }
 
 /* Language Tab Beta Labels (only for French and British English) */
 #language-tab #{c(userSettings radioBarInfo)} > div:after {
-    font-size: 14px;
-    color: $primary;
-    font-style: italic;
+	font-size: 14px;
+	color: $primary;
+	font-style: italic;
 }
 #language-tab div[role="radiogroup"] #{c(userSettings radioGroupItem)} {
-    &:nth-child(3) #{c(userSettings radioBarInfo)} > div:after {
-        content: var(--beta-en-GB);
-    }
-    &:nth-child(6) #{c(userSettings radioBarInfo)} > div:after {
-        content: var(--beta-fr);
-    }
+	&:nth-child(3) #{c(userSettings radioBarInfo)} > div:after {
+		content: var(--beta-en-GB);
+	}
+	&:nth-child(6) #{c(userSettings radioBarInfo)} > div:after {
+		content: var(--beta-fr);
+	}
 }
 
 /* Goto Message Links */
 #{c(main anchorLink)} {
-    &:is([href^="https://canary.discord.com/channels/"],[href^="https://ptb.discord.com/channels/"],[href^="https://discord.com/channels/"]) {
-        font-size: 0;
-        &:hover {
-            text-decoration: none;
-        }
-        &:hover:before {
-            background-color: $primary;
-            color: var(--interactive-normal);
-        }
-        &:before {
-            content: var(--jump-to-message);
-            font-size: 1rem;
-            padding: 0 3px;
-            border-radius: 3px;
-            color: $primary;
-            text-decoration-color: currentColor;
-        }
-    }
+	&:is([href^="https://canary.discord.com/channels/"],[href^="https://ptb.discord.com/channels/"],[href^="https://discord.com/channels/"]) {
+		font-size: 0;
+		&:hover {
+			text-decoration: none;
+		}
+		&:hover:before {
+			background-color: $primary;
+			color: var(--interactive-normal);
+		}
+		&:before {
+			content: var(--jump-to-message);
+			font-size: 1rem;
+			padding: 0 3px;
+			border-radius: 3px;
+			color: $primary;
+			text-decoration-color: currentColor;
+		}
+	}
 }
 
 /* Redownload pls bar */

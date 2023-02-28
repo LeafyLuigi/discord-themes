@@ -7,128 +7,128 @@
 #{c(sidebar panelContainer)},
 #{c(sidebar panelVoiceContainer)},
 #{c(sidebar panelActivityContainer)}) {
-  background: transparent;
+	background: transparent;
 }
 
 // Base
 #{c(sidebar sidebar)} {
-  // for hide channel list
-  overflow-x: hidden;
-  // notice stuff
-  top: calc($nc * -36px);
-  position: relative;
-  height: calc(100vh - (var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px)) - var(--channel-tabs-enabled,0) * ((var(--channel-tabBar-enabled,1) * (var(--channelTabs-tabHeight,32px) + 3px)) + (var(--channel-tabs-favBar-enabled,1) * (var(--channelTabs-favHeight,28px) + 5px))));
-  // missing 71px of channel tab plugin
-  
-  // end notice stuff
-  background-color: transparent;
-  @include bg($bg:$side,$top:48px,$w:240px);
-  @include bg2($bg:$header,$h:48px,$w:240px,$z:1001);
+	// for hide channel list
+	overflow-x: hidden;
+	// notice stuff
+	top: calc($nc * -36px);
+	position: relative;
+	height: calc(100vh - (var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px)) - var(--channel-tabs-enabled,0) * ((var(--channel-tabBar-enabled,1) * (var(--channelTabs-tabHeight,32px) + 3px)) + (var(--channel-tabs-favBar-enabled,1) * (var(--channelTabs-favHeight,28px) + 5px))));
+	// missing 71px of channel tab plugin
+	
+	// end notice stuff
+	background-color: transparent;
+	@include bg($bg:$side,$top:48px,$w:240px);
+	@include bg2($bg:$header,$h:48px,$w:240px,$z:1001);
 }
 #{c(os mac platform)} {
-  #{c(sidebar sidebar)}::after {
-    -webkit-app-region: drag;
-  }
+	#{c(sidebar sidebar)}::after {
+		-webkit-app-region: drag;
+	}
 }
 // Area - Friends List
 #{c(sidebar privateChannels)} {
-  background: transparent;
-  #{c(sidebar searchBar)} {
-    z-index: 1010;
-    box-shadow: none;
-  }
-  #{c(sidebar scroller)} {
-    margin-top: calc(36px * $nc);
-    background: transparent;
-    width: 240px;
-    #{c(sidebar privateChannelLink)}[href="/store"],
-    #{c(sidebar privateChannelLink)}[href="/library"],
-    #{c(sidebar privateChannelBadgeIcon)} {
-      display: none;
-    }
-    #{c(sidebar privateChannel)} {
-      padding: 0;
-    }
-    #{c(sidebar privateChannelLink)} {
-      padding: 1px 0;
-    }
-  }
-  #{c(sidebar privateChannelRecipientsInviteButtonIcon)} {
-    color: var(--interactive-normal);
-    order: -1;
-    &:hover {
-      color: var(--interactive-hover);
-      filter: drop-shadow(0 0 2px var(--interactive-normal));
-    }
-  }
+	background: transparent;
+	#{c(sidebar searchBar)} {
+		z-index: 1010;
+		box-shadow: none;
+	}
+	#{c(sidebar scroller)} {
+		margin-top: calc(36px * $nc);
+		background: transparent;
+		width: 240px;
+		#{c(sidebar privateChannelLink)}[href="/store"],
+		#{c(sidebar privateChannelLink)}[href="/library"],
+		#{c(sidebar privateChannelBadgeIcon)} {
+			display: none;
+		}
+		#{c(sidebar privateChannel)} {
+			padding: 0;
+		}
+		#{c(sidebar privateChannelLink)} {
+			padding: 1px 0;
+		}
+	}
+	#{c(sidebar privateChannelRecipientsInviteButtonIcon)} {
+		color: var(--interactive-normal);
+		order: -1;
+		&:hover {
+			color: var(--interactive-hover);
+			filter: drop-shadow(0 0 2px var(--interactive-normal));
+		}
+	}
 }
 #{c(sidebar searchBar)} {
-  #{c(sidebar searchBarComponent)} {
-    -webkit-app-region: no-drag;
-    background: $card;
-  }
+	#{c(sidebar searchBarComponent)} {
+		-webkit-app-region: no-drag;
+		background: $card;
+	}
 }
 #{c(sidebar privateChannelLoadingEmpty)} {
-  fill: $primary;
+	fill: $primary;
 }
 
 #{c(sidebar privateChannelsHeader)} {
-  color: var(--category-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  &::before {
-    content: "";
-    height: 2px;
-    flex-grow: 1;
-    margin-right: 5px;
-    background: linear-gradient(to left, currentColor -50%, transparent 50%);
-  }
+	color: var(--category-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	&::before {
+		content: "";
+		height: 2px;
+		flex-grow: 1;
+		margin-right: 5px;
+		background: linear-gradient(to left, currentColor -50%, transparent 50%);
+	}
 }
 // Area - Channels
 #{c(sidebar channelsContainer)} {
-  #{c(scroller content)} {
-    >div[style="height: 84px;"]{
-      height: 132px !important; // !important reason: element.style
-    }
-  }
-  #{c(sidebar channelsHeaderContainer)} {
-    box-shadow: none;
-    #{c(sidebar serverName)} {
-      @include header;
-      display: flex;
-      justify-content: center;
-    }
-    #{c(sidebar channelsHeader)} {
-      z-index: 1010;
-      box-shadow: none;
-    }
-  }
-  #{c(sidebar animatedContainer)} {
-    background-color: transparent;
-    top: calc(48px + (36px * $nc));
-    z-index: 2;
-    &[style*="(-90px)"] {
-      z-index: -3000;
-    }
-    #{c(sidebar bannerImage)} {
-      &:before {
-        content: none;
-      }
-    }
-  }
-  #{c(sidebar channelsScroller)} {
-    margin-top: calc(36px * $nc);
-    background-color: transparent;
-    width: 240px;
-  }
+	#{c(scroller content)} {
+		>div[style="height: 84px;"]{
+			height: 132px !important; // !important reason: element.style
+		}
+	}
+	#{c(sidebar channelsHeaderContainer)} {
+		box-shadow: none;
+		#{c(sidebar serverName)} {
+			@include header;
+			display: flex;
+			justify-content: center;
+		}
+		#{c(sidebar channelsHeader)} {
+			z-index: 1010;
+			box-shadow: none;
+		}
+	}
+	#{c(sidebar animatedContainer)} {
+		background-color: transparent;
+		top: calc(48px + (36px * $nc));
+		z-index: 2;
+		&[style*="(-90px)"] {
+			z-index: -3000;
+		}
+		#{c(sidebar bannerImage)} {
+			&:before {
+				content: none;
+			}
+		}
+	}
+	#{c(sidebar channelsScroller)} {
+		margin-top: calc(36px * $nc);
+		background-color: transparent;
+		width: 240px;
+	}
 }
 #{c(sidebar channelModeUnread)} #{c(sidebar channelUnreadBlob)} {
-  background-color: $primary;
+	background-color: $primary;
 }
 #{c(sidebar bannerVisible)} #{c(sidebar channelsHeader)} {
-  filter: none;
+	filter: none;
 }
 #{c(sidebar voiceSpeaking)},
 #{c(sidebar panelAvatarSpeaking)} {
@@ -138,80 +138,80 @@
 #{c(sidebar loadingCategory)},
 #{c(sidebar loadingChannelIcon)},
 #{c(sidebar loadingChannelName)} {
-  background-color: $primary;
+	background-color: $primary;
 }
 
 #{c(sidebar channelUnreadBanners)} {
-  width: 224px;
+	width: 224px;
 }
 
 // Panels
 #{c(sidebar panels)} {
-  background: transparent;
-  width: 240px;
-  #{c(sidebar panelUsername)} {
-    @include header;
-  }
-  :is(#{c(sidebar panelContainer)} #{c(sidebar panelButtonRow)},
-  #{c(sidebar panelVoiceContainer)} #{c(sidebar panelInner)} ~ #{c(sidebar panelButtonRow)},
-  #{c(sidebar panelActivityContainer)} #{c(sidebar panelActivityActions)}) {
-    border: 1px solid $middle;
-    border-radius: 8px;
-  }
+	background: transparent;
+	width: 240px;
+	#{c(sidebar panelUsername)} {
+		@include header;
+	}
+	:is(#{c(sidebar panelContainer)} #{c(sidebar panelButtonRow)},
+	#{c(sidebar panelVoiceContainer)} #{c(sidebar panelInner)} ~ #{c(sidebar panelButtonRow)},
+	#{c(sidebar panelActivityContainer)} #{c(sidebar panelActivityActions)}) {
+		border: 1px solid $middle;
+		border-radius: 8px;
+	}
 }
 #{c(sidebar panelButton)} {
-  &:first-of-type::before {
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
-  }
-  &:last-of-type::before {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
-  &:hover {
-    background-color: transparent;
-  }
-  @include bg($bg:$primary,$o:.6);
-  &:hover::before {
-    background-color: $hover;
-  }
+	&:first-of-type::before {
+		border-bottom-left-radius: 8px;
+		border-top-left-radius: 8px;
+	}
+	&:last-of-type::before {
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
+	&:hover {
+		background-color: transparent;
+	}
+	@include bg($bg:$primary,$o:.6);
+	&:hover::before {
+		background-color: $hover;
+	}
 }
 
 #{c(sidebar categoryChildren)} {
-  order: 1;
+	order: 1;
 }
 #{c(sidebar categoryMainContent)} {
-  order: 2;
+	order: 2;
 }
 
 #{c(sidebar categoryWrapper)} #{c(sidebar categoryName)} {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &::before {
-    content: "";
-    height: 2px;
-    flex-grow: 1;
-    background: transparent;
-    margin-right: 5px;
-  }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&::before {
+		content: "";
+		height: 2px;
+		flex-grow: 1;
+		background: transparent;
+		margin-right: 5px;
+	}
 }
 
 #{c(sidebar channelUserLimitWrapper)} {
-  background-color: $card;
+	background-color: $card;
 }
 #{c(sidebar channelUsers)} {
-  background-color: transparent;
+	background-color: transparent;
 }
 #{c(sidebar channelTotal)} {
-  background-color: transparent;
-  &::after {
-    content: "/";
-    width: auto;
-    height: auto;
-    border: none;
-    left: -6px;
-  }
+	background-color: transparent;
+	&::after {
+		content: "/";
+		width: auto;
+		height: auto;
+		border: none;
+		left: -6px;
+	}
 }
 
 #{c(sidebar channelMainContent)},
@@ -219,104 +219,104 @@
 #{c(sidebar channelIcon)},
 #{c(sidebar categoryArrow)},
 #{c(sidebar categoryName)} {
-  color: inherit !important; // !important reason: i am very lazy. https://cdn.discordapp.com/attachments/747040126294687764/965181579259428924/unknown.png
+	color: inherit !important; // !important reason: i am very lazy. https://cdn.discordapp.com/attachments/747040126294687764/965181579259428924/unknown.png
 }
 
 #{c(sidebar privateChannelInteractive)},
 #{c(sidebar channelWrapper)} {
-  color: var(--read-channel-color);
+	color: var(--read-channel-color);
 }
 
 #{c(sidebar privateChannelInteractive2)} {
-  &:hover,&:focus-within {
-    background: var(--background-modifier-hover);
-  }
-  &:active {
-    background: var(--background-modifier-active);
-  }
+	&:hover,&:focus-within {
+		background: var(--background-modifier-hover);
+	}
+	&:active {
+		background: var(--background-modifier-active);
+	}
 }
 
 #{c(sidebar privateChannelSelected)} {
-  background: var(--background-modifier-selected);
+	background: var(--background-modifier-selected);
 }
 
 #{c(sidebar channelModeSelected)},
 #{c(sidebar privateChannelInteractiveSelected)},
 #{c(sidebar channelWrapper)}:hover:not(#{c(sidebar channelModeMuted)}):not(#{c(sidebar channelModeLocked)}),
 #{c(sidebar privateChannelInteractive)}:hover:not(#{c(sidebar privateChannelMuted)}) {
-  color: var(--selected-channel-color);
+	color: var(--selected-channel-color);
 }
 #{c(sidebar channelWrapper)}:hover {
-  #{c(sidebar channelContent)} {
-    background: var(--background-modifier-hover);
-  }
+	#{c(sidebar channelContent)} {
+		background: var(--background-modifier-hover);
+	}
 }
 #{c(sidebar channelModeSelected)} {
-  &,&:hover {
-    #{c(sidebar channelContent)} {
-      background: var(--background-modifier-selected);
-    }
-  }
+	&,&:hover {
+		#{c(sidebar channelContent)} {
+			background: var(--background-modifier-selected);
+		}
+	}
 }
 
 #{c(sidebar channelModeUnread)} {
-  color: var(--unread-channel-color);
-  #{c(sidebar channelUnreadBlob)} {
-    display: var(--show-channel-unread-dot, block);
-    background-color: currentColor;
-  }
-  #{c(sidebar channelUnreadBlob)},
-  #{c(sidebar channelName)},
-  #{c(sidebar channelIcon)} {
-    filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
-  }
+	color: var(--unread-channel-color);
+	#{c(sidebar channelUnreadBlob)} {
+		display: var(--show-channel-unread-dot, block);
+		background-color: currentColor;
+	}
+	#{c(sidebar channelUnreadBlob)},
+	#{c(sidebar channelName)},
+	#{c(sidebar channelIcon)} {
+		filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
+	}
 }
 
 #{c(sidebar channelModeMuted)} {
-  color: var(--muted-channel-color);
+	color: var(--muted-channel-color);
 }
 #{c(sidebar channelModeConnected)} {
-  color: var(--category-color);
+	color: var(--category-color);
 }
 #{c(sidebar channelModeLocked)} {
-  color: var(--locked-voice-channel-color);
+	color: var(--locked-voice-channel-color);
 }
 
 #{c(sidebar categoryWrapper)},
 #{c(sidebar categoryWrapper)}:hover {
-  color: var(--category-color);
-  &#{c(sidebar categoryCollapsed)} {
-    color: var(--read-channel-color);
-  }
-  &#{c(sidebar categoryMuted)} {
-    color: var(--muted-channel-color);
-  }
-  &:not(#{c(sidebar categoryCollapsed)}) {
-    #{c(sidebar categoryName)}::before {
-      background: linear-gradient(to left, currentColor -50%, transparent 50%);
-    }
-  }
+	color: var(--category-color);
+	&#{c(sidebar categoryCollapsed)} {
+		color: var(--read-channel-color);
+	}
+	&#{c(sidebar categoryMuted)} {
+		color: var(--muted-channel-color);
+	}
+	&:not(#{c(sidebar categoryCollapsed)}) {
+		#{c(sidebar categoryName)}::before {
+			background: linear-gradient(to left, currentColor -50%, transparent 50%);
+		}
+	}
 }
 
 // Hide Sidebar
 #{c(sidebar sidebar)} {
-  width: calc(240px - (168px * var(--hide-channel-list, 0)));
-  transition: var(--hide-speed, 0.5s) width ease-out;
-  &:hover,&:focus-within {
-    width: 240px;
-    &::before,
-    &::after {
-      width: 240px;
-    }
-  }
-  &::before,
-  &::after {
-    transition: var(--hide-speed, 0.5s) width ease-out;
-    width: calc(240px - (168px * var(--hide-channel-list, 0)));
-  }
+	width: calc(240px - (168px * var(--hide-channel-list, 0)));
+	transition: var(--hide-speed, 0.5s) width ease-out;
+	&:hover,&:focus-within {
+		width: 240px;
+		&::before,
+		&::after {
+			width: 240px;
+		}
+	}
+	&::before,
+	&::after {
+		transition: var(--hide-speed, 0.5s) width ease-out;
+		width: calc(240px - (168px * var(--hide-channel-list, 0)));
+	}
 }
 
 // notices (ie "how to use quickswitch", "boost this server" etc) and event notices
 #{c(sidebar notice container)} {
-  width: 240px;
+	width: 240px;
 }

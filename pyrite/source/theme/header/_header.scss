@@ -1,102 +1,102 @@
 @use "backend" as *;
 /* Start Header */
 :is(#{c(main dark)},#{c(main light)}) {
-  #{c(header akaBadge)} {
-    background-color: $secondary;
-    color: var(--header-primary);
-  }
-  #{c(header updateDownloadingCloud)} {
-    color: $red;
-  }
+	#{c(header akaBadge)} {
+		background-color: $secondary;
+		color: var(--header-primary);
+	}
+	#{c(header updateDownloadingCloud)} {
+		color: $red;
+	}
 }
 #{c(header header)}#{c(header themed)} {
-  background: $header;
-  z-index: 1010;
+	background: $header;
+	z-index: 1010;
 }
 #{c(header input)} {
-  @include header;
-  &:focus {
-    background: transparent;
-    text-shadow: none;
-  }
+	@include header;
+	&:focus {
+		background: transparent;
+		text-shadow: none;
+	}
 }
 #{c(header children)} {
-  &:after {
-    content: none;
-  }
-  > #{c(header iconWrapper)} {
-    > #{c(header icon)} {
-      filter: drop-shadow(2px 2px 2px var(--header-secondary));
-    }
-  }
+	&:after {
+		content: none;
+	}
+	> #{c(header iconWrapper)} {
+		> #{c(header icon)} {
+			filter: drop-shadow(2px 2px 2px var(--header-secondary));
+		}
+	}
 }
 #{c(header divider)} {
-  margin: 0;
-  width: 8px;
-  background: linear-gradient(to right, transparent 0%, $primary 50%, transparent 100%);
+	margin: 0;
+	width: 8px;
+	background: linear-gradient(to right, transparent 0%, $primary 50%, transparent 100%);
 }
 #{c(header title)} {
-  @include header;
-  overflow: visible;
+	@include header;
+	overflow: visible;
 }
 #{c(os mac platform)} {
-  :is(#{c(header title)},#{c(header children)},#{c(header topic)}) {
-    -webkit-app-region: no-drag;
-  }
+	:is(#{c(header title)},#{c(header children)},#{c(header topic)}) {
+		-webkit-app-region: no-drag;
+	}
 }
 #{c(header status)} > svg > rect {
-  // &[fill*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"],
-  &[fill*="rgba(59, 165, 92, 1)"] {
-    fill: $green;
-  }
-  // &[fill*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"],
-  &[fill*="rgba(250, 166, 26, 1)"] {
-    fill: $yellow;
-  }
-  // &[fill*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"],
-  &[fill*="rgba(237, 66, 69, 1)"] {
-    fill: $red;
-  }
-  // &[fill*="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"],
-  &[fill*="rgba(89, 54, 149, 1)"] {
-    fill: $live;
-  }
-  // &[fill*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"],
-  &[fill*="rgba(116, 127, 141, 1)"] {
-    fill: $offline;
-  }
+	// &[fill*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"],
+	&[fill*="rgba(59, 165, 92, 1)"] {
+		fill: $green;
+	}
+	// &[fill*="hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%)"],
+	&[fill*="rgba(250, 166, 26, 1)"] {
+		fill: $yellow;
+	}
+	// &[fill*="hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%)"],
+	&[fill*="rgba(237, 66, 69, 1)"] {
+		fill: $red;
+	}
+	// &[fill*="hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%)"],
+	&[fill*="rgba(89, 54, 149, 1)"] {
+		fill: $live;
+	}
+	// &[fill*="hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%)"],
+	&[fill*="rgba(116, 127, 141, 1)"] {
+		fill: $offline;
+	}
 }
 #{c(header icon)} {
-  color: var(--header-primary);
+	color: var(--header-primary);
 }
 #{c(header iconBadge)} {
-  background-color: $secondary;
+	background-color: $secondary;
 }
 #{c(header iconClickable)} {
-  #{c(header icon)} {
-    color: $primary;
-  }
-  &:hover {
-    #{c(header icon)} {
-      color: $hover;
-      filter: drop-shadow(0 0 2px currentColor);
-    }
-    #{c(header iconBadge)} {
-      filter: drop-shadow(0 0 2px currentColor);
-    }
-  }
+	#{c(header icon)} {
+		color: $primary;
+	}
+	&:hover {
+		#{c(header icon)} {
+			color: $hover;
+			filter: drop-shadow(0 0 2px currentColor);
+		}
+		#{c(header iconBadge)} {
+			filter: drop-shadow(0 0 2px currentColor);
+		}
+	}
 }
 #{c(header updateDownloadingIcon)} {
-  color: $red;
+	color: $red;
 }
 #{c(header updateIconForeground)} {
-  fill: $red;
+	fill: $red;
 }
 #{c(header search)} {
-  order: 1;
+	order: 1;
 }
 #{c(header searchBar)} {
-  background: var(--card-background);
+	background: var(--card-background);
 }
 
 // i got no idea how to get this
@@ -105,44 +105,44 @@
 // }
 
 #{c(header tabBar)}#{c(header topPill)} {
-  #{c(header tabBarItem)} {
-    // these two are for the "add friend" thing
-    &#{c(header addFriend)}:not(#{c(header tabBarItemSelected)}) {
-      background-color: $green !important; // !important reason: element.style
-    }
-    &#{c(header addFriend)}#{c(header tabBarItemSelected)} {
-      color: $green !important; // !important reason: element.style
-    }
-    // and the blocked tab
-    &#{c(header tabBarItemThemed)} {
-      &:nth-child(4) {
-        color: #fff; // interactive-normal to mirror online/all/pending, white to mirror add friends. both light and dark.
-        background-color: $red;
-      }
-    }
-    &#{c(header tabBarItemSelected)}#{c(header tabBarItemThemed)} {
-      &:nth-child(4) {
-        color: $red;
-        background-color: transparent;
-        // for parity
-        &:hover{
-          background-color: var(--background-modifier-hover);
-        }
-        &:active{
-          background-color: var(--background-modifier-active);
-        }
-      }
-    }
-  }
+	#{c(header tabBarItem)} {
+		// these two are for the "add friend" thing
+		&#{c(header addFriend)}:not(#{c(header tabBarItemSelected)}) {
+			background-color: $green !important; // !important reason: element.style
+		}
+		&#{c(header addFriend)}#{c(header tabBarItemSelected)} {
+			color: $green !important; // !important reason: element.style
+		}
+		// and the blocked tab
+		&#{c(header tabBarItemThemed)} {
+			&:nth-child(4) {
+				color: #fff; // interactive-normal to mirror online/all/pending, white to mirror add friends. both light and dark.
+				background-color: $red;
+			}
+		}
+		&#{c(header tabBarItemSelected)}#{c(header tabBarItemThemed)} {
+			&:nth-child(4) {
+				color: $red;
+				background-color: transparent;
+				// for parity
+				&:hover{
+					background-color: var(--background-modifier-hover);
+				}
+				&:active{
+					background-color: var(--background-modifier-active);
+				}
+			}
+		}
+	}
 }
 
 // Hide Help icon. Can be accessed by pressing F1.
 #{c(header toolbar)} {
-  &>a[href*="support.discord.com"] {
-    display: none;
-  }
-  #{c(header iconWrapper)}:not(#{c(header iconClickable)}) #{c(header icon)} {
-    cursor: not-allowed;
-    color: $red;
-  } 
+	&>a[href*="support.discord.com"] {
+		display: none;
+	}
+	#{c(header iconWrapper)}:not(#{c(header iconClickable)}) #{c(header icon)} {
+		cursor: not-allowed;
+		color: $red;
+	} 
 }

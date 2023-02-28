@@ -1,128 +1,128 @@
 @use "backend" as *;
 /* Start Calls */
 #{c(call wrapper)} {
-  background-color: $middle;
-  &#{c(call minimum)} {
-    background-color: transparent;
-    min-height: 300px !important; // !important reason: can be overwritten using element.style
-  }
-  &#{c(call noChat)} {
-    background-color: transparent;
-  }
-  #{c(call resizeHandle)} {
-    background: linear-gradient(0deg, $primary 50%, transparent 50% 100%);
-    &:hover,
-    &:active {
-      background: linear-gradient(0deg, $hover 50%, transparent 50% 100%);
-    }
-  }
+	background-color: $middle;
+	&#{c(call minimum)} {
+		background-color: transparent;
+		min-height: 300px !important; // !important reason: can be overwritten using element.style
+	}
+	&#{c(call noChat)} {
+		background-color: transparent;
+	}
+	#{c(call resizeHandle)} {
+		background: linear-gradient(0deg, $primary 50%, transparent 50% 100%);
+		&:hover,
+		&:active {
+			background: linear-gradient(0deg, $hover 50%, transparent 50% 100%);
+		}
+	}
 }
 #{c(call avatarBorder)}#{c(call avatarSpeaking)} {
-  box-shadow: inset 0 0 10px 2px $primary;
+	box-shadow: inset 0 0 10px 2px $primary;
 }
 #{c(call root)}#{c(call idle)} {
-  #{c(call topControls)} {
-    opacity: 1;
-    transform: none;
-  }
+	#{c(call topControls)} {
+		opacity: 1;
+		transform: none;
+	}
 }
 #{c(call container)},
 #{c(call videoWrapper)},
 #{c(call videoEnded)},
 #{c(call streamBackground)} { 
-  background-color: transparent;
+	background-color: transparent;
 }
 #{c(call root)} {
-  background-color: $side;
+	background-color: $side;
 }
 #{c(call status)} {
-  background-color: $primary;
+	background-color: $primary;
 }
 #{c(call videoBorder)}#{c(call videoSpeaking)} {
-  box-shadow: inset 0 0 25px 10px $primary;
+	box-shadow: inset 0 0 25px 10px $primary;
 }
 #{c(call liveQualityIndicator)} {
-  background-color: $card !important; // !important reason: element.style
+	background-color: $card !important; // !important reason: element.style
 }
 #{c(call lowQualityWarningIcon)} {
-  color: $yellow;
+	color: $yellow;
 }
 #{c(call watchStreamButton)} {
-  background-color: $primary;
-  &:hover {
-    background-color: $hover;
-  }
+	background-color: $primary;
+	&:hover {
+		background-color: $hover;
+	}
 }
 
 #{c(call root)} {
-  background-color: $middle;
-  top: 48px;
-  height: calc(100% - 48px);
-  padding-top: 0 !important; // !important reason: inline style
-  @include bg($bg:$header,$h:48px,$top:calc(-48px - (36px * $nc))); // $top: move psudo-header in call for notice
+	background-color: $middle;
+	top: 48px;
+	height: calc(100% - 48px);
+	padding-top: 0 !important; // !important reason: inline style
+	@include bg($bg:$header,$h:48px,$top:calc(-48px - (36px * $nc))); // $top: move psudo-header in call for notice
 }
 #{c(stage sidebarVisible)} {
-  margin-right: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  #{c(call root)}:before {
-    content: none;
-  }
+	margin-right: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	#{c(call root)}:before {
+		content: none;
+	}
 }
 #{c(call root)} {
-  #{c(call videoControls)} {
-    #{c(call controlSection)} {
-      position: relative;
-      top: -48px;
-      &#{c(call bottomControls)} {
-        top: 0;
-      }
-    }
-    #{c(stage gradientContainer)} {
-      display: none;
-    }
-  }
+	#{c(call videoControls)} {
+		#{c(call controlSection)} {
+			position: relative;
+			top: -48px;
+			&#{c(call bottomControls)} {
+				top: 0;
+			}
+		}
+		#{c(stage gradientContainer)} {
+			display: none;
+		}
+	}
 }
 #{c(stage scroller)} {
-  background-color: transparent;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+	background-color: transparent;
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 #{c(stage headerContainer)} {
-  background-color: transparent;
-  padding-top: 16px;
+	background-color: transparent;
+	padding-top: 16px;
 }
 
 
 #{c(stage participantsButton)},
 #{c(stage participantsButton)}:hover {
-  @include card;
+	@include card;
 }
 
 #{c(stage tileContainer)} {
-  background-color: transparent;
-  &:hover {
-    background-color: var(--background-modifier-hover);
-  }
+	background-color: transparent;
+	&:hover {
+		background-color: var(--background-modifier-hover);
+	}
 }
 
 #{c(stage openStageContainer)},
 #{c(stage openStageContainer)}:hover {
-  background-color: $card;
-  border: 2px solid $primary;
+	background-color: $card;
+	border: 2px solid $primary;
 }
 
 #{c(stage requestToSpeakContainer)} {
-  @include bg($bg:$header,$h:48px);
-  height: calc(100vh - 48px);
-  align-self: flex-end;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  background-color: $side;
+	@include bg($bg:$header,$h:48px);
+	height: calc(100vh - 48px);
+	align-self: flex-end;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	background-color: $side;
 }
 #{c(stage rtsEmptyImage)} {
-  display: none;
+	display: none;
 }
 
 #{c(stage rtsButtonContainer)},
@@ -131,42 +131,42 @@
 #{c(call colorable)}#{c(call white)},
 #{c(call colorable)}#{c(call white)}:hover,
 #{c(call colorable)}#{c(call white)}#{c(stage active)} {
-  background-color: $primary;
+	background-color: $primary;
 }
 #{c(call colorable)} {
-  &#{c(call primaryDark)},
-  &#{c(call primaryDark)}:hover,
-  &#{c(call primaryDark)}:active {
-    background-color: $card;
-  }
-  &#{c(call red)},
-  &#{c(call red)}:hover,
-  &#{c(call red)}:active {
-    background-color: $red;
-  }
-  &#{c(call green)},
-  &#{c(call green)}:hover,
-  &#{c(call green)}:active {
-    background-color: $green;
-  }
+	&#{c(call primaryDark)},
+	&#{c(call primaryDark)}:hover,
+	&#{c(call primaryDark)}:active {
+		background-color: $card;
+	}
+	&#{c(call red)},
+	&#{c(call red)}:hover,
+	&#{c(call red)}:active {
+		background-color: $red;
+	}
+	&#{c(call green)},
+	&#{c(call green)}:hover,
+	&#{c(call green)}:active {
+		background-color: $green;
+	}
 }
 #{c(stage audienceVoiceIconContainer)} {
-  background-color: $primary;
-  color: var(--header-primary);
+	background-color: $primary;
+	color: var(--header-primary);
 }
 #{c(stage speakerRaiseHandBadge)} {
-  background-color: $primary;
-  filter: drop-shadow(0 0 3px var(--secondary-color)) drop-shadow(0 0 5px var(--secondary-color));
+	background-color: $primary;
+	filter: drop-shadow(0 0 3px var(--secondary-color)) drop-shadow(0 0 5px var(--secondary-color));
 }
 #{c(main fullMotion)}#{c(main focused)} {
-  #{c(stage speakerRaiseHandBadge)} {
-    animation: numberBadgeFlash 5s linear infinite;
-  }
+	#{c(stage speakerRaiseHandBadge)} {
+		animation: numberBadgeFlash 5s linear infinite;
+	}
 }
 #{c(stage container)},
 #{c(stage callContainer)},
 #{c(stage avatar)},
 #{c(stage rowContainer)},
 #{c(stage participants)} {
-  background-color: transparent;
+	background-color: transparent;
 }

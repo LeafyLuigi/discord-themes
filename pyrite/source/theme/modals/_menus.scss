@@ -1,73 +1,73 @@
 @use "backend" as *;
 #{c(modals menus menu)} {
-    @include menu;
-    max-height: 80vh;
+	@include menu;
+	max-height: 80vh;
 }
 // profile "status" has an inner menu. the not allows the submenus to work
 #{c(profile status popoutWrapper)} #{c(modals menus menu)}:not(#{c(modals menus submenu)}) {
-    background: transparent;
-    &:before {
-        content: none;
-    }
+	background: transparent;
+	&:before {
+		content: none;
+	}
 }
 #{c(modals menus submenuPaddingContainer)} {
-    padding: 0;
-    position: relative;
+	padding: 0;
+	position: relative;
 }
 #{c(modals menus item)}+#{c(main layer)} {
-    &[style*="right"] #{c(modals menus submenuPaddingContainer)} {
-        right: 8px;
-    }
-    &[style*="left"] #{c(modals menus submenuPaddingContainer)} {
-        left: 8px;
-    }
+	&[style*="right"] #{c(modals menus submenuPaddingContainer)} {
+		right: 8px;
+	}
+	&[style*="left"] #{c(modals menus submenuPaddingContainer)} {
+		left: 8px;
+	}
 }
 
 @debug "redo menu dropdown to use a variable for checks?";
 #{c(modals menus item)} {
-    // checkbox + radio
-    :is(#{c(modals menus checkbox)},#{c(modals menus radioSelection)}) {
-        color: $primary;
-    }
-    // colors
-    &#{c(modals menus colorBrand)} {
-        color: $primary;
-    }
-    // hover/active
-    &:is(#{c(modals menus itemFocused)},#{c(modals menus itemFocused)}:active,:active:not(#{c(modals menus itemHideInteraction)})) {
-        background: $primary;
-        // colors
-        &#{c(modals menus colorDanger)} {
-            background: $red;
-        }
-        &#{c(modals menus colorBrand)} {
-            background: $primary;
-            color: var(--interactive-active); // overwrite what's overwritten. uses discord's default
-        }
-        // checkbox + radio
-        #{c(modals menus checkboxCheck)} {
-            color: $primary;
-        }
-    }
-    // make block and remove friend red
-    &:is(#{c(modals menus colorDanger)},#user-context-block,#user-context-remove-friend) {
-        color: $red;
-        &:is(#{c(modals menus itemFocused)},:active:not(#{c(modals menus itemHideInteraction)}),:hover) {
-            color: var(--interactive-active);
-            background: $red;
-        }
-    }
+	// checkbox + radio
+	:is(#{c(modals menus checkbox)},#{c(modals menus radioSelection)}) {
+		color: $primary;
+	}
+	// colors
+	&#{c(modals menus colorBrand)} {
+		color: $primary;
+	}
+	// hover/active
+	&:is(#{c(modals menus itemFocused)},#{c(modals menus itemFocused)}:active,:active:not(#{c(modals menus itemHideInteraction)})) {
+		background: $primary;
+		// colors
+		&#{c(modals menus colorDanger)} {
+			background: $red;
+		}
+		&#{c(modals menus colorBrand)} {
+			background: $primary;
+			color: var(--interactive-active); // overwrite what's overwritten. uses discord's default
+		}
+		// checkbox + radio
+		#{c(modals menus checkboxCheck)} {
+			color: $primary;
+		}
+	}
+	// make block and remove friend red
+	&:is(#{c(modals menus colorDanger)},#user-context-block,#user-context-remove-friend) {
+		color: $red;
+		&:is(#{c(modals menus itemFocused)},:active:not(#{c(modals menus itemHideInteraction)}),:hover) {
+			color: var(--interactive-active);
+			background: $red;
+		}
+	}
 
 }
 
 #{c(modals menus quickReactionButton)} {
-    background: transparent;
-    &:hover {
-        background: var(--background-modifier-hover);
-    }
-    &:active {
-        background: var(--background-modifier-active);
-    }
+	background: transparent;
+	&:hover {
+		background: var(--background-modifier-hover);
+	}
+	&:active {
+		background: var(--background-modifier-active);
+	}
 }
 
 // Both of below can be accessed by clicking the phone/camera button and going
@@ -78,16 +78,16 @@
 }
 
 #{c(modals menus status)} {
-    &[style*="green"] {
-        background: $green !important; // !important reason: inline style
-    }
-    &[style*="yellow"] {
-        background: $yellow !important; // !important reason: inline style
-    }
-    &[style*="red"] {
-        background: $red !important; // !important reason: inline style
-    }
-    &[style*="grey"] {
-        background: $offline !important; // !important reason: inline style
-    }
+	&[style*="green"] {
+		background: $green !important; // !important reason: inline style
+	}
+	&[style*="yellow"] {
+		background: $yellow !important; // !important reason: inline style
+	}
+	&[style*="red"] {
+		background: $red !important; // !important reason: inline style
+	}
+	&[style*="grey"] {
+		background: $offline !important; // !important reason: inline style
+	}
 }

@@ -1,120 +1,120 @@
 @use "backend" as *;
 /* Begin Chat Form */
 #{c(chatForm form)} {
-  margin-top: 0;
-  &::before {
-    content: none;
-  }
+	margin-top: 0;
+	&::before {
+		content: none;
+	}
 }
 #{c(chatForm followWrapper)} {
-  @include card-light;
-  border-width: 0;
-  z-index: 0; // messes with member list. set to 1 by discord
-  backdrop-filter: blur(2px);
-  #{c(chatForm followImage)} {
-    display: none;
-  }
+	@include card-light;
+	border-width: 0;
+	z-index: 0; // messes with member list. set to 1 by discord
+	backdrop-filter: blur(2px);
+	#{c(chatForm followImage)} {
+		display: none;
+	}
 }
 
 #{c(chatForm channelTextAreaBase)} {
-  @include card-light;
-  border-width: 0;
-  margin-bottom: 24px;
-  &:focus-within {
-    border-width: 0;
-    box-shadow: 0 0 2px 2px $primary;
-  }
+	@include card-light;
+	border-width: 0;
+	margin-bottom: 24px;
+	&:focus-within {
+		border-width: 0;
+		box-shadow: 0 0 2px 2px $primary;
+	}
 }
 
 #{c(chatForm typingBase)} {
-  bottom: 1px;
+	bottom: 1px;
 }
 
 #{c(chatForm jumpToPresentBar)} {
-  background-color: $card;
-  opacity: 1;
-  backdrop-filter: blur(2px);
+	background-color: $card;
+	opacity: 1;
+	backdrop-filter: blur(2px);
 }
 #{c(chatForm messagesErrorBar)} {
-  background-color: $red;
-  opacity: 1;
+	background-color: $red;
+	opacity: 1;
 }
 
 :is(#{c(main dark)},#{c(main light)}) #{c(chatForm scrollableContainer)} {
-  background: transparent;
+	background: transparent;
 }
 #{c(chatForm attachedBars)},
 #{c(chatForm replyBar)},
 #{c(chatForm threadSuggestionBar)} {
-  background-color: transparent;
+	background-color: transparent;
 }
 #{c(chatForm clipContainer)} {
-  margin-top: 0;
-  padding-top: 0;
+	margin-top: 0;
+	padding-top: 0;
 }
 #{c(chatForm replyBar)},
 #{c(chatForm scrollableContainer)} {
-  backdrop-filter: blur(2px);
+	backdrop-filter: blur(2px);
 }
 #{c(chatForm scrollableContainer)} {
-  max-height: 30vh;
-  margin-bottom: 24px;
+	max-height: 30vh;
+	margin-bottom: 24px;
 }
 #{c(chatForm replyContainer)} {
-  #{c(chatForm replyName)} {
-    color: $primary;
-    text-shadow: 2px 2px 4px currentColor;
-  }
+	#{c(chatForm replyName)} {
+		color: $primary;
+		text-shadow: 2px 2px 4px currentColor;
+	}
 }
 #{c(chatForm mentionButton)} {
-  &#{c(chatForm colorLink)} {
-    color: $green;
-  }
-  &#{c(chatForm colorMuted)} {
-    color: $red;
-  }
+	&#{c(chatForm colorLink)} {
+		color: $green;
+	}
+	&#{c(chatForm colorMuted)} {
+		color: $red;
+	}
 }
 #{c(chatForm textArea)} {
-  #{c(chatForm placeholder)} {
-    color: var(--interactive-normal);
-  }
+	#{c(chatForm placeholder)} {
+		color: var(--interactive-normal);
+	}
 }
 #{c(chatForm inlineUpload)} {
-  background-color: $card;
+	background-color: $card;
 }
 #{c(chatForm inlineSpoilerTag)} {
-  background-color: $secondary;
-  color: var(--text-normal);
+	background-color: $secondary;
+	color: var(--text-normal);
 }
 
 #{c(chatForm beforeInlineCode)},
 #{c(chatForm inlineCode)},
 #{c(chatForm afterInlineCode)} {
-  background-color: $card;
+	background-color: $card;
 }
 
 // delete gift nitro button. might cock up a few plugins.
 #{c(chatForm buttons)} > #{c(chatForm button)} {
-  display: none;
+	display: none;
 }
 
 // text colors that may be used elsewhere
 #{c(chatForm colorBrand)} {
-  color: $primary;
+	color: $primary;
 }
 #{c(chatForm colorError)} {
-  color: $red;
+	color: $red;
 }
 
 // send button
 :is(#{c(main dark)},#{c(main light)}) {
-  #{c(chatForm sendButton)}:is(:hover,:active,[class]) #{c(chatForm sendButtonActiveChild)} {
-    color: var(--color);
-  }
+	#{c(chatForm sendButton)}:is(:hover,:active,[class]) #{c(chatForm sendButtonActiveChild)} {
+		color: var(--color);
+	}
 }
 #{c(chatForm sendButton)} {
-  --color: var(--primary-color);
-  &:is(:hover,:active) {
-    --color: var(--hover-color);
-  }
+	--color: var(--primary-color);
+	&:is(:hover,:active) {
+		--color: var(--hover-color);
+	}
 }

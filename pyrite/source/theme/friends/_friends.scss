@@ -1,137 +1,137 @@
 @use "backend" as *;
 /* Start Friends Area */
 :is(#{c(main dark)},#{c(main light)}) {
-  :is(#{c(friends container)},#{c(friends multipleIconWrapper)}) {
-    background: transparent;
-  }
-  #{c(friends itemCardSeperator)} {
-    background-color: $secondary;
-    margin: 4px 8px;
-  }
-  :is(#{c(friends voiceSectionIconWrapper)},#{c(friends partyMemberOverflow)},#{c(friends itemCard)}) {
-    &:is(#{c(friends itemCardInteractive)}:hover,#{c(friends itemCardActive)}) {
-      background-color: $card;
-    }
-  }
+	:is(#{c(friends container)},#{c(friends multipleIconWrapper)}) {
+		background: transparent;
+	}
+	#{c(friends itemCardSeperator)} {
+		background-color: $secondary;
+		margin: 4px 8px;
+	}
+	:is(#{c(friends voiceSectionIconWrapper)},#{c(friends partyMemberOverflow)},#{c(friends itemCard)}) {
+		&:is(#{c(friends itemCardInteractive)}:hover,#{c(friends itemCardActive)}) {
+			background-color: $card;
+		}
+	}
 }
 #{c(friends tabBody)}:before {
-  content: none;
+	content: none;
 }
 // remove "new private group" button in header, "explore public servers" button/header in add friends
 #{c(friends container)} #{c(friends inviteToolbar)}, #{c(friends explorePublicHeader)}, #{c(friends explorePublicGrid)} {
-  display: none;
+	display: none;
 }
 #{c(friends peopleColumn)} {
-  background-color: $middle;
-  #{c(friends peopleList)} {
-    margin-top: 0;
-  }
+	background-color: $middle;
+	#{c(friends peopleList)} {
+		margin-top: 0;
+	}
 }
 #{c(friends actionButton)} {
-  color: $primary;
-  border: 1px solid;
-  background-color: $card;
-  border-color: currentColor;
-  &:hover {
-    color: $hover;
-  }
-  &#{c(friends highlight)} {
-    background-color: $card;
-  }
-  &#{c(friends actionButtonDeny)} {
-    &:hover {
-      color: $red;
-    }
-  }
+	color: $primary;
+	border: 1px solid;
+	background-color: $card;
+	border-color: currentColor;
+	&:hover {
+		color: $hover;
+	}
+	&#{c(friends highlight)} {
+		background-color: $card;
+	}
+	&#{c(friends actionButtonDeny)} {
+		&:hover {
+			color: $red;
+		}
+	}
 }
 // move bot tag over, move it over again on hover
 #{c(friends peopleListDiscriminator)},
 #{c(main mouseMode)} :is(#{c(friends peopleListItemActive)},#{c(friends peopleListItem)}:hover) #{c(friends peopleListBotTag)} {
-  order: 1;
+	order: 1;
 }
 
 #{c(friends nowPlayingColumn)} {
-  background: $side;
-  width: 360px;
-  max-width: 360px;
-  position: relative;
-  transition: var(--hide-speed,0.5s) transform ease-out,var(--hide-speed, 0.5s) backdrop-filter ease-out;
-  left: calc( ( 300px ) * var(--hide-active-now));
-  backdrop-filter: none;
-  margin-left: calc( -1 * (( 300px ) * var(--hide-active-now)));
+	background: $side;
+	width: 360px;
+	max-width: 360px;
+	position: relative;
+	transition: var(--hide-speed,0.5s) transform ease-out,var(--hide-speed, 0.5s) backdrop-filter ease-out;
+	left: calc( ( 300px ) * var(--hide-active-now));
+	backdrop-filter: none;
+	margin-left: calc( -1 * (( 300px ) * var(--hide-active-now)));
 }
 #{c(main focused)} #{c(friends nowPlayingColumn)} {
-  &:is(:hover,:focus-within) {
-    transform: translateX(calc( ( -300px ) * var(--hide-active-now)));
-    backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
-  }
+	&:is(:hover,:focus-within) {
+		transform: translateX(calc( ( -300px ) * var(--hide-active-now)));
+		backdrop-filter: blur(calc(var(--hide-active-now) * 3px));
+	}
 }
 #{c(friends nowPlayingContainer)} {
-  background: transparent;
+	background: transparent;
 }
 #{c(friends nowPlayingHeader)} {
-  @include header;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 8px 0;
-  &:after {
-    content: "";
-    height: 2px;
-    flex-grow: 1;
-    background: linear-gradient(to right, currentColor -50%, transparent 50%);
-    margin-left: 5px;
-  }
+	@include header;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 8px 0;
+	&:after {
+		content: "";
+		height: 2px;
+		flex-grow: 1;
+		background: linear-gradient(to right, currentColor -50%, transparent 50%);
+		margin-left: 5px;
+	}
 }
 #{c(friends multipleIconWrapper)} {
-  border-radius: 0%;
+	border-radius: 0%;
 }
 #{c(friends multipleIcon)} {
-  height: initial;
-  width: initial;
-  > g > path {
-    fill: var(--text-normal);
-  }
+	height: initial;
+	width: initial;
+	> g > path {
+		fill: var(--text-normal);
+	}
 }
 
 #{c(friends nowPlayingScroller)} {
-  border-left: none;
-  margin-left: 0;
+	border-left: none;
+	margin-left: 0;
 }
 
 #{c(friends itemCardOuter)},
 #{c(friends emptyCard)},
 #{c(friends itemCard)} {
-  @include card;
+	@include card;
 }
 #{c(friends emptyCard)} {
-  margin-top: 8px;
+	margin-top: 8px;
 }
 #{c(friends itemCard)} {
-  padding: 8px;
-  &#{c(friends itemCardInteractive)}:hover,
-  &#{c(friends itemCardActive)} {
-    background-color: var(--card-background);
-  }
-  #{c(friends itemCardBody)} {
-    background-color: transparent;
-    #{c(friends itemCardBodySection)} {
-      padding: 0 6px;
-      background-color: transparent;
-    }
-  }
+	padding: 8px;
+	&#{c(friends itemCardInteractive)}:hover,
+	&#{c(friends itemCardActive)} {
+		background-color: var(--card-background);
+	}
+	#{c(friends itemCardBody)} {
+		background-color: transparent;
+		#{c(friends itemCardBodySection)} {
+			padding: 0 6px;
+			background-color: transparent;
+		}
+	}
 }
 #{c(friends live)} {
-  background-color: $red !important; // !important usage: element.style
+	background-color: $red !important; // !important usage: element.style
 }
 
 #{c(friends addFriendInputWrapper)} {
-  &:focus-within {
-    border-color: $primary;
-  }
+	&:focus-within {
+		border-color: $primary;
+	}
 }
 
 #{c(friends searchIcon)} {
-  z-index: 0; // messes with active now
+	z-index: 0; // messes with active now
 }

@@ -9,84 +9,84 @@
 
 /* Default Variables */
 :root {
-  /* forced by theme */
-  --font-headline: var(--header-font); // removes the ABC Ginto Nord font
-  --font-display: var(--header-font); // display is used for headers
-  --font-code: var(--code-font);
-  --font-primary: var(--body-font);
-  --background-message-hover: transparent;
-  --background-mentioned: transparent;
-  --background-mentioned-hover: transparent;
-  --text-link: var(--link-color);
-  --text-positive: var(--green-color);
-  --text-warning: var(--yellow-color);
-  --text-danger: var(--red-color);
-  --text-brand: var(--primary-color);
-  --secret-orange: #f57531; // used in only one place - radio bar. converted from hsl.
-  --brand-experiment: var(--primary-color); // fallback for dumb discord stuff
-  --focus-primary: var(--primary-color); // tab around wheeee
-  --channel-icon: inherit; // lazy mode: on
-  --hide-fallback-enabled: 1; // used for hidable elements, default "hidden"
-  --hide-fallback-disabled: 0; // used for hidable elements, default visible
+	/* forced by theme */
+	--font-headline: var(--header-font); // removes the ABC Ginto Nord font
+	--font-display: var(--header-font); // display is used for headers
+	--font-code: var(--code-font);
+	--font-primary: var(--body-font);
+	--background-message-hover: transparent;
+	--background-mentioned: transparent;
+	--background-mentioned-hover: transparent;
+	--text-link: var(--link-color);
+	--text-positive: var(--green-color);
+	--text-warning: var(--yellow-color);
+	--text-danger: var(--red-color);
+	--text-brand: var(--primary-color);
+	--secret-orange: #f57531; // used in only one place - radio bar. converted from hsl.
+	--brand-experiment: var(--primary-color); // fallback for dumb discord stuff
+	--focus-primary: var(--primary-color); // tab around wheeee
+	--channel-icon: inherit; // lazy mode: on
+	--hide-fallback-enabled: 1; // used for hidable elements, default "hidden"
+	--hide-fallback-disabled: 0; // used for hidable elements, default visible
 
-  --background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
-  --user-modal-image: var(--background-image);
-  --user-popout-image: var(--background-image);
-  --background-attachment: fixed;
-  --user-modal-attachment: var(--background-attachment);
-  --user-popout-attachment: var(--background-attachment);
-  --primary-color: #387eff;
-  --secondary-color: #3298e0;
-  --hover-color: #139dff;
-  --tooltip-color: #1967ab;
-  --mention-background: var(--primary-color);
-  --mention-opacity: 0.3;
-  --home-icon: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
-  --user-modal-width: 900px;
-  --user-modal-height: 600px;
+	--background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
+	--user-modal-image: var(--background-image);
+	--user-popout-image: var(--background-image);
+	--background-attachment: fixed;
+	--user-modal-attachment: var(--background-attachment);
+	--user-popout-attachment: var(--background-attachment);
+	--primary-color: #387eff;
+	--secondary-color: #3298e0;
+	--hover-color: #139dff;
+	--tooltip-color: #1967ab;
+	--mention-background: var(--primary-color);
+	--mention-opacity: 0.3;
+	--home-icon: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
+	--user-modal-width: 900px;
+	--user-modal-height: 600px;
 
-  --green-color: #43b581;
-  --yellow-color: #f9a719;
-  --red-color: #ec4144;
-  --link-color: #00aef3;
-  --live-color:  #583594;
-  --offline-color: #737e8c;
+	--green-color: #43b581;
+	--yellow-color: #f9a719;
+	--red-color: #ec4144;
+	--link-color: #00aef3;
+	--live-color:  #583594;
+	--offline-color: #737e8c;
 
-  /* Channels */
-  --category-color: var(--header-primary);
-  --selected-channel-color: var(--header-primary);
-  --unread-channel-color: var(--primary-color);
-  --unread-channel-glow: drop-shadow(0 0 4px);
-  --show-channel-unread-dot: block;
-  --read-channel-color: var(--interactive-normal);
-  --muted-channel-color: var(--interactive-muted);
-  --locked-voice-channel-color: var(--red-color);
+	/* Channels */
+	--category-color: var(--header-primary);
+	--selected-channel-color: var(--header-primary);
+	--unread-channel-color: var(--primary-color);
+	--unread-channel-glow: drop-shadow(0 0 4px);
+	--show-channel-unread-dot: block;
+	--read-channel-color: var(--interactive-normal);
+	--muted-channel-color: var(--interactive-muted);
+	--locked-voice-channel-color: var(--red-color);
 
-  /* Advanced Users */
-  --header-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --code-font: Hack, Monaco, Consolas, Courier, monospace;
-  --body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
-  --background-filter: none;
-  --user-modal-filter: none;
-  --user-popout-filter: none;
+	/* Advanced Users */
+	--header-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--code-font: Hack, Monaco, Consolas, Courier, monospace;
+	--body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
+	--background-filter: none;
+	--user-modal-filter: none;
+	--user-popout-filter: none;
 
-  /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
-  --hide-speed: 0.5s; // speed for animations for the below. must be a time value. you can add a second value for delay
-  --hide-member-list: 1;
-  --hide-active-now: 1;
-  --hide-profile-panel: 1;
-  --hide-channel-list: 0;
+	/* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
+	--hide-speed: 0.5s; // speed for animations for the below. must be a time value. you can add a second value for delay
+	--hide-member-list: 1;
+	--hide-active-now: 1;
+	--hide-profile-panel: 1;
+	--hide-channel-list: 0;
 
-  /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
-  --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
+	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
+	--win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
 
-  /* Better Discord Toggles and whatnot */
-  --channel-tabs-enabled: 0;
-  --channel-tabs-tabBar-enabled: 1;
-  --channel-tabs-favBar-enabled: 1;
+	/* Better Discord Toggles and whatnot */
+	--channel-tabs-enabled: 0;
+	--channel-tabs-tabBar-enabled: 1;
+	--channel-tabs-favBar-enabled: 1;
 
-  /* Internal please ignore */
-  // --update-notice-2-point-oh: none;
+	/* Internal please ignore */
+	// --update-notice-2-point-oh: none;
 }
 
 // hey if you're wondering why so many ":not()" stuff it's because...
@@ -95,82 +95,82 @@
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
 .theme-dark :not(div[class*='previewContainer-']) .theme-light:not(div[class*="default-colors"]) {
-  --card-background: rgba(0,0,0,0.5);
-  --side-shading: rgba(0,0,0,0.5);
-  --middle-shading: rgba(0,0,0,0.3);
-  --header-shading: rgba(0,0,0,0.7);
+	--card-background: rgba(0,0,0,0.5);
+	--side-shading: rgba(0,0,0,0.5);
+	--middle-shading: rgba(0,0,0,0.3);
+	--header-shading: rgba(0,0,0,0.7);
 
-  --hover-filter: rgba(0,0,0,0.2);
-  --active-filter: rgba(0,0,0,0.4);
+	--hover-filter: rgba(0,0,0,0.2);
+	--active-filter: rgba(0,0,0,0.4);
 
-  // below: defaults set by theme
-  --interactive-normal:#b9bbbe;
-  --interactive-hover:#dcddde;
-  --interactive-active:#fff;
-  --interactive-muted:#4f545c;
-  --background-modifier-hover:rgba(79,84,92,0.16);
-  --background-modifier-active:rgba(79,84,92,0.24);
-  --background-modifier-selected:rgba(79,84,92,0.32);
-  --background-modifier-accent:hsla(0,0%,100%,0.06);
+	// below: defaults set by theme
+	--interactive-normal:#b9bbbe;
+	--interactive-hover:#dcddde;
+	--interactive-active:#fff;
+	--interactive-muted:#4f545c;
+	--background-modifier-hover:rgba(79,84,92,0.16);
+	--background-modifier-active:rgba(79,84,92,0.24);
+	--background-modifier-selected:rgba(79,84,92,0.32);
+	--background-modifier-accent:hsla(0,0%,100%,0.06);
 }
 // ...(cont from dark's comment)
 // sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
 .theme-light :not(div[class*='previewContainer-']) .theme-dark:not(div[class*='sidebar-']):not(nav[class*='guilds-']):not(div[class*='sidebarRegion-']):not(div[class*="default-colors"]) {
-  --card-background: rgba(255,255,255,0.05);
-  --side-shading: rgba(255,255,255,0.4);
-  --middle-shading: rgba(255,255,255,0.3);
-  --header-shading: rgba(255,255,255,0.5);
+	--card-background: rgba(255,255,255,0.05);
+	--side-shading: rgba(255,255,255,0.4);
+	--middle-shading: rgba(255,255,255,0.3);
+	--header-shading: rgba(255,255,255,0.5);
 
-  --hover-filter: rgba(255,255,255,0.2);
-  --active-filter: rgba(255,255,255,0.4);
+	--hover-filter: rgba(255,255,255,0.2);
+	--active-filter: rgba(255,255,255,0.4);
 
-  // below: defaults set by theme
-  --interactive-normal:#4f5660;
-  --interactive-hover:#2e3338;
-  --interactive-active:#060607;
-  --interactive-muted:#c7ccd1;
-  --background-modifier-hover:rgba(116,127,141,0.08);
-  --background-modifier-active:rgba(116,127,141,0.16);
-  --background-modifier-selected:rgba(116,127,141,0.24);
-  --background-modifier-accent:rgba(6,6,7,0.08);
+	// below: defaults set by theme
+	--interactive-normal:#4f5660;
+	--interactive-hover:#2e3338;
+	--interactive-active:#060607;
+	--interactive-muted:#c7ccd1;
+	--background-modifier-hover:rgba(116,127,141,0.08);
+	--background-modifier-active:rgba(116,127,141,0.16);
+	--background-modifier-selected:rgba(116,127,141,0.24);
+	--background-modifier-accent:rgba(6,6,7,0.08);
 }
 
 .theme-dark,
 .theme-light {
-  // below: defaults set by theme
-  --input-background: var(--card-background);
-  --control-brand-foreground: var(--primary-color);
-  --control-brand-foreground-new: var(--primary-color);
-  --deprecated-text-input-bg: var(--input-background);
-  --deprecated-text-input-border: var(--primary-color);
-  --modal-background: var(--card-background);
-  --modal-footer-background: transparent;
-  
-  // below: remove elevation box shadows
-  --dark-elevation-low: unset;
-  --dark-elevation-high: unset;
-  --dark-elevation-border: unset;
-  --light-elevation-low: unset;
-  --light-elevation-high: unset;
-  --light-elevation-border: unset;
-  --elevation-stroke: unset;
-  --elevation-low: unset;
-  --elevation-medium: unset;
-  --elevation-high: unset;
+	// below: defaults set by theme
+	--input-background: var(--card-background);
+	--control-brand-foreground: var(--primary-color);
+	--control-brand-foreground-new: var(--primary-color);
+	--deprecated-text-input-bg: var(--input-background);
+	--deprecated-text-input-border: var(--primary-color);
+	--modal-background: var(--card-background);
+	--modal-footer-background: transparent;
+	
+	// below: remove elevation box shadows
+	--dark-elevation-low: unset;
+	--dark-elevation-high: unset;
+	--dark-elevation-border: unset;
+	--light-elevation-low: unset;
+	--light-elevation-high: unset;
+	--light-elevation-border: unset;
+	--elevation-stroke: unset;
+	--elevation-low: unset;
+	--elevation-medium: unset;
+	--elevation-high: unset;
 
-  // below: colors set to same as variables above
-  --info-positive-foreground: var(--green-color);
-  --info-warning-foreground: var(--yellow-color);
-  --info-danger-foreground: var(--red-color);
-  --info-help-foreground: var(--link-color);
-  --status-positive-background: var(--green-color);
-  --status-warning-background: var(--yellow-color);
-  --status-danger-background: var(--red-color);
-  --status-positive: var(--green-color);
-  --status-warning: var(--yellow-color);
-  --status-danger: var(--red-color);
+	// below: colors set to same as variables above
+	--info-positive-foreground: var(--green-color);
+	--info-warning-foreground: var(--yellow-color);
+	--info-danger-foreground: var(--red-color);
+	--info-help-foreground: var(--link-color);
+	--status-positive-background: var(--green-color);
+	--status-warning-background: var(--yellow-color);
+	--status-danger-background: var(--red-color);
+	--status-positive: var(--green-color);
+	--status-warning: var(--yellow-color);
+	--status-danger: var(--red-color);
 }
 
 // .automodMessage-265YwJ

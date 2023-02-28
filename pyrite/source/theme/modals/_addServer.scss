@@ -1,47 +1,46 @@
 @use "backend" as *;
-
 // apply dark variables to override light
 #{c(main dark)} #{c(modals addServer modal)} {
-    --header-primary:#fff;
-    --header-secondary:#b9bbbe;
-    --text-normal:#dcddde;
-    --text-muted:#72767d;
-    --text-link:hsl(197,calc(var(--saturation-factor, 1)*100%),47.8%);
-    --interactive-normal:#b9bbbe;
-    --interactive-hover:#dcddde;
-    --background-secondary:#2f3136;
-    --background-tertiary:#202225;
-    --background-modifier-accent:hsla(0,0%,100%,0.06);
-    --deprecated-text-input-bg:rgba(0,0,0,0.1);
-    --deprecated-text-input-border:rgba(0,0,0,0.3);
-    #{c(button lookBlank)} {
-        color: var(--text-normal);
-    }
+	--header-primary:#fff;
+	--header-secondary:#b9bbbe;
+	--text-normal:#dcddde;
+	--text-muted:#72767d;
+	--text-link:hsl(197,calc(var(--saturation-factor, 1)*100%),47.8%);
+	--interactive-normal:#b9bbbe;
+	--interactive-hover:#dcddde;
+	--background-secondary:#2f3136;
+	--background-tertiary:#202225;
+	--background-modifier-accent:hsla(0,0%,100%,0.06);
+	--deprecated-text-input-bg:rgba(0,0,0,0.1);
+	--deprecated-text-input-border:rgba(0,0,0,0.3);
+	#{c(button lookBlank)} {
+		color: var(--text-normal);
+	}
 }
 
 #{c(modals addServer templatesList)},
 #{c(modals addServer optionsList)} {
-    margin-top: 0;
-    padding-top: 24px;
+	margin-top: 0;
+	padding-top: 24px;
 }
 #{c(modals addServer createServer)} {
-    margin: 0;
-    padding: 16px;
+	margin: 0;
+	padding: 16px;
 }
 #{c(modals addServer templateButton)} {
-    background-color: $card;
+	background-color: $card;
 }
 #{c(modals addServer templateButtonText)} {
-    color: var(--interactive-normal);
+	color: var(--interactive-normal);
 }
 #{c(modals addServer templateButton)}:hover {
-    background-color: $card;
-    #{c(modals addServer templateButtonText)} {
-        color: var(--interactive-hover);
-    }
+	background-color: $card;
+	#{c(modals addServer templateButtonText)} {
+		color: var(--interactive-hover);
+	}
 }
 #{c(modals addServer uploadIcon)} {
-    >div>svg>circle[fill="#5865f2"] {
-        fill: $primary;
-    }
+	>div>svg>circle[fill="#5865f2"] {
+		fill: $primary;
+	}
 }

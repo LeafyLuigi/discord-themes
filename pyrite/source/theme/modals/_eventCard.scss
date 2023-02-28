@@ -1,6 +1,6 @@
 @use "backend" as *;
 #{c(modals eventCard rsvpCount)} {
-    background: $card;
+	background: $card;
 }
 #{c(modals eventCard card)},
 #{c(modals eventCard card)}:hover {

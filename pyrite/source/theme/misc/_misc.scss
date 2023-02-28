@@ -6,60 +6,60 @@
 
 // used in: misc
 @keyframes monke {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 // used in: chat
 @keyframes gifRipple {
-  0% {
-    transform:scale(.4);
-    opacity:1;
-  }
-  90% {
-    transform:scale(1.4);
-    opacity:0;
-  }
-  100% {
-    transform:scale(1.6);
-    opacity:0;
-  }
+	0% {
+		transform:scale(.4);
+		opacity:1;
+	}
+	90% {
+		transform:scale(1.4);
+		opacity:0;
+	}
+	100% {
+		transform:scale(1.6);
+		opacity:0;
+	}
 }
 @keyframes gifBounce {
-  25% {
-    transform:scale(.6);
-  }
-  50% {
-    transform:scale(1.2);
-  }
-  100% {
-    transform:scale(1);
-  }
+	25% {
+		transform:scale(.6);
+	}
+	50% {
+		transform:scale(1.2);
+	}
+	100% {
+		transform:scale(1);
+	}
 }
 
 // used in: error
 @keyframes errorScrollMac {
-  0% {
-    height: 0%;
-  }
-  100% {
-    height: 100%;
-  }
+	0% {
+		height: 0%;
+	}
+	100% {
+		height: 100%;
+	}
 }
 @keyframes errorPopMac {
-  0% {
-    opacity: 0;
-  }
-  99% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+	99% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 /* Begin Misc */
@@ -67,10 +67,10 @@
 // body fonts
 ::placeholder, ::-webkit-input-placeholder,
 body, button, input, select, textarea {
-  font-family: var(--body-font);
+	font-family: var(--body-font);
 }
 ::selection {
-  background-color: $secondary;
+	background-color: $secondary;
 
 }
 // code fonts
@@ -80,7 +80,7 @@ code,
 #{c(chatForm beforeInlineCode)},
 #{c(chatForm codeLine)},
 #{c(chatForm codeBlockText)} {
-  font-family: var(--code-font);
+	font-family: var(--code-font);
 }
 
 // Background
@@ -94,10 +94,10 @@ body, // this one is here for transparency in bd to work
 #{c(main appInner)},
 #{c(main bg)},
 #{c(main loadingContainer)} {
-  background: transparent;
+	background: transparent;
 }
 :is(#{c(main dark)},#{c(main light)}) #{c(main appMount)} {
-  background: transparent;
+	background: transparent;
 }
 
 // Set z-index
@@ -105,90 +105,90 @@ body, // this one is here for transparency in bd to work
 //   z-index: -1000;
 // }
 #{c(main pictureInPicture)} {
-  z-index: 1050;
+	z-index: 1050;
 }
 #{c(os titleBar)} {
-  z-index: 1100;
+	z-index: 1100;
 }
 
 // Loading Icon. Best seen removing the ONLY reaction of a type in the reaction modal.
 #{c(main loadingSquare)} {
-  background-color: $primary;
+	background-color: $primary;
 }
 
 // Windows
 #{c(os win platform)} {
-  #{c(sidebar sidebar)} {
-    border-radius: 0;
-  }
-  #{c(serverList servers)} {
-    margin-top: 48px;
-    overflow: visible;
-    @include bg($z:1010,$bg:$header,$w:72px,$h:48px,$top:-48px);
-  }
-  #{c(header toolbar)} {
-    padding-right: calc(3 * var(--win-min-max-close-button-width));
-    margin-right: -6px;
-  }
-  :is(#{c(header nicknames)},#{c(header topic)}) {
-    margin-right: calc(3 * var(--win-min-max-close-button-width));
-  }
+	#{c(sidebar sidebar)} {
+		border-radius: 0;
+	}
+	#{c(serverList servers)} {
+		margin-top: 48px;
+		overflow: visible;
+		@include bg($z:1010,$bg:$header,$w:72px,$h:48px,$top:-48px);
+	}
+	#{c(header toolbar)} {
+		padding-right: calc(3 * var(--win-min-max-close-button-width));
+		margin-right: -6px;
+	}
+	:is(#{c(header nicknames)},#{c(header topic)}) {
+		margin-right: calc(3 * var(--win-min-max-close-button-width));
+	}
 }
 #{c(os win type)} {
-  padding-top: 0;
-  margin-top: 0;
-  height: 0;
-  position: relative;
-  @include bg($war:drag,$h:18px,$pos:fixed);
-  & > #{c(os wordmark)} {
-    display: none;
-  }
+	padding-top: 0;
+	margin-top: 0;
+	height: 0;
+	position: relative;
+	@include bg($war:drag,$h:18px,$pos:fixed);
+	& > #{c(os wordmark)} {
+		display: none;
+	}
 }
 #{c(os win button)} {
-  width: var(--win-min-max-close-button-width);
-  position: relative;
-  top: 0;
-  height: 48px;
+	width: var(--win-min-max-close-button-width);
+	position: relative;
+	top: 0;
+	height: 48px;
 }
 #{c(os win buttonClose)}:hover {
-  background: $red;
-  color: var(--interactive-hover);
+	background: $red;
+	color: var(--interactive-hover);
 }
 
 // Mac
 #{c(os mac platform)} {
-  #{c(serverList servers)} {
-    margin-top: 48px;
-    overflow: visible;
-    @include bg($z:1050,$bg:$header,$w:72px,$h:48px,$top:-48px,$war:drag);
-  }
-  #{c(serverList scroller)} {
-    padding-top: 4px;
-  }
+	#{c(serverList servers)} {
+		margin-top: 48px;
+		overflow: visible;
+		@include bg($z:1050,$bg:$header,$w:72px,$h:48px,$top:-48px,$war:drag);
+	}
+	#{c(serverList scroller)} {
+		padding-top: 4px;
+	}
 }
 #{c(os mac buttonMin)},
 #{c(os mac buttonMax)} {
-  margin-left: 7px;
+	margin-left: 7px;
 }
 #{c(os mac type)} {
-  top: calc(var(--channel-tabs-enabled,0) * calc(66px * var(--channel-tabs-enabled,0)));
+	top: calc(var(--channel-tabs-enabled,0) * calc(66px * var(--channel-tabs-enabled,0)));
 }
 #{c(os mac buttons)} {
-  height: 48px;
+	height: 48px;
 }
 // Linux, Web
 :is(#{c(os linux)},#{c(os web)}) {
-  #{c(serverList scroller)} {
-    padding: 4px 0 0 0;
-  }
-  #{c(serverList servers)} {
-    @include bg($bg:$header,$w:100%,$h:48px,$z:1010);
-    > #{c(serverList tree)} {
-      top: 48px;
-      position: relative;
-      height: calc(100vh - 48px);
-    }
-  }
+	#{c(serverList scroller)} {
+		padding: 4px 0 0 0;
+	}
+	#{c(serverList servers)} {
+		@include bg($bg:$header,$w:100%,$h:48px,$z:1010);
+		> #{c(serverList tree)} {
+			top: 48px;
+			position: relative;
+			height: calc(100vh - 48px);
+		}
+	}
 }
 
 /* show/hide for side-panels (like member list and profile panels) */
@@ -196,40 +196,40 @@ body, // this one is here for transparency in bd to work
 #{c(chat chatContentInner)} ~ div,
 #{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}
 ) {
-  background: var(--background,var(--side-shading));
-  left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled));
-  transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
-  margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled)));
-  position: relative;
-  z-index: 2; // just in case of buttons
+	background: var(--background,var(--side-shading));
+	left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled));
+	transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
+	margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled)));
+	position: relative;
+	z-index: 2; // just in case of buttons
 }
 #{c(main focused)} {
-  :is(
-  #{c(chat chatContentInner)} ~ div,
-  #{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}
-  ) {
-    &:is(:hover,:focus-within) {
-      transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, --hide-fallback-enabled))));
-      backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));
-    }
-  }
+	:is(
+	#{c(chat chatContentInner)} ~ div,
+	#{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}
+	) {
+		&:is(:hover,:focus-within) {
+			transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, --hide-fallback-enabled))));
+			backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));
+		}
+	}
 }
 
 // EGGS!
 #{c(main focused)}#{c(main fullMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)},
 #{c(main focused)}#{c(main reduceMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)}:hover {
-  animation: monke 6.9s linear infinite;
+	animation: monke 6.9s linear infinite;
 }
 
 // Enable with Beer
 // confused? https://cdn.discordapp.com/attachments/747040126294687764/827442200094179338/unknown.png
 #{c(embeds textOpenFullPreview)} {
-  &:before {
-    content: "🍺";
-  }
-  > svg {
-    display: none;
-  }
+	&:before {
+		content: "🍺";
+	}
+	> svg {
+		display: none;
+	}
 }
 
 // Are you a robot?
@@ -241,29 +241,29 @@ body, // this one is here for transparency in bd to work
 
 /* Checkboxes */
 #{c(main checkbox)} {
-  border-color: $primary !important; // !important reason: element.style when selected
-  &#{c(main checkboxChecked)} {
-    box-shadow: inset 0 0 3px 1px $primary;
-    border-color: $primary !important; // !important reason: element.style
-    > svg > path {
-      fill: $primary; 
-    }
-    &[style*="background-color:"] {
-      background-color: transparent !important; // !important reason: element.style
-    }
-  }
+	border-color: $primary !important; // !important reason: element.style when selected
+	&#{c(main checkboxChecked)} {
+		box-shadow: inset 0 0 3px 1px $primary;
+		border-color: $primary !important; // !important reason: element.style
+		> svg > path {
+			fill: $primary; 
+		}
+		&[style*="background-color:"] {
+			background-color: transparent !important; // !important reason: element.style
+		}
+	}
 }
 
 /* "Other". */
 // I don't know where this stuff is used in the site.
 #{c(other developerPortalCtaWrapper)} {
-  background-color: $card;
+	background-color: $card;
 }
 // Rings - tab around and you'll find it. Appears to have a class sans suffix/reroll.
 #{c(main ring)} {
-  &[style*="var(--focus-primary)"] {
-    --__adaptive-focus-color: var(--primary-color) !important; // !important reason: element.style
-  }
+	&[style*="var(--focus-primary)"] {
+		--__adaptive-focus-color: var(--primary-color) !important; // !important reason: element.style
+	}
 }
 // #{c(main keyboardMode)} #{c(other focusStroke)} {
 //   fill: $primary;
@@ -272,24 +272,24 @@ body, // this one is here for transparency in bd to work
 
 // insecure links
 a[href^="http://"] {
-  color: $red;
-  text-shadow: 0 0 2px $red;
+	color: $red;
+	text-shadow: 0 0 2px $red;
 }
 
 /* HLJS */
 #{c(hljs comment)},
 #{c(hljs quote)} {
-  font-style: italic;
+	font-style: italic;
 }
 
 /* A few blurs */
 #{c(main loadingContainer)} {
-  backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
 }
 #{c(main backdrop)},
 #{c(main backdropWithLayer)} {
-  backdrop-filter: blur(3px);
-  background-color: transparent !important;
+	backdrop-filter: blur(3px);
+	background-color: transparent !important;
 }
 
 /* Official Preset Previews */
@@ -299,40 +299,40 @@ a[href^="http://"] {
 #message-accessories-1059357294279794738,
 #message-accessories-1059357367327785060
 ) {
-  #{c(embeds textContainerUp)} {
-    transform: rotate(0deg);
-    border: none;
-    background-color: transparent;
-  }
-  #{c(embeds textContainer)} {
-    @include bg($bgf: var(--local-image) center/ cover no-repeat);
-    @include bg2($bgf: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat);
-  }
-  #{c(embeds textFooter)} {
-    width: 300px;
-  }
-  :is(
-  #{c(embeds toggleExpandedPreview)},
-  #{c(embeds attachmentName)},
-  #{c(embeds attachmentSize)},
-  #{c(embeds codeIcon)},
-  pre
-  ) {
-    display: none;
-  }
+	#{c(embeds textContainerUp)} {
+		transform: rotate(0deg);
+		border: none;
+		background-color: transparent;
+	}
+	#{c(embeds textContainer)} {
+		@include bg($bgf: var(--local-image) center/ cover no-repeat);
+		@include bg2($bgf: url(https://leafyluigi.github.io/images/preview-overlay.png) center/ cover no-repeat);
+	}
+	#{c(embeds textFooter)} {
+		width: 300px;
+	}
+	:is(
+	#{c(embeds toggleExpandedPreview)},
+	#{c(embeds attachmentName)},
+	#{c(embeds attachmentSize)},
+	#{c(embeds codeIcon)},
+	pre
+	) {
+		display: none;
+	}
 }
 // synthscape orange
 #message-accessories-1059357046648090695 {
-  --local-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
+	--local-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
 }
 // yellow flower
 #message-accessories-1059357338349342801 {
-  --local-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
+	--local-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
 }
 // ocean blue, current default
 :is(
 #message-accessories-1059357294279794738,
 #message-accessories-1059357367327785060
 ) {
-  --local-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
+	--local-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
 }

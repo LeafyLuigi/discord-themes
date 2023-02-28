@@ -1,21 +1,21 @@
 @use "backend" as *;
 /* Begin Tooltips */
 #{c(main layerContainer)} {
-  z-index: 1100;
+	z-index: 1100;
 }
 #{c(tooltips tooltip)} {
-  z-index: 2000;
+	z-index: 2000;
 }
 #{c(tooltips pointer)} {
-  display: none;
+	display: none;
 }
 :is(#{c(main dark)},#{c(main light)}) {
-  :is(#{c(tooltips black)},#{c(tooltips brand)},#{c(tooltips grey)},#{c(tooltips primary)},#{c(media bubble)}) {
-    background: $tooltip;
-    color: var(--header-primary);
-    text-shadow: 2px 2px 2px var(--header-secondary);
-  }
+	:is(#{c(tooltips black)},#{c(tooltips brand)},#{c(tooltips grey)},#{c(tooltips primary)},#{c(media bubble)}) {
+		background: $tooltip;
+		color: var(--header-primary);
+		text-shadow: 2px 2px 2px var(--header-secondary);
+	}
 }
 #{c(tooltips stageListenerPill)} {
-  background-color: $card;
+	background-color: $card;
 }

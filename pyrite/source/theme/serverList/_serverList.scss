@@ -1,113 +1,113 @@
 @use "backend" as *;
 /* Start Server List */
 #{c(serverList wrapper)} {
-  background-color: transparent;
-  &:focus {
-    outline: 0;
-  }
+	background-color: transparent;
+	&:focus {
+		outline: 0;
+	}
 }
 
 #{c(serverList tree)} {
-  background-color: $side;
-  &:focus {
-    outline: none;
-  }
+	background-color: $side;
+	&:focus {
+		outline: none;
+	}
 }
 
 :is(#{c(main dark)},#{c(main light)}) #{c(serverList scroller)} {
-  background: transparent;
+	background: transparent;
 }
 
 #{c(serverList folder)},
 #{c(serverList folder)}#{c(serverList folderHover)} {
-  background: transparent;
+	background: transparent;
 }
 #{c(serverList expandedFolderBackground)} {
-  background: $card;
+	background: $card;
 }
 #{c(serverList serverWrapperSimple)} {
-  border-radius: unset;
-  overflow: unset;
+	border-radius: unset;
+	overflow: unset;
 }
 #{c(serverList iconWrapper)} {
-  #{c(serverList iconChildWrapper)} {
-    background-color: $card;
-    transition: background-color .1s ease-out,color .1s ease-out,border-radius 0.1s ease-out;
-  }
-  &:is(#{c(serverList selected)},:hover) {
-    #{c(serverList iconChildWrapper)} {
-      background-color: $primary;
-    }
-    :is(#{c(serverList serverIcon)},#{c(serverList iconChildWrapper)}) {
-      border-radius: 33%;
-    }
-  }
-  :is(#{c(serverList serverIcon)},#{c(serverList iconChildWrapper)}) {
-    border-radius: 50%;
-    transition: border-radius 0.1s;
-  }
+	#{c(serverList iconChildWrapper)} {
+		background-color: $card;
+		transition: background-color .1s ease-out,color .1s ease-out,border-radius 0.1s ease-out;
+	}
+	&:is(#{c(serverList selected)},:hover) {
+		#{c(serverList iconChildWrapper)} {
+			background-color: $primary;
+		}
+		:is(#{c(serverList serverIcon)},#{c(serverList iconChildWrapper)}) {
+			border-radius: 33%;
+		}
+	}
+	:is(#{c(serverList serverIcon)},#{c(serverList iconChildWrapper)}) {
+		border-radius: 50%;
+		transition: border-radius 0.1s;
+	}
 }
 #{c(serverList addServer)} {
-  background-color: $card;
-  color: $primary;
-  border-radius: 50%;
-  transition: color .15s ease-out,background-color .15s ease-out,border-radius 0.15s;
-  &#{c(serverList addServerSelected)} {
-    background-color: $primary;
-    border-radius: 33%;
-  }
+	background-color: $card;
+	color: $primary;
+	border-radius: 50%;
+	transition: color .15s ease-out,background-color .15s ease-out,border-radius 0.15s;
+	&#{c(serverList addServerSelected)} {
+		background-color: $primary;
+		border-radius: 33%;
+	}
 }
 
 #{c(serverList pillItem)} {
-  background-color: $primary;
+	background-color: $primary;
 }
 
 :is(#{c(serverList centerDragOver)},#{c(serverList targetDragOver)}):before {
-  background-color: $green; //moving bar thing
+	background-color: $green; //moving bar thing
 }
 
 #{c(serverList homeContainer)} {
-  #{c(serverList iconWrapper)} {
-    #{c(serverList iconChildWrapper)} {
-      background: $home center/cover no-repeat scroll;
-      color: transparent;
-    }
-    &:is(#{c(serverList selected)},:hover) {
-      #{c(serverList iconChildWrapper)} {
-        background-color: $primary;
-      }
-    }
-  }
+	#{c(serverList iconWrapper)} {
+		#{c(serverList iconChildWrapper)} {
+			background: $home center/cover no-repeat scroll;
+			color: transparent;
+		}
+		&:is(#{c(serverList selected)},:hover) {
+			#{c(serverList iconChildWrapper)} {
+				background-color: $primary;
+			}
+		}
+	}
 }
 #{c(serverList serverSeparator)} {
-  background: linear-gradient(to bottom, $secondary, transparent);
-  width: 48px;
-  height: 4px;
-  margin-bottom: -2px;
+	background: linear-gradient(to bottom, $secondary, transparent);
+	width: 48px;
+	height: 4px;
+	margin-bottom: -2px;
 }
 #{c(serverList unreadMention)},
 #{c(serverList mentionBar)},
 #{c(serverList mentionBar)}:active {
-  background-color: $primary;
+	background-color: $primary;
 }
 
 #{c(serverList numberBadge)} {
-  background-color: $primary !important; // !important reason: element.style
+	background-color: $primary !important; // !important reason: element.style
 }
 
 #{c(serverList iconBadge)}#{c(serverList participating)} {
-  background-color: $green;
-  filter: none;
+	background-color: $green;
+	filter: none;
 }
 
 #{c(serverList placeholderInner)} {
-  background-color: $card;
+	background-color: $card;
 }
 
 #{c(serverList serverWrapper)} {
-  > svg > foreignObject {
-    mask: none;
-  }
+	> svg > foreignObject {
+		mask: none;
+	}
 }
 
 // Relates to an experiment: 2022-06_spdy_premium_marketing_entrypoint.
@@ -119,5 +119,5 @@
 // }
 // treatment 3
 #{c(serverList fixedBottomList)} {
-  display: none;
+	display: none;
 }

@@ -1,99 +1,99 @@
 @use "backend" as *;
 /* Start Server Settings */
 :is(#{c(main dark)},#{c(main light)}) {
-  #{c(serverSettings emojiRemoveDefault)} {
-    background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
-    &:not(:hover) {
-      background-color: transparent;
-    }
-    &:hover {
-      background-color: $red;
-    }
-  }
-  #{c(serverSettings emojiAliasInput)} #{c(serverSettings emojiInput)} {
-    background-color: $card;
-    border-color: $primary;
-  }
+	#{c(serverSettings emojiRemoveDefault)} {
+		background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
+		&:not(:hover) {
+			background-color: transparent;
+		}
+		&:hover {
+			background-color: $red;
+		}
+	}
+	#{c(serverSettings emojiAliasInput)} #{c(serverSettings emojiInput)} {
+		background-color: $card;
+		border-color: $primary;
+	}
 }
 #{c(main appInner)}:not([style*="transform"]) {
-  #{c(serverSettings noticeRegion)} {
-    #{c(serverSettings noticeContainer)} {
-      &:not([style*="240, 71, 71"]) {
-        background-color: transparent !important; // !important reason: element.style
-        @include bg($right:20px,$left:20px,$bottom:20px,$bg:$primary,$o:.9,$br:5px);
-      }
-    }
-  }
+	#{c(serverSettings noticeRegion)} {
+		#{c(serverSettings noticeContainer)} {
+			&:not([style*="240, 71, 71"]) {
+				background-color: transparent !important; // !important reason: element.style
+				@include bg($right:20px,$left:20px,$bottom:20px,$bg:$primary,$o:.9,$br:5px);
+			}
+		}
+	}
 }
 // commented bc idk where to get it
 // #{c(serverSettings newBadge)} {
 //   background-color: $red !important; // !important reason: element.style
 // }
 #{c(serverSettings roleCircleButton)} {
-  background-color: $primary;
-  &:hover {
-    background-color: $hover;
-  }
+	background-color: $primary;
+	&:hover {
+		background-color: $hover;
+	}
 }
 #{c(serverSettings roleRow)}:hover:not(#{c(serverSettings roleRowDisableHover)}) {
-  #{c(serverSettings roleCircleButton)} {
-    background-color: $primary;
-    &:hover {
-      background-color: $hover;
-    }
-  }
+	#{c(serverSettings roleCircleButton)} {
+		background-color: $primary;
+		&:hover {
+			background-color: $hover;
+		}
+	}
 }
 #{c(serverSettings roleHeader)} {
-  &#{c(serverSettings roleHeaderStickyElevated)} {
-    box-shadow: none;
-  }
-  &#{c(serverSettings roleHeaderSticky)} {
-    position: relative;
-    top: unset;
-  }
+	&#{c(serverSettings roleHeaderStickyElevated)} {
+		box-shadow: none;
+	}
+	&#{c(serverSettings roleHeaderSticky)} {
+		position: relative;
+		top: unset;
+	}
 }
 #{c(serverSettings roleEditButton)} {
-  visibility: visible;
+	visibility: visible;
 }
 #{c(serverSettings roleEveryoneContainer)} {
-  background-color: $card;
-  &:hover,
-  &:active {
-    background-color: $card;
-  }
+	background-color: $card;
+	&:hover,
+	&:active {
+		background-color: $card;
+	}
 }
 #{c(serverSettings roleSearch)} {
-  background: $card;
-  border: $primary;
+	background: $card;
+	border: $primary;
 }
 #{c(serverSettings roleEveryoneIcon)},
 #{c(serverSettings rolePreviewContainer)} {
-  background-color: $card;
+	background-color: $card;
 }
 #{c(serverSettings emojiAliasPlaceholder)} {
-  display: none;
+	display: none;
 }
 #{c(serverSettings emojiRow)} {
-  padding: 10px 0;
-  #{c(serverSettings emojiRemoveDefault)} {
-    opacity: 1;
-    top: calc(50% - 12px);
-    right: 4px;
-  }
-  #{c(serverSettings emojiAliasInput)} {
-    width: unset;
-    #{c(serverSettings emojiInput)} {
-      opacity: 1;
-    }
-  }
+	padding: 10px 0;
+	#{c(serverSettings emojiRemoveDefault)} {
+		opacity: 1;
+		top: calc(50% - 12px);
+		right: 4px;
+	}
+	#{c(serverSettings emojiAliasInput)} {
+		width: unset;
+		#{c(serverSettings emojiInput)} {
+			opacity: 1;
+		}
+	}
 }
 #{c(serverSettings auditScroller)} {
-  background-color: $middle;
+	background-color: $middle;
 }
 #{c(serverSettings templateDescriptionBox)},
 #{c(serverSettings enableCommunityFeatureCard)},
 #{c(serverSettings enableCommunityGuildDetails)} {
-  @include card;
+	@include card;
 }
 #{c(serverSettings templateDescriptionIcon)} circle {
 	&[fill="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"] {
@@ -108,5 +108,5 @@
 #{c(serverSettings roleHeader)},
 #{c(serverSettings enableCommunityFeatureIcon)},
 #{c(serverSettings serverIconUploadInner)} {
-  background-color: transparent;
+	background-color: transparent;
 }

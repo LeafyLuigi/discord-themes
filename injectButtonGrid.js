@@ -1,5 +1,5 @@
 // Define Constants
-const target = document.getElementsByClassName("layerContainer-2v_Sit")[1]; // Everything will be targeted towards this element
+const target = document.getElementsByClassName("layerContainer-2lfOPe")[1]; // Everything will be targeted towards this element
 const types = ["lookFilled-1H2Jvj", "lookInverted-2GrLaB", "lookOutlined-3RTC7c", "lookLink-13iF2K", "lookBlank-FgPMy6"];
 const typesName = ["Filled", "Inverted", "Outlined", "Link", "Blank"];
 const colors = ["colorBrand-2M3O3N", "colorBrandNew-abZT3v", "colorGreen-jIPCAS", "colorLink-34zig_", "colorPrimary-2-Lusz", "colorRed-2VFhM4", "colorTransparent-2SBJ8-", "colorWhite-Eshn2o", "colorYellow-_9KFXL"];
@@ -75,246 +75,246 @@ var chosen_blank = true; // [INVERTED RIGHT AWAY] true shows the lookBlank set
 
 // Add ID to Initial Target
 function start() {
-  target.setAttribute("id", "buttonGrid");
+	target.setAttribute("id", "buttonGrid");
 }
 
 
 /// Functions
 function closeBtn() {
-  target.innerHTML = "";
-  target.removeAttribute("id");
-  target.setAttribute("class", "layerContainer-2v_Sit");
+	target.innerHTML = "";
+	target.removeAttribute("id");
+	target.setAttribute("class", "layerContainer-2v_Sit");
 }
 
 function updateGridColumns() {
-  frank = document.getElementById("frank");
-  if (chosen_blank) {
-    frank.setAttribute("style","--grid-cols: auto 1fr 1fr 1fr 1fr");
-    document.getElementById("blankInner").innerText = "False";
-  } else {
-    frank.setAttribute("style","--grid-cols: auto 1fr 1fr 1fr 1fr 1fr");
-    document.getElementById("blankInner").innerText = "True";
-  }
+	frank = document.getElementById("frank");
+	if (chosen_blank) {
+		frank.setAttribute("style","--grid-cols: auto 1fr 1fr 1fr 1fr");
+		document.getElementById("blankInner").innerText = "False";
+	} else {
+		frank.setAttribute("style","--grid-cols: auto 1fr 1fr 1fr 1fr 1fr");
+		document.getElementById("blankInner").innerText = "True";
+	}
 }
 
 function disableBtn() {
-  chosen_disabled++;
-  chosen_disabled = chosen_disabled % 3;
-  document.getElementById("disableInner").innerText = disableOptions[chosen_disabled];
-  switch (chosen_disabled) {
-    case 0: // no :disabled, no aria
-      for (let i = 0; i < btns.length; i++) {
-        btns[i].removeAttribute("aria-disabled");
-      }
-      break;
-    case 1: // :disabled, no aria
-      for (let i = 0; i < btns.length; i++) {
-        btns[i].setAttribute("disabled", 1);
-      }
-      break;
-    case 2: // no :disabled, aria
-      for (let i = 0; i < btns.length; i++) {
-        btns[i].removeAttribute("disabled");
-        btns[i].setAttribute("aria-disabled", "true");
-      }
-    break;
-  }
+	chosen_disabled++;
+	chosen_disabled = chosen_disabled % 3;
+	document.getElementById("disableInner").innerText = disableOptions[chosen_disabled];
+	switch (chosen_disabled) {
+		case 0: // no :disabled, no aria
+			for (let i = 0; i < btns.length; i++) {
+				btns[i].removeAttribute("aria-disabled");
+			}
+			break;
+		case 1: // :disabled, no aria
+			for (let i = 0; i < btns.length; i++) {
+				btns[i].setAttribute("disabled", 1);
+			}
+			break;
+		case 2: // no :disabled, aria
+			for (let i = 0; i < btns.length; i++) {
+				btns[i].removeAttribute("disabled");
+				btns[i].setAttribute("aria-disabled", "true");
+			}
+		break;
+	}
 }
 
 function sizeBtn() {
-  oldSize = chosen_size;
-  chosen_size++;
-  chosen_size = chosen_size % 5;
-  for (let i = 0; i < btns.length; i++) {
-    btns[i].classList.remove(sizes[oldSize]);
-    btns[i].classList.add(sizes[chosen_size]);
-  }
-  document.getElementById("sizeInner").innerText = sizeOptions[chosen_size];
+	oldSize = chosen_size;
+	chosen_size++;
+	chosen_size = chosen_size % 5;
+	for (let i = 0; i < btns.length; i++) {
+		btns[i].classList.remove(sizes[oldSize]);
+		btns[i].classList.add(sizes[chosen_size]);
+	}
+	document.getElementById("sizeInner").innerText = sizeOptions[chosen_size];
 }
 
 function hoverBtn() {
-  oldHover = chosen_hover;
-  chosen_hover++;
-  chosen_hover = chosen_hover % 10;
-  for (let i = 0; i < btns.length; i++) {
-    switch(chosen_hover) {
-      case 9: // "none"
-        btns[i].classList.remove(classHasHover);
-        btns[i].classList.remove(colorsHover[oldHover]);
-        break;
-      case 0: // "brand"
-        btns[i].classList.add(classHasHover);
-        btns[i].classList.add(colorsHover[chosen_hover]);
-        break;
-      default: // "brandNew to yellow"
-        btns[i].classList.remove(colorsHover[oldHover]);
-        btns[i].classList.add(colorsHover[chosen_hover]);
-        break;
-    }
-  }
-  document.getElementById("hoverInner").innerText = hoverOptions[chosen_hover];
+	oldHover = chosen_hover;
+	chosen_hover++;
+	chosen_hover = chosen_hover % 10;
+	for (let i = 0; i < btns.length; i++) {
+		switch(chosen_hover) {
+			case 9: // "none"
+				btns[i].classList.remove(classHasHover);
+				btns[i].classList.remove(colorsHover[oldHover]);
+				break;
+			case 0: // "brand"
+				btns[i].classList.add(classHasHover);
+				btns[i].classList.add(colorsHover[chosen_hover]);
+				break;
+			default: // "brandNew to yellow"
+				btns[i].classList.remove(colorsHover[oldHover]);
+				btns[i].classList.add(colorsHover[chosen_hover]);
+				break;
+		}
+	}
+	document.getElementById("hoverInner").innerText = hoverOptions[chosen_hover];
 }
 
 function themeBtn() {
-  chosen_theme++;
-  chosen_theme = chosen_theme % 2;
-  if (chosen_theme == 0) {
-    grid.classList.add("theme-dark");
-    grid.classList.remove("theme-light");
-  } else {
-    grid.classList.remove("theme-dark");
-    grid.classList.add("theme-light");
-  }
-  document.getElementById("themeInner").innerText = themeOptions[chosen_theme];
+	chosen_theme++;
+	chosen_theme = chosen_theme % 2;
+	if (chosen_theme == 0) {
+		grid.classList.add("theme-dark");
+		grid.classList.remove("theme-light");
+	} else {
+		grid.classList.remove("theme-dark");
+		grid.classList.add("theme-light");
+	}
+	document.getElementById("themeInner").innerText = themeOptions[chosen_theme];
 }
 
 function spinnerBtn() {
-  for (let i = 0; i < btns.length; i++) {
-    if(chosen_spinner) {
-      btns[i].classList.remove(classSubmitting);
-      btns[i].firstChild.remove();
-      document.getElementById("spinnerInner").innerText = "False";
-    } else {
-      btns[i].classList.add(classSubmitting);
-      btns[i].insertAdjacentHTML("afterbegin", btnSpinnerHtml);
-      document.getElementById("spinnerInner").innerText = "True";
-    }
-  }
-  chosen_spinner = !chosen_spinner;
+	for (let i = 0; i < btns.length; i++) {
+		if(chosen_spinner) {
+			btns[i].classList.remove(classSubmitting);
+			btns[i].firstChild.remove();
+			document.getElementById("spinnerInner").innerText = "False";
+		} else {
+			btns[i].classList.add(classSubmitting);
+			btns[i].insertAdjacentHTML("afterbegin", btnSpinnerHtml);
+			document.getElementById("spinnerInner").innerText = "True";
+		}
+	}
+	chosen_spinner = !chosen_spinner;
 }
 
 function borderBtn() {
-  btnBorders = document.getElementsByClassName(types[2]+" "+buttonGridClass);
-  oldBorder = chosen_border;
-  chosen_border++;
-  chosen_border = chosen_border % 10; // colorsBorder.length + 1 with 0 being "None"
-  for (let i = 0; i < btnBorders.length; i++) {
-    switch(chosen_border) {
-      case 9: // "none"
-        btnBorders[i].classList.remove(colorsBorder[oldBorder]);
-        break;
-      case 0: // "brand"
-        btnBorders[i].classList.add(colorsBorder[chosen_border]);
-        break;
-      default: // "brandNew to yellow"
-        btnBorders[i].classList.remove(colorsBorder[oldBorder]);
-        btnBorders[i].classList.add(colorsBorder[chosen_border]);
-        break;
-    }
-  }
-  document.getElementById("borderInner").innerText = borderOptions[chosen_border];
+	btnBorders = document.getElementsByClassName(types[2]+" "+buttonGridClass);
+	oldBorder = chosen_border;
+	chosen_border++;
+	chosen_border = chosen_border % 10; // colorsBorder.length + 1 with 0 being "None"
+	for (let i = 0; i < btnBorders.length; i++) {
+		switch(chosen_border) {
+			case 9: // "none"
+				btnBorders[i].classList.remove(colorsBorder[oldBorder]);
+				break;
+			case 0: // "brand"
+				btnBorders[i].classList.add(colorsBorder[chosen_border]);
+				break;
+			default: // "brandNew to yellow"
+				btnBorders[i].classList.remove(colorsBorder[oldBorder]);
+				btnBorders[i].classList.add(colorsBorder[chosen_border]);
+				break;
+		}
+	}
+	document.getElementById("borderInner").innerText = borderOptions[chosen_border];
 }
 
 function blankBtn() {
-  btnBlanks = document.getElementsByClassName(buttonBlankClass);
-  for (let i = 0; i < btnBlanks.length; i++) {
-    if (chosen_blank) {
-      btnBlanks[i].parentElement.setAttribute("hidden", true);
-    } else {
-      btnBlanks[i].parentElement.removeAttribute("hidden");
-    }
-  }
-  updateGridColumns();
-  chosen_blank = !chosen_blank;
+	btnBlanks = document.getElementsByClassName(buttonBlankClass);
+	for (let i = 0; i < btnBlanks.length; i++) {
+		if (chosen_blank) {
+			btnBlanks[i].parentElement.setAttribute("hidden", true);
+		} else {
+			btnBlanks[i].parentElement.removeAttribute("hidden");
+		}
+	}
+	updateGridColumns();
+	chosen_blank = !chosen_blank;
 }
 
 function makeToolbarHtml() {
-  htmlOut = "";
-  items = toolbarCategoryHeaders.length;
-  for (let i = 0; i < items; i++) {
-    htmlOut += "<div><h2 title='"+toolbarTitles[i]+"' class='eyebrow-1Shfyi defaultColor-1GKx81'>"+toolbarCategoryHeaders[i]+"</h2>";
-    htmlOut += "<button class='"+classButton+" "+classGrow+" "+colors[0]+" "+types[0]+" "+sizes[2]+"' id='"+toolbarIds[i]+"Btn' title='"+toolbarTitles[i]+"'>";
-    htmlOut += "<div id='"+toolbarIds[i]+"Inner' class='"+classContent+"'>$value</div></button></div>";
-  }
-  toolbarElement.innerHTML = htmlOut;
-  toolbarElement.setAttribute("style", classToolbarStyle);
+	htmlOut = "";
+	items = toolbarCategoryHeaders.length;
+	for (let i = 0; i < items; i++) {
+		htmlOut += "<div><h2 title='"+toolbarTitles[i]+"' class='eyebrow-1Shfyi defaultColor-1GKx81'>"+toolbarCategoryHeaders[i]+"</h2>";
+		htmlOut += "<button class='"+classButton+" "+classGrow+" "+colors[0]+" "+types[0]+" "+sizes[2]+"' id='"+toolbarIds[i]+"Btn' title='"+toolbarTitles[i]+"'>";
+		htmlOut += "<div id='"+toolbarIds[i]+"Inner' class='"+classContent+"'>$value</div></button></div>";
+	}
+	toolbarElement.innerHTML = htmlOut;
+	toolbarElement.setAttribute("style", classToolbarStyle);
 }
 
 function makePageHtml() {
-  html = "";
-  html += htmlPage + htmlPageHeader + htmlToolbar + htmlGrid + htmlGridClose + htmlPageClose;
-  target.innerHTML = html;
+	html = "";
+	html += htmlPage + htmlPageHeader + htmlToolbar + htmlGrid + htmlGridClose + htmlPageClose;
+	target.innerHTML = html;
 
-  grid = document.getElementById("buttonGrid"); // Makes selecting it a wee bit easier
-  gridInr = document.getElementById("grid"); // and for the inner grid
-  toolbarElement = document.getElementById("toolbar");
+	grid = document.getElementById("buttonGrid"); // Makes selecting it a wee bit easier
+	gridInr = document.getElementById("grid"); // and for the inner grid
+	toolbarElement = document.getElementById("toolbar");
 }
 
 function initButtonText() {
-  for (let i = 0; i < items; i++) {
-    if (toolbarType[i] == "choice") {
-      document.getElementById(toolbarIds[i]+"Inner").innerText = eval(toolbarIds[i]+"Options")[eval(toolbarVariable[i])];
-    } else if (toolbarType[i] == "bool") {
-      document.getElementById(toolbarIds[i]+"Inner").innerText = eval(toolbarVariable[i]);
-      document.getElementById(toolbarIds[i]+"Inner").setAttribute("style", "text-transform:capitalize")
-    }
-  }
+	for (let i = 0; i < items; i++) {
+		if (toolbarType[i] == "choice") {
+			document.getElementById(toolbarIds[i]+"Inner").innerText = eval(toolbarIds[i]+"Options")[eval(toolbarVariable[i])];
+		} else if (toolbarType[i] == "bool") {
+			document.getElementById(toolbarIds[i]+"Inner").innerText = eval(toolbarVariable[i]);
+			document.getElementById(toolbarIds[i]+"Inner").setAttribute("style", "text-transform:capitalize")
+		}
+	}
 }
 
 function makeGridHtml() {
-  // total amount of buttons should be 45. for labels: color +9, type +5 (+4 for blank off), +1 for corner. total is 60.
-  let t = types.length; // type
-  let c = colors.length; // color
-  let cnr = 1; // corner
-  let btns = t*c; // different kinds = T*C (45)
-  let tot = btns + c + t + cnr; // total count in grid (45 + 9 + 5 + 1 = 60)
-  let crntClr = -1;
+	// total amount of buttons should be 45. for labels: color +9, type +5 (+4 for blank off), +1 for corner. total is 60.
+	let t = types.length; // type
+	let c = colors.length; // color
+	let cnr = 1; // corner
+	let btns = t*c; // different kinds = T*C (45)
+	let tot = btns + c + t + cnr; // total count in grid (45 + 9 + 5 + 1 = 60)
+	let crntClr = -1;
 
-  // html stuff
-  let htmlOut = ""; // set initial string
+	// html stuff
+	let htmlOut = ""; // set initial string
 
-  for (let gridCell = 0; gridCell < tot; gridCell++) {
-    // headers
-    if (gridCell < 6) {
-      switch (gridCell) {
-        case 0:
-          htmlOut += cornerHtml;
-          break;
-        default:
-          htmlOut += labelHeadHtml0;
-          if (gridCell == 5) {
-            htmlOut += " class='" + buttonBlankClass + "'";
-          }
-          htmlOut += labelAddNameHtml + typesName[gridCell - 1] + labelCloseHtml;
-          break;
-      }
-    } else {
-      if (gridCell % 6 == 0) {
-        crntClr++;
-        htmlOut += labelSideHtml0 + labelAddNameHtml + colorsName[crntClr] + labelCloseHtml;
-      } else {
-        htmlOut += btnHtml0 + " " + sizes[chosen_size] + " " + colors[crntClr] + " " + types[gridCell % 6 - 1];
-        if (gridCell % 6 == 5) {
-          htmlOut += " " + buttonBlankClass;
-        }
-        htmlOut += btnHtml1;
-      }
-    }
-  }
-  gridInr.innerHTML = htmlOut;
+	for (let gridCell = 0; gridCell < tot; gridCell++) {
+		// headers
+		if (gridCell < 6) {
+			switch (gridCell) {
+				case 0:
+					htmlOut += cornerHtml;
+					break;
+				default:
+					htmlOut += labelHeadHtml0;
+					if (gridCell == 5) {
+						htmlOut += " class='" + buttonBlankClass + "'";
+					}
+					htmlOut += labelAddNameHtml + typesName[gridCell - 1] + labelCloseHtml;
+					break;
+			}
+		} else {
+			if (gridCell % 6 == 0) {
+				crntClr++;
+				htmlOut += labelSideHtml0 + labelAddNameHtml + colorsName[crntClr] + labelCloseHtml;
+			} else {
+				htmlOut += btnHtml0 + " " + sizes[chosen_size] + " " + colors[crntClr] + " " + types[gridCell % 6 - 1];
+				if (gridCell % 6 == 5) {
+					htmlOut += " " + buttonBlankClass;
+				}
+				htmlOut += btnHtml1;
+			}
+		}
+	}
+	gridInr.innerHTML = htmlOut;
 }
 
 function initPage() {
-  // set btns
-  btns = document.getElementsByClassName(buttonGridClass);
+	// set btns
+	btns = document.getElementsByClassName(buttonGridClass);
 
-  // set theme type
-  if (document.getElementsByTagName('html')[0].classList.contains("theme-dark")) {
-    grid.classList.toggle("theme-dark");
-    chosen_theme = 0;
-  } else {
-    grid.classList.toggle("theme-light");
-    chosen_theme = 1;
-  }
+	// set theme type
+	if (document.getElementsByTagName('html')[0].classList.contains("theme-dark")) {
+		grid.classList.toggle("theme-dark");
+		chosen_theme = 0;
+	} else {
+		grid.classList.toggle("theme-light");
+		chosen_theme = 1;
+	}
 
-  document.getElementById("closeBtn").addEventListener("click", closeBtn);
-  document.getElementById("disableBtn").addEventListener("click", disableBtn);
-  document.getElementById("sizeBtn").addEventListener("click", sizeBtn);
-  document.getElementById("hoverBtn").addEventListener("click", hoverBtn);
-  document.getElementById("themeBtn").addEventListener("click", themeBtn);
-  document.getElementById("spinnerBtn").addEventListener("click", spinnerBtn);
-  document.getElementById("borderBtn").addEventListener("click", borderBtn);
-  document.getElementById("blankBtn").addEventListener("click", blankBtn);
+	document.getElementById("closeBtn").addEventListener("click", closeBtn);
+	document.getElementById("disableBtn").addEventListener("click", disableBtn);
+	document.getElementById("sizeBtn").addEventListener("click", sizeBtn);
+	document.getElementById("hoverBtn").addEventListener("click", hoverBtn);
+	document.getElementById("themeBtn").addEventListener("click", themeBtn);
+	document.getElementById("spinnerBtn").addEventListener("click", spinnerBtn);
+	document.getElementById("borderBtn").addEventListener("click", borderBtn);
+	document.getElementById("blankBtn").addEventListener("click", blankBtn);
 }
 
 start()
@@ -327,12 +327,12 @@ blankBtn();
 sizeBtn();
 
 window.addEventListener("keydown", event => {
-  if (event.key === "F3") {
-    start();
-    makePageHtml();
-    makeToolbarHtml();
-    makeGridHtml();
-    initPage();
-    initButtonText();
-  }
+	if (event.key === "F3") {
+		start();
+		makePageHtml();
+		makeToolbarHtml();
+		makeGridHtml();
+		initPage();
+		initButtonText();
+	}
 });

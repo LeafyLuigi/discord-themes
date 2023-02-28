@@ -2,46 +2,46 @@
 /* Start Member List */
 // both have to be listed for both servers and group dms
 #{c(memberList container)}, #{c(memberList wrap)} {
-  --width: 240px;
-  --hide-var: var(--hide-member-list);
+	--width: 240px;
+	--hide-var: var(--hide-member-list);
 }
 #{c(memberList wrap)} {
-  background-color: transparent;
-  min-width: auto;
-  flex-basis: 0px;
+	background-color: transparent;
+	min-width: auto;
+	flex-basis: 0px;
 }
 #{c(memberList members)} {
-  background: transparent;
+	background: transparent;
 }
 #{c(memberList group)} {
-  color: var(--category-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &:after {
-    content: "";
-    height: 2px;
-    flex-grow: 1;
-    background: linear-gradient(to right, currentColor -50%, transparent 50%);
-    margin-left: 5px;
-  }
+	color: var(--category-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&:after {
+		content: "";
+		height: 2px;
+		flex-grow: 1;
+		background: linear-gradient(to right, currentColor -50%, transparent 50%);
+		margin-left: 5px;
+	}
 }
 #{c(memberList avatarMask)}>svg>rect {
-  &[fill="#3ba55c"] {
-    fill: $green;
-  }
-  &[fill="#faa61a"] {
-    fill: $yellow;
-  }
-  &[fill="#ed4245"] {
-    fill: $red;
-  }
-  &[fill="#593695"] {
-    fill: $live;
-  }
-  &[fill="#747f8d"] {
-    fill: $offline;
-  }
+	&[fill="#3ba55c"] {
+		fill: $green;
+	}
+	&[fill="#faa61a"] {
+		fill: $yellow;
+	}
+	&[fill="#ed4245"] {
+		fill: $red;
+	}
+	&[fill="#593695"] {
+		fill: $live;
+	}
+	&[fill="#747f8d"] {
+		fill: $offline;
+	}
 }
 #{c(memberList status)} {
 	&[mask*="online"] {
@@ -64,21 +64,21 @@
 #{c(memberList placeholderAvatar)},
 #{c(memberList placeholderUsername)},
 #{c(memberList placeholderUsernameMultiple)} {
-  background-color: $card;
+	background-color: $card;
 }
 #{c(memberList offline)} {
-  opacity: 0.7;
-  transition: 0.25s all ease-in-out;
-  #{c(memberList avatar)} {
-    filter: grayscale(100%);
-  }
-  &:hover {
-    opacity: 1;
-    #{c(memberList avatar)} {
-      filter: none;
-    }
-  }
+	opacity: 0.7;
+	transition: 0.25s all ease-in-out;
+	#{c(memberList avatar)} {
+		filter: grayscale(100%);
+	}
+	&:hover {
+		opacity: 1;
+		#{c(memberList avatar)} {
+			filter: none;
+		}
+	}
 }
 #{c(memberList memberBackground)} {
-  background: transparent;
+	background: transparent;
 }

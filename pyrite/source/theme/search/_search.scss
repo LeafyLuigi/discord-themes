@@ -1,54 +1,54 @@
 @use "backend" as *;
 /* Begin Search */
 :is(#{c(main dark)},#{c(main light)}) {
-  :is(#{c(search searchFilter)},#{c(search searchAnswer)},#{c(search activeButton)},#{c(search activeButton)}:hover) {
-    background-color: $primary;
-  }
+	:is(#{c(search searchFilter)},#{c(search searchAnswer)},#{c(search activeButton)},#{c(search activeButton)}:hover) {
+		background-color: $primary;
+	}
 }
 #{c(search header)} {
-  background-color: $header;
+	background-color: $header;
 }
 #{c(search headerTabList)} {
-  #{c(search tabItem)}#{c(search tabThemed)} {
-    &:is(#{c(search tabSelected)},#{c(search tabSelected)}:hover) {
-      background-color: $secondary;
-    }
-  }
+	#{c(search tabItem)}#{c(search tabThemed)} {
+		&:is(#{c(search tabSelected)},#{c(search tabSelected)}:hover) {
+			background-color: $secondary;
+		}
+	}
 }
 #{c(search wrap)} {
-  background-color: transparent;
+	background-color: transparent;
 }
 #{c(search scroller)} {
-  background-color: $side;
+	background-color: $side;
 }
 #{c(search channel)} {
-  background-color: transparent;
-  @include header-line;
+	background-color: transparent;
+	@include header-line;
 }
 #{c(search result)},
 #{c(search blocked)} {
-  @include card;
+	@include card;
 }
 #{c(search buttonContainer)} {
-  display: flex;
+	display: flex;
 }
 #{c(search pageButton)}:not(#{c(search endButton)}) {
-  border: 1px solid transparent;
-  &:hover {
-    border-color: $secondary;
-    background-color: $card;
-  }
+	border: 1px solid transparent;
+	&:hover {
+		border-color: $secondary;
+		background-color: $card;
+	}
 }
 #{c(search endButton)} {
-  border: 1px solid transparent;
-  &:hover:disabled {
-    background-color: transparent;
-  }
-  &:hover:not(:disabled) {
-    border-color: $secondary;
-    background-color: $card;
-  }
+	border: 1px solid transparent;
+	&:hover:disabled {
+		background-color: transparent;
+	}
+	&:hover:not(:disabled) {
+		border-color: $secondary;
+		background-color: $card;
+	}
 }
 #{c(search button)} {
-  background-color: $card;
+	background-color: $card;
 }

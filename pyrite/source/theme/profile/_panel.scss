@@ -1,6 +1,6 @@
 @use "backend" as *;
 /* Start User Profile Panel */
 #{c(profile panel panel)} {
-  --width: 340px;
-  --hide-var: var(--hide-profile-panel);
+	--width: 340px;
+	--hide-var: var(--hide-profile-panel);
 }
