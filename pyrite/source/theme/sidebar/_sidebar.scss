@@ -32,15 +32,14 @@
 }
 // Area - Friends List
 #{c(sidebar privateChannels)} {
-  background-color: transparent;
+  background: transparent;
   #{c(sidebar searchBar)} {
     z-index: 1010;
-    background-color: transparent;
     box-shadow: none;
   }
   #{c(sidebar scroller)} {
     margin-top: calc(36px * $nc);
-    background-color: transparent;
+    background: transparent;
     width: 240px;
     #{c(sidebar privateChannelLink)}[href="/store"],
     #{c(sidebar privateChannelLink)}[href="/library"],
@@ -66,7 +65,7 @@
 #{c(sidebar searchBar)} {
   #{c(sidebar searchBarComponent)} {
     -webkit-app-region: no-drag;
-    background-color: $card;
+    background: $card;
   }
 }
 #{c(sidebar privateChannelLoadingEmpty)} {
@@ -228,11 +227,36 @@
   color: var(--read-channel-color);
 }
 
+#{c(sidebar privateChannelInteractive2)} {
+  &:hover,&:focus-within {
+    background: var(--background-modifier-hover);
+  }
+  &:active {
+    background: var(--background-modifier-active);
+  }
+}
+
+#{c(sidebar privateChannelSelected)} {
+  background: var(--background-modifier-selected);
+}
+
 #{c(sidebar channelModeSelected)},
-#{c(sidebar privateChannelSelected)},
+#{c(sidebar privateChannelInteractiveSelected)},
 #{c(sidebar channelWrapper)}:hover:not(#{c(sidebar channelModeMuted)}):not(#{c(sidebar channelModeLocked)}),
 #{c(sidebar privateChannelInteractive)}:hover:not(#{c(sidebar privateChannelMuted)}) {
   color: var(--selected-channel-color);
+}
+#{c(sidebar channelWrapper)}:hover {
+  #{c(sidebar channelContent)} {
+    background: var(--background-modifier-hover);
+  }
+}
+#{c(sidebar channelModeSelected)} {
+  &,&:hover {
+    #{c(sidebar channelContent)} {
+      background: var(--background-modifier-selected);
+    }
+  }
 }
 
 #{c(sidebar channelModeUnread)} {

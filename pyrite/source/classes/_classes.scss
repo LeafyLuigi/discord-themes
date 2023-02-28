@@ -137,8 +137,7 @@ $classes: (
 		),
 
 		// snowsgiving 2022 is under this category because yes 
-		"snowsgivingLink": "snowsgivingLink-1TZi3c",
-		"snowsgivingGift": "container-3Csys8",
+		"snowsgivingGift": "container-3Csys8", // no idea where this could be used but still exists
 	),
 	"text": (
 		// weird text-xx- and heading-xx classes. can have inline style for color.
@@ -1617,14 +1616,16 @@ $classes: (
 		"previewServerNotice": "notice-12Koq-", // contents: "You are currently in preview mode. Join this server to start chatting!"
 	),
 	"scroller": (
-		"base": "scrollerBase-_bVAAt",
-		"thin": "thin-31rlnD",
-		"auto": "auto-2K3UW5",
-		"none": "none-2-_0dP",
-		"fade": "fade-1R6FHN",
-		"scrolling": "scrolling-20Of9p",
-		"disableScrollAnchor": "disableScrollAnchor-6TwzvM",
-		"content": "content-2a4AW9", // USED EVERYWHERE AS A CHILD CLASS TO BASE.
+		"base": "scrollerBase-1Pkza4",
+		"thin": "thin-RnSY0a", // channel sidebar
+		"auto": "auto-2TJ1RH", // "default"
+		"none": "none-1rXy4P", // server list
+		"fade": "fade-27X6bG", // channel sidebar (show on hover)
+		"scrolling": "scrolling-37kgoT",
+		"disableScrollAnchor": "disableScrollAnchor-3Jzgzl",
+		"content": "content-yjf30S", // USED EVERYWHERE AS A CHILD CLASS TO BASE.
+		"managedReactiveScroller": "managedReactiveScroller-1LjJZ5",
+		"pointerCover": "pointerCover-3Rp2Fl", // disables inputs by the looks of it. seems to be a child of content on SOME scrollers
 	),
 	"search": (
 		"wrap": "searchResultsWrap-5RVOkx",
@@ -1778,7 +1779,8 @@ $classes: (
 		"privateChannelInteractive": "interactive-1vLZ_I",
 		"privateChannelInteractive2": "interactive-iyXY_x", // paired with above
 		"privateChannelLinkButton": "linkButton-2NshQj", // used for home, nitro, library etc
-		"privateChannelSelected": "interactiveSelected-29CP8y",
+		"privateChannelInteractiveSelected": "interactiveSelected-29CP8y",
+		"privateChannelSelected": "selected-26oxtA",
 		"privateChannelMuted": "muted-3KGUWb",
 		"privateChannelLink": "link-39sEB3",
 		"privateChannelLayout": "layout-1LjVue",
@@ -2462,6 +2464,10 @@ $classes: (
 		"sidebarItemThemed": "themed-2-lozF",
 		"sidebarSocialLinks": "socialLinks-3ywLUf",
 		"sidebarInfo": "info-3pQQBb",
+
+		"premiumFeatureBorder": "premiumFeatureBorder-1i95si",
+		"featureBorder": "featureBorder-2Jl8g4",
+		"featureBackground": "background-yH6t2p",
 
 		"sectionTitle": "sectionTitle-3j2YI1",
 		"children": "children-1xdcWE",
@@ -3906,7 +3912,7 @@ $classes: (
 		// the line this on appears to be the only rule.
 		// Line 29 of 2022-12-29: https://discord.com/assets/40532.f7b1e10347ef10e790ac.css
 		"loadingPopout": (
-			"popout": "loadingPopout-1feYe_",
+			"popout": "loadingPopout-1tyQMM",
 		),
 
 		// Within a forum, click the guidelines book then click "View All"
@@ -4000,7 +4006,6 @@ $classes: (
 		// 2022-07_channel_highlights - Currently seems to replace the "New messages" and "Jump to present" bars.
 		"newMessagesPillContainer": "newMessagesPillContainer-1EFmTu",
 		"newMessagesPill": "newMessagesPill-2YdO-e",
-		// "newMessagesPillIcon": "newMessagesPillIcon-2gBipC", // NOT FOUND ANYMORE??
 		"newMessagesClear": "newMessagesClear-2LQVHt",
 		"newMessagesClearIcon": "newMessagesClearIcon-1hFLsw",
 		"jumpToPresentButtonContainer": "jumpToPresentButtonContainer-2_0XV-",
@@ -4008,6 +4013,44 @@ $classes: (
 		"jumpToPresentButtonIcon": "jumpToPresentButtonIcon-1JtyPZ",
 		"jumpToPresentSpinner": "jumpToPresentSpinner-9AqQA5",
 		"jumpToPresentSpinnerItem": "jumpToPresentSpinnerItem-2Kph5A",
+
+		// 2022-11_client_themes - Currently three "treatments", allows a custom background via adding a class to html.
+		// Treatment 1 - Client Themes
+		// No classes added; custom option broken.
+		// Treatment 2 - Client Themes Sidebar Editor
+		"themesCustomThemeBackground": "custom-theme-background", // applied to html
+		"themesPresets": "presets-2zm9Ir",
+		"themesBasicSelectors": "basicThemeSelectors-2wNKs6",
+		"themesSelectorContainer": "themeSelectionContainer-3nGXK9",
+		"themesSelection": "themeSelection-2u4ce0",
+		"themesSelected": "selected-2FbEJt",
+		"themesDefault": "defaultThemeSelection-2M_3x4",
+		"themesSelectedCircle": "selectionCircle-3s5Uex",
+		"themesCheckmarkCircle": "checkmarkCircle-2LCcdI",
+		"themesCheckmark": "checkmark-1RtODZ",
+		"themesSyncIconWrapper": "iconWrapper-1EIGUS",
+		"themesFeatureBorder": "featureBorder-39brDJ",
+		"themesHeader": "header-LaudvZ", // "Colour", nitro icon, try etc
+		"themesHeadings": "headings-1UkJbq",
+		"themesTitle": "title-1ezOSD",
+		"themesPremiumIcon": "premiumIcon-U0EQSY",
+		"themesNitroWheel": "nitroWheel-21E85D", // ON OWN LINE; ALSO APPEARS UNDER SERVER PROFILES
+		"themesTryItOutButton": "tryItOutButtons-2Wi5Ne",
+		"themesDisabled": "disabled-3572vL", // for those with no nitro
+		"themesLightOverlay": "lightOverlay-3UweYE",
+		"themesDarkOverlay": "darkOverlay-2AcGHh",
+		"themesLight": "lightIcon-3JRYvU",
+		"themesDark": "darkIcon-e6uv7V",
+		"themesSidebarEditor": "themeEditor-1Ebyfp", // has bg + border left
+		"themesSidebarHeader": "editorHeader-2JoQo4",
+		"themesSidebarCloseCircleButton": "closeCircleButton-32v2CJ",
+		"themesSidebarCloseCircle": "closeCircle-3Z0F6p",
+		"themesSidebarBody": "editorBody-1rnOXH",
+		"themesSidebarSelectionGroup": "selectionGroup-1OKS8J",
+		"themesSidebarBetaTagContainer": "betaTagContainer-1JbzxP",
+		"themesSidebarBetaTag": "betaTag-3eRHW2",
+		"themesSidebarFooter": "editorFooter-3t4fji",
+		"themesSidebarFooterButton": "footerButton-1fqwey", // exit preview
 	),
 
 	// Test stuff because sometimes it's needed

@@ -20,10 +20,10 @@
 
 #{c(serverList folder)},
 #{c(serverList folder)}#{c(serverList folderHover)} {
-  background-color: transparent;
+  background: transparent;
 }
 #{c(serverList expandedFolderBackground)} {
-  background-color: $card;
+  background: $card;
 }
 #{c(serverList serverWrapperSimple)} {
   border-radius: unset;

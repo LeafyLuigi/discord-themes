@@ -4,7 +4,7 @@
 #{c(chat chatLoadingWrapper)},
 #{c(chat messageLoadingWrapper)},
 #{c(chat chatContent)} {
-  background-color: transparent;
+  background: transparent;
 }
 #{c(chat chatContent)} {
   &::before {
@@ -17,7 +17,7 @@
 #{c(chat chatContentInner)},
 #{c(chat chatScrollerNSFW)},
 #{c(chat noChat)}#{c(chat chatContent)} {
-  background-color: $middle;
+  background: $middle;
 }
 
 #{c(chat noChannel)} {
@@ -76,7 +76,7 @@
 
 #{c(chat dividerContent)} {
   text-align: center;
-  background-color: $card;
+  background: $card;
   color: $primary;
   font-weight: normal;
   margin: 0 8px;

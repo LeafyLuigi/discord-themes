@@ -252,15 +252,54 @@ html[lang="fr"] {
 }
 
 // Christmas/"Snowsgiving" 2022
-// @warn "snowsgiving removal could break after event is over"; 
-// // Remove Home Icon
-// #{c(serverList homeContainer)} #{c(serverList iconWrapper)} #{c(serverList iconChildWrapper)} {
-// 	&>svg {
-// 		height: 0 !important;
-// 		width: 0 !important;
-// 	}
-// }
-// // remove link in private messages
-// #{c(main snowsgivingLink)} {
-// 	display: none;
-// }
+// A NOTE ABOUT snowsgivingGift - It's still in the CSS. not sure on usage.
+
+// 2022-11_client_themes
+#{c(experiments themesSidebarEditor)} {
+	background: $side;
+	border-left-color: $primary;
+}
+#{c(experiments themesSelectedCircle)} {
+	box-shadow: inset 0 0 0 2px $primary;
+}
+:is(#{c(main dark)},#{c(main light)})#{c(experiments themesCustomThemeBackground)} {
+	#{c(serverList folder)},
+	#{c(chat chatScroller)}::-webkit-scrollbar-track {
+		background-image: none;
+	}
+	#{c(serverList expandedFolderBackground)} {
+		background: $card;
+	}
+	#{c(serverList iconWrapper)}:not(:hover):not(#{c(serverList selected)}) #{c(serverList iconChildWrapper)} {
+		background: $card;
+	}
+	#{c(serverList addServer)}:not(#{c(serverList addServerSelected)}) {
+		background: $card;
+	}
+	#{c(serverList homeContainer)} #{c(serverList iconWrapper)}:not(:hover) #{c(serverList iconChildWrapper)} {
+		background: var(--home-icon) center/cover no-repeat scroll;
+	}
+}
+#{c(experiments themesCustomThemeBackground)} {
+	#{c(chat divider)} {
+		border-top: none;
+	}
+}
+#{c(experiments themesPresets)}:not(#{c(experiments themesBasicSelectors)}) {
+	&::before,&::after {
+		color: var(--header-secondary);
+		font-family: var(--body-font);
+		line-height: 18px;
+		letter-spacing: .02em;
+		width: 100%;
+		order: -1;
+	}
+	&::before {
+		content: var(--client-preset-disabled);
+		font-weight: 700;
+		margin-bottom: -14px; // removes gap :)
+	}
+	&::after {
+		content: var(--client-preset-disabled2);
+	}
+}

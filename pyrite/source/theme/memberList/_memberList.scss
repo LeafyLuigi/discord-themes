@@ -11,7 +11,7 @@
   flex-basis: 0px;
 }
 #{c(memberList members)} {
-  background-color: transparent;
+  background: transparent;
 }
 #{c(memberList group)} {
   color: var(--category-color);
@@ -80,5 +80,5 @@
   }
 }
 #{c(memberList memberBackground)} {
-  background-color: transparent;
+  background: transparent;
 }

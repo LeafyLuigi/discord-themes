@@ -1,6 +1,6 @@
 {
   "name": "sulfide-backend",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A repo containing Discord Themes for Discord Client Mods.",
   "private": true,
   "scripts": {

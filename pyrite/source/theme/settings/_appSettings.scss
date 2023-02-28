@@ -55,6 +55,10 @@
       background-color: $red;
     }
   }
+  #{c(appSettings appearencePreview)} {
+    background: transparent;
+    border-color: $primary;
+  }
 }
 #{c(appSettings sliderBarFill)} {
   background-color: $primary;

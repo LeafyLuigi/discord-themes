@@ -4,7 +4,7 @@
 /* If you wish to translate strings from this file into another language, copy below as a base and send a message in the support server. */
 /* In doing so you'll be given a translator tag and a role on said support server. */
 html {
-    // By default this is entirely used for the en-GB/en-US langs
+    // By default this is entirely used for the en-GB and en-US langs. fallback below for en-US
     --theme-name: "Pyrite";
     --theme-name-beta: "Pyrite Beta Branch";
     --tag-dev: "Theme Dev";
@@ -28,11 +28,17 @@ html {
     // Within Modals/Activities file
     --modal-activities-non-nitro: "Below will not work without Nitro.";
 
+    // Currently within Experiments file
+    // Client themes are intentionally broken by the theme.
+    --client-preset-disabled: var(--theme-name) " intentionally breaks these presets.";
+    --client-preset-disabled2: "If you wish to edit the way your theme looks, you can edit your theme file. If you need help in doing so, please join the support server.";
+
     // Below within this rule aren't to be copied but are always applied globally. Both British English and French are used as beta branches.
     --beta-en-GB: "Pyrite Beta Branch";
     --beta-fr: "Branche Bêta de Pyrite";
 }
-// [lang="en-GB"] {
+// Just in case of stupid American spellings
+// [lang="en-US"] {
 // 
 // }
 // Partially translated by Leafy
@@ -116,7 +122,7 @@ $translator: (
     &::after {
         content: $theme-name str-insert($version, " - ", 0);
         font-style: italic;
-        color: var(--interactive-normal);
+        color: var(--text-muted);
         font-size: 12px;
         line-height: 16px;
     }

@@ -2,7 +2,7 @@
 /* Start Friends Area */
 :is(#{c(main dark)},#{c(main light)}) {
   :is(#{c(friends container)},#{c(friends multipleIconWrapper)}) {
-    background-color: transparent;
+    background: transparent;
   }
   #{c(friends itemCardSeperator)} {
     background-color: $secondary;
@@ -51,7 +51,7 @@
 }
 
 #{c(friends nowPlayingColumn)} {
-  background-color: $side;
+  background: $side;
   width: 360px;
   max-width: 360px;
   position: relative;
@@ -67,7 +67,7 @@
   }
 }
 #{c(friends nowPlayingContainer)} {
-  background-color: transparent;
+  background: transparent;
 }
 #{c(friends nowPlayingHeader)} {
   @include header;
