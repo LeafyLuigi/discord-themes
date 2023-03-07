@@ -104,26 +104,19 @@
 //   color: $yellow;
 // }
 
-#{c(header tabBar)}#{c(header topPill)} {
+#{c(header tabBar)}#{c(tab topPill)} {
 	#{c(header tabBarItem)} {
-		// these two are for the "add friend" thing
-		&#{c(header addFriend)}:not(#{c(header tabBarItemSelected)}) {
-			background-color: $green !important; // !important reason: element.style
-		}
-		&#{c(header addFriend)}#{c(header tabBarItemSelected)} {
-			color: $green !important; // !important reason: element.style
-		}
 		// and the blocked tab
-		&#{c(header tabBarItemThemed)} {
+		&#{c(tab themed)} {
 			&:nth-child(4) {
-				color: #fff; // interactive-normal to mirror online/all/pending, white to mirror add friends. both light and dark.
+				color: var(--interactive-active);
 				background-color: $red;
 			}
 		}
-		&#{c(header tabBarItemSelected)}#{c(header tabBarItemThemed)} {
+		&#{c(tab selected)}#{c(tab themed)} {
 			&:nth-child(4) {
 				color: $red;
-				background-color: transparent;
+				background-color: var(--background-modifier-selected);
 				// for parity
 				&:hover{
 					background-color: var(--background-modifier-hover);

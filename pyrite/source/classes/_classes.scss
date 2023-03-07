@@ -199,19 +199,22 @@ $classes: (
 	// each location has other classes attached to the elements
 	// listed locations may be used in other areas too
 	"tab": (
-		"header": "header-2Kx1US", // used in sidebar of settings areas
-		"separator": "separator-2wx7h6", // see header
+		"header": "header-2F5_LB", // used in sidebar of settings areas
+		"headerText": "headerText-10ez_d", // "USER SETTINGS", "PAYMENT SETTINGS" etc
+		"separator": "separator-2N511j", // see header
 
-		"bar": "topPill-3DJJNV", // used in friends list header, inbox dropdown
-		"top": "top-K_jibn", // used in profile popout, roles list (edit)
-		"side": "side-2ur1Qk", // used in channel search
+		// "Types"
+		"topPill": "topPill-2vcLsa", // used in friends list header, inbox dropdown
+		"top": "top-Ktfr_T", // used in profile popout, roles list (edit)
+		"side": "side-1lrxIh", // used in channel search, settings sidebar
 
-		"item": "item-3XjbnG", // an individual tab
-		"brand": "brand-3g5E0C", //
-		"themed": "themed-2-lozF", // 
+		// Items themselves
+		"item": "item-2GWPIy", // an individual tab
+		"brand": "brand-2EKq3J", // user settings > profile at top, server/channel settings > roles > (click edit for any) at top
+		"themed": "themed-qqoYp3", // friends list header, channel search, inbox dropdown, profile popout, settings sidebar
 
-		"selected": "selected-g-kMVV",
-		"disabled": "disabled-1nofHP",
+		"selected": "selected-1sf9UK",
+		"disabled": "disabled-2G98Nl",
 	),
 	"login": (
 		"characterBackground": "characterBackground-1BPOOJ", // seemingly a parent class for the whole thing
@@ -1504,11 +1507,8 @@ $classes: (
 		"nicknames": "nicknames-10Sg6e",
 		"status": "status-12NUUC",
 		"tabBar": "tabBar-ra-EuL",
-		"topPill": "topPill-3DJJNV",
 		"addFriend": "addFriend-emTWY1",
 		"tabBarItem": "item-3mHhwr",
-		"tabBarItemSelected": "selected-g-kMVV",
-		"tabBarItemThemed": "themed-2-lozF",
 	),
 	"hljs": (
 
@@ -1634,10 +1634,6 @@ $classes: (
 		"searchFilter": "searchFilter-2UfsDk",
 		"searchAnswer": "searchAnswer-23w-CH",
 		"headerTabList": "searchHeaderTabList-3CZMQB",
-		"headerTabSide": "side-2ur1Qk", // paired with above
-		"tabItem": "item-3XjbnG",
-		"tabSelected": "selected-g-kMVV",
-		"tabThemed": "themed-2-lozF",
 		"scroller": "scroller-3iiyhZ",
 		"channel": "channelName-3w2Y3c",
 		"resultsGroup": "searchResultGroup-1lU_-i",
@@ -2457,13 +2453,6 @@ $classes: (
 		"sidebarRegion": "sidebarRegion-1VBisG",
 		"sidebarRegionScroller": "sidebarRegionScroller-FXiQOh",
 		"sidebar": "sidebar-nqHbhN",
-		"sidebarSide": "side-2ur1Qk",
-		"sidebarHeader": "header-2Kx1US",
-		"sidebarSeparator": "separator-2wx7h6",
-		"sidebarItemDisabled": "disabled-1nofHP",
-		"sidebarItem": "item-3XjbnG",
-		"sidebarItemSelected": "selected-g-kMVV",
-		"sidebarItemThemed": "themed-2-lozF",
 		"sidebarSocialLinks": "socialLinks-3ywLUf",
 		"sidebarInfo": "info-3pQQBb",
 

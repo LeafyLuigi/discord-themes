@@ -9,8 +9,8 @@
 	background-color: $header;
 }
 #{c(search headerTabList)} {
-	#{c(search tabItem)}#{c(search tabThemed)} {
-		&:is(#{c(search tabSelected)},#{c(search tabSelected)}:hover) {
+	#{c(tab item)}#{c(tab themed)} {
+		&:is(#{c(tab selected)},#{c(tab selected)}:hover) {
 			background-color: $secondary;
 		}
 	}

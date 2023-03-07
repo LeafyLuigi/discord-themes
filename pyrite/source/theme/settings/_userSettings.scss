@@ -17,12 +17,12 @@
 	background-color: $side;
 }
 #{c(userSettings sidebar)} {
-	#{c(userSettings sidebarHeader)} {
+	#{c(tab header)} {
 		@include header;
 		font-weight: 600;
 		font-size: 16px;
 	}
-	#{c(userSettings sidebarSeparator)} {
+	#{c(tab separator)} {
 		background-color: $secondary;
 	}
 }
@@ -30,21 +30,6 @@
 	#{c(chatForm colorMuted)} {
 		color: var(--interactive-normal);
 	}
-}
-#{c(userSettings sidebarItem)} {
-	&[style*="color: rgb(114, 137, 218)"] {
-		color: $primary !important; // !important reason: element.style
-	}
-	&[style*="background-color: rgba(114, 137, 218, 0.1)"] {
-		background-color: transparent !important; // !important reason: element.style
-		color: $primary;
-		@include bg($o:.1,$bg:$primary,$br:6px);
-	}
-	// &[style*="background-color: rgb(114, 137, 218)"] {
-	//   background-color: $primary !important; // !important reason: element.style
-	//   color: #fff !important; // !important reason: element.style, overlapping rules
-	// @debug "fixed color";
-	// }
 }
 #{c(userSettings contentRegionScroller)} {
 	background-color: $middle;

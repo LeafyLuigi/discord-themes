@@ -75,7 +75,7 @@ $card: var(--card-background);
 }
 
 // online/all/pending etc buttons
-#{c(header topPill)} #{c(header tabBarItem)},
+#{c(tab header)} #{c(tab item)},
 
 // image wrapper in chat
 #{c(embeds imageWrapper)}
