@@ -85,6 +85,10 @@
 	}
 }
 
+#{c(profile modal userInfoText)} > div {
+	-webkit-line-clamp: 20 !important; // !important reason: inline style
+}
+
 #{c(profile modal body)} {
 	#{c(profile modal noteTextarea)} {
 		background-color: transparent;

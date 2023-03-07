@@ -16,3 +16,8 @@
 #{c(profile popout upsellWrapper)} {
 	display: none;
 }
+#{c(profile popout overlayBackground)}:not(#{c(userSettings profileBody)}) {
+	div[style*="-webkit-line-clamp"] {
+		-webkit-line-clamp: 20 !important; // !important reason: inline style
+	}
+}
