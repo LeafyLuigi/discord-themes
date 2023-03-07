@@ -1575,6 +1575,22 @@ $classes: (
 		"codeInline": "codeInline-1RFl81",
 		"paragraph": "paragraph-9M861H",
 	),
+	// Obviously best seen in Settings > App Settings > Keybinds. Can also be brought up by pressing CTRL+/
+	"keybinds": (
+		"combo": "combo-3PNrpQ",
+		"key": "key-RP8gj3",
+		"bindArrow": "bindArrow-L3Mvw5", // unless "down", has extra class for direction
+		"up": "up-1_xtU2",
+		"left": "left-1eQkgf",
+		"right": "right-4e_iVK",
+
+		"searchPopout": "keybindShortcutSearchPopout-p82JD_",
+		"shortcuts": "keyboardShortcuts-1I86pn",
+
+		// no idea about these
+		"dim": "dim-GXxpGm",
+		"dark": "dark-20Z3lN",
+	),
 	"memberList": (
 		"container": "container-2o3qEW",
 		"wrap": "membersWrap-3NUR2t",
@@ -2636,6 +2652,7 @@ $classes: (
 			"soundRow": "soundRow-2Vsfbg",
 			"soundRowDividerDefault": "dividerDefault-3C2-ws",
 
+			"keybindImage": "image-20MDYu", // when no keybinds
 			"keybindDefault": "defaultKeybind-1rEiTa",
 			"keybindCard": "card-2ART2V",
 			"keybindGroup": "defaultKeybindGroup-36Wpyv",
@@ -2646,7 +2663,6 @@ $classes: (
 			"keybindRemove": "removeKeybind-3J8M42",
 			"keybindRemoveFilled": "filled-2zYazI",
 			"keybindButton": "keybindShortcut-3zF1P9",
-			"keybindKey": "key-N5VmHN",
 
 			"gameNotDetected": "notDetected-M3Ghh2",
 			"gameNowPlaying": "nowPlaying-3UpuKc",
@@ -2858,6 +2874,9 @@ $classes: (
 			"list": "keyboardShortcutList-3VFAYS",
 			"group": "keyboardShortcutListGroup-2m9BJ_",
 			"firstGroup": "firstGroup-2N8rxd",
+			"description": "keybindDescription-oXh6w_",
+			"shortcuts": "keybind-shortcuts",
+			"key": "keybindKey-1gsikO",
 
 			"ddrArrows": "ddrArrows-24s05s",
 			"arrow": "arrow-hkea5Y",

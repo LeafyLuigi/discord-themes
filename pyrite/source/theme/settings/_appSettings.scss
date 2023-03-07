@@ -4,7 +4,7 @@
 	#{c(appSettings sliderBar)} {
 		background-color: $card;
 	}
-	#{c(appSettings keybindButton)} #{c(appSettings keybindKey)} {
+	#{c(keybinds combo)} #{c(keybinds key)} {
 		color: var(--header-primary);
 		font-weight: 600;
 		background-color: $primary;
@@ -105,6 +105,9 @@
 	margin-top: 10px;
 }
 
+#{c(appSettings keybindImage)} {
+	display: none;
+}
 #{c(appSettings keybindCard)} {
 	padding: 10px 0;
 	&:before {
