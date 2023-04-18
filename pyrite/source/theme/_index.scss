@@ -13,6 +13,7 @@
 @forward "modals"; // All non-profile modals are in this file. locations are in the classes file.
 @forward "notices";
 @forward "profile"; // Includes Modal, Popout and Panel. Locations in index file.
+@forward "role";
 @forward "scrollbar";
 @forward "search";
 @forward "serverList";

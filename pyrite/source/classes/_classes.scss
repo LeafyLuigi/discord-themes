@@ -6,73 +6,131 @@
 
 ////////////////////
 /// VERY IMPORTANT INFO FOR SEARCHING OR ADDING CLASS NAMES
-/// Remove the preceding full stop/period before the class name!
+/// Remove the preceding dot before the class name!
 /// The function below adds that before CSS generation and thus is not needed
 ////////////////////
 
 /// Get a class from the Classes Map. Code stolen entirely from Zerthox.
-/// changes to Zerthox's code: `map.get` -> `map-get`, adds a dot at end.
-/// Also checks for sub-maps and throws error if that's true.
-/// TO ADD: a function from the map list: if "$alias " is the starting class name, it'll use the remainder as an alias
-@function class($query) {
+/// Changes to Zerthox's code:
+/// Class list lacks proceeding dot to allow for quick html element copy class list.
+/// Aliasing. You can start a string with "alias " and fill the rest out as if it was #{c(STRING HERE)}.
+/// Minor SCSS syntax changes.
+/// Checks for sub-maps and throws error if that's true.
+/// Checks for a hash at front and spits out an ID rather than a class.
+@function class($query, $alias: false) {
 	$class: $classes;
 	@each $el in $query {
 		$class: map-get($class, "#{$el}");
 		@if not $class {
-			@error "Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
+			@if $alias {
+				@error "Unknown alias \"#{$el}\" in category: #{$query}. Please fix the classes list.";
+			} @else {
+				@error "Unknown class or ID \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
+			}
 		}
 	}
 	@if type-of($class) == map {
 		@error "Map used as input: #{$query}. Please fix and try again.";
 	}
-	@if string.slice($class,1,1) == "." or string.slice($class,1,1) == "#" {
-		@error "Period or Hash at start of string within list. Please fix and try again. Do not use IDs.";
+	// debug locator string thingy
+	@if string.slice($class,1,1) == "!" {
+		@warn [DEBUG] The class, $class, was used;
+		$class: string.slice($class,2,-1);
 	}
-	@return "."+$class;
+	@if string.slice($class,1,1) == "." {
+		@error "Dot at start of string within list. Please fix and try again.";
+	}
+	@if string.slice($class,1,6) == "alias " {
+		// force error on already tested aliases to prevent loops
+		@if $alias == true {
+			@error "Do not point aliases to other aliases as to prevent loops. Please fix this and try again.";
+		}
+		$aliasList: (); // create fake list to be thrown into function again
+		$aliasQuery: string.slice($class, 7, -1); // remove `alias ` from query
+		$spaceIndex: str-index($aliasQuery, $substring: " "); // finds first space
+		@while $spaceIndex != null {
+			$item: str-slice($aliasQuery, 1, $spaceIndex - 1);
+			$aliasQuery: str-slice($aliasQuery, $spaceIndex+1,-1);
+			$aliasList: append($aliasList, $item, space);
+			$spaceIndex: str-index($aliasQuery, $substring: " "); // if not found this declared null
+		}
+		$aliasList: append($aliasList, $aliasQuery, space); // adds last item after @while
+		@return #{c($aliasList, $alias:true)}; // thrown back into the class list as the new query
+	}
+	@if string.slice($class,1,1) == "#" {
+		@return $class;
+	} @else {
+		@return "."+$class;
+	} 
 }
 
 
 // // i wanted to add some kind of alias method but never got it to work. best i could do was output the eventual string of characters
-// // eg "test d foobar" became "test a foo" but not "bar". (see test category at end of file)
+// // eg "test d foobar" became "test a foo" but not "bar". (see test category at EOF)
 // @function d($query) {
 // 	$initQuery: $query;
 // 	$class: $classes;
+// 	@debug $query of type type-of($class) \:;
 // 	@each $el in $query {
 // 		$class: map-get($class, "#{$el}");
+// 		@if type-of($class) == map {
+// 			// @debug "[ERROR] Map used as input: #{$query}. Please fix and try again.";
+// 		}
 // 		@if not $class {
-// 			@error "Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
+// 			// @debug "[ERROR] Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
 // 		}
 // 	}
-// 	@if type-of($class) == map {
-// 		@error "Map used as input: #{$query}. Please fix and try again.";
-// 	}
-// 	// @if string.slice($class,1,7) == "$alias " {
-// 	// 	// @debug "Alias used!";
-// 	// 	@return d(string.slice($class, 8));
-// 	// 	// @return #{c($aliasQuery)};
-// 	// 	// $query2: string.slice(#{$class},8);
-// 	// 	// @return #{d($query2)};
-// 	// } @else {
+// 	@if type-of($class) == string and string.slice($class,1,6) == "alias " {
+// 		@debug "Alias used!";
+// 		@return d(string.slice($class, 7));
+// 		// @return #{c($aliasQuery)};
+// 		// $query2: string.slice(#{$class},8);
+// 		// @return #{d($query2)};
+// 	} @else {
 // 		@return "."+$class;
-// 	// }
+// 	}
 // }
 
 // @function cn($query) {
-//   $result: d($query);
-//   @debug "#{d(#{$query})}";
-//   @if string.slice($result, 1, 7) == "$alias " {
-//     @return #{d(string.slice($result, 8))};
-//   } @else {
-//     @return $result;
-//   }
+// 	@debug outputTest #{c($query)};
+
+// 	$cOutput: #{c($query)};
+// 	// @debug string.slice($cOutput, 1, 9);
+// 	@if string.slice($cOutput, 1, 7) == ".alias " {
+// 		$list: ();
+// 		@debug "Alias Used!";
+// 		$aliasQuery: string.slice($cOutput, 8, -1);
+// 		@debug ALIASQUERY BEFORE LOOP $aliasQuery;
+// 		$spaceIndex: str-index($aliasQuery, $substring: " ");
+// 		@while $spaceIndex != null {
+// 			@debug NEW LOOP;
+// 			$item: "";
+// 			@if $spaceIndex == null {
+// 				@return $aliasQuery;
+// 			} @else {
+// 				$item: str-slice($aliasQuery, 1, $spaceIndex - 1);
+// 			}
+// 			@debug ITEM IN LOOP $item;
+// 			$aliasQuery: str-slice($aliasQuery, $spaceIndex+1,-1);
+// 			@debug ALIASQUERY IN LOOP $aliasQuery;
+// 			$list: append($list, $item, space);
+// 			@debug LIST IN LOOP $list;
+// 			$spaceIndex: str-index($aliasQuery, $substring: " ");
+// 			@debug SPACEINDEX IN LOOP $spaceIndex;
+// 			@debug -ENDLOOP-
+// 		}
+// 		$list: append($list, $aliasQuery, space);
+// 		@debug LIST OUTPUT $list;
+// 		@return #{c($list)};
+// 	}
 // }
 
 ///extreme lazy shorthand with capital just in case
-@function c($query) {
-	@return class($query);
+@function c($query,$alias:false) {
+	@return class($query,$alias);
 }
-@function C($query) {
-	@return class($query);
+@function C($query,$alias:false) {
+	@return class($query,$alias);
 }
 
 ////////////////
@@ -529,7 +587,7 @@ $classes: (
 			"rtsEmptyStateContainer": "emptyStateContainer-2wiHQ3",
 			"rtsEmptyImage": "container-2GuWaQ", // children of this aren't listed here.
 			"rtsEmptyStateTitle": "emptyStateTitle-Qlq-Jr",
-			"rtsEmptyStateBody":"emptyStateBody-3fqk07",
+			"rtsEmptyStateBody": "emptyStateBody-3fqk07",
 			"rtsParticipantsRowContainer": "participantRowContainer-1Fyb5z",
 			"rtsParticipantMemberContainer": "participantMemberContainer-m-hetW",
 			"rtsParticipantAvatar": "participantAvatar-3U4t_W",
@@ -775,34 +833,34 @@ $classes: (
 		),
 		// 935, customize page
 		"customise": (
-			"scrollerContainer" :"scrollerContainer-y16Rs9",
-			"scroller" :"scroller-1fIBSS", // background with dark/light
-			"pageBody" :"pageBody-29jwEZ",
-			"header" :"header-UOslIl",
-			"returnButton" :"returnButton-1qnrYS",
-			"returnButtonText" :"returnButtonText-2r95FF",
-			"returnIcon" :"returnIcon-2A2LPb",
-			"prompt" :"prompt-1sE27N", // background primary
-			"promptTitle" :"promptTitle-1ID-ZY",
-			"required" :"required-2b9vjX", // background accent 
-			"error" :"error-nWpAd-", 
-			"requiredBadge" :"requiredBadge-1Rx-p2",
-			"promptOptions" :"promptOptions-3jDyZ4",
-			"promptSeparator" :"promptSeparator-3E8EOR", // background modif accent
-			"emptyPage" :"emptyPage-2TGR7j", // background with dark/light
-			"emptyContainer" :"emptyContainer-8KVAv2",
-			"emptyIcon" :"emptyIcon-IW8ndV",
-			"emptyHeader" :"emptyHeader-EJ4kiy",
-			"helpText" :"helpText-2SCsDl",
-			"profile" :"profile-3xd-Cg",
-			"profileCard" :"profileCard-2gVmvm", // background primary
-			"separator" :"separator-2prxtM", // background modif accent
-			"username" :"username-YfeGz8",
-			"bio" :"bio-3IBPZG",
-			"title" :"title-20kNQS",
-			"roles" :"roles-3uq8X6",
-			"role" :"role-3uAPnQ", // background sec alt
-			"roleDot" :"roleDot-1quttI",
+			"scrollerContainer": "scrollerContainer-y16Rs9",
+			"scroller": "scroller-1fIBSS", // background with dark/light
+			"pageBody": "pageBody-29jwEZ",
+			"header": "header-UOslIl",
+			"returnButton": "returnButton-1qnrYS",
+			"returnButtonText": "returnButtonText-2r95FF",
+			"returnIcon": "returnIcon-2A2LPb",
+			"prompt": "prompt-1sE27N", // background primary
+			"promptTitle": "promptTitle-1ID-ZY",
+			"required": "required-2b9vjX", // background accent 
+			"error": "error-nWpAd-", 
+			"requiredBadge": "requiredBadge-1Rx-p2",
+			"promptOptions": "promptOptions-3jDyZ4",
+			"promptSeparator": "promptSeparator-3E8EOR", // background modif accent
+			"emptyPage": "emptyPage-2TGR7j", // background with dark/light
+			"emptyContainer": "emptyContainer-8KVAv2",
+			"emptyIcon": "emptyIcon-IW8ndV",
+			"emptyHeader": "emptyHeader-EJ4kiy",
+			"helpText": "helpText-2SCsDl",
+			"profile": "profile-3xd-Cg",
+			"profileCard": "profileCard-2gVmvm", // background primary
+			"separator": "separator-2prxtM", // background modif accent
+			"username": "username-YfeGz8",
+			"bio": "bio-3IBPZG",
+			"title": "title-20kNQS",
+			"roles": "roles-3uq8X6",
+			"role": "role-3uAPnQ", // background sec alt
+			"roleDot": "roleDot-1quttI",
 		),
 
 		// 936, header stuff
@@ -1618,6 +1676,12 @@ $classes: (
 		"placeholderUsername": "placeholderUsername-3iQi_D",
 		"placeholderUsernameMultiple": "mulitplePlaceholderUsername-2T3DCI",
 	),
+	// shared classes. used as aliases from elsewhere.
+	"nameTag": (
+		"nameTag": "nameTag-H6kSJ0",
+		"username": "username-3JLfHz",
+		"bot": "bot-XvK26D",
+	),
 	"notice": (
 		"base": "notice-2HEN-u",
 		"closeButton": "closeButton-30b1gR", // "X" on right
@@ -1630,6 +1694,36 @@ $classes: (
 		"completeSteps": "notice-1x8lm-", // contents: "You must complete a few more steps before you can start talking in this server."
 		"viewServerAsRole": "notice-2olXi7", // contents: "You are viewing this server as $count role(s)."
 		"previewServerNotice": "notice-12Koq-", // contents: "You are currently in preview mode. Join this server to start chatting!"
+	),
+	// These appear to be shared between profile popout and server settings. likely used elsewhere too.
+	// DOES NOT APPLY TO TOP OF CHAT CHANNEL AREA.
+	"role": (
+		"root": "root-jbEB5E",
+		"role": "role-2TIOKu",
+		"removeButton": "roleRemoveButton-17oXnT",
+		"dot": "roleDot-31puPJ",
+		"flowerStar": "roleFlowerStar-91jU2T",
+		"removeIcon": "roleRemoveIcon-387wKV",
+		"verifiedIcon": "roleVerifiedIcon-1k_DHi",
+		"name": "roleName-2ZJJYR",
+		"nameOverflow": "roleNameOverflow-Xok3NR",
+		"actionButton": "actionButton-1YKTU0",
+		"addButton": "addButton-1_dZYu",
+		"addButtonIcon": "addButtonIcon-3HZ_2f",
+		"icon": "roleIcon-29epUq",
+		"popoutBottom": "popoutBottom-1gM6IB",
+		"popoutTop": "popoutTop-iqgr6A",
+		"overflow": (
+			"button": "overflowButton-3p0YaR",
+			"popout": (
+				"popout": "overflowRolesPopout-1Puiuq",
+				"arrowWrapper": "overflowRolesPopoutArrowWrapper-3B08bL",
+				"arrow": "overflowRolesPopoutArrow-2R7g3K",
+				"header": "overflowRolesPopoutHeader-1JoWg7",
+				"headerIcon": "overflowRolesPopoutHeaderIcon-2LIuSc",
+				"headerText": "overflowRolesPopoutHeaderText-3HyHGv",
+			),
+		),
 	),
 	"scroller": (
 		"base": "scrollerBase-1Pkza4",
@@ -1974,30 +2068,152 @@ $classes: (
 	// Anything not within a sub-category are used across the other sub-categories.
 	// Assuming an un-altered fork/repo, you can see more info within ../pyrite/source/theme/profile/_index.scss
 	"profile": (
-				// Generic-ish classes
-		"colors": "profileColors-3Y0XaR", // default variables supplied with this, a few with dark/light
+		// Generic-ish classes
+		"colors": "profileColors-2AgAV4", // default variables supplied with this, a few with dark/light
+		"noteTextarea": "textarea-_59yqs", // seems to be used on all of them
 
-		"overlayBackground": "overlayBackground-1KgwVi",
-		"bannerSVGWrapper": "bannerSVGWrapper-qc0szY",
+		"overlay": (
+			"overlay": "overlayBackground-2aa7wt",
+
+			"popout": "userPopoutOverlayBackground-3A0Pcz",
+			"modal": "userProfileModalOverlayBackground-2dAaBg",
+			"panel": "userPanelOverlayBackground-3Zmcq2",
+		),
 
 		"outer": (
-			"outer": "userProfileOuter-1K_BYU",
+			"outer": "userProfileOuter-2tQwNf",
 			"themed": "userProfileOuterThemed-3EfHmv",
-			"unthemed": "userProfileOuterUnthemed-2b2rsv",
+			"unthemed": "userProfileOuterUnthemed-11rPfA",
+
+			"card": "userCardOuter-1au0HV",
+			"popout": "userPopoutOuter-1OHwPL",
+			"modal": "userProfileModalOuter-2wdWjU",
+			"panel": "userPanelOuter-XfFELn",
 		),
 
 		"inner": (
-			"inner": "userProfileInner-3F03PX",
-			"unthemed": "userProfileInnerUnthemed-1XxIZu",
-			"themed": "userProfileInnerThemed-27tvAp",
-			"themedPremiumWithoutBanner": "userProfileInnerThemedPremiumWithoutBanner-1yMS1H",
-			"themedWithBanner": "userProfileInnerThemedWithBanner-2624Yx",
-			"themedNonPremium": "userProfileInnerThemedNonPremium-1gT-zY", // so basically "without theme"
+			"inner": "userProfileInner-1ngKnf",
+			"unthemed": "userProfileInnerUnthemed-32yvSZ",
+			"themed": "userProfileInnerThemed-3dLhGM",
+			"themedPremiumWithoutBanner": "userProfileInnerThemedPremiumWithoutBanner-lZ9inp",
+			"themedWithBanner": "userProfileInnerThemedWithBanner-25XGmz",
+			"themedNonPremium": "userProfileInnerThemedNonPremium-2AJg-H", // so basically "without theme"
+
+			"card": "userCardInner-3c42YR",
+			"popout": "userPopoutInner-nv9Y92",
+			"modal": "userProfileModalInner-3dx9L9",
+			"panel": "userPanelInner-3KPel3",
+
+			"panelThemed": "userPanelInnerThemed-3YO1BB",
+		),
+
+		"bannerSVGWrapper": "alias profile banner svgWrapper",
+		// Banners are in their own line. The SVG Wrapper is in its own line.
+		"banner": (
+			"svgWrapper": "bannerSVGWrapper-2CLfzN",
+
+			"banner": "banner-1YaD3N",
+			"rounded": "roundedBanner-uNt2w-",
+			"premium": "bannerPremium-kkSkPv",
+			"popout": "popoutBanner-3cqRD9",
+			"popoutNoBannerPremium": "popoutNoBannerPremium-25mwJy",
+			"popoutPremium": "popoutBannerPremium-3i5EEI",
+			"profile": "profileBanner-1owKI5",
+			"profilePremium": "profileBannerPremium-KD60EB",
+			"panel": "panelBanner-2KnOzw",
+
+			"pencilContainer": "pencilContainer-18TrEJ",
+			"pencilIcon": "pencilIcon-z04-c5",
+
+			"settings": "settingsBanner-1eDJ5w",
+			"premiumIconTooltipContent": "premiumIconTooltipContent-e6VnCZ",
+			"premiumIconWrapper": "premiumIconWrapper-32h0Ri",
+			"premiumIconWrapperVisible": "visible-1Hx3V0",
+			"premiumIconWrapperClickable": "clickable-_6T6Od",
+			"premiumIcon": "premiumIcon-3ZB6PS",
+			"reducedMotion": "reducedMotion-395crG",
+			"gifTag": "gifTag-3_dPxY",
+		),
+
+		// grouped by what line things are on, these aren't shared with the modal
+		"nonModal": (
+			"divider": "divider-2dDziJ",
+
+			"section": "section-28YDOf",
+			"lastSection": "lastSection-q3HCfo",
+
+			// relating to sections above
+			"title": "title-3CjiSS",
+			"body": "body-N0onUF",
+
+			"customStatus": (
+				"status": "customStatus-19KW6v",
+				"emoji": "customStatusEmoji-1GD8RK",
+				"soloEmoji": "customStatusSoloEmoji-a_jSVz",
+				"text": "customStatusText-V9aTHE",
+			),
+
+			// userText applies to username area things
+			"userText": (
+				"copiableField": "copiableField-2DYmf7",
+				"userText": "userText-1_v2Cq",
+				"nickname": "nickname-3P1RuO",
+				"copiableNameTag": "copiableNameTag-3tf-II",
+				"copyIcon": "copyIcon-1KQ7Kx",
+				"tag": "userTag-3A4Fw4",
+				"tagWithNickname": "userTagWithNickname-13lfvd",
+				"tagNoNickname": "userTagNoNickname-h9Bh88",
+				"tagUsernameBase": "userTagUsernameBase-267ALn",
+				"tagUsernameNoNickname": "userTagUsernameNoNickname-2lKUnI",
+				"discrimBase": "discrimBase-v65kTs",
+				"tagDiscriminatorNoNickname": "userTagDiscriminatorNoNickname-3dioAe",
+				"headerBotTag": "headerBotTag-jx4sKt",
+				"headerBotTagWithNickname": "headerBotTagWithNickname-2N1yu0",
+			),
+		),
+
+		// there seems to be a line with things related to the avatars, hense this subcategory.
+		// these mostly apply to popout from what i can tell
+		"avatar": (
+			"warningCircleIcon": "warningCircleIcon-mFju_m", // user with no mutual servers
+			"badges": "profileBadges-2pItdR",
+			"hint": "avatarHint-k7pYop",
+			"decorationHint": "avatarDecorationHint-3n-p6O",
+			"hintInner": "avatarHintInner-2HUAWj",
+			"wrapper": "avatarWrapper-eenWra",
+			"wrapperNormal": "avatarWrapperNormal-ahVUaC",
+			"clickable": "clickable-GKg4Qy",
+			"wrapperNonUserBot": "avatarWrapperNonUserBot-2LumL4",
+			"position": (
+				"normal": "avatarPositionNormal-2jWoC2",
+				"premiumBanner": "avatarPositionPremiumBanner-2EAbSH",
+				"premiumNoBanner": "avatarPositionPremiumNoBanner-2u3xDC",
+				"panel": "avatarPositionPanel-3ZMJUj",
+			),
+			"hoverTarget": "avatarHoverTarget-1zzfRL", // appears on popout
+		),
+
+		// there's a line related to badges that may not apply to other subcategories.
+		"badges": (
+			"container": "container-1gYwHN",
+			"containerWithContent": "containerWithContent-2Yws8V",
+			"clickable": "clickable-1knRMS",
+			"badge": "profileBadge-12r2Nm",
+			"badge24": "profileBadge24-sH1efV",
+			"badge22": "profileBadge22-3GAYRy",
+			"badge18": "profileBadge18-2GrGvU",
+		),
+
+		// actually used on the modal!
+		"memberSince": (
+			"container": "memberSinceContainer-2CBD23",
+			"discordIcon": "discordIcon-32mgeP",
+			"divider": "divider-MZkkle",
 		),
 
 		// only here because Yes
 		// what classes are actually used i have no fucking idea.
-		// this was all from ONE line. it's cancer.
+		// this was all from ONE line. it's horrible.
 		"activity": (
 			"ellipsis": "ellipsis-23LXbI",
 			"headerContainer": "headerContainer-1wJjOa",
@@ -2166,238 +2382,268 @@ $classes: (
 		
 		// Modal: right click on user in same spots and click "View Profile"
 		"modal": (
-			"root": "root-2uUafN", // 1533
-			
-			"overlay": "userProfileModalOverlayBackground-8p3-eU",
-			"outer": "userProfileModalOuter-1FYL8T",
-			"inner": "userProfileModalInner-3fh3QA",
-
-			"topSection": "topSection-1Khgkv", // 1533
-
-			"profileBanner": "profileBanner-2zIsK7", // 145
-			"profileBannerPremium": "profileBannerPremium-3xIFwS",
-
-			"premiumIconWrapper": "premiumIconWrapper-yyGDql", // 145
-			"premiumIconWrapperClickable": "clickable-1LpIFn", // 145
-			"premiumIcon": "premiumIcon-3WfDzD", // 145
-
-			"header": "header-1_vWwx", // 1531
-			"avatar": "avatar-1YsFQ1", // 1531
-			"headerTop": "headerTop-212g15", // 1531
-			"badgeList": "badgeList-2pMvZX", // 1531
-			"badge24": "profileBadge24-3UMhUO", // 209
-
-			"relationshipButtons": "relationshipButtons-pZ_UWl", // 1531
-			"actionButton": "actionButton-D1ZvXj", // 1530
-			"pendingIncoming": "pendingIncoming-2bTL4E", // wraps action buttons when incoming fr // 1530
-			"actionButtonRight": "actionRightButton-1mSYVl", // incoming fr // 1530
-			"applicationInstallButton": "applicationInstallButton-3pdW3-", // bots only // 1531
-			"applicationInstallButtonContent": "applicationInstallButtonContent-15_WLD", // 1531
-			"applicationInstallButtonText": "applicationInstallButtonText-s3BVt8", // 1531
-			"launchIcon": "launchIcon-PrAYVH", // within install button // 1531
-			"additionalActionsIcon": "additionalActionsIcon-1IPuHI", // 1531
-
-			"body": "body-_QAKrE", // 1533
-
-			"usernameContainer": "container-1U-qVy", // 1532
-			"nameTag": "nameTag-2ysfG3", // 1532
-			"username": "username-28Thtk", // 1532
-			"discriminator": "discriminator-3_S3CG", // 1532
-			"customStatusText": "customStatusText-3ca2B1", // 1532
-			"customStatus": "customStatus-3QV7IG", // 1532
-			"customStatusEmoji": "customStatusEmoji-3wK_iB", // 1532
-			"customStatusSoloEmoji": "customStatusSoloEmoji-2ZSk6X", // 1532
-			
-			"divider": "divider-1NpGam", // 1533
-
+			// all on same line
+			"root": "root-8LYsGj",
+			"topSection": "topSection-13QKHs",
+			"body": "body-1Ukv50",
+			"divider": "divider-SH6OnO",
 			// includes other classes from 305 for colors
-			"tabBarContainer": "tabBarContainer-2UG0vy", // 1533
-			"tabBar": "tabBar-2StdUa", // 1533
-			"tabBarItem": "tabBarItem-3VvT2z", // 1533
+			"tabBarContainer": "tabBarContainer-sCZC4w",
+			"tabBar": "tabBar-2hXqzU",
+			"tabBarItem": "tabBarItem-30Te4-",
 			
-			"infoScroller": "infoScroller-3MqKC5", // 1528
-			"userInfoSection": "userInfoSection-1gptv0", // 1528
-			"userInfoSectionHeader": "userInfoSectionHeader-48g5Qj", // 1528
-			"userInfoText": "userInfoText-3GOMzH", // 1528
-			"note": "note-3TX9O7", // 1528
-			"noteTextarea": "textarea-_59yqs", // also in popout. could be elsewhere // 156
+			"overlay": "alias profile overlay modal",
+			"outer": "alias profile outer modal",
+			"inner": "alias profile inner modal",
+						
+			"profileBanner": "alias profile banner profile",
+			"profileBannerPremium": "alias profile banner profilePremium",
+			
+			"premiumIconWrapper": "alias profile banner premiumIconWrapper",
+			"premiumIconWrapperClickable": "alias profile banner premiumIconWrapperClickable",
+			"premiumIcon": "alias profile banner premiumIcon",
+
+			"badge24": "alias profile badge badge24",
+			
+			// all on same line
+			"header": "header-S26rhB",
+			"avatar": "avatar-3QF_VA",
+			"headerTop": "headerTop-1PNKck",
+			"badgeList": "badgeList-2aoHPw",
+			"relationshipButtons": "relationshipButtons-3ByBpj",
+			"applicationInstallButton": "applicationInstallButton-1-58qm",
+			"applicationInstallButtonContent": "applicationInstallButtonContent-2GoIj7",
+			"applicationInstallButtonText": "applicationInstallButtonText-28e06z",
+			"launchIcon": "launchIcon-RTf7He",
+			"additionalActionsIcon": "additionalActionsIcon-3Cy8UU",
+			"warningCircleIcon": "warningCircleIcon-1YXIHu",
+			
+			"actionButton": "actionButton-iarQTd",
+			"pendingIncoming": "pendingIncoming-3g05VP",
+			"actionButtonRight": "actionRightButton-1oVkpk",
+			
+			"usernameContainer": "container-3g15px",
+			"nameTag": "nameTag-35jqbZ",
+			"nameTagSmall": "nameTagSmall-2JO-C-",
+			"username": "username-3dP0mA",
+			"discriminator": "discriminator-hnHkyt",
+			"botTag": "botTag-34Mjhx",
+			"customStatusText": "customStatusText-1uNQ8w",
+			"customStatus": "customStatus-3qYNe4",
+			"customStatusEmoji": "customStatusEmoji-tk7h7f",
+			"customStatusSoloEmoji": "customStatusSoloEmoji-FOEfyF",
+			
+			
+			"infoScroller": "infoScroller-1QMpon",
+			"userInfoSection": "userInfoSection-2u2hir",
+			"userInfoSectionHeader": "userInfoSectionHeader-2mYYun",
+			"userInfoText": "userInfoText-2MFCmH",
+			"note": "note-3M15gE",
+
+			"noteTextarea": "alias profile noteTextarea",
 
 
 			// cannot find these but they're in the same rule as connections
-			// discordMemberCreatedAt-2lxWI_
-			// discordMemberCreatedAtIconContainer-3eHGyl
-			// discordMemberCreatedAtIcon-1KOAQ6
-			// discordMemberCreatedAtText-3THXI2
-			"connectedAccounts": "connectedAccounts-1HaiEx", // 173
-			"connectedAccountsColumn": "connectedAccountsColumn-1I3naf", // 173
-			"connectedAccountContainer": "connectedAccountContainer-2TWiXT", // 173
-			"connectedAccountContainerWithMetadata": "connectedAccountContainerWithMetadata-3NgWeX",
-			"connectedAccount": "connectedAccount-2NOwd0", // 173
-			"connectedAccountChildren": "connectedAccountChildren-2jEgw3",
-			"connectedAccountChildrenNoIcon": "connectedAccountChildrenNoIcon-3gfG-B",
-			"connectedAccountPoweredBy": "connectedAccountPoweredBy-1tysNm",
-			"connectedAccountPoweredByText": "connectedAccountPoweredByText-3m5_YE",
-			"connectedAccountIcon": "connectedAccountIcon-2szOw-", // 173
-			"connectedAccountNameContainer": "connectedAccountNameContainer-3v4pIj", // 173
-			"connectedAccountName": "connectedAccountName-1e_h-k", // 173
-			"connectedAccountNameTextContainer": "connectedAccountNameTextContainer-lNExEJ", // 173
-			"connectedAccountNameText": "connectedAccountNameText-3VHIcl", // 173
-			"connectedAccountVerifiedIcon": "connectedAccountVerifiedIcon-2IthzC", // 173
-			"connectedAccountHideIcon": "connectedAccountHideIcon-u4tTsG",
-			"connectedAccountOpenIcon": "connectedAccountOpenIcon-OngaxI", // 173
+			// discordMemberCreatedAt-31OkT7
+			// discordMemberCreatedAtIconContainer-2oMHqL
+			// discordMemberCreatedAtIcon-126if8
+			// discordMemberCreatedAtText-15sN5q
+			"connections": (
+				"accounts": "connectedAccounts-2R5M4w",
+				"column": "connectedAccountsColumn-1zdyyx",
+				"container": "connectedAccountContainer-3aLMHJ",
+				"containerWithMetadata": "connectedAccountContainerWithMetadata-3_IQ7D",
+				"account": "connectedAccount-1oLIrm",
+				"children": "connectedAccountChildren-29Qmfl",
+				"childrenNoIcon": "connectedAccountChildrenNoIcon-1-dMPM",
+				"poweredBy": "connectedAccountPoweredBy-3UJ7S3",
+				"poweredByText": "connectedAccountPoweredByText-xOtQnK",
+				"icon": "connectedAccountIcon-3FdW8x",
+				"nameContainer": "connectedAccountNameContainer-3e9mvO",
+				"name": "connectedAccountName-2QfG-N",
+				"nameTextContainer": "connectedAccountNameTextContainer-OqLQll",
+				"nameText": "connectedAccountNameText-tCbPXH",
+				"verifiedIcon": "connectedAccountVerifiedIcon-3EPFPC",
+				"hideIcon": "connectedAccountHideIcon-52xU0J",
+				"openIcon": "connectedAccountOpenIcon-3i81Tz",
+			),
 
-			"listScroller": "listScroller-XCVa1H", // 1527
-			"listRow": "listRow-Y5zoF8", // 1527
-			"listAvatar": "listAvatar-2GhWlb", // applied to server icons too // 1527
-			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon-1EVd9c", // 1529
-			"listRowContent": "listRowContent-3fhsZ_", // 1527
-			"listName": "listName-3bDgY6", // 1527
-			"listDiscriminator": "listDiscriminator-2XvfH2", // 1527
-			"guildNick": "guildNick-HT7Pgu", // 1529
-			"userProfileActivity": "userProfileActivity-1JPDhh", // 1526
+			"listScroller": "listScroller-entkMk",
+			"listRow": "listRow-2nO1T6",
+			"listAvatar": "listAvatar-2bU5Uh",
+			"listRowContent": "listRowContent-PEmSWj",
+			"listName": "listName-PwbeHL",
+			"listDiscriminator": "listDiscriminator-1HAKWY",
+			"empty": "empty-2zcusz",
+			"emptyIcon": "emptyIcon-uKVxYR",
+			"emptyIconFriends": "emptyIconFriends-2LNxTX",
+			"emptyIconGuilds": "emptyIconGuilds-2NNSTU",
+			"emptyIconStreamerMode": "emptyIconStreamerMode-3P4I-V",
+			"emptyText": "emptyText-mZZyQk",
+			
+			"guildAvatar": "guildAvatar-28MI9x",
+			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon-6EjPQF",
+			"guildNick": "guildNick-fe8oPN",
 
-			"empty": "empty-2-ONJW", // 1527
-			"emptyIcon": "emptyIcon-LaP3ij", // 1527
-			"emptyIconFriends": "emptyIconFriends-3MCBQa", // 1527
-			"emptyIconGuilds": "emptyIconGuilds-8ibZfz", // 1527
-			"emptyIconStreamerMode": "emptyIconStreamerMode-2hkVAw", // 1527
-			"emptyText": "emptyText-7HFu4Y", // 1527
 
-			"activity": "userProfileActivity-1JPDhh",
-			"activityButtonColor": "actionColor-3JIzOn",
+			"activity": "userProfileActivity-sal5no",
+			"activityButtonColor": "actionColor-19rsEu",
 		),
 
 		// Panel: Go to the DMs of someone while your screen is larger than
 		// 820px wide and you've not disabled the panel via header
 		"panel": (
-			"panel": "profilePanel-2PWEok",
+			"panel": "profilePanel-2VBkh8",
 			
-			"overlayBackground": "userPanelOverlayBackground-3xwDMp",
-			"outer": "userPanelOuter-xc-WYi",
-			"inner": "userPanelInner-1UAR7g",
+			"overlayBackground": "alias profile overlay panel",
+			"outer": "alias profile outer panel",
+			"inner": "alias profile inner panel",
 
-			"innerThemed": "userPanelInnerThemed-2xZFjl", // still on non-nitro
+			"innerThemed": "alias profile inner panelThemed", // still on non-nitro
 
-			"banner": "panelBanner-13bsBR",
+			"banner": "alias profile banner panel",
 
-			"avatarPosition": "avatarPositionPanel-3P4Ted",
+			"avatarPosition": "alias profile avatar position panel",
 
-			"badgeListGroup": "badgelistGroup-2XjSQi",
-			"badgeList": "badgeList-1EecKl",
+			"badgeListGroup": "badgelistGroup-_4Ddiq",
+			"badgeList": "badgeList-2hF9ig",
 
 			// not stuff like twitter or steam tho
-			"connections": "profilePanelConnections-qFuH1k",
-			"friends": "mutualFriendsList-7kySbG",
-			"friend": "mutualFriendItem-1uCRKm",
-			"discriminator": "discriminator-M18hq0",
-			"guilds": "mutualGuildsList-37Q6HT",
-			"guild": "mutualGuildItem-2q2U_O",
-			"guildProfile": "guildProfile-dTwVNt", // nickname
-			"guildAvatar": "guildAvatar-zq8LmS", // not for icons but rather people with nitro and custom avi
+			"connections": "profilePanelConnections-1tVK8j",
+			"friends": "mutualFriendsList-2bD7qC",
+			"friend": "mutualFriendItem-3GPYAS",
+			"friendsDivider": "mutualFriendsDivider-_X_dLc",
+			"discriminator": "discriminator-2eq-Ue",
+			"guilds": "mutualGuildsList-3uBUvR",
+			"guild": "mutualGuildItem-2yGf7c",
+			"guildProfile": "guildProfile-34MGtD", // nickname
+			"guildAvatar": "guildAvatar-39hz_V", // not for icons but rather people with nitro and custom avi
+			
+			"connectionList": "connectionList-3wSnMU",
+			"collapsed": "isCollapsed-ot4n3F",
+			"collapseButton": "collapseBtn-3-5Cu0",
+			"collapseButtonContent": "collapseBtnContent-vWOH_J",
+			"collapseButtonIcon": "iconWrapper-2NoNF1",
 
-			"collapsed": "isCollapsed-3HYXjL",
-			"collapseButton": "collapseBtn-2sFINR",
-			"collapseButtonContent": "collapseBtnContent-1Vx20c",
-			"collapseButtonIcon": "iconWrapper-991FEf",
-
-			"connectionDivider": "mutualFriendsDivider-2LiKsc",
-			"connectionItem": "profilePanelConnectionItem-1YmGsC",
-			"connectionAvatar": "connectionAvatar-1uCjV5",
-			"connectionText": "textGroup-lPkZhZ",
+			"connectionDivider": "alias profile panel friendsDivider",
+			"connectionItem": "profilePanelConnectionItem-3NK9ib",
+			"connectionAvatar": "connectionAvatar-34QkUT",
+			"connectionText": "textGroup-3hM6jX",
 		),
 
 		// Popoout: click on user in chat or member list
 		"popout": (
-			"overlayBackground": "userPopoutOverlayBackground-dKOOda",
-			"outer": "userPopoutOuter-3AVBmJ",
-			"inner": "userPopoutInner-1hXSeY",
+			"overlayBackground": "alias profile overlay popout",
+			"outer": "alias profile outer popout",
+			"inner": "alias profile inner popout",
 
-			"upsellWrapper": "wrapper-400BN2", // 211
-			"upsellBanner": "banner-2JvDVu",
-			"upsellHidden": "bannerHidden-27Sfdl", // 211
-			"upsellVisible": "bannerVisible-AQ0tmH", // 211
-			"upsellContent": "content-133XEn",
-			"upsellText": "text-3tgIhA", // 211
-			"upsellPremiumIcon": "premiumIcon-3iTnzm", // 211
-			"upsellDismissButton": "dismissButton-GdOPhI", // 211
-			"upsellCloseIcon": "closeIcon-1M5JCS",
+			"upsell": (
+				"wrapper": "wrapper-C1y4Sz",
+				"banner": "banner-iQGw2h",
+				"visible": "visible-2tkRo_",
+				"content": "content-23Uwtl",
+				"text": "text-3i9OZm",
+				"premiumIcon": "premiumIcon-1HXd7v",
+				"dismissButton": "dismissButton-1LXix0",
+				"closeIcon": "closeIcon-2_2cmM",
+			),
 			
-			"banner": "banner-2boKnS", // 145
-			"popoutBanner": "popoutBanner-16rVDY", // 145
-			"popoutBannerPremium": "popoutBannerPremium-2RvDNZ", // 145
-			"bannerPremium": "bannerPremium-86naOf", // 145
-			"roundedBanner": "roundedBanner-TdlJGa", // 145
+			"banner": "alias profile banner banner",
+			"popoutBanner": "alias profile banner popout",
+			"popoutBannerPremium": "alias profile banner popoutPremium",
+			"popoutNoBannerPremium": "alias profile banner popoutNoBannerPremium",
+			"bannerPremium": "alias profile banner premium",
+			"roundedBanner": "alias profile banner rounded",
 
-			"pencilContainer": "pencilContainer-11Kuga", // 145
-			"pencilIcon": "pencilIcon-1MUmnO", // 145
+			"pencilContainer": "alias profile banner pencilContainer",
+			"pencilIcon": "alias profile banner pencilIcon",
 
-			"avatarClickable": "clickable-3iBWTO", // 210
-			"avatarWrapperNormal": "avatarWrapperNormal-1tQ3Je", // 210
-			"avatarWrapper": "avatarWrapper-3y0KZ1", // 210
-			"avatarPositionNormal": "avatarPositionNormal-V4Mjtq", // 210
-			"avatarPositionPremium": "avatarPositionPremiumBanner-2nq2Fy", // 210
-			"avatarHoverTarget": "avatarHoverTarget-l77PhT", // 210
-			"avatarHint": "avatarHint-2g3Mcd", // 210
-			"avatarHintInner": "avatarHintInner-3gk_Yx", // 210
+			"avatarClickable": "alias profile avatar clickable",
+			"avatarWrapperNormal": "alias profile avatar wrapperNormal",
+			"avatarWrapper": "alias profile avatar wrapper",
+			"avatarPositionNormal": "alias profile avatar position normal",
+			"avatarPositionPremium": "alias profile avatar position premiumBanner",
+			"avatarPositionPremiumNoBanner": "alias profile avatar position premiumNoBanner",
+			"avatarHoverTarget": "alias profile avatar hoverTarget",
+			"avatarHint": "alias profile avatar hint",
+			"avatarHintInner": "alias profile avatar hintInner",
 
-			"badges": "profileBadges-31rDHI", // 210
-			"badgesContainer": "container-5SvbtF", // 209
-			"badgesWithContent": "containerWithContent-2_V0PM", // 209
-			"badgeClickable": "clickable-28QF7i", // 209
-			"badge22": "profileBadge22-3OAigE", // 209
-			"badge": "profileBadge-2YySEb", // has before // 209
+			"badges": "alias profile avatar badges", // don't ask why it's in avatar; it's on that line
+			"badgesContainer": "alias profile badge container",
+			"badgesWithContent": "alias profile badge containerWithContent",
+			"badgeClickable": "alias profile badge clickable",
+			"badge22": "alias profile badge badge22",
+			"badge": "alias profile badge badge",
 
-			"bodySection": "section-3FmfOT", // 193
-			"lastSection": "lastSection-3_1yKt", // 193
+			"bodySection": "alias profile nonModal section",
+			"lastSection": "alias profile nonModal lastSection",
 
-			"divider": "divider-1gzPrC", // 191
+			"customStatusSection": "customStatusSection-2_fKRl",
+			"usernameSection": "usernameSection-3FppkT",
+			"divider": "divider-1QVlfF",
+			"scroller": "scroller-15bIdk",
+			"scrollerSeparator": "scrollerSeparator-6DmwRQ",
 
-			"userText": "userText-148fun", // 206
-			"userTagNoNickname": "userTagNoNickname-2MJ9HD", // 206
-			"userTagWithNickname": "userTagWithNickname-3-znkC", // 206
-			"userTag": "userTag-PXLYzP", // 206
-			"nameTag": "nameTag-H6kSJ0", // 175
-			"nickname": "nickname-2rimyL", // 206
-			"username": "username-3JLfHz", // 175
-			"userTagUsernameNoNickname": "userTagUsernameNoNickname-2e_xaO", // 206
-			"userTagUsernameBase": "userTagUsernameBase-3Nfr5j", // 206
-			"userTagDiscriminatorNoNickname": "userTagDiscriminatorNoNickname-2HLaIE", // 206
-			"discrimBase": "discrimBase-KriZSj", // 206
+			"userText": "alias profile nonModal userText userText",
+			"userTagNoNickname": "alias profile nonModal userText tagNoNickname",
+			"userTagWithNickname": "alias profile nonModal userText tagWithNickname",
+			"userTag": "alias profile nonModal userText tag",
+			"nickname": "alias profile nonModal userText nickname",
+			"userTagUsernameNoNickname": "alias profile nonModal userText tagUsernameNoNickname",
+			"userTagUsernameBase": "alias profile nonModal userText tagUsernameBase",
+			"userTagDiscriminatorNoNickname": "alias profile nonModal userText tagDiscriminatorNoNickname",
+			"discrimBase": "alias profile nonModal userText discrimBase",
 
-			"bodyScroller": "scroller-1jBQYo", // 207
-			"bodySectionTitle": "title-1r9MQ6", // 196
+			"nameTag": "alias nameTag nameTag",
+			"username": "alias nameTag username",
 
-			"memberSinceContainer": "memberSinceContainer-3biwiY", // 202
-			"discordIcon": "discordIcon-JXet1k", // 202
-			"body": "body-2Fhyoo", // same line as body section title // 196
-			"memberSinceDivider": "divider-D-Vspq", // 202
+			"bodyScroller": "alias profile popout scroller",
+			"bodySectionTitle": "alias profile nonModal title",
 
-			"rolesRoot": "root-jbEB5E", // 155
-			"roles": "roles-3zC7MX", // 205
-			"role": "role-2TIOKu", // 155
-			"rolePill": "rolePill-2IJ1vo", // 205
-			"rolePillBorder": "rolePillBorder-RiRiuN", // 205
-			"roleRemoveButton": "roleRemoveButton-17oXnT", // 155
-			"roleCircle": "roleCircle-3K9O3d", // 139
+			"memberSinceContainer": "alias profile memberSince container",
+			"discordIcon": "alias profile memberSince discordIcon",
+			"body": "alias profile nonModal body",
+			"memberSinceDivider": "alias profile memberSince divider",
+			
+			// all on same line
+			"roles": "roles-3vQPxb",
+			"rolePill": "rolePill-78LFtg",
+			"rolePillBorder": "rolePillBorder-3R4Bb5",
+			
+			"rolesRoot": "alias role root",
+			"role": "alias role role",
+			"roleRemoveButton": "alias role removeButton",
+			"roleName": "alias role name",
+			"roleAddButton": "alias role addButton",
+			"roleActionButton": "alias role actionButton",
+			"addButtonIcon": "alias role addButtonIcon",
+
+			// i've thrown everything under there because i don't know where other ones are. all on same line
+			"roleCircle": (
+				"svg": "svg-26OBgk",
+				"background": "background-3ArYzi",
+				"dot": "dot-1u1RIE",
+				"dotBorderColor": "dotBorderColor-3fulPm",
+				"roleCircle": "roleCircle-3TFUOr",
+				"dotBorderBase": "dotBorderBase-3XCnzD",
+			),
+			
 			"desaturateUserColors": "desaturateUserColors-1O-G89", // 2
-			"roleName": "roleName-2ZJJYR", // 155
-			"roleAddButton": "addButton-1_dZYu", // 155
-			"roleActionButton": "actionButton-1YKTU0", // 155
-			"addButtonIcon": "addButtonIcon-3HZ_2f", // 155
 
-			"note": "note-6O4w9y", // 203
-			"noteTextarea": "textarea-_59yqs", // also in modal. could be elsewhere. // 156
+			"note": "note-1NN2aP",
+			"noteTextarea": "alias profile noteTextarea",
 
-			"messageSection": "section--1D3ev", // 201
-			"messageInputContainer": "messageInputContainer-2rGDH8", // 201
-			"messageInput": "messageInput-1KI8l8", // 201
-			"input": "input-2z42oC", // 187
+			"messageSection": "section-1TK4Q0",
+			"messageInputContainer": "messageInputContainer-24qqTx",
+			"messageInput": "messageInput-1enlaJ",
 			// NEW USER, NEED MESSAGES ENABLED FOR SERVER
-			"wumpusWrapper": "wumpusWrapper-3jyMw-", // 201
-			"wumpus": "wumpus-3Ue90v", // 201
-			"wumpusShown": "wumpusShown-2xOoew", // 201
-			"wumpusImage": "wumpusImage-35cffY", // 201
-			"wumpusTooltip": "wumpusTooltip-2r8Y-a", // has after // 201
+			"wumpusWrapper": "wumpusWrapper-3Hinft",
+			"wumpus": "wumpus-3j1RtY",
+			"wumpusShown": "wumpusShown-usmqjv",
+			"wumpusTooltip": "wumpusTooltip-15kPrN",
+			"wumpusImage": "wumpusImage-1CIA0K",
+
+			"input": "input-2z42oC",
 		),
 
 		// for status picker, has a bit of overlap with popout
@@ -2405,19 +2651,20 @@ $classes: (
 		// redIcon class is in one of the rules but is under a different area in this file. it's applied to icons when server muted/deafend
 		"status": (
 			"popoutWrapper": "accountProfilePopoutWrapper-3GskID",
-			"menu": "menu-KSaHL1",
-			"menuItemFocused": "menuItemFocused-2cC4Ku",
-			"menuItemFocusedPremium": "menuItemFocusedPremium-UxIFvE",
+			"menu": "menu-2-eHMB",
+			"menuItemFocused": "menuItemFocused-1a4_bh",
+			"submenuIcon": "subMenuIcon-25xQRT",
 
-			"mainStatusIcon": "mainStatusIcon-2yyCJB", // >foreignObject>div has inline style
-			"dividier": "divider-1i5sVV", // used after about me/joined discord
+			"mainStatusIcon": "mainStatusIcon-25wiNY", // >foreignObject>div has inline style
+			"dividier": "divider-on9OTV", // used after about me/joined discord
 
 			// submenu for picking status
-			"statusItem": "statusItem-2a1giL",
-			"icon": "icon-OgaO6F", // >foreignObject>div has inline style
-			"status": "status-qmUf7L", // contains text
-			"description": "description-22_U3B", // used with do not disturb and invis
+			"statusItem": "statusItem-38ArJn",
+			"icon": "icon-eUBS01", // >foreignObject>div has inline style
+			"status": "status-2xYiEF", // contains text
+			"description": "description-1Dd2kv", // used with do not disturb and invis
 
+			// in sidebar
 			"panel": (
 				"container": "container-YkUktl",
 				"avatarWrapper": "avatarWrapper-1B9FTW", // applies to whole thing
@@ -2451,15 +2698,17 @@ $classes: (
 			"godlike": "godlike-2668Fo",
 			"statusTooltip": "statusTooltip-2xssGB",
 			"strikethrough": "strikethrough-2Kl6HF",
-			"poggermodeFeatureEducation": "poggermodeFeatureEducation-27E-0u",
-			"poggermodeFeatureEducationArt": "poggermodeFeatureEducationArt-1A0vwE",
+			"redIcon": "redIcon-1ppjsM",
+			"panelTitleContainer": "panelTitleContainer-bZ3AM_",
+			"panelSubtextContainer": "panelSubtextContainer-7hU_Cm",
+			"accountProfilePopoutWrapper": "accountProfilePopoutWrapper-3GskID",
 
 			// in account switcher rule
 			"userMenuItemAvatar": "userMenuItemAvatar-1G5wRl",
 
 			// in other rules
-			"statusPickerModalMenu": "statusPickerModalMenu-1Z8KUX",
-			"modal": "modal-36x7us",
+			"statusPickerModalMenu": "statusPickerModalMenu-1cjWUD",
+			"modal": "modal-3GUHHK",
 		),
 	),
 	
@@ -2906,7 +3155,7 @@ $classes: (
 			"divider": "divider-1zHRlg",
 			"modal": "modal-2TOYtq", // actually for the main body of the modal in question. wankers.
 			"sequencer": "sequencer-2TR9f1",
-			"modalContent": "modalContent--XtfCV ",
+			"modalContent": "modalContent--XtfCV",
 			"content": "content-228In8",
 			"centerContent": "centerContent-3LaXMq",
 			"closeButton": "closeButton-1xiiER",
@@ -4120,7 +4369,7 @@ $classes: (
 		),
 		// category for attempted alias (didn't work, see commented out script at top)
 		"d": (
-			"foobar": "$alias test a foo", // output should be "bar"
+			"foobar": "alias test a foo", // output should be "bar"
 		),
 		// category to test dots (for class names) and hashes (for ids) etc
 		"e": (
@@ -4132,7 +4381,8 @@ $classes: (
 );
 
 // @debug #{cn(test a foo)};
-// @debug #{cn(test d too)};
+// @debug #{cn(test d foobar)};
+// @debug #{c(test d foobar)};
 
 // $cll: ();
 

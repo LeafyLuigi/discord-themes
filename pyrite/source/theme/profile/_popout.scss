@@ -13,7 +13,7 @@
 		color: $hover;
 	}
 }
-#{c(profile popout upsellWrapper)} {
+#{c(profile popout upsell wrapper)} {
 	display: none;
 }
 #{c(profile popout overlayBackground)}:not(#{c(userSettings profileBody)}) {

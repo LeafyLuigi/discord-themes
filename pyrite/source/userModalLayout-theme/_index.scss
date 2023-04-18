@@ -32,17 +32,9 @@
 }
 #{c(profile modal activity)} {
   padding: 5px 20px;
-  ~ #{c(profile activity activity profile)} {
-    + #{c(profile modal tabBarContainer)} {
-      top: -366px;
-    }
-  }
-  + #{c(profile modal tabBarContainer)} {
-    top: -278px;
-  }
 }
 
-#{c(profile modal userProfileActivity)} {
+#{c(profile modal activity)} {
   #{c(profile activity activity profile)} {
     margin-left: 0;
     flex-direction: row;
@@ -95,17 +87,60 @@
   #{c(profile modal customStatus)} {
     margin: 12px 12px 0;
   }
-  #{c(profile modal tabBarContainer)} {
-    max-width: calc(var(--user-modal-width,900px) * 2 / 3 - 16px);
-    position: absolute;
-    z-index: 1;
-    bottom: 8px;
-    border-bottom: 0;
-    margin: 0;
-  }
-  #{c(profile modal userProfileActivity)} {
+  #{c(profile modal activity)} {
     padding: 0 8px;
   }
+}
+#{c(profile modal tabBarContainer)} {
+  height: 24px;
+  max-height: 24px;
+  max-width: calc(var(--user-modal-width,900px) / 3 - 40px);
+  position: absolute;
+  z-index: 2;
+  right: 16px;
+  border-bottom: 0;
+  margin: 0;
+  & ~ :is(#{c(profile modal infoScroller)},#{c(profile modal listScroller)}) {
+    top: calc(16px + 24px);
+    #{c(profile modal userInfoSection)}:first-child::before {
+      height: calc(var(--user-modal-height,600px) - 32px - 24px);
+    }
+  }
+}
+#{c(profile modal tabBar)} {
+  height: inherit;
+}
+// tabBarItem order: 
+// DIFFERENCE BETWEEN BOT AND USER: body>container>nameTag>bot
+// CANNOT TARGET WITHOUT :HAS() OR PLUGIN
+// BOT - [Info] | [Mutual Servers] | [Data Access]
+// USER - [Info] | [?Activity] | [Mutual Servers] | [Mutual Friends]
+// SELF - [none]
+#{c(profile modal tabBarItem)} {
+  font-size: 0;
+  background: center/cover no-repeat;
+  &:first-child {
+    // user info image
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Cpath fill='currentcolor' transform='translate(2 2)' d='M 8 8 C 10.205 8 12 6.205 12 4 C 12 1.795 10.205 0 8 0 C 5.795 0 4 1.795 4 4 C 4 6.205 5.795 8 8 8 Z M 8 9 C 3.289 9 -0 11.467 -0 15 V 16 H 16 V 15 C 16 11.467 12.711 9 8 9 Z'/%3E%3C/svg%3E");
+  }
+  &:nth-child(2):not(:nth-last-child(2)) {
+    // activity image
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='currentcolor' d='M5.79335761,5 L18.2066424,5 C19.7805584,5 21.0868816,6.21634264 21.1990185,7.78625885 L21.8575059,17.0050826 C21.9307825,18.0309548 21.1585512,18.9219909 20.132679,18.9952675 C20.088523,18.9984215 20.0442685,19 20,19 C18.8245863,19 17.8000084,18.2000338 17.5149287,17.059715 L17,15 L7,15 L6.48507125,17.059715 C6.19999155,18.2000338 5.1754137,19 4,19 C2.97151413,19 2.13776159,18.1662475 2.13776159,17.1377616 C2.13776159,17.0934931 2.1393401,17.0492386 2.1424941,17.0050826 L2.80098151,7.78625885 C2.91311838,6.21634264 4.21944161,5 5.79335761,5 Z M14.5,10 C15.3284271,10 16,9.32842712 16,8.5 C16,7.67157288 15.3284271,7 14.5,7 C13.6715729,7 13,7.67157288 13,8.5 C13,9.32842712 13.6715729,10 14.5,10 Z M18.5,13 C19.3284271,13 20,12.3284271 20,11.5 C20,10.6715729 19.3284271,10 18.5,10 C17.6715729,10 17,10.6715729 17,11.5 C17,12.3284271 17.6715729,13 18.5,13 Z M6,9 L4,9 L4,11 L6,11 L6,13 L8,13 L8,11 L10,11 L10,9 L8,9 L8,7 L6,7 L6,9 Z'/%3E%3C/svg%3E");
+  }
+  &:nth-last-child(2) {
+    // mutual servers image
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='currentcolor' d='M12 10.9C11.39 10.9 10.9 11.39 10.9 12C10.9 12.61 11.39 13.1 12 13.1C12.61 13.1 13.1 12.61 13.1 12C13.1 11.39 12.61 10.9 12 10.9ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM14.19 14.19L6 18L9.81 9.81L18 6L14.19 14.19Z'/%3E%3C/svg%3E");
+  }
+  &:last-child {
+    // mutual friends image
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='currentcolor' d='M0.5,0 L0.5,1.5 C0.5,5.65 2.71,9.28 6,11.3 L6,16 L21,16 L21,14 C21,11.34 15.67,10 13,10 C13,10 12.83,10 12.75,10 C8,10 4,6 4,1.5 L4,0 L0.5,0 Z M13,0 C10.790861,0 9,1.790861 9,4 C9,6.209139 10.790861,8 13,8 C15.209139,8 17,6.209139 17,4 C17,1.790861 15.209139,0 13,0 Z' transform='translate(2 4)'/%3E %3Cpath d='M0,0 L24,0 L24,24 L0,24 L0,0 Z M0,0 L24,0 L24,24 L0,24 L0,0 Z M0,0 L24,0 L24,24 L0,24 L0,0 Z'/%3E%3C/g%3E%3C/svg%3E");
+    // // [BOT] data access image
+    // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 40 40'%3E%3Cpath fill='currentcolor' d='M33 34.5833V7.49998H35V36.6666H9C6.791 36.6666 5 34.801 5 32.5V7.49998C5 5.19894 6.791 3.33331 9 3.33331H31V30.4166H9C7.8955 30.4166 7 31.3485 7 32.5C7 33.6515 7.8955 34.5833 9 34.5833H33Z'/%3E%3C/svg%3E");
+  }
+}
+#{c(profile modal userInfoSection)},
+#{c(profile modal connections accounts)} {
+  padding: 0 0 0 8px;
 }
 #{c(profile modal infoScroller)},
 #{c(profile modal listScroller)} {
@@ -122,89 +157,93 @@
 #{c(profile modal noteTextarea)} {
   max-height: unset;
 }
-#{c(profile modal connectedAccountsColumn)} {
+#{c(profile modal connections column)} {
   width: auto;
-  + #{c(profile modal connectedAccountsColumn)} {
+  + #{c(profile modal connections column)} {
     margin: 0;
   }
 }
 @debug "activities broken for UML";
 
 // Horizontal Connections
-// #{c(profile modal infoScroller)} {
-//   overflow: visible !important;
-//   width: calc(var(--user-modal-width,900px) - 32px); // 32px for [16px | CONTENT | 16px]
-//   background: transparent;
-//   padding: 0 !important;
-//   border-radius: 0;
-//   #{c(profile modal userInfoSection)}:first-child {
-//     position: absolute;
-//     right: 0;
-//     // height: 328px; // find calc
-//     width: calc(var(--user-modal-width,900px) / 3 - 40px);
-//     background: transparent;
-//     padding: 8px 0 0 8px;
-//     @include bg($bg:var(--profile-body-background-color),$h:calc(var(--user-modal-height,600px) - 32px),$br:8px 8px 8px 0);
-//   }
-// }
-// #{c(profile modal connectedAccounts)} {
-//   border-top: none !important;
-//   position: absolute;
-//   width: calc(var(--col,4) * 200px);
-//   max-width: calc(var(--user-modal-width,900px) - 32px); // should be 868
-//   padding: 0;
-//   bottom: 0;
-//   max-height: calc(var(--row,5) * 50px);
-//   overflow-y: auto;
-//   &::-webkit-scrollbar {
-//     width: 0;
-//     height: 0;
-//   }
-// }
-// #{c(profile modal connectedAccountsColumn)} {
-//   display: flex;
-//   flex-flow: row wrap;
-//   width: calc(var(--col,4) / 2 * 200px);
-//   align-content: flex-start;
-//   align-items: flex-start;
-//   max-width: calc(var(--user-modal-width,900px) * 2 / 3);
-//   &:first-child #{c(profile modal connectedAccountContainer)}:nth-child(even) {
-//     transform: translateX(200px);
-//   }
-//   &:last-child #{c(profile modal connectedAccountContainer)}:nth-child(odd) {
-//     transform: translateX(-200px);
-//   }
-// }
-// #{c(profile modal connectedAccountsColumn)} #{c(profile modal connectedAccountContainer)}:nth-child(even) {
-//   z-index: 1;
-// }
-// #{c(profile modal connectedAccountContainer)} {
-//   margin: 4px;
-//   max-height: 24px;
-//   padding: 8px;
-//   transform: rotate(0deg);
-//   width: calc(var(--user-modal-width,900px) * 2 / 3 / 3 - 8px - 16px - 2px); // output needs to be 200 total (inc margin, padding, border, content)
-// }
-// #{c(profile modal connectedAccountContainerWithMetadata)} {
-//   display: -webkit-box;
-//   align-items: unset;;
-//   #{c(profile modal connectedAccountIcon)} {
-//     position: fixed;
-//   }
-//   #{c(profile modal connectedAccountNameContainer)} {
-//     margin: 0 32px;
-//     overflow: visible;
-//   }
-//   #{c(profile modal connectedAccountName)}>a {
-//     position: fixed;
-//     top: 12px;
-//     right: 8px;
-//   }
-// }
-// :root {
-//   --col: 4; // max columns
-//   --row: 5; // max rows for users without a banner
-//   --row-banner: 4; // max rows for users with a banner
-// }
+#{c(profile modal infoScroller)} {
+  overflow: visible !important;
+  width: calc(var(--user-modal-width,900px) - 32px); // 32px for [16px | CONTENT | 16px]
+  background: transparent;
+  padding: 0 !important;
+  border-radius: 0;
+  #{c(profile modal userInfoSection)}:first-child {
+    position: absolute;
+    right: 0;
+    // height: 328px; // find calc
+    width: calc(var(--user-modal-width,900px) / 3 - 40px);
+    background: transparent;
+    padding: 8px 0 0 8px;
+    @include bg($bgf:var(--profile-body-background-color),$h:calc(var(--user-modal-height,600px) - 32px),$br:8px 8px 8px 0,$z:null);
+    &>* {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+#{c(profile modal connections accounts)} {
+  border-top: none !important;
+  position: absolute;
+  width: calc(var(--col,4) * 200px);
+  max-width: calc(var(--user-modal-width,900px) - 32px); // should be 868
+  padding: 0;
+  bottom: 0;
+  max-height: calc(var(--row,5) * 50px);
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+#{c(profile modal connections column)} {
+  display: flex;
+  flex-flow: row wrap;
+  width: calc(var(--col,4) / 2 * 200px);
+  align-content: flex-start;
+  align-items: flex-start;
+  max-width: calc(var(--user-modal-width,900px) * 2 / 3);
+  &:first-child #{c(profile modal connections container)}:nth-child(even) {
+    transform: translateX(200px);
+  }
+  &:last-child #{c(profile modal connections container)}:nth-child(odd) {
+    transform: translateX(-200px);
+  }
+}
+#{c(profile modal connections column)} #{c(profile modal connections container)}:nth-child(even) {
+  z-index: 1;
+}
+#{c(profile modal connections container)} {
+  margin: 4px;
+  max-height: 24px;
+  padding: 8px;
+  transform: rotate(0deg);
+  width: calc(var(--user-modal-width,900px) * 2 / 3 / 3 - 8px - 16px - 2px); // output needs to be 200 total (inc margin, padding, border, content)
+}
+#{c(profile modal connections containerWithMetadata)} {
+  display: -webkit-box;
+  align-items: unset;;
+  #{c(profile modal connections icon)} {
+    position: fixed;
+  }
+  #{c(profile modal connections nameContainer)} {
+    margin: 0 32px;
+    overflow: visible;
+  }
+  #{c(profile modal connections name)}>a {
+    position: fixed;
+    top: 12px;
+    right: 8px;
+  }
+}
+:root {
+  --col: 4; // max columns
+  --row: 5; // max rows for users without a banner
+  --row-banner: 4; // max rows for users with a banner
+}
 // height of item: 50px
 // width of item: 200px
