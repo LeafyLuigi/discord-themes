@@ -143,7 +143,6 @@
 	@supports selector(has) {
 		#{c(profile modal usernameContainer)}:has(#{c(nameTag bot)}) + #{c(profile modal tabBarContainer)} #{c(profile modal tabBarItem)}:last-child {
 			// [BOT] data access image
-			color: inherit;
 			--local-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='currentcolor' d='M19.8 20.8V4.5H21V22H5.4C4.1 22 3 20.9 3 19.5V4.5C3 3.1 4.1 2 5.4 2H18.6V18.2H5.4C4.7 18.2 4.2 18.8 4.2 19.5 4.2 20.2 4.7 20.8 5.4 20.8H19.8Z'/%3E%3C/svg%3E");
 		}
 	}
