@@ -144,16 +144,12 @@
 		}
 	}
 }
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(chat spoilerText)}#{c(chat spoilerHidden)},
-	#{c(chat spoilerText)}#{c(chat spoilerHidden)}:hover {
-		background-color: $card;
-	}
+#{c(chat spoiler content)}#{c(chat spoiler hidden)} {
+	--__current--spoiler-text-color: inherit;
 }
-
-#{c(chat spoilerText)}#{c(chat spoilerHidden)}:hover {
+#{c(chat spoiler content)}#{c(chat spoiler hidden)}:hover {
 	opacity: 0.7;
-	#{c(chat spoilerContent)} {
+	#{c(chat spoiler obscuredTextContentInner)} :is(span, code) {
 		transition: opacity .5s .5s ease-in-out;
 		opacity: 1;
 	}
@@ -206,8 +202,6 @@
 }
 
 #{c(chat reaction)} {
-	margin: 0 .1875rem .1875rem 0;
-	border-radius: .1875rem;
 	&,&#{c(chat reactionMe)},&:hover,&:active {
 		background: $card;
 	}
@@ -223,9 +217,6 @@
 			color: $primary;
 			text-shadow: .125rem .125rem .1875rem;
 		}
-	}
-	#{c(chat reactionInner)} {
-		padding: 0 .3125rem;
 	}
 	#{c(chat reactionCount)} {
 		color: var(--text-muted);

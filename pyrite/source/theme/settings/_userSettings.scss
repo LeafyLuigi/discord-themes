@@ -55,9 +55,6 @@
 	border-color: transparent;
 	background-color: transparent;
 }
-#{c(userSettings profilePopoutInfo)} {
-	background-color: $side;
-}
 #{c(userSettings nitroRedirectWarningIcon)} {
 	color: $yellow;
 }
@@ -95,8 +92,7 @@
 #{c(userSettings radioIconForeground)} {
 	color: $primary;
 }
-#{c(userSettings addAccountButton)} #{c(userSettings addAccountButtonInner)},
-#{c(userSettings addAccountWrapper)} #{c(userSettings addAccountWrapperInner)} {
+#{c(userSettings addAccountButtonInner)} {
 	background-color: var(--background-modifier-accent);
 	&:hover {
 		background-color: var(--background-modifier-hover);
@@ -160,7 +156,6 @@
 #{c(main appLayer)},
 #{c(userSettings standardSidebarView)},
 #{c(userSettings contentRegion)},
-#{c(userSettings contentColumn)} #{c(userSettings fieldList)},
-#{c(userSettings profileBannerPreview)} {
+#{c(userSettings contentColumn)} #{c(userSettings fieldList)} {
 	background-color: transparent;
 }

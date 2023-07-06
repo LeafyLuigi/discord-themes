@@ -167,25 +167,33 @@ $classes: (
 		"content": "content-1SgpWY",
 		"baseLayer": "baseLayer-W6S8cY",
 		"appLayer": "layer-86YKbF",
-		"layer": "layer-2aCOJ3",
+		"layer": "layer-2BGhQ8",
 		"mediaEngineVideo": "media-engine-video",
 		"base": "base-2jDfDU",
 		"loadingContainer": "container-2RRFHK",
-		"checkboxWrapper": "checkboxWrapper-2fDzaA",
-		"checkbox": "checkbox-f1HnKB",
-		"checkboxInput": "input-3xr72x",
-		"checkboxChecked": "checked-1pZh2h",
-		"checkboxRound": "round-1RSG-3",
-		"loadingSquare": "wanderingCubesItem-3Us-UG",
+		"loadingSquare": "wanderingCubes-2A046F",
+		"loadingSquareItem": "item-2VgEex",
 		"pictureInPicture": "pictureInPicture-1GQX91",
-		"anchorLink": "anchor-1MIwyf",
-		"anchorLinkUnderlineOnHover": "anchorUnderlineOnHover-2qPutX",
-		"toggle": "container-2nx-BQ", // that sliding selection thing
-		"slider": "slider-32CRPX",
-		"sliderInput": "input-2XRLou",
+		"anchorLink": "anchor-1X4H4q",
+		"anchorLinkUnderlineOnHover": "anchorUnderlineOnHover-wiZFZ_",
+		"sliderContainer": "container-1QtPKm", // that sliding selection thing
+		"slider": "slider-HJFN2i",
+		"sliderChecked": "checked-16gMAN",
+		"sliderDisabled": "disabled-3_3z1m",
+		"sliderInput": "input-125oad",
 		"desaturate": "desaturate-_Twf3u", // has a filter relating to the saturation factor variable
 
 		"ring": "focus-rings-ring",
+
+		// these will eventually be removed
+		"checkboxWrapper": "alias checkbox wrapper",
+		"checkboxWrapperDisabled": "alias checkbox wrapperDisabled",
+		"checkbox": "alias checkbox checkbox",
+		"checkboxInput": "alias checkbox input",
+		"checkboxChecked": "alias checkbox checked",
+		"checkboxRound": "alias checkbox round",
+		"checkboxWrapperRow": "alias checkbox wrapperRow",
+		"toggle": "alias main sliderContainer",
 
 		// no idea what these classes are about
 		"backgroundOpacity": (
@@ -197,61 +205,111 @@ $classes: (
 		// snowsgiving 2022 is under this category because yes 
 		"snowsgivingGift": "container-3Csys8", // no idea where this could be used but still exists
 	),
+	"checkbox": (
+		// Some of these may not be *JUST* checkboxes.
+		// For 2023-07-06 at 16:50 UTC+8, these are on line 20. https://discord.com/assets/40532.e197208e8cf597c9d2ee.css
+		"wrapper": "checkboxWrapper-3zdYym",
+		"wrapperDisabled": "checkboxWrapperDisabled-2Eccms",
+		"checkbox": "checkbox-1LuCGM",
+		"checked": "checked-22NTbO",
+		
+		// input stuffs
+		"input": "input-1y_Uys",
+		"inputDefault": "inputDefault-2DXavk",
+		"inputDisabled": "inputDisabled-1OGGZh",
+		"inputReadonly": "inputReadonly-2iSlw6",
+		
+		// shapes
+		"round": "round-2IkBht",
+		"box": "box-qwm0Q_",
+		"smallBox": "smallBox-14mSHK",
+
+		// labels
+		"label": "label-9XOJcX",
+		"labelClickable": "labelClickable-1O40WT",
+		"labelDisabled": "labelDisabled-dcA6FL",
+		"labelForward": "labelForward-2nf-R8",
+		"labelReversed": "labelReversed-Ga_UMV",
+		
+		"row": "row-1T4Qpj",
+		"alignTop": "alignTop-2beeJk",
+		"alignCenter": "alignCenter-1BukGC",
+	),
 	"text": (
 		// weird text-xx- and heading-xx classes. can have inline style for color.
-		// entirety of line 12 (2022-08-29 @ 11:49) canary build 82b0d29 version 144219. 
+		// entirety of line 24 (2023-07-06 @ 16:50 UTC+8) stable build 210901 (daacd72). 
 		// can easily be found by selecting the sidebar panel avi name thingy.
 		"heading": (
-			"sNormal": "heading-sm-normal-2Mn_Al",
-			"sMedium": "heading-sm-medium-7K3WMh",
-			"sBold": "heading-sm-bold-1FcNP-",
-			"mNormal": "heading-md-normal-3Ytn6I",
-			"mMedium": "heading-md-medium-2DVCeJ",
-			"mBold": "heading-md-bold-qvVVvk",
-			"lNormal": "heading-lg-normal-1bqh2L",
-			"lMedium": "heading-lg-medium-3gUJeM",
-			"lBold": "heading-lg-bold-3uwrwG",
-			"xlNormal": "heading-xl-normal-1z58RU",
-			"xlMedium": "heading-xl-medium-_XBxHT",
-			"xlBold": "heading-xl-bold-NSc3DL",
-			"xxlNormal": "heading-xxl-normal-3zbV4t",
-			"xxlMedium": "heading-xxl-medium-1hl0GL",
-			"xxlBold": "heading-xxl-bold-3iEWjT",
+			"sNormal": "heading-sm-normal-yJFS4O",
+			"sMedium": "heading-sm-medium-1pqL2J",
+			"sSemibold": "heading-sm-semibold-3-lkQr",
+			"sBold": "heading-sm-bold-1bKEwH",
+			"sExtrabold": "heading-sm-extrabold-1TPIlG",
+			"mNormal": "heading-md-normal-1_pqSu",
+			"mMedium": "heading-md-medium-2HtP7R",
+			"mSemibold": "heading-md-semibold-2h_vsp",
+			"mBold": "heading-md-bold-3v5pnz",
+			"mExtrabold": "heading-md-extrabold-1MUt_W",
+			"lNormal": "heading-lg-normal-3WNaUj",
+			"lMedium": "heading-lg-medium-36aOqg",
+			"lSemibold": "heading-lg-semibold-14ouVv",
+			"lBold": "heading-lg-bold-242r2N",
+			"lExtrabold": "heading-lg-extrabold-1oq5rk",
+			"xlNormal": "heading-xl-normal-21oWBJ",
+			"xlMedium": "heading-xl-medium-2mLY35",
+			"xlSemibold": "heading-xl-semibold-3E1dYv",
+			"xlBold": "heading-xl-bold-38fuFv",
+			"xlExtrabold": "heading-xl-extrabold-3nqyla",
+			"xxlNormal": "heading-xxl-normal-1yctT3",
+			"xxlMedium": "heading-xxl-medium-15Q8mb",
+			"xxlSemibold": "heading-xxl-semibold-2jeRzp",
+			"xxlBold": "heading-xxl-bold-nfv1ir",
+			"xxlExtrabold": "heading-xxl-extrabold-2-MUEs",
 		),
-		"eyebrow": "eyebrow-Ejf06y",
+		"eyebrow": "eyebrow-1Shfyi",
 		
-		"headingDeprecatedNormal": "heading-deprecated-12-normal-LCvef_",
-		"headingDeprecatedMedium": "heading-deprecated-12-medium-2N8KlC",
-		"headingDeprecatedBold": "heading-deprecated-12-bold-19Pt5x",
+		"headingDeprecatedNormal": "heading-deprecated-12-normal-2QSQ4R",
+		"headingDeprecatedMedium": "heading-deprecated-12-medium-Jma8wU",
+		"headingDeprecatedSemibold": "heading-deprecated-12-semibold-3cWp6c",
+		"headingDeprecatedBold": "heading-deprecated-12-bold-1EjXvP",
+		"headingDeprecatedExtrabold": "heading-deprecated-12-extrabold-2xOAdx",
+
+		"redesign": (
+			"heading18Bold": "redesign-heading-18-bold-3_oAwg",
+			"normal": "redesign-message-preview-normal-2oqTeT",
+			"medium": "redesign-message-preview-medium-3o_xob",
+			"semibold": "redesign-message-preview-semibold-1qtgkF",
+			"bold": "redesign-message-preview-bold-29r2VM",
+		),
 
 		"text": (
-			"xxsNormal": "text-xxs-normal-3WTeJU",
-			"xxsMedium": "text-xxs-medium-333Dkr",
-			"xxsSemibold": "text-xxs-semibold-3gffAM",
-			"xxsBold": "text-xxs-bold-1-1AOx",
-			"xsNormal": "text-xs-normal-3SiVjE",
-			"xsMedium": "text-xs-medium-2LRpEj",
-			"xsSemibold": "text-xs-semibold-3E_l31",
-			"xsBold": "text-xs-bold-1NF1lz",
-			"sNormal": "text-sm-normal-3Zj3Iv",
-			"sMedium": "text-sm-medium-3Pz3rB",
-			"sSemibold": "text-sm-semibold-3TWn25",
-			"sBold": "text-sm-bold-1Dtt0R",
-			"mNormal": "text-md-normal-304U3g",
-			"mMedium": "text-md-medium-2avxhQ",
-			"mSemibold": "text-md-semibold-3xVVGu",
-			"mBold": "text-md-bold-22PzaZ",
-			"lNormal": "text-lg-normal-1s-VnS",
-			"lMedium": "text-lg-medium-3LMagp",
-			"lSemibold": "text-lg-semibold-2iEErr",
-			"lBold": "text-lg-bold-2qE8R-",
+			"xxsNormal": "text-xxs-normal-JOUguM",
+			"xxsMedium": "text-xxs-medium-3nHwQ6",
+			"xxsSemibold": "text-xxs-semibold-2a8WbY",
+			"xxsBold": "text-xxs-bold-SmPc7M",
+			"xsNormal": "text-xs-normal-3O7EaX",
+			"xsMedium": "text-xs-medium-311pdh",
+			"xsSemibold": "text-xs-semibold-GgBYxI",
+			"xsBold": "text-xs-bold-9jfMvZ",
+			"sNormal": "text-sm-normal-AEQz4v",
+			"sMedium": "text-sm-medium-2-Xzsi",
+			"sSemibold": "text-sm-semibold-S5fJwz",
+			"sBold": "text-sm-bold-2BCfqW",
+			"mNormal": "text-md-normal-2rFCH3",
+			"mMedium": "text-md-medium-2n7Vn5",
+			"mSemibold": "text-md-semibold-2VMhBr",
+			"mBold": "text-md-bold-1mgErV",
+			"lNormal": "text-lg-normal-238CBU",
+			"lMedium": "text-lg-medium-3k_rcw",
+			"lSemibold": "text-lg-semibold-UQkeZc",
+			"lBold": "text-lg-bold-4IOyS6",
 		),
 
-		"sDisplay": "display-sm-154alU",
-		"mDisplay": "display-md-3I4dlu",
-		"lDisplay": "display-lg-DP1JoJ",
+		"sDisplay": "display-sm-2507v0",
+		"mDisplay": "display-md-2bKx-c",
+		"lDisplay": "display-lg-3SN7Sz",
 
-		"code": "code-3Z6ejW",
+		"code": "code-14_RZU",
 	),
 	// Tab bars, found in multiple locations but best seen in friends list
 	// each location has other classes attached to the elements
@@ -314,6 +372,7 @@ $classes: (
 		"linux": "platform-linux",
 		"web": "platform-web",
 	),
+	// boost page has been redone so many times that... ugh. consider these deprecated for now.
 	"boost": (
 		"modal": "perksModal-CLcR1c",
 		"ctaBar": "ctaBar-Nhk8yY",
@@ -414,7 +473,7 @@ $classes: (
 		"sprite": "sprite-1bxGvV",
 		"crossBase": "base-3G-1g8",
 		"cross": "cross-1SI0z1",
-		"crossBlurple":	"crossBlurple-xAYtl0",
+		"crossBlurple": "crossBlurple-xAYtl0",
 		"crossGrey": "crossGrey-15mEQ2",
 		"crossWhite": "crossWhite-2JRhdZ",
 		"avatarWrapper": "wrapper-3mYmFS",
@@ -463,7 +522,7 @@ $classes: (
 		"tile": "tile-3FtID0", // god these names are shit
 		"tileChildFlex": "tile-2Dr6M1", // contains flex properties
 		"tileChildIdle": "idle-3MGs7O",
-		"tileChildVideoLayer": "videoLayer-bqJJzG",
+		// "tileChildVideoLayer": "videoLayer-bqJJzG", // removed?
 		"tileChildBackground": "tile-2TcwiO", // despite being on the same element as the flex, contains background color 
 		"tileChild": "tileChild-2k7Wqh", // haha fuck you not actually on the same class as the four above
 		"tileContent": "content-3u3YYB",
@@ -494,7 +553,7 @@ $classes: (
 		"videoBorder": "border-2Vy6FN",
 		"videoSpeaking": "speaking-7QZEkv",
 		"streamBackground": "root-1Emen5",
-		"avatar": "avatar-b5OQ1N",
+		// "avatar": "avatar-b5OQ1N", // I HAVE NO IDEA WHAT THIS CLASS WAS
 		"liveQualityIndicator": "liveQualityIndicator-2GyS_e",
 		"lowQualityWarningIcon": "warningIcon-3Mtahk",
 		"watchStreamButton": "cta-3-AFNF",
@@ -513,11 +572,11 @@ $classes: (
 			// child being call root, children of scroller, call videoControls, some other classes without suffixes
 			"scroller": "scroller-35tvpe", // child
 			// children being div no class, headerContainer, rowContainer, divider, roleContainer, participants, spacer
-			"headerContainer": "container-3r7mfc",
-			"height": "height-1Wk858", // child
-			"stageSummary": "stageSummary-3IiMsf", // child, children are summaryIcon, text, summaryDotSeparator, summaryIcon, text
-			"summaryIcon": "icon-19laEi",
-			"summaryDotSeparator": "dotSeparator-1V0QPn",
+			"headerContainer": "container-2GuWaQ",
+			// "height": "height-1Wk858", // child // removed?
+			// "stageSummary": "stageSummary-3IiMsf", // child, children are summaryIcon, text, summaryDotSeparator, summaryIcon, text // removed?
+			// "summaryIcon": "icon-19laEi", // removed?
+			// "summaryDotSeparator": "dotSeparator-1V0QPn", // removed?
 			"rowContainer": "rowContainer-jDvyA4", // child of everywhere content
 			"spaceBetweenTiles": "spaceBetweenTiles-1AqWYp", // child, children of tileOuter (see call)
 			"tile": "tile-WBhv6B", // child of call tileInner, not to be confused with every other fucking tile class 
@@ -530,7 +589,7 @@ $classes: (
 			"gradientTop": "gradientTop-1UBZHm",
 			// controlSection (either top or bottom)
 			"controlsParticipants": "participants-3hk3ND", // used as header
-			"topRightContainer": "topRightContainer-2i_gyJ", // child div>button
+			// "topRightContainer": "topRightContainer-2i_gyJ", // child div>button // removed?
 			"raisedHandButtonContainer": "raisedHandButtonContainer-ztlAy1", // used again as child of self??
 			"raisedHandIcon": "raisedHandIcon-3mZpd6", // paired with above when above is child of self
 			// within bottom, 3 children all same classes and inline except middle is `flex: 1 1 auto;`, rest are `flex: 0 1 50%;`
@@ -557,8 +616,8 @@ $classes: (
 			// right
 			"rightTrayIcon": "rightTrayIcon-1gEoki",
 
-			"roleContainer": "roleContainer-WStCpt",
-			"roleName": "roleName-1vI9vz",
+			// "roleContainer": "roleContainer-WStCpt", // removed?
+			// "roleName": "roleName-1vI9vz", // removed?
 
 			"participants": "participants-3hk3ND", // children usually are tileContainer and tileBaseContainer
 			"tileBaseContainer": "tileBaseContainer-2zuu3-",
@@ -577,11 +636,11 @@ $classes: (
 			"rtsHeaderClose": "headerClose-2iIpCp",
 
 			"rtsContentContainer": "contentContainer-dKJ2Bn",
-			"rtsAllowFromEveryoneContainer": "container-1zDvAE",
+			"rtsAllowFromEveryoneContainer": "container-31PmuA",
 			"rtsToggle": "toggle-fbIE0z", // paired with ^
-			"rtsLabelRow": "labelRow-2jl9gK",
-			"rtsDivider": "divider-_0um2u",
-			"rtsDividerDefault": "dividerDefault-3C2-ws",
+			"rtsLabelRow": "labelRow-NnoUIp",
+			"rtsDivider": "divider-3nqZNm",
+			"rtsDividerDefault": "dividerDefault-wIfHHD",
 
 			"rtsListTitle": "listTitle-2F1eUy",
 			"rtsEmptyStateContainer": "emptyStateContainer-2wiHQ3",
@@ -610,11 +669,26 @@ $classes: (
 			"active": "active-3D763s",
 			"speakerRaiseHandBadge": "speakerRaiseHandBadge-1hA2Uh",
 		),
+	"card": (
+		// These are likely all over the app but are best found in settings.
+		// Some things labelled "card-" aren't from here and are instead unique to that area.
+		// For 2023-07-06 at 16:50 UTC+8, these are on line 19. https://discord.com/assets/40532.e197208e8cf597c9d2ee.css
+		"card": "card-2guEcY",
+		"outline": "outline-3kFzf8",
+		"editable": "editable-2xfXMr",
+
+		"brand": "cardBrand-E4Ws6W",
+		"danger": "cardDanger-3IYKz4",
+		"success": "cardSuccess-3whTb2",
+		"warning": "cardWarning-3BXSSU",
+
+		"primary": "cardPrimary-pAe8Ed",
+		"primaryEditable": "cardPrimaryEditable-3bZAVB",
+		"primaryOutline": "cardPrimaryOutline-36hwat",
+		"primaryOutlineEditable": "cardPrimaryOutlineEditable-31Vw3q",
+	),
 	"channelSettings": (
 		"overview": "channel-settings-overview", // not even a replugged class. nice.
-
-		"channelName": "input-2g-os5",
-		"channelNameFocused": "focused-1AtTHC",
 
 		"roleScroller": "scroller-3_YDR2",
 		"settingsCard": "settingCard-xZSDjS",
@@ -724,9 +798,20 @@ $classes: (
 		"chatUsernameTimedOut": "communicationDisabled-2KRN2p",
 		"zalgoBlocker": "zalgo-26OfGz",
 		"messageContent": "messageContent-2t3eCI",
-		"spoilerText": "spoilerText-2G40u0",
-		"spoilerHidden": "hidden-2lQZ5q",
-		"spoilerContent": "inlineContent-2RshAT",
+
+		"spoiler": (
+			"content": "spoilerContent-32CqO-",
+			"hidden": "hidden-2lQZ5q",
+			"container": "spoilerContainer-1Dl06W",
+			"innerContainer": "spoilerInnerContainer-1P_w0A",
+			"warning": "spoilerWarning-1JN1Ot",
+			"warningEmbed": "embed-hgK7Sp",
+			"sensitiveContentWarning": "sensitiveContentWarning-35EVcg",
+			"markdownContent": "spoilerMarkdownContent-2R1Vwe",
+			"obscuredBlockContent": "obscuredBlockContent-2QCAD4",
+			"obscuredTextContent": "obscuredTextContent-3vHOH3",
+			"obscuredTextContentInner": "obscuredTextContentInner-2ytmvF",
+		),
 
 		"chatWelcomeContainer": "container-x059i8",
 
@@ -765,7 +850,7 @@ $classes: (
 		"automodBlockedNoticeContainer": "blockedNoticeContainer-2svSMC",
 		"automodShield": "shieldIcon-2QHlhC",
 
-		"roleDotBackground": "background-3X6N7I",
+		// "roleDotBackground": "background-3X6N7I", // removed?
 	),
 	// line numbers are from 2022-12-28 https://canary.discord.com/assets/40532.2ddbe3ee69f647c0b5d1.css
 	"pages": (
@@ -846,7 +931,7 @@ $classes: (
 			"error": "error-nWpAd-", 
 			"requiredBadge": "requiredBadge-1Rx-p2",
 			"promptOptions": "promptOptions-3jDyZ4",
-			"promptSeparator": "promptSeparator-3E8EOR", // background modif accent
+			// "promptSeparator": "promptSeparator-3E8EOR", // background modif accent // removed?
 			"emptyPage": "emptyPage-2TGR7j", // background with dark/light
 			"emptyContainer": "emptyContainer-8KVAv2",
 			"emptyIcon": "emptyIcon-IW8ndV",
@@ -952,7 +1037,7 @@ $classes: (
 		"loadingContainer": "loader-1iM037",
 		"container": "container-3wLKDe", // seems to relate to line 1526 of https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
 		"listScroller": "list-3FIpnh",
-		"row": "row-uezxzk",
+		// "row": "row-uezxzk", // removed?
 		"headerRow": "headerRow-1MKoR-", // css rule for this also applies to .list(above)>div:first-child
 		"header": "header-1Uy0p6", // applies to combined search/new post card
 		"headerWithMatchingPosts": "headerWithMatchingPosts-1lTrVT",
@@ -963,7 +1048,7 @@ $classes: (
 		"formContainer": "formContainer-1zrOWf",
 		"form": "form-25Aujy",
 		"titleContainer": "titleContainer-2YK93J",
-		"inputWrapper": "inputWrapper-1YNMmM",
+		"inputWrapper": "inputWrapper-2K8ds1",
 		"title": "title-1v5ZfI",
 		"searchIcon": "searchIcon-2Nw0OL",
 		"closeIcon": "closeIcon-3xe5xL",
@@ -1080,40 +1165,42 @@ $classes: (
 
 		// list posts (though a few classes do show up under grid)
 		"list": (
-			"card": "container-2qVG6q",
-			"dots": "dots-2_b2Mn",
-			"isOpen": "isOpen-2OXbFs",
-			"focusTarget": "focusTarget-2TVccU",
-			"left": "left-r1N3TH",
-			"body": "body-hCVwsC",
-			"messageFocusBlock": "messageFocusBlock-2yGtKw",
-			"message": "message-1zs6Od",
-			"messageContent": "messageContent-1SOr75",
-			"bodyMedia": "bodyMedia-3ij3KY",
-			"spoilerTag": "spoilerTag-3sjrIQ",
-			"thumbnailContainer": "thumbnailContainer-2XSRmY",
-			"thumbnailOverride": "thumbnailOverride-N3LGWo",
-			"spoiler": "spoiler-2zwH_u",
-			"header": "header-2W779F",
-			"footer": "footer-3dzxcR",
-			"bullet": "bullet-3kDmK0",
-			"headerText": "headerText-3MQ6n4",
-			"postTitleText": "postTitleText-2ARr84",
-			"newBadgeWrapper": "newBadgeWrapper-J629On",
-			"newBadge": "newBadge-1LcB6t",
-			"inTagsRow": "inTagsRow-pw5SGQ",
-			"typing": "typing-uHRw1D",
-			"typingUsers": "typingUsers-1rTfwm",
-			"messageCountBox": "messageCountBox-XEP63e",
-			"messageCountIcon": "messageCountIcon-2CvKyY",
-			"messageCountText": "messageCountText-J-9pag",
-			"newMessageCount": "newMessageCount-jqlY9z",
-			"addReactButton": "addReactButton-154aIh",
-			"reactions": "reactions-1u0DR-",
-			"updateReactionButton": "updateReactionButton-2dT2HE",
-			"timestampTooltip": "timestampTooltip-3-st-4",
-			"blockedMessage": "blockedMessage-34cqLV",
-			"withNewBadgeOverflow": "withNewBadgeOverflow-3pfCva",
+			"card": "container-q2_DnH",
+			"dots": "dots-3b0kDm",
+			"isOpen": "isOpen-2Gyel_",
+			"focusTarget": "focusTarget-DAd54h",
+			"left": "left-3Nlcn5",
+			"body": "body-391oJl",
+			"messageFocusBlock": "messageFocusBlock-1_b_Pb",
+			"message": "message-3L6Wzn",
+			"messageContent": "messageContent-3szEnQ",
+			"messageContentIcon": "messageContentIcon-1q-4bp",
+			"bodyMedia": "bodyMedia-35rZ5t",
+			"spoilerTag": "spoilerTag-dqzdZO",
+			"thumbnailContainer": "thumbnailContainer-dzG9JU",
+			"thumbnailOverride": "thumbnailOverride-1qPFHm",
+			"spoiler": "spoiler-1FYHTa",
+			"header": "header-ErMa2_",
+			"footer": "footer-3UjAHx",
+			"bullet": "bullet-D4Ib09",
+			"headerText": "headerText-346sKa",
+			"postTitleText": "postTitleText-3gRCnO",
+			"newBadgeWrapper": "newBadgeWrapper-2KsCk4",
+			"newBadge": "newBadge-1hE0w_",
+			"inTagsRow": "inTagsRow-3901g5",
+			"typing": "typing-21jJZA",
+			"typingUsers": "typingUsers-hAlhbV",
+			"messageCountBox": "messageCountBox-U8MTKq",
+			"messageCountIcon": "messageCountIcon-32-p8d",
+			"messageCountText": "messageCountText-2q9uMy",
+			"hasRead": "hasRead-xZf_ZD",
+			"newMessageCount": "newMessageCount-MJLPvW",
+			"addReactButton": "addReactButton-i6iWlU",
+			"reactions": "reactions-2H-DV4",
+			"updateReactionButton": "updateReactionButton-13dIN9",
+			"timestampTooltip": "timestampTooltip-2pmfU6",
+			"blockedMessage": "blockedMessage-1C12cb",
+			"withNewBadgeOverflow": "withNewBadgeOverflow-1t_mPU",
 		),
 
 		// reactions (more classes under list)
@@ -1145,7 +1232,7 @@ $classes: (
 				"nitroIcon": "burstReactionTooltipNitroIcon-3I3oFz",
 				"animatedCounter": "burstAnimatedCounter-2ic_eL",
 				"upsellCta": "burstReactionTooltipUpsellCta-2WDzWM",
-				"upsellCtaInner": "burstReactionTooltipUpsellCtaInner-1AWk9O",
+				// "upsellCtaInner": "burstReactionTooltipUpsellCtaInner-1AWk9O", // removed?
 				"premiumIcon": "premiumIcon-e-K62h",
 			),
 		),
@@ -1272,8 +1359,8 @@ $classes: (
 		"buttons": "buttons-uaqb-5",
 		"buttonContainer": "buttonContainer-2lnNiN",
 		"buttonWrapper": "buttonWrapper-3YFQGJ",
-		"button": "button-f2h6uQ",
-		"lookBlank": "lookBlank-21BCro",
+		"button": "alias button button",
+		"lookBlank": "alias button lookBlank",
 		"buttonActive": "active-z80xEj",
 		"jumpToPresentBar": "jumpToPresentBar-1cEnH0",
 		"messagesErrorBar": "messagesErrorBar-1IQ1rH",
@@ -1311,8 +1398,8 @@ $classes: (
 
 		"typingBase": "base-3bcbY3",
 		"typing": "typing-2J1mQU",
-		"typingDots": "dots-1BwzZQ",
-		"typingDotsThemed": "themed-3T-OPr", // found in chatHome's widgets may not apply elsewhere
+		"typingDots": "dots-1k2MxY",
+		"typingDotsThemed": "themed-3dHGSa", // found in chatHome's widgets may not apply elsewhere
 
 		"sendButtonContainer": "buttonContainer-6W2Ep3",
 		"sendButton": "button-y6hemj",
@@ -1434,7 +1521,7 @@ $classes: (
 		"gameName": "name-QjR4Jk",
 		"gameFullHeight": "fullHeight-2rYHNc",
 		"gameArtwork": "artwork-28Cmnt",
-		"uploadProgressBar": "progressBar-1T6LYX",
+		"uploadProgressBar": "progressBar-3fV-Dd",
 		"videoPlayWrapper": "wrapper-1FP9YQ",
 		"imageWrapper": "imageWrapper-oMkQl4",
 		"imageWrapperBackground": "imageWrapperBackground-3Vss_C",
@@ -1663,10 +1750,10 @@ $classes: (
 		"layout": "layout-1qmrhw",
 		"muted": "muted-14PyqW",
 		"avatar": "avatar-6qzftW",
-		"avatarMask": "mask-1FEkla",
+		"avatarMask": "mask-1y0tyc",
 		"contentName": "content-1U25dZ",
-		"avatarWrapper": "wrapper-1VLyxH",
-		"status": "pointerEvents-9SZWKj",
+		"avatarWrapper": "wrapper-3Un6-K",
+		"status": "pointerEvents-2KjWnj",
 		"ownerIcon": "ownerIcon-255uKo",
 		"name": "name-3Vmqxm",
 		"offline": "offline-22aM7E",
@@ -1692,7 +1779,7 @@ $classes: (
 		"colorDefault": "colorDefault-1e8tQv", // Web only for "PLEASE DOWNLOAD THE DESKTOP APP" background color.
 		// The contents of these notices are in English because yes.
 		"completeSteps": "notice-1x8lm-", // contents: "You must complete a few more steps before you can start talking in this server."
-		"viewServerAsRole": "notice-2olXi7", // contents: "You are viewing this server as $count role(s)."
+		"viewServerAsRole": "notice-3GY7Hk", // contents: "You are viewing this server as $count role(s)."
 		"previewServerNotice": "notice-12Koq-", // contents: "You are currently in preview mode. Join this server to start chatting!"
 	),
 	// These appear to be shared between profile popout and server settings. likely used elsewhere too.
@@ -1745,7 +1832,8 @@ $classes: (
 		"searchAnswer": "searchAnswer-23w-CH",
 		"headerTabList": "searchHeaderTabList-3CZMQB",
 		"scroller": "scroller-3iiyhZ",
-		"channel": "channelName-3w2Y3c",
+		"channel": "alias search channelNameText", // as "channelName-3w2Y3c": removed?
+		"channelNameText": "channelNameText-2q3Lge",
 		"resultsGroup": "searchResultGroup-1lU_-i",
 		"resultContainer": "container-rZM65Y",
 		"result": "searchResult-O9NDji",
@@ -1753,12 +1841,12 @@ $classes: (
 		"blocked": "resultsBlocked-2lCGyA",
 		"buttonContainer": "buttonsContainer-Nmgy7x",
 		"navContainer": "container-1-h9mY",
-		"pageControlContainer": "pageControlContainer-6nt7kY",
-		"pageControl": "pageControl-1XvHg0",
+		"pageControlContainer": "pageControlContainer-1Mbe6M",
+		"pageControl": "pageControl-1Kt_nb",
 		"button": "button-cfOvv-",
-		"pageButton": "pageButton-1GMGeJ",
-		"activeButton": "activeButton-LRWFC_",
-		"endButton": "endButton-oUxeLG",
+		"pageButton": "pageButton-uta6J3",
+		"activeButton": "activeButton-2K2Fwx",
+		"endButton": "endButton-pLBGXH",
 		"errorImage": "errorImage-19HeaA",
 		"errorMessage": "errorMessage-3NUI2U", // paired with emptyResultsText
 		"OOOOHHHHHHHHBANANA": "alt-3_Cl_W",
@@ -1789,9 +1877,9 @@ $classes: (
 		"pill": "pill-L_aLMQ",
 		"pillItem": "item-2LIpTv",
 		"blobContainer": "blobContainer-ikKyFs", // seems to be inverse of listItemWrapper, except not folders
-		"serverWrapper": "wrapper-28eC3z",
-		"serverWrapperSVG": "svg-2zuE5p", // holds defs, mask and foreignObject
-		"serverWrapperSimple": "wrapperSimple-Js2rIO",
+		"serverWrapper": "wrapper-2PSQCG",
+		"serverWrapperSVG": "svg-2ifYOU", // holds defs, mask and foreignObject
+		"serverWrapperSimple": "wrapperSimple-2SFl9K",
 		"iconWrapper": "wrapper-3kah-n",
 		"iconChildWrapper": "childWrapper-1j_1ub",
 		"acronym": "acronym-2zrAHN", // servers without icons
@@ -1802,9 +1890,9 @@ $classes: (
 		"addServer": "circleIconButton-1VxDrg",
 		"addServerSelected": "selected-2r1Hvo",
 		"addServerIcon": "circleIcon-3489FI",
-		"lowerBadge": "lowerBadge-3WTshO",
+		"lowerBadge": "lowerBadge-3j0ZAg",
 		"numberBadge": "numberBadge-37OJ3S",
-		"upperBadge": "upperBadge-1V6Iyi",
+		"upperBadge": "upperBadge-1d6YsW",
 		"iconBadge": "iconBadge-32fMme",
 		"participating": "participating-2Z81oO",
 		"unreadMentionsBar": "unreadMentionsBar-ZXXoOH",
@@ -1826,9 +1914,6 @@ $classes: (
 		"expandedFolderIconWrapper": "expandedFolderIconWrapper-3RwQpD",
 		"centerDragOver": "centerTarget-S6BLFQ.dragOver-1OKbo2", //green thing when merging
 		"targetDragOver": "target-1eRTCg.dragOver-1OKbo2", //green thing when dragging
-		
-		// Below relate to an experiment: 2022-06_spdy_premium_marketing_entrypoint. You might not see these and are likely temp stuff.
-		"fixedBottomList": "fixedBottomList-1yrBla",
 	),
 	"serverSettings": (
 		"serverIconUploadInner": "avatarUploaderInner-1Cp1oP",
@@ -1882,12 +1967,12 @@ $classes: (
 		"privateChannelsHeaderContainer": "privateChannelsHeaderContainer-1UWASm",
 		"privateChannelsHeader": "headerText-1qIDDT",
 		"privateChannel": "channel-1Shao0",
-		"privateChannelInteractive": "interactive-1vLZ_I",
+		"privateChannelInteractive": "interactive-26HRN_",
 		"privateChannelInteractive2": "interactive-iyXY_x", // paired with above
 		"privateChannelLinkButton": "linkButton-2NshQj", // used for home, nitro, library etc
 		"privateChannelInteractiveSelected": "interactiveSelected-29CP8y",
 		"privateChannelSelected": "selected-26oxtA",
-		"privateChannelMuted": "muted-3KGUWb",
+		"privateChannelMuted": "muted-3pQCo-",
 		"privateChannelLink": "link-39sEB3",
 		"privateChannelLayout": "layout-1LjVue",
 		"privateChannelBadgeIcon": "badgeIconPrivateMessages-2hN0QU",
@@ -1910,7 +1995,7 @@ $classes: (
 		"containerDragBefore": "containerDragBefore-ei4h1m",
 		"containerUserOver": "containerUserOver-3woq86",
 		
-		"channelSelected": "selected-3veCBZ", //different to channelModeSelected; icons use it for showing them.
+		// "channelSelected": "selected-3veCBZ", //different to channelModeSelected; icons use it for showing them.
 		
 		"boostContainer": "container-2giAcK",
 		"boostTextArea": "textArea-7J7xQx",
@@ -1925,8 +2010,8 @@ $classes: (
 		"channelContainerDefault": "containerDefault-YUSmu3",
 		"channelContainerSelected": "selected-2TbFuo",
 		"channelWrapper": "wrapper-NhbLHG",
-		"channelContent": "content-1gYQeQ",
-		"channelMainContent": "mainContent-20q_Hp",
+		// "channelContent": "content-1gYQeQ", // removed
+		// "channelMainContent": "mainContent-20q_Hp", // removed
 		"channelModeMuted": "modeMuted-2T4MDZ",
 		"channelModeSelected": "modeSelected-3DmyhH",
 		"channelModeUnread": "modeUnread-3Cxepe",
@@ -1935,7 +2020,7 @@ $classes: (
 		"channelIconContainer": "iconContainer-21RCa3",
 		"channelIcon": "icon-2W8DHg",
 		"channelName": "name-28HaxV",
-		"channelNameChild": "channelName-3KPsGw", // houses the text part
+		// "channelNameChild": "channelName-3KPsGw", // houses the text part // removed?
 		"channelChildren": "children-1MGS9G",
 		"channelUserLimitWrapper": "wrapper-2fEmwW",
 		"channelUsers": "users-2JoyGL",
@@ -1967,13 +2052,12 @@ $classes: (
 		"panelButtonRow": "directionRow-2Iu2A9",
 		"panelButton": "button-12Fmur",
 		"panelButtonEnabled": "enabled-9OeuTA",
-		"panelButtonContents": "contents-3ca1mk",
 		"panelButtonRedIcon": "redIcon-1ppjsM", // used with server muted/deafened - see also profile/status/panel
 		"panelAvatarWrapper": "avatarWrapper-1B9FTW",
 		"panelWithTag": "withTagAsButton-OsgQ9L",
 		"panelWithTagless": "withTagless-10ooWt",
 		"panelAvatar": "avatar-1EWyVD",
-		"panelAvatarSpeaking": "avatarSpeaking-33RRJU",
+		"panelAvatarSpeaking": "avatarSpeaking-36V2PN",
 		"panelName": "nameTag-sc-gpq",
 		"panelNameCanCopy": "canCopy-IgTwyV",
 		"panelStatusSubtext": "subtext-2HDqJ7",
@@ -2082,7 +2166,7 @@ $classes: (
 
 		"outer": (
 			"outer": "userProfileOuter-2tQwNf",
-			"themed": "userProfileOuterThemed-3EfHmv",
+			"themed": "userProfileOuterThemed-2BgJCM",
 			"unthemed": "userProfileOuterUnthemed-11rPfA",
 
 			"card": "userCardOuter-1au0HV",
@@ -2412,9 +2496,9 @@ $classes: (
 			"badgeList": "badgeList-2aoHPw",
 			"relationshipButtons": "relationshipButtons-3ByBpj",
 			"applicationInstallButton": "applicationInstallButton-1-58qm",
-			"applicationInstallButtonContent": "applicationInstallButtonContent-2GoIj7",
-			"applicationInstallButtonText": "applicationInstallButtonText-28e06z",
-			"launchIcon": "launchIcon-RTf7He",
+			"applicationInstallButtonContent": "applicationInstallButtonContent-1c_u11",
+			"applicationInstallButtonText": "applicationInstallButtonText-3iy9r8",
+			"launchIcon": "launchIcon-3Z-7Zl",
 			"additionalActionsIcon": "additionalActionsIcon-3Cy8UU",
 			"warningCircleIcon": "warningCircleIcon-1YXIHu",
 			
@@ -2540,7 +2624,6 @@ $classes: (
 			"upsell": (
 				"wrapper": "wrapper-C1y4Sz",
 				"banner": "banner-iQGw2h",
-				"visible": "visible-2tkRo_",
 				"content": "content-23Uwtl",
 				"text": "text-3i9OZm",
 				"premiumIcon": "premiumIcon-1HXd7v",
@@ -2710,6 +2793,11 @@ $classes: (
 			"statusPickerModalMenu": "statusPickerModalMenu-1cjWUD",
 			"modal": "modal-3GUHHK",
 		),
+
+		// Within settings, it's in Profiles. Chances are overlap with popout exist here.
+		"settings": (
+			"body": "body-3lbupa",
+		),
 	),
 	
 	// probably want to rewrite/reorder the settings stuff akin to the modals.
@@ -2725,8 +2813,8 @@ $classes: (
 		"featureBorder": "featureBorder-2Jl8g4",
 		"featureBackground": "background-yH6t2p",
 
-		"sectionTitle": "sectionTitle-3j2YI1",
-		"children": "children-1xdcWE",
+		"sectionTitle": "sectionTitle-LdcnyP",
+		"children": "children-2C96Ex",
 		"marginReset": "marginReset-28ZZyF",
 		"marginCenterHorz": "marginCenterHorz-574Oxy",
 		"marginTop4": "marginTop4-2JFJJI",
@@ -2741,8 +2829,8 @@ $classes: (
 		"marginBottom60": "marginBottom60-2XQEx8",
 		"marginLeft8": "marginLeft8-3meqg8",
 		"divider": "divider-_0um2u",
-		"description": "description-30xx7u",
-		"title": "title-3hptVQ",
+		"description": "description-foE_WP",
+		"title": "title-lXcL8p",
 
 		"disableAccountButton": "disableButton-3BR0Vj",
 
@@ -2761,9 +2849,9 @@ $classes: (
 		"profileImageUploader": "imageUploader-1X7wVc",
 		// "profileNitroNotice": "premiumInlineNotice-N_oPBN", // NOT FOUND
 		"profileAvatarUploader": "avatarUploaderInner-p38nm2",
-		"profileBannerPreview": "profileBannerPreview-3mLIdO",
-		"profilePopoutInfo": "popoutInfo-16MuYF",
-		"profileBody": "body-3wEtTO",
+		// "profileBannerPreview": "profileBannerPreview-3mLIdO", // removed?
+		// "profilePopoutInfo": "popoutInfo-16MuYF", // removed?
+		"profileBody": "alias profile settings body",
 
 		"radioGroupItem": "item-1TA5qI",
 		"radioBar": "radioBar-1XgZqD",
@@ -2772,12 +2860,12 @@ $classes: (
 		"radioBarDesc": "text-sm-normal-3Zj3Iv", // small print
 		"radioIconForeground": "radioIconForeground-3wH3aU", // selected radio button's circle inner
 
-		"formNotice": "formNotice-2nS8ey", // "Check out our Terms of Service and Privacy Policy", authorized apps box at top
+		"formNotice": "formNotice-1JW4h2", // "Check out our Terms of Service and Privacy Policy", authorized apps box at top
 
-		"cardPrimary": "cardPrimary-3qRT__",
-		"cardPrimaryEditable": "cardPrimaryEditable-2mz_3i",
-		"cardPrimaryOutline": "cardPrimaryOutline-1ofwVz",
-		"cardPrimaryOutlineEditable": "cardPrimaryOutlineEditable-1VE28Z",
+		"cardPrimary": "alias card primary",
+		"cardPrimaryEditable": "alias card primaryEditable",
+		"cardPrimaryOutline": "alias card primaryOutline",
+		"cardPrimaryOutlineEditable": "alias card primaryOutlineEditable",
 
 		"authedApp": "authedApp-8q3NA9",
 		"authedPermission": "permission-CbNHIg",
@@ -2800,7 +2888,7 @@ $classes: (
 		"addConnectionContainer": "connectContainer-1hylYM",
 		"addConnectionHeader": "connectHeader-2VkFiv",
 		"addConnectionsContainer": "connectionsContainer-3wRUc6",
-		"addAccountButton": "accountButton-234qAZ",
+		// "addAccountButton": "accountButton-234qAZ", // removed?
 		"addAccountButtonInner": "accountButtonInner-33vCDY",
 		"addAccountWrapper": "accountAddWrapper-2pfoJc",
 		"addAccountWrapperInner": "accountAddInner-2y9WLL",
@@ -2876,20 +2964,30 @@ $classes: (
 	),
 		// indented as it's a subset
 		"appSettings": (
-			"slider": "slider-1NC-Gf",
-			"sliderMini": "mini-2qY9iv",
-			"sliderBar": "bar-1Bhnl9",
-			"sliderBarFill": "barFill-2Bh7CX",
-			"sliderGrabber": "grabber-2GQyvM",
+			"slider": "slider-1mmyV6",
+			"sliderMini": "mini-28oMa3",
+			"sliderBar": "bar-2H7Q9u",
+			"sliderBarFill": "barFill-3RgCsY",
+			"sliderGrabber": "grabber-3R-Rx9",
+			"sliderDisabled": "disabled-3KStOf",
+			"sliderTrack": "track-3I-RwH",
+			"sliderMark": "mark-3BqK0R",
+			"sliderMarkAbove": "markAbove-1tF6yT",
+			"sliderMarkBelow": "markBelow-2IOkBQ",
+			"sliderMarkValue": "markValue-21gAVC",
+			"sliderMarkDash": "markDash-1ATsxA",
+			"sliderMarkDashSimple": "markDashSimple-3ixVW9",
+			"sliderDefaultValue": "defaultValue-1-QxQ0",
 
 			"appearencePreview": "preview-QJ3OG3",
 
 			"accessabilityPreview": "preview-3k9WhO",
 			"previewMessage": "previewMessage-2g_aBv",
 
-			"voicePage": "userSettingsVoice-1fEtsL",
-			"voiceNotches": "notches-2w7UZJ.gray-3wP137",
-			"voicePreviewContainer": "cameraWrapper-3a7Ngv",
+			"voicePage": "userSettingsVoice-1s-yPp",
+			"voiceNotches": "notches-2w7UZJ",
+			"voiceNotchesGray": "gray-3wP137",
+			"voicePreviewContainer": "cameraWrapper-nG8dpo",
 			"voiceBackgroundOptionRing": "backgroundOptionRing-1vvQ0C",
 			"voiceBackgroundOptionInner": "backgroundOptionInner-SSz19O",
 
@@ -2912,7 +3010,7 @@ $classes: (
 			"keybindShortcutGroup": "defaultKeybindShortcutGroup-2ZtT2R",
 			"keybindRemove": "removeKeybind-3J8M42",
 			"keybindRemoveFilled": "filled-2zYazI",
-			"keybindButton": "keybindShortcut-3zF1P9",
+			// "keybindButton": "keybindShortcut-3zF1P9", // removed?
 
 			"gameNotDetected": "notDetected-M3Ghh2",
 			"gameNowPlaying": "nowPlaying-3UpuKc",
@@ -2945,20 +3043,31 @@ $classes: (
 
 
 	"modals": (
-		"layer": "layer-1Ixpg3",
-		"hidden": "hidden-3PPAly", // best way to get this class is to change banner/avi and click gifs
-		"focusLock": "focusLock-2tveLW",
-		"root": "root-g14mjS",
-		"header": "header-1zd7se",
+		"layer": "layer-fP3xEz",
+		"hidden": "hidden-cYOXde", // best way to get this class is to change banner/avi and click gifs
+		"focusLock": "focusLock-bHVOlV",
+		"root": "root-1CAIjD",
+		"header": "header-1ffhsl",
 		// header text doesn't have its own class per se but can be targeted with header>h2
-		"close": "close-1mLglB", // most modals that have this also have a second class attached
-		"closeIcon": "closeIcon-11LhXr",
-		"body": "content-2hZxGK",
-		"footer": "footer-31IekZ", // apparently it still uses theme-dark and theme-light. wankers.
+		"close": "close-A4ZfTI", // most modals that have this also have a second class attached
+		"closeWithCircleBackground": "closeWithCircleBackground-3WrZoY",
+		"closeIcon": "closeIcon-pSJDFz",
+		"body": "content-1OG56Q",
+		"footer": "footer-IubaaS", // apparently it still uses theme-dark and theme-light. wankers.
+
+		// sizes
+		"small": "small-2xUY-3",
+		"medium": "medium-2JV7bE",
+		"large": "large-1fr2jJ",
+
+		"fullscreenMobile": "fullscreenOnMobile-2971EC",
+		"hideOnFullscreen": "hideOnFullscreen-3WKd7f",
+		"rootWithShadow": "rootWithShadow-2hdL2J",
+		"spinnerContainer": "spinnerContainer-24nnix",
 
 		// both rules are basically box shadows
-		"separator": "separator-2lLxgC",
-		"footerSeparator": "footerSeparator-VzAYwb",
+		"separator": "separator-3C440w",
+		"footerSeparator": "footerSeparator-3U8YsT",
 
 		// line 424 of https://canary.discord.com/assets/40532.124517ed4ae423ff1aa8.css - Current Canary CSS as of 2022-09-10_17:20 UTC+8 
 		// best-seen locations for each class are listed if apllicable
@@ -3069,7 +3178,7 @@ $classes: (
 			"header": "container-3EBHNg",
 			"guildIcon": "guildIcon-1t7MRZ",
 			"rsvpCount": "rsvpCount-iCkObl",
-			"warning": "cardWarning-WRe-Qa", // also applies when changing another's username
+			"warning": "alias card warning", // also applies when changing another's username
 		),
 
 		// Clicking on an invite in your browser while not signed in and being redirect to the app
@@ -3093,9 +3202,9 @@ $classes: (
 
 		// Click "Invite People" in the server header dropdown
 		"inviteOthers": (
-			"scroller": "scroller-3nFW5p",
-			"footer": "footer-1hTRRZ",
-			"boostUpsell": "inviteBannerUpsell-1t_LYM",
+			"scroller": "scroller-1xACMA",
+			"footer": "footer-Ql9fbL",
+			"boostUpsell": "inviteBannerUpsell-3LNKWQ",
 		),
 
 		// "Time Out" on another user
@@ -3269,7 +3378,7 @@ $classes: (
 			"categorySelectable": "selectable-fgiA2c",
 			"categorySelected": "selected-3B2w1z",
 			"categoryIcon": "icon-1kx1ir",
-			"sidebarList": "list-obNEuP", // if you see below at the category of the same name, this is paired with WRAPPER.
+			"sidebarList": "list-33W-Tv", // if you see below at the category of the same name, this is paired with WRAPPER.
 			"categoryHeader": "categoryHeader-OpJ1Ly",
 			"autocompleteRowVertical": "autocompleteRowVertical-EA9dCg", // there's nothing on this rule
 			"clickable": "clickable-2V8YKY",
@@ -3340,10 +3449,10 @@ $classes: (
 		// Time someone out, yes that's really the best way to get these to show up
 		// Or you can switch account 
 		"toasts": (
-			"containerTop": "containerTop-xFczB0", // contains z-index and alignment stuff. rule paired with bottom
-			"containerBottom": "containerBottom-1BvegH",
-			"toast": "toast-q3Y4wI",
-			"icon": "icon-2QUmmw",
+			"containerTop": "containerTop-YBTqTL", // contains z-index and alignment stuff. rule paired with bottom
+			"containerBottom": "containerBottom-26tjpm",
+			"toast": "toast-2sz4eO",
+			"icon": "icon-1gCBMK",
 		),
 
 		// Be in a private call, change region
@@ -3424,7 +3533,7 @@ $classes: (
 		// Within server settings, go to members and click "Display role"
 		// Within audit log, click either filter by user or filter by action
 		"searchPopup": (
-			"container": "container-2O1UgZ",
+			"container": "container-2kTWmC",
 			"inner": "inner-2pOSmK",
 			"iconLayout": "iconLayout-3Bjizv",
 			"iconContainer": "iconContainer-6pgShY",
@@ -3588,6 +3697,7 @@ $classes: (
 
 			"footer": "footer-yVEuwO",
 
+			// BELOW MIGHT BE COMPLETELY REMOVED AS ACTIVITIES WERE MADE FREE.
 			// Don't have nitro and want to host something stupidly locked behind nitro?
 			// These classes might show up with nitro
 			"nitroLocked": (
@@ -3604,7 +3714,7 @@ $classes: (
 				"perksHeader": "perksHeader-jkHU3s",
 				"perksUpsellIcon": "upsellIcon-14jcSk",
 				"perks": "perks-2tKutx",
-				"perkText": "activitiesPerk-1-3r7G",
+				// "perkText": "activitiesPerk-1-3r7G", // removed?
 
 			),
 		),
@@ -3651,7 +3761,7 @@ $classes: (
 		"oauth": (
 			"wrapper": "oauth2Wrapper-p_8bbd",
 			"authorize": "authorize-2xTTr-",
-			"scrollContent": "scrollContent-_1I-44",
+			// "scrollContent": "scrollContent-_1I-44", // removed?
 			"header": "header-3cN3a_",
 			"headerIcons": "headerIcons-ICsYI5",
 			"label": "label-r9Wugd",
@@ -3747,8 +3857,8 @@ $classes: (
 			"categorySeparator": "guildCategorySeparator-1YkjLr",
 			"listGuildIcon": "guildIcon-2SUGiq",
 			"category": "stickerCategory-2f6iSo",
-			"premiumCategory": "premiumCategory-1bZwXQ",
-			"premiumCategorySelected": "premiumCategorySelected-2KWLhN",
+			// "premiumCategory": "premiumCategory-1bZwXQ", // removed?
+			// "premiumCategorySelected": "premiumCategorySelected-2KWLhN", // removed?
 			"categoryGeneric": "stickerCategoryGeneric-29JiZ2", // used on freq used
 			"categoryGenericSelected": "stickerCategoryGenericSelected-DnO2K8",
 
@@ -3758,7 +3868,8 @@ $classes: (
 		// Emoji within charbar combined popout
 		"emoji": (
 			"wrapper": "wrapper-3u51GQ", // want just floating? :not( below ). has ID
-			"inExpressionPicker": "emojiPickerInExpressionPicker-2nOwH8",
+			"inExpressionPicker": "alias modals emoji hasTabWrapper",
+			"hasTabWrapper": "emojiPickerHasTabWrapper-LoluYe",
 			"picker": "emojiPicker-6YCk8a",
 
 			"header": "header-11eigE",
@@ -3768,7 +3879,7 @@ $classes: (
 			"skinSelectorImage": "diversityEmojiItemImage-1pfGqI", // uses style for image, asset will likely change with each update though
 			// click the clapping emoji for these
 			"skinOptions": "diversitySelectorOptions-3DhNYs",
-			"skinOptionsInExpressionPicker": "diversitySelectorOptionsInExpressionPicker-3wybQR",
+			// "skinOptionsInExpressionPicker": "diversitySelectorOptionsInExpressionPicker-3wybQR", // removed?
 			"skinOptionsEmojiItem": "diversityEmojiItem-2bgZKv",
 			// if you wish to select one skin type, the above class has `data-list-item-id="diversity___item-n"`
 			// where n is 0-5; 0 being yellow, 1 being lightest and 5 being darkest
@@ -3843,8 +3954,7 @@ $classes: (
 			"colorPremiumGradient": "colorPremiumGradient-38tGFG", // gradient to focused and :active:not(:hideInteraction)
 			"colorSuccess": "colorSuccess-1ZVGh2", // if you can find greens...
 			
-			"submenuContainer": "submenuContainer-3EVTeH", // change status for easiest
-			"submenuPaddingContainer": "submenuPaddingContainer-QgnL1r",
+			"submenuPaddingContainer": "submenuPaddingContainer-QgnL1r", // change status for easiest
 			"submenu": "submenu-3ycVEH",
 			
 			"hintContainer": "hintContainer-CsCBWg", // this is the remove custom status thing
@@ -3856,22 +3966,18 @@ $classes: (
 			// Arrow in different rule, along with "open" 
 			"arrow": "arrow-2HswgU",
 			"arrowOpen": "open-3oj_jh",
-
-			// Sliders in a different rule
-			"sliderContainer": "sliderContainer-2nidiS", // right click another user
-			"slider": "slider-BEB8u7",  // rest of the slider stuff is under app settings
 			
 			// Right click a message in a channel you can add reactions to
 			"quickReactWrapper": "wrapper--nA0oy",
 			"quickReactionButton": "button-1zW0-r",
 
 			// Change status
-			"profileGroup": "profileGroup-1yKk23", // top when changing status
-			"profileBody": "profileBody-3QbfPe",
+			// "profileGroup": "profileGroup-1yKk23", // top when changing status // removed?
+			// "profileBody": "profileBody-3QbfPe", // removed?
 			"mainStatusIcon": "mainStatusIcon-25wiNY",
 			"statusItem": "statusItem-38ArJn", // within submenu 
-			"statusMask": "mask-2Me5HY",
-			"status": "status-2DiCMd", // inline background color
+			"statusMask": "mask-3tgVZv",
+			"status": "status-3cqfT9", // inline background color
 		),
 
 		// Best seen in Voice + Video settings, right at the top there's two
@@ -3994,7 +4100,7 @@ $classes: (
 
 				// Click the "mark inbox as read" button and another modal pops up
 				"markAll": (
-					"content": "content-26qlhD",
+					"content": "content-131fQL",
 				)
 			),
 		),

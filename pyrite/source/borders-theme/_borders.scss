@@ -39,7 +39,7 @@ $card: var(--card-background);
 #{c(chat chatAvatar)},
 
 // voice call avi
-#{c(call avatar)},
+// #{c(call avatar)}, // TODO: FIND CLASS
 
 // hover over avatar in popout to see this
 #{c(profile popout avatarHint)},

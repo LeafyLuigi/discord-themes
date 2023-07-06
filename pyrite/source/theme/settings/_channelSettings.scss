@@ -26,12 +26,6 @@
 #{c(channelSettings inviteRow)}::before {
 	content: none;
 }
-#{c(channelSettings channelName)} {
-	&#{c(channelSettings channelNameFocused)},
-	&:focus {
-		border-color: $primary;
-	}
-}
 #{c(channelSettings cardContent)},
 #{c(channelSettings folderHeader)} {
 	padding: 16px 6px;

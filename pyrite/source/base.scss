@@ -147,6 +147,9 @@
 	--deprecated-text-input-border: var(--primary-color);
 	--modal-background: var(--card-background);
 	--modal-footer-background: transparent;
+	--__spoiler-background-color--hidden: var(--card-background);
+	--__spoiler-background-color--hidden--hover: var(--card-background);
+	--__spoiler-background-color--revealed: var(--card-background);
 	
 	// below: remove elevation box shadows
 	--dark-elevation-low: unset;

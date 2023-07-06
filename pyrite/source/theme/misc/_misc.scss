@@ -112,7 +112,7 @@ body, // this one is here for transparency in bd to work
 }
 
 // Loading Icon. Best seen removing the ONLY reaction of a type in the reaction modal.
-#{c(main loadingSquare)} {
+#{c(main loadingSquare)} #{c(main loadingSquareItem)} {
 	background-color: $primary;
 }
 

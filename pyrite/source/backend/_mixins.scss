@@ -1,7 +1,7 @@
 // Mixins
 
 /// Create background using a static, opaque color with the ability to change opacity
-@mixin bg($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$bdf:null,$f:null,$bgf:null,$war:null,$top:0,$right:0,$bottom:0,$left:0,$pos:absolute) {
+@mixin bg($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$bdf:null,$f:null,$bgf:null,$war:null,$wm:null,$top:0,$right:0,$bottom:0,$left:0,$pos:absolute) {
 	&::before {
 		content: "";
 		@if $top {top: $top;} // default 0
@@ -22,10 +22,11 @@
 		@if $bdf {backdrop-filter: $bdf;}
 		@if $bgf {background: $bgf;} // background full
 		@if $war {-webkit-app-region: $war;}
+		@if $wm {-webkit-mask: $wm;mask:$wm;}
 	}
 }
 
-@mixin bg2($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$f:null,$bgf:null,$war:null,$top:0,$right:0,$bottom:0,$left:0,$pos:absolute) {
+@mixin bg2($o:null,$br:null,$bg:null,$h:null,$w:null,$tr:null,$z:-1,$f:null,$bgf:null,$war:null,$wm:null,$top:0,$right:0,$bottom:0,$left:0,$pos:absolute) {
 	&::after {
 		content: "";
 		@if $top {top: $top;} // default 0
@@ -45,6 +46,7 @@
 		@if $f {filter: $f;}
 		@if $bgf {background: $bgf;} // background full
 		@if $war {-webkit-app-region: $war;}
+		@if $wm {-webkit-mask: $wm;mask:$wm;} // "mask" doesn't work unless it's on firefox.
 	}
 }
 

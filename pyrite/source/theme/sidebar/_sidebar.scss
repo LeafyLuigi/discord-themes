@@ -3,10 +3,11 @@
 // backgrounds.. ugh.
 :is(#{c(main dark)}, #{c(main light)})
 :is(
-#{c(sidebar channelsContainer)},
-#{c(sidebar panelContainer)},
-#{c(sidebar panelVoiceContainer)},
-#{c(sidebar panelActivityContainer)}) {
+	#{c(sidebar channelsContainer)},
+	#{c(sidebar panelContainer)},
+	#{c(sidebar panelVoiceContainer)},
+	#{c(sidebar panelActivityContainer)}
+) {
 	background: transparent;
 }
 
@@ -214,7 +215,6 @@
 	}
 }
 
-#{c(sidebar channelMainContent)},
 #{c(sidebar channelName)},
 #{c(sidebar channelIcon)},
 #{c(sidebar categoryArrow)},
@@ -225,6 +225,9 @@
 #{c(sidebar privateChannelInteractive)},
 #{c(sidebar channelWrapper)} {
 	color: var(--read-channel-color);
+}
+#{c(sidebar channelWrapper)} a {
+	color: inherit;
 }
 
 #{c(sidebar privateChannelInteractive2)} {
@@ -245,18 +248,6 @@
 #{c(sidebar channelWrapper)}:hover:not(#{c(sidebar channelModeMuted)}):not(#{c(sidebar channelModeLocked)}),
 #{c(sidebar privateChannelInteractive)}:hover:not(#{c(sidebar privateChannelMuted)}) {
 	color: var(--selected-channel-color);
-}
-#{c(sidebar channelWrapper)}:hover {
-	#{c(sidebar channelContent)} {
-		background: var(--background-modifier-hover);
-	}
-}
-#{c(sidebar channelModeSelected)} {
-	&,&:hover {
-		#{c(sidebar channelContent)} {
-			background: var(--background-modifier-selected);
-		}
-	}
 }
 
 #{c(sidebar channelModeUnread)} {
