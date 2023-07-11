@@ -46,3 +46,22 @@
 	border-color: $primary;
 	filter: drop-shadow(2px 2px 2px $secondary);
 }
+
+// Floating Chat
+#{c(chat threadSidebarFloating)} {
+	#{c(forums headerRow)},
+	:is(#{c(forums grid grid)},#{c(forums list list)})>div:first-child {
+		min-width: 0;
+	}
+}
+#{c(chat layerWrapper)} {
+	position: unset;
+}
+#{c(threads floating)} {
+	position: unset;
+	border-left: 4px solid transparent;
+	filter: none;
+}
+#{c(threads chatTarget)} {
+	display: none;
+}

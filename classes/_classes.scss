@@ -850,6 +850,7 @@ $classes: (
 		"automodBlockedNoticeContainer": "blockedNoticeContainer-2svSMC",
 		"automodShield": "shieldIcon-2QHlhC",
 
+		"layerWrapper": "chatLayerWrapper-2mgEK-",
 		// "roleDotBackground": "background-3X6N7I", // removed?
 	),
 	// line numbers are from 2022-12-28 https://canary.discord.com/assets/40532.2ddbe3ee69f647c0b5d1.css
@@ -1117,6 +1118,7 @@ $classes: (
 
 		// grid posts
 		"grid": (
+			"grid": "grid-21dB-S",
 			"card": "container-1PloNW",
 			"isOpen": "isOpen-O7ANQc",
 			"dots": "dots-BnC7QU",
@@ -1165,6 +1167,7 @@ $classes: (
 
 		// list posts (though a few classes do show up under grid)
 		"list": (
+			"list": "list-3FIpnh",
 			"card": "container-q2_DnH",
 			"dots": "dots-3b0kDm",
 			"isOpen": "isOpen-2Gyel_",
@@ -1325,6 +1328,7 @@ $classes: (
 		"msgHasThread": "hasThread-3h-KJV", // in here despite probably better in chat
 		"msgSpine": "spine-2vt3pM",
 		"resizeHandle": "resizeHandle-PBRzPC",
+		"chatTarget": "chatTarget-3H6mpC", // background of sorts
 		"container": "container-3XgAHv",
 		"floating": "floating-3M3WeH",
 		"chat": "chat-1-OBC7",
