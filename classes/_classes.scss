@@ -3867,6 +3867,8 @@ $classes: (
 			"categoryGenericSelected": "stickerCategoryGenericSelected-DnO2K8",
 
 			"stickerSearchSuggestion": "searchSuggestion-PfUKKS", // search result empty
+
+			"standardStickerShortcut": "standardStickerShortcut-ObSns3", // removed from tree once scrolled past. fun.
 		),
 		
 		// Emoji within charbar combined popout
@@ -3922,6 +3924,49 @@ $classes: (
 			"unicodeShortcutInvisible": "unicodeShortcutInvisible-27MSUJ",
 
 			"premiumRetention": "premiumRetentionNotice-A_Ke4K",
+
+			// When you're hoving over a message, click the add reaction button. This also includes "super" reactions.
+			"floating": (
+				"wrapper": "contentWrapper-2f9yME",
+				"isBurstReactionPicker": "isBurstReactionPicker-3h5fqV", // shows up when super reactions are selected
+
+				"nav": "nav-1cHpYc", // at top of modal, swapping between reaction and super reaction
+				"navList": "navList-3uG4ub",
+
+				"navItem": "navItem-2srkuX",
+				"navButton": "navButton-Z_c6CC",
+				"navButtonActive": "navButtonActive-fwiUKp",
+				"navButtonSuperReactActive": "navButtonSuperReactActive-1WNAEM",
+
+				"betaTag": "betaTag-V7479T",
+				"burstReactionTabTooltip": "burstReactionTabTooltip-1YC-l5",
+				"burstReactionCoachmarkTooltip": "burstReactionCoachmarkTooltip-31jjUe",
+				"burstReactionTooltip": "burstReactionTooltip-1yw57G",
+				"burstTooltipImage": "burstTooltipImage-3DJy1P",
+				"burstTooltipImageContainer": "burstTooltipImageContainer-wiZ7h9",
+				"burstTooltipTitle": "burstTooltipTitle-AaKxo-",
+				"nitroWheel": "nitroWheel-HPVCDr",
+				"burstTooltipButtons": "burstTooltipButtons-QZwht5",
+				"button": "button-cDyC5P",
+				"blankButton": "blankButton-1WGLSU",
+
+				"sparkleStar": "sparkleStar-3BZ8m1",
+				"sparklePlus": "sparklePlus-2fR0_W",
+				"sparkles": "sparkles-1QHMVw",
+
+				// only named so as it's the dumb preview thing that begs for the user to buy nitro
+				"nonNitroBlocker": (
+					"wrapper": "wrapper-2nNnyW",
+					"banner": "banner-25RWjr", // video, with autoplay in the tag.
+					"hasTrialOffer": "hasTrialOffer-303XEE",
+					"content": "content-35diC1",
+					"header": "header-3FpRKn",
+					"headerText": "headerText-36ij42",
+					"subheaderText": "subheaderText-28z2-u",
+					"ctaActionWrapper": "ctaActionWrapper-10SLXi",
+					"button": "button-23Dk0j",
+				)
+			)
 		),
 
 		// Right click!

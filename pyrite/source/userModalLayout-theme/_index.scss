@@ -82,13 +82,15 @@
 		height: calc(var(--user-modal-height,600px) - var(--banner-height,195px));
 		width: calc(var(--user-modal-width,900px) * 2 / 3);
 		border-radius: 8px 0 0 8px;
-	}
-	#{c(profile modal nameTag)},
-	#{c(profile modal customStatus)} {
-		margin: 12px 12px 0;
+		z-index: 1;
 	}
 	#{c(profile modal activity)} {
 		padding: 0 8px;
+	}
+}
+#{c(profile modal usernameContainer)} {
+	&>div {
+		margin: 12px 12px 0;
 	}
 }
 #{c(profile modal tabBarContainer)} {
@@ -179,7 +181,7 @@
 	overflow: visible !important;
 	width: calc(var(--user-modal-width,900px) - 32px); // 32px for [16px | CONTENT | 16px]
 	background: transparent;
-	padding: 0 !important;
+	padding: 0 !important; // !important reason: inline right
 	border-radius: 0;
 	#{c(profile modal userInfoSection)}:first-child {
 		position: absolute;
@@ -196,7 +198,7 @@
 	}
 }
 #{c(profile modal connections accounts)} {
-	border-top: none !important;
+	border-top: none !important; // !important reason: sibling of same class has a border. im lazy
 	position: absolute;
 	width: calc(var(--col,4) * 200px);
 	max-width: calc(var(--user-modal-width,900px) - 32px); // should be 868
@@ -204,6 +206,7 @@
 	bottom: 0;
 	max-height: calc(var(--row,5) * 50px);
 	overflow-y: auto;
+	z-index: 1;
 	&::-webkit-scrollbar {
 		width: 0;
 		height: 0;

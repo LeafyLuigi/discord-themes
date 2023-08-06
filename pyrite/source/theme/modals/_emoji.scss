@@ -55,9 +55,28 @@
 		border-radius: unset;
 	}
 	#{c(modals emoji picker)} {
-		height: 440px;
+		height: 450px;
 	}
 	#{c(modals emoji categoryList)} {
 		height: 352px;
+	}
+}
+
+#{c(modals emoji floating wrapper)} {
+	background: var(--modal-background);
+	backdrop-filter: blur(5px);
+	height: auto;
+}
+
+#{c(modals emoji floating nonNitroBlocker wrapper)} {
+	// background-color: transparent;
+	// BACKGROUND HAS BEEN INTENTIONALLY LEFT GREY
+}
+#{c(modals emoji floating nonNitroBlocker banner)} {
+	&[autoplay] {
+		display: none;
+		&::after {
+			content: "Video was removed due to autoplay";
+		}
 	}
 }

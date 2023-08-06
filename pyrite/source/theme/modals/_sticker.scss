@@ -31,3 +31,21 @@
 	background-color: $card;
 	border-radius: 12px;
 }
+
+@supports selector(p:has(a)) {
+	#{c(modals sticker categoryList)} {
+		#{c(modals sidebarList scroller)} {
+			height: 352px;
+		}
+		&:not(:has(#{c(modals sticker standardStickerShortcut)})) #{c(modals sidebarList scroller)} {
+			height: 400px;
+		}
+	}
+}
+@supports not selector(p:has(a)) {
+	#{c(modals sticker categoryList)} {
+		#{c(modals sidebarList scroller)} {
+			height: 352px;
+		}
+	}
+}
