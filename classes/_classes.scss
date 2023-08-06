@@ -829,10 +829,10 @@ $classes: (
 		"blockquoteContainer": "blockquoteContainer-3VtvI1",
 		"blockquoteDivider": "blockquoteDivider-363utW",
 
-		"reaction": "reaction-3vwAF2",
-		"reactionMe": "reactionMe-1PwQAc",
-		"reactionInner": "reactionInner-YJjOtT",
-		"reactionCount": "reactionCount-26U4As",
+		"reaction": "alias reaction reaction",
+		"reactionMe": "alias reaction me",
+		"reactionInner": "alias reaction inner",
+		"reactionCount": "alias reaction count",
 
 		"containerExpanded": "containerExpanded-3etgq5", // send wave sticker large
 		"compactContainer": "containerCompact-1Jto1O", // houses below
@@ -2148,7 +2148,7 @@ $classes: (
 		"yellow": "tooltipYellow-z4x_4F",
 
 		// different css lines
-		"reactionTooltipEmoji": "reactionTooltipEmoji-1Rv8jQ",
+		"reactionTooltipEmoji": "alias reaction tooltip emoji",
 		"stageListenerPill": "stageListenerPill-1_QAPA",
 	),
 
@@ -3032,6 +3032,55 @@ $classes: (
 
 			"contentTransitionWrap": "contentTransitionWrap-1YD530",
 		),
+	// There's (at least) two different lines for reactions.
+	// One's for *chat* and the other's for *forum posts*.
+	// This lot is for the former.
+	// Any others (likely ones in modals) would be with their respective classes.
+	"reaction": (
+		"reactions": "reactions-3ryImn",
+		"reactionBtn": "reactionBtn-3I19bq",
+		"icon": "icon-1q31jb",
+		"active": "active-Rk-d9U",
+		"visible": "visible-3bImi7",
+		"forceShow": "forceShow-K8Ygj7",
+		"forceShowLook": "forceShowLook-1zmTr-",
+		"hideEmoji": "hideEmoji-3W3sEI",
+		
+		"reaction": "reaction-3vwAF2",
+		"shakeReaction": "shakeReaction-h226gy",
+		"readOnly": "reactionReadOnly-2cr_d0",
+		"count": "reactionCount-26U4As",
+		"me": "reactionMe-1PwQAc",
+		"inner": "reactionInner-YJjOtT",
+		"remainingReactions": "remainingReactions-1r1Dvu",
+
+		"premiumIcon": "premiumIcon-xSTd_o",
+		"addReactionTooltip": "addReactionTooltip-THgyYF",
+		"sparkleStar": "sparkleStar-evJw9v",
+		"sparklePlus": "sparklePlus-V5DWdp",
+		"sparkles": "sparkles-1yqog1",
+
+		"tooltip": (
+			"tooltip": "reactionTooltip-3IOBwg",
+			"content": "reactionTooltipContent-3XfUAU",
+			"emoji": "reactionTooltipEmoji-1Rv8jQ",
+			"text": "reactionTooltipText-iAWHhX",
+			"inner": "reactionTooltipInner-Pl3uOD",
+		),
+		"burst": (
+			"betaAlertTitle": "burstBetaAlertTitle-2S9ciS",
+			"animatedCounter": "burstAnimatedCounter-3zZXOt",
+			"glow": "burstGlow-3AZMzF",
+			"tooltip": (
+				"inner": "burstReactionTooltipInner-2aCEVH",
+				"message": "burstReactionTooltipMessage-2UCrKo",
+				"spacer": "burstReactionTooltipSpacer-1oUrib",
+				"prompt": "burstReactionTooltipPrompt-3XAM1h",
+				"nitroIcon": "burstReactionTooltipNitroIcon-34FUA3",
+				"upsellCta": "burstReactionTooltipUpsellCta-2WX3Zh",
+			),
+		),
+	),
 	"other": (
 		// This category is for the random stuff that I'm unable to find
 		// locations of or don't really fit anywhere above.
