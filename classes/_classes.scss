@@ -1767,6 +1767,20 @@ $classes: (
 		"placeholderUsername": "placeholderUsername-3iQi_D",
 		"placeholderUsernameMultiple": "mulitplePlaceholderUsername-2T3DCI",
 	),
+	// this area doesn't show up if you don't have any pending requests.
+	// (default repo) the main file is under pyrite/source/theme/friends
+	"messageRequests": (
+		"container": "container-2YMsb4",
+		"content": "content-2MUvhj",
+		"list": "list-2hhlBX",
+		"sectionTitle": "sectionTitle-1P1u0N",
+		"sectionBody": "sectionBody-37BzFn",
+		"selected": "selected-11Gl-y",
+		"siblingSelected": "siblingSelected-31OD9I",
+		"messageRequestCoachmark": "messageRequestCoachmark-31Q9AL",
+		"titleDivider": "titleDivider-3FTNQF",
+		"clearAllButton": "clearAllButton-M6KLtJ",
+	),
 	// shared classes. used as aliases from elsewhere.
 	"nameTag": (
 		"nameTag": "nameTag-H6kSJ0",

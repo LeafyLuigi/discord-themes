@@ -32,7 +32,7 @@
 	border-radius: 12px;
 }
 
-#{c(modals sidebarList scroller)} {
+#{c(modals sticker categoryList)} #{c(modals sidebarList scroller)} {
 	height: 352px;
 }
 @supports selector(p:has(a)) {
