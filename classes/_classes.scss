@@ -236,6 +236,7 @@ $classes: (
 		"alignCenter": "alignCenter-1BukGC",
 	),
 	"text": (
+		// ***there may be multiple lines containing classes like these***
 		// weird text-xx- and heading-xx classes. can have inline style for color.
 		// entirety of line 24 (2023-07-06 @ 16:50 UTC+8) stable build 210901 (daacd72). 
 		// can easily be found by selecting the sidebar panel avi name thingy.
@@ -471,11 +472,11 @@ $classes: (
 		"participant": "participant-1l6khj",
 		"spriteWrapper": "spriteWrapper-bZBDk8", // this to crossWhite seem to relate to the little animation when leaving a call
 		"sprite": "sprite-1bxGvV",
-		"crossBase": "base-3G-1g8",
-		"cross": "cross-1SI0z1",
-		"crossBlurple": "crossBlurple-xAYtl0",
-		"crossGrey": "crossGrey-15mEQ2",
-		"crossWhite": "crossWhite-2JRhdZ",
+		"crossBase": "alias modals upload base",
+		"cross": "alias modals upload cross",
+		"crossBlurple": "alias modals upload crossBlurple",
+		"crossGrey": "alias modals upload crossGrey",
+		"crossWhite": "alias modals upload crossWhite",
 		"avatarWrapper": "wrapper-3mYmFS",
 		"avatarClickable": "clickable-3mbTtV",
 		"callAvatarMask": "callAvatarMask-fiNMWy",
@@ -522,7 +523,6 @@ $classes: (
 		"tile": "tile-3FtID0", // god these names are shit
 		"tileChildFlex": "tile-2Dr6M1", // contains flex properties
 		"tileChildIdle": "idle-3MGs7O",
-		// "tileChildVideoLayer": "videoLayer-bqJJzG", // removed?
 		"tileChildBackground": "tile-2TcwiO", // despite being on the same element as the flex, contains background color 
 		"tileChild": "tileChild-2k7Wqh", // haha fuck you not actually on the same class as the four above
 		"tileContent": "content-3u3YYB",
@@ -532,7 +532,7 @@ $classes: (
 		"streamQualityIndicator": "streamQualityIndicator-n62BFt",
 		"liveIndicator": "liveIndicator-1_RyZS",
 		"liveIndicatorChild": "liveIndicator-3bhXBF",
-		"live": "live-1V2D-f",
+		"live": "alias friends live",
 		"liveLarge": "liveLarge-IxMVzY",
 		"textBadge": "textBadge-1fdDPJ",
 		"liveBase": "base-3IDx3L",
@@ -573,10 +573,6 @@ $classes: (
 			"scroller": "scroller-35tvpe", // child
 			// children being div no class, headerContainer, rowContainer, divider, roleContainer, participants, spacer
 			"headerContainer": "container-2GuWaQ",
-			// "height": "height-1Wk858", // child // removed?
-			// "stageSummary": "stageSummary-3IiMsf", // child, children are summaryIcon, text, summaryDotSeparator, summaryIcon, text // removed?
-			// "summaryIcon": "icon-19laEi", // removed?
-			// "summaryDotSeparator": "dotSeparator-1V0QPn", // removed?
 			"rowContainer": "rowContainer-jDvyA4", // child of everywhere content
 			"spaceBetweenTiles": "spaceBetweenTiles-1AqWYp", // child, children of tileOuter (see call)
 			"tile": "tile-WBhv6B", // child of call tileInner, not to be confused with every other fucking tile class 
@@ -589,7 +585,6 @@ $classes: (
 			"gradientTop": "gradientTop-1UBZHm",
 			// controlSection (either top or bottom)
 			"controlsParticipants": "participants-3hk3ND", // used as header
-			// "topRightContainer": "topRightContainer-2i_gyJ", // child div>button // removed?
 			"raisedHandButtonContainer": "raisedHandButtonContainer-ztlAy1", // used again as child of self??
 			"raisedHandIcon": "raisedHandIcon-3mZpd6", // paired with above when above is child of self
 			// within bottom, 3 children all same classes and inline except middle is `flex: 1 1 auto;`, rest are `flex: 0 1 50%;`
@@ -615,9 +610,6 @@ $classes: (
 			"buttonSpacing": "buttonSpacing-ZuQU_D",
 			// right
 			"rightTrayIcon": "rightTrayIcon-1gEoki",
-
-			// "roleContainer": "roleContainer-WStCpt", // removed?
-			// "roleName": "roleName-1vI9vz", // removed?
 
 			"participants": "participants-3hk3ND", // children usually are tileContainer and tileBaseContainer
 			"tileBaseContainer": "tileBaseContainer-2zuu3-",
@@ -655,7 +647,7 @@ $classes: (
 
 			// sidebar stuff
 			"sidebarContainer": "container-2Y4CWj",
-			"channelNotice": "channelNotice-K4UfZY",
+			"channelNotice": "alias sidebar eventNotice notice",
 			"channelNoticeTextBlock": "textBlock-3rqvcj", // children and siblings not listed
 			"audienceContainer": "audienceContainer-1zTPME",
 			"audienceContainerCollapsed": "audienceContainerCollapsed-2OXkcm",
@@ -665,7 +657,6 @@ $classes: (
 			// no clue, legacy shit or whatever
 			"participantsButton": "participantsButton-1WBdFP",
 			"rtsButtonContainer": "buttonContainer-1QM2ob",
-			// "leaveQuietlyButton": "leaveQuietlyButton-3Vhswc", // NOT FOUND - removed?
 			"active": "active-3D763s",
 			"speakerRaiseHandBadge": "speakerRaiseHandBadge-1hA2Uh",
 		),
@@ -708,7 +699,7 @@ $classes: (
 
 		"inviteRow": "inviteSettingsInviteRow-FAjfDN",
 		"revokeInvite": "revokeInvite-1VNYBG",
-		"inviteDefault": "default-1Tkeeg",
+		"inviteDefault": "alias removeButton default",
 
 		"integrationCard": "card-3JmxsM",
 		"integrationIconWrapper": "iconWrapper-1sOtkE",
@@ -806,7 +797,7 @@ $classes: (
 			"innerContainer": "spoilerInnerContainer-1P_w0A",
 			"warning": "spoilerWarning-1JN1Ot",
 			"warningEmbed": "embed-hgK7Sp",
-			"sensitiveContentWarning": "sensitiveContentWarning-35EVcg",
+			// "sensitiveContentWarning": "sensitiveContentWarning-35EVcg", // removed? maybe replaced with explicitContentWarning-3g11Df
 			"markdownContent": "spoilerMarkdownContent-2R1Vwe",
 			"obscuredBlockContent": "obscuredBlockContent-2QCAD4",
 			"obscuredTextContent": "obscuredTextContent-3vHOH3",
@@ -851,7 +842,6 @@ $classes: (
 		"automodShield": "shieldIcon-2QHlhC",
 
 		"layerWrapper": "chatLayerWrapper-2mgEK-",
-		// "roleDotBackground": "background-3X6N7I", // removed?
 	),
 	// line numbers are from 2022-12-28 https://canary.discord.com/assets/40532.2ddbe3ee69f647c0b5d1.css
 	"pages": (
@@ -932,7 +922,6 @@ $classes: (
 			"error": "error-nWpAd-", 
 			"requiredBadge": "requiredBadge-1Rx-p2",
 			"promptOptions": "promptOptions-3jDyZ4",
-			// "promptSeparator": "promptSeparator-3E8EOR", // background modif accent // removed?
 			"emptyPage": "emptyPage-2TGR7j", // background with dark/light
 			"emptyContainer": "emptyContainer-8KVAv2",
 			"emptyIcon": "emptyIcon-IW8ndV",
@@ -1038,7 +1027,6 @@ $classes: (
 		"loadingContainer": "loader-1iM037",
 		"container": "container-3wLKDe", // seems to relate to line 1526 of https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
 		"listScroller": "list-3FIpnh",
-		// "row": "row-uezxzk", // removed?
 		"headerRow": "headerRow-1MKoR-", // css rule for this also applies to .list(above)>div:first-child
 		"header": "header-1Uy0p6", // applies to combined search/new post card
 		"headerWithMatchingPosts": "headerWithMatchingPosts-1lTrVT",
@@ -1124,13 +1112,13 @@ $classes: (
 			"dots": "dots-BnC7QU",
 
 			"focusTarget": "focusTarget-2HvZlv",
-			"spoilerTagContainer": "spoilerTagContainer-2my203",
-			"spoilerTag": "spoilerTag-1ZDrHX",
+			"spoilerTagContainer": "obscuredTagContainer-1l_7fU",
+			"spoilerTag": "obscuredTag-2OJ7b8",
 			"thumbnailOverride": "thumbnailOverride-27aCYi",
 			"imageCover": "imageCover-1xE-uL",
 			"imageContain": "imageContain-1CQntW",
 			"imageContainStretched": "imageContainStretched-2MQ7i1",
-			"spoiler": "spoiler-3yJOyt",
+			"spoiler": "obscured-3re5Je",
 			"bullet": "bullet-2r0CA7",
 			"typing": "typing-3AH5vK",
 			"typingUsers": "typingUsers-2KJ2d6",
@@ -1179,10 +1167,10 @@ $classes: (
 			"messageContent": "messageContent-3szEnQ",
 			"messageContentIcon": "messageContentIcon-1q-4bp",
 			"bodyMedia": "bodyMedia-35rZ5t",
-			"spoilerTag": "spoilerTag-dqzdZO",
+			"spoilerTag": "obscuredTag-qAAFu5",
 			"thumbnailContainer": "thumbnailContainer-dzG9JU",
 			"thumbnailOverride": "thumbnailOverride-1qPFHm",
-			"spoiler": "spoiler-1FYHTa",
+			"spoiler": "obscured-3kBacU",
 			"header": "header-ErMa2_",
 			"footer": "footer-3UjAHx",
 			"bullet": "bullet-D4Ib09",
@@ -1235,7 +1223,6 @@ $classes: (
 				"nitroIcon": "burstReactionTooltipNitroIcon-3I3oFz",
 				"animatedCounter": "burstAnimatedCounter-2ic_eL",
 				"upsellCta": "burstReactionTooltipUpsellCta-2WDzWM",
-				// "upsellCtaInner": "burstReactionTooltipUpsellCtaInner-1AWk9O", // removed?
 				"premiumIcon": "premiumIcon-e-K62h",
 			),
 		),
@@ -1266,7 +1253,9 @@ $classes: (
 			// attached file stuff
 			"filenameContainer": "filenameContainer-2qwz8w",
 			"filename": "filename-jyRDv_",
-			"imageContainer": "imageContainer-ZRSemj",
+			"imageContainer": "alias forums upload mediaContainer",
+			"mediaContainer": "mediaContainer-1ZqQwH",
+			"media": "media-29HL8-",
 			"tags": "tags-QS4-_T",
 			"altTag": "altTag-3DeQpq",
 			"spoilerContainer": "spoilerContainer-yhWf7D",
@@ -1278,6 +1267,8 @@ $classes: (
 			"action": "action-2SNnmN",
 
 			"files": (
+				"image": "alias forums upload media",
+
 				"icon": "icon-2bPCaV",
 				"acrobat": "acrobat-3i7zSC",
 				"ae": "ae-1ZAdFv",
@@ -1286,7 +1277,6 @@ $classes: (
 				"audio": "audio-bZBBRF",
 				"code": "code-1hTP09",
 				"document": "document-3AUmU1",
-				"image": "image-1091CL",
 				"photoshop": "photoshop-4gkCVB",
 				"ps": "ps-1mWY_j",
 				"sketch": "sketch-1CwZfM",
@@ -1353,7 +1343,7 @@ $classes: (
 		"sansAttachButton": "sansAttachButton-1ERHue", // always on the main bar for some reason
 		"uploadInput": "uploadInput-YH_iku",
 		"attachWrapper": "attachWrapper-3slhXI",
-		"attachButton": "attachWrapper-3slhXI",
+		"attachButton": "attachButton-1ijpt9",
 		"attachButtonInner": "attachButtonInner-2mwer8",
 		"attachButtonPlus": "attachButtonPlus-3IYelE",
 		"textArea": "textArea-2CLwUE",
@@ -1397,7 +1387,7 @@ $classes: (
 		"uploadDivider": "divider-2rZFJK", // before uploading a file, this shows up between uploads and main bar
 		"inlineUpload": "upload-vLbqu-",
 		"inlineUploadContainer": "uploadContainer-TCg-Ji",
-		"inlineSpoilerTag": "altTag-3DeQpq",
+		"inlineSpoilerTag": "alias forums upload altTag",
 		"inlineActionBarIcon": "actionBarIcon-2vVzNZ",
 
 		"typingBase": "base-3bcbY3",
@@ -1584,7 +1574,7 @@ $classes: (
 
 		"addFriendHeader": "header-30YxSJ",
 		"addFriendTitle": "title-3sFEQD", // h2
-		"addFriendDescription": "description-30xx7u",
+		"addFriendEmptyState": "emptyState-30PyIN", // below the grid which was hit with a display none
 		"addFriendInputWrapper": "addFriendInputWrapper-kkoSV9",
 
 		"empty": "friendsEmpty-gs15T1",
@@ -1608,7 +1598,7 @@ $classes: (
 		"itemCardOuter": "outer-2JOHae",
 		"voiceSectionIconWrapper": "voiceSectionIconWrapper-4yoj76",
 		"partyMemberOverflow": "partyMemberOverflow-3G1oZz",
-		"live": "live-1V2D-f",
+		"live": "live-1V2D-f", // "LIVE" icon of sorts in voice channel
 		"multipleIconWrapper": "multipleIconWrapper-2YHnS6", // guess
 		"multipleIcon": "multipleIcon-3J-Ej2",
 		"activeNowAvatar": "headerAvatar-GgCKcl",
@@ -1646,7 +1636,7 @@ $classes: (
 		"searchInner": "search-2Mwzzq", // gets open applied to it
 		"searchOpen": "open-1F8u2c",
 		"searchBar": "searchBar-jGtisZ",
-		"searchIcon": "icon-18rqoe",
+		"searchIcon": "alias modals searchBar icon",
 		"searchIconAdd": "plusIcon-1RVszG", // in dropdown
 		"iconBadge": "iconBadge-3Mmg92",
 		"participating": "participating-2Z81oO",
@@ -1787,6 +1777,12 @@ $classes: (
 		"username": "username-3JLfHz",
 		"bot": "bot-XvK26D",
 	),
+	// shared classes. used in multiple places, mainly as a "remove this row" kind of thing
+	"removeButton": (
+		"button": "button-1yVL_7",
+		"default": "default-1Tkeeg",
+		"filled": "filled-2zYazI",
+	),
 	"notice": (
 		"base": "notice-2HEN-u",
 		"closeButton": "closeButton-30b1gR", // "X" on right
@@ -1850,7 +1846,7 @@ $classes: (
 		"searchAnswer": "searchAnswer-23w-CH",
 		"headerTabList": "searchHeaderTabList-3CZMQB",
 		"scroller": "scroller-3iiyhZ",
-		"channel": "alias search channelNameText", // as "channelName-3w2Y3c": removed?
+		"channel": "alias search channelNameText",
 		"channelNameText": "channelNameText-2q3Lge",
 		"resultsGroup": "searchResultGroup-1lU_-i",
 		"resultContainer": "container-rZM65Y",
@@ -1912,7 +1908,7 @@ $classes: (
 		"numberBadge": "numberBadge-37OJ3S",
 		"upperBadge": "upperBadge-1d6YsW",
 		"iconBadge": "iconBadge-32fMme",
-		"participating": "participating-2Z81oO",
+		"participating": "alias header participating", // also used in header for some reason?
 		"unreadMentionsBar": "unreadMentionsBar-ZXXoOH",
 		"unreadMentionBar": "bar-2eAyLE", // usually on the same element as above
 		"unreadMentionsBarTop": "unreadMentionsIndicatorTop-2bTgUU",
@@ -1937,7 +1933,7 @@ $classes: (
 		"serverIconUploadInner": "avatarUploaderInner-1Cp1oP",
 
 		"rolePage": "contentColumnMinimal-32PuDO",
-		"rolePageScroller": "customScroller-m1-jZn",
+		"rolePageScroller": "alias userSettings customScroller",
 
 		"newBadge": "newBadge-1bHewI", // it's there somewhere but idk where!
 		"noticeRegion": "noticeRegion-qjyUVg",
@@ -1964,9 +1960,9 @@ $classes: (
 		"emojiAliasPlaceholder": "emojiAliasPlaceholder-3oShSx",
 		"emojiAliasInput": "emojiAliasInput-3ZhdKx",
 		"emojiInput": "emojiInput-B8MGXq",
-		"emojiRemoveDefault": "default-1Tkeeg",
+		"emojiRemoveDefault": "alias removeButton default",
 
-		"auditScroller": "customScroller-m1-jZn",
+		"auditScroller": "alias userSettings customScroller",
 
 		"templateDescriptionBox": "descriptionBox-SKGNgB",
 		"templateDescriptionIcon": "descriptionIcon-3nDZrK",
@@ -2028,8 +2024,6 @@ $classes: (
 		"channelContainerDefault": "containerDefault-YUSmu3",
 		"channelContainerSelected": "selected-2TbFuo",
 		"channelWrapper": "wrapper-NhbLHG",
-		// "channelContent": "content-1gYQeQ", // removed
-		// "channelMainContent": "mainContent-20q_Hp", // removed
 		"channelModeMuted": "modeMuted-2T4MDZ",
 		"channelModeSelected": "modeSelected-3DmyhH",
 		"channelModeUnread": "modeUnread-3Cxepe",
@@ -2038,7 +2032,6 @@ $classes: (
 		"channelIconContainer": "iconContainer-21RCa3",
 		"channelIcon": "icon-2W8DHg",
 		"channelName": "name-28HaxV",
-		// "channelNameChild": "channelName-3KPsGw", // houses the text part // removed?
 		"channelChildren": "children-1MGS9G",
 		"channelUserLimitWrapper": "wrapper-2fEmwW",
 		"channelUsers": "users-2JoyGL",
@@ -2072,17 +2065,17 @@ $classes: (
 		"panelButtonEnabled": "enabled-9OeuTA",
 		"panelButtonRedIcon": "redIcon-1ppjsM", // used with server muted/deafened - see also profile/status/panel
 		"panelAvatarWrapper": "avatarWrapper-1B9FTW",
-		"panelWithTag": "withTagAsButton-OsgQ9L",
-		"panelWithTagless": "withTagless-10ooWt",
+		"panelWithTag": "alias profile modal status panel withTagAsButton",
+		"panelWithTagless": "alias profile modal status panel withTagless",
 		"panelAvatar": "avatar-1EWyVD",
 		"panelAvatarSpeaking": "avatarSpeaking-36V2PN",
-		"panelName": "nameTag-sc-gpq",
-		"panelNameCanCopy": "canCopy-IgTwyV",
+		"panelName": "alias profile modal status panel nameTag",
+		"panelNameCanCopy": "alias profile modal status panel canCopy",
 		"panelStatusSubtext": "subtext-2HDqJ7",
-		"panelUsernameContainer": "usernameContainer-3PPkWq",
+		"panelUsernameContainer": "alias profile modal status panel usernameContainer",
 		"panelActionButtons": "actionButtons-2vEOUh",
 
-		"loadingSidebar": "container-1NXEtd",
+		"loadingSidebar": "alias sidebar channelsContainer",
 		"loadingAnimationContainer": "container-1XYZ8d", // container has animation tag on it
 		"loadingCategory": "category-1ncDaU",
 		"loadingChannel": "channel-2eDiWO",
@@ -2638,16 +2631,6 @@ $classes: (
 			"overlayBackground": "alias profile overlay popout",
 			"outer": "alias profile outer popout",
 			"inner": "alias profile inner popout",
-
-			"upsell": (
-				"wrapper": "wrapper-C1y4Sz",
-				"banner": "banner-iQGw2h",
-				"content": "content-23Uwtl",
-				"text": "text-3i9OZm",
-				"premiumIcon": "premiumIcon-1HXd7v",
-				"dismissButton": "dismissButton-1LXix0",
-				"closeIcon": "closeIcon-2_2cmM",
-			),
 			
 			"banner": "alias profile banner banner",
 			"popoutBanner": "alias profile banner popout",
@@ -2751,7 +2734,7 @@ $classes: (
 		// some classes apply to the panel containing mute/deafen/settings icons
 		// redIcon class is in one of the rules but is under a different area in this file. it's applied to icons when server muted/deafend
 		"status": (
-			"popoutWrapper": "accountProfilePopoutWrapper-3GskID",
+			"popoutWrapper": "alias profile status accountProfilePopoutWrapper",
 			"menu": "menu-2-eHMB",
 			"menuItemFocused": "menuItemFocused-1a4_bh",
 			"submenuIcon": "subMenuIcon-25xQRT",
@@ -2827,6 +2810,8 @@ $classes: (
 		"sidebarSocialLinks": "socialLinks-3ywLUf",
 		"sidebarInfo": "info-3pQQBb",
 
+		"customScroller": "customScroller-m1-jZn", // used in a few places, i'm not entirely sure what's different about it
+
 		"premiumFeatureBorder": "premiumFeatureBorder-1i95si",
 		"featureBorder": "featureBorder-2Jl8g4",
 		"featureBackground": "background-yH6t2p",
@@ -2865,17 +2850,14 @@ $classes: (
 		"accountSettingsSecurity": "userSettingsSecurity-2kODPN",
 
 		"profileImageUploader": "imageUploader-1X7wVc",
-		// "profileNitroNotice": "premiumInlineNotice-N_oPBN", // NOT FOUND
 		"profileAvatarUploader": "avatarUploaderInner-p38nm2",
-		// "profileBannerPreview": "profileBannerPreview-3mLIdO", // removed?
-		// "profilePopoutInfo": "popoutInfo-16MuYF", // removed?
 		"profileBody": "alias profile settings body",
 
 		"radioGroupItem": "item-1TA5qI",
 		"radioBar": "radioBar-1XgZqD",
 		"radioBarInfo": "info-3cKxwI",
-		"radioBarName": "text-md-medium-2avxhQ", // primary text
-		"radioBarDesc": "text-sm-normal-3Zj3Iv", // small print
+		"radioBarName": "alias text text mMedium", // primary text
+		"radioBarDesc": "alias text text sNormal", // small print
 		"radioIconForeground": "radioIconForeground-3wH3aU", // selected radio button's circle inner
 
 		"formNotice": "formNotice-1JW4h2", // "Check out our Terms of Service and Privacy Policy", authorized apps box at top
@@ -2900,13 +2882,9 @@ $classes: (
 		"devicesSessionsLegacy": "legacySession-UoUT_h",
 		"devicesSessionsLogOutAllButton": "logOutAllButton-11uhew",
 
-		// "accountList": "accountList-Wii_T5", // NOT FOUND
-		// "accountButton": "accountBtn-1-d0rV", // moved to modals/addAccounts
-		// "accountButtonInner": "accountBtnInner-1DCgBm", // moved to modals/addAccounts
 		"addConnectionContainer": "connectContainer-1hylYM",
 		"addConnectionHeader": "connectHeader-2VkFiv",
 		"addConnectionsContainer": "connectionsContainer-3wRUc6",
-		// "addAccountButton": "accountButton-234qAZ", // removed?
 		"addAccountButtonInner": "accountButtonInner-33vCDY",
 		"addAccountWrapper": "accountAddWrapper-2pfoJc",
 		"addAccountWrapperInner": "accountAddInner-2y9WLL",
@@ -3016,7 +2994,7 @@ $classes: (
 			"overlayDisabledSelected": "disabledSelected-1jqfsw",
 
 			"soundRow": "soundRow-2Vsfbg",
-			"soundRowDividerDefault": "dividerDefault-3C2-ws",
+			"soundRowDividerDefault": "dividerDefault-wIfHHD",
 
 			"keybindImage": "image-20MDYu", // when no keybinds
 			"keybindDefault": "defaultKeybind-1rEiTa",
@@ -3027,7 +3005,7 @@ $classes: (
 			"keybindGroupWithDescription": "defaultKeybindGroupWithDescription-3xCKaN",
 			"keybindShortcutGroup": "defaultKeybindShortcutGroup-2ZtT2R",
 			"keybindRemove": "removeKeybind-3J8M42",
-			"keybindRemoveFilled": "filled-2zYazI",
+			"keybindRemoveFilled": "alias removeButton filled",
 			// "keybindButton": "keybindShortcut-3zF1P9", // removed?
 
 			"gameNotDetected": "notDetected-M3Ghh2",
@@ -3036,8 +3014,9 @@ $classes: (
 			"gameNameInput": "gameNameInput-2wbDJ9",
 			"gameLastPlayed": "lastPlayed-1jum9A",
 			"gameOverlayStatusText": "overlayStatusText-In0YrK",
-			"gameOverlayToggleIconOn": "overlayToggleIconOn-21NN2N",
-			"gameOverlayToggleIconOff": "overlayToggleIconOff-ps4gGp",
+			"gameOverlayToggleIcon": "toggleIcon-2tF94r",
+			"gameOverlayToggleIconOn": "toggleIconOn-1dZapU",
+			"gameOverlayToggleIconOff": "toggleIconOff-XGPmqE",
 			"gameOverlayToggleIconFill": "fill-297bdf",
 			"gameFlowerStar": "flowerStar-2tNFCR",
 			"game": "game-2f2vPC",
@@ -3604,7 +3583,7 @@ $classes: (
 			"inner": "inner-2pOSmK",
 			"iconLayout": "iconLayout-3Bjizv",
 			"iconContainer": "iconContainer-6pgShY",
-			"icon": "icon-3CDcPB",
+			"icon": "alias friends searchIcon",
 			"iconVisible": "visible-CwPfRb",
 			"iconClear": "clear-3102V9",
 		),
@@ -3634,7 +3613,7 @@ $classes: (
 			"content": "content-2eQb8J", // may be applied elsewhere
 			"guildBackground": "guildBackground-3BSNJY", // that lottie thing is in here
 			"guildStar": "guildStar-2w95PD",
-			"selectGuild": "selectGuild-2A4oJC",
+			"selectGuild": "selectGuild-XtzmSc",
 			"subscription": "subscription-1wJwQk",
 			"guildCard": "guildCard-u7HSAA", // used alongside sub
 			"subscriptionInfo": "subscriptionInfo-2W0COT",
@@ -3746,7 +3725,7 @@ $classes: (
 
 			"scrollBackgroundContainer": "scrollBackgroundContainer-1gy1Hx",
 			"scrollTierBackground": "scrollTierBackground-BnWR8k",
-			"scrollTierBackgroundUpsell": "scrollTierBackgroundUpsell-2oh_9T",
+			// "scrollTierBackgroundUpsell": "scrollTierBackgroundUpsell-2oh_9T", // removed, likely because they're free now
 
 			"scrollSection": "scrollSection-HnJkHK",
 			"nitroCTAContainer": "tierCtaContainer-f-B1mz",
@@ -3763,27 +3742,6 @@ $classes: (
 			"tag": "activityTag-3C3YK5",
 
 			"footer": "footer-yVEuwO",
-
-			// BELOW MIGHT BE COMPLETELY REMOVED AS ACTIVITIES WERE MADE FREE.
-			// Don't have nitro and want to host something stupidly locked behind nitro?
-			// These classes might show up with nitro
-			"nitroLocked": (
-				"container": "container-2oiTwm",
-				"scroller": "scroll-2wB1Q4",
-
-				"imageContainer": "imageContainer-36ELsC",
-				"video": "video-2B12w1",
-
-				"description": "descriptionArea-2k0n2c",
-				"descriptionText": "descriptionAreaText-UT4M9x",
-
-				"perksContainer": "perksContainer-1HyK1I",
-				"perksHeader": "perksHeader-jkHU3s",
-				"perksUpsellIcon": "upsellIcon-14jcSk",
-				"perks": "perks-2tKutx",
-				// "perkText": "activitiesPerk-1-3r7G", // removed?
-
-			),
 		),
 
 		// Change your avatar (or banner w/ nitro) or a server's icon
@@ -4351,7 +4309,7 @@ $classes: (
 				"unknown": "unknown-3ClW7Z",
 			),
 
-			// These little things appear briefly and are VERY LIKELY used elsewhere within modals or the app itself.
+			// These little things appear briefly and ARE used elsewhere within modals or the app itself.
 			// Colors, Types and Base are on line 606 of 2022-09-14_15:25 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css 
 			// Numbered Sparkles, Crosses, Pops and Lights are on the same line as drop
 			"pop": (
