@@ -128,7 +128,7 @@
 			line-height: 15px;
 			font-weight: 600;
 		}
-		&#{c(main fullMotion)} {
+		&#{c(main options fullMotion)} {
 			#{c(error page)}::before {
 				animation: errorScrollMac 3.2s linear;
 			}

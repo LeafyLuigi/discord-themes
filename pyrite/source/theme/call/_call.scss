@@ -158,7 +158,7 @@
 	background-color: $primary;
 	filter: drop-shadow(0 0 3px var(--secondary-color)) drop-shadow(0 0 5px var(--secondary-color));
 }
-#{c(main fullMotion)}#{c(main focused)} {
+#{c(main options fullMotion)}#{c(main focused)} {
 	#{c(stage speakerRaiseHandBadge)} {
 		animation: numberBadgeFlash 5s linear infinite;
 	}

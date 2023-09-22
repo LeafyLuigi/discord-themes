@@ -216,8 +216,8 @@ body, // this one is here for transparency in bd to work
 }
 
 // EGGS!
-#{c(main focused)}#{c(main fullMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)},
-#{c(main focused)}#{c(main reduceMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)}:hover {
+#{c(main focused)}#{c(main options fullMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)},
+#{c(main focused)}#{c(main options reduceMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)}:hover {
 	animation: monke 6.9s linear infinite;
 }
 
@@ -240,9 +240,9 @@ body, // this one is here for transparency in bd to work
 // }
 
 /* Checkboxes */
-#{c(main checkbox)} {
+#{c(checkbox checkbox)} {
 	border-color: $primary !important; // !important reason: element.style when selected
-	&#{c(main checkboxChecked)} {
+	&#{c(checkbox checked)} {
 		box-shadow: inset 0 0 3px 1px $primary;
 		border-color: $primary !important; // !important reason: element.style
 		> svg > path {

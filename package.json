@@ -27,16 +27,16 @@
   },
   "homepage": "https://github.com/LeafyLuigi/discord-themes#readme",
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.16",
     "browsertest": "^0.2.2",
     "cat": "^0.2.0",
     "grep": "^0.1.0",
     "mv": "^2.1.1",
-    "npm": "^8.19.3",
-    "pnpm": "^7.25.0",
-    "postcss": "^8.4.21",
+    "npm": "^8.19.4",
+    "pnpm": "^7.33.6",
+    "postcss": "^8.4.30",
     "postcss-cli": "^10.1.0",
-    "sass": "^1.57.1"
+    "sass": "^1.68.0"
   },
   "browserslist": [
     "Chrome 98",

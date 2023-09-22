@@ -156,13 +156,11 @@ $classes: (
 		"dark": "theme-dark",
 		"amoled": "theme-amoled", // experiment 2022-08_amoled_mode_web: currently applies on the following lines of the linked css: 61 (variable definitions), 696 (header container), 832 ("home" channel for chat), 1526 (forums) https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
 		"light": "theme-light",
+		"customTheme": "custom-theme-background",
 		"mouseMode": "mouse-mode",
 		"keyboardMode": "keyboard-mode",
-		"fullMotion": "full-motion",
-		"reduceMotion": "reduce-motion",
 		"focused": "app-focused",
 		"layerContainer": "layerContainer-2lfOPe",
-		"groupSpacing16": "group-spacing-16",
 		"container": "container-1eFtFS",
 		"content": "content-1SgpWY",
 		"baseLayer": "baseLayer-W6S8cY",
@@ -194,12 +192,44 @@ $classes: (
 		"checkboxRound": "alias checkbox round",
 		"checkboxWrapperRow": "alias checkbox wrapperRow",
 		"toggle": "alias main sliderContainer",
+		"fullMotion": "alias main options fullMotion",
+		"reduceMotion": "alias main options reduceMotion",
+		"groupSpacing16": "alias main options messageSpacing 16",
 
 		// no idea what these classes are about
 		"backgroundOpacity": (
 			"low": "background-opacity-low",
 			"medium": "background-opacity-medium",
 			"high": "background-opacity-high",
+		),
+
+		// for things like font scaling and a11y.
+		"options": (
+			// appearance > chat font scaling slider
+			"fontSize": (
+				"12": "font-size-12",
+				"14": "font-size-14",
+				"15": "font-size-15",
+				"16": "font-size-16", // default option
+				"18": "font-size-18",
+				"20": "font-size-20",
+				"24": "font-size-24",
+			),
+
+			// appearance > space between message group slider
+			"messageSpacing": (
+				"0": "group-spacing-0", // default for compact
+				"4": "group-spacing-4",
+				"8": "group-spacing-8",
+				"16": "group-spacing-16", // default for cosy
+				"24": "group-spacing-24",
+			),
+
+			// a11y
+			"desaturateUserColors": "desaturate-user-colors", // A11y > "Apply to custom colour choices" for saturation slider
+			"decorateLinks": "decorate-links", // A11y > "Always underline links"
+			"fullMotion": "full-motion", // A11y > "enable reduced motion" unticked
+			"reduceMotion": "reduce-motion", // A11y > "enable reduced motion" ticked
 		),
 
 		// snowsgiving 2022 is under this category because yes 
@@ -2703,6 +2733,7 @@ $classes: (
 			"addButtonIcon": "alias role addButtonIcon",
 
 			// i've thrown everything under there because i don't know where other ones are. all on same line
+			// these appear to be for a11y "show role colours next to names" option
 			"roleCircle": (
 				"svg": "svg-26OBgk",
 				"background": "background-3ArYzi",
