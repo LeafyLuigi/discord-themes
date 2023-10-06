@@ -193,8 +193,8 @@ body, // this one is here for transparency in bd to work
 
 /* show/hide for side-panels (like member list and profile panels) */
 :is(
-#{c(chat chatContentInner)} ~ div,
-#{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}
+#{c(chat chatContainer)} ~ :is(div, aside),
+#{c(chat chatContent)} > #{c(memberList container)}
 ) {
 	background: var(--background,var(--side-shading));
 	left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled));
@@ -205,8 +205,8 @@ body, // this one is here for transparency in bd to work
 }
 #{c(main focused)} {
 	:is(
-	#{c(chat chatContentInner)} ~ div,
-	#{c(chat chatContentInner)} ~ aside,#{c(chat chatContent)} > #{c(memberList container)}
+	#{c(chat chatContainer)} ~ :is(div, aside),
+	#{c(chat chatContent)} > #{c(memberList container)}
 	) {
 		&:is(:hover,:focus-within) {
 			transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, --hide-fallback-enabled))));
