@@ -42,8 +42,7 @@
 		margin-top: calc(36px * $nc);
 		background: transparent;
 		width: 240px;
-		#{c(sidebar privateChannelLink)}[href="/store"],
-		#{c(sidebar privateChannelLink)}[href="/library"],
+		#{c(sidebar privateChannelLink)}:is([href="/store"],[href="/library"],[href="/shop"]),
 		#{c(sidebar privateChannelBadgeIcon)} {
 			display: none;
 		}
