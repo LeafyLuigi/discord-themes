@@ -32,6 +32,20 @@
 	@if type-of($class) == map {
 		@error "Map used as input: #{$query}. Please fix and try again.";
 	}
+	@if type-of($class) == list {
+		// stuff for list would go here uhu
+		$isList: ":is(";
+		@each $item in $class {
+			$isList: $isList+checkString($item,$alias)+",";
+		}
+		$isList: str-slice($isList,1,-2)+")";
+		@return $isList;
+	} @else if type-of($class) == string {
+		@return checkString($class,$alias);
+	}
+}
+
+@function checkString($class,$alias: false) {
 	// debug locator string thingy
 	@if string.slice($class,1,1) == "!" {
 		@warn [DEBUG] The class, $class, was used;
@@ -61,69 +75,8 @@
 		@return $class;
 	} @else {
 		@return "."+$class;
-	} 
+	}
 }
-
-
-// // i wanted to add some kind of alias method but never got it to work. best i could do was output the eventual string of characters
-// // eg "test d foobar" became "test a foo" but not "bar". (see test category at EOF)
-// @function d($query) {
-// 	$initQuery: $query;
-// 	$class: $classes;
-// 	@debug $query of type type-of($class) \:;
-// 	@each $el in $query {
-// 		$class: map-get($class, "#{$el}");
-// 		@if type-of($class) == map {
-// 			// @debug "[ERROR] Map used as input: #{$query}. Please fix and try again.";
-// 		}
-// 		@if not $class {
-// 			// @debug "[ERROR] Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
-// 		}
-// 	}
-// 	@if type-of($class) == string and string.slice($class,1,6) == "alias " {
-// 		@debug "Alias used!";
-// 		@return d(string.slice($class, 7));
-// 		// @return #{c($aliasQuery)};
-// 		// $query2: string.slice(#{$class},8);
-// 		// @return #{d($query2)};
-// 	} @else {
-// 		@return "."+$class;
-// 	}
-// }
-
-// @function cn($query) {
-// 	@debug outputTest #{c($query)};
-
-// 	$cOutput: #{c($query)};
-// 	// @debug string.slice($cOutput, 1, 9);
-// 	@if string.slice($cOutput, 1, 7) == ".alias " {
-// 		$list: ();
-// 		@debug "Alias Used!";
-// 		$aliasQuery: string.slice($cOutput, 8, -1);
-// 		@debug ALIASQUERY BEFORE LOOP $aliasQuery;
-// 		$spaceIndex: str-index($aliasQuery, $substring: " ");
-// 		@while $spaceIndex != null {
-// 			@debug NEW LOOP;
-// 			$item: "";
-// 			@if $spaceIndex == null {
-// 				@return $aliasQuery;
-// 			} @else {
-// 				$item: str-slice($aliasQuery, 1, $spaceIndex - 1);
-// 			}
-// 			@debug ITEM IN LOOP $item;
-// 			$aliasQuery: str-slice($aliasQuery, $spaceIndex+1,-1);
-// 			@debug ALIASQUERY IN LOOP $aliasQuery;
-// 			$list: append($list, $item, space);
-// 			@debug LIST IN LOOP $list;
-// 			$spaceIndex: str-index($aliasQuery, $substring: " ");
-// 			@debug SPACEINDEX IN LOOP $spaceIndex;
-// 			@debug -ENDLOOP-
-// 		}
-// 		$list: append($list, $aliasQuery, space);
-// 		@debug LIST OUTPUT $list;
-// 		@return #{c($list)};
-// 	}
-// }
 
 ///extreme lazy shorthand with capital just in case
 @function c($query,$alias:false) {
@@ -743,18 +696,19 @@ $classes: (
 	"chat": (
 		"cozy": "cozy-VmLDNB",
 		"compact": "compact-2Nkcau",
-		"chat": "chat-2ZfjoI",
+		"chat": "chat-2ZfjoI" "chat-9g_3Xj",
 		"chatSidebarOpen": "chatSidebarOpen--YCxhs",
-		"threadSidebarOpen": "threadSidebarOpen-1LSXvU",
-		"threadSidebarFloating": "threadSidebarFloating-uC2s6v",
-		"noChat": "noChat-sb1z07",
-		"chatContent": "content-1jQy2l",
+		"threadSidebarOpen": "threadSidebarOpen-1LSXvU" "threadSidebarOpen-lv7sGl",
+		"threadSidebarFloating": "threadSidebarFloating-uC2s6v" "threadSidebarFloating-ZzdH0E",
+		"typing": "typing-1DXUlQ" "typing-1ETnTP",
+		"noChat": "noChat-sb1z07" "noChat-3sSIrO",
+		"chatContent": "content-1jQy2l" "content-18rAwf",
 		"messagesWrapper": "messagesWrapper-RpOMA3",
 		"chatScroller": "scroller-kQBbkU",
 		"chatScrollerInner": "scrollerInner-2PPAp2",
 		"chatScrollerNSFW": "scroller-3KyaqJ",
 		"chatGatedContent": "gatedContent-31-gID",
-		"chatContentInner": "chatContent-3KubbW",
+		"chatContentInner": "chatContent-3KubbW" "chatContent-2O4SXb",
 		"chatContainer": "container-3H3gr7",
 		"chatLoadingWrapper": "wrapper-3HVHpV",
 		"scrollerSpacer": "scrollerSpacer-3AqkT9", // placed at bottom of message list
@@ -820,6 +774,19 @@ $classes: (
 		"chatUsernameTimedOut": "communicationDisabled-2KRN2p",
 		"zalgoBlocker": "zalgo-26OfGz",
 		"messageContent": "messageContent-2t3eCI",
+
+		// in same line as chat-$suffix
+		"cursorPointer": "cursorPointer-3JF56F" "cursorPointer-2Pf_Hr",
+		"chatTitleWrapper": "titleWrapper-2pNL_a" "titleWrapper-2T3aru",
+		"editPartyIcon": "editPartyIcon-3u0pbu" "editPartyIcon-14_pv6",
+		"channelName": "channelName-FZ7qNw" "channelName-2Bm4bo",
+		"parentChannelName": "parentChannelName-R4UlaT" "parentChannelName-eG7Pln",
+		"guildBreadcrumbContainer": "guildBreadcrumbContainer-3LUtHj" "guildBreadcrumbContainer-aheAZ6",
+		"guildBreadcrumbIcon": "guildBreadcrumbIcon-364Xpt" "guildBreadcrumbIcon-3CHl6m",
+		"channelEmoji": "channelEmoji-KaXu_c" "channelEmoji-3WrNUW",
+		"channelEmojiLeftOfIcon": "channelEmojiLeftOfIcon-2kMphf" "channelEmojiLeftOfIcon-HqS0pE",
+		"channelEmojiRightOfIcon": "channelEmojiRightOfIcon-3yteSD" "channelEmojiRightOfIcon-2XFU37",
+		"twemoji": "twemoji-3lXRLi" "twemoji-1b7g3R",
 
 		"spoiler": (
 			"content": "spoilerContent-32CqO-",
@@ -1055,13 +1022,15 @@ $classes: (
 	),
 	// Named so because aria-label for the chat bubble icon is "Forum" in English (and French)
 	"forums": (
-		"loadingContainer": "loader-1iM037",
+		"loadingContainer": "loader-1iM037" "loader-1YD6qp",
 		"container": "container-3wLKDe", // seems to relate to line 1526 of https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
 		"listScroller": "list-3FIpnh",
 		"headerRow": "headerRow-1MKoR-", // css rule for this also applies to .list(above)>div:first-child
 		"header": "header-1Uy0p6", // applies to combined search/new post card
 		"headerWithMatchingPosts": "headerWithMatchingPosts-1lTrVT",
 		"matchingPostsRow": "matchingPostsRow-2IiEQ1",
+		
+		"postTitle": "forumPostTitle-16pN7d" "forumPostTitle-3VtVHP",
 
 		"mainCard": "mainCard-3KBsBI",
 		"collapsed": "collapsed-23aTv6", // css rule also applies to .collapsed(this) .title(below) input
@@ -1363,10 +1332,10 @@ $classes: (
 		"newTextAreaError": "channelTextAreaInnerError-iNytdJ",
 	),
 	"chatForm": (
-		"form": "form-3gdLxP",
+		"form": "form-3gdLxP" "form-3qe0Ni",
 		// the two below were both applied on a disabled chat and an enabled one. second one has the background. still unsure about it.
 		"channelTextAreaBase": "channelTextArea-1VQBuV", // base being applied to *every* form
-		"channelTextAreaMain": "channelTextArea-1FufC0", // used at bottom of text channels
+		"channelTextAreaMain": "channelTextArea-1FufC0" "channelTextArea-1deLlK", // used at bottom of text channels
 		"channelTextAreaDisabled": "channelTextAreaDisabled-1p2fQv", // you can't type into this channel
 		"innerDisabled": "innerDisabled-2dbG11", // paired with inner
 		"scrollableContainer": "scrollableContainer-15eg7h",
@@ -1399,9 +1368,14 @@ $classes: (
 		"threadSuggestionBar": "threadSuggestionBar-3ExSyc",
 
 		// also applies to blocked
-		"followWrapper": "wrapper-2SplAX",
-		"followImage": "image-3FliiM",
-		"followText": "text-2GfGMu",
+		"followWrapper": "wrapper-2SplAX" "wrapper-IjGAlW",
+		"followImage": "image-3FliiM" "image-15uDsn",
+		"followAnimation": "animation-1GAstp" "animation-1vx86Q",
+		"followText": "text-2GfGMu" "text-3l52_l",
+		"followTitle": "title-Do_30w" "title-ZqmuTf",
+		"followButton": "button-cO0-d9" "button-1F0CyK",
+		"followButtonContainer": "buttonContainer-KMz3Ex" "buttonContainer-1OlVVX",
+		"followCountdown": "countdown-3Imv84" "countdown-3Fn1lB",
 
 		// colors may apply elsewhere
 		"colorBrand": "colorBrand-3Xb6JG",
@@ -1646,7 +1620,7 @@ $classes: (
 	),
 	"header": (
 		"header": "container-ZMc96U",
-		"headerTitle": "title-31SJ6t", // used with above, not always though
+		"headerTitle": "title-31SJ6t" "title-5wgnIa", // used with above, not always though
 		"themed": "themed-Hp1KC_",
 		"transparent": "transparent-1lUmft",
 		"children": "children-3xh0VB",
@@ -1674,11 +1648,13 @@ $classes: (
 		"topic": "topic-11NuQZ",
 		"topicExpandable": "expandable-3CaLeS",
 		"avatars": "avatars-2jLHaO",
+		"avatar": "avatar-3521_d" "avatar-1BOKoW", // on same line as chat-$suffix
 		"nicknames": "nicknames-10Sg6e",
-		"status": "status-12NUUC",
+		"status": "status-12NUUC" "status-3gxJ3T",
 		"tabBar": "tabBar-ra-EuL",
 		"addFriend": "addFriend-emTWY1",
 		"tabBarItem": "item-3mHhwr",
+		"followButton": "followButton-1N-GGp" "followButton-1m2OlK"
 	),
 	"hljs": (
 
@@ -1762,13 +1738,14 @@ $classes: (
 		"dark": "dark-20Z3lN",
 	),
 	"memberList": (
-		"container": "container-2o3qEW",
-		"wrap": "membersWrap-3NUR2t",
-		"hiddenMembers": "hiddenMembers-8kpYM0",
-		"members": "members-3WRCEx",
-		"group": "membersGroup-2eiWxl",
+		"container": "container-2o3qEW" "container-2vWgD2",
+		"notices": "membersListNotices-UstAx3" "membersListNotices-3yhEwx",
+		"wrap": "membersWrap-3NUR2t" "membersWrap-3GwLFp",
+		"hiddenMembers": "hiddenMembers-8kpYM0" "hiddenMembers-1IMG4s",
+		"members": "members-3WRCEx" "members-2y1nVj",
+		"group": "membersGroup-2eiWxl" "membersGroup-2YoqY-",
 		"member": "member-2gU6Ar",
-		"memberBackground": "member-48YF_l",
+		"memberBackground": "member-48YF_l" "member-2iQhp7",
 		"memberClickable": "clickable-28SzVr",
 		"memberContainer": "container-1oeRFJ",
 		"selected": "selected-1-Z6gm",
@@ -2085,27 +2062,58 @@ $classes: (
 		"categoryChildren": "children-3MeUvj",
 
 		"panels": "panels-3wFtMD",
+		"panelWrapper": "wrapper-3Hk9OB" "wrapper-VSquwh",
 		"panelUsername": "title-338goq",
-		"panelVoiceContainer": "container-1zzFcN",
+		"panelVoiceContainer": "container-1zzFcN" "container-2NLBJg",
+		"panelChannel": "channel-3prF2" "channel-2vy8ff",
 		"panelActivityContainer": "activityPanel-9icbyU",
 		"panelActivityActions": "actions-zk2vB_",
-		"panelInner": "inner-llGtyq",
-		"panelContainer": "container-YkUktl",
+		"panelInner": "inner-llGtyq" "inner-C_MH0f",
+		"panelContainer": "container-YkUktl" "container-1CH86i",
 		"panelButtonRow": "directionRow-2Iu2A9",
 		"panelButton": "button-12Fmur",
 		"panelButtonEnabled": "enabled-9OeuTA",
 		"panelButtonRedIcon": "redIcon-1ppjsM", // used with server muted/deafened - see also profile/status/panel
-		"panelAvatarWrapper": "avatarWrapper-1B9FTW",
+		"panelAvatarWrapper": "avatarWrapper-1B9FTW" "avatarWrapper-12uuu4",
 		"panelWithTag": "alias profile modal status panel withTagAsButton",
 		"panelWithTagless": "alias profile modal status panel withTagless",
-		"panelAvatar": "avatar-1EWyVD",
+		"panelAvatar": "avatar-1EWyVD" "avatar-19siqs",
 		"panelAvatarSpeaking": "avatarSpeaking-36V2PN",
 		"panelName": "alias profile modal status panel nameTag",
 		"panelNameCanCopy": "alias profile modal status panel canCopy",
 		"panelStatusSubtext": "subtext-2HDqJ7",
 		"panelUsernameContainer": "alias profile modal status panel usernameContainer",
-		"panelActionButtons": "actionButtons-2vEOUh",
-
+		"panelActionButtons": "actionButtons-2vEOUh" "actionButtons-1DmM2g",
+		
+		// panelWrapper line
+		"statusWithPopout": "statusWithPopout-1MDqs1" "statusWithPopout-2So6WV",
+		"hotspot": "hotspot-Rtudwi" "hotspot-2c4gPM",
+		"panelCustomStatusContainer": "customStatusContainer-wwBL13" "customStatusContainer-2BBXMK",
+		"noiseCancellationPopout": "noiseCancellationPopout-2-e5Xz" "noiseCancellationPopout-mXdIP4",
+		"noiseCancellationTooltip": "noiseCancellationTooltip-xjIjHQ" "noiseCancellationTooltip-KeUs_N",
+		"krispLogo": "krispLogo-aWHaan" "krispLogo-2NYhKv",
+		"krispLink": "krispLink-1g44vn" "krispLink-GtPwUR",
+		"micTestButton": "micTestButton-2Ct97k" "micTestButton-28ncVP",
+		"panelBeta": "beta-2cCzqU" "beta-36o-Qp",
+		"panelConnection": "connection-3k9QeF" "connection-3wznVd",
+		"panelVoiceUsers": "voiceUsers-3gPcwY" "voiceUsers-g1MlmH",
+		"panelActionButton": "button-1EGGcP" "button-2gNyE9",
+		"panelButtonColor": "buttonColor-3bP3fX" "buttonColor-1PCuWq",
+		"panelButtonActive": "buttonActive-Uc1jHx" "buttonActive-1YQBrb",
+		"panelFauxDisabled": "fauxDisabled-8w0hCZ" "fauxDisabled-AptruP",
+		"panelButtonDeveloperActivityShelf": "buttonDeveloperActivityShelf-3bhcwC" "buttonDeveloperActivityShelf-3uPN2O",
+		"panelActive": "active-2HsifU" "active-3THdua",
+		"panelButtonContents": "buttonContents-y1l-R8" "buttonContents-1uG8pH",
+		"panelButtonIcon": "buttonIcon-2Zsrs2" "buttonIcon-1OrqOd",
+		"panelWithText": "withText-2iJppd" "withText-3p3_OI",
+		"panelVoicePanelIntroductionHeader": "voicePanelIntroductionHeader-PkvhT0" "voicePanelIntroductionHeader-1zMYEH",
+		"panelVoicePanelIntroductionText": "voicePanelIntroductionText-1qZXF0" "voicePanelIntroductionText-30J0SJ",
+		"panelVoicePanelIntroductionButton": "voicePanelIntroductionButton-FOW_3A" "voicePanelIntroductionButton-3cYK1E",
+		"panelVoicePanelIntroductionWrapper": "voicePanelIntroductionWrapper-2XiXqV" "voicePanelIntroductionWrapper-2nsZ9c",
+		"panelViewAsRolesWarning": "viewAsRolesWarning-1lkgoG" "viewAsRolesWarning-2UiW7V",
+		"panelViewAsRolesWarningText": "viewAsRolesWarningText-1LqLvB" "viewAsRolesWarningText-bjXn6G",
+		"panelViewAsRolesWarningButton": "viewAsRolesWarningButton-2X65h1" "viewAsRolesWarningButton-2zLRBb",
+		
 		"loadingSidebar": "alias sidebar channelsContainer",
 		"loadingAnimationContainer": "container-1XYZ8d", // container has animation tag on it
 		"loadingCategory": "category-1ncDaU",
@@ -2782,19 +2790,19 @@ $classes: (
 
 			// in sidebar
 			"panel": (
-				"container": "container-YkUktl",
-				"avatarWrapper": "avatarWrapper-1B9FTW", // applies to whole thing
-				"avatar": "avatar-1EWyVD",
+				"container": "container-YkUktl" "container-1CH86i",
+				"avatarWrapper": "avatarWrapper-1B9FTW" "avatarWrapper-12uuu4", // applies to whole thing
+				"avatar": "avatar-1EWyVD" "avatar-19siqs",
 
-				"withTagAsButton": "withTagAsButton-OsgQ9L",
-				"withTagless": "withTagless-10ooWt",
+				"withTagAsButton": "withTagAsButton-OsgQ9L" "withTagAsButton-2_JkHX",
+				"withTagless": "withTagless-10ooWt" "withTagless-Lx3LMo",
 
-				"nameTag": "nameTag-sc-gpq",
-				"usernameContainer": "usernameContainer-3PPkWq",
+				"nameTag": "nameTag-sc-gpq" "nameTag-2Q56-H",
+				"usernameContainer": "usernameContainer-3PPkWq" "usernameContainer--2WsMy",
 
-				"canCopy": "canCopy-IgTwyV",
-				"customStatus": "customStatus-1UAQAK",
-				"customStatusEmoji": "emoji-11a5QE",
+				"canCopy": "canCopy-IgTwyV" "canCopy-rj-Am8",
+				"customStatus": "customStatus-1UAQAK" "customStatus-qgQnEP",
+				"customStatusEmoji": "emoji-11a5QE" "emoji-1lv9h1",
 			),
 
 			"accountSwitcher": (
@@ -2808,16 +2816,16 @@ $classes: (
 
 			// other classes without any idea as to where they exist
 			// in "panel" rule
-			"hasBuildOverride": "hasBuildOverride-3V9MZN",
-			"buildOverrideButton": "buildOverrideButton-1cRvTc",
-			"copySuccess": "copySuccess-z29fqF",
-			"godlike": "godlike-2668Fo",
-			"statusTooltip": "statusTooltip-2xssGB",
-			"strikethrough": "strikethrough-2Kl6HF",
-			"redIcon": "redIcon-1ppjsM",
-			"panelTitleContainer": "panelTitleContainer-bZ3AM_",
-			"panelSubtextContainer": "panelSubtextContainer-7hU_Cm",
-			"accountProfilePopoutWrapper": "accountProfilePopoutWrapper-3GskID",
+			"hasBuildOverride": "hasBuildOverride-3V9MZN" "hasBuildOverride-1ITSJM",
+			"buildOverrideButton": "buildOverrideButton-1cRvTc" "buildOverrideButton-1jY2_u",
+			"copySuccess": "copySuccess-z29fqF" "copySuccess-sc4rps",
+			"godlike": "godlike-2668Fo" "godlike-1d4oMt",
+			"statusTooltip": "statusTooltip-2xssGB" "statusTooltip-1oBnZO",
+			"strikethrough": "strikethrough-2Kl6HF" "strikethrough-3nXjYr",
+			"redIcon": "redIcon-1ppjsM" "redIcon-3U81HA",
+			"panelTitleContainer": "panelTitleContainer-bZ3AM_" "panelTitleContainer-12zYUy",
+			"panelSubtextContainer": "panelSubtextContainer-7hU_Cm" "panelSubtextContainer-30etH9",
+			"accountProfilePopoutWrapper": "accountProfilePopoutWrapper-3GskID" "accountProfilePopoutWrapper-Ag_Fip",
 
 			// in account switcher rule
 			"userMenuItemAvatar": "userMenuItemAvatar-1G5wRl",
@@ -4290,7 +4298,7 @@ $classes: (
 		// "modify" is when you've clicked the pencil icon in the chatbar, it's got some overlap with drop most likely
 		// "fail" is the popup saying "it's too big" either with or without nitro, needs testing
 		"upload": (
-			"areaPosition": "uploadArea-2uvx-B", // line 767, applies position fixed and other things with thread sidebar open/floating
+			"areaPosition": "uploadArea-2uvx-B" "uploadArea-16KUC_", // line 767, applies position fixed and other things with thread sidebar open/floating
 			"inner": "inner-rBP-MS", // Line 531, Used in drop and modify
 
 			// Seems to be line 531 of 2022-09-14_15:33 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css 
@@ -4583,52 +4591,14 @@ $classes: (
 		"e": (
 			"dot": ".dot", // should throw error, this list does not need "." before classes
 			"hash": "#hash", // should throw error, generation adds "." before final output and is incompatable with ids
+		),
+		// category to test lists outputting to :is(<contents of list>)
+		"f": (
+			"init": ("item" "anotherItem" "yetAnotherItem"),
+			"spaceSep": "item2" "butAnother" "nyaaa"
 		)
 	),
 	
 );
 
-// @debug #{cn(test a foo)};
-// @debug #{cn(test d foobar)};
-// @debug #{c(test d foobar)};
-
-// $cll: ();
-
-// $cla: (
-// 	"bar": (
-// 		"baz": "barfoo"	
-// 	)
-// );
-
-// $cll: map.deep-merge($cll, $cla);
-
-// $cla: (
-// 	"bar": (
-// 		"foo": "foo",
-// 		),
-// 	"bob": (
-// 		"greg": "tech"
-// 	)
-// );
-
-
-// $cll: map.deep-merge($cll, $cla);
-
-// @function e($query) {
-// 	$class: $cll;
-// 	@each $el in $query {
-// 		$class: map-get($class, "#{$el}");
-// 		@if not $class {
-// 			@error "Unknown class \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
-// 		}
-// 	}
-// 	@if type-of($class) == map {
-// 		@error "Map used as input: #{$query}. Please fix and try again.";
-// 	}
-// 	@if string.slice($class,1,1) == "." or string.slice($class,1,1) == "#" {
-// 		@error "Period or Hash at start of string within list. Please fix and try again. Do not use IDs.";
-// 	}
-// 	@return "."+$class;
-// }
-
-// @debug #{e(bar foo)};
+// @debug #{c(test f spaceSep)}
