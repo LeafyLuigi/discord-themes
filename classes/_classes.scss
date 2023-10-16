@@ -14,7 +14,9 @@
 /// Changes to Zerthox's code:
 /// Class list lacks proceeding dot to allow for quick html element copy class list.
 /// Aliasing. You can start a string with "alias " and fill the rest out as if it was #{c(STRING HERE)}.
+/// Lists. You can uses lists for multiple classes to preform the same function. They'll be used in :is().
 /// Minor SCSS syntax changes.
+/// Dirty trace. Add a ! to the start of a class to get the used location(s).
 /// Checks for sub-maps and throws error if that's true.
 /// Checks for a hash at front and spits out an ID rather than a class.
 @function class($query, $alias: false) {
@@ -38,7 +40,7 @@
 		@each $item in $class {
 			$isList: $isList+checkString($item,$alias)+",";
 		}
-		$isList: str-slice($isList,1,-2)+")";
+		$isList: str-slice($isList,1,-2)+")"; // remove comma at end and add closing bracket
 		@return $isList;
 	} @else if type-of($class) == string {
 		@return checkString($class,$alias);
@@ -48,7 +50,7 @@
 @function checkString($class,$alias: false) {
 	// debug locator string thingy
 	@if string.slice($class,1,1) == "!" {
-		@warn [DEBUG] The class, $class, was used;
+		@warn "[DEBUG] The class, \"#{$class}\", was used";
 		$class: string.slice($class,2,-1);
 	}
 	@if string.slice($class,1,1) == "." {
@@ -4583,9 +4585,10 @@ $classes: (
 			"b": "b",
 			"foo": "bar",
 		),
-		// category for attempted alias (didn't work, see commented out script at top)
+		// category for alias
 		"d": (
 			"foobar": "alias test a foo", // output should be "bar"
+			"loopback": "alias test d loopback" // should error
 		),
 		// category to test dots (for class names) and hashes (for ids) etc
 		"e": (
@@ -4601,4 +4604,4 @@ $classes: (
 	
 );
 
-// @debug #{c(test f spaceSep)}
+// @debug #{c(test d loopback)}
