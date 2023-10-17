@@ -25,6 +25,10 @@
 	background-color: transparent;
 	@include bg($bg:$side,$top:48px,$w:240px);
 	@include bg2($bg:$header,$h:48px,$w:240px,$z:1001);
+	
+	#{c(serverList servers)}#{c(serverList hidden)} + & {
+		height: 100vh;
+	}
 }
 #{c(os mac platform)} {
 	#{c(sidebar sidebar)}::after {

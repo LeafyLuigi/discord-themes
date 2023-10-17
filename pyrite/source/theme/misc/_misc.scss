@@ -92,8 +92,7 @@ code,
 html, // because maybe?
 body, // this one is here for transparency in bd to work
 #{c(main appInner)},
-#{c(main bg)},
-#{c(main loadingContainer)} {
+#{c(main bg)} {
 	background: transparent;
 }
 :is(#{c(main dark)},#{c(main light)}) #{c(main appMount)} {
@@ -283,7 +282,7 @@ a[href^="http://"] {
 }
 
 /* A few blurs */
-#{c(main loadingContainer)} {
+#{c(loading container)} {
 	backdrop-filter: blur(5px);
 }
 #{c(main backdrop)},

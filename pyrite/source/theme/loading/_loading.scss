@@ -1,0 +1,5 @@
+@use "backend" as *;
+/* Loading at launch */
+#{c(loading container)} {
+	background: transparent;
+}

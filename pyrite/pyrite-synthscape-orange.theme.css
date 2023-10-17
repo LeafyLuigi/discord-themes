@@ -1,7 +1,7 @@
 /**
  * @name Pyrite - Synthscape Orange
  * @author LeafyLuigi
- * @version 0.2.0
+ * @version 0.2.3
  * @description Pyrite for BetterDiscord/BandagedBD. Synthscape Orange Edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
@@ -22,8 +22,11 @@
 /* Optional: Whitney Font support. Font file basically stolen from https://github.com/Overimagine1/old-discord-font. */
 @import url(https://leafyluigi.github.io/discord-themes/whitney.css);
 
-/* Optional: HorizontalServerList. Includes the base for the minitheme. */
+/* Optional: HorizontalServerList. Soft-forked from Gibbu. Do not use this with the original. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css); */
+
+/* Optional: HorizontalServerList on bottom. Requires the above import. */
+/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list-bottom.css); */
 
 /* Optional: Border Radius / Radical Status. Does not include Gibbu's base for Radical Status. Incompatible with it. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/borders.css) */

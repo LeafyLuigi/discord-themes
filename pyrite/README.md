@@ -2,7 +2,7 @@
 
 Pyrite is a Discord Theme inspired by ClearVision and is built off the core of a stale branch.
 
-Pyrite is built for [Canary](https://canary.discord.com/) so all class syntax is for that. Due to the differences between Canary, PTB and Stable as well as Discord Experiments you might not have an area themed. Speak up for it on the [Support Server](https://discord.gg/W976FZS) and someone will fix it up for you.
+Due to the differences between Canary, PTB and Stable as well as Discord Experiments you might not have an area themed. Speak up for it on the [Support Server](https://discord.gg/W976FZS) and someone will fix it up for you.
 
 ### Previews:
 

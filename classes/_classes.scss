@@ -103,7 +103,14 @@ $classes: (
 	// This top one is for things without any spammy suffixes or more important things.
 	"main": (
 		"appMount": "appMount-2yBXZl",
-		"appContainer": "app-3xd6d0",
+		"appContainer": "app-3xd6d0" "app-1BipOi",
+		// on the same line as appContainer
+		"appAsidePanelWrapper": "appAsidePanelWrapper-ev4hlp" "appAsidePanelWrapper-VeklAl",
+		"mobileAppAsidePanelWrapper": "mobileAppAsidePanelWrapper-2A3_MF" "mobileAppAsidePanelWrapper-1829DR",
+		"notAppAsidePanel": "notAppAsidePanel-3yzkgB" "notAppAsidePanel-1yXaPq",
+		"mobileApp": "mobileApp-3_TCAV" "mobileApp-2QfQVM",
+		"allowsScrolling": "allowsScrolling-DbsGWA" "allowsScrolling-2oDSQk",
+
 		"appInner": "app-2CXKsg",
 		"backdrop": "backdrop-2ByYRN",
 		"backdropWithLayer": "withLayer-2VVmpp",
@@ -123,7 +130,8 @@ $classes: (
 		"layer": "layer-2BGhQ8",
 		"mediaEngineVideo": "media-engine-video",
 		"base": "base-2jDfDU",
-		"loadingContainer": "container-2RRFHK",
+		"baseContent": "content-1SgpWY", // same line as base
+		"loadingContainer": "alias loading container",
 		"loadingSquare": "wanderingCubes-2A046F",
 		"loadingSquareItem": "item-2VgEex",
 		"pictureInPicture": "pictureInPicture-1GQX91",
@@ -1739,6 +1747,30 @@ $classes: (
 		"dim": "dim-GXxpGm",
 		"dark": "dark-20Z3lN",
 	),
+	"loading": (
+		"container": "container-2RRFHK" "container-VXcBeg",
+		"ready": "ready-3BZNWT" "ready-3GlCTH",
+		"content": "content-3AIQZv" "content-3m6Dij",
+		"problems": (
+			"problems": "problems-CvGwpb" "problems-724zaE",
+			"slideIn": "slideIn-VAD-dp" "slideIn-3x7dEj",
+			"text": "problemsText-1DBHh5" "problemsText-OxAwuw",
+			"links": "links-30fqF9" "links-nEMU8c",
+			"statusLink": "statusLink-TySQmC" "statusLink-SLzbhH",
+			"twitterLink": "twitterLink-1pG6U6" "twitterLink-1pPFTh",
+			"linkIcon": "icon-2qL2MI" "icon-3Zd-7e",
+		),
+		"contentBase": "contentBase-3iXUX9" "contentBase-3CbK5O",
+		"text": "text-2bYgPB" "text-2oT_0D",
+		"title": "title-dTGO6I" "title-3GSVO6",
+		"tipTitle": "tipTitle-3FYEQp" "tipTitle-1uYSgK",
+		"tip": "tip-1AwED_" "tip-LnjT57",
+		"keybind": "keybind-2rkdVo" "keybind-37HMA8",
+		"body": "body-15LvnD" "body-34G6AQ", // on same element as contentBase
+
+		"firefoxFixScrollFlex": "firefoxFixScrollFlex-3iXpkl",
+		"fixClipping": "fixClipping-3GOd_d",
+	),
 	"memberList": (
 		"container": "container-2o3qEW" "container-2vWgD2",
 		"notices": "membersListNotices-UstAx3" "membersListNotices-3yhEwx",
@@ -1889,19 +1921,24 @@ $classes: (
 	"serverList": (
 		"servers": "guilds-2JjMmN",
 		"wrapper": "wrapper-1_HaEi",
+		"hidden": "hidden-10MsGQ", // unsure about usage but exists on same line as wrapper above
 		"tree": "tree-3agP2X",
 		"scroller": "scroller-3X7KbA",
 		"homeContainer": "tutorialContainer-1pL9QS",
 		"homeIcon": "homeIcon-r0w4ny",
 		"listItemWrapper": "listItemWrapper-3d87LP", // seems to be only on home, add new and discovery
 		"listItem": "listItem-3SmSlK",
+		"listItemTooltip": "listItemTooltip-eHcnUw", // tooltip obviously, used when hovering over anything in server list
+		"listItemTooltipFolder": "listItemTooltip-Hrivm5", // for folders, home, add server, discover
 		"serverSeparator": "guildSeparator-a4uisj",
 		"placeholderMask": "placeholderMask-2FHNZU",
 		"placeholderInner": "dragInner-1CUBf_",
-		"pill": "pill-L_aLMQ",
+		"pillHome": "pill-L_aLMQ", // pill for home
+		"pill": "pill-2RsI5Q",
+		"pillWrapper": "wrapper-z5ab_q",
 		"pillItem": "item-2LIpTv",
 		"blobContainer": "blobContainer-ikKyFs", // seems to be inverse of listItemWrapper, except not folders
-		"serverWrapper": "wrapper-2PSQCG",
+		"serverWrapper": "wrapper-2PSQCG", // wrapper for everything, really.
 		"serverWrapperSVG": "svg-2ifYOU", // holds defs, mask and foreignObject
 		"serverWrapperSimple": "wrapperSimple-2SFl9K",
 		"iconWrapper": "wrapper-3kah-n",
@@ -1936,8 +1973,17 @@ $classes: (
 		"expandedFolderBackground": "expandedFolderBackground-1kSAf6",
 		"folderIconWrapper": "folderIconWrapper-1oRIZr",
 		"expandedFolderIconWrapper": "expandedFolderIconWrapper-3RwQpD",
-		"centerDragOver": "centerTarget-S6BLFQ.dragOver-1OKbo2", //green thing when merging
-		"targetDragOver": "target-1eRTCg.dragOver-1OKbo2", //green thing when dragging
+		"dragOver": "dragOver-1OKbo2",
+		"dragCenterTarget": "centerTarget-S6BLFQ", //green thing when merging
+		"dragTarget": "target-1eRTcg", //green thing when dragging
+
+		// more drag classes - unsure about usage other than drag stuff because cant freeze in time
+		"dragWrapper": "wrapper-3XVBev",
+		"dragCenterTargetTooltip": "centerTargetTooltip-1-qA7T",
+		"dragAutoPointerEvents": "autoPointerEvents-2oNo2f",
+		"dragFolderEndWrapper": "folderEndWrapper-3KO8ks",
+		"dragWrapperOver": "wrapperOver-3J9BtG",
+		"dragFolderTarget": "folderTarget-ivrfeG",
 	),
 	"serverSettings": (
 		"serverIconUploadInner": "avatarUploaderInner-1Cp1oP",

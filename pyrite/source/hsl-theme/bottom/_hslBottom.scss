@@ -1,0 +1,21 @@
+@use "start" as *;
+/*! #{$theme-name} v#{$version} - HSL on Bottom Addon by LeafyLuigi. Original by Gibbu. */
+@use "classes" as *;
+#{c(main appContainer)} #{c(main base)} {
+	top: 0;
+	bottom: var(--server-container);
+}
+#{c(serverList servers)} {
+	transform-origin: 0 100%;
+	top: unset;
+	left: 100vw;
+	bottom: 0;
+}
+:is(#{c(serverList listItemTooltip)},#{c(serverList listItemTooltipFolder)}) {
+	top: calc((var(--server-size) / -1 - 30px));
+}
+#{c(serverList pillWrapper)} {
+	transform: rotate(-90deg) translateY(50%);
+	top: unset;
+	bottom: calc(var(--server-size) / -1 + var(--server-size) / 2 - 8px);
+}

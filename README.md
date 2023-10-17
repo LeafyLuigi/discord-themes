@@ -4,6 +4,8 @@ This repo is for where I put the (mini) themes I make for Discord.
 
 "Whitney" file taken from Overimagine1's old-discord-font repo, linked below.
 
+An addon for Pyrite, "Horizontal Server List", used [DiscordStyles/HorizontalServerList](https://github.com/DiscordStyles/HorizontalServerList) as a base and has since stopped using their `@import`.
+
 ## Contributors:
 
 | <a href="https://github.com/LeafyLuigi" target="_blank"> <img src="https://avatars.githubusercontent.com/u/13402990?v=4" alt="" width="96px" height="96px"> </a> | 
@@ -18,7 +20,9 @@ This repo is for where I put the (mini) themes I make for Discord.
 | Overimagine1 |
 | <a href="https://github.com/Overimagine1/old-discord-font" target="_blank">"Whitney" file</a> |
 
-### Building from scratch:
+As well as those who contributed to the [DiscordStyles/HorizontalServerList](https://github.com/DiscordStyles/HorizontalServerList) Repo.
+
+## Building from scratch:
 
 #### I use Linux and as such the package.json syntax needs to be adjusted if you use Windows.
 #### The wording in this section is very poor.

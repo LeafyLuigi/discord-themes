@@ -2,33 +2,21 @@
 // - Horizontal Server List support.
 
 @use "start" as *;
-/*! #{$theme-name} v#{$version} - HSL Addon by LeafyLuigi */
+/*! #{$theme-name} v#{$version} - HSL Addon by LeafyLuigi. Original by Gibbu. */
 
 @use "classes" as *;
 
-/* Gibbu, the creator, decided to use a lot of #app-mount. Blame him. */
-
 /* Begin HSL Addon */
-@import url('https://discordstyles.github.io/HorizontalServerList/dist/HorizontalServerList.css');
 :root {
 	/* DO NOT CHANGE THIS VALUE. */
 	--horizontal-server-list-enabled: 1;
-
-	/* You are free to change these ones. Defaults are in the import above. */
-	--server-size: var(--HSL-server-icon-size, var(--HSL-size, 35px));
-	--server-spacing: var(--HSL-server-spacing, var(--HSL-spacing, 10px));
-	--server-container: calc(var(--server-size) + 20px); // set the + offset to 42 if you want the old bar back
-	--server-direction: var(--HSL-server-direction, column);
-	--server-alignment: var(--HSL-server-alignment, flex-start);
 }
 
-#app-mount {
-	#{c(serverList servers)} {
-		z-index: 1010;
-	}
-	#{c(serverList tree)} {
-		background-color: var(--header-shading);
-	}
+#{c(serverList servers)} {
+	z-index: 1010;
+}
+#{c(serverList tree)} {
+	background-color: var(--header-shading);
 }
 
 // allow interacting for these
@@ -38,17 +26,14 @@
 }
 
 // Windows
+html:is([lang="fr"],[lang="en-GB"]) {
 #{c(os win platform)} {
-	#app-mount {
-		#{c(serverList servers)} {
-			top: calc(var(--server-container) - 48px);
-		}
-	}
 	#{c(os win type)} {
 		height: 0;
 		margin-top: 0;
 	}
 	#{c(serverList servers)} {
+		top: calc(var(--server-container) - 48px);
 		&::before {
 			content: none;
 		}
@@ -69,21 +54,19 @@
 
 // Mac
 #{c(os mac platform)} {
-	#app-mount {
-		#{c(os mac type)} #{c(os mac buttons)} {
-			padding: 10px;
-			margin-top: -22px;
-			&::before,
-			&::after {
-				position: unset;
-				top: 0;
-			}
+	#{c(os mac type)} #{c(os mac buttons)} {
+		padding: 10px;
+		margin-top: -22px;
+		&::before,
+		&::after {
+			position: unset;
+			top: 0;
 		}
-		#{c(serverList servers)} {
-			top: calc(var(--server-container) - 48px) !important; // !important reason: import uses important
-			#{c(serverList scroller)} {
-				padding-top: 70px !important; // !important reason: import uses important
-			}
+	}
+	#{c(serverList servers)} {
+		top: calc(var(--server-container) - 48px) !important; // !important reason: import uses important
+		#{c(serverList scroller)} {
+			padding-top: 70px !important; // !important reason: import uses important
 		}
 	}
 	#{c(os mac type)} {
@@ -108,24 +91,20 @@
 			padding-top: 70px !important; // !important reason: import uses important
 		}
 	}
-	#{c(header header)} {
-		-webkit-app-region: unset;
-	}
 	#{c(main appLayer)}#user-settings {
 		top: 20px;
 		padding-top: 22px;
 	}
-	#{c(sidebar sidebar)}:after {
+	:is(#{c(header header)},#{c(sidebar sidebar)}:after) {
 		-webkit-app-region: unset;
 	}
+	#{c(main base)} {
+		top: var(--server-container);
+	}
 }
-html#{c(os mac platform)} #app-mount #{c(main base)} {
-	top: var(--server-container) !important; // !important reason: import overrides it
 }
-
 // Linux/Web
-#{c(os linux)},
-#{c(os web)} {
+:is(#{c(os linux)},#{c(os web)}) {
 	#{c(serverList servers)} {
 		&::before {
 			display: none; // reason: main overrides it
