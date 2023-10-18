@@ -339,28 +339,34 @@ $classes: (
 	),
 	"os": (
 		// OS spesific stuff. There doesn't seem to be anything related to linux nor web.
-		"titleBar": "titleBar-1it3bQ",
+		"titleBar": "titleBar-3AIemB",
+		"withFrame": "withFrame-1sEfxu",
 
-		"wordmark": "wordmark-2u86JB",
+		"wordmark": "wordmark-3wYFg6",
+		"withBackgroundOverride": "withBackgroundOverride-33VjI9",
 
 		"win": (
 			"platform": "platform-win",
-			"type": "typeWindows-2-g3UY",
-			"button": "winButton-3UMjdg",
-			"buttonClose": "winButtonClose-3Q8ZH5",
-			"buttonMinMax": "winButtonMinMax-3RsPUg",
+			"wordmark": "wordmarkWindows-1rsity",
+			"type": "typeWindows-3ILlhq",
+			"button": "winButton-3SigSb",
+			"buttonClose": "winButtonClose-23zAIt",
+			"buttonMinMax": "winButtonMinMax-nT2Irc",
 		),
 
 		"mac": (
 			"platform": "platform-osx",
-			"type": "typeMacOS-3V4xXE",
-			"focused": "focused-Xb9BI5",
-			"unfocused": "unfocused-1U-yOa",
-			"buttons": "macButtons-eIdy0e",
-			"button": "macButton-2M5W_9",
-			"buttonClose": "macButtonClose-3IXwAm",
-			"buttonMin": "macButtonMinimize-Q8clSI",
-			"buttonMax": "macButtonMaximize-1vTCwt",
+			"wordmark": "wordmarkMacOS-1I0ZiE",
+			"type": "typeMacOS-zzjqOo",
+			"typeWithFrame": "typeMacOSWithFrame-24FDxv",
+			"dragRegion": "macDragRegion-3xIYAS",
+			"focused": "focused-2rq71I",
+			"unfocused": "unfocused-tVmv6F",
+			"buttons": "macButtons-2uz1Bu",
+			"button": "macButton-Lv38jE",
+			"buttonClose": "macButtonClose-3p2KWG",
+			"buttonMin": "macButtonMinimize-CZvNw9",
+			"buttonMax": "macButtonMaximize-ZMgbq3",
 		),
 
 		"linux": "platform-linux",
