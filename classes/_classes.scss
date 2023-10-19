@@ -778,6 +778,8 @@ $classes: (
 		"messageContents": "contents-2MsGLg",
 		"messageAttachmentsContainer": "container-2sjPya",
 		"messageAttachment": "messageAttachment-CZp8Iv",
+		"nonMediaAttachmentsContainer": "nonMediaAttachmentsContainer-3s1dgm",
+		"nonMediaAttachmentItem": "nonMediaAttachmentItem-1e7YaR",
 		"chatAvatar": "avatar-2e8lTP",
 		"chatIconContainer": "iconContainer-2rPbqG", // usually used for pinned message, welcome message and kicked from gc stuff
 		"chatHeaderUsername": "header-2jRmjb",
@@ -4495,37 +4497,18 @@ $classes: (
 
 
 	// Client Mods
-	// despite Powercord being discontinued, this section is used with Replugged.
-	"powercord": (
-		"base": "powercord",
-		"notice": "powercord-notice",
-		"codeblockCopy": "powercord-codeblock-copy-btn",
-		"codeblockCopied": "copied",
-		"entitiesManageTabs": "powercord-entities-manage-tabs",
-		"quickCSS": "powercord-quickcss",
-		"poppedOut": "popped-out",
-		"codeMirrorHeader": "powercord-quickcss-header",
-		"codeMirrorGutters": "CodeMirror-gutters",
-		"codeMirrorSelected": "CodeMirror-selected",
-		"codeMirrorScroll": "CodeMirror-scroll",
-		"codeMirrorFooter": "powercord-quickcss-footer",
-		"codeMirrorHints": "CodeMirror-hints",
-		"codeMirrorHintsActive": "CodeMirror-hint-active",
-		"updaterPage": "powercord-updater",
-		"toast": "powercord-toast",
-		"pluginDownloaderApply": "PluginDownloaderApply", // also used with themes
-		"pluginDownloaderApplied": "applied",
+	// Powercord and Replugged support have been dropped.
+	"vencord": (
+		// only classes that are required to be themed are in this list.
+		"addonCard": "vc-addon-card",
+		"pluginsInfoButton": "vc-plugins-info-button",
+		"authorModalName": "vc-author-modal-name",
+		"authorModalLinks": "vc-author-modal-links",
+
+		// he who shall not be named
+		"shcAllowed": "shc-lock-screen-allowed-users-and-roles-container",
 	),
-	"pcPlugin": (
-		"smartTypersPreview": "smartTypers-preview",
-		"textReactButton": "text-react-button",
-		"connections": "pc-connections",
-		"shcLocked": "shc-locked-chat-content",
-		"shcNotice": "shc-locked-notice",
-		"shcNoticeLock": "shc-notice-lock",
-		"shcLockedText": "shc-locked-channel-text",
-		"shcNoAccessText": "shc-no-access-text",
-	),
+
 	"bd": (
 		"addonList": "bd-addon-list",
 		"addonCard": "bd-addon-card",

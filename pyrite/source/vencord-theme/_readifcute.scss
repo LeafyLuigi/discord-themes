@@ -1,0 +1,31 @@
+@use "backend" as *;
+/* Vencord Theming */
+#{c(vencord addonCard)} {
+	&,
+	&:hover {
+		@include card;
+	}
+}
+#{c(vencord pluginsInfoButton)} {
+	&::before {
+		content: none;
+	}
+}
+#{c(vencord authorModalName)} {
+	&,
+	&::before {
+		background: $primary;
+	}
+}
+#{c(vencord authorModalLinks)} {
+	img {
+		border-color: $primary;
+	}
+	a:hover img {
+		border-color: $hover;
+	}
+}
+
+#{c(vencord shcAllowed)} {
+	@include card;
+}

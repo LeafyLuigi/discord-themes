@@ -2,7 +2,8 @@
 #{c(modals dropdown filled)}#{c(modals dropdown select)} {
 	@include card;
 	&#{c(modals dropdown open)} {
-		border-bottom-width: 0;
+		border-bottom-color: transparent;
+
 	}
 }
 #{c(modals dropdown popout)} {

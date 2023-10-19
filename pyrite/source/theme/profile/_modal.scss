@@ -89,10 +89,13 @@
 	-webkit-line-clamp: 20 !important; // !important reason: inline style
 }
 
-#{c(profile modal body)} {
-	#{c(profile modal noteTextarea)} {
+#{c(profile modal noteTextarea)} {
+	&,
+	&:focus {
 		background-color: transparent;
 	}
+}
+#{c(profile modal body)} {
 	#{c(profile modal guildAvatarWithoutIcon)} {
 		background-color: $card;
 	}

@@ -2,7 +2,7 @@
  * @name Pyrite - Fleur Jaune
  * @author LeafyLuigi
  * @version 0.2.3
- * @description Pyrite for BetterDiscord/BandagedBD. Fleur Jaune Edition.
+ * @description Pyrite for BetterDiscord/BandagedBD/Vencord. Fleur Jaune Edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @invite 7P99YTBRUu
@@ -17,12 +17,15 @@
 /* Import BD Only Features */
 @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/better-discord.css);
 
+/* Import Vencord Only Features */
+@import url(https://leafyluigi.github.io/discord-themes/pyrite/build/vencord.css);
+
 /* Import for optional things: */
 
 /* Optional: Whitney Font support. Font file basically stolen from https://github.com/Overimagine1/old-discord-font. */
 @import url(https://leafyluigi.github.io/discord-themes/whitney.css);
 
-/* Optional: HorizontalServerList. Soft-forked from Gibbu. Do not use this with the original. */
+/* Optional: HorizontalServerList. Forked from Gibbu. Do not use this with the original. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/horizontal-server-list.css); */
 
 /* Optional: HorizontalServerList on bottom. Requires the above import. */
@@ -106,21 +109,13 @@
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
 
-  /* Using HSL? Uncomment this chunk below. */
-
-  /*--server-size: var(--HSL-server-icon-size, var(--HSL-size, 35px));
-  --server-spacing: var(--HSL-server-spacing, var(--HSL-spacing, 10px));
-  --server-container: calc(var(--server-size) + 20px);
-  --server-direction: var(--HSL-server-direction, column);
-	--server-alignment: var(--HSL-server-alignment, flex-start);*/
-
-  /* Using any of the below plugins? Change the 0 to a 1 */
-  --channel-tabs-enabled: 0;
-  --channel-tabs-tabBar-enabled: 1;
-  --channel-tabs-favBar-enabled: 1;
+  /* Using HSL? You can freely change these variables for a different look. */
+	--HSL-server-icon-size: 40px; /* Size of the server icons | DEFAULT: 40px */
+	--HSL-server-spacing: 10px; /* Spacing between each server icon | DEFAULT: 10px */
+	--HSL-server-direction: column; /* Direction of the server list. | OPTIONS: column, column-reverse | DEFAULT: column */
 
   /* Debug; please do not touch */
-  --update-notice-NY-2023: none;
+  --update-notice-oct23: none;
 }
 
 

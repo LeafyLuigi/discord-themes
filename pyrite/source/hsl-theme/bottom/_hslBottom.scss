@@ -1,6 +1,24 @@
 @use "start" as *;
 /*! #{$theme-name} v#{$version} - HSL on Bottom Addon by LeafyLuigi. Original by Gibbu. */
 @use "classes" as *;
+@use "backend" as *;
+:root {
+	/* DO NOT CHANGE THIS VALUE */
+	--hsl-bottom-enabled: 1;
+}
+#{c(main appMount)}>div>:first-child::before {
+	content: "Do NOT use the \"horizontal-server-list-bottom\" import without \"horizontal-server-list\" enabled.";
+	text-align: center;
+	position: absolute;
+	color: $red;
+	font-weight: 600;
+	white-space: pre-wrap;
+	box-sizing: border-box;
+	padding: 10px 0;
+	background-color: $header;
+	display: var(--hide-hsl-bottom-warning, block);
+	z-index: 2500;
+}
 #{c(main appContainer)} #{c(main base)} {
 	top: 0;
 	bottom: var(--server-container);
@@ -18,4 +36,25 @@
 	transform: rotate(-90deg) translateY(50%);
 	top: unset;
 	bottom: calc(var(--server-size) / -1 + var(--server-size) / 2 - 8px);
+}
+#{c(os win platform)} {
+	#{c(serverList servers)} {
+		// margin-top: 0;
+		top: unset;
+		// height: calc(100vw - (3 * var(--win-min-max-close-button-width)));
+		// &::before {
+		// 	bottom: calc(-3 * var(--win-min-max-close-button-width));
+		// 	height: calc(-3 * var(--win-min-max-close-button-width));
+		// 	width: var(--server-container);
+		// }
+	}
+	// #{c(header toolbar)} {
+	// 	padding-right: 0;
+	// }
+	// :is(#{c(header nicknames)},#{c(header topic)}) {
+	// 	margin-right: 0;
+	// }
+	// #{c(os win button)} {
+	// 	height: var(--server-container);
+	// }
 }

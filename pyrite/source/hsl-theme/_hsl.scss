@@ -1,22 +1,206 @@
 // what goes in here?
 // - Horizontal Server List support.
+// - HSL on Bottom goes in a different file.
 
 @use "start" as *;
 /*! #{$theme-name} v#{$version} - HSL Addon by LeafyLuigi. Original by Gibbu. */
 
 @use "classes" as *;
+@use "backend" as *;
 
 /* Begin HSL Addon */
 :root {
-	/* DO NOT CHANGE THIS VALUE. */
+	/* DO NOT CHANGE THESE VALUES. */
 	--horizontal-server-list-enabled: 1;
+	--hide-hsl-bottom-warning: none;
+
+	// fallbacks
+	--HSL-server-icon-size: 40px;
+	--HSL-server-spacing: 10px; /* Spacing between each server icon | DEFAULT: 10px */
+	--HSL-server-direction: column; /* Direction of the server list. | OPTIONS: column, column-reverse | DEFAULT: column */
+	--HSL-server-alignment: flex-start; /* Buggy. Alignment of the server list. | OPTIONS: flex-start, center, flex-end | DEFAULT: flex-start */
+	
+	// actually used variables
+	--server-size: var(--HSL-server-icon-size, var(--HSL-size, 35px));
+	--server-spacing: var(--HSL-server-spacing, var(--HSL-spacing, 10px));
+	--server-container: calc(var(--server-size) + 20px);
+	--server-direction: var(--HSL-server-direction, column);
+	--server-alignment: var(--HSL-server-alignment, flex-start);
+}
+
+#{c(serverList folderParentWrapper)},
+#{c(serverList listItem)},
+#{c(serverList servers)} {
+	width: var(--server-container);
+}
+#{c(serverList serverWrapperSVG)},
+#{c(serverList serverWrapper)},
+// .guildsError-b7zR5H, // CANNOT FIND CLASS. VERY LIKELY SERVER IS DOWN THING
+#{c(serverList placeholderMask)} {
+	width: var(--server-size);
+	height: var(--server-size);
+}
+#{c(serverList expandedFolderBackground)} {
+	width: var(--server-size);
+	left: 50%;
+	translate: -50% 0;
+}
+
+#{c(main appContainer)} #{c(main base)} {
+	top: var(--server-container);
+	bottom: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	max-width: 100%;
+}
+
+:is(#{c(serverList unreadMentionsBarTop)},#{c(serverList unreadMentionsBarBottom)}) {
+	width: var(--server-size);
+	padding: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	height: auto;
 }
 
 #{c(serverList servers)} {
+	transform-origin: 0 0;
+	transform: rotate(-90deg);
+	height: 100vw;
+	top: var(--server-container);
+	position: absolute;
+	left: 0;
 	z-index: 1010;
+	&#{c(serverList hidden)} + #{c(main base)} {
+		top: 0;
+	}
+	#{c(os win platform)} & {
+		top: calc(-48px + (1 - var(--hsl-bottom-enabled,0)) * var(--server-container));
+		height: calc(100vw - (1 - var(--hsl-bottom-enabled,0)) * (3 * var(--win-min-max-close-button-width)));
+		&::before {
+			top: unset;
+			bottom: calc(-3 * var(--win-min-max-close-button-width));
+			height: calc(3 * var(--win-min-max-close-button-width));
+			width: var(--server-container);
+		}
+	}
+	:is(#{c(os linux)},#{c(os web)}) & {
+		&::before {
+			display: none;
+		}
+	}
 }
+
 #{c(serverList tree)} {
-	background-color: var(--header-shading);
+	background-color: $header;
+	:is(#{c(os linux)},#{c(os web)}) & {
+		top: unset;
+		position: static;
+		height: 100vw;
+	}
+}
+
+#{c(serverList scroller)} {
+	padding: var(--server-spacing) 0 !important; // !important reason: inline style
+	display: flex;
+	flex-direction: var(--server-direction);
+	gap: var(--server-spacing);
+	align-items: var(--server-alignment);
+	justify-content: var(--server-alignment);
+	& > div[aria-label] { // as much as i hate to say it... this is the element <div aria-label="Servers">. Contains all the servers.
+		display: flex;
+		flex-direction: var(--server-direction);
+		gap: var(--server-spacing);
+	}
+}
+
+#{c(serverList pillWrapper)} {
+	transform: rotate(90deg) translateY(-50%);
+	height: var(--server-size);
+	width: 4px;
+	top: calc(var(--server-size) / -1 + var(--server-size) / 2 - 8px);
+	margin-left: -2px;
+}
+
+#{c(serverList pillItem)} {
+	width: 4px;
+	transform: scale(0, 1) !important; // !important reason: Yes. It's required.
+	transition: 0.15s ease;
+	margin-left: 0;
+	// Ranges are: unhovering, hovering, selected
+	$ranges: (scale(1,0.24) 0 8) (scale(1,0.7) 9 20) (scale(1,1) 21 40);
+	@each $range in $ranges {
+		$isList: ":is(";
+		@for $i from nth($range,2) through nth($range,3) {
+			$isList: $isList+"[style*='height: #{$i}'],";
+		}
+		$isList: str-slice($isList,1,-2)+")"; // remove trailing comma, add closing bracket
+		
+		&#{$isList} {
+			transform: nth($range,1) !important;
+		}
+	}
+}
+
+#{c(serverList folderParentWrapper)} {
+	display: flex;
+	flex-direction: var(--server-direction);
+	gap: var(--server-spacing);
+	ul[role='group'] { // folder items
+		display: flex;
+		flex-direction: var(--server-direction);
+		gap: var(--server-spacing);
+	}
+}
+
+#{c(serverList listItem)} {
+	width: var(--server-size);
+	transform: rotate(90deg);
+	margin: 0 10px;
+}
+
+#{c(serverList serverSeparator)} {
+	transform: rotate(90deg);
+	width: var(--server-size);
+}
+
+#{c(serverList expandedFolderBackground)} {
+	border-radius: 10px;
+	~ ul {
+		height: auto !important; // !important reason: required to not have large overhang 
+	}
+}
+
+#{c(serverList dragWrapper)} {
+	top: 0;
+	bottom: 0;
+	&::before {
+		top: 0;
+		height: var(--server-size);
+		width: 4px;
+		left: -6px;
+	}
+}
+
+:is(#{c(serverList listItemTooltip)},#{c(serverList listItemTooltipFolder)}) {
+	position: absolute;
+	max-width: unset;
+	white-space: nowrap;
+	margin-left: calc(var(--server-size) / -1 - 20px);
+	top: calc((var(--server-size) - 10px));
+}
+
+#{c(os mac platform)} {
+	#{c(os mac type)} {
+		width: 100%;
+	}
+	#{c(main base)} {
+		top: calc(var(--server-container) + 30px);
+	}
+}
+
+#{c(profile status accountProfilePopoutWrapper)} {
+	left: 0;
 }
 
 // allow interacting for these
@@ -26,100 +210,64 @@
 }
 
 // Windows
-html:is([lang="fr"],[lang="en-GB"]) {
 #{c(os win platform)} {
 	#{c(os win type)} {
 		height: 0;
 		margin-top: 0;
 	}
-	#{c(serverList servers)} {
-		top: calc(var(--server-container) - 48px);
-		&::before {
-			content: none;
-		}
-	}
-	#{c(header toolbar)} {
-		position: static;
-		right: 0;
-	}
-	#{c(header nicknames)} {
-		padding-right: 0;
-	}
 	#{c(os win button)} {
-		position: relative;
-		height: 22px;
-		top: 0;
-	}
+		height: calc(((1 - var(--hsl-bottom-enabled,0)) * var(--server-container)) + ((0 + var(--hsl-bottom-enabled,0)) * 48px));
+	} 
 }
 
+// Mac is currently untested.
 // Mac
-#{c(os mac platform)} {
-	#{c(os mac type)} #{c(os mac buttons)} {
-		padding: 10px;
-		margin-top: -22px;
-		&::before,
-		&::after {
-			position: unset;
-			top: 0;
-		}
-	}
-	#{c(serverList servers)} {
-		top: calc(var(--server-container) - 48px) !important; // !important reason: import uses important
-		#{c(serverList scroller)} {
-			padding-top: 70px !important; // !important reason: import uses important
-		}
-	}
-	#{c(os mac type)} {
-		height: 0;
-		&:before {
-			content: "";
-			height: 22px;
-			width: 100vw;
-			display: block;
-			-webkit-app-region: drag;
-		}
-	}
-	#{c(main appMount)} #{c(os mac type)} #{c(os mac buttons)} {
-		height: 12px;
-	}
-	#{c(serverList servers)} {
-		top: var(--server-container) !important; // !important reason: import overrides it
-		&::before {
-			content: none;
-		}
-		#{c(serverList scroller)} {
-			padding-top: 70px !important; // !important reason: import uses important
-		}
-	}
-	#{c(main appLayer)}#user-settings {
-		top: 20px;
-		padding-top: 22px;
-	}
-	:is(#{c(header header)},#{c(sidebar sidebar)}:after) {
-		-webkit-app-region: unset;
-	}
-	#{c(main base)} {
-		top: var(--server-container);
-	}
-}
-}
-// Linux/Web
-:is(#{c(os linux)},#{c(os web)}) {
-	#{c(serverList servers)} {
-		&::before {
-			display: none; // reason: main overrides it
-		}
-		> #{c(serverList tree)} {
-			top: unset;
-			position: static;
-			height: 100vw;
-		}
-	}
-	#{c(serverList homeContainer)} {
-		&+#{c(serverList listItem)} {
-			&::before {
-				content: none;
-			}
-		}
-	}
-}
+// #{c(os mac platform)} {
+// 	#{c(os mac type)} #{c(os mac buttons)} {
+// 		padding: 10px;
+// 		margin-top: -22px;
+// 		&::before,
+// 		&::after {
+// 			position: unset;
+// 			top: 0;
+// 		}
+// 	}
+// 	#{c(serverList servers)} {
+// 		top: calc(var(--server-container) - 48px) !important; // !important reason: import uses important
+// 		#{c(serverList scroller)} {
+// 			padding-top: 70px !important; // !important reason: import uses important
+// 		}
+// 	}
+// 	#{c(os mac type)} {
+// 		height: 0;
+// 		&:before {
+// 			content: "";
+// 			height: 22px;
+// 			width: 100vw;
+// 			display: block;
+// 			-webkit-app-region: drag;
+// 		}
+// 	}
+// 	#{c(main appMount)} #{c(os mac type)} #{c(os mac buttons)} {
+// 		height: 12px;
+// 	}
+// 	#{c(serverList servers)} {
+// 		top: var(--server-container) !important; // !important reason: import overrides it
+// 		&::before {
+// 			content: none;
+// 		}
+// 		#{c(serverList scroller)} {
+// 			padding-top: 70px !important; // !important reason: import uses important
+// 		}
+// 	}
+// 	#{c(main appLayer)}#user-settings {
+// 		top: 20px;
+// 		padding-top: 22px;
+// 	}
+// 	:is(#{c(header header)},#{c(sidebar sidebar)}:after) {
+// 		-webkit-app-region: unset;
+// 	}
+// 	#{c(main base)} {
+// 		top: var(--server-container);
+// 	}
+// }

@@ -4,6 +4,8 @@ Pyrite is a Discord Theme inspired by ClearVision and is built off the core of a
 
 Due to the differences between Canary, PTB and Stable as well as Discord Experiments you might not have an area themed. Speak up for it on the [Support Server](https://discord.gg/W976FZS) and someone will fix it up for you.
 
+*Replugged plugin support has since been dropped but you can still use the theme once converted into a .asar file. You can do so on this page: https://replugged-org.github.io/theme-converter/*
+
 ### Previews:
 
 *The below screenshots may not be up to date as Discord changes things constantly. Both the Border Radius/Radical Status and the User Modal Layout addons were enabled.*
@@ -11,7 +13,7 @@ Due to the differences between Canary, PTB and Stable as well as Discord Experim
 ![profile](https://leafyluigi.github.io/images/pyrite_profile.png "Profile")
 ![main](https://leafyluigi.github.io/images/pyrite_main_window.png "Main Window")
 
-Default Images & Licensing:
+## Default Images & Licensing:
 
 [Fleur Jaune (Yellow Flower)](https://github.com/LeafyLuigi/pyrite-fleur-jaune)
 [Background](https://en.wikipedia.org/wiki/File:A_piece_of_yellow_rapeseed_flowers_in_former_Xieleqiao_Town_(now_Huitang_Town)_of_Ningxiang_County,_Hunan,_picture4.jpg) is from Wikimedia, uploaded by and created by user [Huangdan2060](https://commons.wikimedia.org/wiki/User:Huangdan2060) is licensed under [CC0 1.0 Universal Public Domain](https://creativecommons.org/publicdomain/zero/1.0/deed.en). The image is scaled down to 1920x1440 using GIMP's Cubic interpolation.
