@@ -14,7 +14,7 @@
 /// Changes to Zerthox's code:
 /// Class list lacks proceeding dot to allow for quick html element copy class list.
 /// Aliasing. You can start a string with "alias " and fill the rest out as if it was #{c(STRING HERE)}.
-/// Lists. You can uses lists for multiple classes to preform the same function. They'll be used in :is().
+/// Lists. You can uses lists for multiple classes to preform the same function. You can use [bracketed lists] for :where() and non-bracketed for :is().
 /// Minor SCSS syntax changes.
 /// Dirty trace. Add a ! to the start of a class to get the used location(s).
 /// Checks for sub-maps and throws error if that's true.
@@ -34,16 +34,21 @@
 	@if type-of($class) == map {
 		@error "Map used as input: #{$query}. Please fix and try again.";
 	}
-	@if type-of($class) == list {
-		// stuff for list would go here uhu
-		$isList: ":is(";
-		@each $item in $class {
-			$isList: $isList+checkString($item,$alias)+",";
-		}
-		$isList: str-slice($isList,1,-2)+")"; // remove comma at end and add closing bracket
-		@return $isList;
-	} @else if type-of($class) == string {
+	@if type-of($class) == string {
 		@return checkString($class,$alias);
+	} @else if type-of($class) == list {
+		// stuff for list would go here uhu
+		$list: ":";
+		@if is-bracketed($class) {
+			$list: $list+"where(";
+		} @else {
+			$list: $list+"is(";
+		}
+		@each $item in $class {
+			$list: $list+checkString($item,$alias)+",";
+		}
+		$list: str-slice($list,1,-2)+")"; // remove comma at end and add closing bracket
+		@return $list;
 	}
 }
 
@@ -4633,10 +4638,13 @@ $classes: (
 		// category to test lists outputting to :is(<contents of list>)
 		"f": (
 			"init": ("item" "anotherItem" "yetAnotherItem"),
-			"spaceSep": "item2" "butAnother" "nyaaa"
+			"spaceSep": "item2" "butAnother" "nyaaa",
+			// "brackets": ["item" "item2" "item3" "fark" "item with spaces"], // vscodium syntax highlighting doesn't like it but this is perfectly valid with quotation marks.
 		)
 	),
 	
 );
 
-// @debug #{c(test d loopback)}
+// @debug #{c(test f init)};
+// @debug #{c(test f spaceSep)};
+// @debug #{c(test f brackets)};
