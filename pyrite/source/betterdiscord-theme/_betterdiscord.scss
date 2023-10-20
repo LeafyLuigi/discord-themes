@@ -6,6 +6,7 @@
 /*! #{$theme-name} v#{$version} - BD Addon by LeafyLuigi */
 
 @use "classes" as *;
+@use "backend" as *;
 
 $primary: var(--primary-color);
 $secondary: var(--secondary-color);
@@ -42,52 +43,15 @@ $card: var(--card-background);
 	background-color: transparent;
 }
 
-// Channel Tabs Plugin
-body {
-	#channelTabs-container {
-		padding: 0;
-		z-index: 1011;
-	}
-	#channelTabs-settingsMenu {
-		-webkit-app-region: no-drag;
-	}
-	#{c(bdPlugin channelTabsTabContainer)} {
-		background-color: $header;
-		flex-wrap: nowrap; // forces one line, forces new tab to be hidden after everything is filled.
-	}
-	#{c(bdPlugin channelTabsFavContainer)} {
-		background-color: $middle;
-		flex-wrap: nowrap; // forces one line, forces new favs to be hidden after everything is filled.
-		&#{c(bdPlugin channelTabsNoFavs)} {
-			height: calc(var(--channelTabs-favHeight) + 3px); // +3 from margin. makes it the same height as regular bar
-		}
-	}
-	#{c(bdPlugin channelTabsUnreadBadge)} {
-		&#{c(bdPlugin channelTabsNoUnread)} {
-			background-color: transparent;
-		}
-	}
-	#{c(bdPlugin channelTabsMentionBadge)} {
-		background-color: $primary;
-		&#{c(bdPlugin channelTabsNoMention)} {
-			background-color: transparent;
-		}
-	}
-	#{c(os mac type)}#{c(os titleBar)} ~ div #channelTabs-container > :first-child > :first-child {
-		margin-left: 3px;
-	}
+// Notices are partially in the main theme file.
+#{c(bd notices)}:not(:empty) {
+	position: relative;
 }
-#{c(os win platform)} body {
-	#{c(os win type)} {
-		// i hate math.
-		top: calc(var(--channel-tabs-enabled,0) * ( var(--channel-tabs-tabBar-enabled,1) * (var(--channelTabs-tabHeight) + 3px ) + var(--channel-tabs-favBar-enabled,1) * (var(--channelTabs-favHeight) + 8px) ));
-		&::before {
-			height: calc(18px - 18px * var(--channel-tabs-enabled,0));
-		}
+#{c(bd notice)} {
+	&:first-child {
+		border-radius: 0;
 	}
-}
-html:not(#{c(os win platform)}) div#{c(sidebar sidebar)} {
-	border-radius: 0;
+	animation: none;
 }
 
 // Better Image Viewer Plugin
@@ -117,4 +81,9 @@ body {
 // For some ungodly reason the prick thinks it's a good idea to change layerContainer.
 div#{c(main appMount)} > #{c(main layerContainer)} {
 	z-index: 1100; // "div" is there to overwrite the css priority.
+}
+// Fix up the borked update notice
+#{c(main bg)}+#{c(notice base)} {
+	width: calc(100vw - 3 * var(--win-min-max-close-button-width));
+	top: 0;
 }

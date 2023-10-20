@@ -3,8 +3,7 @@
 // local variable
 $nc: var(--notice-count, 0);
 
-// Current goal: Move notice bar to below main header bar wherever it exists.
-#{c(main base)} #{c(notice base)} {
+#{c(main base)} :where(#{c(bd notices)}:not(:empty),#{c(notice base)}) { // using :where() instead of :is() because specificity
 	~#{c(main content)} {
 		--notice-count: 1;
 	}
@@ -18,7 +17,8 @@ $nc: var(--notice-count, 0);
 	}
 }
 // notice base
-#{c(notice base)} {
+// it's done in this odd manner to bypass specificity
+:is(:where(#{c(bd notices)}:not(:empty)),#{c(notice base)}) {
 	border-radius: 0;
 	box-shadow: none;
 	max-height: 36px;
@@ -32,7 +32,7 @@ $nc: var(--notice-count, 0);
 }
 
 // It works somehow lol
-#{c(notice base)} ~ #{c(main content)} {
+:is(:where(#{c(bd notices)}:not(:empty)),#{c(notice base)}) ~ #{c(main content)} {
 	// unset overflow for these areas: friends, chat, call, side-thread
 	:is(#{c(friends container)},#{c(chat chat)},#{c(call container)},#{c(threads container)}) {
 		overflow: unset;

@@ -18,7 +18,7 @@
 	// notice stuff
 	top: calc($nc * -36px);
 	position: relative;
-	height: calc(100vh - (var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px)) - var(--channel-tabs-enabled,0) * ((var(--channel-tabBar-enabled,1) * (var(--channelTabs-tabHeight,32px) + 3px)) + (var(--channel-tabs-favBar-enabled,1) * (var(--channelTabs-favHeight,28px) + 5px))));
+	height: calc(100vh - (var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px)) );
 	// missing 71px of channel tab plugin
 	
 	// end notice stuff

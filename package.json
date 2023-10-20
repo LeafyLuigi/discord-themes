@@ -12,6 +12,7 @@
     "test-pyrite": "sass pyrite/source:pyrite/test -I pyrite/source --no-source-map",
     "addWhitney-test-pyrite": "x=`echo \"@import url(https://leafyluigi.github.io/discord-themes/whitney.css);\"; cat pyrite/test/base.css` && echo \"$x\" > pyrite/test/base.css",
     "test-pyrite-vencord": "cat pyrite/test/vencord.css >> pyrite/test/base.css",
+    "test-pyrite-bd": "cat pyrite/test/better-discord.css >> pyrite/test/base.css",
     "test-pyrite-borders": "cat pyrite/test/borders.css >> pyrite/test/base.css",
     "test-pyrite-hsl": "cat pyrite/test/horizontal-server-list.css >> pyrite/test/base.css",
     "test-pyrite-hsl-bottom": "cat pyrite/test/horizontal-server-list-bottom.css >> pyrite/test/base.css",
