@@ -17,3 +17,17 @@
 #{c(modals expressionPicker inspector)} {
 	background: transparent;
 }
+
+#{c(modals expressionPicker positionContainer)} {
+	max-height: 70vh;
+	min-height: 500px;
+	height: var(--expression-picker-height,500px);
+	@media (max-height: 720px) {
+		& {
+			max-height: 500px;
+		}
+	}
+}
+#{c(modals expressionPicker positionContainer)} #{c(modals sidebarList wrapper)} #{c(modals sidebarList scroller)} {
+	height: calc(100% - 48px);
+}

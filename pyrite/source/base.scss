@@ -66,6 +66,7 @@
 	--header-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--code-font: Hack, Monaco, Consolas, Courier, monospace;
 	--body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
+	--expression-picker-height: 500px; // Height of the combined Gif/Sticker/Emoji picker. Does not effect adding reactions. Default and minimum height 500px (498px for Discord's base) and a maximum of 70vh. If Discord is smaller than 720px vertically, this won't apply.
 	--background-filter: none;
 	--user-modal-filter: none;
 	--user-popout-filter: none;
@@ -80,13 +81,8 @@
 	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
 	--win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
 
-	/* Better Discord Toggles and whatnot */
-	--channel-tabs-enabled: 0;
-	--channel-tabs-tabBar-enabled: 1;
-	--channel-tabs-favBar-enabled: 1;
-
 	/* Internal please ignore */
-	// --update-notice-2-point-oh: none;
+	// --update-notice-oct23: none;
 }
 
 // hey if you're wondering why so many ":not()" stuff it's because...
