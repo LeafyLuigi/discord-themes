@@ -568,102 +568,103 @@ $classes: (
 
 		"chatButtonContainer": "buttonContainer-2zLp7E",
 
-	),  // indented as heavily relates to call
-		"stage": (
-			"container": "container-cH6QoY", // sibling to uploadArea, child of chat
-			"callContainer": "callContainer-BGIngG", // child
-			"sidebarVisible": "sidebarVisible-3bgZKv", // same, relates to raised hand
-			// child being call root, children of scroller, call videoControls, some other classes without suffixes
-			"scroller": "scroller-35tvpe", // child
-			// children being div no class, headerContainer, rowContainer, divider, roleContainer, participants, spacer
-			"headerContainer": "container-2GuWaQ",
-			"rowContainer": "rowContainer-jDvyA4", // child of everywhere content
-			"spaceBetweenTiles": "spaceBetweenTiles-1AqWYp", // child, children of tileOuter (see call)
-			"tile": "tile-WBhv6B", // child of call tileInner, not to be confused with every other fucking tile class 
-			"moderatorContainer": "container-yn4cwV", // shield-like design, sibling of stage tile
-			"divider": "divider-vv_iHh",
-			
-			// videoControls, children being gradientContainer+gradientBottom, controlSection[top, bottom]
-			"gradientContainer": "gradientContainer-phMG8d", // child
-			"gradientBottom": "gradientBottom-uB_-4E",
-			"gradientTop": "gradientTop-1UBZHm",
-			// controlSection (either top or bottom)
-			"controlsParticipants": "participants-3hk3ND", // used as header
-			"raisedHandButtonContainer": "raisedHandButtonContainer-ztlAy1", // used again as child of self??
-			"raisedHandIcon": "raisedHandIcon-3mZpd6", // paired with above when above is child of self
-			// within bottom, 3 children all same classes and inline except middle is `flex: 1 1 auto;`, rest are `flex: 0 1 50%;`
-			// from left to right...
-			"iconButton": "iconButton-27GGu7", // has a min-width media display none, button color has max width one
-			"iconButtonLineReset": "lineHeightReset-1WxXXk", // child, also used for participants button
-			// "leftTrayIcon": "",
-			"controlIcon": "controlIcon-10O-4h", // child but not used on leave call button
-			// middle child
-			"containerColumn": "containerColumn-1y0VaZ", // two children - event prompts and buttonRow
-			"eventPrompts": "eventPrompts-11wEpt", 
-			"openStageContainer": "container-1IyjjY",
-			"openStagePulse": "pulse-6-ba-V",
-			"openStageIcon": "icon-3CZSYe", // inline background color green
-			"openStageTextContainer": "textContainer-2SFhPw",
-			"openStageCaret": "caret-2p45hs",
-			"eventPromptsSeparator": "separator-1zwi-s",
-			"buttonRow": "container-a_NK-C",
-			"avControls": "avControls-1rQROI", // mic, parent to contextMenuContainer + unmaksed
-			"leaveStageButton": "primaryButtonColor-3yAd8m",
-			"buttonWithTextInnerContainer": "buttonWithTextInnerContainer-2Vl7uJ", 
-			"buttonWithTextIcon": "buttonWithTextIcon-YDu3bb",
-			"buttonSpacing": "buttonSpacing-ZuQU_D",
-			// right
-			"rightTrayIcon": "rightTrayIcon-1gEoki",
+	),
+	// heavily relates to call
+	"stage": (
+		"container": "container-cH6QoY", // sibling to uploadArea, child of chat
+		"callContainer": "callContainer-BGIngG", // child
+		"sidebarVisible": "sidebarVisible-3bgZKv", // same, relates to raised hand
+		// child being call root, children of scroller, call videoControls, some other classes without suffixes
+		"scroller": "scroller-35tvpe", // child
+		// children being div no class, headerContainer, rowContainer, divider, roleContainer, participants, spacer
+		"headerContainer": "container-2GuWaQ",
+		"rowContainer": "rowContainer-jDvyA4", // child of everywhere content
+		"spaceBetweenTiles": "spaceBetweenTiles-1AqWYp", // child, children of tileOuter (see call)
+		"tile": "tile-WBhv6B", // child of call tileInner, not to be confused with every other fucking tile class 
+		"moderatorContainer": "container-yn4cwV", // shield-like design, sibling of stage tile
+		"divider": "divider-vv_iHh",
+		
+		// videoControls, children being gradientContainer+gradientBottom, controlSection[top, bottom]
+		"gradientContainer": "gradientContainer-phMG8d", // child
+		"gradientBottom": "gradientBottom-uB_-4E",
+		"gradientTop": "gradientTop-1UBZHm",
+		// controlSection (either top or bottom)
+		"controlsParticipants": "participants-3hk3ND", // used as header
+		"raisedHandButtonContainer": "raisedHandButtonContainer-ztlAy1", // used again as child of self??
+		"raisedHandIcon": "raisedHandIcon-3mZpd6", // paired with above when above is child of self
+		// within bottom, 3 children all same classes and inline except middle is `flex: 1 1 auto;`, rest are `flex: 0 1 50%;`
+		// from left to right...
+		"iconButton": "iconButton-27GGu7", // has a min-width media display none, button color has max width one
+		"iconButtonLineReset": "lineHeightReset-1WxXXk", // child, also used for participants button
+		// "leftTrayIcon": "",
+		"controlIcon": "controlIcon-10O-4h", // child but not used on leave call button
+		// middle child
+		"containerColumn": "containerColumn-1y0VaZ", // two children - event prompts and buttonRow
+		"eventPrompts": "eventPrompts-11wEpt", 
+		"openStageContainer": "container-1IyjjY",
+		"openStagePulse": "pulse-6-ba-V",
+		"openStageIcon": "icon-3CZSYe", // inline background color green
+		"openStageTextContainer": "textContainer-2SFhPw",
+		"openStageCaret": "caret-2p45hs",
+		"eventPromptsSeparator": "separator-1zwi-s",
+		"buttonRow": "container-a_NK-C",
+		"avControls": "avControls-1rQROI", // mic, parent to contextMenuContainer + unmaksed
+		"leaveStageButton": "primaryButtonColor-3yAd8m",
+		"buttonWithTextInnerContainer": "buttonWithTextInnerContainer-2Vl7uJ", 
+		"buttonWithTextIcon": "buttonWithTextIcon-YDu3bb",
+		"buttonSpacing": "buttonSpacing-ZuQU_D",
+		// right
+		"rightTrayIcon": "rightTrayIcon-1gEoki",
 
-			"participants": "participants-3hk3ND", // children usually are tileContainer and tileBaseContainer
-			"tileBaseContainer": "tileBaseContainer-2zuu3-",
-			"tileContainer": "tileContainer-Os085F",
-			"avatarContainer": "avatarContainer-1IdZvt",
-			"avatar": "avatar-rC0Atp",
-			"textContainer": "textContainer-37W3Ry",
-			"text": "text-NKMwrd", // what a useful class name i hope you can memorize this list.
+		"participants": "participants-3hk3ND", // children usually are tileContainer and tileBaseContainer
+		"tileBaseContainer": "tileBaseContainer-2zuu3-",
+		"tileContainer": "tileContainer-Os085F",
+		"avatarContainer": "avatarContainer-1IdZvt",
+		"avatar": "avatar-rC0Atp",
+		"textContainer": "textContainer-37W3Ry",
+		"text": "text-NKMwrd", // what a useful class name i hope you can memorize this list.
 
-			"spacer": "spacer-LSz5ul",
+		"spacer": "spacer-LSz5ul",
 
-			// child to callContainer, sibling to sidebarVisible only if this is open
-			"requestToSpeakContainer": "container-lqPArA",
-			"rtsHeaderContainer": "headerContainer-21E-jZ",
-			"rtsHeaderTitle": "headerTitle-me7jU9",
-			"rtsHeaderClose": "headerClose-2iIpCp",
+		// child to callContainer, sibling to sidebarVisible only if this is open
+		"requestToSpeakContainer": "container-lqPArA",
+		"rtsHeaderContainer": "headerContainer-21E-jZ",
+		"rtsHeaderTitle": "headerTitle-me7jU9",
+		"rtsHeaderClose": "headerClose-2iIpCp",
 
-			"rtsContentContainer": "contentContainer-dKJ2Bn",
-			"rtsAllowFromEveryoneContainer": "container-31PmuA",
-			"rtsToggle": "toggle-fbIE0z", // paired with ^
-			"rtsLabelRow": "labelRow-NnoUIp",
-			"rtsDivider": "divider-3nqZNm",
-			"rtsDividerDefault": "dividerDefault-wIfHHD",
+		"rtsContentContainer": "contentContainer-dKJ2Bn",
+		"rtsAllowFromEveryoneContainer": "container-31PmuA",
+		"rtsToggle": "toggle-fbIE0z", // paired with ^
+		"rtsLabelRow": "labelRow-NnoUIp",
+		"rtsDivider": "divider-3nqZNm",
+		"rtsDividerDefault": "dividerDefault-wIfHHD",
 
-			"rtsListTitle": "listTitle-2F1eUy",
-			"rtsEmptyStateContainer": "emptyStateContainer-2wiHQ3",
-			"rtsEmptyImage": "container-2GuWaQ", // children of this aren't listed here.
-			"rtsEmptyStateTitle": "emptyStateTitle-Qlq-Jr",
-			"rtsEmptyStateBody": "emptyStateBody-3fqk07",
-			"rtsParticipantsRowContainer": "participantRowContainer-1Fyb5z",
-			"rtsParticipantMemberContainer": "participantMemberContainer-m-hetW",
-			"rtsParticipantAvatar": "participantAvatar-3U4t_W",
-			"rtsParticipantTextContainer": "participantTextContainer-2wvQ_J",
-			"rtsParticipantName": "participantName-1FTX6x",
+		"rtsListTitle": "listTitle-2F1eUy",
+		"rtsEmptyStateContainer": "emptyStateContainer-2wiHQ3",
+		"rtsEmptyImage": "container-2GuWaQ", // children of this aren't listed here.
+		"rtsEmptyStateTitle": "emptyStateTitle-Qlq-Jr",
+		"rtsEmptyStateBody": "emptyStateBody-3fqk07",
+		"rtsParticipantsRowContainer": "participantRowContainer-1Fyb5z",
+		"rtsParticipantMemberContainer": "participantMemberContainer-m-hetW",
+		"rtsParticipantAvatar": "participantAvatar-3U4t_W",
+		"rtsParticipantTextContainer": "participantTextContainer-2wvQ_J",
+		"rtsParticipantName": "participantName-1FTX6x",
 
-			// sidebar stuff
-			"sidebarContainer": "container-2Y4CWj",
-			"channelNotice": "alias sidebar eventNotice notice",
-			"channelNoticeTextBlock": "textBlock-3rqvcj", // children and siblings not listed
-			"audienceContainer": "audienceContainer-1zTPME",
-			"audienceContainerCollapsed": "audienceContainerCollapsed-2OXkcm",
-			"audienceVoiceIconContainer": "audienceIconContainer-1xndyK",
-			"audienceIcon": "audienceIcon-2HoEJ2",
+		// sidebar stuff
+		"sidebarContainer": "container-2Y4CWj",
+		"channelNotice": "alias sidebar eventNotice notice",
+		"channelNoticeTextBlock": "textBlock-3rqvcj", // children and siblings not listed
+		"audienceContainer": "audienceContainer-1zTPME",
+		"audienceContainerCollapsed": "audienceContainerCollapsed-2OXkcm",
+		"audienceVoiceIconContainer": "audienceIconContainer-1xndyK",
+		"audienceIcon": "audienceIcon-2HoEJ2",
 
-			// no clue, legacy shit or whatever
-			"participantsButton": "participantsButton-1WBdFP",
-			"rtsButtonContainer": "buttonContainer-1QM2ob",
-			"active": "active-3D763s",
-			"speakerRaiseHandBadge": "speakerRaiseHandBadge-1hA2Uh",
-		),
+		// no clue, legacy shit or whatever
+		"participantsButton": "participantsButton-1WBdFP",
+		"rtsButtonContainer": "buttonContainer-1QM2ob",
+		"active": "active-3D763s",
+		"speakerRaiseHandBadge": "speakerRaiseHandBadge-1hA2Uh",
+	),
 	"card": (
 		// These are likely all over the app but are best found in settings.
 		// Some things labelled "card-" aren't from here and are instead unique to that area.
@@ -1549,29 +1550,30 @@ $classes: (
 		"imageWrapper": "imageWrapper-oMkQl4",
 		"imageWrapperBackground": "imageWrapperBackground-3Vss_C",
 		"threadContainer": "container-3i3IzO",
-	),	//indented as it's a subset of embeds
-		"media": (
-			"barInteraction": "mediaBarInteraction-tUE5dq",
-			"barInteractionDragging": "mediaBarInteractionDragging-3XLL8k", // hover required for grabber
-			"barWrapper": "mediaBarWrapper-33h1oY", // needs before + after
-			"barBuffer": "buffer-3eVqKK", // needs before + after, secondary color
-			"barPreview": "mediaBarPreview-1gUbVy", // needs before + after
-			"barProgress": "mediaBarProgress-38I317", // needs before + after, primary color
-			"barGrabber": "mediaBarGrabber-FvJKJg", // primary color
-			"barVolume": "mediaBarInteractionVolume-zGrOSh", // card
-			"controlIcon": "controlIcon-1grhw_",
-			"metadataDownload": "metadataDownload-3IY84h",
-			"metadataIcon": "metadataIcon-3QMhu9",
-			"metadataName": "metadataName-1KMZtB",
-			"metadataSize": "metadataSize-2A2s1T",
-			"durationWrapper": "durationTimeWrapper-LdSEv8",
-			"durationDisplay": "durationTimeDisplay-QwCeRr",
-			"durationSeparator": "durationTimeSeparator-1Cqi9N",
-			"audioWrapper": "wrapperAudio-1Bzv_Z",
-			"audioMetadata": "audioMetadata-1Hrt8T",
-			"audioControls": "audioControls-3fmemK",
-			"bubble": "bubble-3XikHF",
-		),
+	),
+	// heavily related to embeds
+	"media": (
+		"barInteraction": "mediaBarInteraction-tUE5dq",
+		"barInteractionDragging": "mediaBarInteractionDragging-3XLL8k", // hover required for grabber
+		"barWrapper": "mediaBarWrapper-33h1oY", // needs before + after
+		"barBuffer": "buffer-3eVqKK", // needs before + after, secondary color
+		"barPreview": "mediaBarPreview-1gUbVy", // needs before + after
+		"barProgress": "mediaBarProgress-38I317", // needs before + after, primary color
+		"barGrabber": "mediaBarGrabber-FvJKJg", // primary color
+		"barVolume": "mediaBarInteractionVolume-zGrOSh", // card
+		"controlIcon": "controlIcon-1grhw_",
+		"metadataDownload": "metadataDownload-3IY84h",
+		"metadataIcon": "metadataIcon-3QMhu9",
+		"metadataName": "metadataName-1KMZtB",
+		"metadataSize": "metadataSize-2A2s1T",
+		"durationWrapper": "durationTimeWrapper-LdSEv8",
+		"durationDisplay": "durationTimeDisplay-QwCeRr",
+		"durationSeparator": "durationTimeSeparator-1Cqi9N",
+		"audioWrapper": "wrapperAudio-1Bzv_Z",
+		"audioMetadata": "audioMetadata-1Hrt8T",
+		"audioControls": "audioControls-3fmemK",
+		"bubble": "bubble-3XikHF",
+	),
 	"error": (
 		"page": "errorPage-2pZ2Kq",
 		"wrapper": "wrapper-3AZUiP",
@@ -3060,73 +3062,73 @@ $classes: (
 		"closeButton": "closeButton-PCZcma",
 		"closeButtonKeybind": "keybind-13vtq8",
 	),
-		// indented as it's a subset
-		"appSettings": (
-			"slider": "slider-1mmyV6",
-			"sliderMini": "mini-28oMa3",
-			"sliderBar": "bar-2H7Q9u",
-			"sliderBarFill": "barFill-3RgCsY",
-			"sliderGrabber": "grabber-3R-Rx9",
-			"sliderDisabled": "disabled-3KStOf",
-			"sliderTrack": "track-3I-RwH",
-			"sliderMark": "mark-3BqK0R",
-			"sliderMarkAbove": "markAbove-1tF6yT",
-			"sliderMarkBelow": "markBelow-2IOkBQ",
-			"sliderMarkValue": "markValue-21gAVC",
-			"sliderMarkDash": "markDash-1ATsxA",
-			"sliderMarkDashSimple": "markDashSimple-3ixVW9",
-			"sliderDefaultValue": "defaultValue-1-QxQ0",
+	// subset of userSettings
+	"appSettings": (
+		"slider": "slider-1mmyV6",
+		"sliderMini": "mini-28oMa3",
+		"sliderBar": "bar-2H7Q9u",
+		"sliderBarFill": "barFill-3RgCsY",
+		"sliderGrabber": "grabber-3R-Rx9",
+		"sliderDisabled": "disabled-3KStOf",
+		"sliderTrack": "track-3I-RwH",
+		"sliderMark": "mark-3BqK0R",
+		"sliderMarkAbove": "markAbove-1tF6yT",
+		"sliderMarkBelow": "markBelow-2IOkBQ",
+		"sliderMarkValue": "markValue-21gAVC",
+		"sliderMarkDash": "markDash-1ATsxA",
+		"sliderMarkDashSimple": "markDashSimple-3ixVW9",
+		"sliderDefaultValue": "defaultValue-1-QxQ0",
 
-			"appearencePreview": "preview-QJ3OG3",
+		"appearencePreview": "preview-QJ3OG3",
 
-			"accessabilityPreview": "preview-3k9WhO",
-			"previewMessage": "previewMessage-2g_aBv",
+		"accessabilityPreview": "preview-3k9WhO",
+		"previewMessage": "previewMessage-2g_aBv",
 
-			"voicePage": "userSettingsVoice-1s-yPp",
-			"voiceNotches": "notches-2w7UZJ",
-			"voiceNotchesGray": "gray-3wP137",
-			"voicePreviewContainer": "cameraWrapper-nG8dpo",
-			"voiceBackgroundOptionRing": "backgroundOptionRing-1vvQ0C",
-			"voiceBackgroundOptionInner": "backgroundOptionInner-SSz19O",
+		"voicePage": "userSettingsVoice-1s-yPp",
+		"voiceNotches": "notches-2w7UZJ",
+		"voiceNotchesGray": "gray-3wP137",
+		"voicePreviewContainer": "cameraWrapper-nG8dpo",
+		"voiceBackgroundOptionRing": "backgroundOptionRing-1vvQ0C",
+		"voiceBackgroundOptionInner": "backgroundOptionInner-SSz19O",
 
-			"overlayWrapper": "wrapper-SdcMKg",
-			"overlayDisabled": "disabled-35mc5w",
-			"overlaySelected": "selected-18Wszc",
-			"overlayOption": "option-1QI4c9",
-			"overlayDisabledSelected": "disabledSelected-1jqfsw",
+		"overlayWrapper": "wrapper-SdcMKg",
+		"overlayDisabled": "disabled-35mc5w",
+		"overlaySelected": "selected-18Wszc",
+		"overlayOption": "option-1QI4c9",
+		"overlayDisabledSelected": "disabledSelected-1jqfsw",
 
-			"soundRow": "soundRow-2Vsfbg",
-			"soundRowDividerDefault": "dividerDefault-wIfHHD",
+		"soundRow": "soundRow-2Vsfbg",
+		"soundRowDividerDefault": "dividerDefault-wIfHHD",
 
-			"keybindImage": "image-20MDYu", // when no keybinds
-			"keybindDefault": "defaultKeybind-1rEiTa",
-			"keybindCard": "card-2ART2V",
-			"keybindGroup": "defaultKeybindGroup-36Wpyv",
-			"keybindGroupDescription": "defaultKeybindGroupDescription-3c3NhW",
-			"keybindGroupHeader": "defaultKeybindGroupHeader-18_214",
-			"keybindGroupWithDescription": "defaultKeybindGroupWithDescription-3xCKaN",
-			"keybindShortcutGroup": "defaultKeybindShortcutGroup-2ZtT2R",
-			"keybindRemove": "removeKeybind-3J8M42",
-			"keybindRemoveFilled": "alias removeButton filled",
-			// "keybindButton": "keybindShortcut-3zF1P9", // removed?
+		"keybindImage": "image-20MDYu", // when no keybinds
+		"keybindDefault": "defaultKeybind-1rEiTa",
+		"keybindCard": "card-2ART2V",
+		"keybindGroup": "defaultKeybindGroup-36Wpyv",
+		"keybindGroupDescription": "defaultKeybindGroupDescription-3c3NhW",
+		"keybindGroupHeader": "defaultKeybindGroupHeader-18_214",
+		"keybindGroupWithDescription": "defaultKeybindGroupWithDescription-3xCKaN",
+		"keybindShortcutGroup": "defaultKeybindShortcutGroup-2ZtT2R",
+		"keybindRemove": "removeKeybind-3J8M42",
+		"keybindRemoveFilled": "alias removeButton filled",
+		// "keybindButton": "keybindShortcut-3zF1P9", // removed?
 
-			"gameNotDetected": "notDetected-M3Ghh2",
-			"gameNowPlaying": "nowPlaying-3UpuKc",
-			"gameName": "gameName-zbZetm",
-			"gameNameInput": "gameNameInput-2wbDJ9",
-			"gameLastPlayed": "lastPlayed-1jum9A",
-			"gameOverlayStatusText": "overlayStatusText-In0YrK",
-			"gameOverlayToggleIcon": "toggleIcon-2tF94r",
-			"gameOverlayToggleIconOn": "toggleIconOn-1dZapU",
-			"gameOverlayToggleIconOff": "toggleIconOff-XGPmqE",
-			"gameOverlayToggleIconFill": "fill-297bdf",
-			"gameFlowerStar": "flowerStar-2tNFCR",
-			"game": "game-2f2vPC",
-			"gameRemove": "removeGame-3V7nss",
-			"addGamePopout": "addGamePopout-2SKNIV",
+		"gameNotDetected": "notDetected-M3Ghh2",
+		"gameNowPlaying": "nowPlaying-3UpuKc",
+		"gameName": "gameName-zbZetm",
+		"gameNameInput": "gameNameInput-2wbDJ9",
+		"gameLastPlayed": "lastPlayed-1jum9A",
+		"gameOverlayStatusText": "overlayStatusText-In0YrK",
+		"gameOverlayToggleIcon": "toggleIcon-2tF94r",
+		"gameOverlayToggleIconOn": "toggleIconOn-1dZapU",
+		"gameOverlayToggleIconOff": "toggleIconOff-XGPmqE",
+		"gameOverlayToggleIconFill": "fill-297bdf",
+		"gameFlowerStar": "flowerStar-2tNFCR",
+		"game": "game-2f2vPC",
+		"gameRemove": "removeGame-3V7nss",
+		"addGamePopout": "addGamePopout-2SKNIV",
 
-			"contentTransitionWrap": "contentTransitionWrap-1YD530",
-		),
+		"contentTransitionWrap": "contentTransitionWrap-1YD530",
+	),
 	// There's (at least) two different lines for reactions.
 	// One's for *chat* and the other's for *forum posts*.
 	// This lot is for the former.
