@@ -9,7 +9,12 @@
 	// 	min-height: unset;
 	// 	padding: 16px;
 	// }
-	:is(#{c(userSettings boostCardGemContainer)},#{c(userSettings subscriptionsNoItemsIconSubs)},#{c(userSettings subscriptionsNoItemsIconCredits)}) {
+	:is(
+	#{c(userSettings boostCardGemContainer)},
+	#{c(userSettings subscriptionsNoItemsIconSubs)},
+	#{c(userSettings subscriptionsNoItemsIconCredits)},
+	#{c(userSettings addAccountMetadataContainer)}
+	) {
 		background-color: transparent;
 	}
 }
@@ -141,7 +146,7 @@
 #{c(userSettings cardPrimary)},
 #{c(userSettings cardPrimaryEditable)},
 #{c(userSettings cardPrimaryOutline)},
-// #{c(userSettings addConnectionContainer)},
+#{c(userSettings addConnectionContainer)},
 #{c(userSettings cardPrimaryOutlineEditable)} {
 	@include card;
 }
