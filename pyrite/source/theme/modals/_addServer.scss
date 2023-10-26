@@ -13,17 +13,17 @@
 	--background-modifier-accent:hsla(0,0%,100%,0.06);
 	--deprecated-text-input-bg:rgba(0,0,0,0.1);
 	--deprecated-text-input-border:rgba(0,0,0,0.3);
-	#{c(button lookBlank)} {
-		color: var(--text-normal);
-	}
+}
+#{c(modals addServer modal)} #{c(button lookBlank)} {
+	color: var(--text-normal);
 }
 
-#{c(modals addServer templatesList)},
-#{c(modals addServer optionsList)} {
+#{c(modals addServer createAServerTemplatesList)},
+#{c(modals addServer tellUsMoreOptionsList)} {
 	margin-top: 0;
 	padding-top: 24px;
 }
-#{c(modals addServer createServer)} {
+#{c(modals addServer customiseCreateServer)} {
 	margin: 0;
 	padding: 16px;
 }
@@ -39,7 +39,7 @@
 		color: var(--interactive-hover);
 	}
 }
-#{c(modals addServer uploadIcon)} {
+#{c(modals addServer customiseUploadIcon)} {
 	>div>svg>circle[fill="#5865f2"] {
 		fill: $primary;
 	}

@@ -4,11 +4,11 @@
 	#{c(userSettings codeRedemptionRedirect)} {
 		@include card;
 	}
-	#{c(userSettings nitroFeature)} {
-		@include card;
-		min-height: unset;
-		padding: 16px;
-	}
+	// #{c(userSettings nitroFeature)} {
+	// 	@include card;
+	// 	min-height: unset;
+	// 	padding: 16px;
+	// }
 	:is(#{c(userSettings boostCardGemContainer)},#{c(userSettings subscriptionsNoItemsIconSubs)},#{c(userSettings subscriptionsNoItemsIconCredits)}) {
 		background-color: transparent;
 	}
@@ -48,16 +48,16 @@
 		background-color: transparent;
 	}
 }
-#{c(userSettings nitroFeatureImageWrapper)} {
-	display: none;
-}
+// #{c(userSettings nitroFeatureImageWrapper)} {
+// 	display: none;
+// }
 #{c(userSettings profileAvatarUploader)} {
 	border-color: transparent;
 	background-color: transparent;
 }
-#{c(userSettings nitroRedirectWarningIcon)} {
-	color: $yellow;
-}
+// #{c(userSettings nitroRedirectWarningIcon)} {
+// 	color: $yellow;
+// }
 #{c(userSettings radioGroupItem)} {
 	backdrop-filter: blur(3px);
 	background-color: var(--background-modifier-accent);
@@ -141,16 +141,16 @@
 #{c(userSettings cardPrimary)},
 #{c(userSettings cardPrimaryEditable)},
 #{c(userSettings cardPrimaryOutline)},
-#{c(userSettings cardPrimaryOutlineEditable)},
-#{c(userSettings addConnectionContainer)} {
+// #{c(userSettings addConnectionContainer)},
+#{c(userSettings cardPrimaryOutlineEditable)} {
 	@include card;
 }
 #{c(userSettings boostSubscriptionSlots)},
 #{c(userSettings subscriptionsDetailsBlock)},
 #{c(userSettings giftPromotionCard)},
 #{c(userSettings boostGuildHeader)},
-#{c(userSettings boostCardNoIcon)},
-#{c(userSettings nitroRedirectContainer)} {
+// #{c(userSettings nitroRedirectContainer)},
+	#{c(userSettings boostCardNoIcon)} {
 	background-color: $card;
 }
 #{c(main appLayer)},

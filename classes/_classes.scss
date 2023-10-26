@@ -851,11 +851,6 @@ $classes: (
 		"blockquoteContainer": "blockquoteContainer_f24d1f",
 		"blockquoteDivider": "blockquoteDivider__96157",
 
-		"reaction": "alias reaction reaction",
-		"reactionMe": "alias reaction me",
-		"reactionInner": "alias reaction inner",
-		"reactionCount": "alias reaction count",
-
 		"containerExpanded": "containerExpanded_c19a2a", // send wave sticker large
 		"compactContainer": "containerCompact_a8a449", // houses below
 		"compactButton": "compactButton__0f247", // send wave sticker
@@ -1454,19 +1449,26 @@ $classes: (
 		"categoryItemSelected": "selectedCategoryItem__0bf4c",
 		"categoryItemInner": "itemInner__9e755",
 		"pageWrapper": "pageWrapper_fef757",
-		"viewWrapper": "viewWrapper-2sTW6t",
-		"scroller": "scroller-3j5xK2",
-		"searchHeader": "searchHeader-3ZIh2x",
-		"searchHeaderImage": "headerImage-2D5D-v",
-		"searchHeaderContentWrapper": "headerContentWrapper-1u9R_E",
-		"searchHeaderContent": "headerContent-2Z-1wE",
-		"searchTitle": "searchTitle-1qceKb",
-		"searchSubtitle": "searchSubtitle-C5P4gh",
-		"search": "search-25t1e9",
-		"searchBox": "searchBox_a63854",
-		"searchBoxInput": "searchBoxInput-3h4etz",
-		"searchCloseIcon": "closeIcon-BMGxx0",
-		"searchSearchIcon": "searchIcon-3X4BYL",
+
+		"viewWrapper": "viewWrapper_d8b39a",
+		"scroller": "scroller__1f4dd",
+		"searchHeader": "searchHeader_d4db5a",
+		"searchHeaderImage": "headerImage__0db01",
+		"searchHeaderContentWrapper": "headerContentWrapper__21a71",
+		"searchHeaderContent": "headerContent__66d27",
+		"searchTitle": "searchTitle__66210",
+		"searchSubtitle": "searchSubtitle__1f7eb",
+		"footer": "footer_c65acf",
+		"footerImage": "footerImage_b0b86b",
+		"searchPage": "searchPage__3f316",
+		"searchResultsList": "guildList__454fa",
+
+		"search": "search_e47903",
+		"searchBox": "searchBox__88a98", // previously used searchBox_a63854 which is on a different line
+		"searchBoxInput": "searchBoxInput_bbea1c",
+		"searchCloseIcon": "closeIcon__3dfb5",
+		"searchSearchIcon": "searchIcon_f30c40",
+
 		"cardListSection": "guildListSection__5b7bf",
 		"cardList": "guildList_b5189f",
 		"cardPlaceholder": "cardPlaceholder__6e28f",
@@ -1476,22 +1478,19 @@ $classes: (
 		"cardIcon": "guildIcon__597aa",
 		"cardIconMask": "iconMask__1aff7",
 		"spinner": "spinner__97e4c",
-		"footer": "footer-26kPv_",
-		"footerImage": "footerImage-3DpC_8",
 
-		"searchPage": "searchPage-1Rxeav",
+		"searchCategories": "categories_e49c23",
+		"searchCategoryPill": "categoryPill_c95cea",
+		"searchCategorySelected": "selected__24846",
+
 		"searchPageContainer": "container__56ed5",
 		"searchPageHeader": "searchHeader_d44e8b",
 		"searchResults": "results__9b201",
-		"searchResultsList": "guildList-QjZKeK",
 		"searchSpinner": "spinner__25faf",
 		"searchCard": "card__33bd0",
 		"searchEmptyContainer": "emptyContainer_a4bd05",
 		"searchEmptyImage": "emptyImage__66bed",
 		"searchErrorImage": "errorImage__0200e",
-		"searchCategories": "categories-2LoSbA",
-		"searchCategoryPill": "categoryPill-1zjNrr",
-		"searchCategorySelected": "selected-bLcqYK",
 		"searchPlaceholder": "placeholder__278ac",
 
 		"studentScroller": "scroller_e9501c",
@@ -3169,30 +3168,30 @@ $classes: (
 
 		"premiumIcon": "premiumIcon__65d0d",
 		// "addReactionTooltip": "addReactionTooltip-THgyYF", // cannot find at all
-		"sparkleStar": "sparkleStar-evJw9v",
-		"sparklePlus": "sparklePlus-V5DWdp",
+		// "sparkleStar": "sparkleStar-evJw9v",
+		// "sparklePlus": "sparklePlus-V5DWdp",
 		"sparkles": "sparkles__4c7bf",
 
-		"tooltip": (
-			"tooltip": "reactionTooltip-3IOBwg",
-			"content": "reactionTooltipContent-3XfUAU",
-			"emoji": "reactionTooltipEmoji-1Rv8jQ",
-			"text": "reactionTooltipText-iAWHhX",
-			"inner": "reactionTooltipInner-Pl3uOD",
-		),
-		"burst": (
-			"betaAlertTitle": "burstBetaAlertTitle-2S9ciS",
-			"animatedCounter": "burstAnimatedCounter-3zZXOt",
-			"glow": "burstGlow_f0f94c",
-			"tooltip": (
-				"inner": "burstReactionTooltipInner-2aCEVH",
-				"message": "burstReactionTooltipMessage-2UCrKo",
-				"spacer": "burstReactionTooltipSpacer-1oUrib",
-				"prompt": "burstReactionTooltipPrompt-3XAM1h",
-				"nitroIcon": "burstReactionTooltipNitroIcon-34FUA3",
-				"upsellCta": "burstReactionTooltipUpsellCta-2WX3Zh",
-			),
-		),
+		// "tooltip": (
+		// 	"tooltip": "reactionTooltip-3IOBwg",
+		// 	"content": "reactionTooltipContent-3XfUAU",
+		// 	"emoji": "reactionTooltipEmoji-1Rv8jQ",
+		// 	"text": "reactionTooltipText-iAWHhX",
+		// 	"inner": "reactionTooltipInner-Pl3uOD",
+		// ),
+		// "burst": (
+		// 	"betaAlertTitle": "burstBetaAlertTitle-2S9ciS",
+		// 	"animatedCounter": "burstAnimatedCounter-3zZXOt",
+		// 	"glow": "burstGlow_f0f94c",
+		// 	"tooltip": (
+		// 		"inner": "burstReactionTooltipInner-2aCEVH",
+		// 		"message": "burstReactionTooltipMessage-2UCrKo",
+		// 		"spacer": "burstReactionTooltipSpacer-1oUrib",
+		// 		"prompt": "burstReactionTooltipPrompt-3XAM1h",
+		// 		"nitroIcon": "burstReactionTooltipNitroIcon-34FUA3",
+		// 		"upsellCta": "burstReactionTooltipUpsellCta-2WX3Zh",
+		// 	),
+		// ),
 	),
 	"other": (
 		// This category is for the random stuff that I'm unable to find
@@ -3316,7 +3315,7 @@ $classes: (
 			"progressBarSelected": "selectedProgressBar__10383", // above selected
 			"stepContainer": "stepContainer_ce1f7e",
 
-			"textInput": "textInput-3g8y92", // could be textContainer__63c47
+			"textInput": "textInput__210e5", // different line for some reason
 			"previewCard": "previewCard_aef1ab",
 		),
 
@@ -3943,22 +3942,38 @@ $classes: (
 		// Ctrl+N or click the green + at the bottom of the server list
 		"addServer": (
 			"modal": "container__0d1a7",
+			
+			// first screen "Create a server"
+			"templateButton": "container__73245",
+			"templateIcon": "icon__6a8ca",
+			"templateButtonText": "text__43e5f",
+			"templateArrow": "arrow__5e540",
+			"createAServerHeader": "header_b4d776",
+			"createAServerTitle": "title__23c2d",
+			"createAServerCloseButton": "closeButton__2cfc2",
+			"createAServerSubtitle": "subtitle__89b16",
+			"createAServerTemplatesList": "templatesList__38838",
+			"footerTitle": "footerTitle_ec7d67",
 
-			"header": "header_b4d776",
-			"backButton": "backButton-2Ps-B8",
-			"templatesList": "templatesList-uohY49",
-			"templateButton": "container-x8Y1ix",
-			"templateButtonText": "text-PdAsFQ",
-			"optionsList": "optionsList-dmHy1l",
-			"createServer": "createGuild-2m1V10",
-			"subtitle": "subtitle-3m-md1",
-			"headerTitle": "title-1_TkpU",
-			"footerTitle": "footerTitle-3Bslxi",
-			"tellUsMoreTitle": "title-OdeD-o", // second screen
-			"tellUsMoreSubtitle": "subtitle-1cc8Nz", // second screen
-			"closeButton": "closeButton-3wDOHY",
+			// second screen "Tell us more about your server"
+			"tellUsMoreHeader": "header__3bede",
+			"tellUsMoreTitle": "title_a58c92",
+			"tellUsMoreSubtitle": "subtitle_a75f7f",
+			"tellUsMoreBackButton": "backButton__576ea",
+			"tellUsMoreOptionsList": "optionsList__047e8",
+			"tellUsMoreCloseButton": "closeButton_be7736",
+			"tellUsMoreSkip": "skip_f687eb",
 
-			"uploadIcon": "uploadIcon-2wV7s_",
+			// third screen "Customise your server"
+			"customiseHeader": "header_dd7323",
+			"customiseTitle": "title_cba92b",
+			"customiseCreateServer": "createGuild_eb084b",
+			"customiseUploadIcon": "uploadIcon__6efce",
+
+			// alternate second screen "Join a server" - click already have an invite button
+			"joinAServerHeader": "header_f45cbf",
+			"joinAServerInput": "input__0c269",
+			"joinAServerRowContainer": "rowContainer__6f4c6", // used as pointer to discovery
 		),
 
 		// Click on the emoji, sticker or gif within the chatbar

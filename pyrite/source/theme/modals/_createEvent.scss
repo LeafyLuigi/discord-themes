@@ -6,7 +6,7 @@
 	background-color: $primary;
 }
 #{c(modals createEvent textInput)} {
-		background: transparent;
+	background: transparent;
 }
 :is(#{c(main dark)}, #{c(main light)}) #{c(modals createEvent previewCard)} {
 	background: $card;

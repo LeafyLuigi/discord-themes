@@ -201,8 +201,8 @@
 	background-color: $primary;
 }
 
-#{c(chat reaction)} {
-	&,&#{c(chat reactionMe)},&:hover,&:active {
+#{c(reaction reaction)} {
+	&,&#{c(reaction me)},&:hover,&:active {
 		background: $card;
 	}
 	&:hover {
@@ -211,14 +211,14 @@
 	&:active {
 		border-color: $primary;
 	}
-	&#{c(chat reactionMe)} {
+	&#{c(reaction me)} {
 		border-color: $secondary;
-		#{c(chat reactionCount)} {
+		#{c(reaction count)} {
 			color: $primary;
 			text-shadow: .125rem .125rem .1875rem;
 		}
 	}
-	#{c(chat reactionCount)} {
+	#{c(reaction count)} {
 		color: var(--text-muted);
 	}
 }
