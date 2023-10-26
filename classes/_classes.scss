@@ -116,12 +116,18 @@ $classes: (
 		"mobileApp": "mobileApp_b798a5" "mobileApp_b798a5",
 		"allowsScrolling": "allowsScrolling__9de54" "allowsScrolling__9de54",
 
-		"appInner": "app__00c92",
-		"layers": "layers__12c9f",
+		"appInner": "app__00c92" "app_de4237",
+		"layers": "layers__12c9f" "layers_a23c37",
+		
+		// all on same line
+		"animating": "animating__64b42" "animating__27211",
+		"baseLayer": "baseLayer__13b6b",
+		"bg": "bg__7adbf" "bg__12180",
+		"appLayer": "layer_e552e0" "layer__2efaa",
+		"appLayers": "layers_a40797" "layers__1c917",
 		
 		"backdrop": "backdrop__7e89b",
 		"backdropWithLayer": "withLayer__1fe9d",
-		"bg": "bg__7adbf",
 		"dark": "theme-dark",
 		"amoled": "theme-amoled", // experiment 2022-08_amoled_mode_web: currently applies on the following lines of the linked css: 61 (variable definitions), 696 (header container), 832 ("home" channel for chat), 1526 (forums) https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
 		"light": "theme-light",
@@ -132,8 +138,6 @@ $classes: (
 		"layerContainer": "layerContainer_d5a653",
 		"container": "container__037ed",
 		"content": "content__4bf10",
-		"baseLayer": "baseLayer__13b6b",
-		"appLayer": "layer_e552e0",
 		"layer": "layer_ec16dd",
 		"mediaEngineVideo": "media-engine-video",
 		"base": "base__3e6af",
