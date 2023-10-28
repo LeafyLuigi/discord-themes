@@ -17,8 +17,14 @@
 			opacity: 0.95;
 		}
 	}
-	:is(#{c(modals gif categoryFade)},
-	#{c(modals gif resultPlaceholder)}) {
+	#{c(modals gif emptyHintFavourite)} {
+		color: $primary;
+	}
+	:is(
+		#{c(modals gif categoryFade)},
+		#{c(modals gif resultPlaceholder)},
+		#{c(modals gif emptyHintCard)}
+	) {
 		background-color: $card;
 	}
 	#{c(modals gif noResultsWrapper)} {

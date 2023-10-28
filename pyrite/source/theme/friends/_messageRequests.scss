@@ -1,3 +1,20 @@
 @use "backend" as *;
 /* Begin Message Requests */
 // These are only here because I can put them here. It could potentially relate to chat more.
+#{c(messageRequests container)} {
+	border-radius: 0;
+	#{c(chat chatContent)} {
+		background: $middle;
+	}
+}
+// #{c(messageRequests list)} {
+// 	background: $middle;
+// }
+#{c(messageRequests sectionTitle)} {
+	color: var(--header-primary);
+}
+#{c(messageRequests item)} {
+	&:last-child {
+		border-color: transparent; 
+	}
+}

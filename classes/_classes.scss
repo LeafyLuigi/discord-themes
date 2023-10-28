@@ -726,19 +726,19 @@ $classes: (
 	"chat": (
 		"cozy": "cozy_f5c119",
 		"compact": "compact__54ecc",
-		"chat": "chat__52833" "chat__52833",
+		"chat": "chat__52833",
 		"chatSidebarOpen": "chatSidebarOpen_dfaa6a",
-		"threadSidebarOpen": "threadSidebarOpen_fa231d" "threadSidebarOpen_fa231d",
-		"threadSidebarFloating": "threadSidebarFloating_b980c7" "threadSidebarFloating_b980c7",
-		"typing": "typing_db6134" "typing_db6134",
-		"noChat": "noChat_fed339" "noChat_fed339",
-		"chatContent": "content__1a4fe" "content__1a4fe",
+		"threadSidebarOpen": "threadSidebarOpen_fa231d",
+		"threadSidebarFloating": "threadSidebarFloating_b980c7",
+		"typing": "typing_db6134",
+		"noChat": "noChat_fed339",
+		"chatContent": "content__1a4fe",
 		"messagesWrapper": "messagesWrapper_ea2b0b",
 		"chatScroller": "scroller__1f96e",
 		"chatScrollerInner": "scrollerInner__059a5",
 		"chatScrollerNSFW": "scroller_abd90c",
 		"chatGatedContent": "gatedContent_ba8306",
-		"chatContentInner": "chatContent__5dca8" "chatContent__5dca8",
+		"chatContentInner": "chatContent__5dca8",
 		"chatContainer": "container__93316",
 		"chatLoadingWrapper": "wrapper__3d460",
 		"scrollerSpacer": "scrollerSpacer__9cd32", // placed at bottom of message list
@@ -1842,6 +1842,9 @@ $classes: (
 		"messageRequestCoachmark": "messageRequestCoachmark__9b338",
 		"titleDivider": "titleDivider_efe9a6",
 		"clearAllButton": "clearAllButton_ef49f6",
+
+		"item": "messageRequestItem__3b951",
+		"active": "active_a36bbb",
 	),
 	// shared classes. used as aliases from elsewhere.
 	"nameTag": (
@@ -3566,7 +3569,7 @@ $classes: (
 		// It's in the Emojis, Command Autocomplete and Stickers. Open any of them.
 		// Line 404 of 2022-09-14_15:33 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css 
 		"sidebarList": (
-			"wrapper": "wrapper__4f229",
+			"wrapper": "wrapper_cd625e",
 			"list": "list_c7a995",
 			"scroller": "scroller_e89578", // this one is on line 28. likely used in a lot more than just modals
 		),
@@ -4008,13 +4011,17 @@ $classes: (
 			"results": "results_f76516",
 			"noResultsWrapper": "wrapper_d951b6",
 			"sadImage": "sadImage_e4e5ab", // search "hentai" or something
+
+			// shown in favourites when they're empty or something. i used a plugin that allowed for searching and it brought these up.
+			"emptyHintCard": "emptyHintCard_f3e81a",
+			"emptyHintFavourite": "emptyHintFavorite__8b1af", // star
 		),
 
 		// Sticker within chatbar combined popout
 		"sticker": (            
 			"wrapper": "wrapper__89eb8", // has ID on it
 			"header": "header_f71767",
-			"searchWrapper": "wrapper_dcecd7",
+			"searchWrapper": "wrapper__87791",
 			// for the bar, use child of above
 			"listWrapper": "listWrapper__74641",
 			"gridWrapper": "wrapper_e3070a", // holds stickers in grid
