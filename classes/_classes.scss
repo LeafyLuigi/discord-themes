@@ -8,6 +8,7 @@
 /// VERY IMPORTANT INFO FOR SEARCHING OR ADDING CLASS NAMES
 /// Remove the preceding dot before the class name!
 /// The function below adds that before CSS generation and thus is not needed
+/// Also if you've forked the original project, please commit to it upstream
 ////////////////////
 
 /// Get a class from the Classes Map. Code stolen entirely from Zerthox.
@@ -108,23 +109,23 @@ $classes: (
 	// This top one is for things without any spammy suffixes or more important things.
 	"main": (
 		"appMount": "appMount_fae9dd",
-		"appContainer": "app_b1f720" "app_b1f720",
+		"appContainer": "app_b1f720",
 		// on the same line as appContainer
-		"appAsidePanelWrapper": "appAsidePanelWrapper__714a6" "appAsidePanelWrapper__714a6",
-		"mobileAppAsidePanelWrapper": "mobileAppAsidePanelWrapper_edffa0" "mobileAppAsidePanelWrapper_edffa0",
-		"notAppAsidePanel": "notAppAsidePanel__9d124" "notAppAsidePanel__9d124",
-		"mobileApp": "mobileApp_b798a5" "mobileApp_b798a5",
-		"allowsScrolling": "allowsScrolling__9de54" "allowsScrolling__9de54",
+		"appAsidePanelWrapper": "appAsidePanelWrapper__714a6",
+		"mobileAppAsidePanelWrapper": "mobileAppAsidePanelWrapper_edffa0",
+		"notAppAsidePanel": "notAppAsidePanel__9d124",
+		"mobileApp": "mobileApp_b798a5",
+		"allowsScrolling": "allowsScrolling__9de54",
 
 		"appInner": "app__00c92" "app_de4237",
 		"layers": "layers__12c9f" "layers_a23c37",
 		
 		// all on same line
-		"animating": "animating__64b42" "animating__27211",
+		"animating": "animating__27211",
 		"baseLayer": "baseLayer__13b6b",
-		"bg": "bg__7adbf" "bg__12180",
-		"appLayer": "layer_e552e0" "layer__2efaa",
-		"appLayers": "layers_a40797" "layers__1c917",
+		"bg": "bg__12180",
+		"appLayer": "layer__2efaa",
+		"appLayers": "layers__1c917",
 		
 		"backdrop": "backdrop__7e89b",
 		"backdropWithLayer": "withLayer__1fe9d",
@@ -808,17 +809,17 @@ $classes: (
 		"messageContent": "messageContent__21e69",
 
 		// in same line as chat-$suffix
-		"cursorPointer": "cursorPointer__5116a" "cursorPointer__5116a",
-		"chatTitleWrapper": "titleWrapper_aa6737" "titleWrapper_aa6737",
-		"editPartyIcon": "editPartyIcon_b625ce" "editPartyIcon_b625ce",
-		"channelName": "channelName__6d16d" "channelName__6d16d",
-		"parentChannelName": "parentChannelName__7d78b" "parentChannelName__7d78b",
-		"guildBreadcrumbContainer": "guildBreadcrumbContainer__7ca51" "guildBreadcrumbContainer__7ca51",
-		"guildBreadcrumbIcon": "guildBreadcrumbIcon_e5951a" "guildBreadcrumbIcon_e5951a",
-		"channelEmoji": "channelEmoji__234a9" "channelEmoji__234a9",
-		"channelEmojiLeftOfIcon": "channelEmojiLeftOfIcon__9c4b0" "channelEmojiLeftOfIcon__9c4b0",
-		"channelEmojiRightOfIcon": "channelEmojiRightOfIcon__8827e" "channelEmojiRightOfIcon__8827e",
-		"twemoji": "twemoji__38f4e" "twemoji__38f4e",
+		"cursorPointer": "cursorPointer__5116a",
+		"chatTitleWrapper": "titleWrapper_aa6737",
+		"editPartyIcon": "editPartyIcon_b625ce",
+		"channelName": "channelName__6d16d",
+		"parentChannelName": "parentChannelName__7d78b",
+		"guildBreadcrumbContainer": "guildBreadcrumbContainer__7ca51",
+		"guildBreadcrumbIcon": "guildBreadcrumbIcon_e5951a",
+		"channelEmoji": "channelEmoji__234a9",
+		"channelEmojiLeftOfIcon": "channelEmojiLeftOfIcon__9c4b0",
+		"channelEmojiRightOfIcon": "channelEmojiRightOfIcon__8827e",
+		"twemoji": "twemoji__38f4e",
 
 		"spoiler": (
 			"content": "spoilerContent__37bfa",
@@ -1051,7 +1052,7 @@ $classes: (
 	),
 	// Named so because aria-label for the chat bubble icon is "Forum" in English (and French)
 	"forums": (
-		"loadingContainer": "loader__2854a" "loader__2854a",
+		"loadingContainer": "loader__2854a",
 		"container": "container_b181b6", // seems to relate to line 1526 of https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
 		"listScroller": "alias forums list list",
 		"headerRow": "headerRow__16d8e", // css rule for this also applies to .list(above)>div:first-child
@@ -1367,10 +1368,10 @@ $classes: (
 		"newTextAreaError": "channelTextAreaInnerError_c2a106",
 	),
 	"chatForm": (
-		"form": "form__13a2c" "form__13a2c",
+		"form": "form__13a2c",
 		// the two below were both applied on a disabled chat and an enabled one. second one has the background. still unsure about it.
 		"channelTextAreaBase": "channelTextArea__56a36", // base being applied to *every* form
-		"channelTextAreaMain": "channelTextArea__2e60f" "channelTextArea__2e60f", // used at bottom of text channels
+		"channelTextAreaMain": "channelTextArea__2e60f", // used at bottom of text channels
 		"channelTextAreaDisabled": "channelTextAreaDisabled_c43b1c", // you can't type into this channel
 		"innerDisabled": "innerDisabled__37f59", // paired with inner
 		"scrollableContainer": "scrollableContainer__33e06",
@@ -1403,14 +1404,14 @@ $classes: (
 		"threadSuggestionBar": "threadSuggestionBar_b633f7",
 
 		// also applies to blocked
-		"followWrapper": "wrapper_fbbb73" "wrapper_fbbb73",
-		"followImage": "image__04423" "image__04423",
-		"followAnimation": "animation__19784" "animation__19784",
-		"followText": "text__7e783" "text__7e783",
-		"followTitle": "title__77790" "title__77790",
-		"followButton": "button__2b3a3" "button__2b3a3",
-		"followButtonContainer": "buttonContainer__1c00c" "buttonContainer__1c00c",
-		"followCountdown": "countdown_a8f1ae" "countdown_a8f1ae",
+		"followWrapper": "wrapper_fbbb73",
+		"followImage": "image__04423",
+		"followAnimation": "animation__19784",
+		"followText": "text__7e783",
+		"followTitle": "title__77790",
+		"followButton": "button__2b3a3",
+		"followButtonContainer": "buttonContainer__1c00c",
+		"followCountdown": "countdown_a8f1ae",
 
 		// colors may apply elsewhere
 		"colorBrand": "colorBrand_be5f58",
@@ -1660,7 +1661,7 @@ $classes: (
 	),
 	"header": (
 		"header": "container__11d72",
-		"headerTitle": "title_b7d661" "title_b7d661", // used with above, not always though
+		"headerTitle": "title_b7d661", // used with above, not always though
 		"themed": "themed_b152d4",
 		"transparent": "transparent__7f3e0",
 		"children": "children__32014",
@@ -1688,13 +1689,13 @@ $classes: (
 		"topic": "topic__16ae3",
 		"topicExpandable": "expandable_ddf73d",
 		"avatars": "avatars__3f847",
-		"avatar": "avatar__7c789" "avatar__7c789", // on same line as chat-$suffix
+		"avatar": "avatar__7c789", // on same line as chat-$suffix
 		"nicknames": "nicknames__7447d",
-		"status": "status__2a4a6" "status__2a4a6",
+		"status": "status__2a4a6",
 		"tabBar": "tabBar__73938",
 		"addFriend": "addFriend__80542",
 		"tabBarItem": "item_e4ca95",
-		"followButton": "followButton__2e268" "followButton__2e268"
+		"followButton": "followButton__2e268"
 	),
 	"hljs": (
 
@@ -1778,38 +1779,38 @@ $classes: (
 		"dark": "dark__42c4f",
 	),
 	"loading": (
-		"container": "container__4bde3" "container__4bde3",
-		"ready": "ready__61f2f" "ready__61f2f",
-		"content": "content__0e954" "content__0e954",
+		"container": "container__4bde3",
+		"ready": "ready__61f2f",
+		"content": "content__0e954",
 		"problems": (
-			"problems": "problems__755eb" "problems__755eb",
-			"slideIn": "slideIn__2c073" "slideIn__2c073",
-			"text": "problemsText__046e8" "problemsText__046e8",
-			"links": "links_ab4aa2" "links_ab4aa2",
-			"statusLink": "statusLink__7b889" "statusLink__7b889",
-			"twitterLink": "twitterLink_dae605" "twitterLink_dae605",
-			"linkIcon": "icon__8f8f4" "icon__8f8f4",
+			"problems": "problems__755eb",
+			"slideIn": "slideIn__2c073",
+			"text": "problemsText__046e8",
+			"links": "links_ab4aa2",
+			"statusLink": "statusLink__7b889",
+			"twitterLink": "twitterLink_dae605",
+			"linkIcon": "icon__8f8f4",
 		),
-		"contentBase": "contentBase__34e4c" "contentBase__34e4c",
-		"text": "text__32559" "text__32559",
-		"title": "title__4cf32" "title__4cf32",
-		"tipTitle": "tipTitle_a7615c" "tipTitle_a7615c",
-		"tip": "tip__6e299" "tip__6e299",
-		"keybind": "keybind__960a7" "keybind__960a7",
-		"body": "body_c562e6" "body_c562e6", // on same element as contentBase
+		"contentBase": "contentBase__34e4c",
+		"text": "text__32559",
+		"title": "title__4cf32",
+		"tipTitle": "tipTitle_a7615c",
+		"tip": "tip__6e299",
+		"keybind": "keybind__960a7",
+		"body": "body_c562e6", // on same element as contentBase
 
 		"firefoxFixScrollFlex": "firefoxFixScrollFlex__99714",
 		"fixClipping": "fixClipping__9c8f4",
 	),
 	"memberList": (
-		"container": "container_b2ce9c" "container_b2ce9c",
-		"notices": "membersListNotices_a4cb13" "membersListNotices_a4cb13",
-		"wrap": "membersWrap__90226" "membersWrap__90226",
-		"hiddenMembers": "hiddenMembers__48fe9" "hiddenMembers__48fe9",
-		"members": "members__9f47b" "members__9f47b",
-		"group": "membersGroup__85843" "membersGroup__85843",
+		"container": "container_b2ce9c",
+		"notices": "membersListNotices_a4cb13",
+		"wrap": "membersWrap__90226",
+		"hiddenMembers": "hiddenMembers__48fe9",
+		"members": "members__9f47b",
+		"group": "membersGroup__85843",
 		"member": "member_aa4760",
-		"memberBackground": "member_b44d5d" "member_b44d5d",
+		"memberBackground": "member_b44d5d",
 		"memberClickable": "clickable__17ccb",
 		"memberContainer": "container__4f20e",
 		"selected": "selected__9800b",
@@ -2143,57 +2144,57 @@ $classes: (
 		"categoryChildren": "children_d4d259",
 
 		"panels": "panels__58331",
-		"panelWrapper": "wrapper__0ed4a" "wrapper__0ed4a",
+		"panelWrapper": "wrapper__0ed4a",
 		"panelUsername": "title__10613",
-		"panelVoiceContainer": "container_d667ff" "container_d667ff",
-		"panelChannel": "channel-3prF2" "channel_d7d412",
+		"panelVoiceContainer": "container_d667ff",
+		"panelChannel": "channel_d7d412",
 		"panelActivityContainer": "activityPanel__22355",
 		"panelActivityActions": "actions__9256d",
-		"panelInner": "inner_ab95dc" "inner_ab95dc",
-		"panelContainer": "container_ca50b9" "container_ca50b9",
+		"panelInner": "inner_ab95dc",
+		"panelContainer": "container_ca50b9",
 		"panelButtonRow": "directionRow__2bb0b",
 		"panelButton": "button__4f306",
 		"panelButtonEnabled": "enabled__470f0",
 		"panelButtonRedIcon": "redIcon__457ad", // used with server muted/deafened - see also profile/status/panel
-		"panelAvatarWrapper": "avatarWrapper_ba5175" "avatarWrapper_ba5175",
+		"panelAvatarWrapper": "avatarWrapper_ba5175",
 		"panelWithTag": "alias profile modal status panel withTagAsButton",
 		"panelWithTagless": "alias profile modal status panel withTagless",
-		"panelAvatar": "avatar_f8541f" "avatar_f8541f",
+		"panelAvatar": "avatar_f8541f",
 		"panelAvatarSpeaking": "avatarSpeaking__61fb1",
 		"panelName": "alias profile modal status panel nameTag",
 		"panelNameCanCopy": "alias profile modal status panel canCopy",
 		"panelStatusSubtext": "subtext__8f869",
 		"panelUsernameContainer": "alias profile modal status panel usernameContainer",
-		"panelActionButtons": "actionButtons_b58cbb" "actionButtons_b58cbb",
+		"panelActionButtons": "actionButtons_b58cbb",
 		
 		// panelWrapper line
-		"statusWithPopout": "statusWithPopout__456ad" "statusWithPopout__456ad",
-		"hotspot": "hotspot__0a471" "hotspot__0a471",
-		"panelCustomStatusContainer": "customStatusContainer__419ee" "customStatusContainer__419ee",
-		"noiseCancellationPopout": "noiseCancellationPopout__06ec4" "noiseCancellationPopout__06ec4",
-		"noiseCancellationTooltip": "noiseCancellationTooltip__7f909" "noiseCancellationTooltip__7f909",
-		"krispLogo": "krispLogo__461a0" "krispLogo__461a0",
-		"krispLink": "krispLink__9d6e5" "krispLink__9d6e5",
-		"micTestButton": "micTestButton__92dc1" "micTestButton__92dc1",
-		"panelBeta": "beta__59fad" "beta__59fad",
-		"panelConnection": "connection__5bb32" "connection__5bb32",
-		"panelVoiceUsers": "voiceUsers_c72ec5" "voiceUsers_c72ec5",
-		"panelActionButton": "button__66e8c" "button__66e8c",
-		"panelButtonColor": "buttonColor_a6eb73" "buttonColor_a6eb73",
-		"panelButtonActive": "buttonActive__407a7" "buttonActive__407a7",
-		"panelFauxDisabled": "fauxDisabled__095d8" "fauxDisabled__095d8",
-		"panelButtonDeveloperActivityShelf": "buttonDeveloperActivityShelf__94e0d" "buttonDeveloperActivityShelf__94e0d",
-		"panelActive": "active__29381" "active__29381",
-		"panelButtonContents": "buttonContents__387ff" "buttonContents__387ff",
-		"panelButtonIcon": "buttonIcon__80d32" "buttonIcon__80d32",
-		"panelWithText": "withText__66931" "withText__66931",
-		"panelVoicePanelIntroductionHeader": "voicePanelIntroductionHeader__832cc" "voicePanelIntroductionHeader__832cc",
-		"panelVoicePanelIntroductionText": "voicePanelIntroductionText__97672" "voicePanelIntroductionText__97672",
-		"panelVoicePanelIntroductionButton": "voicePanelIntroductionButton__831b4" "voicePanelIntroductionButton__831b4",
-		"panelVoicePanelIntroductionWrapper": "voicePanelIntroductionWrapper__29c3b" "voicePanelIntroductionWrapper__29c3b",
-		"panelViewAsRolesWarning": "viewAsRolesWarning__4bb09" "viewAsRolesWarning__4bb09",
-		"panelViewAsRolesWarningText": "viewAsRolesWarningText_a32fa1" "viewAsRolesWarningText_a32fa1",
-		"panelViewAsRolesWarningButton": "viewAsRolesWarningButton__422b5" "viewAsRolesWarningButton__422b5",
+		"statusWithPopout": "statusWithPopout__456ad",
+		"hotspot": "hotspot__0a471",
+		"panelCustomStatusContainer": "customStatusContainer__419ee",
+		"noiseCancellationPopout": "noiseCancellationPopout__06ec4",
+		"noiseCancellationTooltip": "noiseCancellationTooltip__7f909",
+		"krispLogo": "krispLogo__461a0",
+		"krispLink": "krispLink__9d6e5",
+		"micTestButton": "micTestButton__92dc1",
+		"panelBeta": "beta__59fad",
+		"panelConnection": "connection__5bb32",
+		"panelVoiceUsers": "voiceUsers_c72ec5",
+		"panelActionButton": "button__66e8c",
+		"panelButtonColor": "buttonColor_a6eb73",
+		"panelButtonActive": "buttonActive__407a7",
+		"panelFauxDisabled": "fauxDisabled__095d8",
+		"panelButtonDeveloperActivityShelf": "buttonDeveloperActivityShelf__94e0d",
+		"panelActive": "active__29381",
+		"panelButtonContents": "buttonContents__387ff",
+		"panelButtonIcon": "buttonIcon__80d32",
+		"panelWithText": "withText__66931",
+		"panelVoicePanelIntroductionHeader": "voicePanelIntroductionHeader__832cc",
+		"panelVoicePanelIntroductionText": "voicePanelIntroductionText__97672",
+		"panelVoicePanelIntroductionButton": "voicePanelIntroductionButton__831b4",
+		"panelVoicePanelIntroductionWrapper": "voicePanelIntroductionWrapper__29c3b",
+		"panelViewAsRolesWarning": "viewAsRolesWarning__4bb09",
+		"panelViewAsRolesWarningText": "viewAsRolesWarningText_a32fa1",
+		"panelViewAsRolesWarningButton": "viewAsRolesWarningButton__422b5",
 		
 		"loadingSidebar": "alias sidebar channelsContainer",
 		"loadingAnimationContainer": "container__4f3f4", // container has animation tag on it
@@ -2872,19 +2873,19 @@ $classes: (
 
 			// in sidebar
 			"panel": (
-				"container": "container_ca50b9" "container_ca50b9",
-				"avatarWrapper": "avatarWrapper_ba5175" "avatarWrapper_ba5175", // applies to whole thing
-				"avatar": "avatar_f8541f" "avatar_f8541f",
+				"container": "container_ca50b9",
+				"avatarWrapper": "avatarWrapper_ba5175", // applies to whole thing
+				"avatar": "avatar_f8541f",
 
-				"withTagAsButton": "withTagAsButton_cc125f" "withTagAsButton_cc125f",
-				"withTagless": "withTagless__98b7d" "withTagless__98b7d",
+				"withTagAsButton": "withTagAsButton_cc125f",
+				"withTagless": "withTagless__98b7d",
 
-				"nameTag": "nameTag__0e320" "nameTag__0e320",
-				"usernameContainer": "usernameContainer__750f9" "usernameContainer__750f9",
+				"nameTag": "nameTag__0e320",
+				"usernameContainer": "usernameContainer__750f9",
 
-				"canCopy": "canCopy__81263" "canCopy__81263",
-				"customStatus": "customStatus_f55604" "customStatus_f55604",
-				"customStatusEmoji": "emoji__6012a" "emoji__6012a",
+				"canCopy": "canCopy__81263",
+				"customStatus": "customStatus_f55604",
+				"customStatusEmoji": "emoji__6012a",
 			),
 
 			"accountSwitcher": (
@@ -2898,16 +2899,16 @@ $classes: (
 
 			// other classes without any idea as to where they exist
 			// in "panel" rule
-			"hasBuildOverride": "hasBuildOverride__2a3b9" "hasBuildOverride__2a3b9",
-			"buildOverrideButton": "buildOverrideButton__6ab0d" "buildOverrideButton__6ab0d",
-			"copySuccess": "copySuccess__9b0c8" "copySuccess__9b0c8",
-			"godlike": "godlike__7998d" "godlike__7998d",
-			"statusTooltip": "statusTooltip__9d729" "statusTooltip__9d729",
-			"strikethrough": "strikethrough__29b20" "strikethrough__29b20",
-			"redIcon": "redIcon__457ad" "redIcon__457ad",
-			"panelTitleContainer": "panelTitleContainer__7a748" "panelTitleContainer__7a748",
-			"panelSubtextContainer": "panelSubtextContainer_f28bed" "panelSubtextContainer_f28bed",
-			"accountProfilePopoutWrapper": "accountProfilePopoutWrapper_af829a" "accountProfilePopoutWrapper_af829a",
+			"hasBuildOverride": "hasBuildOverride__2a3b9",
+			"buildOverrideButton": "buildOverrideButton__6ab0d",
+			"copySuccess": "copySuccess__9b0c8",
+			"godlike": "godlike__7998d",
+			"statusTooltip": "statusTooltip__9d729",
+			"strikethrough": "strikethrough__29b20",
+			"redIcon": "redIcon__457ad",
+			"panelTitleContainer": "panelTitleContainer__7a748",
+			"panelSubtextContainer": "panelSubtextContainer_f28bed",
+			"accountProfilePopoutWrapper": "accountProfilePopoutWrapper_af829a",
 
 			// in account switcher rule
 			"userMenuItemAvatar": "userMenuItemAvatar_fa70dd",
