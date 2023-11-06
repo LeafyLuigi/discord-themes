@@ -43,6 +43,81 @@ $card: var(--card-background);
 	background-color: transparent;
 }
 
+// Channel Tabs Plugin
+@supports selector(div:has(a)) {
+	body {
+		&:has(#channelTabs-container) {
+			--channel-tabs-enabled: 1;
+		}
+		&:has(#{c(bdPlugin channelTabsTabContainer)}) {
+			--channel-tabs-tabBar-enabled: 1;
+		}
+		&:has(#{c(bdPlugin channelTabsFavContainer)}) {
+			--channel-tabs-favBar-enabled: 1;
+		}
+		&:not(:has(#{c(bdPlugin channelTabsTabContainer)})) {
+			--channel-tabs-tabBar-enabled: 0;
+		}
+		&:not(:has(#{c(bdPlugin channelTabsFavContainer)})) {
+			--channel-tabs-favBar-enabled: 0;
+		}
+	}
+}
+body {
+	#channelTabs-container {
+		padding: 0;
+		z-index: 1011;
+	}
+	#channelTabs-settingsMenu {
+		-webkit-app-region: no-drag;
+	}
+	:is(#{c(bdPlugin channelTabsTabContainer)}, #{c(bdPlugin channelTabsFavContainer)}) {
+		overflow-x: auto;
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			height: 0;
+		}
+	}
+	#{c(bdPlugin channelTabsTabContainer)} {
+		background-color: $header;
+		flex-wrap: nowrap; // forces one line, forces new tab to be hidden after everything is filled.
+	}
+	#{c(bdPlugin channelTabsFavContainer)} {
+		background-color: $middle;
+		flex-wrap: nowrap; // forces one line, forces new favs to be hidden after everything is filled.
+		&#{c(bdPlugin channelTabsNoFavs)} {
+			height: calc(var(--channelTabs-favHeight) + 3px); // +3 from margin. makes it the same height as regular bar
+		}
+	}
+	#{c(bdPlugin channelTabsUnreadBadge)} {
+		&#{c(bdPlugin channelTabsNoUnread)} {
+			background-color: transparent;
+		}
+	}
+	#{c(bdPlugin channelTabsMentionBadge)} {
+		background-color: $primary;
+		&#{c(bdPlugin channelTabsNoMention)} {
+			background-color: transparent;
+		}
+	}
+	#{c(os mac type)}#{c(os titleBar)} ~ div #channelTabs-container > :first-child > :first-child {
+		margin-left: 3px;
+	}
+}
+#{c(os win platform)} body {
+	#{c(os win type)} {
+		// i hate math.
+		top: calc(var(--channel-tabs-enabled,0) * ( var(--channel-tabs-tabBar-enabled,1) * (var(--channelTabs-tabHeight) + 3px ) + var(--channel-tabs-favBar-enabled,1) * (var(--channelTabs-favHeight) + 8px) ));
+		&::before {
+			height: calc(18px - 18px * var(--channel-tabs-enabled,0));
+		}
+	}
+}
+html:not(#{c(os win platform)}) div#{c(sidebar sidebar)} {
+	border-radius: 0;
+}
+
+
 // Notices are partially in the main theme file.
 #{c(bd notices)}:not(:empty) {
 	position: relative;

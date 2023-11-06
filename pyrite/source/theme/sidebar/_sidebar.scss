@@ -18,9 +18,19 @@
 	// notice stuff
 	top: calc($nc * -36px);
 	position: relative;
-	height: calc(100vh - (var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px)) );
-	// missing 71px of channel tab plugin
-	
+	// math is hard.
+	height: calc(100vh
+		- (var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px))
+		- var(--channel-tabs-enabled,0) * (
+			(var(--channel-tabs-tabBar-enabled,1) * var(--channel-tabs-favBar-enabled,1) * 5px)
+			+ (var(--channel-tabs-tabBar-enabled,1) *
+				(var(--channelTabs-tabHeight,32px) + 3px)
+			)
+			+ (var(--channel-tabs-favBar-enabled,1) *
+				(var(--channelTabs-favHeight,28px) + 3px)
+			)
+		)
+	);
 	// end notice stuff
 	background-color: transparent;
 	@include bg($bg:$side,$top:48px,$w:240px);

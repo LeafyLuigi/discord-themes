@@ -81,6 +81,11 @@
 	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
 	--win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
 
+	/* Better Discord Toggles and whatnot - These should get overwritten if the user's browser supports :has() */
+	--channel-tabs-enabled: 0;
+	--channel-tabs-tabBar-enabled: 1; /* follows default: enabled */
+	--channel-tabs-favBar-enabled: 1; /* follows default: enabled */
+
 	/* Internal please ignore */
 	// --update-notice-oct23: none;
 }
