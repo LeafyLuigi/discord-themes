@@ -294,12 +294,19 @@ div#{c(text lineClamp2Plus)} {
 }
 
 /* Official Preset Previews */
+
+$orangeSynthscape: "1174678654811394082";
+$pinkSunset: "1174678687451463721";
+$blueOcean: "1174678842720395335";
+$yellowFlower: "1174678870776098847";
+$defaultPresets: "1174678908403204107";
+
 :is(
-#message-accessories-1164538992881057953,
-#message-accessories-1164539443433181366,
-#message-accessories-1164539720735391774,
-#message-accessories-1164539827333632061,
-#message-accessories-1164543701482221608
+#message-accessories-#{$orangeSynthscape},
+#message-accessories-#{$pinkSunset},
+#message-accessories-#{$blueOcean},
+#message-accessories-#{$yellowFlower},
+#message-accessories-#{$defaultPresets}
 ) {
 	#{c(embeds textContainerUp)} {
 		transform: rotate(0deg);
@@ -324,27 +331,27 @@ div#{c(text lineClamp2Plus)} {
 	}
 }
 // synthscape orange
-#message-accessories-1164538992881057953 {
+#message-accessories-#{$orangeSynthscape} {
 	--local-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
 }
 // yellow flower
-#message-accessories-1164539827333632061 {
+#message-accessories-#{$yellowFlower} {
 	--local-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
 }
 // pink sunset
-#message-accessories-1164539443433181366 {
+#message-accessories-#{$pinkSunset} {
 	--local-image: url('https://leafyluigi.github.io/images/Long%20Exposure%20Sunset%20at%20Hull%2C%20MA%20by%20Eric%20Moreno.png');
 	--preview-overlay: url('https://leafyluigi.github.io/images/preview-overlay-pink.png');
 }
 // ocean blue, current default [vencord | betterdiscord]
 :is(
-#message-accessories-1164539720735391774,
-#message-accessories-1164543701482221608
+#message-accessories-#{$blueOcean},
+#message-accessories-#{$defaultPresets}
 ) {
 	--local-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
 }
 // use inline for defaults [vencord | betterdiscord]
-#message-accessories-1164543701482221608 {
+#message-accessories-#{$defaultPresets} {
 	#{c(chat nonMediaAttachmentsContainer)} {
 		flex-direction: row;
 		gap: 8px;
@@ -375,7 +382,7 @@ div#{c(text lineClamp2Plus)} {
 }
 
 
-/* Redownload pls bar */
+// /* Redownload pls bar */
 // #{c(main appContainer)}::before {
 //   content: "Your version of Pyrite is outdated. Please redownload.";
 //   text-align: center;

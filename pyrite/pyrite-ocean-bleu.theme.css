@@ -38,110 +38,110 @@
 /* If you wish to read what these variables mean, open this link in your browser: */
 /* https://leafyluigi.github.io/discord-themes/pyrite/var-examples.html */
 :root {
-  /* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
-  --background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
-  --user-modal-image: var(--background-image);
-  --user-popout-image: var(--background-image);
-  /* Home icon is for the little button in the top left. */
-  --home-icon: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
+	/* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
+	--background-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
+	--user-modal-image: var(--background-image);
+	--user-popout-image: var(--background-image);
+	/* Home icon is for the little button in the top left. */
+	--home-icon: url('https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png');
 
-  /* Image attachment can be "fixed", "scroll" or "local" */
-  /* scroll/local attaches the background to the modal completely while fixed keeps it in line with the background */
-  /* Default is "fixed" */
-  --background-attachment: fixed;
-  --user-modal-attachment: var(--background-attachment);
-  --user-popout-attachment: var(--background-attachment);
+	/* Image attachment can be "fixed", "scroll" or "local" */
+	/* scroll/local attaches the background to the modal completely while fixed keeps it in line with the background */
+	/* Default is "fixed" */
+	--background-attachment: fixed;
+	--user-modal-attachment: var(--background-attachment);
+	--user-popout-attachment: var(--background-attachment);
 
-  /* Colours can be Hex, RGB(A) or HSL(A). */
-  /* Discord uses HSL(A) for anything that uses the saturation factor variable while using Hex for anything without transparency and RGBA for transparency. */
-  /* HSL(A) is extremely complex and should not be used unless you know what you are doing. Pyrite has everything in Hex for simplicity. */
-  /* Primary is the "main colour" */
-  /* Secondary is an accent colour of sorts. It's not used as often as Primary. It should be a shade or two lighter or darker compared to Primary. */
-  /* Hover is a secondary accent colour of sorts and is often used when hovering over something. Like Secondary, it should be a shade or two lighter or darker compared to Primary. */
-  /* Tooltip is used for tooltips. It can whatever colour you wish. */
-  --primary-color: #387eff;
-  --secondary-color: #3298e0;
-  --hover-color: #139dff;
-  --tooltip-color: #1967ab;
+	/* Colours can be Hex, RGB(A) or HSL(A). */
+	/* Discord uses HSL(A) for anything that uses the saturation factor variable while using Hex for anything without transparency and RGBA for transparency. */
+	/* HSL(A) is extremely complex and should not be used unless you know what you are doing. Pyrite has everything in Hex for simplicity. */
+	/* Primary is the "main colour" */
+	/* Secondary is an accent colour of sorts. It's not used as often as Primary. It should be a shade or two lighter or darker compared to Primary. */
+	/* Hover is a secondary accent colour of sorts and is often used when hovering over something. Like Secondary, it should be a shade or two lighter or darker compared to Primary. */
+	/* Tooltip is used for tooltips. It can whatever colour you wish. */
+	--primary-color: #387eff;
+	--secondary-color: #3298e0;
+	--hover-color: #139dff;
+	--tooltip-color: #1967ab;
 
-  /* These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex. */
-  /* Green's default here is the old green. The current green is #3ba55d */
-  --green-color: #43b581;
-  --yellow-color: #f9a719;
-  --red-color: #ec4144;
-  --link-color: #00aef3;
-  --live-color:  #583594;
-  --offline-color: #737e8c;
+	/* These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex. */
+	/* Green's default here is the old green. The current green is #3ba55d */
+	--green-color: #43b581;
+	--yellow-color: #f9a719;
+	--red-color: #ec4144;
+	--link-color: #00aef3;
+	--live-color:  #583594;
+	--offline-color: #737e8c;
 
-  /* Channels */
-  /* These are used for channel related things. "Channels" may apply to DMs or Server channels. */
-  --category-color: var(--header-primary); /* Applies to uncollapsed categories, member list groups and applies to active voice/stage channel. */
-  --selected-channel-color: var(--header-primary); /* Applies to selected channel as well as non-locked, non-muted channels on hover. */
-  --unread-channel-color: var(--primary-color); /* Applies to unread channels. Combined with below can give a glow. */
-  --unread-channel-glow: drop-shadow(0 0 4px); /* More advanced. Uses the filter's drop-shadow function to give a glow. */
-  --read-channel-color: var(--interactive-normal); /* Applies unread, unmuted, unlocked (voice) channels and unmuted collapsed categories. */
-  --muted-channel-color: var(--interactive-muted); /* Applies to muted channels and categories. Ignores hover from selected. */
-  --show-channel-unread-dot: block; /* Toggle display of the unread channel dot. Valid options: "block" and "none", both without quotations. "block" shows the blob and "none" hides it. */
-  --locked-voice-channel-color: var(--red-color); /* Applies to locked voice channels. Does NOT include full voice channels. */
+	/* Channels */
+	/* These are used for channel related things. "Channels" may apply to DMs or Server channels. */
+	--category-color: var(--header-primary); /* Applies to uncollapsed categories, member list groups and applies to active voice/stage channel. */
+	--selected-channel-color: var(--header-primary); /* Applies to selected channel as well as non-locked, non-muted channels on hover. */
+	--unread-channel-color: var(--primary-color); /* Applies to unread channels. Combined with below can give a glow. */
+	--unread-channel-glow: drop-shadow(0 0 4px); /* More advanced. Uses the filter's drop-shadow function to give a glow. */
+	--read-channel-color: var(--interactive-normal); /* Applies unread, unmuted, unlocked (voice) channels and unmuted collapsed categories. */
+	--muted-channel-color: var(--interactive-muted); /* Applies to muted channels and categories. Ignores hover from selected. */
+	--show-channel-unread-dot: block; /* Toggle display of the unread channel dot. Valid options: "block" and "none", both without quotations. "block" shows the blob and "none" hides it. */
+	--locked-voice-channel-color: var(--red-color); /* Applies to locked voice channels. Does NOT include full voice channels. */
 
-  /* Background default to Primary, Opacity to 0.3. Opacity on hover is a static +0.2 compared to the variable. */
-  --mention-background: var(--primary-color);
-  --mention-opacity: 0.3;
+	/* Background default to Primary, Opacity to 0.3. Opacity on hover is a static +0.2 compared to the variable. */
+	--mention-background: var(--primary-color);
+	--mention-opacity: 0.3;
 
-  /* For Advanced Users */
-  --code-font: Hack, Monaco, Consolas, Courier, monospace;
-  --body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
-  --background-filter: none;
-  --user-modal-filter: none;
-  --user-popout-filter: none;
+	/* For Advanced Users */
+	--code-font: Hack, Monaco, Consolas, Courier, monospace;
+	--body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
+	--background-filter: none;
+	--user-modal-filter: none;
+	--user-popout-filter: none;
 
-  /* User Modal Layout sizes. Changing these HAS NOT BEEN TESTED. */
-  --user-modal-width: 900px;
-  --user-modal-height: 600px;
+	/* User Modal Layout sizes. Changing these HAS NOT BEEN TESTED. */
+	--user-modal-width: 900px;
+	--user-modal-height: 600px;
 
-  /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
-  --hide-speed: 0.5s;
-  --hide-member-list: 1;
-  --hide-active-now: 1;
-  --hide-profile-panel: 1;
-  --hide-channel-list: 0;
+	/* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
+	--hide-speed: 0.5s;
+	--hide-member-list: 1;
+	--hide-active-now: 1;
+	--hide-profile-panel: 1;
+	--hide-channel-list: 0;
 
-  /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
-  --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
+	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
+	--win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
 
-  /* Using HSL? You can freely change these variables for a different look. */
+	/* Using HSL? You can freely change these variables for a different look. */
 	--HSL-server-icon-size: 40px; /* Size of the server icons | DEFAULT: 40px */
 	--HSL-server-spacing: 10px; /* Spacing between each server icon | DEFAULT: 10px */
 	--HSL-server-direction: column; /* Direction of the server list. | OPTIONS: column, column-reverse | DEFAULT: column */
 
-  /* Debug; please do not touch */
-  --update-notice-oct23: none;
+	/* Debug; please do not touch */
+	--update-notice-oct23: none;
 }
 
 
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
-.theme-dark :not(div[class*='previewContainer-']) .theme-light:not(div[class*="default-colors"]) {
-  --card-background: rgba(0,0,0,0.5);
-  --side-shading: rgba(0,0,0,0.5);
-  --middle-shading: rgba(0,0,0,0.3);
-  --header-shading: rgba(0,0,0,0.7);
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]) {
+	--card-background: rgba(0,0,0,0.5);
+	--side-shading: rgba(0,0,0,0.5);
+	--middle-shading: rgba(0,0,0,0.3);
+	--header-shading: rgba(0,0,0,0.7);
 
-  /* The following are applied to buttons to indicate hover and being held down. */
-  --hover-filter: rgba(0,0,0,0.2);
-  --active-filter: rgba(0,0,0,0.4);
+	/* The following are applied to buttons to indicate hover and being held down. */
+	--hover-filter: rgba(0,0,0,0.2);
+	--active-filter: rgba(0,0,0,0.4);
 }
 
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
-.theme-light :not(div[class*='previewContainer-']) .theme-dark:not(div[class*='sidebar-']):not(nav[class*='guilds-']):not(div[class*='sidebarRegion-']):not(div[class*="default-colors"]) {
-  --card-background: rgba(255,255,255,0.05);
-  --side-shading: rgba(255,255,255,0.4);
-  --middle-shading: rgba(255,255,255,0.3);
-  --header-shading: rgba(255,255,255,0.5);
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]):not(div[class*=sidebar_]):not(nav[class*=guilds_]):not(div[class*=sidebarRegion_]) {
+	--card-background: rgba(255,255,255,0.05);
+	--side-shading: rgba(255,255,255,0.4);
+	--middle-shading: rgba(255,255,255,0.3);
+	--header-shading: rgba(255,255,255,0.5);
 
-  /* The following are applied to buttons to indicate hover and being held down. */
-  --hover-filter: rgba(255,255,255,0.2);
-  --active-filter: rgba(255,255,255,0.4);
+	/* The following are applied to buttons to indicate hover and being held down. */
+	--hover-filter: rgba(255,255,255,0.2);
+	--active-filter: rgba(255,255,255,0.4);
 }
 

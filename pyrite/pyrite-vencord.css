@@ -85,6 +85,7 @@
 	/* For Advanced Users */
 	--code-font: Hack, Monaco, Consolas, Courier, monospace;
 	--body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
+	--expression-picker-height: 500px; /* Height of the combined Gif/Sticker/Emoji picker. Does not effect adding reactions. Default and minimum height 500px (498px for Discord's base) and a maximum of 70vh. If Discord is smaller than 720px vertically, this won't apply. */
 	--background-filter: none;
 	--user-modal-filter: none;
 	--user-popout-filter: none;
@@ -115,7 +116,7 @@
 
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
-.theme-dark :not(div[class*='previewContainer-']) .theme-light:not(div[class*="default-colors"]) {
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]) {
 	--card-background: rgba(0,0,0,0.5);
 	--side-shading: rgba(0,0,0,0.5);
 	--middle-shading: rgba(0,0,0,0.3);
@@ -128,7 +129,7 @@
 
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
-.theme-light :not(div[class*='previewContainer-']) .theme-dark:not(div[class*='sidebar-']):not(nav[class*='guilds-']):not(div[class*='sidebarRegion-']):not(div[class*="default-colors"]) {
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]):not(div[class*=sidebar_]):not(nav[class*=guilds_]):not(div[class*=sidebarRegion_]) {
 	--card-background: rgba(255,255,255,0.05);
 	--side-shading: rgba(255,255,255,0.4);
 	--middle-shading: rgba(255,255,255,0.3);
