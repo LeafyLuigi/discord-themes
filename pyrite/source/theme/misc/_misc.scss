@@ -288,6 +288,11 @@ a[href^="http://"] {
 	background-color: transparent !important;
 }
 
+/* remove line clamps */
+div#{c(text lineClamp2Plus)} {
+	-webkit-line-clamp: unset !important; /* !important reason: override inline. */
+}
+
 /* Official Preset Previews */
 :is(
 #message-accessories-1164538992881057953,

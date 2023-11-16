@@ -238,6 +238,9 @@ $classes: (
 		"alignCenter": "alignCenter__0b119",
 	),
 	"text": (
+		// not on same line as the rest idk where to put it
+		"lineClamp2Plus": "lineClamp2Plus_d4306b",
+
 		// ***there may be multiple lines containing classes like these***
 		// weird text-xx- and heading-xx classes. can have inline style for color.
 		// entirety of line 24 (2023-07-06 @ 16:50 UTC+8) stable build 210901 (daacd72). 
@@ -868,7 +871,7 @@ $classes: (
 		"automodBlockedNoticeContainer": "blockedNoticeContainer_e4a16a",
 		"automodShield": "shieldIcon__1c3c3",
 
-		"layerWrapper": "chatLayerWrapper1K7IFZ",
+		"layerWrapper": "chatLayerWrapper__29dd6",
 	),
 	// line numbers are from 2022-12-28 https://canary.discord.com/assets/40532.2ddbe3ee69f647c0b5d1.css
 	"pages": (
@@ -3725,8 +3728,10 @@ $classes: (
 		// Within server settings, click "members" and then "prune" at the top
 		// aka "purge"
 		"prune": (
-			"content": "content-1x29-w",
-			"spacing": "spacing-1dHSoA",
+			"pruneDetails": "pruneDetails_bcc97c",
+			"role": "role__7592b",
+			"content": "content__680de",
+			"spacing": "spacing__15d52",
 		),
 
 		// Click either an Emoji or a Sticker within chat
