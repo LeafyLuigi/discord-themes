@@ -138,7 +138,7 @@
 		width: 240px;
 	}
 }
-#{c(sidebar channelModeUnread)} #{c(sidebar channelUnreadBlob)} {
+:is(#{c(sidebar channelModeUnreadLessImportant)},#{c(sidebar channelModeUnreadImportant)}) #{c(sidebar channelUnreadBlob)} {
 	background-color: $primary;
 }
 #{c(sidebar bannerVisible)} #{c(sidebar channelsHeader)} {
@@ -234,13 +234,13 @@
 #{c(sidebar categoryName)} {
 	color: inherit !important; // !important reason: i am very lazy. https://cdn.discordapp.com/attachments/747040126294687764/965181579259428924/unknown.png
 }
+#{c(sidebar channelWrapper)} a {
+	color: inherit;
+}
 
 #{c(sidebar privateChannelInteractive)},
 #{c(sidebar channelWrapper)} {
 	color: var(--read-channel-color);
-}
-#{c(sidebar channelWrapper)} a {
-	color: inherit;
 }
 
 #{c(sidebar privateChannelInteractive2)} {
@@ -263,7 +263,7 @@
 	color: var(--selected-channel-color);
 }
 
-#{c(sidebar channelModeUnread)} {
+:is(#{c(sidebar channelModeUnreadLessImportant)},#{c(sidebar channelModeUnreadImportant)}) {
 	color: var(--unread-channel-color);
 	#{c(sidebar channelUnreadBlob)} {
 		display: var(--show-channel-unread-dot, block);

@@ -2119,7 +2119,9 @@ $classes: (
 		"channelWrapper": "wrapper__7bcde",
 		"channelModeMuted": "modeMuted__0aeea",
 		"channelModeSelected": "modeSelected__487d6",
-		"channelModeUnread": "modeUnread_f74c03",
+		"channelModeUnread": "alias sidebar channelModeUnreadLessImportant",
+		"channelModeUnreadLessImportant": "modeUnreadLessImportant__5058b",
+		"channelModeUnreadImportant": "modeUnreadImportant_efb53e",
 		"channelModeConnected": "modeConnected__1c02e",
 		"channelModeLocked": "modeLocked_fcc71a",
 		"channelIconContainer": "iconContainer__3f9b0",
@@ -2130,6 +2132,7 @@ $classes: (
 		"channelUsers": "users__65981",
 		"channelTotal": "total_c01838",
 		"channelUnreadBlob": "unread__48cf4",
+		"channelUnreadBlobImportant": "unreadImportant_c775b3",
 		"channelUnreadBanners": "unread__11823",
 
 		"threadsContainer": "container_f87d43",
