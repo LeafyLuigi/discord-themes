@@ -29,3 +29,11 @@
 #{c(vencord shcAllowed)} {
 	@include card;
 }
+
+:is(#{c(main dark)},#{c(main light)}) {
+	#{c(vencord spotifyPlayer)} {
+		border-bottom-color: transparent;
+		background: transparent;
+	}
+
+}
