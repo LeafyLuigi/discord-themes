@@ -94,7 +94,7 @@
 }
 
 // delete gift nitro button. might cock up a few plugins.
-#{c(chatForm buttons)} > #{c(chatForm button)} {
+#{c(chatForm buttons)} > :is(#{c(chatForm button)},#{c(chatForm xmasGiftButton)}) {
 	display: none;
 }
 
