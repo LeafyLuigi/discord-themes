@@ -1,10 +1,9 @@
 @use "backend" as *;
 #{c(modals dropdown filled)}#{c(modals dropdown select)} {
 	@include card;
-	&#{c(modals dropdown open)} {
-		border-bottom-color: transparent;
-
-	}
+	// &#{c(modals dropdown open)} {
+	// 	border-bottom-color: transparent;
+	// }
 }
 #{c(modals dropdown popout)} {
 	background-color: $card;

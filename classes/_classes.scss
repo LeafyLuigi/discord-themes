@@ -156,6 +156,8 @@ $classes: (
 		"sliderInput": "input_be50d1",
 		"desaturate": "desaturate__30375", // has a filter relating to the saturation factor variable
 
+		"loader": "loader__76b66", // probably used elsewhere but 100% used for loading "Browse Channels" for the first time during a session.
+
 		"ring": "focus-rings-ring",
 
 		// these will eventually be removed
@@ -238,13 +240,18 @@ $classes: (
 		"alignCenter": "alignCenter__0b119",
 	),
 	"text": (
-		// not on same line as the rest idk where to put it
+		// These are within the same line but not with the rest. not sure where to put these
+		"textNormalDefaultColor": "defaultColor__77578",
+		"lineClamp1": "lineClamp1__92431",
 		"lineClamp2Plus": "lineClamp2Plus_d4306b",
+		"selectableText": "selectable__06545",
+		"tabularNumbers": "tabularNumbers__3286f",
 
-		// ***there may be multiple lines containing classes like these***
+		// ***there are multiple lines containing classes like these***
 		// weird text-xx- and heading-xx classes. can have inline style for color.
 		// entirety of line 24 (2023-07-06 @ 16:50 UTC+8) stable build 210901 (daacd72). 
 		// can easily be found by selecting the sidebar panel avi name thingy.
+		// I highly recommend not using these.
 		"heading": (
 			"sNormal": "heading-sm-normal_b67b32",
 			"sMedium": "heading-sm-medium__551ce",
@@ -993,6 +1000,7 @@ $classes: (
 			"close": "close__9819d",
 			"tooltipPill": "tooltipPill_e3c9da",
 		),
+
 	),
 	// labelled as "Home"; found within servers and unrelated to friends list
 	// running `document.URL` in console should have `/@home` at the end
@@ -1369,6 +1377,36 @@ $classes: (
 		"newChat": "chat_f9a759",
 		"newTextAreaFocused": "channelTextAreaInnerFocused__8561c",
 		"newTextAreaError": "channelTextAreaInnerError_c2a106",
+	),
+	// document.URL in console contains /member-safety
+	"membersPage": (
+		"page": "page__0b66e",
+		"scroller": "scroller__6e4c4",
+		"container": "container_df3aa0", // contains the sortable, searchable list of members. classes may cross over with members page in server settings.
+
+		// for some reason it's in the same line as a bunch of text shit. despite that some of the elements aren't using those classes???
+		"loaderBar": "loaderBar__53dfd",
+		"loaderContainer": "loaderContainer__210f4",
+		"loadingBar": "loadingBar__50bec",
+		"mainTableContainer": "mainTableContainer__5ffe0",
+		
+		"table": "table_a843c4", // similar to class above except different set of text stuff. also not using these classes.
+
+		// Same set
+		"button": "button__00a9a",
+		"searchBar": "searchBar__63890",
+		"searchHeader": "searchHeader_c11d96",
+		"searchHeaderContainer": "searchHeaderContainer_c4c100",
+		"searchInput": "searchInput__6e166",
+		"searchInputContainer": "searchInputContainer__578a2",
+		"tableOptions": "tableOptions_e6ae44",
+
+		"otherRoles": "otherRoles_a19529", // so many text classes... different group again.
+		"actionButton": "button_fb10b9", // same line as class above
+		
+		"noResultsContainer": "noResultsContainer_e9ff99", // on own line for some reason. The children of it are as follows:
+		// div[class] > svg > (wumpus image)
+		// div.text-md-normal "No members match these search results."
 	),
 	"chatForm": (
 		"form": "form__13a2c",

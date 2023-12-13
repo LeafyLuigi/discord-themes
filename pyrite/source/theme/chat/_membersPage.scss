@@ -1,0 +1,37 @@
+@use "backend" as *;
+// Members Page
+:is(#{c(main dark)},#{c(main light)}) {
+	:is(
+		#{c(membersPage page)},
+		#{c(membersPage container)}
+	) {
+		background: transparent;
+	}
+}
+#{c(membersPage mainTableContainer)} {
+	background: $card;
+	box-shadow: none;
+}
+#{c(membersPage scroller)} {
+	background: $middle;
+}
+#{c(membersPage otherRoles)} {
+	background: $card;
+}
+#{c(membersPage actionButton)} {
+	background: $card;
+	color: $primary;
+	border: 1px solid currentColor;
+	&:hover {
+		color: $hover;
+	}
+}
+#{c(membersPage noResultsContainer)} {
+	min-height: unset;
+	div[class=""] {
+		display: none;
+	}
+}
+#{c(membersPage loaderBar)} {
+	background: $primary;
+}

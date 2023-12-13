@@ -115,6 +115,11 @@ body, // this one is here for transparency in bd to work
 	background-color: $primary;
 }
 
+// "Browse Channels" loading thing. Class could potentially be used elsewhere.
+#{c(main loader)} {
+	background: linear-gradient(to bottom, $header 48px, $middle 48px);
+}
+
 // Windows
 #{c(os win platform)} {
 	#{c(sidebar sidebar)} {
