@@ -89,7 +89,7 @@ $allColors: (
 	$allInvisOffline
 );
 
-#{c(memberList status)} {
+:is(#{c(memberList status)},#{c(memberList avatarMask)}>svg>rect) {
 	@each $colType in $allColors {
 		$listDone: (); // temp list for completed colors to avoid repeating
 		$list: ":is(";
