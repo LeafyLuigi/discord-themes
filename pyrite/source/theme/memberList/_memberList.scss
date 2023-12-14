@@ -107,3 +107,23 @@ $allColors: (
 		}
 	}
 }
+// CHANGE STATUS MENU ICONS
+// this is only here because i'm not duplicating the lists twice.
+#{c(modals menus status)} {
+	@each $colType in $allColors {
+		$listDone: (); // temp list for completed colors to avoid repeating
+		$list: ":is(";
+		@each $col in list.nth($colType,2) {
+			@if not list.index($listDone, $col) {
+				// @debug $col;
+				$list: $list+'[style*="rgb('+red($col)+', '+green($col)+', '+blue($col)+')"],';
+				$listDone: list.append($listDone,$col);
+			}
+		}
+		$list: str-slice($list,1,-2)+")"; // remove last comma and close list
+		// @debug $list;
+		&#{$list} {
+			background-color: var(--#{list.nth($colType,1)}) !important; // !important reason: override inline style
+		}
+	}
+}
