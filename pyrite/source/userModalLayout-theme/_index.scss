@@ -1,5 +1,6 @@
 @use "backend" as *;
 /* Theme's User Modal Layout */
+	
 #{c(profile modal root)},
 #{c(profile modal outer)} {
 	width: var(--user-modal-width,900px);
@@ -154,6 +155,7 @@
 		}
 	}
 }
+
 #{c(profile modal userInfoSection)},
 #{c(profile modal connections accounts)} {
 	padding: 0 0 0 8px;
@@ -264,3 +266,50 @@
 }
 // height of item: 50px
 // width of item: 200px
+
+
+
+
+// Attempt something different. Layout should look kinda like below...
+////////////////////////////////
+// BNR+AVI | Username, Pronouns
+// BNR+AVI | Status
+// -----------------------------
+// tab selector thingy
+// ----------------------------- (one of below, depends on tab)
+// User Info:
+//
+// about
+// join
+// note (must be scrollable!!)
+//
+// <one> <two> <three> <four> (to width)
+// <five> <six> etc
+// -----------------
+// Activities
+//
+// "activityFeed" (no idea!)
+//
+// "profile" (no idea!)
+//
+// "profileV2":
+// title ("playing a game") ----
+// assets | <info>
+// <buttons>
+//
+// "streamPreview" (no idea!)
+//
+// "userPopout" and "userPopoutV2" skip
+//
+// -----------------
+// Mutual (whatever)
+// columns for them?
+// -----------------
+// Data Access
+// (ignore for now)
+
+
+
+html:not([lang="en-GB"],[lang="fr"]) {
+
+}

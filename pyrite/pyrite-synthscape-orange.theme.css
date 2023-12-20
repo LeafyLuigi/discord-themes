@@ -1,7 +1,7 @@
 /**
  * @name Pyrite - Synthscape Orange
  * @author LeafyLuigi
- * @version 0.2.3
+ * @version 0.2.4
  * @description Pyrite for BetterDiscord/BandagedBD/Vencord. Synthscape Orange Edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
@@ -33,6 +33,9 @@
 
 /* Optional: Border Radius / Radical Status. Does not include Gibbu's base for Radical Status. Incompatible with it. */
 /* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/borders.css) */
+
+/* Optional: Restore Windows Titlebar. This will not work for those using Mac OS, Linux or using Web. */
+/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/windows-titlebar.css); */
 
 /* Theme Base */
 /* If you wish to read what these variables mean, open this link in your browser: */
@@ -106,7 +109,7 @@
 	--hide-profile-panel: 1;
 	--hide-channel-list: 0;
 
-	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
+	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. This will not work when using the "Restore Windows Titlebar" Import. */
 	--win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
 
 	/* Using HSL? You can freely change these variables for a different look. */
@@ -115,7 +118,7 @@
 	--HSL-server-direction: column; /* Direction of the server list. | OPTIONS: column, column-reverse | DEFAULT: column */
 
 	/* Debug; please do not touch */
-	--update-notice-oct23: none;
+	--update-notice-dec23: none;
 }
 
 

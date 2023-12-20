@@ -30,6 +30,7 @@
 				(var(--channelTabs-favHeight,28px) + 3px)
 			)
 		)
+		- (var(--windows-titlebar-enabled,0) * 18px)
 	);
 	// end notice stuff
 	background-color: transparent;

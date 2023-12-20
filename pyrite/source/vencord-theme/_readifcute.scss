@@ -1,5 +1,6 @@
+@use "start" as *;
 @use "backend" as *;
-/* Vencord Theming */
+/*! #{$theme-name} v#{$version} - Vencord Addon by LeafyLuigi */
 #{c(vencord addonCard)} {
 	&,
 	&:hover {

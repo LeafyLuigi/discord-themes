@@ -1,0 +1,27 @@
+@use "start" as *;
+@use "backend" as *;
+/*! #{$theme-name} v#{$version} - Restore Window Titlebar Addon by LeafyLuigi. */
+// for anything that was messed with that isn't just on windows
+#{c(os win platform)} {
+	--windows-titlebar-enabled: 1;
+	#{c(header toolbar)} {
+		padding-right: unset;
+		margin-right: unset;
+	}
+}
+// and for windows-only stuff...
+#{c(os win type)} {
+	background: $header;
+	margin-top: 0;
+	height: auto;
+	// remove draggable ::before
+	&::before {
+		content: none;
+	}
+}
+// revert min/max/close buttons
+#{c(os win button)} {
+	height: 22px;
+	width: 28px;
+	top: 0;
+}

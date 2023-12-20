@@ -145,7 +145,7 @@ html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
 	&:nth-child(3) #{c(userSettings radioBarInfo)} > div:after {
 		content: var(--beta-en-GB);
 	}
-	&:nth-child(6) #{c(userSettings radioBarInfo)} > div:after {
+	&:nth-child(7) #{c(userSettings radioBarInfo)} > div:after {
 		content: var(--beta-fr);
 	}
 }
