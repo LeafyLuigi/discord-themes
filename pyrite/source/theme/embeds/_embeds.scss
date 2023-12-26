@@ -23,6 +23,24 @@
 		max-width: 250px;
 		padding: 10px;
 	}
+
+	#{c(embeds voiceMessage container)} {
+		background-color: $card;
+		&:not(#{c(embeds voiceMessage playing)}) {
+			#{c(embeds voiceMessage playButtonContainer)} {
+				&:active,
+				& {
+					background: $primary;
+				}
+				&:hover {
+					background: $hover;
+				}
+			}
+		}
+	}
+	#{c(embeds voiceMessage ripple)} {
+		background: $primary;
+	}
 }
 #{c(embeds codeblock)},
 #{c(embeds invite)},

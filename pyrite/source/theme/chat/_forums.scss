@@ -189,19 +189,19 @@
 		}
 	}
 }
-#{c(forums reactions reaction)} {
-	margin: 0 .1875rem .1875rem 0;
-	border-radius: .1875rem;
-}
-#{c(forums reactions reaction)} #{c(forums reactions inner)} {
-	padding: 0 .3125rem;
-}
-#{c(forums reactions me)} #{c(forums reactions count)} {
-	text-shadow: .125rem .125rem .1875rem;
-}
-#{c(forums reactions count)} {
-	color: var(--text-muted);
-}
+// #{c(forums reactions reaction)} {
+// 	// margin: 0 .1875rem .1875rem 0;
+// 	// border-radius: .1875rem;
+// }
+// #{c(forums reactions reaction)} #{c(forums reactions inner)} {
+// 	// padding: 0 .3125rem;
+// }
+// #{c(forums reactions me)} #{c(forums reactions count)} {
+// 	// text-shadow: .125rem .125rem .1875rem;
+// }
+// #{c(forums reactions count)} {
+// 	color: var(--text-muted);
+// }
 #{c(forums reactions reactionBtn)}#{c(forums reactions active)} {
 	border-color: $primary;
 	background: $card;

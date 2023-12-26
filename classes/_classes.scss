@@ -1609,6 +1609,25 @@ $classes: (
 		"imageWrapper": "imageWrapper_fd6587",
 		"imageWrapperBackground": "imageWrapperBackground__9e3ab",
 		"threadContainer": "container__767d1",
+
+		"voiceMessage": (
+			// all on same line
+			"container": "container__79822",
+
+			"audioElement": "audioElement__74b56",
+			"duration": "duration__81a34",
+			"oldPlayIconSpacing": "oldPlayIconSpacing__32916",
+			"playButtonContainer": "playButtonContainer_d887d6",
+			"playIcon": "playIcon_e14cf9",
+			"playing": "playing_eb5c63",
+			"reducedMotion": "reducedMotion__376c7",
+			"ripple": "ripple__74f0d",
+			"rippleContainer": "rippleContainer_bf482c",
+			"volumeButton": "volumeButton__34955",
+			"volumeButtonIcon": "volumeButtonIcon__48fda",
+			"volumeSlider": "volumeSlider_a5e8c9",
+			"waveform": "waveform_fd5599"
+		),
 	),
 	// heavily related to embeds
 	"media": (
@@ -4156,7 +4175,7 @@ $classes: (
 
 			// When you're hoving over a message, click the add reaction button. This also includes "super" reactions.
 			"floating": (
-				"wrapper": "contentWrapper_eab878",
+				"wrapper": "contentWrapper_eab878", // removed class!
 				"isBurstReactionPicker": "isBurstReactionPicker_b9ca03", // shows up when super reactions are selected
 
 				"nav": "nav__2aafa", // at top of modal, swapping between reaction and super reaction
