@@ -1,0 +1,164 @@
+/*! Pyrite v0.2.4 - Border Radius Addon by LeafyLuigi */
+:root {
+  --avatar-radius: 8px;
+  --border-radius: 8px;
+  --border-radius-small: 4px;
+  /* These are here to overwrite Radical Status' variables. They also provide compatibility with Better Status Indicators on Powercord */
+  --rs-online-color: var(--green-color);
+  --rs-idle-color: var(--yellow-color);
+  --rs-dnd-color: var(--red-color);
+  --rs-offline-color: var(--offline-color);
+  --rs-streaming-color: var(--live-color);
+  --rs-invisible-color: var(--offline-color);
+  --rs-phone-color: var(--green-color);
+}
+
+.headerAvatar__27d08 > svg > foreignObject,
+.wrapper_edb6e0,
+.avatar__08316,
+.avatarHint__8e5b9,
+.avatarUploaderInner_c81617,
+.contentCircle_bc797d {
+  border-radius: calc(var(--avatar-radius) * var(--br-multi, 1));
+}
+
+.content_d67847,
+.peopleColumn__51df3 friends peopleListItem:hover,
+.itemCard__1f162,
+.itemCard__1f162,
+.actionButton__23182,
+.wrapper__3a7a0 {
+  border-radius: var(--border-radius);
+}
+
+.header_f72511 .item__48dda,
+.imageWrapper_fd6587 {
+  border-radius: var(--border-radius-small);
+}
+
+.headerAvatar__27d08 > svg > foreignObject,
+.wrapper_edb6e0 > svg > foreignObject,
+.avatarHint__8e5b9 > foreignObject,
+.bannerSVGWrapper__3e7b0 {
+  mask: none;
+}
+
+.userPopoutOuter_d739b2,
+.profilePanel__12596,
+.imageUploader__8d497,
+.contentCircle_bc797d {
+  --br-multi: 2.5;
+}
+
+.root_ba16f0 {
+  --br-multi: 4;
+}
+
+.body_ea740e,
+.profilePanelConnections__3c232 {
+  --br-multi: 1;
+}
+
+.headerAvatar__27d08 svg,
+.wrapper_edb6e0 > svg {
+  overflow: visible;
+}
+
+.wrapper_edb6e0 .mask__1979f > foreignObject[height="24"], .wrapper_edb6e0 .mask__1979f > foreignObject[height="24"] ~ rect, .wrapper_edb6e0 .mask__1979f > foreignObject[height="24"] ~ circle {
+  --size: 24px;
+}
+.wrapper_edb6e0 .mask__1979f > foreignObject[height="32"], .wrapper_edb6e0 .mask__1979f > foreignObject[height="32"] ~ rect, .wrapper_edb6e0 .mask__1979f > foreignObject[height="32"] ~ circle {
+  --size: 32px;
+}
+.wrapper_edb6e0 .mask__1979f > foreignObject[height="40"], .wrapper_edb6e0 .mask__1979f > foreignObject[height="40"] ~ rect, .wrapper_edb6e0 .mask__1979f > foreignObject[height="40"] ~ circle {
+  --size: 40px;
+}
+.wrapper_edb6e0 .mask__1979f > foreignObject[height="80"], .wrapper_edb6e0 .mask__1979f > foreignObject[height="80"] ~ rect, .wrapper_edb6e0 .mask__1979f > foreignObject[height="80"] ~ circle {
+  --size: 80px;
+  --stroke-width: 3px;
+}
+.wrapper_edb6e0 .mask__1979f > foreignObject[height="120"], .wrapper_edb6e0 .mask__1979f > foreignObject[height="120"] ~ rect, .wrapper_edb6e0 .mask__1979f > foreignObject[height="120"] ~ circle {
+  --size: 120px;
+  --stroke-width: 4px;
+}
+.wrapper_edb6e0 .mask__1979f .dots_a97068 {
+  color: var(--primary-color);
+  overflow: visible;
+}
+.wrapper_edb6e0 .mask__1979f .dots_a97068 circle:nth-child(1) {
+  cx: -9;
+}
+.wrapper_edb6e0 .mask__1979f .dots_a97068 circle:nth-child(2) {
+  cx: -2;
+}
+.wrapper_edb6e0 .mask__1979f .dots_a97068 circle:nth-child(3) {
+  cx: 5;
+}
+.wrapper_edb6e0 .mask__1979f foreignObject[mask*=mobile] {
+  width: calc(100% + 4px);
+}
+.wrapper_edb6e0 .mask__1979f foreignObject[mask*=mobile]:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  z-index: 1;
+  background: var(--green-color);
+  -webkit-mask: url('data:image/svg+xml; utf-8,<svg aria-hidden="true" focusable="false" data-prefix="fas" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"></path></svg>') center no-repeat;
+}
+.wrapper_edb6e0 .mask__1979f foreignObject[mask*=mobile][width="32"] img {
+  width: calc(100% - 12px);
+}
+.wrapper_edb6e0 .mask__1979f foreignObject[mask*=mobile][width="80"] img {
+  width: calc(100% - 16px);
+}
+.wrapper_edb6e0 .mask__1979f foreignObject[mask*=mobile][width="80"]:after {
+  width: 14px;
+  height: 18px;
+  top: 75%;
+}
+.wrapper_edb6e0 .mask__1979f foreignObject[mask*=mobile][width="120"] img {
+  width: calc(100% - 24px);
+}
+.wrapper_edb6e0 .mask__1979f foreignObject[mask*=mobile][width="120"]:after {
+  width: 24px;
+  height: 24px;
+  top: 80%;
+}
+.wrapper_edb6e0 .mask__1979f rect {
+  fill: transparent !important;
+  mask: none;
+  x: 0;
+  y: 0;
+  display: block;
+  rx: calc(var(--avatar-radius) * var(--br-multi, 1));
+  ry: calc(var(--avatar-radius) * var(--br-multi, 1));
+  stroke-width: var(--stroke-width, 2px);
+  height: var(--size);
+  width: var(--size);
+  stroke: var(--color);
+}
+.wrapper_edb6e0 .mask__1979f rect:is([mask*=online], [fill="#3ba55c"]) {
+  --color: var(--green-color);
+}
+.wrapper_edb6e0 .mask__1979f rect:is([mask*=idle], [fill="#faa61a"]) {
+  --color: var(--yellow-color);
+}
+.wrapper_edb6e0 .mask__1979f rect:is([mask*=dnd], [fill="#ed4245"]) {
+  --color: var(--red-color);
+}
+.wrapper_edb6e0 .mask__1979f rect:is([mask*=streaming], [fill="#593695"]) {
+  --color: var(--live-color);
+}
+.wrapper_edb6e0 .mask__1979f rect:is([mask*=offline], [fill="#747f8d"]) {
+  --color: var(--offline-color);
+}
+.wrapper_edb6e0 .mask__1979f circle {
+  r: calc(var(--size) * 0.5);
+  cx: calc(var(--size) * 0.5);
+  cy: calc(var(--size) * 0.5);
+}
