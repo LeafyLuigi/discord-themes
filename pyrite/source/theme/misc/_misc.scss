@@ -194,7 +194,7 @@ body, // this one is here for transparency in bd to work
 
 /* show/hide for side-panels (like member list and profile panels) */
 :is(
-#{c(chat chatContainer)} ~ :is(div, aside),
+#{c(chat chatContent)} > :is(div, aside),
 #{c(chat chatContent)} > #{c(memberList container)}
 ) {
 	background: var(--background,var(--side-shading));
@@ -206,7 +206,7 @@ body, // this one is here for transparency in bd to work
 }
 #{c(main focused)} {
 	:is(
-	#{c(chat chatContainer)} ~ :is(div, aside),
+	#{c(chat chatContent)} > :is(div, aside),
 	#{c(chat chatContent)} > #{c(memberList container)}
 	) {
 		&:is(:hover,:focus-within) {

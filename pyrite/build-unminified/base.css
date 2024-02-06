@@ -231,7 +231,7 @@ body,
 }
 
 /* show/hide for side-panels (like member list and profile panels) */
-:is(.container__93316 ~ :is(div, aside),
+:is(.content__1a4fe > :is(div, aside),
 .content__1a4fe > .container_b2ce9c) {
   background: var(--background, var(--side-shading));
   left: calc((var(--width, 240px) - 60px) * var(--hide-var, --hide-fallback-enabled));
@@ -241,7 +241,7 @@ body,
   z-index: 2;
 }
 
-.app-focused :is(.container__93316 ~ :is(div, aside),
+.app-focused :is(.content__1a4fe > :is(div, aside),
 .content__1a4fe > .container_b2ce9c):is(:hover, :focus-within) {
   transform: translateX(calc(-1 * (var(--width, 240px) - 60px) * var(--hide-var, --hide-fallback-enabled)));
   backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));

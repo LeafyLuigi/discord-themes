@@ -6,6 +6,7 @@
   "scripts": {
     "build": "pnpm run build-pyrite",
     "test": "pnpm run test-pyrite && pnpm run addWhitney-test-pyrite",
+    "test-preset": "pnpm run test-pyrite && pnpm run addWhitney-test-pyrite && pnpm run test-pyrite-uml && pnpm run test-pyrite-vencord",
     "build-pyrite": "pnpm run buildsass-pyrite && pnpm run buildprefix-pyrite",
     "buildsass-pyrite": "sass pyrite/source:pyrite/build-unminified -I pyrite/source --no-source-map && sass pyrite/source:pyrite/build -s compressed -I pyrite/source --no-source-map",
     "buildprefix-pyrite": "postcss pyrite/build/*.css -d pyrite/build -u autoprefixer --no-map",
