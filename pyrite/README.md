@@ -2,7 +2,7 @@
 
 Pyrite is a Discord Theme inspired by ClearVision and is built off the core of a stale branch.
 
-Due to the differences between Canary, PTB and Stable as well as Discord Experiments you might not have an area themed. Speak up for it on the [Support Server](https://discord.gg/W976FZS) and someone will fix it up for you.
+Due to the differences between Canary, PTB and Stable as well as Discord Experiments you might not have an area themed. Speak up for it on the [Support Server](https://discord.gg/EeQQTWbTf5) and someone will fix it up for you.
 
 *Replugged plugin support has since been dropped but you can still use the theme once converted into a .asar file. You can do so on this page: https://replugged-org.github.io/theme-converter/*
 
