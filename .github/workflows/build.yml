@@ -1,0 +1,25 @@
+name: Build
+on:
+  - push
+jobs:
+  project:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: cd to correct location
+        run: cd pyrite
+      - name: Install
+        run: npm ci
+      - name: Build Pyrite
+        run: pnpm run build-pyrite
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
