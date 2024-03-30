@@ -12,8 +12,24 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
       - name: Install
-        run: npm ci
+        run: pnpm i -D
       - name: Move classes file because GH decided symlink name too long for some reason
         run: cp ./classes/_classes.scss ./pyrite/source/classes/_classes.scss
       - name: cd to correct location
