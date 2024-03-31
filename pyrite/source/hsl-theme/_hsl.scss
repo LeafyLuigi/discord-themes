@@ -137,7 +137,7 @@
 		$isList: str-slice($isList,1,-2)+")"; // remove trailing comma, add closing bracket
 		
 		&#{$isList} {
-			transform: nth($range,1) !important;
+			transform: nth($range,1) !important; // !important reason: override existing important
 		}
 	}
 }

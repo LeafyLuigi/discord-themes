@@ -89,7 +89,7 @@ code,
 
 html,
 body,
-:is(.app__00c92, .app_de4237),
+.app_de4237,
 .bg__12180 {
   background: transparent;
 }
@@ -301,13 +301,13 @@ a[href^="http://"] {
 
 .backdrop__1a911,
 .withLayer__29ace {
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px) !important;
   background-color: transparent !important;
 }
 
 /* remove line clamps */
 div.lineClamp2Plus_ccc883 {
-  -webkit-line-clamp: unset !important; /* !important reason: override inline. */
+  -webkit-line-clamp: unset !important;
 }
 
 /* Official Preset Previews */
@@ -1205,8 +1205,15 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 .scroller__3c95c {
   background-color: transparent;
 }
-.scroller__3c95c::-webkit-scrollbar {
-  display: none;
+@supports (scrollbar-width: none) {
+  .scroller__3c95c {
+    scrollbar-width: none;
+  }
+}
+@supports selector(div::-webkit-scrollbar) {
+  .scroller__3c95c::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .container_fc4154 {
@@ -4834,8 +4841,15 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   gap: unset;
   overflow-x: scroll;
 }
-.tabBar__35f81::-webkit-scrollbar {
-  display: none;
+@supports (scrollbar-width: none) {
+  .tabBar__35f81 {
+    scrollbar-width: none;
+  }
+}
+@supports selector(div::-webkit-scrollbar) {
+  .tabBar__35f81::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .tabBarContainer_b283be {
@@ -4947,66 +4961,14 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 }
 
 /* Begin Scrollbar */
-.thin_b1c063::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.thin_b1c063::-webkit-scrollbar-track {
-  border-color: transparent;
-  background-color: transparent;
-  border: 2px solid transparent;
-}
-
-.thin_b1c063::-webkit-scrollbar-thumb {
-  background-clip: padding-box;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  background-color: var(--primary-color);
-  min-height: 40px;
-}
-
-.auto_a3c0bd::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
-}
-
-.auto_a3c0bd::-webkit-scrollbar-track {
-  background-color: var(--card-background);
-}
-
-.auto_a3c0bd::-webkit-scrollbar-thumb,
-.auto_a3c0bd::-webkit-scrollbar-track {
-  border: 4px solid transparent;
-  background-clip: padding-box;
-  border-radius: 8px;
-}
-
-.auto_a3c0bd::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color);
-  min-height: 40px;
-}
-
-.thin_b1c063::-webkit-scrollbar-corner,
-.auto_a3c0bd::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
-
-.none__7a473::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-.fade_ba0fa0::-webkit-scrollbar-thumb,
-.fade_ba0fa0::-webkit-scrollbar-track {
-  visibility: hidden;
-}
-
-.fade_ba0fa0:hover::-webkit-scrollbar-thumb,
-.fade_ba0fa0:hover::-webkit-scrollbar-track,
-.scrolling__5bc92.fade_ba0fa0::-webkit-scrollbar-thumb,
-.scrolling__5bc92.fade_ba0fa0::-webkit-scrollbar-track {
-  visibility: visible;
+:is(.theme-light,
+.theme-dark) {
+  --scrollbar-auto-scrollbar-color-thumb: var(--primary-color);
+  --scrollbar-auto-scrollbar-color-track: transparent;
+  --scrollbar-auto-thumb: var(--primary-color);
+  --scrollbar-auto-track: transparent;
+  --scrollbar-thin-thumb: var(--primary-color);
+  --scrollbar-thin-track: transparent;
 }
 
 /* Begin Search */
@@ -5450,10 +5412,10 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   border-color: var(--primary-color);
 }
 
-:is(.app__00c92, .app_de4237):not([style*=transform]) .noticeRegion_b8b9df .container__353bc:not([style*="240, 71, 71"]) {
+.app_de4237:not([style*=transform]) .noticeRegion_b8b9df .container__353bc:not([style*="240, 71, 71"]) {
   background-color: transparent !important;
 }
-:is(.app__00c92, .app_de4237):not([style*=transform]) .noticeRegion_b8b9df .container__353bc:not([style*="240, 71, 71"])::before {
+.app_de4237:not([style*=transform]) .noticeRegion_b8b9df .container__353bc:not([style*="240, 71, 71"])::before {
   content: "";
   top: 0;
   right: 20px;
@@ -5821,7 +5783,7 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   background: linear-gradient(to left, currentColor -50%, transparent 50%);
 }
 
-.container__7e23c .content__690c5 > div[style="height: 84px;"] {
+.container__7e23c :is(.content__690c5, .content__4b45f) > div[style="height: 84px;"] {
   height: 132px !important;
 }
 .container__7e23c .container_f41675 {

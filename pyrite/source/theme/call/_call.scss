@@ -85,8 +85,13 @@
 }
 #{c(stage scroller)} {
 	background-color: transparent;
-	&::-webkit-scrollbar {
-		display: none;
+	@supports (scrollbar-width: none) {
+		scrollbar-width: none;
+	}
+	@supports selector(div::-webkit-scrollbar) {
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 }
 #{c(stage headerContainer)} {

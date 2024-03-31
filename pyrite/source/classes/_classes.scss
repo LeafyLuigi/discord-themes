@@ -117,12 +117,12 @@ $classes: (
 		"mobileApp": "mobileApp__47cbc",
 		"allowsScrolling": "allowsScrolling__293ca",
 
-		"appInner": "app__00c92" "app_de4237",
-		"layers": "layers__12c9f" "layers_a23c37",
+		"appInner": "app_de4237",
+		"layers": "layers_a23c37",
 		
 		// all on same line
 		"animating": "animating_b7d085",
-		"baseLayer": "baseLayer__13b6b",
+		"baseLayer": "baseLayer__2b890",
 		"bg": "bg__12180",
 		"appLayer": "layer_f7d46a",
 		"appLayers": "layers__1c917",
@@ -1967,18 +1967,18 @@ $classes: (
 			),
 		),
 	),
-	"scroller": (
-		"base": "scrollerBase_f742b2",
-		"thin": "thin_b1c063", // channel sidebar
-		"auto": "auto_a3c0bd", // "default"
-		"none": "none__7a473", // server list
-		"fade": "fade_ba0fa0", // channel sidebar (show on hover)
-		"scrolling": "scrolling__5bc92",
-		"disableScrollAnchor": "disableScrollAnchor__3bcc1",
-		"content": "content__690c5", // USED EVERYWHERE AS A CHILD CLASS TO BASE.
-		"managedReactiveScroller": "managedReactiveScroller__0d0b5",
-		"pointerCover": "pointerCover__5c3cc", // disables inputs by the looks of it. seems to be a child of content on SOME scrollers
-		"customTheme": "customTheme_e72fe3", // idk where this is used
+	"scroller": ( // There's two because pain.
+		"base": "scrollerBase_f742b2" "scrollerBase__65223",
+		"thin": "thin_b1c063" "thin__62e51", // channel sidebar
+		"auto": "auto_a3c0bd" "auto__020ac", // "default"
+		"none": "none__7a473" "none_ff9f86", // server list
+		"fade": "fade_ba0fa0" "fade__8a426", // channel sidebar (show on hover)
+		"scrolling": "scrolling__5bc92" "scrolling__6b53c",
+		"disableScrollAnchor": "disableScrollAnchor__3bcc1" "disableScrollAnchor__2949b",
+		"content": "content__690c5" "content__4b45f", // USED EVERYWHERE AS A CHILD CLASS TO BASE.
+		"managedReactiveScroller": "managedReactiveScroller__0d0b5" "managedReactiveScroller__08e95",
+		"pointerCover": "pointerCover__5c3cc" "pointerCover__0b6d7", // disables inputs by the looks of it. seems to be a child of content on SOME scrollers
+		"customTheme": "customTheme_e72fe3" "customTheme__6006b", // idk where this is used
 	),
 	"search": (
 		"wrap": "searchResultsWrap__2e184",

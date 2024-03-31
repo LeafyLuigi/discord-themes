@@ -54,8 +54,13 @@
 #{c(profile modal tabBar)} {
 	gap: unset;
 	overflow-x: scroll; // scroll for languages with longer strings
-	&::-webkit-scrollbar {
-		display: none;
+	@supports (scrollbar-width: none) {
+		scrollbar-width: none;
+	}
+	@supports selector(div::-webkit-scrollbar) {
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 }
 #{c(profile modal tabBarContainer)} {

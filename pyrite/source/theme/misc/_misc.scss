@@ -289,13 +289,13 @@ a[href^="http://"] {
 }
 #{c(main backdrop)},
 #{c(main backdropWithLayer)} {
-	backdrop-filter: blur(3px);
-	background-color: transparent !important;
+	backdrop-filter: blur(3px) !important; // !important reason: override inline
+	background-color: transparent !important; // !important reason: override inline
 }
 
 /* remove line clamps */
 div#{c(text lineClamp2Plus)} {
-	-webkit-line-clamp: unset !important; /* !important reason: override inline. */
+	-webkit-line-clamp: unset !important; // !important reason: override inline.
 }
 
 /* Official Preset Previews */

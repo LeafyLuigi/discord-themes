@@ -1,56 +1,182 @@
 @use "backend" as *;
 /* Begin Scrollbar */
-#{c(scroller thin)}::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
-}
-#{c(scroller thin)}::-webkit-scrollbar-track {
-	border-color: transparent;
-	background-color: transparent;
-	border: 2px solid transparent;
-}
-#{c(scroller thin)}::-webkit-scrollbar-thumb {
-	background-clip: padding-box;
-	border: 2px solid transparent;
-	border-radius: 4px;
-	background-color: $primary;
-	min-height: 40px;
-}
+// @supports (scrollbar-width: auto) and (scrollbar-color: red blue) {
+// 	#{c(scroller thin)} {
+// 		scrollbar-width: thin;
+// 		scrollbar-color: $primary transparent !important; // !important reason: Override existing CSS that uses fade
+// 		// &::-webkit-scrollbar {
+// 		// 	width: 8px;
+// 		// 	height: 8px;
+// 		// 	&-track {
+// 		// 		border-color: transparent;
+// 		// 		background-color: transparent;
+// 		// 		border: 2px solid transparent;
+// 		// 	}
+// 		// 	&-thumb {
+// 		// 		background-clip: padding-box;
+// 		// 		border: 2px solid transparent;
+// 		// 		border-radius: 4px;
+// 		// 		background-color: $primary;
+// 		// 		min-height: 40px;
+// 		// 	}
+// 		// }
+// 	}
+// 	#{c(scroller auto)} {
+// 		scrollbar-width: auto;
+// 		scrollbar-color: $primary $card !important; // !important reason: Override existing CSS that uses fade
+// 		// &::-webkit-scrollbar {
+// 		// 	height: 16px;
+// 		// 	width: 16px;
+// 		// 	&-track {
+// 		// 		background-color: $card;
+// 		// 	}
+// 		// 	&-thumb, &-track {
+// 		// 		border: 4px solid transparent;
+// 		// 		background-clip: padding-box;
+// 		// 		border-radius: 8px;
+// 		// 	}
+// 		// 	&-thumb {
+// 		// 		background-color: $primary;
+// 		// 		min-height: 40px;
+// 		// 	}
+// 		// }
+// 	}
+// 	// :is(#{c(scroller thin)},#{c(scroller auto)})::-webkit-scrollbar-corner {
+// 	// 	background-color: transparent;
+// 	// }
+// 	#{c(scroller none)} {
+// 		scrollbar-width: none;
+// 	}
+// 	// #{c(scroller none)}::-webkit-scrollbar {
+// 	// 	width: 0;
+// 	// 	height: 0;
+// 	// }
+// 	#{c(scroller fade)} {
+// 		&:not(:hover,#{c(scroller scrolling)}) {
+// 			scrollbar-color: transparent transparent !important; // !important reason: Override existing CSS and theme's importants.
+// 		}
+// 	}
+// 	// #{c(scroller fade)}::-webkit-scrollbar-thumb,
+// 	// #{c(scroller fade)}::-webkit-scrollbar-track {
+// 	// 	visibility: hidden;
+// 	// }
+// 	// #{c(scroller fade)}:is(:hover,#{c(scroller scrolling)})::-webkit-scrollbar-thumb,
+// 	// #{c(scroller fade)}:is(:hover,#{c(scroller scrolling)})::-webkit-scrollbar-track {
+// 	// 	visibility: visible;
+// 	// }
+// }
+// @supports selector(div::-webkit-scrollbar) {
+// 	#{c(scroller thin)} {
+// 		&::-webkit-scrollbar {
+// 			width: 8px;
+// 			height: 8px;
+// 			&-track {
+// 				border-color: transparent;
+// 				background-color: transparent;
+// 				border: 2px solid transparent;
+// 			}
+// 			&-thumb {
+// 				background-clip: padding-box;
+// 				border: 2px solid transparent;
+// 				border-radius: 4px;
+// 				background-color: $primary;
+// 				min-height: 40px;
+// 			}
+// 		}
+// 	}
+// 	#{c(scroller auto)} {
+// 		&::-webkit-scrollbar {
+// 			height: 16px;
+// 			width: 16px;
+// 			&-track {
+// 				background-color: $card;
+// 			}
+// 			&-thumb, &-track {
+// 				border: 4px solid transparent;
+// 				background-clip: padding-box;
+// 				border-radius: 8px;
+// 			}
+// 			&-thumb {
+// 				background-color: $primary;
+// 				min-height: 40px;
+// 			}
+// 		}
+// 	}
+// 	:is(#{c(scroller thin)},#{c(scroller auto)})::-webkit-scrollbar-corner {
+// 		background-color: transparent;
+// 	}
+// 	#{c(scroller none)}::-webkit-scrollbar {
+// 		width: 0;
+// 		height: 0;
+// 	}
+// 	#{c(scroller fade)}::-webkit-scrollbar-thumb,
+// 	#{c(scroller fade)}::-webkit-scrollbar-track {
+// 		visibility: hidden;
+// 	}
+// 	#{c(scroller fade)}:is(:hover,#{c(scroller scrolling)})::-webkit-scrollbar-thumb,
+// 	#{c(scroller fade)}:is(:hover,#{c(scroller scrolling)})::-webkit-scrollbar-track {
+// 		visibility: visible;
+// 	}
+// }
+// // #{c(scroller thin)}::-webkit-scrollbar {
+// // 	width: 8px;
+// // 	height: 8px;
+// // }
+// // #{c(scroller thin)}::-webkit-scrollbar-track {
+// // 	border-color: transparent;
+// // 	background-color: transparent;
+// // 	border: 2px solid transparent;
+// // }
+// // #{c(scroller thin)}::-webkit-scrollbar-thumb {
+// // 	background-clip: padding-box;
+// // 	border: 2px solid transparent;
+// // 	border-radius: 4px;
+// // 	background-color: $primary;
+// // 	min-height: 40px;
+// // }
 
-#{c(scroller auto)}::-webkit-scrollbar {
-	width: 16px;
-	height: 16px;
-}
-#{c(scroller auto)}::-webkit-scrollbar-track {
-	background-color: $card;
-}
-#{c(scroller auto)}::-webkit-scrollbar-thumb,
-#{c(scroller auto)}::-webkit-scrollbar-track {
-	border: 4px solid transparent;
-	background-clip: padding-box;
-	border-radius: 8px;
-}
-#{c(scroller auto)}::-webkit-scrollbar-thumb {
-	background-color: $primary;
-	min-height: 40px;
-}
-#{c(scroller thin)}::-webkit-scrollbar-corner,
-#{c(scroller auto)}::-webkit-scrollbar-corner {
-	background-color: transparent;
-}
+// // #{c(scroller auto)}::-webkit-scrollbar {
+// // 	width: 16px;
+// // 	height: 16px;
+// // }
+// // #{c(scroller auto)}::-webkit-scrollbar-track {
+// // 	background-color: $card;
+// // }
+// // #{c(scroller auto)}::-webkit-scrollbar-thumb,
+// // #{c(scroller auto)}::-webkit-scrollbar-track {
+// // 	border: 4px solid transparent;
+// // 	background-clip: padding-box;
+// // 	border-radius: 8px;
+// // }
+// // #{c(scroller auto)}::-webkit-scrollbar-thumb {
+// // 	background-color: $primary;
+// // 	min-height: 40px;
+// // }
 
-#{c(scroller none)}::-webkit-scrollbar {
-	width: 0;
-	height: 0;
-}
 
-#{c(scroller fade)}::-webkit-scrollbar-thumb,
-#{c(scroller fade)}::-webkit-scrollbar-track {
-	visibility: hidden;
-}
-#{c(scroller fade)}:hover::-webkit-scrollbar-thumb,
-#{c(scroller fade)}:hover::-webkit-scrollbar-track,
-#{c(scroller scrolling)}#{c(scroller fade)}::-webkit-scrollbar-thumb,
-#{c(scroller scrolling)}#{c(scroller fade)}::-webkit-scrollbar-track {
-	visibility: visible;
+// // #{c(scroller none)}::-webkit-scrollbar {
+// // 	width: 0;
+// // 	height: 0;
+// // }
+
+// // #{c(scroller fade)}::-webkit-scrollbar-thumb,
+// // #{c(scroller fade)}::-webkit-scrollbar-track {
+// // 	visibility: hidden;
+// // }
+// // #{c(scroller fade)}:hover::-webkit-scrollbar-thumb,
+// // #{c(scroller fade)}:hover::-webkit-scrollbar-track,
+// // #{c(scroller scrolling)}#{c(scroller fade)}::-webkit-scrollbar-thumb,
+// // #{c(scroller scrolling)}#{c(scroller fade)}::-webkit-scrollbar-track {
+// // 	visibility: visible;
+// // }
+:is(
+	#{c(main light)},
+	#{c(main dark)}
+) {
+	--scrollbar-auto-scrollbar-color-thumb: var(--primary-color);
+    --scrollbar-auto-scrollbar-color-track: transparent;
+    --scrollbar-auto-thumb: var(--primary-color);
+    --scrollbar-auto-track: transparent;
+    --scrollbar-thin-thumb: var(--primary-color);
+    --scrollbar-thin-track: transparent;
 }
