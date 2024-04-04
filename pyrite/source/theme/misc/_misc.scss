@@ -298,8 +298,12 @@ div#{c(text lineClamp2Plus)} {
 	-webkit-line-clamp: unset !important; // !important reason: override inline.
 }
 
-/* Official Preset Previews */
+/* unbreak certain modal backgrounds */
+#{c(main fullMotion)} :is(#{c(modals translate)},#{c(modals scale)}) {
+	transform: unset !important; // !important reason: override other rules that have it, namely with the animator* rules.
+}
 
+/* Official Preset Previews */
 $orangeSynthscape: "1186899494231613502";
 $pinkSunset: "1186899552872185866";
 $blueOcean: "1186899634262638692";

@@ -1,8 +1,12 @@
 @use "backend" as *;
 /* Start User Modal */
 #{c(profile modal root)} {
+	&[style*="transform"] {
+		transform: unset !important; // !important reason: required to fix background attachment
+		z-index: 0; // used to further fix background stuff
+	}
 	#{c(profile outer unthemed)} {
-		@include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter));
+		@include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter),$z:null);
 	}
 }
 #{c(profile modal premiumIconWrapper)} {
