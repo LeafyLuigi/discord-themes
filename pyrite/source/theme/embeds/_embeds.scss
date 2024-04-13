@@ -44,8 +44,24 @@
 }
 #{c(embeds codeblock)},
 #{c(embeds invite)},
-#{c(embeds attachment)} {
+#{c(embeds attachment)},
+#{c(embeds poll container)} {
 	@include card;
+}
+
+#{c(embeds poll header)} #{c(embeds poll question)} {
+	@include header;
+}
+
+#{c(embeds poll votedStyles)} {
+	--custom-poll-style-vote-percentage: var(--secondary-color);
+}
+#{c(embeds poll victorStyles)} {
+	--custom-poll-style-vote-percentage: var(--green-color);
+}
+#{c(embeds poll votePercentageBar)} {
+	background-color: transparent;
+	@include bg($o:0.3,$bg:var(--custom-poll-style-vote-percentage));
 }
 
 #{c(embeds uploadProgressBar)} {
