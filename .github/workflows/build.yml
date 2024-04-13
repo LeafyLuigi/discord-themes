@@ -19,14 +19,10 @@ jobs:
           run_install: false
       - name: Install
         run: pnpm i -D
-      - name: Move classes file because GH decided symlink name too long for some reason
-        run: cp ./classes/_classes.scss ./pyrite/source/classes/_classes.scss
-      - name: cd to correct location
-        run: cd ./pyrite
+      # - name: Move classes file because GH decided symlink name too long for some reason
+      #   run: cp ./classes/_classes.scss ./pyrite/source/classes/_classes.scss
       - name: Build Pyrite
-        run: pnpm run build-pyrite
-      - name: cd out
-        run: cd ..
+        run: pushd ./pyrite && pnpm run build-pyrite && popd
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
