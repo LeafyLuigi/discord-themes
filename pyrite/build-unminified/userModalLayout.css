@@ -1,6 +1,6 @@
 /* Theme's User Modal Layout */
 .root_ba16f0,
-.userProfileModalOuter_a65559 {
+.userProfileModalOuter__90b4a {
   width: var(--user-modal-width, 900px);
   height: var(--user-modal-height, 600px);
   min-width: 300px;
@@ -9,12 +9,12 @@
   max-height: calc(100vh - 20px);
 }
 
-.userProfileModalOuter_a65559 {
+.userProfileModalOuter__90b4a {
   display: flex;
   flex-direction: row;
 }
 
-.userProfileModalInner__99b1e::before {
+.userProfileModalInner__84e47::before {
   height: calc(100% - 16px);
   width: calc(100% - 16px);
 }
@@ -55,17 +55,17 @@
   display: none;
 }
 
-.userProfileModalInner__99b1e.userProfileInnerThemedWithBanner__2152d {
+.userProfileModalInner__84e47.userProfileInnerThemedWithBanner_e9e7c5 {
   --banner-height: 301px;
   --row: var(--row-banner,4);
   background: transparent;
 }
 
-.userProfileModalInner__99b1e.userProfileInnerThemedPremiumWithoutBanner__3705a {
+.userProfileModalInner__84e47.userProfileInnerThemedPremiumWithoutBanner_ee8277 {
   background: transparent;
 }
 
-.userProfileModalOverlayBackground__7ec35 {
+.userProfileModalOverlayBackground_a5b043 {
   background: transparent;
   border-radius: 0;
   overflow: visible;

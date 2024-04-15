@@ -2072,7 +2072,7 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 .form_d8a4a1 {
   margin-top: 0;
 }
-.form_d8a4a1::before {
+.form_d8a4a1::before, .form_d8a4a1::after {
   content: none;
 }
 
@@ -4821,7 +4821,7 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 }
 
 /* Start Profile */
-.userProfileOuterUnthemed_e14365 {
+.userProfileOuterUnthemed__9741c {
   --profile-gradient-primary-color: transparent;
   --profile-gradient-secondary-color: transparent;
   --profile-gradient-overlay-color: transparent;
@@ -4839,7 +4839,7 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   transform: unset !important;
   z-index: 0;
 }
-.root_ba16f0 .userProfileOuterUnthemed_e14365::before {
+.root_ba16f0 .userProfileOuterUnthemed__9741c::before {
   content: "";
   top: 0;
   right: 0;
@@ -4948,12 +4948,12 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 }
 
 /* Start User Popout */
-.userPopoutOuter__3884e:not(.userProfileOuterThemed__1fbd7) {
+.userPopoutOuter_d67f56:not(.userProfileOuterThemed_a425f3) {
   position: relative;
   box-shadow: none;
   background-color: transparent;
 }
-.userPopoutOuter__3884e:not(.userProfileOuterThemed__1fbd7)::before {
+.userPopoutOuter_d67f56:not(.userProfileOuterThemed_a425f3)::before {
   content: "";
   top: 0;
   right: 0;

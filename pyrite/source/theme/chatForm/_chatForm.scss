@@ -2,7 +2,7 @@
 /* Begin Chat Form */
 #{c(chatForm form)} {
 	margin-top: 0;
-	&::before {
+	&::before,&::after {
 		content: none;
 	}
 }

@@ -2419,39 +2419,41 @@ $classes: (
 		"colors": "profileColors_ac6ab4", // default variables supplied with this, a few with dark/light
 		"noteTextarea": "textarea__0461c", // seems to be used on all of them
 
-		"overlay": (
-			"overlay": "overlayBackground__2666e",
+		"showOutOfBoundaryComponents": "showOutOfBoundaryComponents__3e39f",
 
-			"popout": "userPopoutOverlayBackground_bf6444",
-			"modal": "userProfileModalOverlayBackground__7ec35",
-			"panel": "userPanelOverlayBackground__41589",
+		"overlay": (
+			"overlay": "overlayBackground__345c9",
+
+			"popout": "userPopoutOverlayBackground__3e7e6",
+			"modal": "userProfileModalOverlayBackground_a5b043",
+			"panel": "userPanelOverlayBackground_a2b6ae",
 		),
 
 		"outer": (
-			"outer": "userProfileOuter__4ac83",
-			"themed": "userProfileOuterThemed__1fbd7",
-			"unthemed": "userProfileOuterUnthemed_e14365",
+			"outer": "userProfileOuter__35e59",
+			"themed": "userProfileOuterThemed_a425f3",
+			"unthemed": "userProfileOuterUnthemed__9741c",
 
-			"card": "userCardOuter__69ef3",
-			"popout": "userPopoutOuter__3884e",
-			"modal": "userProfileModalOuter_a65559",
-			"panel": "userPanelOuter_eb00b1",
+			"card": "userCardOuter_eacfb3",
+			"popout": "userPopoutOuter_d67f56",
+			"modal": "userProfileModalOuter__90b4a",
+			"panel": "userPanelOuter_df01a5",
 		),
 
 		"inner": (
-			"inner": "userProfileInner__61cc1",
-			"unthemed": "userProfileInnerUnthemed__44dcf",
-			"themed": "userProfileInnerThemed__5ab6a",
-			"themedPremiumWithoutBanner": "userProfileInnerThemedPremiumWithoutBanner__3705a",
-			"themedWithBanner": "userProfileInnerThemedWithBanner__2152d",
-			"themedNonPremium": "userProfileInnerThemedNonPremium_ed9022", // so basically "without theme"
+			"inner": "userProfileInner__8ff35",
+			"unthemed": "userProfileInnerUnthemed__4670d",
+			"themed": "userProfileInnerThemed__126d9",
+			"themedPremiumWithoutBanner": "userProfileInnerThemedPremiumWithoutBanner_ee8277",
+			"themedWithBanner": "userProfileInnerThemedWithBanner_e9e7c5",
+			"themedNonPremium": "userProfileInnerThemedNonPremium_b64fb4", // so basically "without theme"
 
-			"card": "userCardInner__4fd8f",
-			"popout": "userPopoutInner_e90432",
-			"modal": "userProfileModalInner__99b1e",
-			"panel": "userPanelInner_f9edb8",
+			"card": "userCardInner_e36852",
+			"popout": "userPopoutInner_ac0960",
+			"modal": "userProfileModalInner__84e47",
+			"panel": "userPanelInner__3184c",
 
-			"panelThemed": "userPanelInnerThemed_c2aed9",
+			"panelThemed": "userPanelInnerThemed__651e4",
 		),
 
 		"bannerSVGWrapper": "alias profile banner svgWrapper",
