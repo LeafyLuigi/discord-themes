@@ -4821,17 +4821,16 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 }
 
 /* Start Profile */
-.userProfileOuterUnthemed__9741c {
-  --profile-gradient-primary-color: transparent;
-  --profile-gradient-secondary-color: transparent;
-  --profile-gradient-overlay-color: transparent;
-  --profile-avatar-border-color: transparent;
-  --profile-message-input-border-color: var(--primary-color);
-  --profile-body-background-color: var(--card-background);
-  --profile-body-divider-color: var(--primary-color);
-  --profile-role-pill-background-color: var(--card-background);
-  --account-profile-popout-menu-hover: var(--primary-color);
-  --profile-note-background-color: transparent;
+.userProfileOuterUnthemed__9741c .badgeList__126b0,
+.userProfileOuterUnthemed__9741c .overlayBackground__345c9,
+.userProfileOuterUnthemed__9741c .relationshipButtons_b880ad {
+  background: var(--card-background);
+}
+
+.userPanelInnerThemed__651e4,
+.userProfileOuterUnthemed__9741c,
+.userProfileInnerThemedNonPremium_b64fb4 {
+  background: transparent;
 }
 
 /* Start User Modal */

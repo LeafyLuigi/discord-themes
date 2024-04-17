@@ -100,10 +100,8 @@
 		background-color: transparent;
 	}
 }
-#{c(profile modal body)} {
-	#{c(profile modal guildAvatarWithoutIcon)} {
-		background-color: $card;
-	}
+#{c(profile modal body)} #{c(profile modal guildAvatarWithoutIcon)} {
+	background-color: $card;
 }
 #{c(profile modal connections container)} {
 	background-color: transparent;

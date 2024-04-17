@@ -14,6 +14,12 @@
   flex-direction: row;
 }
 
+.userProfileOuterUnthemed__9741c .listScroller__18a19,
+.userProfileOuterUnthemed__9741c .body_bd4552 .container__9f51c,
+.userProfileOuterUnthemed__9741c .infoScroller__0920a .userInfoSection_e816c1:first-child::before {
+  background: var(--card-background);
+}
+
 .userProfileModalInner__84e47::before {
   height: calc(100% - 16px);
   width: calc(100% - 16px);
@@ -26,6 +32,7 @@
   width: calc(var(--user-modal-width, 900px) * 2 / 3);
 }
 
+.modalBanner_e4ade4,
 .profileBanner_f0f36c,
 .profileBannerPremium__6fb42 {
   border-radius: 0;
@@ -61,6 +68,7 @@
   background: transparent;
 }
 
+.userProfileOuterUnthemed__9741c.userProfileOuter__35e59 .overlayBackground__345c9,
 .userProfileModalInner__84e47.userProfileInnerThemedPremiumWithoutBanner_ee8277 {
   background: transparent;
 }

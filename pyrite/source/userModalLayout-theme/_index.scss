@@ -1,6 +1,5 @@
 @use "backend" as *;
 /* Theme's User Modal Layout */
-	
 #{c(profile modal root)},
 #{c(profile modal outer)} {
 	width: var(--user-modal-width,900px);
@@ -14,6 +13,13 @@
 	display: flex;
 	flex-direction: row;
 }
+#{c(profile outer unthemed)} {
+	#{c(profile modal listScroller)},
+	#{c(profile modal body)} #{c(profile modal usernameContainer)},
+	#{c(profile modal infoScroller)} #{c(profile modal userInfoSection)}:first-child::before {
+		background: $card;
+	}
+}
 #{c(profile modal inner)} {
 	&::before {
 		height: calc(100% - 16px);
@@ -26,6 +32,7 @@
 	flex-direction: column;
 	width: calc(var(--user-modal-width,900px) * 2/3);
 }
+#{c(profile banner modal)},
 #{c(profile modal profileBanner)},
 #{c(profile modal profileBannerPremium)} {
 	border-radius: 0;
@@ -60,6 +67,7 @@
 	--row: var(--row-banner,4);
 	background: transparent;
 }
+#{c(profile outer unthemed)}#{c(profile outer outer)} #{c(profile overlay overlay)},
 #{c(profile modal inner)}#{c(profile inner themedPremiumWithoutBanner)} {
 	background: transparent;
 }
