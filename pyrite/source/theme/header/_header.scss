@@ -75,6 +75,9 @@
 #{c(header iconClickable)} {
 	#{c(header icon)} {
 		color: $primary;
+		path {
+			fill: currentColor;
+		}
 	}
 	&:hover {
 		#{c(header icon)} {
@@ -108,13 +111,13 @@
 	#{c(header tabBarItem)} {
 		// and the blocked tab
 		&#{c(tab themed)} {
-			&:nth-child(4) {
+			&:nth-last-child(2) {
 				color: var(--interactive-active);
 				background-color: $red;
 			}
 		}
 		&#{c(tab selected)}#{c(tab themed)} {
-			&:nth-child(4) {
+			&:nth-last-child(2) {
 				color: $red;
 				background-color: var(--background-modifier-selected);
 				// for parity

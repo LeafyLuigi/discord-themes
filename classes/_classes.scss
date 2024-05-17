@@ -3055,6 +3055,7 @@ $classes: (
 		// Within settings, it's in Profiles. Chances are overlap with popout exist here.
 		"settings": (
 			"body": "body_d75d88",
+			"badgeList": "badgeList__6b2c7",
 		),
 	),
 	
@@ -4294,7 +4295,9 @@ $classes: (
 					"subheaderText": "subheaderText_e2afe7",
 					"ctaActionWrapper": "ctaActionWrapper__31b82",
 					"button": "button_cd9cbe",
-				)
+				),
+
+				"upsellContainer": "upsellContainer__15a05", // "Unlock these emojis with Nitro" shows up when reacting
 			)
 		),
 
@@ -4414,9 +4417,9 @@ $classes: (
 		// You can also think of these as "Has a distinct header"
 		// There seriously might be NOTHING shared
 		"headerDropdown": (
-			"messagesPopoutWrap": "messagesPopoutWrap__10dd1", // MENTIONS + PINNED
-			"messagesPopout": "messagesPopout__28784", // MENTIONS + PINNED
-			"header": "header__21b33", // MENTIONS + UNREAD + PINNED
+			"messagesPopoutWrap": "messagesPopoutWrap__10dd1", // INBOX + PINNED
+			"messagesPopout": "messagesPopout__28784", // INBOX + PINNED
+			"header": "header__21b33", // INBOX + UNREAD + PINNED
 		),
 
 		"inbox": (
@@ -4450,6 +4453,13 @@ $classes: (
 			"emptyHeader": "header__748f0",
 			"emptyProtip": "protip__270fe",  // inline color
 			
+			"friendRequestsButton": "friendRequestsButton__77e10",
+
+			"forYou": (
+				"container": "container_c96c91",
+				"bodyContainer": "container_cdf5a8",
+			),
+
 			"mentions": (
 				"scroller": "scroller__64264",
 				"container": "container__7c2c1",

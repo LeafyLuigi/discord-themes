@@ -21,7 +21,7 @@
 }
 
 .userProfileModalInner__84e47::before {
-  height: calc(100% - 16px);
+  height: calc(100% - 8px);
   width: calc(100% - 16px);
 }
 
@@ -68,7 +68,7 @@
   background: transparent;
 }
 
-.userProfileOuterUnthemed__9741c.userProfileOuter__35e59 .overlayBackground__345c9,
+.userProfileOuterUnthemed__9741c.userProfileModalOuter__90b4a .overlayBackground__345c9,
 .userProfileModalInner__84e47.userProfileInnerThemedPremiumWithoutBanner_ee8277 {
   background: transparent;
 }

@@ -5,6 +5,15 @@
 	position: relative;
 	box-shadow: none;
 	background-color: transparent;
+	#{c(role role)} {
+		background: var(--card-background);
+	}
+	#{c(profile popout note)} textarea:focus {
+		background: var(--background-modifier-active);
+	}
+	#{c(profile popout badges)} {
+		background-color: var(--card-background);
+	}
 }
 #{c(profile popout roleActionButton)} {
 	color: $primary;

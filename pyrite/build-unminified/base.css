@@ -3611,6 +3611,9 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 .clickable_ce0925 .icon_ae0b42 {
   color: var(--primary-color);
 }
+.clickable_ce0925 .icon_ae0b42 path {
+  fill: currentColor;
+}
 .clickable_ce0925:hover .icon_ae0b42 {
   color: var(--hover-color);
   filter: drop-shadow(0 0 2px currentColor);
@@ -3635,18 +3638,18 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   background: var(--card-background);
 }
 
-.tabBar__73938.topPill__63ad4 .item_e4ca95.themed_b957e8:nth-child(4) {
+.tabBar__73938.topPill__63ad4 .item_e4ca95.themed_b957e8:nth-last-child(2) {
   color: var(--interactive-active);
   background-color: var(--red-color);
 }
-.tabBar__73938.topPill__63ad4 .item_e4ca95.selected_a523ff.themed_b957e8:nth-child(4) {
+.tabBar__73938.topPill__63ad4 .item_e4ca95.selected_a523ff.themed_b957e8:nth-last-child(2) {
   color: var(--red-color);
   background-color: var(--background-modifier-selected);
 }
-.tabBar__73938.topPill__63ad4 .item_e4ca95.selected_a523ff.themed_b957e8:nth-child(4):hover {
+.tabBar__73938.topPill__63ad4 .item_e4ca95.selected_a523ff.themed_b957e8:nth-last-child(2):hover {
   background-color: var(--background-modifier-hover);
 }
-.tabBar__73938.topPill__63ad4 .item_e4ca95.selected_a523ff.themed_b957e8:nth-child(4):active {
+.tabBar__73938.topPill__63ad4 .item_e4ca95.selected_a523ff.themed_b957e8:nth-last-child(2):active {
   background-color: var(--background-modifier-active);
 }
 
@@ -4488,6 +4491,10 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   content: "Video was removed due to autoplay";
 }
 
+.upsellContainer__15a05 {
+  display: none;
+}
+
 .menu__088f7 {
   background-color: var(--modal-background);
   max-height: 80vh;
@@ -4635,7 +4642,7 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   background: transparent;
 }
 
-.messagesPopoutWrap__10dd1, .container_eb737e {
+.messagesPopoutWrap__10dd1, .container_eb737e, .container_c96c91 {
   background: var(--modal-background);
   top: 4px;
   backdrop-filter: blur(5px);
@@ -4672,6 +4679,21 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 }
 .button__292b6:hover:not(.disabled__4d064) {
   background: var(--hover-color);
+}
+
+.friendRequestsButton__77e10 {
+  border: 1px solid currentColor;
+  color: var(--primary-color);
+}
+.friendRequestsButton__77e10, .friendRequestsButton__77e10:hover {
+  background: transparent;
+}
+.friendRequestsButton__77e10:hover {
+  color: var(--hover-color);
+}
+
+.container_cdf5a8 {
+  background: transparent;
 }
 
 .tutorial__5bb77,
@@ -4964,6 +4986,15 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   filter: var(--user-popout-filter);
   background: var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment);
 }
+.userPopoutOuter_d67f56:not(.userProfileOuterThemed_a425f3) .role_d81130 {
+  background: var(--card-background);
+}
+.userPopoutOuter_d67f56:not(.userProfileOuterThemed_a425f3) .note_ba0c31 textarea:focus {
+  background: var(--background-modifier-active);
+}
+.userPopoutOuter_d67f56:not(.userProfileOuterThemed_a425f3) .profileBadges__1f2ab {
+  background-color: var(--card-background);
+}
 
 .actionButton__96742 {
   color: var(--primary-color);
@@ -4977,6 +5008,11 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 .profilePanel_e2cafe {
   --width: 340px;
   --hide-var: var(--hide-profile-panel);
+}
+
+/* Start Profile in Settings */
+.badgeList__6b2c7:empty {
+  background: transparent;
 }
 
 /* Start Roles */
@@ -6229,7 +6265,7 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
-.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]) {
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=userProfileOuterThemed_]) {
   --card-background: rgba(0,0,0,0.5);
   --side-shading: rgba(0,0,0,0.5);
   --middle-shading: rgba(0,0,0,0.3);
@@ -6248,7 +6284,7 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
-.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]):not(div[class*=sidebar_]):not(nav[class*=guilds_]):not(div[class*=sidebarRegion_]) {
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_], div[class*=userProfileOuterThemed_], div[class*=sidebar_], nav[class*=guilds_], div[class*=sidebarRegion_]) {
   --card-background: rgba(255,255,255,0.05);
   --side-shading: rgba(255,255,255,0.4);
   --middle-shading: rgba(255,255,255,0.3);

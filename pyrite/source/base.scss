@@ -95,7 +95,7 @@
 // default-colors is used on other-themed profiles
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
-.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]) {
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=userProfileOuterThemed_]) {
 	--card-background: rgba(0,0,0,0.5);
 	--side-shading: rgba(0,0,0,0.5);
 	--middle-shading: rgba(0,0,0,0.3);
@@ -118,7 +118,7 @@
 // sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
-.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]):not(div[class*=sidebar_]):not(nav[class*=guilds_]):not(div[class*=sidebarRegion_]) {
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_],div[class*=userProfileOuterThemed_],div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]) {
 	--card-background: rgba(255,255,255,0.05);
 	--side-shading: rgba(255,255,255,0.4);
 	--middle-shading: rgba(255,255,255,0.3);

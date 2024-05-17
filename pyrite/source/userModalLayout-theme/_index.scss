@@ -22,7 +22,7 @@
 }
 #{c(profile modal inner)} {
 	&::before {
-		height: calc(100% - 16px);
+		height: calc(100% - 8px);
 		width: calc(100% - 16px);
 	}
 }
@@ -67,7 +67,7 @@
 	--row: var(--row-banner,4);
 	background: transparent;
 }
-#{c(profile outer unthemed)}#{c(profile outer outer)} #{c(profile overlay overlay)},
+#{c(profile outer unthemed)}#{c(profile outer modal)} #{c(profile overlay overlay)},
 #{c(profile modal inner)}#{c(profile inner themedPremiumWithoutBanner)} {
 	background: transparent;
 }

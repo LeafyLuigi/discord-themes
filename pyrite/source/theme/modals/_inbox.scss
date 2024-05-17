@@ -24,6 +24,21 @@
 	}
 }
 
+#{c(modals inbox friendRequestsButton)} {
+	&,&:hover {
+		background: transparent;
+	}
+	border: 1px solid currentColor;
+	color: $primary;
+	&:hover {
+		color: $hover;
+	}
+}
+
+#{c(modals inbox forYou bodyContainer)} {
+	background: transparent;
+}
+
 // This box shows up when you've got shit unread but haven't clicked the button inside it. Doesn't add anything.
 #{c(modals inbox unread tutorial)},
 // This shows up when nothing's read and is basically a placeholder image thing.
