@@ -3398,7 +3398,10 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   content: none;
 }
 
-.container_bd15da .inviteToolbar__7cc96, .header__7cf1d, .grid__8fc4b {
+.container_bd15da .inviteToolbar__7cc96,
+.header__7cf1d,
+.grid__8fc4b,
+.image__5d9b8 {
   display: none;
 }
 

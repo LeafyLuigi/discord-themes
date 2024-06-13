@@ -18,7 +18,11 @@
 	content: none;
 }
 // remove "new private group" button in header, "explore public servers" button/header in add friends
-#{c(friends container)} #{c(friends inviteToolbar)}, #{c(friends explorePublicHeader)}, #{c(friends explorePublicGrid)} {
+#{c(friends container)} #{c(friends inviteToolbar)},
+#{c(friends explorePublicHeader)},
+#{c(friends explorePublicGrid)},
+// remove stupid image when none online, no friends, none pending or none blocked
+#{c(friends emptyImage)} {
 	display: none;
 }
 #{c(friends peopleColumn)} {
