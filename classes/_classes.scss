@@ -1983,13 +1983,23 @@ $classes: (
 		"filled": "filled__8f4ad",
 	),
 	"notice": (
-		"base": "notice__5fd4c",
-		"closeButton": "closeButton__90904", // "X" on right
-		"colorSuccess": "colorSuccess_cd97e5", // (likely) can be accessed by raising your hand in a stage channel and being allowed up, otherwise install Powercord.
-		"colorWarning": "colorWarning__01125", // shown when nitro is about to end when you don't have a payment option. on same line as other notice stuff
-		"colorDanger": "colorDanger__5d2e7", // mic muted
-		"colorStreamerMode": "colorStreamerMode_cb7f84", // obviously when streamer mode is enabled.
-		"colorDefault": "colorDefault__438d3", // Web only for "PLEASE DOWNLOAD THE DESKTOP APP" background color.
+		"base": "notice__3eb51",
+		"closeButton": "closeButton__56195", // "X" on right
+		"colorSuccess": "colorSuccess__8d3f1", // (likely) can be accessed by raising your hand in a stage channel and being allowed up, otherwise install Powercord.
+		"colorWarning": "colorWarning_b91552", // shown when nitro is about to end when you don't have a payment option. on same line as other notice stuff
+		"colorDanger": "colorDanger__4667d", // mic muted
+		"colorStreamerMode": "colorStreamerMode__5eafd", // obviously when streamer mode is enabled.
+		"colorDefault": "colorDefault__84887", // Web only for "PLEASE DOWNLOAD THE DESKTOP APP" background color.
+		"colorNeutral": "colorNeutral__9b720", // idfk
+		"colorPremium": "colorPremium_b133b6", // nitro banner of some kind? probably tied with the tier# ones
+		"colorPremiumTier0": "colorPremiumTier0__42e56", // see above
+		"colorPremiumTier1": "colorPremiumTier1__3479e", // see above
+		"colorPremiumTier2": "colorPremiumTier2__2763c", // see above
+		"colorInfo": "colorInfo__79549", // idfk
+		"colorSpotify": "colorSpotify__5f156", // i don't use spotify so can't check :)
+		"colorPlaystation": "colorPlayStation_d8390a", // same as spotify
+		"colorBrand": "colorBrand__2a8bf", // idfk
+		"colorCustom": "colorCustom__6b523", // idfk
 		// The contents of these notices are in English because yes.
 		"completeSteps": "notice_a687ab", // contents: "You must complete a few more steps before you can start talking in this server."
 		"viewServerAsRole": "notice__0425f", // contents: "You are viewing this server as $count role(s)."

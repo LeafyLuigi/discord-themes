@@ -4786,17 +4786,17 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
 }
 
 /* Start Notices */
-.base_c0676e :where(#bd-notices:not(:empty), .notice__5fd4c) ~ .content__76dcf {
+.base_c0676e :where(#bd-notices:not(:empty), .notice__3eb51) ~ .content__76dcf {
   --notice-count: 1;
 }
-.base_c0676e :where(#bd-notices:not(:empty), .notice__5fd4c) + .notice__5fd4c ~ .content__76dcf {
+.base_c0676e :where(#bd-notices:not(:empty), .notice__3eb51) + .notice__3eb51 ~ .content__76dcf {
   --notice-count: 2;
 }
-.base_c0676e :where(#bd-notices:not(:empty), .notice__5fd4c) + .notice__5fd4c + .notice__5fd4c ~ .content__76dcf {
+.base_c0676e :where(#bd-notices:not(:empty), .notice__3eb51) + .notice__3eb51 + .notice__3eb51 ~ .content__76dcf {
   --notice-count: 3;
 }
 
-:is(:where(#bd-notices:not(:empty)), .notice__5fd4c) {
+:is(:where(#bd-notices:not(:empty)), .notice__3eb51) {
   border-radius: 0;
   box-shadow: none;
   max-height: 36px;
@@ -4805,13 +4805,13 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   top: 48px;
 }
 
-:is(:where(#bd-notices:not(:empty)), .notice__5fd4c) ~ .content__76dcf :is(.container_bd15da, .chat__52833, .callContainer__1477d, .container__694a1) {
+:is(:where(#bd-notices:not(:empty)), .notice__3eb51) ~ .content__76dcf :is(.container_bd15da, .chat__52833, .callContainer__1477d, .container__694a1) {
   overflow: unset;
 }
-:is(:where(#bd-notices:not(:empty)), .notice__5fd4c) ~ .content__76dcf :is(.container__26baa, .noChannel__28db0::before, .pageWrapper_c182d3::before) {
+:is(:where(#bd-notices:not(:empty)), .notice__3eb51) ~ .content__76dcf :is(.container__26baa, .noChannel__28db0::before, .pageWrapper_c182d3::before) {
   top: calc(-36px * var(--notice-count, 0));
 }
-:is(:where(#bd-notices:not(:empty)), .notice__5fd4c) ~ .content__76dcf .resizeHandle_cc9d34 {
+:is(:where(#bd-notices:not(:empty)), .notice__3eb51) ~ .content__76dcf .resizeHandle_cc9d34 {
   top: calc(-36px * var(--notice-count, 0));
   height: 100vh;
   position: relative;
@@ -4832,15 +4832,15 @@ html:is([lang=en-GB], [lang=fr]) .info__755e1::after {
   right: 8px;
 }
 
-.colorSuccess_cd97e5 {
+.colorSuccess__8d3f1 {
   background-color: var(--green-color);
 }
 
-.colorWarning__01125 {
+.colorWarning_b91552 {
   background-color: var(--yellow-color);
 }
 
-.colorDanger__5d2e7 {
+.colorDanger__4667d {
   background-color: var(--red-color);
 }
 
