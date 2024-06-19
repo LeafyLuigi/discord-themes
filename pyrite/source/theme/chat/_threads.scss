@@ -35,9 +35,9 @@
 #{c(threads iconWrapper)} {
 	background-color: $card;
 }
-#{c(threads newTextAreaFocused)} {
-	border-color: transparent;
-}
+// #{c(threads newTextAreaFocused)} {
+// 	border-color: transparent;
+// }
 #{c(threads newTextAreaError)} {
 	border-color: $red;
 }

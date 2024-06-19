@@ -146,8 +146,7 @@
 #{c(userSettings cardPrimary)},
 #{c(userSettings cardPrimaryEditable)},
 #{c(userSettings cardPrimaryOutline)},
-#{c(userSettings addConnectionContainer)},
-#{c(userSettings cardPrimaryOutlineEditable)} {
+#{c(userSettings addConnectionContainer)} {
 	@include card;
 }
 #{c(userSettings boostSubscriptionSlots)},

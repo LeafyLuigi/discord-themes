@@ -69,7 +69,7 @@ $nc: var(--notice-count, 0);
 		}
 	}
 }
-#{c(notice colorSuccess)} {
+#{c(notice colorDefault)} {
 	background-color: $green;
 }
 #{c(notice colorWarning)} {

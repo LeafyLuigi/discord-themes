@@ -144,45 +144,17 @@ $active-filter: var(--active-filter);
 		@include button-bg($color: $green);
 	}
 
-	&#{c(button colorYellow)} {
-		@include button-bg($color: $yellow);
-	}
-
 	&#{c(button colorRed)} {
 		@include button-bg($color: $red);
 	}
 	
 	// &#{c(button colorWhite)} {
 	// }
-	&:is(#{c(button colorBrand)},#{c(button colorBrandNew)},#{c(button colorPrimary)}) {
+	&:is(#{c(button colorBrand)},#{c(button colorPrimary)}) {
 		@include button-bg($color: $primary);
 	}
 	&#{c(button colorLink)} {
 		@include button-bg($color: $link);
-	}
-	// &#{c(button colorTransparent)} {
-	// }
-}
-#{c(button lookInverted)} {
-	&::before {
-		transition: background-color .17s ease;
-	}
-	&#{c(button colorGreen)} {
-		@include button-inverted($color: $green);
-	}
-	&#{c(button colorYellow)} {
-		@include button-inverted($color: $yellow);
-	}
-	&#{c(button colorRed)} {
-		@include button-inverted($color: $red);
-	}
-	// &#{c(button colorWhite)} {
-	// }
-	&:is(#{c(button colorBrand)},#{c(button colorBrandNew)},#{c(button colorPrimary)}) {
-		@include button-inverted($color: $primary);
-	}
-	&#{c(button colorLink)} {
-		@include button-inverted($color: $link);
 	}
 	// &#{c(button colorTransparent)} {
 	// }
@@ -194,15 +166,12 @@ $active-filter: var(--active-filter);
 	&#{c(button colorGreen)} {
 		@include button-border($color: $green);
 	}
-	&#{c(button colorYellow)} {
-		@include button-border($color: $yellow);
-	}
 	&#{c(button colorRed)} {
 		@include button-border($color: $red);
 	}
 	// &#{c(button colorWhite)} {
 	// }
-	&:is(#{c(button colorBrand)},#{c(button colorBrandNew)},#{c(button colorPrimary)}) {
+	&:is(#{c(button colorBrand)},#{c(button colorPrimary)}) {
 		@include button-border($color: $primary);
 	}
 	&#{c(button colorLink)} {
@@ -215,15 +184,12 @@ $active-filter: var(--active-filter);
 	&#{c(button colorGreen)} {
 		@include button-link($color: $green);
 	}
-	&#{c(button colorYellow)} {
-		@include button-link($color: $yellow);
-	}
 	&#{c(button colorRed)} {
 		@include button-link($color: $red);
 	}
 	// &#{c(button colorWhite)} {
 	// }
-	&:is(#{c(button colorBrand)},#{c(button colorBrandNew)},#{c(button colorPrimary)}) {
+	&:is(#{c(button colorBrand)},#{c(button colorPrimary)}) {
 		@include button-link($color: $primary);
 	}
 	&#{c(button colorLink)} {

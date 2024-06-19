@@ -2,21 +2,21 @@
 .platform-win {
   --windows-titlebar-enabled: 1;
 }
-.platform-win .toolbar__62fb5 {
+.platform-win .toolbar_e44302 {
   padding-right: unset;
   margin-right: unset;
 }
 
-.typeWindows_e41dab {
+.typeWindows_a934d8 {
   background: var(--header-shading);
   margin-top: 0;
   height: auto;
 }
-.typeWindows_e41dab::before {
+.typeWindows_a934d8::before {
   content: none;
 }
 
-.winButton_f17fb6 {
+.winButton_a934d8 {
   height: 22px;
   width: 28px;
   top: 0;
