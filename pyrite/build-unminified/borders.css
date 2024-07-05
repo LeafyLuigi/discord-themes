@@ -15,19 +15,19 @@
 
 .headerAvatar_cd82a7 > svg > foreignObject,
 .wrapper_c51b4e,
-.avatar_ec86aa,
+.avatar_f9f2ca,
 .avatarHint_f89da9,
 .avatarUploaderInner_ab876d,
 .contentCircle_f2f431 {
   border-radius: calc(var(--avatar-radius) * var(--br-multi, 1));
 }
 
-.content_fc5f50,
+.content_c2654d,
 .peopleColumn_c2739c friends peopleListItem:hover,
 .itemCard_f02fcf,
 .itemCard_f02fcf,
 .actionButton_e01b91,
-.wrapper_f316dd {
+.wrapper_f72aac {
   border-radius: var(--border-radius);
 }
 
@@ -50,11 +50,11 @@
   --br-multi: 2.5;
 }
 
-.root_b9fccc {
+.root_bc9cc2 {
   --br-multi: 4;
 }
 
-.body_b9fccc,
+.body_bc9cc2,
 .profilePanelConnections_b433b4 {
   --br-multi: 1;
 }

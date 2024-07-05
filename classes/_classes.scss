@@ -747,8 +747,8 @@ $classes: (
 		// "followedChannelAvatar": "avatarUploaderInner__858a2", // probably merged into integrationIconWrapper?
 	),
 	"chat": (
-		"cozy": "cozy_ec86aa",
-		"compact": "compact_ec86aa",
+		"cozy": "cozy_f9f2ca",
+		"compact": "compact_f9f2ca",
 		"chat": "chat_a7d72e",
 		"chatSidebarOpen": "chatSidebarOpen_d880dc",
 		"threadSidebarOpen": "threadSidebarOpen_a7d72e",
@@ -765,15 +765,15 @@ $classes: (
 		// "chatContainer": "container__93316", // appears to have been removed
 		"chatLoadingWrapper": "wrapper_cdfd51",
 		"scrollerSpacer": "scrollerSpacer_e2e187", // placed at bottom of message list
-		"messageLoadingWrapper": "wrapper_b211c6",
+		"messageLoadingWrapper": "wrapper_b75bb9",
 		"noChannel": "noChannel_e1ef5f", // in a server without any channels or loading in
 		"backgroundFlash": "backgroundFlash_d5deea",
 		"messageListItem": "messageListItem_d5deea",
 		"messageGroupStart": "groupStart_d5deea",
 		"cozyMessage": "cozyMessage_d5deea",
-		"markup": "markup_d6076c",
+		"markup": "markup_f8f345",
 		"message": "message_d5deea",
-		"messageWrapper": "wrapper_ec86aa",
+		"messageWrapper": "wrapper_f9f2ca",
 		"replying": "replying_d5deea",
 		"mentioned": "mentioned_d5deea",
 		"messageSelected": "selected_d5deea",
@@ -783,19 +783,19 @@ $classes: (
 		"buttonSelected": "selected_ef319f",
 		"buttonIcon": "icon_a3b500",
 		"divider": "divider_d5deea",
-		"divider2": "divider_fc5f50", // paired with above, also used in chat form unpaired with attached file
-		"dividerHasContent": "hasContent_fc5f50",
-		"dividerContent": "content_fc5f50",
-		"dividerUnread": "isUnread_fc5f50",
-		"unreadPill": "unreadPill_fc5f50",
-		"unreadPillCap": "unreadPillCap_fc5f50",
-		"unreadPillCapStroke": "unreadPillCapStroke_fc5f50",
+		"divider2": "divider_c2654d", // paired with above, also used in chat form unpaired with attached file
+		"dividerHasContent": "hasContent_c2654d",
+		"dividerContent": "content_c2654d",
+		"dividerUnread": "isUnread_c2654d",
+		"unreadPill": "unreadPill_c2654d",
+		"unreadPillCap": "unreadPillCap_c2654d",
+		"unreadPillCapStroke": "unreadPillCapStroke_c2654d",
 		"newMessagesBar": "newMessagesBar_cf58b5",
-		"repliedMessage": "repliedMessage_ec86aa",
-		"repliedTextPreview": "repliedTextPreview_ec86aa",
-		"repliedTextContent": "repliedTextContent_ec86aa",
+		"repliedMessage": "repliedMessage_f9f2ca",
+		"repliedTextPreview": "repliedTextPreview_f9f2ca",
+		"repliedTextContent": "repliedTextContent_f9f2ca",
 		// "repliedTextContentIcon": "repliedTextContentIcon_da8b30", // gone with the wind
-		"replyBadge": "replyBadge_ec86aa",
+		"replyBadge": "replyBadge_f9f2ca",
 
 		"blockedSystemMessage": "blockedSystemMessage_c09d0f",
 		"blockedContent": "content_e62b38",
@@ -812,23 +812,23 @@ $classes: (
 		"allowedRole": "role_deddac",
 		"allowedRole2": "role_da85cf", // paired with above
 
-		"messageContents": "contents_ec86aa",
+		"messageContents": "contents_f9f2ca",
 		"messageAttachmentsContainer": "container_b558d0",
 		"messageAttachment": "messageAttachment__5dae1",
 		"nonMediaAttachmentsContainer": "nonVisualMediaItemContainer_df7417",
 		"nonMediaAttachmentItem": "nonVisualMediaItem_df7417",
-		"chatAvatar": "avatar_ec86aa",
+		"chatAvatar": "avatar_f9f2ca",
 		"chatIconContainer": "iconContainer_e62b38", // usually used for pinned message, welcome message and kicked from gc stuff
-		"chatHeaderUsername": "header_ec86aa",
-		"chatHeaderText": "headerText_ec86aa",
-		"chatTimestamp": "timestamp_ec86aa",
-		"chatTimestampInline": "timestampInline_ec86aa",
-		"chatEdited": "edited_ec86aa",
-		"chatUsername": "username_ec86aa",
-		"chatUsernameClickable": "clickable_ec86aa",
-		"chatUsernameTimedOut": "communicationDisabled_ec86aa",
-		"zalgoBlocker": "zalgo_ec86aa",
-		"messageContent": "messageContent_ec86aa",
+		"chatHeaderUsername": "header_f9f2ca",
+		"chatHeaderText": "headerText_f9f2ca",
+		"chatTimestamp": "timestamp_f9f2ca",
+		"chatTimestampInline": "timestampInline_f9f2ca",
+		"chatEdited": "edited_f9f2ca",
+		"chatUsername": "username_f9f2ca",
+		"chatUsernameClickable": "clickable_f9f2ca",
+		"chatUsernameTimedOut": "communicationDisabled_f9f2ca",
+		"zalgoBlocker": "zalgo_f9f2ca",
+		"messageContent": "messageContent_f9f2ca",
 
 		// in same line as chat-$suffix
 		"cursorPointer": "cursorPointer_a7d72e",
@@ -871,8 +871,8 @@ $classes: (
 		"gifFavoriteShowPulse": "showPulse_c5e128",
 		"gifFavoriteIcon": "icon_c5e128",
 
-		"blockquoteContainer": "blockquoteContainer_d6076c",
-		"blockquoteDivider": "blockquoteDivider_d6076c",
+		"blockquoteContainer": "blockquoteContainer_f8f345",
+		"blockquoteDivider": "blockquoteDivider_f8f345",
 
 		"containerExpanded": "containerExpanded_fcbce6", // send wave sticker large
 		"compactContainer": "containerCompact_fcbce6", // houses below
@@ -1374,7 +1374,7 @@ $classes: (
 	),
 	"threads": (
 		"jump": "jump_d5deea",
-		"msgHasThread": "hasThread_ec86aa", // in here despite probably better in chat
+		"msgHasThread": "hasThread_f9f2ca", // in here despite probably better in chat
 		"msgSpine": "spine_c15230",
 		"resizeHandle": "resizeHandle_d1c246",
 		"chatTarget": "chatTarget_d1c246", // background of sorts
@@ -1482,7 +1482,7 @@ $classes: (
 		"codeLine": "codeLine_cdb578",
 		"codeBlockText": "codeBlockText_cdb578",
 
-		"uploadDivider": "divider_fc5f50", // before uploading a file, this shows up between uploads and main bar
+		"uploadDivider": "divider_c2654d", // before uploading a file, this shows up between uploads and main bar
 		"inlineUpload": "upload_df1eaf",
 		"inlineUploadContainer": "uploadContainer_df1eaf",
 		"inlineSpoilerTag": "alias forums upload altTag",
@@ -1559,8 +1559,8 @@ $classes: (
 		"dotOffline": "dotOffline_eb1ca6",
 	),
 	"embeds": (
-		"codeblock": "markup_d6076c code",
-		"codeblockInline": "markup_d6076c code.inline",
+		"codeblock": "markup_f8f345 code",
+		"codeblockInline": "markup_f8f345 code.inline",
 		"embedIframe": "embedIframe_ad0b71",
 
 		"invite": "wrapper_b9fe76",
@@ -1618,7 +1618,7 @@ $classes: (
 		"gameFullHeight": "fullHeight_cdcad9",
 		"gameArtwork": "artwork_cdcad9",
 		"uploadProgressBar": "progressBar_c6473a",
-		"videoPlayWrapper": "wrapper_f316dd",
+		"videoPlayWrapper": "wrapper_f72aac",
 		// "imageWrapper": "imageWrapper__178ee",
 		// "imageWrapperBackground": "imageWrapperBackground__03a80",
 		"threadContainer": "container_c15230",
@@ -1710,17 +1710,17 @@ $classes: (
 		"barProgress": "mediaBarProgress_f7877e", // needs before + after, primary color
 		"barGrabber": "mediaBarGrabber_f7877e", // primary color
 		"barVolume": "mediaBarInteractionVolume_f7877e", // card
-		"controlIcon": "controlIcon_f316dd",
-		"metadataDownload": "metadataDownload_f316dd",
-		"metadataIcon": "metadataIcon_f316dd",
+		"controlIcon": "controlIcon_f72aac",
+		"metadataDownload": "metadataDownload_f72aac",
+		"metadataIcon": "metadataIcon_f72aac",
 		// "metadataName": "metadataName__87840",
-		"metadataSize": "metadataSize_f316dd",
-		"durationWrapper": "durationTimeWrapper_f316dd",
-		"durationDisplay": "durationTimeDisplay_f316dd",
-		"durationSeparator": "durationTimeSeparator_f316dd",
-		"audioWrapper": "wrapperAudio_f316dd",
-		"audioMetadata": "audioMetadata_f316dd",
-		"audioControls": "audioControls_f316dd",
+		"metadataSize": "metadataSize_f72aac",
+		"durationWrapper": "durationTimeWrapper_f72aac",
+		"durationDisplay": "durationTimeDisplay_f72aac",
+		"durationSeparator": "durationTimeSeparator_f72aac",
+		"audioWrapper": "wrapperAudio_f72aac",
+		"audioMetadata": "audioMetadata_f72aac",
+		"audioControls": "audioControls_f72aac",
 		"bubble": "bubble_f7877e",
 	),
 	"error": (
@@ -2435,18 +2435,19 @@ $classes: (
 	// Assuming an un-altered fork/repo, you can see more info within ../pyrite/source/theme/profile/_index.scss
 	"profile": (
 		// Generic-ish classes
-		// "colors": "profileColors_ac6ab4", // default variables supplied with this, a few with dark/light
 		// default colours are now provided with inline styling.
 		"noteTextarea": "textarea_dde0a8", // seems to be used on all of them
 
-		"showOutOfBoundaryComponents": "showOutOfBoundaryComponents_c69a7b",
+		"showOutOfBoundaryComponents": "showOutOfBoundaryComponents_c69a7b", // no idea what this is for tbh
 
 		"overlay": (
 			"overlay": "overlayBackground_c69a7b",
-
+			
 			"popout": "userPopoutOverlayBackground_c69a7b",
 			"modal": "userProfileModalOverlayBackground_c69a7b",
 			// "panel": "userPanelOverlayBackground_a2b6ae",
+			"biteSizeOverlayBackground": "biteSizeOverlayBackground_c69a7b",
+			"fullSizeOverlayBackground": "fullSizeOverlayBackground_c69a7b",
 		),
 
 		"outer": (
@@ -2458,12 +2459,12 @@ $classes: (
 			"popout": "userPopoutOuter_c69a7b",
 			"modal": "userProfileModalOuter_c69a7b",
 			"panel": "userPanelOuter_c69a7b",
+			"biteSizeOuter": "biteSizeOuter_c69a7b",
+			"fullSizeOuter": "fullSizeOuter_c69a7b",
 		),
 
 		"inner": (
 			"inner": "userProfileInner_c69a7b",
-			// "unthemed": "userProfileInnerUnthemed__4670d",
-			// "themed": "userProfileInnerThemed__126d9",
 			"themedPremiumWithoutBanner": "userProfileInnerThemedPremiumWithoutBanner_c69a7b",
 			"themedWithBanner": "userProfileInnerThemedWithBanner_c69a7b",
 			"themedNonPremium": "userProfileInnerThemedNonPremium_c69a7b", // so basically "without theme"
@@ -2472,6 +2473,8 @@ $classes: (
 			"popout": "userPopoutInner_c69a7b",
 			"modal": "userProfileModalInner_c69a7b",
 			"panel": "userPanelInner_c69a7b",
+			"biteSizeInnerThemed": "biteSizeInnerThemed_c69a7b",
+			"fullSizeInnerThemed": "fullSizeInnerThemed_c69a7b",
 
 			"panelThemed": "userPanelInnerThemed_c69a7b",
 		),
@@ -2504,6 +2507,68 @@ $classes: (
 			"reducedMotion": "reducedMotion_c3e427",
 			"gifTag": "gifTag_c3e427",
 		),
+
+		// shared beteen modal+panel+popout+status+settings>profile
+		// container also holds badges, notes button
+		"username": (
+			"container": "container_c32acf",
+			"clickableUsername": "clickableUsername_c32acf",
+			"nickname": "nickname_c32acf",
+			"userTagUsername": "userTagUsername_c32acf",
+			"biteSize": "biteSize_c32acf",
+			"panel": "panel_c32acf",
+			"fullSize": "fullSize_c32acf",
+			"nicknameIcons": "nicknameIcons_c32acf",
+			"usernameRow": "usernameRow_c32acf",
+			"tags": "tags_c32acf",
+			"tagsWithPronouns": "tagsWithPronouns_c32acf",
+			"userTag": "userTag_c32acf",
+			"pronounsTooltip": "pronounsTooltip_c32acf",
+			"pronouns": "pronouns_c32acf userTag_c32acf",
+			"userTagDiscriminator": "userTagDiscriminator_c32acf",
+			"botTag": "botTag_c32acf",
+			"dotSpacer": "dotSpacer_c32acf"
+		),
+
+		// shared between panel+popout
+		// checking if this is "add note" or "note exists" for add requires :has(svg>path:nth-child(2)) or :has(svg>path+path)
+		"notesButton": (
+			"button": "button_a80370",
+			"visible": "visible_a80370",
+			"color": "color_a80370",
+			"tooltip": "tooltip_a80370"
+		),
+
+		// shared beteen modal+panel+popout (not self)+status
+		// contains:
+		// "friends" (click to show tooltip to remove)
+		// "more" (click to show tooltip to block, report profile and copy user id)
+		// "edit profile"
+		"firendsMoreEditProfileButtons": (
+			"wrapper": "wrapper_cb78f1",
+			"biteSize": "biteSize_cb78f1",
+			"fullSize": "fullSize_cb78f1",
+			"panel": "panel_cb78f1"
+		),
+
+		// generic-ish classes. shared between notesButton and friendsMoreEditProfileButtons
+		"buttons": (
+			"button": "button_f1cdcc",
+			"icon": "icon_f1cdcc",
+			"banner": "banner_f1cdcc",
+			"buttonInner": "buttonInner_f1cdcc",
+			"text": "text_f1cdcc",
+			"color": "color_f1cdcc"
+		),
+
+		// shared between modal+panel+popout+status+settings>profiles
+		"badgeList": (
+			"container": "container_e5a42d",
+			"badge": "badge_e5a42d"
+		),
+
+		// (!) icon. shared between modal+panel+popout
+		"missingConnection": "container_cac583", // theme the (!) icon with (this)>svg>path{fill}
 
 		// grouped by what line things are on, these aren't shared with the modal
 		"nonModal": (
@@ -2563,16 +2628,16 @@ $classes: (
 			"hoverTarget": "avatarHoverTarget_f89da9", // appears on popout
 		),
 
-		// there's a line related to badges that may not apply to other subcategories.
-		"badges": (
-			"container": "container_b64375",
-			"containerWithContent": "containerWithContent_b64375",
-			// "clickable": "clickable__1545b",
-			"badge": "profileBadge_b64375",
-			"badge24": "profileBadge24_b64375",
-			"badge22": "profileBadge22_b64375",
-			"badge18": "profileBadge18_b64375",
-		),
+		// // there's a line related to badges that may not apply to other subcategories.
+		// "badges": (
+		// 	"container": "container_b64375",
+		// 	"containerWithContent": "containerWithContent_b64375",
+		// 	// "clickable": "clickable__1545b",
+		// 	"badge": "profileBadge_b64375",
+		// 	"badge24": "profileBadge24_b64375",
+		// 	"badge22": "profileBadge22_b64375",
+		// 	"badge18": "profileBadge18_b64375",
+		// ),
 
 		// actually used on the modal!
 		"memberSince": (
@@ -2753,10 +2818,11 @@ $classes: (
 		
 		// Modal: right click on user in same spots and click "View Profile"
 		"modal": (
-			// all on same line
-			"root": "root_b9fccc",
+			"root": "root_bc9cc2",
+			"headerInner": "headerInner_bc9cc2",
+
 			"topSection": "topSection_b9fccc",
-			"body": "body_b9fccc",
+			"body": "body_bc9cc2",
 			"divider": "divider_b9fccc",
 			// includes other classes from 305 for colors
 			"tabBarContainer": "tabBarContainer_b9fccc",
@@ -2776,9 +2842,8 @@ $classes: (
 
 			"badge24": "alias profile badge badge24",
 			
-			// all on same line
 			"header": "header_ec3b75",
-			"avatar": "avatar_ec3b75",
+			"avatar": "avatar_bc9cc2",
 			"headerTop": "headerTop_ec3b75",
 			"badgeList": "badgeList_ec3b75",
 			"relationshipButtons": "relationshipButtons_ec3b75",
@@ -2793,7 +2858,9 @@ $classes: (
 			"pendingIncoming": "pendingIncoming_fcef98",
 			"actionButtonRight": "actionRightButton_b01024",
 			
-			"usernameContainer": "container_afed89",
+			"usernameContainer": "container_c32acf",
+			"usernameRow": "usernameRow_c32acf",
+			"nickname": "nickname_c32acf",
 			"nameTag": "nameTag_afed89",
 			"nameTagSmall": "nameTagSmall_afed89",
 			"username": "username_afed89",
@@ -2863,17 +2930,32 @@ $classes: (
 		),
 
 		// Panel: Go to the DMs of someone while your screen is larger than
-		// 820px wide and you've not disabled the panel via header
+		// 1132px wide and you've not disabled the panel via header
 		"panel": (
-			"panel": "profilePanel_b433b4",
+			"container": "container_ecc60d",
+
+			"activity": "activity_cd74cc",
+			"activityButtonColor": "buttonColor_cd74cc",
+
+			"header": "header_f26c88", // header contains banner, avatar
+			"avatarOverlay": "overlay_f26c88", // overlay on avatar
+			"avatarClickable": "clickable_f26c88", // avatar clickable
+
+			"viewFullProfileFooter": "footer_be6801",
+			"viewFullProfileButtonColor": "buttonColor_be6801",
 			
-			"overlayBackground": "alias profile overlay panel",
-			"outer": "alias profile outer panel",
-			"inner": "alias profile inner panel",
+			"body": "body_e9e42f",
+			"bodyOverlay": "overlay_e9e42f", // used over "about me/member since" container
 
-			"innerThemed": "alias profile inner panelThemed", // still on non-nitro
+			"panel": "profilePanel_b433b4", // CLASS STILL EXISTS!
 
-			"banner": "alias profile banner panel",
+			// "overlayBackground": "alias profile overlay panel",
+			// "outer": "alias profile outer panel",
+			// "inner": "alias profile inner panel",
+
+			// "innerThemed": "alias profile inner panelThemed", // still on non-nitro
+
+			// "banner": "alias profile banner panel",
 
 			"avatarPosition": "alias profile avatar position panel",
 
@@ -2892,6 +2974,12 @@ $classes: (
 			"guildAvatar": "guildAvatar_b26403", // not for icons but rather people with nitro and custom avi
 			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon_b26403",
 			
+			// encompass both mutual servers and mutual friends
+			"connectionsOverlay": "overlay_f9da1d",
+			"connectionsList": "list_f9da1d",
+			"connectionsDivider": "divider_f9da1d",
+
+			// individual list for mutual friends/servers
 			"connectionList": "connectionList_ce1058",
 			"collapsed": "isCollapsed_ce1058",
 			"collapseButton": "collapseBtn_ce1058",
@@ -4451,9 +4539,9 @@ $classes: (
 			"tab": "tab_f0cd33",
 			"tabActive": "active_f0cd33",
 			"controls": "controls_f0cd33",
-			"roundButton": "button__292b6",
-			"secondary": "secondary__45d4f", // background secondary, hover primary
-			"tertiary": "tertiary_ad6d80", // background tertiary, hover floating
+			"roundButton": "button_e258f5",
+			"secondary": "secondary_e258f5", // background secondary, hover primary
+			"tertiary": "tertiary_e258f5", // background tertiary, hover floating
 			"buttonDisabled": "disabled__4d064",
 			"size32": "size32_eadcb9",
 			"channelHeader": "channelHeader_f3978e",

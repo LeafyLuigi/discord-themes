@@ -19,7 +19,6 @@
 #{c(chatForm channelTextAreaBase)} {
 	@include card-light;
 	border-width: 0;
-	margin-bottom: 24px;
 	&:focus-within {
 		border-width: 0;
 		box-shadow: 0 0 2px 2px $primary;
