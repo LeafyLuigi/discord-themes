@@ -100,7 +100,7 @@
   gap: var(--server-spacing);
 }
 
-.wrapper_fd07a3 {
+.wrapper_c4cd66 {
   transform: rotate(90deg) translateY(-50%);
   height: var(--server-size);
   width: 4px;
@@ -108,19 +108,19 @@
   margin-left: -2px;
 }
 
-.item_fd07a3 {
+.item_c4cd66 {
   width: 4px;
   transform: scale(0, 1) !important;
   transition: 0.15s ease;
   margin-left: 0;
 }
-.item_fd07a3:is([style*="height: 0"], [style*="height: 1"], [style*="height: 2"], [style*="height: 3"], [style*="height: 4"], [style*="height: 5"], [style*="height: 6"], [style*="height: 7"], [style*="height: 8"]) {
+.item_c4cd66:is([style*="height: 0"], [style*="height: 1"], [style*="height: 2"], [style*="height: 3"], [style*="height: 4"], [style*="height: 5"], [style*="height: 6"], [style*="height: 7"], [style*="height: 8"]) {
   transform: scale(1, 0.24) !important;
 }
-.item_fd07a3:is([style*="height: 9"], [style*="height: 10"], [style*="height: 11"], [style*="height: 12"], [style*="height: 13"], [style*="height: 14"], [style*="height: 15"], [style*="height: 16"], [style*="height: 17"], [style*="height: 18"], [style*="height: 19"], [style*="height: 20"]) {
+.item_c4cd66:is([style*="height: 9"], [style*="height: 10"], [style*="height: 11"], [style*="height: 12"], [style*="height: 13"], [style*="height: 14"], [style*="height: 15"], [style*="height: 16"], [style*="height: 17"], [style*="height: 18"], [style*="height: 19"], [style*="height: 20"]) {
   transform: scale(1, 0.7) !important;
 }
-.item_fd07a3:is([style*="height: 21"], [style*="height: 22"], [style*="height: 23"], [style*="height: 24"], [style*="height: 25"], [style*="height: 26"], [style*="height: 27"], [style*="height: 28"], [style*="height: 29"], [style*="height: 30"], [style*="height: 31"], [style*="height: 32"], [style*="height: 33"], [style*="height: 34"], [style*="height: 35"], [style*="height: 36"], [style*="height: 37"], [style*="height: 38"], [style*="height: 39"], [style*="height: 40"]) {
+.item_c4cd66:is([style*="height: 21"], [style*="height: 22"], [style*="height: 23"], [style*="height: 24"], [style*="height: 25"], [style*="height: 26"], [style*="height: 27"], [style*="height: 28"], [style*="height: 29"], [style*="height: 30"], [style*="height: 31"], [style*="height: 32"], [style*="height: 33"], [style*="height: 34"], [style*="height: 35"], [style*="height: 36"], [style*="height: 37"], [style*="height: 38"], [style*="height: 39"], [style*="height: 40"]) {
   transform: scale(1, 1) !important;
 }
 

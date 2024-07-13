@@ -34,7 +34,7 @@
   top: calc(var(--server-size) / -1 - 30px);
 }
 
-.wrapper_fd07a3 {
+.wrapper_c4cd66 {
   transform: rotate(-90deg) translateY(50%);
   top: unset;
   bottom: calc(var(--server-size) / -1 + var(--server-size) / 2 - 8px);
