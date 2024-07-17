@@ -4685,7 +4685,16 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 .userPopoutOuter_c69a7b:not(.userProfileOuterThemed_c69a7b) .profileBadges_f89da9 {
   background-color: var(--card-background);
 }
-
+.userPopoutOuter_c69a7b:not(.userProfileOuterThemed_c69a7b) .biteSizeInnerThemed_c69a7b,
+.userPopoutOuter_c69a7b:not(.userProfileOuterThemed_c69a7b) .fullSizeInnerThemed_c69a7b {
+  background: transparent;
+}
+.userPopoutOuter_c69a7b:not(.userProfileOuterThemed_c69a7b) .body_b07019 {
+  background: var(--card-background);
+  padding: 4px;
+  margin: 0 12px;
+  border-radius: 8px;
+}
 .actionButton_e4010c {
   color: var(--primary-color);
   border-color: currentColor;

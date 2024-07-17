@@ -14,6 +14,18 @@
 	#{c(profile popout badges)} {
 		background-color: var(--card-background);
 	}
+	#{c(profile inner biteSizeInnerThemed)},
+	#{c(profile inner fullSizeInnerThemed)} {
+		background: transparent;
+	}
+	#{c(profile popout bitesize body)} {
+		background: var(--card-background);
+		padding: 4px;
+		margin: 0 12px;
+		border-radius: 8px;
+	}
+	#{c(profile popout bitesize footer)} {
+	}
 }
 #{c(profile popout roleActionButton)} {
 	color: $primary;
