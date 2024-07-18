@@ -1561,17 +1561,17 @@ $classes: (
 	"embeds": (
 		"codeblock": "markup_f8f345 code",
 		"codeblockInline": "markup_f8f345 code.inline",
-		"embedIframe": "embedIframe_ad0b71",
+		"embedIframe": "embedIframe_b0068a",
 
-		"invite": "wrapper_b9fe76",
-		"inviteDestinationExpired": "inviteDestinationExpired_b9fe76",
-		"inviteServerIcon": "guildIcon_b9fe76",
-		"inviteServerIconImage": "guildIconImage_b9fe76",
-		"inviteServerIconExpired": "guildIconExpired_b9fe76",
-		"inviteResolvingBackground": "resolvingBackground_b9fe76",
-		"inviteSplash": "inviteSplash_b9fe76",
-		"inviteSplashImage": "inviteSplashImage_b9fe76",
-		"inviteSplashImageLoaded": "inviteSplashImageLoaded_b9fe76",
+		"invite": "wrapper_a71a1c",
+		"inviteDestinationExpired": "inviteDestinationExpired_a71a1c",
+		"inviteServerIcon": "guildIcon_a71a1c",
+		"inviteServerIconImage": "guildIconImage_a71a1c",
+		"inviteServerIconExpired": "guildIconExpired_a71a1c",
+		"inviteResolvingBackground": "resolvingBackground_a71a1c",
+		"inviteSplash": "inviteSplash_a71a1c",
+		"inviteSplashImage": "inviteSplashImage_a71a1c",
+		"inviteSplashImageLoaded": "inviteSplashImageLoaded_a71a1c",
 
 		"giftContainer": "giftCodeContainer_b558d0",
 		"gift": "tile_ab47a1",
@@ -1587,36 +1587,36 @@ $classes: (
 		"giftTagline": "tagline_ab47a1",
 		"giftActions": "actions_ab47a1",
 
-		"embedFull": "embedFull_ad0b71",
-		"embedGrid": "grid_ad0b71", // always there?
-		"embedGridContainer": "gridContainer_ad0b71",
+		"embedFull": "embedFull_b0068a",
+		"embedGrid": "grid_b0068a", // always there?
+		"embedGridContainer": "gridContainer_b0068a",
 		// "embedSuppressButtonOld": "removeAttachmentButton__692b5",
-		"embedSuppressButton": "embedSuppressButton_ad0b71",
-		"embedVideo": "embedVideo_ad0b71",
-		"attachment": "attachment_a4623d", // attachmentInner_a4623d cancelButton_a4623d downloadButton__3fb6d downloadWrapper_b46225 fileNameLink_a4623d filename_a4623d filenameLinkWrapper_a4623d filenameWrapper_a4623d icon_a4623d metadata_a4623d newMosaicStyle_a4623d progress_a4623d progressContainer_a4623d rate__50023 size_a4623d
-		"textContainerUp": "container_ad9cbd", // parent of below class
-		"textContainer": "textContainer_ad9cbd",
-		"textFooter": "footer_ad9cbd",
-		"toggleExpandedPreview": "toggleExpandSection_ad9cbd",
-		"attachmentName": "attachmentName_ad9cbd",
-		"attachmentSize": "formattedSize_ad9cbd",
-		"codeIcon": "codeIcon_ad9cbd",
-		"textOpenFullPreview": "openFullPreviewSection_ad9cbd",
+		"embedSuppressButton": "embedSuppressButton_b0068a",
+		"embedVideo": "embedVideo_b0068a",
+		"attachment": "attachment_b52bef", // attachmentInner_b52bef cancelButton_b52bef downloadButton__3fb6d downloadWrapper_b46225 fileNameLink_b52bef filename_b52bef filenameLinkWrapper_b52bef filenameWrapper_b52bef icon_b52bef metadata_b52bef newMosaicStyle_b52bef progress_b52bef progressContainer_b52bef rate__50023 size_b52bef
+		"textContainerUp": "container_d8e2d0", // parent of below class
+		"textContainer": "textContainer_d8e2d0",
+		"textFooter": "footer_d8e2d0",
+		"toggleExpandedPreview": "toggleExpandSection_d8e2d0",
+		"attachmentName": "attachmentName_d8e2d0",
+		"attachmentSize": "formattedSize_d8e2d0",
+		"codeIcon": "codeIcon_d8e2d0",
+		"textOpenFullPreview": "openFullPreviewSection_d8e2d0",
 
 		"gameInviteContainer": "container_e96122", // class might be wrong.
-		"gameInvite": "invite_cdcad9",
-		"gameCoverImageWrapper": "coverImageWrapper_cdcad9",
-		"gameCoverImage": "coverImage_cdcad9",
-		"gameCoverImageNotActionable": "coverImageNotActionable_cdcad9",
-		"gameCoverImageActionable": "coverImageActionable_cdcad9",
-		"gameCoverImageBlured": "blurred_cdcad9",
-		"gameHeader": "header_cdcad9",
-		"gameDetails": "details_cdcad9",
-		"gameState": "state_cdcad9",
-		"gamePartyStatus": "partyStatus_cdcad9",
-		"gameName": "name_cdcad9",
-		"gameFullHeight": "fullHeight_cdcad9",
-		"gameArtwork": "artwork_cdcad9",
+		"gameInvite": "invite_f61cb8",
+		"gameCoverImageWrapper": "coverImageWrapper_f61cb8",
+		"gameCoverImage": "coverImage_f61cb8",
+		"gameCoverImageNotActionable": "coverImageNotActionable_f61cb8",
+		"gameCoverImageActionable": "coverImageActionable_f61cb8",
+		"gameCoverImageBlured": "blurred_f61cb8",
+		"gameHeader": "header_f61cb8",
+		"gameDetails": "details_f61cb8",
+		"gameState": "state_f61cb8",
+		"gamePartyStatus": "partyStatus_f61cb8",
+		"gameName": "name_f61cb8",
+		"gameFullHeight": "fullHeight_f61cb8",
+		"gameArtwork": "artwork_f61cb8",
 		"uploadProgressBar": "progressBar_c6473a",
 		"videoPlayWrapper": "wrapper_f72aac",
 		// "imageWrapper": "imageWrapper__178ee",
@@ -3811,8 +3811,8 @@ $classes: (
 
 		// Start a message with a `/`
 		"autocomplete": (
-			"modal": "autocomplete_f23da8", // apply :not(emojiAutocomplete modal) to target only this
-			"inner": "autocompleteInner_f23da8", // apply not with emoji to target only this
+			"modal": "autocomplete_bcc24e", // apply :not(emojiAutocomplete modal) to target only this
+			"inner": "autocompleteInner_bcc24e", // apply not with emoji to target only this
 			"rail": "rail_fe2299", // sidebar thingy w/ default commands and bot icons
 			"railWrapper": "wrapper_efd8e6", // background applied to this class. ugh.
 			"category": "wrapper_efd8e6",
@@ -3821,9 +3821,9 @@ $classes: (
 			"categoryIcon": "icon_c9d951",
 			"sidebarList": "list_efd8e6", // if you see below at the category of the same name, this is paired with WRAPPER.
 			"categoryHeader": "categoryHeader_fe2299",
-			"autocompleteRowVertical": "autocompleteRowVertical_f23da8", // there's nothing on this rule
-			"clickable": "clickable_f23da8",
-			"base": "base_f23da8", // wanna apply theming to this? background-modifier-hover: clickable[aria-disabled=false]>:hover,clickable[aria-selected=true]> 
+			"autocompleteRowVertical": "autocompleteRowVertical_bcc24e", // there's nothing on this rule
+			"clickable": "clickable_bcc24e",
+			"base": "base_bcc24e", // wanna apply theming to this? background-modifier-hover: clickable[aria-disabled=false]>:hover,clickable[aria-selected=true]> 
 			// option does not cover optional stuff
 			"option": "option_bea3ee",
 			"optionError": "error_bea3ee",
@@ -4079,7 +4079,7 @@ $classes: (
 
 		// Upload a text-based file and click expand (beer emoji in theme)
 		"textFileExpanded": (
-			"container": "modalTextContainer_ad9cbd",
+			"container": "modalTextContainer_d8e2d0",
 		),
 
 		// In a channel with active threads, hover over it and click "see all". These may apply to the dropdown
