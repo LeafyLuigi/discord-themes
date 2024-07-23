@@ -55,8 +55,19 @@
 	}
 }
 
-#{c(modals gif header)} {
+#{c(modals gif header)},
+#{c(modals gif container)} {
 	background: transparent;
+}
+
+:is(
+	#{c(modals gif categoryFade)},
+	#{c(modals gif favoritesFade)}
+ ) {
+	&, 
+	&:hover {
+		border: 0;
+	}
 }
 
 #{c(modals gif container)}:after {

@@ -4052,8 +4052,15 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   filter: brightness(1.2);
 }
 
-.header_b56bbc {
+.header_b56bbc,
+.container_b56bbc {
   background: transparent;
+}
+
+:is(.categoryFade_af1167,
+.categoryFadeBlurple_af1167), :is(.categoryFade_af1167,
+.categoryFadeBlurple_af1167):hover {
+  border: 0;
 }
 
 .container_b56bbc:after {
