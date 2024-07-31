@@ -1710,6 +1710,10 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   background-color: transparent;
 }
 
+.container_fb4810 {
+  background: none;
+}
+
 .chat_f57fdc::before,
 .chat_fb4810::before {
   content: none;
