@@ -4,3 +4,6 @@
 	--width: 340px;
 	--hide-var: var(--hide-profile-panel);
 }
+#{c(profile panel activityBackground)} {
+	background: $card;
+}

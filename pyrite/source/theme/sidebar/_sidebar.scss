@@ -175,6 +175,12 @@
 		border-radius: 8px;
 	}
 }
+#{c(sidebar panelButtons)} {
+	background: transparent;
+	border: 1px solid $middle;
+	box-sizing: content-box;
+	border-radius: 8px;
+}
 #{c(sidebar panelButton)} {
 	&:first-of-type::before {
 		border-bottom-left-radius: 8px;

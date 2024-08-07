@@ -1121,12 +1121,13 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   color: var(--text-normal);
 }
 
-.wrapper_ef319f {
+.wrapper_f7e168 {
   background: transparent;
   border: 1px solid var(--middle-shading);
+  box-sizing: content-box;
   border-radius: 8px;
 }
-.wrapper_ef319f .button_ef319f::before {
+.wrapper_f7e168 .button_f7e168::before {
   content: "";
   top: 0;
   right: 0;
@@ -1138,18 +1139,18 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   opacity: 0.6;
   background-color: var(--primary-color);
 }
-.wrapper_ef319f .button_ef319f:first-of-type::before {
+.wrapper_f7e168 .button_f7e168:first-of-type::before {
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
 }
-.wrapper_ef319f .button_ef319f:last-of-type::before {
+.wrapper_f7e168 .button_f7e168:last-of-type::before {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
-.wrapper_ef319f .button_ef319f:hover {
+.wrapper_f7e168 .button_f7e168:hover {
   background-color: transparent;
 }
-.wrapper_ef319f .button_ef319f:hover::before {
+.wrapper_f7e168 .button_f7e168:hover::before {
   background-color: var(--hover-color);
 }
 
@@ -1929,7 +1930,7 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 .card_eb1ca6 {
   border: 2px solid var(--primary-color);
 }
-.card_eb1ca6 .button_ef319f {
+.card_eb1ca6 .button_f7e168 {
   z-index: 1;
 }
 
@@ -4720,6 +4721,10 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   --hide-var: var(--hide-profile-panel);
 }
 
+.activity_e9e42f {
+  background: var(--card-background);
+}
+
 /* Start Profile in Settings */
 .badgeList_b69b77:empty {
   background: transparent;
@@ -5633,18 +5638,25 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   border-radius: 8px;
 }
 
-.button_f67531:first-of-type::before {
+.buttons_b2ca13 {
+  background: transparent;
+  border: 1px solid var(--middle-shading);
+  box-sizing: content-box;
+  border-radius: 8px;
+}
+
+.button_adca65:first-of-type::before {
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
 }
-.button_f67531:last-of-type::before {
+.button_adca65:last-of-type::before {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
-.button_f67531:hover {
+.button_adca65:hover {
   background-color: transparent;
 }
-.button_f67531::before {
+.button_adca65::before {
   content: "";
   top: 0;
   right: 0;
@@ -5656,7 +5668,7 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   opacity: 0.6;
   background-color: var(--primary-color);
 }
-.button_f67531:hover::before {
+.button_adca65:hover::before {
   background-color: var(--hover-color);
 }
 

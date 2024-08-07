@@ -42,6 +42,7 @@
 #{c(chat buttonWrapper)} {
 	background: transparent;
 	border: 1px solid $middle;
+	box-sizing: content-box;
 	border-radius: 8px;
 	#{c(chat button)} {
 		@include bg($bg:$primary,$o:0.6);

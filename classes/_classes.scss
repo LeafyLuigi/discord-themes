@@ -778,9 +778,9 @@ $classes: (
 		"mentioned": "mentioned_d5deea",
 		"messageSelected": "selected_d5deea",
 		"buttons": "buttons_d5deea",
-		"buttonWrapper": "wrapper_ef319f",
-		"button": "button_ef319f",
-		"buttonSelected": "selected_ef319f",
+		"buttonWrapper": "wrapper_f7e168",
+		"button": "button_f7e168",
+		"buttonSelected": "selected_f7e168",
 		"buttonIcon": "icon_a3b500",
 		"divider": "divider_d5deea",
 		"divider2": "divider_c2654d", // paired with above, also used in chat form unpaired with attached file
@@ -2300,9 +2300,9 @@ $classes: (
 		"panelActivityActions": "actions_bf1a22",
 		"panelInner": "inner_adcaac",
 		"panelContainer": "container_b2ca13",
-		// "panelButtonRow": "directionRow__65900",
-		"panelButton": "button_f67531",
-		"panelButtonEnabled": "enabled_f67531",
+		"panelButtons": "buttons_b2ca13",
+		"panelButton": "button_adca65",
+		"panelButtonEnabled": "enabled_adca65",
 		"panelButtonRedIcon": "redIcon_b2ca13", // used with server muted/deafened - see also profile/status/panel
 		"panelAvatarWrapper": "avatarWrapper_b2ca13",
 		"panelWithTag": "alias profile modal status panel withTagAsButton",
@@ -2937,6 +2937,7 @@ $classes: (
 
 			"activity": "activity_cd74cc",
 			"activityButtonColor": "buttonColor_cd74cc",
+			"activityBackground": "activity_e9e42f", // despite the class above having a background property, this one applies the background.
 
 			"header": "header_f26c88", // header contains banner, avatar
 			"avatarOverlay": "overlay_f26c88", // overlay on avatar
