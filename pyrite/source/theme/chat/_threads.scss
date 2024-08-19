@@ -8,7 +8,7 @@
 	#{c(header toolbar)} {
 		right: 0;
 	}
-	&+div[style*=min-width]:has(+#{c(chat layerWrapper)}>#{c(threads notFloating)}) {
+	&~div[style*=min-width]:has(+#{c(chat layerWrapper)}>#{c(threads notFloating)}) {
 		display: none;
 	}
 }
