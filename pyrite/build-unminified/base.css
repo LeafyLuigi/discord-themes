@@ -1696,6 +1696,9 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 .chat_a7d72e.threadSidebarOpen_a7d72e .toolbar_fc4f04 {
   right: 0;
 }
+.chat_a7d72e.threadSidebarOpen_a7d72e + div + div[style]:has(+ .chatLayerWrapper_d1c246 > .notFloating_d1c246) {
+  display: none;
+}
 
 :is(.theme-dark, .theme-light) .resizeHandle_d1c246 {
   background: transparent;
