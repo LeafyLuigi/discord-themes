@@ -45,7 +45,8 @@
 #{c(embeds codeblock)},
 #{c(embeds invite)},
 #{c(embeds attachment)},
-#{c(embeds poll container)} {
+#{c(embeds poll container)},
+#{c(embeds poll finished container)} {
 	@include card;
 }
 
@@ -62,6 +63,15 @@
 #{c(embeds poll votePercentageBar)} {
 	background-color: transparent;
 	@include bg($o:0.3,$bg:var(--custom-poll-style-vote-percentage));
+}
+
+#{c(embeds poll finished victorIcon)} {
+	// circle {
+	// 	fill: var(--white-500);
+	// }
+	path {
+		fill: $primary;
+	}
 }
 
 #{c(embeds uploadProgressBar)} {

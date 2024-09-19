@@ -299,7 +299,7 @@ div#{c(text lineClamp2Plus)} {
 }
 
 /* unbreak certain modal backgrounds */
-#{c(main fullMotion)} :is(#{c(modals translate)},#{c(modals scale)}) {
+#{c(main options fullMotion)} :is(#{c(modals translate)},#{c(modals scale)}) {
 	transform: unset !important; // !important reason: override other rules that have it, namely with the animator* rules.
 }
 

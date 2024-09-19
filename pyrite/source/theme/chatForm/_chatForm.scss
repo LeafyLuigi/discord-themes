@@ -65,12 +65,12 @@
 		text-shadow: 2px 2px 4px currentColor;
 	}
 }
-#{c(chatForm mentionButton)} {
-	&#{c(chatForm colorLink)} {
-		color: $green;
+#{c(chatForm replyActions)}>div[class=""] {
+	&[aria-checked=false] #{c(chatForm mentionButton)} {
+		color: $red !important; // !important reason: inline style
 	}
-	&#{c(chatForm colorMuted)} {
-		color: $red;
+	&[aria-checked=true] #{c(chatForm mentionButton)} {
+		color: $green !important; // !important reason: inline style
 	}
 }
 #{c(chatForm textArea)} {
@@ -93,7 +93,10 @@
 }
 
 // delete gift nitro button. might cock up a few plugins.
-#{c(chatForm buttons)} > :is(#{c(chatForm button)},#{c(chatForm xmasGiftButton)}) {
+// Also remove stupid apps button
+#{c(chatForm appsButton)},
+#{c(chatForm buttons)} > :is(#{c(chatForm button)},
+#{c(chatForm xmasGiftButton)}) {
 	display: none;
 }
 

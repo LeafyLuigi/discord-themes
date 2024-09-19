@@ -427,7 +427,6 @@ html {
   --tag-helper: "Theme Helper";
   --settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
   --theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
-  --jump-to-message: "Jump to message";
   --code-plain-text: "Plain Text";
   --error-reload: "please click this";
   --error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
@@ -441,7 +440,6 @@ html {
 [lang=fr] {
   --theme-name: "Pyrite";
   --theme-name-beta: "Branche Bêta de Pyrite";
-  --jump-to-message: "Aller au message";
 }
 
 /* User Tags */
@@ -491,26 +489,6 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 }
 #language-tab div[role=radiogroup] .item_eb92a8:nth-child(7) .info_eb92a8 > div:after {
   content: var(--beta-fr);
-}
-
-/* Goto Message Links */
-.anchor_af404b:is([href^="https://canary.discord.com/channels/"], [href^="https://ptb.discord.com/channels/"], [href^="https://discord.com/channels/"]) {
-  font-size: 0;
-}
-.anchor_af404b:is([href^="https://canary.discord.com/channels/"], [href^="https://ptb.discord.com/channels/"], [href^="https://discord.com/channels/"]):hover {
-  text-decoration: none;
-}
-.anchor_af404b:is([href^="https://canary.discord.com/channels/"], [href^="https://ptb.discord.com/channels/"], [href^="https://discord.com/channels/"]):hover:before {
-  background-color: var(--primary-color);
-  color: var(--interactive-normal);
-}
-.anchor_af404b:is([href^="https://canary.discord.com/channels/"], [href^="https://ptb.discord.com/channels/"], [href^="https://discord.com/channels/"]):before {
-  content: var(--jump-to-message);
-  font-size: 1rem;
-  padding: 0 3px;
-  border-radius: 3px;
-  color: var(--primary-color);
-  text-decoration-color: currentColor;
 }
 
 /* Redownload pls bar */
@@ -1834,11 +1812,11 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   text-shadow: 2px 2px 4px currentColor;
 }
 
-.mentionButton_b11c5e.colorLink_fbc755 {
-  color: var(--green-color);
+.actions_b11c5e > div[class=""][aria-checked=false] .mentionButton_b11c5e {
+  color: var(--red-color) !important;
 }
-.mentionButton_b11c5e.colorMuted_fbc755 {
-  color: var(--red-color);
+.actions_b11c5e > div[class=""][aria-checked=true] .mentionButton_b11c5e {
+  color: var(--green-color) !important;
 }
 
 .textArea_d0696b .placeholder_a552a6 {
@@ -1860,7 +1838,9 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   background-color: var(--card-background);
 }
 
-.buttons_d0696b > :is(.button_dd4f85, .container_dfb455) {
+.button_df39bd,
+.buttons_d0696b > :is(.button_dd4f85,
+.container_dfb455) {
   display: none;
 }
 
@@ -2032,7 +2012,8 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 .markup_f8f345 code,
 .wrapper_a71a1c,
 .attachment_b52bef,
-.container_a1531c {
+.container_a1531c,
+.container_e365d2 {
   border: 1px solid var(--secondary-color);
   background-color: var(--card-background);
 }
@@ -2064,6 +2045,10 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   pointer-events: none;
   opacity: 0.3;
   background-color: var(--custom-poll-style-vote-percentage);
+}
+
+.victorAnswer_e365d2 path {
+  fill: var(--primary-color);
 }
 
 .progressBar_c6473a {
@@ -4556,16 +4541,18 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 
 .userPanelInnerThemed_c69a7b,
 .userProfileOuterUnthemed_c69a7b,
-.userProfileInnerThemedNonPremium_c69a7b {
+.userProfileInnerThemedNonPremium_c69a7b,
+.biteSizeInnerThemed_c69a7b,
+.fullSizeInnerThemed_c69a7b {
   background: transparent;
 }
 
 /* Start User Modal */
-.root_bc9cc2[style*=transform] {
+.root_b9fccc[style*=transform] {
   transform: unset !important;
   z-index: 0;
 }
-.root_bc9cc2 .userProfileOuterUnthemed_c69a7b::before {
+.root_b9fccc .userProfileOuterUnthemed_c69a7b::before {
   content: "";
   top: 0;
   right: 0;
@@ -4920,10 +4907,16 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   margin-bottom: -2px;
 }
 
-.unread_c10249,
-.mention_c10249,
-.mention_c10249:active {
+.unread_edf32f,
+.mention_edf32f,
+.mention_edf32f:active,
+.bar_eba0ba {
   background-color: var(--primary-color);
+}
+
+.unreadIcon_eba0ba,
+.barText_eba0ba {
+  color: var(--status-danger-text) !important;
 }
 
 .numberBadge_df8943 {

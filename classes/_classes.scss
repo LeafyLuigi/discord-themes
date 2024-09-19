@@ -106,8 +106,7 @@
 ////////////////
 
 $classes: (
-	// This top one is for things without any spammy suffixes or more important things.
-	"main": (
+	"main": ( // This top one is for things without any spammy suffixes or more important things.
 		"appMount": "appMount_ea7e65",
 		"appContainer": "app_bd26cc",
 		// on the same line as appContainer
@@ -130,8 +129,9 @@ $classes: (
 		"backdrop": "backdrop_e4f2ae",
 		"backdropWithLayer": "withLayer_e4f2ae",
 		"dark": "theme-dark",
-		"amoled": "theme-amoled", // experiment 2022-08_amoled_mode_web: currently applies on the following lines of the linked css: 61 (variable definitions), 696 (header container), 832 ("home" channel for chat), 1526 (forums) https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
+		"amoled": "theme-amoled", // experiment 2022-08_amoled_mode_web
 		"light": "theme-light",
+		"midnight": "theme-midnight",
 		"customTheme": "custom-theme-background",
 		"mouseMode": "mouse-mode",
 		"keyboardMode": "keyboard-mode",
@@ -149,11 +149,6 @@ $classes: (
 		"pictureInPicture": "pictureInPicture_d0596b",
 		"anchorLink": "anchor_af404b",
 		"anchorLinkUnderlineOnHover": "anchorUnderlineOnHover_af404b",
-		"sliderContainer": "container_cebd1c", // that sliding selection thing
-		"slider": "slider_cebd1c",
-		"sliderChecked": "checked_cebd1c",
-		"sliderDisabled": "disabled_cebd1c",
-		"sliderInput": "input_cebd1c",
 		"desaturate": "desaturate_c7819f", // has a filter relating to the saturation factor variable
 
 		"loader": "loader_a4d4d9", // probably used elsewhere but 100% used for loading "Browse Channels" for the first time during a session.
@@ -161,17 +156,22 @@ $classes: (
 		"ring": "focus-rings-ring",
 
 		// these will eventually be removed
-		"checkboxWrapper": "alias checkbox wrapper",
-		"checkboxWrapperDisabled": "alias checkbox wrapperDisabled",
-		"checkbox": "alias checkbox checkbox",
-		"checkboxInput": "alias checkbox input",
-		"checkboxChecked": "alias checkbox checked",
-		"checkboxRound": "alias checkbox round",
-		"checkboxWrapperRow": "alias checkbox wrapperRow",
-		"toggle": "alias main sliderContainer",
-		"fullMotion": "alias main options fullMotion",
-		"reduceMotion": "alias main options reduceMotion",
-		"groupSpacing16": "alias main options messageSpacing 16",
+		"checkboxWrapper": "!alias checkbox wrapper",
+		"checkboxWrapperDisabled": "!alias checkbox wrapperDisabled",
+		"checkbox": "!alias checkbox checkbox",
+		"checkboxInput": "!alias checkbox input",
+		"checkboxChecked": "!alias checkbox checked",
+		"checkboxRound": "!alias checkbox round",
+		"checkboxWrapperRow": "!alias checkbox wrapperRow",
+		"toggle": "!alias main sliderContainer",
+		"fullMotion": "!alias main options fullMotion",
+		"reduceMotion": "!alias main options reduceMotion",
+		"groupSpacing16": "!alias main options messageSpacing 16",
+		"sliderContainer": "!alias slider container", // that sliding selection thing
+		"slider": "!alias slider slider",
+		"sliderChecked": "!alias slider checked",
+		"sliderDisabled": "!alias slider disabled",
+		"sliderInput": "!alias slider input",
 
 		// no idea what these classes are about
 		"backgroundOpacity": (
@@ -209,9 +209,15 @@ $classes: (
 			"reduceMotion": "reduce-motion", // A11y > "enable reduced motion" ticked
 		),
 	),
+	"slider": ( // Checkbox with extra steps
+		"container": "container_cebd1c",
+		"slider": "slider_cebd1c",
+		"checked": "checked_cebd1c",
+		"disabled": "disabled_cebd1c",
+		"input": "input_cebd1c",
+	),
 	"checkbox": (
 		// Some of these may not be *JUST* checkboxes.
-		// For 2023-07-06 at 16:50 UTC+8, these are on line 20. https://discord.com/assets/40532.e197208e8cf597c9d2ee.css
 		"wrapper": "checkboxWrapper_f6cde8",
 		"wrapperDisabled": "checkboxWrapperDisabled_f6cde8",
 		"checkbox": "checkbox_f6cde8",
@@ -247,87 +253,113 @@ $classes: (
 		"selectableText": "selectable_a595eb",
 		"tabularNumbers": "tabularNumbers_a595eb",
 
-		// ***there are multiple lines containing classes like these***
-		// weird text-xx- and heading-xx classes. can have inline style for color.
-		// entirety of line 24 (2023-07-06 @ 16:50 UTC+8) stable build 210901 (daacd72). 
-		// can easily be found by selecting the sidebar panel avi name thingy.
-		// I highly recommend not using these.
+		// Due to the sheer amount of repeated usage of the format below...
+		// I strongly advise against using these classes.
+		// Yes, there really are 10 different classes in the complete css class scrape as of 2024-09-19.
+		// I would've put a generator function of sorts in but find+replace tool wouldn't have found that
+		"code": "code_f9d828" "code_a8af02" "code_a25714" "code_a39fe9" "code_aabef9" "code_c23051" "code_dc00ef" "code_c46f6a" "code_df8943" "code_ec1c2d",
+		"fontScaling": "fontScaling_f9d828" "fontScaling_a8af02" "fontScaling_a25714" "fontScaling_a39fe9" "fontScaling_aabef9" "fontScaling_c23051" "fontScaling_dc00ef" "fontScaling_c46f6a" "fontScaling_df8943" "fontScaling_ec1c2d",
+		"eyebrow": "eyebrow_f9d828" "eyebrow_a8af02" "eyebrow_a25714" "eyebrow_a39fe9" "eyebrow_aabef9" "eyebrow_c23051" "eyebrow_dc00ef" "eyebrow_c46f6a" "eyebrow_df8943" "eyebrow_ec1c2d",
+		"display": (
+			"sm": "display-sm_f9d828" "display-sm_a8af02" "display-sm_a25714" "display-sm_a39fe9" "display-sm_aabef9" "display-sm_c23051" "display-sm_dc00ef" "display-sm_c46f6a" "display-sm_df8943" "display-sm_ec1c2d",
+			"md": "display-md_f9d828" "display-md_a8af02" "display-md_a25714" "display-md_a39fe9" "display-md_aabef9" "display-md_c23051" "display-md_dc00ef" "display-md_c46f6a" "display-md_df8943" "display-md_ec1c2d",
+			"lg": "display-lg_f9d828" "display-lg_a8af02" "display-lg_a25714" "display-lg_a39fe9" "display-lg_aabef9" "display-lg_c23051" "display-lg_dc00ef" "display-lg_c46f6a" "display-lg_df8943" "display-lg_ec1c2d",
+		),
 		"heading": (
-			"sNormal": "heading-sm-normal_b67b32",
-			"sMedium": "heading-sm-medium__551ce",
-			"sSemibold": "heading-sm-semibold__32ea4",
-			"sBold": "heading-sm-bold__7b71f",
-			"sExtrabold": "heading-sm-extrabold__7029c",
-			"mNormal": "heading-md-normal_ee2770",
-			"mMedium": "heading-md-medium_bfad58",
-			"mSemibold": "heading-md-semibold__7cb23",
-			"mBold": "heading-md-bold__17daa",
-			"mExtrabold": "heading-md-extrabold__6e42b",
-			"lNormal": "heading-lg-normal_f3790e",
-			"lMedium": "heading-lg-medium__6e42e",
-			"lSemibold": "heading-lg-semibold__85c17",
-			"lBold": "heading-lg-bold__02f24",
-			"lExtrabold": "heading-lg-extrabold__9db67",
-			"xlNormal": "heading-xl-normal__38b93",
-			"xlMedium": "heading-xl-medium_d9a851",
-			"xlSemibold": "heading-xl-semibold__5e2e4",
-			"xlBold": "heading-xl-bold__77e0f",
-			"xlExtrabold": "heading-xl-extrabold_ce2b9c",
-			"xxlNormal": "heading-xxl-normal__89e1f",
-			"xxlMedium": "heading-xxl-medium__7875a",
-			"xxlSemibold": "heading-xxl-semibold__98f88",
-			"xxlBold": "heading-xxl-bold_b9bf3c",
-			"xxlExtrabold": "heading-xxl-extrabold__63651",
+			"sm": (
+				"normal": "heading-sm\/normal_f9d828" "heading-sm\/normal_a8af02" "heading-sm\/normal_a25714" "heading-sm\/normal_a39fe9" "heading-sm\/normal_aabef9" "heading-sm\/normal_c23051" "heading-sm\/normal_dc00ef" "heading-sm\/normal_c46f6a" "heading-sm\/normal_df8943" "heading-sm\/normal_ec1c2d",
+				"medium": "heading-sm\/medium_f9d828" "heading-sm\/medium_a8af02" "heading-sm\/medium_a25714" "heading-sm\/medium_a39fe9" "heading-sm\/medium_aabef9" "heading-sm\/medium_c23051" "heading-sm\/medium_dc00ef" "heading-sm\/medium_c46f6a" "heading-sm\/medium_df8943" "heading-sm\/medium_ec1c2d",
+				"semibold": "heading-sm\/semibold_f9d828" "heading-sm\/semibold_a8af02" "heading-sm\/semibold_a25714" "heading-sm\/semibold_a39fe9" "heading-sm\/semibold_aabef9" "heading-sm\/semibold_c23051" "heading-sm\/semibold_dc00ef" "heading-sm\/semibold_c46f6a" "heading-sm\/semibold_df8943" "heading-sm\/semibold_ec1c2d",
+				"bold": "heading-sm\/bold_f9d828" "heading-sm\/bold_a8af02" "heading-sm\/bold_a25714" "heading-sm\/bold_a39fe9" "heading-sm\/bold_aabef9" "heading-sm\/bold_c23051" "heading-sm\/bold_dc00ef" "heading-sm\/bold_c46f6a" "heading-sm\/bold_df8943" "heading-sm\/bold_ec1c2d",
+				"extrabold": "heading-sm\/extrabold_f9d828" "heading-sm\/extrabold_a8af02" "heading-sm\/extrabold_a25714" "heading-sm\/extrabold_a39fe9" "heading-sm\/extrabold_aabef9" "heading-sm\/extrabold_c23051" "heading-sm\/extrabold_dc00ef" "heading-sm\/extrabold_c46f6a" "heading-sm\/extrabold_df8943" "heading-sm\/extrabold_ec1c2d",
+			),
+			"md": (
+				"normal": "heading-md\/normal_f9d828" "heading-md\/normal_a8af02" "heading-md\/normal_a25714" "heading-md\/normal_a39fe9" "heading-md\/normal_aabef9" "heading-md\/normal_c23051" "heading-md\/normal_dc00ef" "heading-md\/normal_c46f6a" "heading-md\/normal_df8943" "heading-md\/normal_ec1c2d",
+				"medium": "heading-md\/medium_f9d828" "heading-md\/medium_a8af02" "heading-md\/medium_a25714" "heading-md\/medium_a39fe9" "heading-md\/medium_aabef9" "heading-md\/medium_c23051" "heading-md\/medium_dc00ef" "heading-md\/medium_c46f6a" "heading-md\/medium_df8943" "heading-md\/medium_ec1c2d",
+				"semibold": "heading-md\/semibold_f9d828" "heading-md\/semibold_a8af02" "heading-md\/semibold_a25714" "heading-md\/semibold_a39fe9" "heading-md\/semibold_aabef9" "heading-md\/semibold_c23051" "heading-md\/semibold_dc00ef" "heading-md\/semibold_c46f6a" "heading-md\/semibold_df8943" "heading-md\/semibold_ec1c2d",
+				"bold": "heading-md\/bold_f9d828" "heading-md\/bold_a8af02" "heading-md\/bold_a25714" "heading-md\/bold_a39fe9" "heading-md\/bold_aabef9" "heading-md\/bold_c23051" "heading-md\/bold_dc00ef" "heading-md\/bold_c46f6a" "heading-md\/bold_df8943" "heading-md\/bold_ec1c2d",
+				"extrabold": "heading-md\/extrabold_f9d828" "heading-md\/extrabold_a8af02" "heading-md\/extrabold_a25714" "heading-md\/extrabold_a39fe9" "heading-md\/extrabold_aabef9" "heading-md\/extrabold_c23051" "heading-md\/extrabold_dc00ef" "heading-md\/extrabold_c46f6a" "heading-md\/extrabold_df8943" "heading-md\/extrabold_ec1c2d",
+			),
+			"lg": (
+				"normal": "heading-lg\/normal_f9d828" "heading-lg\/normal_a8af02" "heading-lg\/normal_a25714" "heading-lg\/normal_a39fe9" "heading-lg\/normal_aabef9" "heading-lg\/normal_c23051" "heading-lg\/normal_dc00ef" "heading-lg\/normal_c46f6a" "heading-lg\/normal_df8943" "heading-lg\/normal_ec1c2d",
+				"medium": "heading-lg\/medium_f9d828" "heading-lg\/medium_a8af02" "heading-lg\/medium_a25714" "heading-lg\/medium_a39fe9" "heading-lg\/medium_aabef9" "heading-lg\/medium_c23051" "heading-lg\/medium_dc00ef" "heading-lg\/medium_c46f6a" "heading-lg\/medium_df8943" "heading-lg\/medium_ec1c2d",
+				"semibold": "heading-lg\/semibold_f9d828" "heading-lg\/semibold_a8af02" "heading-lg\/semibold_a25714" "heading-lg\/semibold_a39fe9" "heading-lg\/semibold_aabef9" "heading-lg\/semibold_c23051" "heading-lg\/semibold_dc00ef" "heading-lg\/semibold_c46f6a" "heading-lg\/semibold_df8943" "heading-lg\/semibold_ec1c2d",
+				"bold": "heading-lg\/bold_f9d828" "heading-lg\/bold_a8af02" "heading-lg\/bold_a25714" "heading-lg\/bold_a39fe9" "heading-lg\/bold_aabef9" "heading-lg\/bold_c23051" "heading-lg\/bold_dc00ef" "heading-lg\/bold_c46f6a" "heading-lg\/bold_df8943" "heading-lg\/bold_ec1c2d",
+				"extrabold": "heading-lg\/extrabold_f9d828" "heading-lg\/extrabold_a8af02" "heading-lg\/extrabold_a25714" "heading-lg\/extrabold_a39fe9" "heading-lg\/extrabold_aabef9" "heading-lg\/extrabold_c23051" "heading-lg\/extrabold_dc00ef" "heading-lg\/extrabold_c46f6a" "heading-lg\/extrabold_df8943" "heading-lg\/extrabold_ec1c2d",
+			),
+			"xl": (
+				"normal": "heading-xl\/normal_f9d828" "heading-xl\/normal_a8af02" "heading-xl\/normal_a25714" "heading-xl\/normal_a39fe9" "heading-xl\/normal_aabef9" "heading-xl\/normal_c23051" "heading-xl\/normal_dc00ef" "heading-xl\/normal_c46f6a" "heading-xl\/normal_df8943" "heading-xl\/normal_ec1c2d",
+				"medium": "heading-xl\/medium_f9d828" "heading-xl\/medium_a8af02" "heading-xl\/medium_a25714" "heading-xl\/medium_a39fe9" "heading-xl\/medium_aabef9" "heading-xl\/medium_c23051" "heading-xl\/medium_dc00ef" "heading-xl\/medium_c46f6a" "heading-xl\/medium_df8943" "heading-xl\/medium_ec1c2d",
+				"semibold": "heading-xl\/semibold_f9d828" "heading-xl\/semibold_a8af02" "heading-xl\/semibold_a25714" "heading-xl\/semibold_a39fe9" "heading-xl\/semibold_aabef9" "heading-xl\/semibold_c23051" "heading-xl\/semibold_dc00ef" "heading-xl\/semibold_c46f6a" "heading-xl\/semibold_df8943" "heading-xl\/semibold_ec1c2d",
+				"bold": "heading-xl\/bold_f9d828" "heading-xl\/bold_a8af02" "heading-xl\/bold_a25714" "heading-xl\/bold_a39fe9" "heading-xl\/bold_aabef9" "heading-xl\/bold_c23051" "heading-xl\/bold_dc00ef" "heading-xl\/bold_c46f6a" "heading-xl\/bold_df8943" "heading-xl\/bold_ec1c2d",
+				"extrabold": "heading-xl\/extrabold_f9d828" "heading-xl\/extrabold_a8af02" "heading-xl\/extrabold_a25714" "heading-xl\/extrabold_a39fe9" "heading-xl\/extrabold_aabef9" "heading-xl\/extrabold_c23051" "heading-xl\/extrabold_dc00ef" "heading-xl\/extrabold_c46f6a" "heading-xl\/extrabold_df8943" "heading-xl\/extrabold_ec1c2d",
+				),
+			"xxl": (
+				"normal": "heading-xxl\/normal_f9d828" "heading-xxl\/normal_a8af02" "heading-xxl\/normal_a25714" "heading-xxl\/normal_a39fe9" "heading-xxl\/normal_aabef9" "heading-xxl\/normal_c23051" "heading-xxl\/normal_dc00ef" "heading-xxl\/normal_c46f6a" "heading-xxl\/normal_df8943" "heading-xxl\/normal_ec1c2d",
+				"medium": "heading-xxl\/medium_f9d828" "heading-xxl\/medium_a8af02" "heading-xxl\/medium_a25714" "heading-xxl\/medium_a39fe9" "heading-xxl\/medium_aabef9" "heading-xxl\/medium_c23051" "heading-xxl\/medium_dc00ef" "heading-xxl\/medium_c46f6a" "heading-xxl\/medium_df8943" "heading-xxl\/medium_ec1c2d",
+				"semibold": "heading-xxl\/semibold_f9d828" "heading-xxl\/semibold_a8af02" "heading-xxl\/semibold_a25714" "heading-xxl\/semibold_a39fe9" "heading-xxl\/semibold_aabef9" "heading-xxl\/semibold_c23051" "heading-xxl\/semibold_dc00ef" "heading-xxl\/semibold_c46f6a" "heading-xxl\/semibold_df8943" "heading-xxl\/semibold_ec1c2d",
+				"bold": "heading-xxl\/bold_f9d828" "heading-xxl\/bold_a8af02" "heading-xxl\/bold_a25714" "heading-xxl\/bold_a39fe9" "heading-xxl\/bold_aabef9" "heading-xxl\/bold_c23051" "heading-xxl\/bold_dc00ef" "heading-xxl\/bold_c46f6a" "heading-xxl\/bold_df8943" "heading-xxl\/bold_ec1c2d",
+				"extrabold": "heading-xxl\/extrabold_f9d828" "heading-xxl\/extrabold_a8af02" "heading-xxl\/extrabold_a25714" "heading-xxl\/extrabold_a39fe9" "heading-xxl\/extrabold_aabef9" "heading-xxl\/extrabold_c23051" "heading-xxl\/extrabold_dc00ef" "heading-xxl\/extrabold_c46f6a" "heading-xxl\/extrabold_df8943" "heading-xxl\/extrabold_ec1c2d",
+			),
+			"deprecated12": (
+				"normal": "heading-deprecated-12\/normal_f9d828" "heading-deprecated-12\/normal_a8af02" "heading-deprecated-12\/normal_a25714" "heading-deprecated-12\/normal_a39fe9" "heading-deprecated-12\/normal_aabef9" "heading-deprecated-12\/normal_c23051" "heading-deprecated-12\/normal_dc00ef" "heading-deprecated-12\/normal_c46f6a" "heading-deprecated-12\/normal_df8943" "heading-deprecated-12\/normal_ec1c2d",
+				"medium": "heading-deprecated-12\/medium_f9d828" "heading-deprecated-12\/medium_a8af02" "heading-deprecated-12\/medium_a25714" "heading-deprecated-12\/medium_a39fe9" "heading-deprecated-12\/medium_aabef9" "heading-deprecated-12\/medium_c23051" "heading-deprecated-12\/medium_dc00ef" "heading-deprecated-12\/medium_c46f6a" "heading-deprecated-12\/medium_df8943" "heading-deprecated-12\/medium_ec1c2d",
+				"semibold": "heading-deprecated-12\/semibold_f9d828" "heading-deprecated-12\/semibold_a8af02" "heading-deprecated-12\/semibold_a25714" "heading-deprecated-12\/semibold_a39fe9" "heading-deprecated-12\/semibold_aabef9" "heading-deprecated-12\/semibold_c23051" "heading-deprecated-12\/semibold_dc00ef" "heading-deprecated-12\/semibold_c46f6a" "heading-deprecated-12\/semibold_df8943" "heading-deprecated-12\/semibold_ec1c2d",
+				"bold": "heading-deprecated-12\/bold_f9d828" "heading-deprecated-12\/bold_a8af02" "heading-deprecated-12\/bold_a25714" "heading-deprecated-12\/bold_a39fe9" "heading-deprecated-12\/bold_aabef9" "heading-deprecated-12\/bold_c23051" "heading-deprecated-12\/bold_dc00ef" "heading-deprecated-12\/bold_c46f6a" "heading-deprecated-12\/bold_df8943" "heading-deprecated-12\/bold_ec1c2d",
+				"extrabold": "heading-deprecated-12\/extrabold_f9d828" "heading-deprecated-12\/extrabold_a8af02" "heading-deprecated-12\/extrabold_a25714" "heading-deprecated-12\/extrabold_a39fe9" "heading-deprecated-12\/extrabold_aabef9" "heading-deprecated-12\/extrabold_c23051" "heading-deprecated-12\/extrabold_dc00ef" "heading-deprecated-12\/extrabold_c46f6a" "heading-deprecated-12\/extrabold_df8943" "heading-deprecated-12\/extrabold_ec1c2d",
+			),
 		),
-		"eyebrow": "eyebrow_e5a66c",
-		
-		"headingDeprecatedNormal": "heading-deprecated-12-normal_a14f14",
-		"headingDeprecatedMedium": "heading-deprecated-12-medium_c55b88",
-		"headingDeprecatedSemibold": "heading-deprecated-12-semibold__785e8",
-		"headingDeprecatedBold": "heading-deprecated-12-bold__92070",
-		"headingDeprecatedExtrabold": "heading-deprecated-12-extrabold_c8a23e",
-
 		"redesign": (
-			"heading18Bold": "redesign-heading-18-bold__332c3",
-			"normal": "redesign-message-preview-normal__7d007",
-			"medium": "redesign-message-preview-medium__4f28d",
-			"semibold": "redesign-message-preview-semibold__3f40b",
-			"bold": "redesign-message-preview-bold__64a1e",
+			"heading18": (
+				"bold": "redesign\/heading-18\/bold_f9d828" "redesign\/heading-18\/bold_a8af02" "redesign\/heading-18\/bold_a25714" "redesign\/heading-18\/bold_a39fe9" "redesign\/heading-18\/bold_aabef9" "redesign\/heading-18\/bold_c23051" "redesign\/heading-18\/bold_dc00ef" "redesign\/heading-18\/bold_c46f6a" "redesign\/heading-18\/bold_df8943" "redesign\/heading-18\/bold_ec1c2d",
+			),
+			"messagePreview": (
+				"normal": "redesign\/message-preview\/normal_f9d828" "redesign\/message-preview\/normal_a8af02" "redesign\/message-preview\/normal_a25714" "redesign\/message-preview\/normal_a39fe9" "redesign\/message-preview\/normal_aabef9" "redesign\/message-preview\/normal_c23051" "redesign\/message-preview\/normal_dc00ef" "redesign\/message-preview\/normal_c46f6a" "redesign\/message-preview\/normal_df8943" "redesign\/message-preview\/normal_ec1c2d",
+				"medium": "redesign\/message-preview\/medium_f9d828" "redesign\/message-preview\/medium_a8af02" "redesign\/message-preview\/medium_a25714" "redesign\/message-preview\/medium_a39fe9" "redesign\/message-preview\/medium_aabef9" "redesign\/message-preview\/medium_c23051" "redesign\/message-preview\/medium_dc00ef" "redesign\/message-preview\/medium_c46f6a" "redesign\/message-preview\/medium_df8943" "redesign\/message-preview\/medium_ec1c2d",
+				"semibold": "redesign\/message-preview\/semibold_f9d828" "redesign\/message-preview\/semibold_a8af02" "redesign\/message-preview\/semibold_a25714" "redesign\/message-preview\/semibold_a39fe9" "redesign\/message-preview\/semibold_aabef9" "redesign\/message-preview\/semibold_c23051" "redesign\/message-preview\/semibold_dc00ef" "redesign\/message-preview\/semibold_c46f6a" "redesign\/message-preview\/semibold_df8943" "redesign\/message-preview\/semibold_ec1c2d",
+				"bold": "redesign\/message-preview\/bold_f9d828" "redesign\/message-preview\/bold_a8af02" "redesign\/message-preview\/bold_a25714" "redesign\/message-preview\/bold_a39fe9" "redesign\/message-preview\/bold_aabef9" "redesign\/message-preview\/bold_c23051" "redesign\/message-preview\/bold_dc00ef" "redesign\/message-preview\/bold_c46f6a" "redesign\/message-preview\/bold_df8943" "redesign\/message-preview\/bold_ec1c2d",
+			),
+			"channelTitle": (
+				"normal": "redesign\/channel-title\/normal_f9d828" "redesign\/channel-title\/normal_a8af02" "redesign\/channel-title\/normal_a25714" "redesign\/channel-title\/normal_a39fe9" "redesign\/channel-title\/normal_aabef9" "redesign\/channel-title\/normal_c23051" "redesign\/channel-title\/normal_dc00ef" "redesign\/channel-title\/normal_c46f6a" "redesign\/channel-title\/normal_df8943" "redesign\/channel-title\/normal_ec1c2d",
+				"medium": "redesign\/channel-title\/medium_f9d828" "redesign\/channel-title\/medium_a8af02" "redesign\/channel-title\/medium_a25714" "redesign\/channel-title\/medium_a39fe9" "redesign\/channel-title\/medium_aabef9" "redesign\/channel-title\/medium_c23051" "redesign\/channel-title\/medium_dc00ef" "redesign\/channel-title\/medium_c46f6a" "redesign\/channel-title\/medium_df8943" "redesign\/channel-title\/medium_ec1c2d",
+				"semibold": "redesign\/channel-title\/semibold_f9d828" "redesign\/channel-title\/semibold_a8af02" "redesign\/channel-title\/semibold_a25714" "redesign\/channel-title\/semibold_a39fe9" "redesign\/channel-title\/semibold_aabef9" "redesign\/channel-title\/semibold_c23051" "redesign\/channel-title\/semibold_dc00ef" "redesign\/channel-title\/semibold_c46f6a" "redesign\/channel-title\/semibold_df8943" "redesign\/channel-title\/semibold_ec1c2d",
+				"bold": "redesign\/channel-title\/bold_f9d828" "redesign\/channel-title\/bold_a8af02" "redesign\/channel-title\/bold_a25714" "redesign\/channel-title\/bold_a39fe9" "redesign\/channel-title\/bold_aabef9" "redesign\/channel-title\/bold_c23051" "redesign\/channel-title\/bold_dc00ef" "redesign\/channel-title\/bold_c46f6a" "redesign\/channel-title\/bold_df8943" "redesign\/channel-title\/bold_ec1c2d",
+			)
 		),
-
 		"text": (
-			"xxsNormal": "text-xxs-normal_f0af0a",
-			"xxsMedium": "text-xxs-medium_b2b51b",
-			"xxsSemibold": "text-xxs-semibold__19e29",
-			"xxsBold": "text-xxs-bold_c8b7bc",
-			"xsNormal": "text-xs-normal_ccc5fb",
-			"xsMedium": "text-xs-medium__220aa",
-			"xsSemibold": "text-xs-semibold__2181c",
-			"xsBold": "text-xs-bold__0d339",
-			"sNormal": "text-sm-normal__95a78",
-			"sMedium": "text-sm-medium_bc6ffc",
-			"sSemibold": "text-sm-semibold_a5824d",
-			"sBold": "text-sm-bold_ad6d44",
-			"mNormal": "text-md-normal__6a4eb",
-			"mMedium": "text-md-medium_b12de1",
-			"mSemibold": "text-md-semibold__79164",
-			"mBold": "text-md-bold_c22b0c",
-			"lNormal": "text-lg-normal_d5fdbe",
-			"lMedium": "text-lg-medium__47cac",
-			"lSemibold": "text-lg-semibold__84aef",
-			"lBold": "text-lg-bold__43fc5",
-		),
-
-		"sDisplay": "display-sm__193a9",
-		"mDisplay": "display-md__6ce65",
-		"lDisplay": "display-lg__30a2f",
-
-		"code": "code_de8429",
+			"xxs": (
+				"normal": "text-xxs\/normal_f9d828" "text-xxs\/normal_a8af02" "text-xxs\/normal_a25714" "text-xxs\/normal_a39fe9" "text-xxs\/normal_aabef9" "text-xxs\/normal_c23051" "text-xxs\/normal_dc00ef" "text-xxs\/normal_c46f6a" "text-xxs\/normal_df8943" "text-xxs\/normal_ec1c2d",
+				"medium": "text-xxs\/medium_f9d828" "text-xxs\/medium_a8af02" "text-xxs\/medium_a25714" "text-xxs\/medium_a39fe9" "text-xxs\/medium_aabef9" "text-xxs\/medium_c23051" "text-xxs\/medium_dc00ef" "text-xxs\/medium_c46f6a" "text-xxs\/medium_df8943" "text-xxs\/medium_ec1c2d",
+				"semibold": "text-xxs\/semibold_f9d828" "text-xxs\/semibold_a8af02" "text-xxs\/semibold_a25714" "text-xxs\/semibold_a39fe9" "text-xxs\/semibold_aabef9" "text-xxs\/semibold_c23051" "text-xxs\/semibold_dc00ef" "text-xxs\/semibold_c46f6a" "text-xxs\/semibold_df8943" "text-xxs\/semibold_ec1c2d",
+				"bold": "text-xxs\/bold_f9d828" "text-xxs\/bold_a8af02" "text-xxs\/bold_a25714" "text-xxs\/bold_a39fe9" "text-xxs\/bold_aabef9" "text-xxs\/bold_c23051" "text-xxs\/bold_dc00ef" "text-xxs\/bold_c46f6a" "text-xxs\/bold_df8943" "text-xxs\/bold_ec1c2d",
+			),
+			"xs": (
+				"normal": "text-xs\/normal_f9d828" "text-xs\/normal_a8af02" "text-xs\/normal_a25714" "text-xs\/normal_a39fe9" "text-xs\/normal_aabef9" "text-xs\/normal_c23051" "text-xs\/normal_dc00ef" "text-xs\/normal_c46f6a" "text-xs\/normal_df8943" "text-xs\/normal_ec1c2d",
+				"medium": "text-xs\/medium_f9d828" "text-xs\/medium_a8af02" "text-xs\/medium_a25714" "text-xs\/medium_a39fe9" "text-xs\/medium_aabef9" "text-xs\/medium_c23051" "text-xs\/medium_dc00ef" "text-xs\/medium_c46f6a" "text-xs\/medium_df8943" "text-xs\/medium_ec1c2d",
+				"semibold": "text-xs\/semibold_f9d828" "text-xs\/semibold_a8af02" "text-xs\/semibold_a25714" "text-xs\/semibold_a39fe9" "text-xs\/semibold_aabef9" "text-xs\/semibold_c23051" "text-xs\/semibold_dc00ef" "text-xs\/semibold_c46f6a" "text-xs\/semibold_df8943" "text-xs\/semibold_ec1c2d",
+				"bold": "text-xs\/bold_f9d828" "text-xs\/bold_a8af02" "text-xs\/bold_a25714" "text-xs\/bold_a39fe9" "text-xs\/bold_aabef9" "text-xs\/bold_c23051" "text-xs\/bold_dc00ef" "text-xs\/bold_c46f6a" "text-xs\/bold_df8943" "text-xs\/bold_ec1c2d",
+			),
+			"sm": (
+				"normal": "text-sm\/normal_f9d828" "text-sm\/normal_a8af02" "text-sm\/normal_a25714" "text-sm\/normal_a39fe9" "text-sm\/normal_aabef9" "text-sm\/normal_c23051" "text-sm\/normal_dc00ef" "text-sm\/normal_c46f6a" "text-sm\/normal_df8943" "text-sm\/normal_ec1c2d",
+				"medium": "text-sm\/medium_f9d828" "text-sm\/medium_a8af02" "text-sm\/medium_a25714" "text-sm\/medium_a39fe9" "text-sm\/medium_aabef9" "text-sm\/medium_c23051" "text-sm\/medium_dc00ef" "text-sm\/medium_c46f6a" "text-sm\/medium_df8943" "text-sm\/medium_ec1c2d",
+				"semibold": "text-sm\/semibold_f9d828" "text-sm\/semibold_a8af02" "text-sm\/semibold_a25714" "text-sm\/semibold_a39fe9" "text-sm\/semibold_aabef9" "text-sm\/semibold_c23051" "text-sm\/semibold_dc00ef" "text-sm\/semibold_c46f6a" "text-sm\/semibold_df8943" "text-sm\/semibold_ec1c2d",
+				"bold": "text-sm\/bold_f9d828" "text-sm\/bold_a8af02" "text-sm\/bold_a25714" "text-sm\/bold_a39fe9" "text-sm\/bold_aabef9" "text-sm\/bold_c23051" "text-sm\/bold_dc00ef" "text-sm\/bold_c46f6a" "text-sm\/bold_df8943" "text-sm\/bold_ec1c2d",
+			),
+			"md": (
+				"normal": "text-md\/normal_f9d828" "text-md\/normal_a8af02" "text-md\/normal_a25714" "text-md\/normal_a39fe9" "text-md\/normal_aabef9" "text-md\/normal_c23051" "text-md\/normal_dc00ef" "text-md\/normal_c46f6a" "text-md\/normal_df8943" "text-md\/normal_ec1c2d",
+				"medium": "text-md\/medium_f9d828" "text-md\/medium_a8af02" "text-md\/medium_a25714" "text-md\/medium_a39fe9" "text-md\/medium_aabef9" "text-md\/medium_c23051" "text-md\/medium_dc00ef" "text-md\/medium_c46f6a" "text-md\/medium_df8943" "text-md\/medium_ec1c2d",
+				"semibold": "text-md\/semibold_f9d828" "text-md\/semibold_a8af02" "text-md\/semibold_a25714" "text-md\/semibold_a39fe9" "text-md\/semibold_aabef9" "text-md\/semibold_c23051" "text-md\/semibold_dc00ef" "text-md\/semibold_c46f6a" "text-md\/semibold_df8943" "text-md\/semibold_ec1c2d",
+				"bold": "text-md\/bold_f9d828" "text-md\/bold_a8af02" "text-md\/bold_a25714" "text-md\/bold_a39fe9" "text-md\/bold_aabef9" "text-md\/bold_c23051" "text-md\/bold_dc00ef" "text-md\/bold_c46f6a" "text-md\/bold_df8943" "text-md\/bold_ec1c2d",
+			),
+			"lg": (
+				"normal": "text-lg\/normal_f9d828" "text-lg\/normal_a8af02" "text-lg\/normal_a25714" "text-lg\/normal_a39fe9" "text-lg\/normal_aabef9" "text-lg\/normal_c23051" "text-lg\/normal_dc00ef" "text-lg\/normal_c46f6a" "text-lg\/normal_df8943" "text-lg\/normal_ec1c2d",
+				"medium": "text-lg\/medium_f9d828" "text-lg\/medium_a8af02" "text-lg\/medium_a25714" "text-lg\/medium_a39fe9" "text-lg\/medium_aabef9" "text-lg\/medium_c23051" "text-lg\/medium_dc00ef" "text-lg\/medium_c46f6a" "text-lg\/medium_df8943" "text-lg\/medium_ec1c2d",
+				"semibold": "text-lg\/semibold_f9d828" "text-lg\/semibold_a8af02" "text-lg\/semibold_a25714" "text-lg\/semibold_a39fe9" "text-lg\/semibold_aabef9" "text-lg\/semibold_c23051" "text-lg\/semibold_dc00ef" "text-lg\/semibold_c46f6a" "text-lg\/semibold_df8943" "text-lg\/semibold_ec1c2d",
+				"bold": "text-lg\/bold_f9d828" "text-lg\/bold_a8af02" "text-lg\/bold_a25714" "text-lg\/bold_a39fe9" "text-lg\/bold_aabef9" "text-lg\/bold_c23051" "text-lg\/bold_dc00ef" "text-lg\/bold_c46f6a" "text-lg\/bold_df8943" "text-lg\/bold_ec1c2d"
+			)
+		)
 	),
-	// Tab bars, found in multiple locations but best seen in friends list
-	// each location has other classes attached to the elements
-	// listed locations may be used in other areas too
-	"tab": (
+	"tab": ( // Found in multiple locations but best seen in friends list. Each location has other classes attached to the elements. Listed locations may be used in other areas too
 		"header": "header_a0", // used in sidebar of settings areas
 		"headerText": "headerText_a0", // "USER SETTINGS", "PAYMENT SETTINGS" etc
 		"separator": "separator_a0", // see header
@@ -600,8 +632,7 @@ $classes: (
 		"chatButtonContainer": "buttonContainer_e4f3eb",
 
 	),
-	// heavily relates to call
-	"stage": (
+	"stage": ( // heavily relates to call
 		"container": "container_ed4410", // sibling to uploadArea, child of chat
 		"callContainer": "callContainer_ed4410", // child
 		"sidebarVisible": "sidebarVisible_ed4410", // same, relates to raised hand
@@ -892,9 +923,8 @@ $classes: (
 
 		"layerWrapper": "chatLayerWrapper_d1c246",
 	),
-	// line numbers are from 2022-12-28 https://canary.discord.com/assets/40532.2ddbe3ee69f647c0b5d1.css
 	"pages": (
-		// 933, page itself
+		// page itself
 		// "page": "page__2bb25",
 		"pageBody": "pageBody_c2efea",
 		"pageHeader": "header_c2efea",
@@ -909,7 +939,7 @@ $classes: (
 		// "scrollerInner": "scrollerInner_aa3c3b", // bleh no idea
 		"container": "container_c2efea", // has background with dark/light
 
-		// 931, dismissable "Choose your channels" container
+		// dismissable "Choose your channels" container
 		"channelsDismissable": (
 			"container": "container_b55df8", // background
 			"nuxContent": "nuxContent_b55df8",
@@ -920,7 +950,7 @@ $classes: (
 			"tip": "tip_b55df8",
 			"checkItOut": "checkItOut_b55df8",
 		),
-		// 932, channel order sort of thing
+		// channel order sort of thing
 		"channels": (
 			"categoryRow": "categoryRow_f04d06",
 			"uncategorized": "uncategorized_f04d06", // when combined with categoryRow class, removes top padding
@@ -946,7 +976,7 @@ $classes: (
 			"scrollerInner": "scrollerInner_f04d06",
 		),
 
-		// 934, customize options
+		// customize options
 		"customiseOptions": (
 			"optionButton": "optionButton_bd5e1f",
 			"selected": "selected_bd5e1f", // with option background 
@@ -956,7 +986,7 @@ $classes: (
 			"buttonEmoji": "buttonEmoji_bd5e1f",
 			"buttonText": "buttonText_bd5e1f",
 		),
-		// 935, customize page
+		// customize page
 		"customise": (
 			"scrollerContainer": "scrollerContainer_c6b11b",
 			"scroller": "scroller_c6b11b", // background with dark/light
@@ -987,7 +1017,7 @@ $classes: (
 			"roleDot": "roleDot_c6b11b",
 		),
 
-		// 936, header stuff
+		// header stuff
 		"header": (
 			"returnButton": "returnButton_f1fd9c",
 			"returnButtonText": "returnButtonText_f1fd9c",
@@ -1014,68 +1044,7 @@ $classes: (
 		),
 
 	),
-	// whole thing was kinda just removed lmao
-	// // labelled as "Home"; found within servers and unrelated to friends list
-	// // running `document.URL` in console should have `/@home` at the end
-	// "homePage": (
-	// 	"background": "background_c54132",
-	// 	"container": "homeContainer__73533",
-	// 	"content": "homeContent_b6949a",
-	// 	"topMessagesHeader": "topMessagesHeader__1978f",
-
-	// 	"emptyContainer": "container__3c265",
-	// 	"emptyContainerBackground": "background__4cf17",
-	// 	"emptyIconContainer": "iconContainer__9937d",
-	// 	"emptyIcon": "icon__795b3",
-
-	// 	// "contentContainer": "container-Jqlbgl", // cannot find.
-	// 	"contentCard": "card_d4f6c7",
-	// 	"contentCardInteractive": "interactiveCard_d92364",
-	// 	"contentCardSelected": "selected__142a3",
-	// 	"contentCardContainer": "container__34264",
-	// 	"contentCardClickableTarget": "clickableTarget_bb5c14",
-	// 	"feedItemHeader": "feedItemHeader_ec3bdb",
-	// 	"messageHeaderMenuLeft": "messageHeaderMenuLeft__0cafc",
-	// 	"channelNameContainer": "channelNameContainer__583bb",
-	// 	"channelIcon": "channelIcon__93f2e",
-	// 	"messageHeaderMenuRight": "messageHeaderMenuRight__8cbff",
-	// 	"titleContainer": "titleContainer__8b6b1",
-	// 	"tags": "tags_fdfe68",
-
-	// 	"messageItemBody": "messageItemBody__8fd54",
-	// 	"referenceMessagesText": "referenceMessagesText_e3fbdb",
-	// 	"showMore": "showMore__5ddb2",
-
-	// 	"widgets": "widgets__07407",
-	// 	"widgetsContainer": "widgetsContainer_d40c37",
-
-	// 	"widgetGuildContainer": "container_c68a2c",
-	// 	"widgetGuildIcon": "icon_ac2d0d", // server icon. has borders sans bottom
-	// 	"widgetGuildName": "name_dcf5ac", // h3
-	// 	"widgetGuildDescription": "description__6b38f",
-	// 	"widgetGuildMemberInfo": "memberInfo_b89daa",
-	// 	"widgetGuildMemberCount": "memberCount_d1ca68",
-	// 	"widgetGuildDotOnline": "dotOnline__9b78b",
-	// 	"widgetGuildDotOffline": "dotOffline__298c9",
-
-	// 	"widgetChannelsContainer": "container__29699",
-	// 	"widgetHeader": "header__18dc9",
-	// 	"widgetShowAll": "showAll__4b443",
-	// 	"widgetChannelList": "channelList_b7e3ac",
-	// 	"widgetChannelContainer": "container__55cc1",
-	// 	"widgetChannelBody": "body__8db46",
-	// 	"widgetChannelDetails": "details_fff656",
-	// 	"widgetChannelIcon": "iconContainer__1b9f0",
-	// 	"widgetChannelTitle": "title_c7fce8",
-	// 	"widgetChannelSubtitle": "subtitle__02ff9",
-	// 	"widgetChannelAccessoryContainer": "accessoryContainer_acf742",
-	// 	"widgetChannelAvatarsContainer": "container_c47562", // holds avatars, typing and the +n stuff 
-	// 	"widgetChannelAvatarContainerMasked": "avatarContainerMasked_c47562",
-	// 	"widgetChannelMoreUsers": "moreUsers_c47562", // +n users
-	// 	"widgetChannelTypingIndicator": "typingIndicator__0b368",
-	// ),
-	// Named so because aria-label for the chat bubble icon is "Forum" in English (and French)
-	"forums": (
+	"forums": ( // Named so because aria-label for the chat bubble icon is "Forum" in English
 		"loadingContainer": "loader_a7d72e",
 		"container": "container_a6d69a", // seems to relate to line 1526 of https://canary.discord.com/assets/40532.2f0570f42394060c451f.css
 		"listScroller": "alias forums list list",
@@ -1501,6 +1470,9 @@ $classes: (
 		"sendButtonActiveChild": "activeButtonChild_a06035",
 		"sendButtonDisabled": "disabled_a06035",
 		"sendButtonIcon": "sendIcon_a06035",
+
+		// extra button on side that's kinda useless ngl
+		"appsButton": "button_df39bd",
 	),
 	"discover": (
 		"header": "discoverHeader_b992d4",
@@ -1644,6 +1616,19 @@ $classes: (
 		),
 
 		"poll": (
+			// poll finished small embed
+			"finished": (
+				"container": "container_e365d2",
+				"embed": "embed_e365d2",
+				"containerWithImage": "containerWithImage_e365d2",
+				"imageContainer": "imageContainer_e365d2",
+				"description": "description_e365d2",
+				"victorAnswer": "victorAnswer_e365d2",
+				"victorAnswerText": "victorAnswerText_e365d2",
+				"victorIcon": "victorAnswer_e365d2",
+				"button": "button_e365d2",
+			),
+
 			// all in one group
 			// "confirmText": "confirmText_b558d0",
 			// "container": "container_b558d0",
@@ -2136,11 +2121,26 @@ $classes: (
 		"iconBadge": "iconBadge_c96c45",
 		"participating": "isCurrentUserConnected_c96c45", // also used in header for some reason?
 		"unreadMentionsBar": "unreadMentionsBar_fea3ef",
-		"unreadMentionBar": "bar_c10249", // usually on the same element as above
 		"unreadMentionsBarTop": "unreadMentionsIndicatorTop_fea3ef",
 		"unreadMentionsBarBottom": "unreadMentionsIndicatorBottom_fea3ef",
-		"mentionBar": "mention_c10249",
-		"unreadMention": "unread_c10249",
+		// style 1, large bar -- crossover with channel list
+		"unreadMentionBar": "bar_edf32f", // usually on the same element as above
+		"mentionBar": "mention_edf32f",
+		"unreadMention": "unread_edf32f",
+		// style 2, smaller bar -- only in channel list, here bc im lazy
+		"unreadMention2Container": "container_eba0ba",
+		"unreadMention2Top": "top_eba0ba",
+		"unreadMention2Bottom": "bottom_eba0ba",
+		"unreadMention2ContainerPadding": "containerPadding_eba0ba",
+		"unreadMention2Bar": "bar_eba0ba",
+		"unreadMention2Empty": "emptyBar_eba0ba",
+		"unreadMention2Mention": "mentionsBar_eba0ba",
+		"unreadMention2UnreadIcon": "unreadIcon_eba0ba",
+		"unreadMention2VoiceChannelsIcon": "voiceChannelsIcon_eba0ba",
+		"unreadMention2VoiceChannelsUsers": "voiceChannelsUsers_eba0ba",
+		"unreadMention2Text": "barText_eba0ba",
+
+
 		"folderParentWrapper": "wrapper_bc7085",
 		"folderParentWrapperExpanded": "expanded",
 		"folder": "folder_bc7085",
@@ -2819,8 +2819,8 @@ $classes: (
 		
 		// Modal: right click on user in same spots and click "View Profile"
 		"modal": (
-			"root": "root_bc9cc2",
-			"headerInner": "headerInner_bc9cc2",
+			"root": "root_b9fccc",
+			"headerInner": "headerInner_b9fccc",
 
 			"topSection": "topSection_b9fccc",
 			"body": "body_bc9cc2",

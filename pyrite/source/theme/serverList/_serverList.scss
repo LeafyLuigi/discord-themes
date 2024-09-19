@@ -87,8 +87,15 @@
 }
 #{c(serverList unreadMention)},
 #{c(serverList mentionBar)},
-#{c(serverList mentionBar)}:active {
+#{c(serverList mentionBar)}:active,
+// #{c(serverList unreadMention2Mention)},
+#{c(serverList unreadMention2Bar)} {
 	background-color: $primary;
+}
+
+#{c(serverList unreadMention2UnreadIcon)},
+#{c(serverList unreadMention2Text)} {
+	color: var(--status-danger-text) !important; // !important reason: inline style with barText when not mentioned
 }
 
 #{c(serverList numberBadge)} {

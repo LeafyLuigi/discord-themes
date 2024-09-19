@@ -14,9 +14,6 @@ html {
 	--settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
 	--theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
 
-	// Jump to message
-	--jump-to-message: "Jump to message";
-
 	// Used within codelangs file for Codeblocks sans formatting or language
 	--code-plain-text: "Plain Text";
 
@@ -45,7 +42,6 @@ html {
 [lang="fr"] {
 	--theme-name: "Pyrite";
 	--theme-name-beta: "Branche Bêta de Pyrite";
-	--jump-to-message: "Aller au message";
 }
 
 // Current Untranslated Discord Languages (2022-09-02) - Uncomment whatever one you'd like to edit and go for it.
@@ -147,28 +143,6 @@ html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
 	}
 	&:nth-child(7) #{c(userSettings radioBarInfo)} > div:after {
 		content: var(--beta-fr);
-	}
-}
-
-/* Goto Message Links */
-#{c(main anchorLink)} {
-	&:is([href^="https://canary.discord.com/channels/"],[href^="https://ptb.discord.com/channels/"],[href^="https://discord.com/channels/"]) {
-		font-size: 0;
-		&:hover {
-			text-decoration: none;
-		}
-		&:hover:before {
-			background-color: $primary;
-			color: var(--interactive-normal);
-		}
-		&:before {
-			content: var(--jump-to-message);
-			font-size: 1rem;
-			padding: 0 3px;
-			border-radius: 3px;
-			color: $primary;
-			text-decoration-color: currentColor;
-		}
 	}
 }
 
