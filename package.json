@@ -32,11 +32,11 @@
   },
   "homepage": "https://github.com/LeafyLuigi/discord-themes#readme",
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
+    "autoprefixer": "^10.4.20",
     "npm": "^8.19.4",
-    "pnpm": "^7.33.6",
-    "postcss": "^8.4.30",
+    "pnpm": "^7.33.7",
+    "postcss": "^8.4.47",
     "postcss-cli": "^10.1.0",
-    "sass": "^1.68.0"
+    "sass": "^1.79.4"
   }
 }

@@ -25,13 +25,13 @@
 }
 
 #{c(modals inbox friendRequestsButton)} {
-	&,&:hover {
-		background: transparent;
-	}
 	border: 1px solid currentColor;
 	color: $primary;
 	&:hover {
 		color: $hover;
+	}
+	&,&:hover {
+		background: transparent;
 	}
 }
 

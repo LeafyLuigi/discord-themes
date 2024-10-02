@@ -96,7 +96,7 @@ $allColors: (
 		@each $col in list.nth($colType,2) {
 			@if not list.index($listDone, $col) {
 				// @debug $col;
-				$list: $list+'[fill="'+$col+'"],[fill="rgba('+red($col)+', '+green($col)+', '+blue($col)+', 1)"],';
+				$list: $list+'[fill="'+$col+'"],[fill="rgba('+color.channel($col,"red",$space: rgb)+', '+color.channel($col,"green",$space: rgb)+', '+color.channel($col,"blue",$space: rgb)+', 1)"],';
 				$listDone: list.append($listDone,$col);
 			}
 		}
@@ -116,7 +116,7 @@ $allColors: (
 		@each $col in list.nth($colType,2) {
 			@if not list.index($listDone, $col) {
 				// @debug $col;
-				$list: $list+'[style*="rgb('+red($col)+', '+green($col)+', '+blue($col)+')"],';
+				$list: $list+'[style*="rgb('+color.channel($col,"red",$space: rgb)+', '+color.channel($col,"green",$space: rgb)+', '+color.channel($col,"blue",$space: rgb)+')"],';
 				$listDone: list.append($listDone,$col);
 			}
 		}

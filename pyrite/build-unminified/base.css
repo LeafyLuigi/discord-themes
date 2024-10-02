@@ -4375,11 +4375,11 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   border: 1px solid currentColor;
   color: var(--primary-color);
 }
-.friendRequestsButton_c0c071, .friendRequestsButton_c0c071:hover {
-  background: transparent;
-}
 .friendRequestsButton_c0c071:hover {
   color: var(--hover-color);
+}
+.friendRequestsButton_c0c071, .friendRequestsButton_c0c071:hover {
+  background: transparent;
 }
 
 .container_fe1358 {
