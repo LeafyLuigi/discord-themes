@@ -2163,6 +2163,29 @@ $classes: (
 		"dragFolderEndWrapper": "folderEndWrapper_b7c66a",
 		"dragWrapperOver": "wrapperOver_b7c66a",
 		"dragFolderTarget": "folderTarget_b7c66a",
+
+		// separated "discover" button - kinda unsure about most of these classes ngl
+		"discover": (
+			"container": "container_aa1bff",
+			"popup": ( // not sure what the popup class actually is
+				"anchor": "popoutAnchor_aa1bff",
+				"container": "popoutContainer_aa1bff",
+				"caret": "popoutCaret_aa1bff",
+				"caretLeft": "popoutCaretLeft_aa1bff",
+				"content": "popoutContent_aa1bff",
+			),
+			"footer": "footer_aa1bff", // in list, has gradient within and discover button (different class group)
+			"gradient": "gradient_aa1bff",
+			"gradientHidden": "gradientHidden_aa1bff", // only shown when server list is at the bottom
+			"backgroundImage": "backgroundImage_aa1bff",
+			"genericBackgroundImage": "genericBackgroundImage_aa1bff", // seems like placeholder for "quest"/sponsored stuff
+			// sponsored images. thse contain a `background-image: url(https://cdn.discordapp.com/assets/clans/DiscoveryUpsell_{$game}_Background.png)`.
+			"genshin": "genshinBackgroundImage_aa1bff", // linked image is of Xinayun. 5.1 is around the corner from time of writing. She was added in 4.4; 9 months ago. actual lmao.
+			"valorant": "valorantBackgroundImage_aa1bff", // i don't play valorant so no funny commentary from me this time
+			// end of sponsored images
+			"close": "close_aa1bff",
+			"coachmarkTextContainer": "coachmarkTextContainer_aa1bff",
+		)
 	),
 	"serverSettings": (
 		"serverIconUploadInner": "avatarUploaderInner_f0a9ff",

@@ -14,10 +14,7 @@
 	}
 }
 
-:is(#{c(main dark)},#{c(main light)}) #{c(serverList scroller)} {
-	background: transparent;
-}
-
+:is(#{c(main dark)},#{c(main light)}) #{c(serverList scroller)},
 #{c(serverList folder)},
 #{c(serverList folder)}#{c(serverList folderHover)} {
 	background: transparent;
@@ -115,4 +112,9 @@
 	> svg > foreignObject {
 		mask: none;
 	}
+}
+
+#{c(serverList discover footer)},
+#{c(serverList discover gradient)} {
+	background: none;
 }

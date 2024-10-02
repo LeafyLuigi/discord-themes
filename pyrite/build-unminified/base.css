@@ -4840,10 +4840,7 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   outline: none;
 }
 
-:is(.theme-dark, .theme-light) .scroller_fea3ef {
-  background: transparent;
-}
-
+:is(.theme-dark, .theme-light) .scroller_fea3ef,
 .folder_bc7085,
 .folder_bc7085.hover_bc7085 {
   background: transparent;
@@ -4934,6 +4931,11 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 
 .wrapper_c5f96a > svg > foreignObject {
   mask: none;
+}
+
+.footer_aa1bff,
+.gradient_aa1bff {
+  background: none;
 }
 
 /* Start App Settings */
