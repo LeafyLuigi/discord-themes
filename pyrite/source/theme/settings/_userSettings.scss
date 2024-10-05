@@ -10,7 +10,7 @@
 	// 	padding: 16px;
 	// }
 	:is(
-	#{c(userSettings boostCardGemContainer)},
+	// #{c(userSettings boostCardGemContainer)},
 	#{c(userSettings subscriptionsNoItemsIconSubs)},
 	#{c(userSettings subscriptionsNoItemsIconCredits)},
 	#{c(userSettings addAccountMetadataContainer)}
@@ -31,11 +31,11 @@
 		background-color: $secondary;
 	}
 }
-#{c(userSettings sidebarInfo)} {
-	#{c(chatForm colorMuted)} {
-		color: var(--interactive-normal);
-	}
-}
+// #{c(userSettings sidebarInfo)} {
+// 	#{c(chatForm colorMuted)} {
+// 		color: var(--interactive-normal);
+// 	}
+// }
 #{c(userSettings contentRegionScroller)} {
 	background-color: $middle;
 	#{c(serverSettings auditScroller)} {
@@ -56,10 +56,10 @@
 // #{c(userSettings nitroFeatureImageWrapper)} {
 // 	display: none;
 // }
-#{c(userSettings profileAvatarUploader)} {
-	border-color: transparent;
-	background-color: transparent;
-}
+// #{c(userSettings profileAvatarUploader)} {
+// 	border-color: transparent;
+// 	background-color: transparent;
+// }
 // #{c(userSettings nitroRedirectWarningIcon)} {
 // 	color: $yellow;
 // }
@@ -107,18 +107,18 @@
 	background-color: transparent;
 	padding: 10px 20px;
 }
-#{c(userSettings boostGuildsSection)} {
-	margin-bottom: 32px;
-}
-#{c(userSettings boostCardWrapper)} {
-	background-color: transparent;
-	#{c(friends itemCardOuter)} {
-		background-color: transparent;
-	}
-}
-#{c(userSettings boostDealWrapper)}::before {
-	content: none;
-}
+// #{c(userSettings boostGuildsSection)} {
+// 	margin-bottom: 32px;
+// }
+// #{c(userSettings boostCardWrapper)} {
+// 	background-color: transparent;
+// 	#{c(friends itemCardOuter)} {
+// 		background-color: transparent;
+// 	}
+// }
+// #{c(userSettings boostDealWrapper)}::before {
+// 	content: none;
+// }
 #{c(userSettings closeButtonContainer)} {
 	color: $primary;
 	&:hover,
@@ -149,12 +149,12 @@
 #{c(userSettings addConnectionContainer)} {
 	@include card;
 }
-#{c(userSettings boostSubscriptionSlots)},
+// #{c(userSettings boostSubscriptionSlots)},
 #{c(userSettings subscriptionsDetailsBlock)},
-#{c(userSettings giftPromotionCard)},
-#{c(userSettings boostGuildHeader)},
+// #{c(userSettings boostGuildHeader)},
 // #{c(userSettings nitroRedirectContainer)},
-	#{c(userSettings boostCardNoIcon)} {
+// #{c(userSettings boostCardNoIcon)} 
+#{c(userSettings giftPromotionCard)} {
 	background-color: $card;
 }
 #{c(main appLayer)},

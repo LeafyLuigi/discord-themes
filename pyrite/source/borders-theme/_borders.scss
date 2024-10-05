@@ -41,11 +41,11 @@ $card: var(--card-background);
 // voice call avi
 // #{c(call avatar)}, // TODO: FIND CLASS
 
-// hover over avatar in popout to see this
-#{c(profile popout avatarHint)},
+// // hover over avatar in popout to see this
+// #{c(profile popout avatarHint)},
 
-// edit profile fake popout avatar and hint
-#{c(userSettings profileAvatarUploader)},
+// // edit profile fake popout avatar and hint
+// #{c(userSettings profileAvatarUploader)},
 
 // upload avi/banner modal
 #{c(modals avatarUpload contentCircle)}
@@ -88,13 +88,13 @@ $card: var(--card-background);
 #{c(friends activeNowAvatar)} > svg > foreignObject,
 
 // private chats avatar/group chat icon, affects "my account" avatar, user popout avatar, user profile avatar
-#{c(memberList avatarWrapper)} > svg > foreignObject,
+#{c(memberList avatarWrapper)} > svg > foreignObject
 
-// hover over avatar in popout to see this
-#{c(profile popout avatarHint)} > foreignObject,
+// // hover over avatar in popout to see this
+// #{c(profile popout avatarHint)} > foreignObject,
 
-// this one's for the banner, mainly due to the new avatar decorations
-#{c(profile bannerSVGWrapper)}
+// // this one's for the banner, mainly due to the new avatar decorations
+// #{c(profile bannerSVGWrapper)}
 {
 	mask: none;
 	-webkit-mask: none;
@@ -105,7 +105,7 @@ $card: var(--card-background);
 
 // size = 80
 #{c(profile popout outer)},
-#{c(profile panel panel)},
+// #{c(profile panel panel)},
 #{c(userSettings profileImageUploader)},
 #{c(modals avatarUpload contentCircle)} {
 	--br-multi: 2.5;
@@ -115,10 +115,10 @@ $card: var(--card-background);
 	--br-multi: 4;
 }
 // and revert back to size = 40
-#{c(profile modal body)},
-#{c(profile panel connections)} {
-	--br-multi: 1;
-}
+// #{c(profile modal body)},
+// #{c(profile panel connections)} {
+// 	--br-multi: 1;
+// }
 
 #{c(friends activeNowAvatar)} svg,
 #{c(memberList avatarWrapper)} > svg

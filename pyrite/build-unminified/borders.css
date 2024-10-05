@@ -16,8 +16,6 @@
 .headerAvatar_cd82a7 > svg > foreignObject,
 .wrapper_c51b4e,
 .avatar_f9f2ca,
-.avatarHint_f89da9,
-.avatarUploaderInner_ab876d,
 .contentCircle_f2f431 {
   border-radius: calc(var(--avatar-radius) * var(--br-multi, 1));
 }
@@ -36,15 +34,12 @@
 }
 
 .headerAvatar_cd82a7 > svg > foreignObject,
-.wrapper_c51b4e > svg > foreignObject,
-.avatarHint_f89da9 > foreignObject,
-.bannerSVGWrapper_b32cc2 {
+.wrapper_c51b4e > svg > foreignObject {
   mask: none;
   -webkit-mask: none;
 }
 
 .userPopoutOuter_c69a7b,
-.profilePanel_b433b4,
 .imageUploader_de76e4,
 .contentCircle_f2f431 {
   --br-multi: 2.5;
@@ -52,11 +47,6 @@
 
 .root_b9fccc {
   --br-multi: 4;
-}
-
-.body_bc9cc2,
-.profilePanelConnections_b433b4 {
-  --br-multi: 1;
 }
 
 .headerAvatar_cd82a7 svg,

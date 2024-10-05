@@ -232,9 +232,9 @@
 	fill: $red;
 }
 
-#{c(chat messageAttachment)} {
-	width: unset;
-}
+// #{c(chat messageAttachment)} {
+// 	width: unset;
+// }
 
 :is(#{c(main dark)},#{c(main light)}) {
 	#{c(chat channelLinkUserMentionWrapper)} {

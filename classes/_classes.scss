@@ -94,6 +94,57 @@
 	@return class($query,$alias);
 }
 
+/// dump literally every class for debug
+// todo for this: make sure to escape \ as \\ on export
+// todo for this: ensure aliases actually work; just don't dump them into the list
+@function debug_dump_all_classes_yes_i_am_sure() {
+	$fullClassList: "";
+	$l: $classes;
+	@each $item in $l {
+		// list.nth($item,1); // category name
+		// type-of(list.nth($item,2)); // whole map
+		@each $subitem in list.nth($item,2) {
+			// $subitem should always be a list, don't question it.
+			$fullClassList: $fullClassList + debug_dump_all_classes_in_list("",list.nth($subitem,2));
+		}
+	}
+	@debug $fullClassList;
+	@return $fullClassList;
+}
+@function debug_dump_all_classes_in_list($strOfClasses,$listToDump) {
+	$classesFromList: "";
+	@each $class in $listToDump {
+		// @debug type-of($class) "|" $class;
+		@if type-of($class) == string {
+			$checkString: debug_checkString($class);
+			@if $checkString != "" {
+				$classesFromList: $classesFromList + $checkString + "\A";
+			}
+		} @else if type-of($class) == list {
+			// @debug "it's a list.";
+			// skip first item since that'll be for the list identifier
+			$classesFromList: $classesFromList + debug_dump_all_classes_in_list($classesFromList,list.nth($class,2));
+		}
+	}
+	@return $classesFromList;
+}
+@function debug_checkString($class) {
+	@if string.slice($class,1,1) == "!" {
+		$class: string.slice($class,2,-1); // remove `!`
+	}
+	@if string.slice($class,1,1) == "." {
+		@return ""; // despite this actually intending to throw an error, it's better to skip them outright.
+	}
+	@if string.slice($class,1,6) == "alias " {
+		@return ""; // ignore all aliases
+	}
+	@if string.slice($class,1,1) == "#" {
+		@return $class;
+	} @else {
+		@return "."+$class;
+	}
+}
+
 ////////////////
 // IT SHOULD BE WORTH NOTING:
 // EACH CATEGORY NAME IS ARBITRARY AND AS SUCH MULTIPLE CLASSES ARE SHARED BETWEEN AREAS.
@@ -129,7 +180,9 @@ $classes: (
 		"backdrop": "backdrop_e4f2ae",
 		"backdropWithLayer": "withLayer_e4f2ae",
 		"dark": "theme-dark",
-		"amoled": "theme-amoled", // experiment 2022-08_amoled_mode_web
+		"darker": "theme-darker", // no idea where this is used, maybe mobile?
+		"brand": "theme-brand", // no idea where this is used
+		// "amoled": "theme-amoled", // likely replaced with theme-midnight or theme-darker?
 		"light": "theme-light",
 		"midnight": "theme-midnight",
 		"customTheme": "custom-theme-background",
@@ -140,13 +193,14 @@ $classes: (
 		"container": "container_a4d4d9",
 		"content": "content_a4d4d9",
 		"layer": "layer_cd0de5",
-		"mediaEngineVideo": "media-engine-video",
+		"mediaEngineVideo": "media-engine-video", // class found within JS
 		"base": "base_a4d4d9",
 		"baseContent": "content_a4d4d9", // same line as base
 		"loadingContainer": "alias loading container",
 		"loadingSquare": "wanderingCubes_b6db20",
 		"loadingSquareItem": "item_b6db20",
-		"pictureInPicture": "pictureInPicture_d0596b",
+		"pictureInPicture": "pictureInPicture_e0c856",
+		"pictureInPictureWindow": "pictureInPictureWindow_e0c856",
 		"anchorLink": "anchor_af404b",
 		"anchorLinkUnderlineOnHover": "anchorUnderlineOnHover_af404b",
 		"desaturate": "desaturate_c7819f", // has a filter relating to the saturation factor variable
@@ -381,15 +435,15 @@ $classes: (
 		"wrapper": "wrapper_d4fa29",
 		"characterBackground": "characterBackground_bdd070", // seemingly a parent class for the whole thing
 		"artwork": "artwork_bdd070",
-		"loggingIn": "loggingIn_be6510", // seems to be gone?
+		"loggingIn": "loggingIn_bdd070",
 		"logo": "logo_bdd070",
 		"splashBackground": "splashBackground_f421fb",
 
-		"authBox": "authBox_dc6abe", // paired up with a dark mode and the next class
-		"authBoxExpanded": "authBoxExpanded_dc6abe", // ...even with a thin screen this pops up
+		"authBox": "authBox_b83a05", // paired up with a dark mode and the next class
+		"authBoxExpanded": "authBoxExpanded_b83a05", // ...even with a thin screen this pops up
 		"mainLoginContainer": "mainLoginContainer_d58f04", // could potentially be mainLoginContainer_be9398
 		"header": "header_d58f04",
-		"title": "title_dc6abe",
+		"title": "title_b83a05",
 		"qrCodeOverlay": "qrCodeOverlay_c6cd4b",
 		"inputField": "inputField_cc6ddd",
 	),
@@ -426,24 +480,24 @@ $classes: (
 		),
 
 		"overlay": "platform-overlay", // it's in there! -- only css change is with a scroller somewhere having more padding on top.
-		"linux": "platform-linux",
-		"web": "platform-web",
+		"linux": "platform-linux", // found within JS
+		"web": "platform-web", // found within JS
 	),
-	// boost page has been redone so many times that... ugh. consider these deprecated for now.
-	"boost": (
-		"modal": "perksModal-CLcR1c",
-		"ctaBar": "ctaBar-Nhk8yY",
-		"guildIcon": "guildIcon-2xKEtM",
+	// // boost page has been redone so many times that... ugh. consider these deprecated for now.
+	// "boost": (
+	// 	"modal": "perksModal-CLcR1c",
+	// 	"ctaBar": "ctaBar-Nhk8yY",
+	// 	"guildIcon": "guildIcon-2xKEtM",
 
-		"barBackground": "barBackground-unEPDT",
-		"tierMarkerBackground": "tierMarkerBackground-G8FoN4",
-		"tierMarker": "tierMarker-Vw1C95",
+	// 	"barBackground": "barBackground-unEPDT",
+	// 	"tierMarkerBackground": "tierMarkerBackground-G8FoN4",
+	// 	"tierMarker": "tierMarker-Vw1C95",
 
-		"tierBody": "tierBody-3ju-rc",
-		"tierHeaderLocked": "tierHeaderLocked-3ItHYn",
+	// 	"tierBody": "tierBody-3ju-rc",
+	// 	"tierHeaderLocked": "tierHeaderLocked-3ItHYn",
 
-		"perk": "perk-19D_HN",
-	),
+	// 	"perk": "perk-19D_HN",
+	// ),
 	"button": (
 		"button": "button_dd4f85",
 		"contents": "contents_dd4f85", // DO NOT FORGET TO UPDATE MIXINS FILE IF UPDATING THIS CLASS
@@ -477,7 +531,6 @@ $classes: (
 		"sizeSmal": "sizeSmall_dd4f85",
 		"sizeMedium": "sizeMedium_dd4f85",
 		"sizeLarge": "sizeLarge_dd4f85",
-		"sizeXlarge": "sizeXlarge__6885c",
 		// min/max sizes aren't fixed in size
 		"sizeMin": "sizeMin_dd4f85",
 		"sizeMax": "sizeMax_dd4f85",
@@ -571,7 +624,7 @@ $classes: (
 		"caretTransition": "transition_f48d4e",
 		"caretOpen": "open_ef18ee", // paired with contextMenuCaret to rotate
 		"caretDirectionDown": "directionDown_f48d4e",
-		"controlButtonUnmaked": "unmasked_df309e", // display none unless screen is tiny thin, thinner than discord would otherwise allow. notably seen when using popout call
+		// "controlButtonUnmaked": "unmasked_df309e", // display none unless screen is tiny thin, thinner than discord would otherwise allow. notably seen when using popout call
 
 		"colorable": "colorable_ef18ee",
 		"primaryDark": "primaryDark_ef18ee",
@@ -579,13 +632,13 @@ $classes: (
 		"red": "red_ef18ee",
 		"green": "green_ef18ee",
 
-		"videoRow": "row_d8e960",
-		"videoTile": "tile_d8e960",
-		"noVerticalMargin": "noVerticalMargin_d8e960", // paired with videoTile, can't describe usage
-		"noHorizontalMargin": "noHorizontalMargin_d8e960", // paired with videoTile, used on last tile of row
-		"tileOuter": "outer_f61848",
-		"tileSizer": "tileSizer_d8e960",
-		"tileInner": "inner_f61848",
+		"videoRow": "row_a5b954",
+		"videoTile": "tile_a5b954",
+		"noVerticalMargin": "noVerticalMargin_a5b954", // paired with videoTile, can't describe usage
+		"noHorizontalMargin": "noHorizontalMargin_a5b954", // paired with videoTile, used on last tile of row
+		// "tileOuter": "outer_f61848",
+		"tileSizer": "tileSizer_a5b954",
+		// "tileInner": "inner_f61848",
 		"videoWrapper": "wrapper_ba4b17",
 		"tile": "tile_b0f687", // god these names are shit
 		"tileChildFlex": "tile_ba4b17", // contains flex properties
@@ -593,25 +646,25 @@ $classes: (
 		"tileChildBackground": "tile_dc5fc4", // despite being on the same element as the flex, contains background color 
 		"tileChild": "tileChild_ba4b17", // haha fuck you not actually on the same class as the four above
 		"tileContent": "content_ba4b17",
-		"tileBackground": "background_f3801e", // has inline style background applied to it
-		"tileAvatarWrapper": "avatarWrapper_f3801e",
+		"tileBackground": "background_cff728", // has inline style background applied to it
+		"tileAvatarWrapper": "avatarWrapper_cff728",
 		"tileIndicators": "indicators_ba4b17",
 		"streamQualityIndicator": "streamQualityIndicator_c5881c",
 		"liveIndicator": "liveIndicator_ba4b17",
 		"liveIndicatorChild": "liveIndicator_c5881c",
 		"live": "alias friends live",
-		"liveLarge": "liveLarge_e17fae",
-		"textBadge": "textBadge_f05120",
-		"liveBase": "base__5ed84",
-		"liveShapeRound": "liveShapeRound_e17fae",
-		"tileOverlay": "overlay__3cc5f",
+		"liveLarge": "liveLarge_ec1c2d",
+		// "textBadge": "textBadge_f05120",
+		"liveBase": "base_df8943",
+		"liveShapeRound": "liveShapeRound_ec1c2d",
+		"tileOverlay": "overlay_ba4b17",
 		"tileOverlayTitle": "overlayTitle_ba4b17",
 		"tileOverlayTitleText": "overlayTitleText_ba4b17",
 		"tileStatusContainer": "statusContainer_ba4b17",
 		"tileStatus": "status_ba4b17",
-		"tileVideo": "video_eb1d8c",
-		"tileVideoContain": "videoContain_eb1d8c",
-		"tileVideoPreview": "previewWrapper_eb1d8c",
+		"tileVideo": "video_a5989d",
+		"tileVideoContain": "videoContain_a5989d",
+		"tileVideoPreview": "previewWrapper_a5989d",
 		"videoEnded": "tile_dc5fc4",
 		"leftTrayIcon": "leftTrayIcon_d880dc",
 		"rightTrayIcon": "rightTrayIcon_d880dc",
@@ -652,7 +705,7 @@ $classes: (
 		"gradientTop": "gradientTop_dd069c",
 		// controlSection (either top or bottom)
 		"controlsParticipants": "participants_a07d72", // used as header
-		"raisedHandButtonContainer": "raisedHandButtonContainer__513ef", // used again as child of self??
+		"raisedHandButtonContainer": "raisedHandButtonContainer_cb3dd1", // used again as child of self??
 		"raisedHandIcon": "raisedHandIcon_de335c", // paired with above when above is child of self
 		// within bottom, 3 children all same classes and inline except middle is `flex: 1 1 auto;`, rest are `flex: 0 1 50%;`
 		// from left to right...
@@ -691,8 +744,8 @@ $classes: (
 		// child to callContainer, sibling to sidebarVisible only if this is open
 		"requestToSpeakContainer": "container_f7ece4",
 		"rtsHeaderContainer": "headerContainer_f7ece4",
-		"rtsHeaderTitle": "headerTitle_cfb920",
-		"rtsHeaderClose": "headerClose__75228",
+		"rtsHeaderTitle": "headerTitle_f7ece4",
+		"rtsHeaderClose": "headerClose_f7ece4",
 
 		"rtsContentContainer": "contentContainer_f7ece4",
 		"rtsDividerDefault": "dividerDefault_ed1d57", // see comment below this!!!
@@ -745,9 +798,9 @@ $classes: (
 		"primaryOutline": "outline_a298b8",
 	),
 	"channelSettings": (
-		"overview": "channel-settings-overview", // not even a replugged class. nice.
+		"overview": "channel-settings-overview", // class found within JS rather than CSS
 
-		"roleScroller": "scroller_e9196a",
+		"roleScroller": "scroller_ff90b2",
 		"settingsCard": "settingCard_dd864e",
 		"settingsCardActive": "active_dd864e",
 		"cardContent": "cardContent_eaaaea",
@@ -756,13 +809,13 @@ $classes: (
 		"adminWarning": "adminWarning_dd864e", // no idea what this is used for
 		"folderRoleMemberList": "memberRow_dd864e",
 
-		"permGroup": "group_e3c4bb",
-		"permDisabled": "disabled_e3c4bb",
-		"permItem": "item_e3c4bb",
-		"permSelected": "selected_e3c4bb",
-		"permDeny": "deny_e3c4bb",
-		"permNoop": "passthrough_e3c4bb",
-		"permAllow": "allow_e3c4bb",
+		"permGroup": "group_d25d19",
+		"permDisabled": "disabled_d25d19",
+		"permItem": "item_d25d19",
+		"permSelected": "selected_d25d19",
+		"permDeny": "deny_d25d19",
+		"permNoop": "passthrough_d25d19",
+		"permAllow": "allow_d25d19",
 
 		"inviteRow": "inviteSettingsInviteRow_edb39d",
 		"revokeInvite": "revokeInvite_edb39d",
@@ -791,7 +844,7 @@ $classes: (
 		"chatScroller": "scroller_e2e187",
 		"chatScrollerInner": "scrollerInner_e2e187",
 		"chatScrollerNSFW": "scroller_fbb822",
-		"chatGatedContent": "gatedContent_b9693a",
+		"chatGatedContent": "gatedContent_def860",
 		"chatContentInner": "chatContent_a7d72e",
 		// "chatContainer": "container__93316", // appears to have been removed
 		"chatLoadingWrapper": "wrapper_cdfd51",
@@ -812,7 +865,7 @@ $classes: (
 		"buttonWrapper": "wrapper_f7e168",
 		"button": "button_f7e168",
 		"buttonSelected": "selected_f7e168",
-		"buttonIcon": "icon_a3b500",
+		// "buttonIcon": "icon_a3b500",
 		"divider": "divider_d5deea",
 		"divider2": "divider_c2654d", // paired with above, also used in chat form unpaired with attached file
 		"dividerHasContent": "hasContent_c2654d",
@@ -829,7 +882,7 @@ $classes: (
 		"replyBadge": "replyBadge_f9f2ca",
 
 		"blockedSystemMessage": "blockedSystemMessage_c09d0f",
-		"blockedContent": "content_e62b38",
+		"blockedContent": "content_d76df7",
 
 		"chatHeader": "container_c2668b",
 		"chatHeaderH1": "header_c2668b", // h1
@@ -840,16 +893,16 @@ $classes: (
 		"chatHeaderMembers": "members_f1044f",
 		"allowedAvatars": "avatars_f1044f",
 		"allowedRoleButton": "role_f1044f", // element kind button
-		"allowedRole": "role_deddac",
-		"allowedRole2": "role_da85cf", // paired with above
+		"allowedRole": "role_e5bd91",
+		"allowedRole2": "role_d70de6", // paired with above
 
 		"messageContents": "contents_f9f2ca",
 		"messageAttachmentsContainer": "container_b558d0",
-		"messageAttachment": "messageAttachment__5dae1",
-		"nonMediaAttachmentsContainer": "nonVisualMediaItemContainer_df7417",
-		"nonMediaAttachmentItem": "nonVisualMediaItem_df7417",
+		// "messageAttachment": "messageAttachment__5dae1",
+		"nonMediaAttachmentsContainer": "nonVisualMediaItemContainer_cda674",
+		"nonMediaAttachmentItem": "nonVisualMediaItem_cda674",
 		"chatAvatar": "avatar_f9f2ca",
-		"chatIconContainer": "iconContainer_e62b38", // usually used for pinned message, welcome message and kicked from gc stuff
+		"chatIconContainer": "iconContainer_d76df7", // usually used for pinned message, welcome message and kicked from gc stuff
 		"chatHeaderUsername": "header_f9f2ca",
 		"chatHeaderText": "headerText_f9f2ca",
 		"chatTimestamp": "timestamp_f9f2ca",
@@ -875,27 +928,27 @@ $classes: (
 		// "twemoji": "twemoji__38f4e",
 
 		"spoiler": (
-			"content": "spoilerContent_a3d0f7",
-			"hidden": "hidden_a3d0f7",
-			"container": "spoilerContainer_a3d0f7",
-			"innerContainer": "spoilerInnerContainer_a3d0f7",
-			"warning": "spoilerWarning_a3d0f7",
-			"warningEmbed": "embed_a3d0f7",
-			"sensitiveContentWarning": "alias chat spoiler explicitContentWarning", // removed? maybe replaced with explicitContentWarning_a3d0f7
-			"explicitContentWarning": "explicitContentWarning_a3d0f7",
-			"markdownContent": "spoilerMarkdownContent_a3d0f7",
+			"content": "spoilerContent_aa9639",
+			"hidden": "hidden_aa9639",
+			"container": "spoilerContainer_aa9639",
+			"innerContainer": "spoilerInnerContainer_aa9639",
+			"warning": "spoilerWarning_aa9639",
+			"warningEmbed": "embed_aa9639",
+			"sensitiveContentWarning": "alias chat spoiler explicitContentWarning", // removed? maybe replaced with explicitContentWarning_aa9639
+			"explicitContentWarning": "explicitContentWarning_aa9639",
+			"markdownContent": "spoilerMarkdownContent_aa9639",
 			// "obscuredBlockContent": "obscuredBlockContent__18d51",
-			"obscuredTextContent": "obscuredTextContent_a3d0f7",
-			"obscuredTextContentInner": "obscuredTextContentInner_a3d0f7",
+			"obscuredTextContent": "obscuredTextContent_aa9639",
+			"obscuredTextContentInner": "obscuredTextContentInner_aa9639",
 		),
 
-		"chatWelcomeContainer": "container_e62b38",
+		"chatWelcomeContainer": "container_d76df7",
 
-		"botTag": "botTagRegular_a02df3",
-		"botTagOp": "botTagOP_a02df3",
+		"botTag": "botTagRegular_a9e77f",
+		"botTagOp": "botTagOP_a9e77f",
 
 		"imageAccessory": "imageAccessory_d4597d",
-		"gifTag": "gifTag_b30195",
+		"gifTag": "gifTag_b11e6c",
 
 		"gifFavoriteButton": "gifFavoriteButton_c5e128",
 		"gifFavoriteSelected": "selected_c5e128",
@@ -910,16 +963,16 @@ $classes: (
 		"compactButton": "compactButton_fcbce6", // send wave sticker
 		"welcomeCTA": "welcomeCTA_f6dde0",
 
-		"channelLinkUserMentionWrapper": "wrapper_a7c28c",
+		"channelLinkUserMentionWrapper": "wrapper_bf1b19",
 
 		"ephemeral": "ephemeral_d5deea",
-		"ephemeralAccessories": "ephemeralAccessories_e8366c",
-		"ephemeralMessage": "ephemeralMessage_cabade",
-		"ephemeralIcon": "icon_cabade",
+		"ephemeralAccessories": "ephemeralAccessories_cc3927",
+		"ephemeralMessage": "ephemeralMessage_eccadc",
+		"ephemeralIcon": "icon_eccadc",
 
 		"automodMessage": "automodMessage_d5deea",
-		"automodBlockedNoticeContainer": "blockedNoticeContainer_e8366c",
-		"automodShield": "shieldIcon_e8366c",
+		"automodBlockedNoticeContainer": "blockedNoticeContainer_cc3927",
+		"automodShield": "shieldIcon_cc3927",
 
 		"layerWrapper": "chatLayerWrapper_d1c246",
 	),
@@ -937,7 +990,7 @@ $classes: (
 		"returnButtonText": "returnButtonText_f1fd9c",
 		"returnIcon": "returnIcon_f1fd9c",
 		// "scrollerInner": "scrollerInner_aa3c3b", // bleh no idea
-		"container": "container_c2efea", // has background with dark/light
+		// "container": "container_c2efea", // has background with dark/light
 
 		// dismissable "Choose your channels" container
 		"channelsDismissable": (
@@ -988,7 +1041,7 @@ $classes: (
 		),
 		// customize page
 		"customise": (
-			"scrollerContainer": "scrollerContainer_c6b11b",
+			// "scrollerContainer": "scrollerContainer_c6b11b",
 			"scroller": "scroller_c6b11b", // background with dark/light
 			"pageBody": "pageBody_c6b11b",
 			// "header": "header__8af97",
@@ -1412,13 +1465,13 @@ $classes: (
 		"placeholder": "placeholder_a552a6", // phantom text usually saying "Message $channel/$user"
 		"buttons": "buttons_d0696b",
 		"buttonContainer": "buttonContainer_d0696b",
-		"buttonWrapper": "buttonWrapper_cecf00",
+		"buttonWrapper": "buttonWrapper_f9af59",
 		"button": "alias button button",
 
 		"xmasGiftButton": "container_dfb455", // Make sure to remove this if it yk gets removed
 
 		"lookBlank": "alias button lookBlank",
-		"buttonActive": "active_cecf00",
+		"buttonActive": "active_f9af59",
 		"jumpToPresentBar": "jumpToPresentBar_cf58b5",
 		"messagesErrorBar": "messagesErrorBar_cf58b5",
 		"attachedBars": "attachedBars_d0696b",
@@ -1440,11 +1493,11 @@ $classes: (
 		"followButtonContainer": "buttonContainer_faf5ab",
 		"followCountdown": "countdown_faf5ab",
 
-		// colors may apply elsewhere
-		"colorBrand": "colorBrand_fbc755",
-		"colorLink": "colorLink_fbc755",
-		"colorMuted": "colorMuted_fbc755",
-		"colorError": "colorError_fbc755",
+		// // colors may apply elsewhere
+		// "colorBrand": "colorBrand_fbc755",
+		// "colorLink": "colorLink_fbc755",
+		// "colorMuted": "colorMuted_fbc755",
+		// "colorError": "colorError_fbc755",
 
 		"beforeInlineCode": "before_inlineCode_cdb578",
 		"inlineCode": "inlineCode_cdb578",
@@ -1474,6 +1527,7 @@ $classes: (
 		// extra button on side that's kinda useless ngl
 		"appsButton": "button_df39bd",
 	),
+	// kinda going through a rewrite on discord's end so i'm leaving this alone :)
 	"discover": (
 		"header": "discoverHeader_b992d4",
 		"categoryItem": "categoryItem_c72b37",
@@ -1502,13 +1556,13 @@ $classes: (
 
 		"cardListSection": "guildListSection_c8c448",
 		"cardList": "guildList_c8c448",
-		"cardPlaceholder": "cardPlaceholder__6e28f",
-		"card": "card_eb1ca6",
-		"cardLoading": "loading_eb1ca6",
-		"cardHeader": "cardHeader_eb1ca6",
-		"cardIcon": "guildIcon_eb1ca6",
-		"cardIconMask": "iconMask_eb1ca6",
-		"spinner": "spinner_eb1ca6",
+		// "cardPlaceholder": "cardPlaceholder__6e28f",
+		// "card": "card_eb1ca6",
+		// "cardLoading": "loading_eb1ca6",
+		// "cardHeader": "cardHeader_eb1ca6",
+		// "cardIcon": "guildIcon_eb1ca6",
+		// "cardIconMask": "iconMask_eb1ca6",
+		// "spinner": "spinner_eb1ca6",
 
 		"searchCategories": "categories_f69601",
 		"searchCategoryPill": "categoryPill_f69601",
@@ -1528,8 +1582,8 @@ $classes: (
 		"studentCard": "container_f11cbf",
 		"studentIconContainer": "iconContainer_f11cbf",
 
-		"dotOnline": "dotOnline_eb1ca6",
-		"dotOffline": "dotOffline_eb1ca6",
+		// "dotOnline": "dotOnline_eb1ca6",
+		// "dotOffline": "dotOffline_eb1ca6",
 	),
 	"embeds": (
 		"codeblock": "markup_f8f345 code",
@@ -1688,14 +1742,14 @@ $classes: (
 	),
 	// heavily related to embeds
 	"media": (
-		"barInteraction": "mediaBarInteraction_f7877e",
-		"barInteractionDragging": "mediaBarInteractionDragging_f7877e", // hover required for grabber
-		"barWrapper": "mediaBarWrapper_f7877e", // needs before + after
-		"barBuffer": "buffer_f7877e", // needs before + after, secondary color
-		"barPreview": "mediaBarPreview_f7877e", // needs before + after
-		"barProgress": "mediaBarProgress_f7877e", // needs before + after, primary color
-		"barGrabber": "mediaBarGrabber_f7877e", // primary color
-		"barVolume": "mediaBarInteractionVolume_f7877e", // card
+		"barInteraction": "mediaBarInteraction_d12f5a",
+		"barInteractionDragging": "mediaBarInteractionDragging_d12f5a", // hover required for grabber
+		"barWrapper": "mediaBarWrapper_d12f5a", // needs before + after
+		"barBuffer": "buffer_d12f5a", // needs before + after, secondary color
+		"barPreview": "mediaBarPreview_d12f5a", // needs before + after
+		"barProgress": "mediaBarProgress_d12f5a", // needs before + after, primary color
+		"barGrabber": "mediaBarGrabber_d12f5a", // primary color
+		"barVolume": "mediaBarInteractionVolume_d12f5a", // card
 		"controlIcon": "controlIcon_f72aac",
 		"metadataDownload": "metadataDownload_f72aac",
 		"metadataIcon": "metadataIcon_f72aac",
@@ -1707,16 +1761,16 @@ $classes: (
 		"audioWrapper": "wrapperAudio_f72aac",
 		"audioMetadata": "audioMetadata_f72aac",
 		"audioControls": "audioControls_f72aac",
-		"bubble": "bubble_f7877e",
+		"bubble": "bubble_d12f5a",
 	),
 	"error": (
 		"page": "errorPage_dd2aa2",
-		"wrapper": "wrapper_b06619",
-		"flexWrapper": "flexWrapper_b06619",
-		"image": "image_b06619",
-		"text": "text_b06619",
-		"title": "title_b06619",
-		"note": "note_b06619",
+		"wrapper": "wrapper_a2a7b5",
+		"flexWrapper": "flexWrapper_a2a7b5",
+		"image": "image_a2a7b5",
+		"text": "text_a2a7b5",
+		"title": "title_a2a7b5",
+		"note": "note_a2a7b5",
 		"buttons": "buttons_dd2aa2",
 	),
 	"friends": (
@@ -1755,16 +1809,16 @@ $classes: (
 		"itemCard": "itemCard_f02fcf",
 		"itemCardWrapper": "wrapper_cd82a7", // on same element as itemCard
 		"itemCardBody": "body_cd82a7",
-		"itemCardBodyInset": "inset_c0f6a6", // on same as body, has background?
+		"itemCardBodyInset": "inset_ac5d22", // on same as body, has background?
 		"itemCardBodySection": "section_cd82a7",
 		"itemCardActivitySection": "activitySection_cd82a7",
 		"itemCardSeperator": "separator_cd82a7",
-		"itemCardActive": "active_c0f6a6",
-		"itemCardInteractive": "interactive_c0f6a6",
-		"itemCardOuter": "outer_c0f6a6",
+		"itemCardActive": "active_ac5d22",
+		"itemCardInteractive": "interactive_ac5d22",
+		"itemCardOuter": "outer_ac5d22",
 		"voiceSectionIconWrapper": "voiceSectionIconWrapper_cd82a7",
 		"partyMemberOverflow": "partyMemberOverflow_b448f2",
-		"live": "live_e17fae", // "LIVE" icon of sorts in voice channel
+		"live": "live_ec1c2d", // "LIVE" icon of sorts in voice channel
 		"multipleIconWrapper": "multipleIconWrapper_cd82a7", // guess
 		"multipleIcon": "multipleIcon_cd82a7",
 		"activeNowAvatar": "headerAvatar_cd82a7",
@@ -1876,10 +1930,10 @@ $classes: (
 		// no more colors apply after this
 		"emphasis": "hljs-emphasis",
 		"strong": "hljs-strong",
-		"markdown": "markdown_d7f12d",
-		"blockquote": "blockquote_d7f12d",
-		"codeInline": "codeInline_d7f12d",
-		"paragraph": "paragraph_d7f12d",
+		"markdown": "markdown_b97ce2",
+		"blockquote": "blockquote_b97ce2",
+		"codeInline": "codeInline_b97ce2",
+		"paragraph": "paragraph_b97ce2",
 	),
 	// Obviously best seen in Settings > App Settings > Keybinds. Can also be brought up by pressing CTRL+/
 	"keybinds": (
@@ -1930,24 +1984,24 @@ $classes: (
 		"group": "membersGroup_cbd271",
 		"member": "member_a31c43",
 		"memberBackground": "member_cbd271",
-		"memberClickable": "clickable_e9f61e",
-		"memberContainer": "container_e9f61e",
-		"selected": "selected_e9f61e",
-		"layout": "layout_e9f61e",
-		"muted": "muted_e9f61e",
-		"avatar": "avatar_e9f61e",
+		"memberClickable": "clickable_d808b0",
+		"memberContainer": "container_d808b0",
+		"selected": "selected_d808b0",
+		"layout": "layout_d808b0",
+		"muted": "muted_d808b0",
+		"avatar": "avatar_d808b0",
 		"avatarMask": "mask_c51b4e",
-		"contentName": "content_e9f61e",
+		"contentName": "content_d808b0",
 		"avatarWrapper": "wrapper_c51b4e",
 		"status": "pointerEvents_c51b4e",
 		"ownerIcon": "ownerIcon_a31c43",
-		"name": "name_e9f61e",
+		"name": "name_d808b0",
 		"offline": "offline_a31c43",
 		"activity": "activity_a31c43",
 		"placeholderMemberGroups": "memberGroupsPlaceholder_cbd271",
-		"placeholderAvatar": "placeholderAvatar_fb03e5",
-		"placeholderUsername": "placeholderUsername_fb03e5",
-		"placeholderUsernameMultiple": "mulitplePlaceholderUsername_fb03e5",
+		"placeholderAvatar": "placeholderAvatar_dac468",
+		"placeholderUsername": "placeholderUsername_dac468",
+		"placeholderUsernameMultiple": "mulitplePlaceholderUsername_dac468",
 	),
 	// this area doesn't show up if you don't have any pending requests.
 	// (default repo) the main file is under pyrite/source/theme/friends
@@ -1968,9 +2022,9 @@ $classes: (
 	),
 	// shared classes. used as aliases from elsewhere.
 	"nameTag": (
-		"nameTag": "nameTag_be84f0",
-		"username": "username_be84f0",
-		"bot": "bot_be84f0",
+		"nameTag": "nameTag_cd0810",
+		"username": "username_cd0810",
+		"bot": "bot_cd0810",
 	),
 	// shared classes. used in multiple places, mainly as a "remove this row" kind of thing
 	"removeButton": (
@@ -2038,10 +2092,10 @@ $classes: (
 		"none": "none_eed6a8" "none_c49869", // server list
 		"fade": "fade_eed6a8" "fade_c49869", // channel sidebar (show on hover)
 		"scrolling": "scrolling_eed6a8" "scrolling_c49869",
-		"disableScrollAnchor": "disableScrollAnchor__3bcc1" "disableScrollAnchor_c49869",
+		"disableScrollAnchor": "disableScrollAnchor_eed6a8" "disableScrollAnchor_c49869",
 		"content": "content_eed6a8" "content_c49869", // USED EVERYWHERE AS A CHILD CLASS TO BASE.
-		"managedReactiveScroller": "managedReactiveScroller__0d0b5" "managedReactiveScroller_c49869",
-		"pointerCover": "pointerCover__5c3cc" "pointerCover_c49869", // disables inputs by the looks of it. seems to be a child of content on SOME scrollers
+		"managedReactiveScroller": "managedReactiveScroller_eed6a8" "managedReactiveScroller_c49869",
+		"pointerCover": "pointerCover_eed6a8" "pointerCover_c49869", // disables inputs by the looks of it. seems to be a child of content on SOME scrollers
 		"customTheme": "customTheme_eed6a8" "customTheme_c49869", // idk where this is used
 	),
 	"search": (
@@ -2108,7 +2162,7 @@ $classes: (
 		"iconWrapper": "wrapper_f90abb",
 		"iconChildWrapper": "childWrapper_f90abb",
 		"acronym": "acronym_f90abb", // servers without icons
-		"acronymFolder": "acronym_f11207", // above but within a folder
+		"acronymFolder": "acronym_a64689", // above but within a folder
 		"serverIcon": "icon_f90abb",
 		"selected": "selected_f90abb",
 		"addServerContainer": "tutorialContainer_c96c45",
@@ -2142,7 +2196,8 @@ $classes: (
 
 
 		"folderParentWrapper": "wrapper_bc7085",
-		"folderParentWrapperExpanded": "expanded",
+		"folderParentWrapperCollapsed": "collapsed", // class found in JS
+		"folderParentWrapperExpanded": "expanded", // class found in JS
 		"folder": "folder_bc7085",
 		"folderCollapsed": "collapsed_bc7085",
 		"folderHover": "hover_bc7085",
@@ -2246,7 +2301,7 @@ $classes: (
 		"privateChannelSelected": "selected_f5eb4b", // on same line with this same comment: interactive|selected|muted
 		"privateChannelMuted": "muted_f5eb4b", // on same line with this same comment: interactive|selected|muted
 		"privateChannelLink": "link_c91bad",
-		"privateChannelLayout": "layout_f9647d",
+		"privateChannelLayout": "layout_ec8679",
 		"privateChannelBadgeIcon": "badgeIconPrivateMessages_d98ec4",
 		"privateChannelRecipientsInviteButtonIcon": "privateChannelRecipientsInviteButtonIcon_c47fa9",
 		"privateChannelLoadingEmpty": "empty_c47fa9",
@@ -2284,8 +2339,8 @@ $classes: (
 		"channelWrapper": "wrapper_d8bfb3",
 		"channelModeMuted": "modeMuted_d8bfb3",
 		"channelModeSelected": "modeSelected_d8bfb3",
-		"channelModeUnread": "alias sidebar channelModeUnreadLessImportant",
-		"channelModeUnreadLessImportant": "modeUnreadLessImportant_d8bfb3",
+		// "channelModeUnread": "alias sidebar channelModeUnreadLessImportant",
+		// "channelModeUnreadLessImportant": "modeUnreadLessImportant_d8bfb3",
 		"channelModeUnreadImportant": "modeUnreadImportant_d8bfb3",
 		"channelModeConnected": "modeConnected_d8bfb3",
 		"channelModeLocked": "modeLocked_d8bfb3",
@@ -2311,12 +2366,12 @@ $classes: (
 		"categoryCollapsed": "collapsed_a08117",
 		"categoryArrow": "arrow_d64d50",
 		"categoryName": "name_a08117",
-		"categoryOverflow": "overflow_c74e70",
+		"categoryOverflow": "overflow_a82120",
 		"categoryChildren": "children_a08117",
 
 		"panels": "panels_a4d4d9",
 		"panelWrapper": "wrapper_adcaac",
-		"panelUsername": "title_d1da5f",
+		"panelUsername": "title_b97bdb",
 		"panelVoiceContainer": "container_adcaac",
 		"panelChannel": "channel_adcaac",
 		"panelActivityContainer": "activityPanel_a4d4d9",
@@ -2334,12 +2389,12 @@ $classes: (
 		"panelAvatarSpeaking": "avatarSpeaking_c51b4e", // also in same group in shared: avatar_c51b4e avatarDecoration_c51b4e avatarStack_c51b4e cursorDefault_c51b4e mask_c51b4e pointer_c51b4e pointerEvents_c51b4e status_bf52c0 svg_c51b4e wrapper_c51b4e
 		"panelName": "alias profile modal status panel nameTag",
 		"panelNameCanCopy": "alias profile modal status panel canCopy",
-		"panelStatusSubtext": "subtext_e06aad",
+		"panelStatusSubtext": "subtext_be40e6",
 		"panelUsernameContainer": "alias profile modal status panel usernameContainer",
 		"panelActionButtons": "actionButtons_adcaac",
 		
 		// panelWrapper line
-		"statusWithPopout": "statusWithPopout_adcaac",
+		// "statusWithPopout": "statusWithPopout_adcaac",
 		// "hotspot": "hotspot__016ca",
 		// "panelCustomStatusContainer": "customStatusContainer_ffb5fe",
 		"noiseCancellationPopout": "noiseCancellationPopout_adcaac",
@@ -2379,17 +2434,17 @@ $classes: (
 		"animatedContainer": "animatedContainer_fd6364",
 		"bannerImage": "bannerImage_fd6364",
 
-		"voiceListDefault": "listDefault_cdc675",
-		"voiceListCollapse": "listCollapse_cdc675",
+		"voiceListDefault": "listDefault_d80634",
+		"voiceListCollapse": "listCollapse_d80634",
 		"voiceList": "list_a478e5",
 		"voiceCollapsed": "collapsed_a478e5",
-		"voiceUser": "voiceUser_cdc675",
-		"voiceUserClickable": "clickable_cdc675",
-		"voiceUserOverlap": "overlap_cdc675", // for collapsed/hide names
-		"voiceUserContent": "content_cdc675",
-		"voiceAvatar": "avatar_cdc675",
-		"voiceSpeaking": "avatarSpeaking_cdc675",
-		"voiceUsernameSpeaking": "usernameSpeaking_cdc675",
+		"voiceUser": "voiceUser_d80634",
+		"voiceUserClickable": "clickable_d80634",
+		"voiceUserOverlap": "overlap_d80634", // for collapsed/hide names
+		"voiceUserContent": "content_d80634",
+		"voiceAvatar": "avatar_d80634",
+		"voiceSpeaking": "avatarSpeaking_d80634",
+		"voiceUsernameSpeaking": "usernameSpeaking_d80634",
 
 		"notice": (
 			// "container": "container-2Y4CWj", // cannot find. background canvas when forced enabled colors is true
@@ -2494,7 +2549,7 @@ $classes: (
 			"themedNonPremium": "userProfileInnerThemedNonPremium_c69a7b", // so basically "without theme"
 
 			"card": "userCardInner_c69a7b",
-			"popout": "userPopoutInner_c69a7b",
+			// "popout": "userPopoutInner_c69a7b",
 			"modal": "userProfileModalInner_c69a7b",
 			"panel": "userPanelInner_c69a7b",
 			"biteSizeInnerThemed": "biteSizeInnerThemed_c69a7b",
@@ -2503,33 +2558,37 @@ $classes: (
 			"panelThemed": "userPanelInnerThemed_c69a7b",
 		),
 
-		"bannerSVGWrapper": "alias profile banner svgWrapper",
+		// "bannerSVGWrapper": "alias profile banner svgWrapper",
 		// Banners are in their own line. The SVG Wrapper is in its own line.
 		"banner": (
-			"svgWrapper": "bannerSVGWrapper_b32cc2",
+			// "svgWrapper": "bannerSVGWrapper_b32cc2",
 
-			"banner": "banner_c3e427",
-			"rounded": "roundedBanner_c3e427",
-			"premium": "bannerPremium_c3e427",
-			"popout": "popoutBanner_c3e427",
-			"popoutNoBannerPremium": "popoutNoBannerPremium_c3e427",
-			"popoutPremium": "popoutBannerPremium_c3e427",
-			"profile": "modalBanner_c3e427",
-			"profilePremium": "modalBannerPremium_c3e427",
-			"panel": "panelBanner_c3e427",
-			"modal": "modalBanner_c3e427",
+			"banner": "banner_d5fdb1",
+			"gifTag": "gifTag_d5fdb1",
+			"mask": "mask_d5fdb1",
 
-			"pencilContainer": "pencilContainer_c3e427",
-			"pencilIcon": "editIcon_c3e427",
+			// "banner": "banner_c3e427",
+			// "rounded": "roundedBanner_c3e427",
+			// "premium": "bannerPremium_c3e427",
+			// "popout": "popoutBanner_c3e427",
+			// "popoutNoBannerPremium": "popoutNoBannerPremium_c3e427",
+			// "popoutPremium": "popoutBannerPremium_c3e427",
+			// "profile": "modalBanner_c3e427",
+			// "profilePremium": "modalBannerPremium_c3e427",
+			// "panel": "panelBanner_c3e427",
+			// "modal": "modalBanner_c3e427",
 
-			"settings": "settingsBanner_c3e427",
-			"premiumIconTooltipContent": "premiumIconTooltipContent_c3e427",
-			"premiumIconWrapper": "premiumIconWrapper_c3e427",
-			"premiumIconWrapperVisible": "visible_c3e427",
-			"premiumIconWrapperClickable": "clickable_c3e427",
-			"premiumIcon": "premiumIcon_c3e427",
-			"reducedMotion": "reducedMotion_c3e427",
-			"gifTag": "gifTag_c3e427",
+			// "pencilContainer": "pencilContainer_c3e427",
+			// "pencilIcon": "editIcon_c3e427",
+
+			// "settings": "settingsBanner_c3e427",
+			// "premiumIconTooltipContent": "premiumIconTooltipContent_c3e427",
+			// "premiumIconWrapper": "premiumIconWrapper_c3e427",
+			// "premiumIconWrapperVisible": "visible_c3e427",
+			// "premiumIconWrapperClickable": "clickable_c3e427",
+			// "premiumIcon": "premiumIcon_c3e427",
+			// "reducedMotion": "reducedMotion_c3e427",
+			// "gifTag": "gifTag_c3e427",
 		),
 
 		// shared beteen modal+panel+popout+status+settings>profile
@@ -2545,23 +2604,22 @@ $classes: (
 			"nicknameIcons": "nicknameIcons_c32acf",
 			"usernameRow": "usernameRow_c32acf",
 			"tags": "tags_c32acf",
-			"tagsWithPronouns": "tagsWithPronouns_c32acf",
 			"userTag": "userTag_c32acf",
 			"pronounsTooltip": "pronounsTooltip_c32acf",
-			"pronouns": "pronouns_c32acf userTag_c32acf",
+			"pronouns": "pronouns_c32acf",
 			"userTagDiscriminator": "userTagDiscriminator_c32acf",
-			"botTag": "botTag_c32acf",
 			"dotSpacer": "dotSpacer_c32acf"
 		),
 
-		// shared between panel+popout
-		// checking if this is "add note" or "note exists" for add requires :has(svg>path:nth-child(2)) or :has(svg>path+path)
-		"notesButton": (
-			"button": "button_a80370",
-			"visible": "visible_a80370",
-			"color": "color_a80370",
-			"tooltip": "tooltip_a80370"
-		),
+		// look it still exists just idk what group anymore
+		// // shared between panel+popout
+		// // checking if this is "add note" or "note exists" for add requires :has(svg>path:nth-child(2)) or :has(svg>path+path)
+		// "notesButton": (
+		// 	"button": "button_a80370",
+		// 	"visible": "visible_a80370",
+		// 	"color": "color_a80370",
+		// 	"tooltip": "tooltip_a80370"
+		// ),
 
 		// shared beteen modal+panel+popout (not self)+status
 		// contains:
@@ -2575,81 +2633,92 @@ $classes: (
 			"panel": "panel_cb78f1"
 		),
 
-		// generic-ish classes. shared between notesButton and friendsMoreEditProfileButtons
-		"buttons": (
-			"button": "button_f1cdcc",
-			"icon": "icon_f1cdcc",
-			"banner": "banner_f1cdcc",
-			"buttonInner": "buttonInner_f1cdcc",
-			"text": "text_f1cdcc",
-			"color": "color_f1cdcc"
-		),
+		// // generic-ish classes. shared between notesButton and friendsMoreEditProfileButtons
+		// "buttons": (
+		// 	"button": "button_f1cdcc",
+		// 	"icon": "icon_f1cdcc",
+		// 	"banner": "banner_f1cdcc",
+		// 	"buttonInner": "buttonInner_f1cdcc",
+		// 	"text": "text_f1cdcc",
+		// 	"color": "color_f1cdcc"
+		// ),
 
 		// shared between modal+panel+popout+status+settings>profiles
-		"badgeList": (
-			"container": "container_e5a42d",
-			"badge": "badge_e5a42d"
-		),
+		// "badgeList": (
+		// 	"container": "container_e5a42d",
+		// 	"badge": "badge_e5a42d"
+		// ),
 
 		// (!) icon. shared between modal+panel+popout
 		"missingConnection": "container_cac583", // theme the (!) icon with (this)>svg>path{fill}
 
 		// grouped by what line things are on, these aren't shared with the modal
 		"nonModal": (
-			"divider": "divider_ae36e5",
+			// "divider": "divider_ae36e5",
 
-			"section": "section_d7a21f",
-			"lastSection": "lastSection_d7a21f",
+			// "section": "section_d7a21f",
+			// "lastSection": "lastSection_d7a21f",
 
 			// relating to sections above
-			"title": "title_c4a579",
-			"body": "body__07791",
+			// "title": "title_c4a579",
+			// "body": "body__07791",
 
-			"customStatus": (
-				"status": "customStatus_cb55fc",
-				"emoji": "customStatusEmoji_cb55fc",
-				"soloEmoji": "customStatusSoloEmoji_cb55fc",
-				"text": "customStatusText_cb55fc",
-			),
+			// "customStatus": (
+			// 	"status": "customStatus_cb55fc",
+			// 	"emoji": "customStatusEmoji_cb55fc",
+			// 	"soloEmoji": "customStatusSoloEmoji_cb55fc",
+			// 	"text": "customStatusText_cb55fc",
+			// ),
 
-			// userText applies to username area things
-			"userText": (
-				"copiableField": "copiableField_c9ccf6",
-				"userText": "userText_c9ccf6",
-				"nickname": "nickname_c9ccf6",
-				"copiableNameTag": "copiableNameTag_c9ccf6",
-				// "copyIcon": "copyIcon__85c78",
-				"tag": "userTag_c9ccf6",
-				"tagWithNickname": "userTagWithNickname_c9ccf6",
-				"tagNoNickname": "userTagNoNickname_c9ccf6",
-				"tagUsernameBase": "userTagUsernameBase_c9ccf6",
-				"tagUsernameNoNickname": "userTagUsernameNoNickname_c9ccf6",
-				"discrimBase": "discrimBase_c9ccf6",
-				"tagDiscriminatorNoNickname": "userTagDiscriminatorNoNickname_c9ccf6",
-				"headerBotTag": "headerBotTag_c9ccf6",
-				"headerBotTagWithNickname": "headerBotTagWithNickname_c9ccf6",
-			),
+			// // userText applies to username area things
+			// "userText": (
+			// 	"copiableField": "copiableField_c9ccf6",
+			// 	"userText": "userText_c9ccf6",
+			// 	"nickname": "nickname_c9ccf6",
+			// 	"copiableNameTag": "copiableNameTag_c9ccf6",
+			// 	// "copyIcon": "copyIcon__85c78",
+			// 	"tag": "userTag_c9ccf6",
+			// 	"tagWithNickname": "userTagWithNickname_c9ccf6",
+			// 	"tagNoNickname": "userTagNoNickname_c9ccf6",
+			// 	"tagUsernameBase": "userTagUsernameBase_c9ccf6",
+			// 	"tagUsernameNoNickname": "userTagUsernameNoNickname_c9ccf6",
+			// 	"discrimBase": "discrimBase_c9ccf6",
+			// 	"tagDiscriminatorNoNickname": "userTagDiscriminatorNoNickname_c9ccf6",
+			// 	"headerBotTag": "headerBotTag_c9ccf6",
+			// 	"headerBotTagWithNickname": "headerBotTagWithNickname_c9ccf6",
+			// ),
 		),
 
 		// there seems to be a line with things related to the avatars, hense this subcategory.
 		// these mostly apply to popout from what i can tell
 		"avatar": (
-			"warningCircleIcon": "warningCircleIcon_f89da9", // user with no mutual servers
-			"badges": "profileBadges_f89da9",
-			"hint": "avatarHint_f89da9",
-			"decorationHint": "avatarDecorationHint_f89da9",
-			"hintInner": "avatarHintInner_f89da9",
-			"wrapper": "avatarWrapper_f89da9",
-			"wrapperNormal": "avatarWrapperNormal_f89da9",
-			"clickable": "clickable_f89da9",
-			"wrapperNonUserBot": "avatarWrapperNonUserBot_f89da9",
-			"position": (
-				"normal": "avatarPositionNormal_f89da9",
-				"premiumBanner": "avatarPositionPremiumBanner_f89da9",
-				"premiumNoBanner": "avatarPositionPremiumNoBanner_f89da9",
-				"panel": "avatarPositionPanel_f89da9",
-			),
-			"hoverTarget": "avatarHoverTarget_f89da9", // appears on popout
+			"avatar": "avatar_f94206",
+			"biteSize": "biteSize_f94206",
+			"fullSize": "fullSize_f94206",
+			"panel": "panel_f94206",
+			"withReactReply": "withReactReply_f94206",
+			"hoisted": "hoisted_f94206",
+			"clickable": "clickable_f94206",
+			"overlay": "overlay_f94206",
+			"focusRing": "focusRing_f94206",
+
+			// these were removed idk what they are now
+			// "warningCircleIcon": "warningCircleIcon_f89da9", // user with no mutual servers
+			// "badges": "profileBadges_f89da9",
+			// "hint": "avatarHint_f89da9",
+			// "decorationHint": "avatarDecorationHint_f89da9",
+			// "hintInner": "avatarHintInner_f89da9",
+			// "wrapper": "avatarWrapper_f89da9",
+			// "wrapperNormal": "avatarWrapperNormal_f89da9",
+			// "clickable": "clickable_f89da9",
+			// "wrapperNonUserBot": "avatarWrapperNonUserBot_f89da9",
+			// "position": (
+			// 	"normal": "avatarPositionNormal_f89da9",
+			// 	"premiumBanner": "avatarPositionPremiumBanner_f89da9",
+			// 	"premiumNoBanner": "avatarPositionPremiumNoBanner_f89da9",
+			// 	"panel": "avatarPositionPanel_f89da9",
+			// ),
+			// "hoverTarget": "avatarHoverTarget_f89da9", // appears on popout
 		),
 
 		// // there's a line related to badges that may not apply to other subcategories.
@@ -2675,141 +2744,141 @@ $classes: (
 		// what classes are actually used i have no fucking idea.
 		// this was all from ONE line. it's horrible.
 		"activity": (
-			"ellipsis": "ellipsis_d5089b",
-			"headerContainer": "headerContainer_d5089b",
-			"headerText": "headerText_d5089b",
-			"headerTextNormal": "headerTextNormal_d5089b",
-			"headerTextEmptyBody": "headerTextEmptyBody_d5089b",
-			"body": "body_d5089b",
-			"bodyAlignCenter": "bodyAlignCenter_d5089b",
-			"bodyNormal": "bodyNormal_d5089b",
-			"gameIcon": "gameIcon_d5089b",
-			"screenshareIcon": "screenshareIcon_d5089b",
-			"textRow": "textRow_d5089b",
-			"details": "details_d5089b",
-			"nameNormal": "nameNormal_d5089b",
-			"playTime": "playTime_d5089b",
-			"state": "state_d5089b",
-			"timestamp": "timestamp_d5089b",
-			"detailsWrap": "detailsWrap_d5089b",
-			"nameWrap": "nameWrap_d5089b",
-			"name": "name_d5089b",
-			"activityName": "activityName_d5089b",
-			"bodyLink": "bodyLink_d5089b",
-			"twitchImageContainer": "twitchImageContainer_d5089b",
-			"twitchImageOverlay": "twitchImageOverlay_d5089b",
-			"twitchBackgroundImage": "twitchBackgroundImage_d5089b",
-			"streamUsername": "streamUsername_d5089b",
-			"streamName": "streamName_d5089b",
-			"streamGame": "streamGame_d5089b",
-			"activityVoiceChannel": "activityVoiceChannel_d5089b",
-			"platformIcon": "platformIcon_d5089b",
-			"icon": "icon_d5089b",
+			"ellipsis": "ellipsis_c1d9fd",
+			"headerContainer": "headerContainer_c1d9fd",
+			"headerText": "headerText_c1d9fd",
+			"headerTextNormal": "headerTextNormal_c1d9fd",
+			"headerTextEmptyBody": "headerTextEmptyBody_c1d9fd",
+			"body": "body_c1d9fd",
+			"bodyAlignCenter": "bodyAlignCenter_c1d9fd",
+			"bodyNormal": "bodyNormal_c1d9fd",
+			"gameIcon": "gameIcon_c1d9fd",
+			"screenshareIcon": "screenshareIcon_c1d9fd",
+			"textRow": "textRow_c1d9fd",
+			"details": "details_c1d9fd",
+			"nameNormal": "nameNormal_c1d9fd",
+			"playTime": "playTime_c1d9fd",
+			"state": "state_c1d9fd",
+			"timestamp": "timestamp_c1d9fd",
+			"detailsWrap": "detailsWrap_c1d9fd",
+			"nameWrap": "nameWrap_c1d9fd",
+			"name": "name_c1d9fd",
+			"activityName": "activityName_c1d9fd",
+			"bodyLink": "bodyLink_c1d9fd",
+			"twitchImageContainer": "twitchImageContainer_c1d9fd",
+			"twitchImageOverlay": "twitchImageOverlay_c1d9fd",
+			"twitchBackgroundImage": "twitchBackgroundImage_c1d9fd",
+			"streamUsername": "streamUsername_c1d9fd",
+			"streamName": "streamName_c1d9fd",
+			"streamGame": "streamGame_c1d9fd",
+			"activityVoiceChannel": "activityVoiceChannel_c1d9fd",
+			"platformIcon": "platformIcon_c1d9fd",
+			"icon": "icon_c1d9fd",
 
 			"assets": (
-				"assets": "assets_d5089b",
-				"assetsProfile": "assetsProfile_d5089b",
-				"assetsProfileV2": "assetsProfileV2_d5089b",
+				"assets": "assets_c1d9fd",
+				"assetsProfile": "assetsProfile_c1d9fd",
+				"assetsProfileV2": "assetsProfileV2_c1d9fd",
 
 				"largeMask": (
-					"streamPreview": "assetsLargeMaskStreamPreview_d5089b",
-					"userPopout": "assetsLargeMaskUserPopout_d5089b",
-					"userPopoutV2": "assetsLargeMaskUserPopoutV2_d5089b",
-					"voiceChannel": "assetsLargeMaskVoiceChannel_d5089b",
-					"activityFeed": "assetsLargeMaskActivityFeed_d5089b",
-					"profile": "assetsLargeMaskProfile_d5089b",
-					"profileV2": "assetsLargeMaskProfileV2_d5089b",
+					"streamPreview": "assetsLargeMaskStreamPreview_c1d9fd",
+					"userPopout": "assetsLargeMaskUserPopout_c1d9fd",
+					"userPopoutV2": "assetsLargeMaskUserPopoutV2_c1d9fd",
+					"voiceChannel": "assetsLargeMaskVoiceChannel_c1d9fd",
+					"activityFeed": "assetsLargeMaskActivityFeed_c1d9fd",
+					"profile": "assetsLargeMaskProfile_c1d9fd",
+					"profileV2": "assetsLargeMaskProfileV2_c1d9fd",
 				),
 
 				"largeImage": (
-					"image": "assetsLargeImage_d5089b",
-					"spotify": "assetsLargeImageSpotify_d5089b",
-					"streamPreview": "assetsLargeImageStreamPreview_d5089b",
-					"streamPreviewXbox": "assetsLargeImageStreamPreviewXbox_d5089b",
-					"userPopout": "assetsLargeImageUserPopout_d5089b",
-					"userPopoutV2": "assetsLargeImageUserPopoutV2_d5089b",
-					"userPopoutV2Xbox": "assetsLargeImageUserPopoutV2Xbox_d5089b",
-					"userPopoutXbox": "assetsLargeImageUserPopoutXbox_d5089b",
-					"activityFeed": "assetsLargeImageActivityFeed_d5089b",
-					"activityFeedXbox": "assetsLargeImageActivityFeedXbox_d5089b",
-					"profile": "assetsLargeImageProfile_d5089b",
-					"profileV2": "assetsLargeImageProfileV2_d5089b",
-					"voiceChannel": "assetsLargeImageVoiceChannel_d5089b",
-					"activityFeedTwitch": "assetsLargeImageActivityFeedTwitch_d5089b",
-					"profileV2Xbox": "assetsLargeImageProfileV2Xbox_d5089b",
-					"profileXbox": "assetsLargeImageProfileXbox_d5089b",
-					"profileTwitch": "assetsLargeImageProfileTwitch_d5089b",
-					"profileV2Twitch": "assetsLargeImageProfileV2Twitch_d5089b",
+					"image": "assetsLargeImage_c1d9fd",
+					"spotify": "assetsLargeImageSpotify_c1d9fd",
+					"streamPreview": "assetsLargeImageStreamPreview_c1d9fd",
+					"streamPreviewXbox": "assetsLargeImageStreamPreviewXbox_c1d9fd",
+					"userPopout": "assetsLargeImageUserPopout_c1d9fd",
+					"userPopoutV2": "assetsLargeImageUserPopoutV2_c1d9fd",
+					"userPopoutV2Xbox": "assetsLargeImageUserPopoutV2Xbox_c1d9fd",
+					"userPopoutXbox": "assetsLargeImageUserPopoutXbox_c1d9fd",
+					"activityFeed": "assetsLargeImageActivityFeed_c1d9fd",
+					"activityFeedXbox": "assetsLargeImageActivityFeedXbox_c1d9fd",
+					"profile": "assetsLargeImageProfile_c1d9fd",
+					"profileV2": "assetsLargeImageProfileV2_c1d9fd",
+					"voiceChannel": "assetsLargeImageVoiceChannel_c1d9fd",
+					"activityFeedTwitch": "assetsLargeImageActivityFeedTwitch_c1d9fd",
+					"profileV2Xbox": "assetsLargeImageProfileV2Xbox_c1d9fd",
+					"profileXbox": "assetsLargeImageProfileXbox_c1d9fd",
+					"profileTwitch": "assetsLargeImageProfileTwitch_c1d9fd",
+					"profileV2Twitch": "assetsLargeImageProfileV2Twitch_c1d9fd",
 				),
 
 				"smallImage": (
-					"image": "assetsSmallImage_d5089b",
-					"streamPreview": "assetsSmallImageStreamPreview_d5089b",
-					"userPopout": "assetsSmallImageUserPopout_d5089b",
-					"userPopoutV2": "assetsSmallImageUserPopoutV2_d5089b",
-					"boiceChannel": "assetsSmallImageVoiceChannel_d5089b",
-					"activityFeed": "assetsSmallImageActivityFeed_d5089b",
-					"profile": "assetsSmallImageProfile_d5089b",
-					"profileV2": "assetsSmallImageProfileV2_d5089b",
+					"image": "assetsSmallImage_c1d9fd",
+					"streamPreview": "assetsSmallImageStreamPreview_c1d9fd",
+					"userPopout": "assetsSmallImageUserPopout_c1d9fd",
+					"userPopoutV2": "assetsSmallImageUserPopoutV2_c1d9fd",
+					"boiceChannel": "assetsSmallImageVoiceChannel_c1d9fd",
+					"activityFeed": "assetsSmallImageActivityFeed_c1d9fd",
+					"profile": "assetsSmallImageProfile_c1d9fd",
+					"profileV2": "assetsSmallImageProfileV2_c1d9fd",
 
 					"withoutLarge": (
-						"activityFeed": "assetsSmallImageActivityFeedWithoutLargeImage_d5089b",
-						"profileV2": "assetsSmallImageProfileV2WithoutLargeImage_d5089b",
-						"profile": "assetsSmallImageProfileWithoutLargeImage_d5089b",
-						"streamPreview": "assetsSmallImageStreamPreviewWithoutLargeImage_d5089b",
-						"userPopoutV2": "assetsSmallImageUserPopoutV2WithoutLargeImage_d5089b",
-						"userPopout": "assetsSmallImageUserPopoutWithoutLargeImage_d5089b",
-						"voiceChannel": "assetsSmallImageVoiceChannelWithoutLargeImage_d5089b",
+						"activityFeed": "assetsSmallImageActivityFeedWithoutLargeImage_c1d9fd",
+						"profileV2": "assetsSmallImageProfileV2WithoutLargeImage_c1d9fd",
+						"profile": "assetsSmallImageProfileWithoutLargeImage_c1d9fd",
+						"streamPreview": "assetsSmallImageStreamPreviewWithoutLargeImage_c1d9fd",
+						"userPopoutV2": "assetsSmallImageUserPopoutV2WithoutLargeImage_c1d9fd",
+						"userPopout": "assetsSmallImageUserPopoutWithoutLargeImage_c1d9fd",
+						"voiceChannel": "assetsSmallImageVoiceChannelWithoutLargeImage_c1d9fd",
 					),
 				),
 			),
 
 			"content": (
-				"content": "content_d5089b",
+				"content": "content_c1d9fd",
 				"images": (
-					"activityFeed": "contentImagesActivityFeed_d5089b",
-					"profile": "contentImagesProfile_d5089b",
-					"profileV2": "contentImagesProfileV2_d5089b",
-					"streamPreview": "contentImagesStreamPreview_d5089b",
-					"userPopout": "contentImagesUserPopout_d5089b",
-					"userPopoutV2": "contentImagesUserPopoutV2_d5089b",
-					"voiceChannel": "contentImagesVoiceChannel_d5089b",
+					"activityFeed": "contentImagesActivityFeed_c1d9fd",
+					"profile": "contentImagesProfile_c1d9fd",
+					"profileV2": "contentImagesProfileV2_c1d9fd",
+					"streamPreview": "contentImagesStreamPreview_c1d9fd",
+					"userPopout": "contentImagesUserPopout_c1d9fd",
+					"userPopoutV2": "contentImagesUserPopoutV2_c1d9fd",
+					"voiceChannel": "contentImagesVoiceChannel_c1d9fd",
 				),
 				"noImages": (
-					"activityFeed": "contentNoImagesActivityFeed_d5089b",
-					"profile": "contentNoImagesProfile_d5089b",
-					"profileV2": "contentNoImagesProfileV2_d5089b",
-					"streamPreview": "contentNoImagesStreamPreview_d5089b",
-					"userPopout": "contentNoImagesUserPopout_d5089b",
-					"userPopoutV2": "contentNoImagesUserPopoutV2_d5089b",
-					"voiceChannel": "contentNoImagesVoiceChannel_d5089b",
+					"activityFeed": "contentNoImagesActivityFeed_c1d9fd",
+					"profile": "contentNoImagesProfile_c1d9fd",
+					"profileV2": "contentNoImagesProfileV2_c1d9fd",
+					"streamPreview": "contentNoImagesStreamPreview_c1d9fd",
+					"userPopout": "contentNoImagesUserPopout_c1d9fd",
+					"userPopoutV2": "contentNoImagesUserPopoutV2_c1d9fd",
+					"voiceChannel": "contentNoImagesVoiceChannel_c1d9fd",
 				),
 				"gameImages": (
-					"profile": "contentGameImageProfile_d5089b",
-					"profileV2": "contentGameImageProfileV2_d5089b",
-					"streamPreview": "contentGameImageStreamPreview_d5089b",
-					"userPopout": "contentGameImageUserPopout_d5089b",
-					"userPopoutV2": "contentGameImageUserPopoutV2_d5089b",
-					"voiceChannel": "contentGameImageVoiceChannel_d5089b",
+					"profile": "contentGameImageProfile_c1d9fd",
+					"profileV2": "contentGameImageProfileV2_c1d9fd",
+					"streamPreview": "contentGameImageStreamPreview_c1d9fd",
+					"userPopout": "contentGameImageUserPopout_c1d9fd",
+					"userPopoutV2": "contentGameImageUserPopoutV2_c1d9fd",
+					"voiceChannel": "contentGameImageVoiceChannel_c1d9fd",
 				),
 			),
 
 			"timeBar": (
-				"activityFeed": "timeBarActivityFeed_d5089b",
-				"profile": "timeBarProfile_d5089b",
-				"profileV2": "timeBarProfileV2_d5089b",
-				"userPopout": "timeBarUserPopout_d5089b",
-				"userPopoutV2": "timeBarUserPopoutV2_d5089b",
-				"voiceChannel": "timeBarVoiceChannel_d5089b",
+				"activityFeed": "timeBarActivityFeed_c1d9fd",
+				"profile": "timeBarProfile_c1d9fd",
+				"profileV2": "timeBarProfileV2_c1d9fd",
+				"userPopout": "timeBarUserPopout_c1d9fd",
+				"userPopoutV2": "timeBarUserPopoutV2_c1d9fd",
+				"voiceChannel": "timeBarVoiceChannel_c1d9fd",
 			),
 
 			"activity": (
-				"activityFeed": "activityActivityFeed_d5089b",
-				"profile": "activityProfile_d5089b",
-				"profileV2": "activityProfileV2_d5089b",
-				"streamPreview": "activityStreamPreview_d5089b",
-				"userPopout": "activityUserPopout_d5089b",
-				"userPopoutV2": "activityUserPopoutV2_d5089b",
+				"activityFeed": "activityActivityFeed_c1d9fd",
+				"profile": "activityProfile_c1d9fd",
+				"profileV2": "activityProfileV2_c1d9fd",
+				"streamPreview": "activityStreamPreview_c1d9fd",
+				"userPopout": "activityUserPopout_c1d9fd",
+				"userPopoutV2": "activityUserPopoutV2_c1d9fd",
 			),
 
 			// these were not on the same line tho
@@ -2826,18 +2895,18 @@ $classes: (
 
 		// The spotify playback bar seems to be on its own line and could be used elsewhere, not just in profiles
 		"playbackBar": (
-			"bar": "bar_aa267a",
-			"barInMultiLine": "barInMultiLine_aa267a",
-			"barInner": "barInner_aa267a",
-			"barInSingleLine": "barInSingleLine_aa267a",
-			"singleLineContainer": "singleLineContainer_aa267a",
+			"bar": "bar_ec2fa7",
+			"barInMultiLine": "barInMultiLine_ec2fa7",
+			"barInner": "barInner_ec2fa7",
+			"barInSingleLine": "barInSingleLine_ec2fa7",
+			"singleLineContainer": "singleLineContainer_ec2fa7",
 			
-			"themed": "themed_aa267a",
+			"themed": "themed_ec2fa7",
 			
-			"text": "text_aa267a",
-			"textLeft": "textLeft_aa267a",
-			"textRight": "textRight_aa267a",
-			"textLeftInSingleLine": "textLeftInSingleLine_aa267a",
+			"text": "text_ec2fa7",
+			"textLeft": "textLeft_ec2fa7",
+			"textRight": "textRight_ec2fa7",
+			"textLeftInSingleLine": "textLeftInSingleLine_ec2fa7",
 		),
 		
 		// Modal: right click on user in same spots and click "View Profile"
@@ -2845,13 +2914,13 @@ $classes: (
 			"root": "root_b9fccc",
 			"headerInner": "headerInner_b9fccc",
 
-			"topSection": "topSection_b9fccc",
-			"body": "body_bc9cc2",
-			"divider": "divider_b9fccc",
+			// "topSection": "topSection_b9fccc",
+			// "body": "body_bc9cc2",
+			// "divider": "divider_b9fccc",
 			// includes other classes from 305 for colors
-			"tabBarContainer": "tabBarContainer_b9fccc",
-			"tabBar": "tabBar_b9fccc",
-			"tabBarItem": "tabBarItem_b9fccc",
+			// "tabBarContainer": "tabBarContainer_b9fccc",
+			// "tabBar": "tabBar_b9fccc",
+			// "tabBarItem": "tabBarItem_b9fccc",
 			
 			"overlay": "alias profile overlay modal",
 			"outer": "alias profile outer modal",
@@ -2860,48 +2929,49 @@ $classes: (
 			"profileBanner": "alias profile banner profile",
 			"profileBannerPremium": "alias profile banner profilePremium",
 			
-			"premiumIconWrapper": "alias profile banner premiumIconWrapper",
-			"premiumIconWrapperClickable": "alias profile banner premiumIconWrapperClickable",
-			"premiumIcon": "alias profile banner premiumIcon",
+			// "premiumIconWrapper": "alias profile banner premiumIconWrapper",
+			// "premiumIconWrapperClickable": "alias profile banner premiumIconWrapperClickable",
+			// "premiumIcon": "alias profile banner premiumIcon",
 
 			"badge24": "alias profile badge badge24",
 			
-			"header": "header_ec3b75",
-			"avatar": "avatar_bc9cc2",
-			"headerTop": "headerTop_ec3b75",
-			"badgeList": "badgeList_ec3b75",
-			"relationshipButtons": "relationshipButtons_ec3b75",
-			"applicationInstallButton": "applicationInstallButton_ec3b75",
-			"applicationInstallButtonContent": "applicationInstallButtonContent_cd1424",
-			"applicationInstallButtonText": "applicationInstallButtonText_cd1424",
-			"launchIcon": "launchIcon_cd1424",
-			"additionalActionsIcon": "additionalActionsIcon_ec3b75",
-			"warningCircleIcon": "warningCircleIcon_ec3b75",
+			// removed stuffs
+			// "header": "header_ec3b75",
+			// "avatar": "avatar_bc9cc2",
+			// "headerTop": "headerTop_ec3b75",
+			// "badgeList": "badgeList_ec3b75",
+			// "relationshipButtons": "relationshipButtons_ec3b75",
+			// "applicationInstallButton": "applicationInstallButton_ec3b75",
+			// "applicationInstallButtonContent": "applicationInstallButtonContent_cd1424",
+			// "applicationInstallButtonText": "applicationInstallButtonText_cd1424",
+			// "launchIcon": "launchIcon_cd1424",
+			// "additionalActionsIcon": "additionalActionsIcon_ec3b75",
+			// "warningCircleIcon": "warningCircleIcon_ec3b75",
 			
-			"actionButton": "actionButton_fe3e88",
-			"pendingIncoming": "pendingIncoming_fcef98",
-			"actionButtonRight": "actionRightButton_b01024",
+			// "actionButton": "actionButton_fe3e88", // removed
+			// "pendingIncoming": "pendingIncoming_fcef98", // removed
+			// "actionButtonRight": "actionRightButton_b01024", // removed
 			
 			"usernameContainer": "container_c32acf",
 			"usernameRow": "usernameRow_c32acf",
 			"nickname": "nickname_c32acf",
-			"nameTag": "nameTag_afed89",
-			"nameTagSmall": "nameTagSmall_afed89",
-			"username": "username_afed89",
-			"pronouns": "pronouns_afed89",
-			"discriminator": "discriminator_afed89",
-			"botTag": "bot_be84f0",
-			"customStatusText": "customStatusText_afed89",
-			"customStatus": "customStatus_afed89",
-			"customStatusEmoji": "customStatusEmoji_afed89",
-			"customStatusSoloEmoji": "customStatusSoloEmoji_afed89",
+			// "nameTag": "nameTag_afed89",
+			// "nameTagSmall": "nameTagSmall_afed89",
+			// "username": "username_afed89",
+			// "pronouns": "pronouns_afed89",
+			// "discriminator": "discriminator_afed89",
+			// // "botTag": "bot_cd0810", // if this breaks alias nameTag bot
+			// "customStatusText": "customStatusText_afed89",
+			// "customStatus": "customStatus_afed89",
+			// "customStatusEmoji": "customStatusEmoji_afed89",
+			// "customStatusSoloEmoji": "customStatusSoloEmoji_afed89",
 			
 			
-			"infoScroller": "infoScroller_a24910",
-			"userInfoSection": "userInfoSection_a24910",
-			"userInfoSectionHeader": "userInfoSectionHeader_a24910",
-			"userInfoText": "userInfoText_a24910",
-			"note": "note_a24910",
+			// "infoScroller": "infoScroller_a24910",
+			// "userInfoSection": "userInfoSection_a24910",
+			// "userInfoSectionHeader": "userInfoSectionHeader_a24910",
+			// "userInfoText": "userInfoText_a24910",
+			// "note": "note_a24910",
 
 			"noteTextarea": "alias profile noteTextarea",
 
@@ -2912,67 +2982,69 @@ $classes: (
 			// discordMemberCreatedAtIcon__6a752
 			// discordMemberCreatedAtText_b9ff49
 			"connections": (
-				"accounts": "connectedAccounts_f3eb60",
-				"column": "connectedAccountsColumn_f3eb60",
-				"container": "connectedAccountContainer_f3eb60",
-				"containerWithMetadata": "connectedAccountContainerWithMetadata_f3eb60",
-				"account": "connectedAccount_f3eb60",
-				"children": "connectedAccountChildren_f3eb60",
-				"childrenNoIcon": "connectedAccountChildrenNoIcon_f3eb60",
-				"poweredBy": "connectedAccountPoweredBy_f3eb60",
-				"poweredByText": "connectedAccountPoweredByText_f3eb60",
-				"icon": "connectedAccountIcon_f3eb60",
-				"nameContainer": "connectedAccountNameContainer_f3eb60",
-				"name": "connectedAccountName_f3eb60",
-				"nameTextContainer": "connectedAccountNameTextContainer_f3eb60",
-				"nameText": "connectedAccountNameText_f3eb60",
-				"verifiedIcon": "connectedAccountVerifiedIcon_f3eb60",
-				"hideIcon": "connectedAccountHideIcon_f3eb60",
-				"openIcon": "connectedAccountOpenIcon_f3eb60",
+				"accounts": "connectedAccounts_ab12c6",
+				"column": "connectedAccountsColumn_ab12c6",
+				"container": "connectedAccountContainer_ab12c6",
+				"containerWithMetadata": "connectedAccountContainerWithMetadata_ab12c6",
+				"account": "connectedAccount_ab12c6",
+				"children": "connectedAccountChildren_ab12c6",
+				"childrenNoIcon": "connectedAccountChildrenNoIcon_ab12c6",
+				"poweredBy": "connectedAccountPoweredBy_ab12c6",
+				"poweredByText": "connectedAccountPoweredByText_ab12c6",
+				"icon": "connectedAccountIcon_ab12c6",
+				"nameContainer": "connectedAccountNameContainer_ab12c6",
+				"name": "connectedAccountName_ab12c6",
+				"nameTextContainer": "connectedAccountNameTextContainer_ab12c6",
+				"nameText": "connectedAccountNameText_ab12c6",
+				"verifiedIcon": "connectedAccountVerifiedIcon_ab12c6",
+				"hideIcon": "connectedAccountHideIcon_ab12c6",
+				"openIcon": "connectedAccountOpenIcon_ab12c6",
 			),
 
-			"listScroller": "listScroller_e4be58",
-			"listRow": "listRow_e4be58",
-			"listAvatar": "listAvatar_e4be58",
-			"listRowContent": "listRowContent_e4be58",
-			"listName": "listName_e4be58",
-			"listDiscriminator": "listDiscriminator_e4be58",
-			"empty": "empty_e4be58",
-			"emptyIcon": "emptyIcon_e4be58",
-			"emptyIconFriends": "emptyIconFriends_e4be58",
-			"emptyIconGuilds": "emptyIconGuilds_e4be58",
-			"emptyIconStreamerMode": "emptyIconStreamerMode_e4be58",
-			"emptyText": "emptyText_e4be58",
+			"listScroller": "listScroller_d2d6cb",
+			"listRow": "listRow_d2d6cb",
+			"listAvatar": "listAvatar_d2d6cb",
+			"listRowContent": "listRowContent_d2d6cb",
+			"listName": "listName_d2d6cb",
+			"listDiscriminator": "listDiscriminator_d2d6cb",
+			"empty": "empty_d2d6cb",
+			"emptyIcon": "emptyIcon_d2d6cb",
+			"emptyIconFriends": "emptyIconFriends_d2d6cb",
+			"emptyIconGuilds": "emptyIconGuilds_d2d6cb",
+			"emptyIconStreamerMode": "emptyIconStreamerMode_d2d6cb",
+			"emptyText": "emptyText_d2d6cb",
 			
-			"guildAvatar": "guildAvatar_b26403",
-			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon_b26403",
-			"guildNick": "guildNick_b26403",
+			"guildAvatar": "guildAvatar_c5a773",
+			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon_c5a773",
+			"guildNick": "guildNick_c5a773",
 
 
-			"activity": "userProfileActivity_fc39e7",
-			"activityButtonColor": "actionColor_fc39e7",
+			// "activity": "userProfileActivity_fc39e7",
+			// "activityButtonColor": "actionColor_fc39e7", // removed
 		),
 
 		// Panel: Go to the DMs of someone while your screen is larger than
 		// 1132px wide and you've not disabled the panel via header
 		"panel": (
-			"container": "container_ecc60d",
+			"container": "container_a823cd",
 
-			"activity": "activity_cd74cc",
-			"activityButtonColor": "buttonColor_cd74cc",
-			"activityBackground": "activity_e9e42f", // despite the class above having a background property, this one applies the background.
+			"activity": "activity_a972fe",
+			// "activityButtonColor": "buttonColor_cd74cc", // removed
+			// "activityBackground": "activity_e9e42f", // removed
 
-			"header": "header_f26c88", // header contains banner, avatar
-			"avatarOverlay": "overlay_f26c88", // overlay on avatar
-			"avatarClickable": "clickable_f26c88", // avatar clickable
+			"avatar": "alias profile avatar panel",
 
-			"viewFullProfileFooter": "footer_be6801",
-			"viewFullProfileButtonColor": "buttonColor_be6801",
+			// "header": "header_f26c88", // header contains banner, avatar
+			// "avatarOverlay": "overlay_f26c88", // overlay on avatar
+			// "avatarClickable": "clickable_f26c88", // avatar clickable
+
+			// "viewFullProfileFooter": "footer_be6801",
+			// "viewFullProfileButtonColor": "buttonColor_be6801",
 			
-			"body": "body_e9e42f",
-			"bodyOverlay": "overlay_e9e42f", // used over "about me/member since" container
+			"body": "body_a972fe",
+			"bodyOverlay": "overlay_a972fe", // used over "about me/member since" container
 
-			"panel": "profilePanel_b433b4", // CLASS STILL EXISTS!
+			// "panel": "profilePanel_b433b4",
 
 			// "overlayBackground": "alias profile overlay panel",
 			// "outer": "alias profile outer panel",
@@ -2984,35 +3056,35 @@ $classes: (
 
 			"avatarPosition": "alias profile avatar position panel",
 
-			"badgeListGroup": "badgelistGroup_ab525a",
-			"badgeList": "badgeList_ab525a",
+			// "badgeListGroup": "badgelistGroup_ab525a",
+			// "badgeList": "badgeList_ab525a",
 
 			// not stuff like twitter or steam tho
-			"connections": "profilePanelConnections_b433b4",
-			"friends": "mutualFriendsList_b433b4",
-			"friend": "mutualFriendItem_ec153b",
-			"friendsDivider": "mutualFriendsDivider_b433b4",
+			// "connections": "profilePanelConnections_b433b4",
+			// "friends": "mutualFriendsList_b433b4",
+			// "friend": "mutualFriendItem_ec153b",
+			// "friendsDivider": "mutualFriendsDivider_b433b4",
 			// "discriminator": "discriminator__2ac95",
-			"guilds": "mutualGuildsList_b433b4",
-			"guild": "mutualGuildItem_ec153b",
+			// "guilds": "mutualGuildsList_b433b4",
+			// "guild": "mutualGuildItem_ec153b",
 			"guildProfile": "guildNick_b26403", // nickname
 			"guildAvatar": "guildAvatar_b26403", // not for icons but rather people with nitro and custom avi
 			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon_b26403",
 			
 			// encompass both mutual servers and mutual friends
-			"connectionsOverlay": "overlay_f9da1d",
-			"connectionsList": "list_f9da1d",
-			"connectionsDivider": "divider_f9da1d",
+			"connectionsOverlay": "overlay_a8795b",
+			"connectionsList": "list_a8795b",
+			"connectionsDivider": "divider_a8795b",
 
 			// individual list for mutual friends/servers
-			"connectionList": "connectionList_ce1058",
-			"collapsed": "isCollapsed_ce1058",
-			"collapseButton": "collapseBtn_ce1058",
-			"collapseButtonContent": "collapseBtnContent_ce1058",
-			"collapseButtonIcon": "iconWrapper_ce1058",
+			"connectionList": "connectionList_a4a127",
+			"collapsed": "isCollapsed_a4a127",
+			"collapseButton": "collapseBtn_a4a127",
+			"collapseButtonContent": "collapseBtnContent_a4a127",
+			"collapseButtonIcon": "iconWrapper_a4a127",
 
 			"connectionDivider": "alias profile panel friendsDivider",
-			"connectionItem": "profilePanelConnectionItem_ec153b",
+			// "connectionItem": "profilePanelConnectionItem_ec153b",
 			// "connectionAvatar": "connectionAvatar__76b5a",
 			// "connectionText": "textGroup_cfa265",
 		),
@@ -3020,9 +3092,9 @@ $classes: (
 		// Popoout: click on user in chat or member list
 		"popout": (
 			"bitesize": (
-				"header": "header_b07019",
-				"body": "body_b07019",
-				"footer": "footer_b07019"
+				"header": "header_b8cc6d",
+				"body": "body_b8cc6d",
+				"footer": "footer_b8cc6d"
 			),
 
 			"overlayBackground": "alias profile overlay popout",
@@ -3046,10 +3118,10 @@ $classes: (
 			"avatarPositionPremium": "alias profile avatar position premiumBanner",
 			"avatarPositionPremiumNoBanner": "alias profile avatar position premiumNoBanner",
 			"avatarHoverTarget": "alias profile avatar hoverTarget",
-			"avatarHint": "alias profile avatar hint",
+			// "avatarHint": "alias profile avatar hint",
 			"avatarHintInner": "alias profile avatar hintInner",
 
-			"badges": "alias profile avatar badges", // don't ask why it's in avatar; it's on that line
+			// "badges": "alias profile avatar badges", // don't ask why it's in avatar; it's on that line
 			"badgesContainer": "alias profile badge container",
 			"badgesWithContent": "alias profile badge containerWithContent",
 			"badgeClickable": "alias profile badge clickable",
@@ -3059,11 +3131,11 @@ $classes: (
 			"bodySection": "alias profile nonModal section",
 			"lastSection": "alias profile nonModal lastSection",
 
-			"customStatusSection": "customStatusSection_d2b491",
-			"usernameSection": "usernameSection_d2b491",
-			"divider": "divider_d2b491",
-			"scroller": "scroller_d2b491",
-			"scrollerSeparator": "scrollerSeparator_d2b491",
+			// "customStatusSection": "customStatusSection_d2b491",
+			// "usernameSection": "usernameSection_d2b491",
+			// "divider": "divider_d2b491",
+			// "scroller": "scroller_d2b491",
+			// "scrollerSeparator": "scrollerSeparator_d2b491",
 
 			"userText": "alias profile nonModal userText userText",
 			"userTagNoNickname": "alias profile nonModal userText tagNoNickname",
@@ -3087,9 +3159,9 @@ $classes: (
 			"memberSinceDivider": "alias profile memberSince divider",
 			
 			// all on same line
-			"roles": "roles_fa2f72",
-			"rolePill": "rolePill_fa2f72",
-			"rolePillBorder": "rolePillBorder_fa2f72",
+			// "roles": "roles_fa2f72",
+			// "rolePill": "rolePill_fa2f72",
+			// "rolePillBorder": "rolePillBorder_fa2f72",
 			
 			"rolesRoot": "alias role root",
 			"role": "alias role role",
@@ -3112,20 +3184,20 @@ $classes: (
 			
 			"desaturateUserColors": "desaturateUserColors_c7819f", // 2
 
-			"note": "note_c90ad7",
+			// "note": "note_c90ad7",
 			"noteTextarea": "alias profile noteTextarea",
 
-			"messageSection": "section_f2c0a8",
-			"messageInputContainer": "messageInputContainer_f2c0a8",
-			"messageInput": "messageInput_f2c0a8",
+			// "messageSection": "section_f2c0a8",
+			// "messageInputContainer": "messageInputContainer_f2c0a8",
+			// "messageInput": "messageInput_f2c0a8",
 			// NEW USER, NEED MESSAGES ENABLED FOR SERVER
-			"wumpusWrapper": "wumpusWrapper_f2c0a8",
-			"wumpus": "wumpus_f2c0a8",
-			"wumpusShown": "wumpusShown_f2c0a8",
-			"wumpusTooltip": "wumpusTooltip_db70b7",
-			"wumpusImage": "wumpusImage_f2c0a8",
+			// "wumpusWrapper": "wumpusWrapper_f2c0a8",
+			// "wumpus": "wumpus_f2c0a8",
+			// "wumpusShown": "wumpusShown_f2c0a8",
+			// "wumpusTooltip": "wumpusTooltip_db70b7",
+			// "wumpusImage": "wumpusImage_f2c0a8",
 
-			"input": "input_df4dd0",
+			// "input": "input_df4dd0",
 		),
 
 		// for status picker, has a bit of overlap with popout
@@ -3152,8 +3224,8 @@ $classes: (
 				"avatarWrapper": "avatarWrapper_b2ca13", // applies to whole thing
 				"avatar": "avatar_b2ca13",
 
-				"withTagAsButton": "withTagAsButton_b2ca13",
-				"withTagless": "withTagless_b2ca13",
+				// "withTagAsButton": "withTagAsButton_b2ca13",
+				// "withTagless": "withTagless_b2ca13",
 
 				"nameTag": "nameTag_b2ca13",
 				// "usernameContainer": "usernameContainer__22048",
@@ -3195,7 +3267,7 @@ $classes: (
 
 		// Within settings, it's in Profiles. Chances are overlap with popout exist here.
 		"settings": (
-			"body": "body_ab876d",
+			// "body": "body_ab876d",
 			"badgeList": "badgeList_b69b77",
 		),
 	),
@@ -3249,7 +3321,7 @@ $classes: (
 		"accountSettingsSecurity": "userSettingsSecurity_ad4a7c",
 
 		"profileImageUploader": "imageUploader_de76e4",
-		"profileAvatarUploader": "avatarUploaderInner_ab876d",
+		// "profileAvatarUploader": "avatarUploaderInner_ab876d",
 		"profileBody": "alias profile settings body",
 
 		"radioGroupItem": "item_eb92a8",
@@ -3293,6 +3365,7 @@ $classes: (
 		"connectionIcon": "connectionIcon_e2a436",
 		"connectionDelete": "connectionDelete_e2a436",
 
+		// too many changes to the nitro page to count, skipping these.
 		"nitroSelectedBackground": "selectedBackground_ae3c77", // in sidebar
 		"nitroPage": "container-LUKdw8",
 		"nitroHero": "hero-1aNo0v",
@@ -3321,26 +3394,27 @@ $classes: (
 		"nitroMarketingRefreshSectionTier1": "marketingRefreshSectionTier1-1chtWC",
 		"nitroMarketingRefreshTeir1Graphic": "marketingRefreshTier1Graphic-1mUnMb",
 
-		"boostDivider": "divider__56198",
-		"boostHeader": "marketingHeader_fa2da6",
-		"boostFeatures": "features_c2c4bf",
-		"boostFullFeatures": "guildFullFeatures_d50b8c",
-		"boostLogo": "marketingLogo__82611",
-		"boostGuildsSection": "guildsSection__337a8",
-		"boostGuildSubscriptionHeading": "guildSubscriptionHeading_d5703d",
-		"boostGuildBlurb": "guildsBlurb__73a25",
-		"boostGuilds": "guilds__66a9b",
-		"boostCardWrapper": "cardWrapper_bc8d2a",
-		"boostCard": "card__11580",
-		"boostCardNoIcon": "noIcon_f11207",
-		"boostCardGemContainer": "gemIndicatorContainer_b03ca0",
-		"boostDealWrapper": "wrapper_adaea0", // thing at bottom. contains the classic as an svg.
-		"boostDealAction": "action__5de76",
+		// I literally cannot be fucked dealing with the boost part anymore.
+		"boostDivider": "!divider__56198",
+		"boostHeader": "!marketingHeader_fa2da6",
+		"boostFeatures": "!features_c2c4bf",
+		"boostFullFeatures": "!guildFullFeatures_d50b8c",
+		"boostLogo": "!marketingLogo__82611",
+		"boostGuildsSection": "!guildsSection__337a8",
+		"boostGuildSubscriptionHeading": "!guildSubscriptionHeading_d5703d",
+		"boostGuildBlurb": "!guildsBlurb__73a25",
+		"boostGuilds": "!guilds__66a9b",
+		"boostCardWrapper": "!cardWrapper_bc8d2a",
+		"boostCard": "!card__11580",
+		"boostCardNoIcon": "!noIcon_f11207",
+		"boostCardGemContainer": "!gemIndicatorContainer_b03ca0",
+		"boostDealWrapper": "!wrapper_adaea0", // thing at bottom. contains the classic as an svg.
+		"boostDealAction": "!action__5de76",
 		// top box when you have nitro
-		"boostGuild": "guild__74638",
-		"boostGuildHeader": "guildHeader__30707",
-		"boostSubscriptionSlots": "guildSubscriptionSlots__5823d",
-		"boostSubscriptionSlot": "guildSubscriptionSlot_b76fc6",
+		"boostGuild": "!guild__74638",
+		"boostGuildHeader": "!guildHeader__30707",
+		"boostSubscriptionSlots": "!guildSubscriptionSlots__5823d",
+		"boostSubscriptionSlot": "!guildSubscriptionSlot_b76fc6",
 
 		"subscriptionsSectionDescroption": "sectionDescription_a206c7",
 		"subscriptionsNoItemsCardSubs": "noItemsCard_a206c7",
@@ -3380,23 +3454,23 @@ $classes: (
 		"accessabilityPreview": "preview_c31d36",
 		"previewMessage": "previewMessage_c31d36",
 
-		"voicePage": "userSettingsVoice_aa8574",
-		"voiceNotches": "notches_e5cdf3",
-		"voiceNotchesGray": "gray_e5cdf3",
+		"voicePage": "userSettingsVoice_b6e3f3",
+		"voiceNotches": "notches_a1107d",
+		"voiceNotchesGray": "gray_a1107d",
 		"voicePreviewContainer": "cameraWrapper_ff1ac9",
 		"voiceBackgroundOptionRing": "backgroundOptionRing_ad7d79",
 		"voiceBackgroundOptionInner": "backgroundOptionInner_ad7d79",
 
-		"overlayWrapper": "wrapper_d2da9c",
-		"overlayDisabled": "disabled_d2da9c",
-		"overlaySelected": "selected_d2da9c",
-		"overlayOption": "option_d2da9c",
-		"overlayDisabledSelected": "disabledSelected_d2da9c",
+		"overlayWrapper": "wrapper_b877fa",
+		"overlayDisabled": "disabled_b877fa",
+		"overlaySelected": "selected_b877fa",
+		"overlayOption": "option_b877fa",
+		"overlayDisabledSelected": "disabledSelected_b877fa",
 
 		"soundRow": "soundRow_ec96b2",
 		"soundRowDividerDefault": "dividerDefault_ed1d57",
 
-		"keybindImage": "image__08515", // when no keybinds
+		// "keybindImage": "image__08515", // when no keybinds
 		"keybindDefault": "defaultKeybind_f916fc",
 		"keybindCard": "card_ffe375",
 		"keybindGroup": "defaultKeybindGroup_f916fc",
@@ -3413,12 +3487,12 @@ $classes: (
 		"gameName": "gameName_fd966d",
 		"gameNameInput": "gameNameInput_fd966d",
 		"gameLastPlayed": "lastPlayed_fd966d",
-		"gameOverlayStatusText": "overlayStatusText__668e1",
+		"gameOverlayStatusText": "overlayStatusText_fd966d",
 		"gameOverlayToggleIcon": "toggleIcon_fd966d",
 		"gameOverlayToggleIconOn": "toggleIconOn_fd966d",
 		"gameOverlayToggleIconOff": "toggleIconOff_fd966d",
 		"gameOverlayToggleIconFill": "fill_fd966d",
-		"gameFlowerStar": "flowerStar_ff7d90",
+		// "gameFlowerStar": "flowerStar_ff7d90",
 		"game": "game_fd966d",
 		"gameRemove": "removeGame_fd966d",
 		"addGamePopout": "addGamePopout_fd966d",
@@ -3560,12 +3634,12 @@ $classes: (
 			// different line for some reason
 			"searchBar": "searchBar_ac8310", // make a private channel and click next
 
-			// more
+			// more -- i cannot remember how to pull this up.
 			"modal": "modal_b545d5",
 			"modalContent": "modalContent_b545d5",
 			"modalFooter": "modalFooter_b545d5",
-			"footer": "footer__03c36",
-			"description": "description__9e2a9",
+			"footer": "footer_b545d5",
+			"description": "description_b545d5",
 			"name": "name_b545d5",
 			"type": "type_b545d5",
 			"icon": "icon_b545d5",
@@ -3576,8 +3650,8 @@ $classes: (
 			"subtitleIcon": "subtitleIcon_b545d5",
 			"closeButton": "closeButton_b545d5",
 			"sectionTitle": "sectionTitle_b545d5",
-			"clone": "clone__1c470",
-			"permissionsTitle": "permissionsTitle_c0e91d",
+			"clone": "clone_b545d5",
+			"permissionsTitle": "permissionsTitle_b545d5",
 			"background": "background_b545d5",
 			"foreground": "foreground_b545d5",
 			"inputWrapper": "inputWrapper_b545d5",
@@ -3586,9 +3660,9 @@ $classes: (
 			"switchIcon": "switchIcon_b545d5",
 			"channelTypeDescription": "channelTypeDescription_b545d5",
 			"storeChannelOptionSelector": "storeChannelOptionSelector_b545d5",
-			"username": "username__21470",
-			"emptyRoles": "emptyRoles__19115",
-			"owner": "owner__2bb63",
+			"username": "username_b545d5",
+			"emptyRoles": "emptyRoles_b545d5",
+			"owner": "owner_b545d5",
 			"addMembersContainer": "addMembersContainer_b545d5",
 			"addMemberError": "addMemberError_b545d5",
 			"createError": "createError_b545d5",
@@ -3654,26 +3728,26 @@ $classes: (
 			"guildIcon": "guildIcon_f9c402",
 			"title": "title_f9c402",
 			"activityCount": "activityCount_f9c402",
-			"pill": "pill_dc6abe",
-			"pillOnline": "pillOnline_dc6abe",
-			"pillIcon": "pillIcon_dc6abe",
-			"pillIconOnline": "pillIconOnline_dc6abe",
-			"pillMessage": "pillMessage_dc6abe",
-			"pillIconTotal": "pillIconTotal_dc6abe",
+			"pill": "pill_b83a05",
+			"pillOnline": "pillOnline_b83a05",
+			"pillIcon": "pillIcon_b83a05",
+			"pillIconOnline": "pillIconOnline_b83a05",
+			"pillMessage": "pillMessage_b83a05",
+			"pillIconTotal": "pillIconTotal_b83a05",
 		),
 
 		// Click "Invite People" in the server header dropdown
 		"inviteOthers": (
 			"scroller": "scroller_cedfaf",
 			"footer": "footer_cedfaf",
-			"boostUpsell": "inviteBannerUpsell_d4a58d",
+			// "boostUpsell": "inviteBannerUpsell_d4a58d",
 		),
 
 		// "Time Out" on another user
 		"timeoutDuration": (
-			"groupBar": "group_d76384",
-			"item": "item__126a6",
-			"selected": "alias modals timeoutDuration selectorButtonSelected",
+			"groupBar": "group_aa2afb",
+			"item": "item_aa2afb",
+			// "selected": "!alias modals timeoutDuration selectorButtonSelected",
 
 			// there are many more classes in the group below
 			"selectorButton": "selectorButton_aa7dff",
@@ -3693,14 +3767,15 @@ $classes: (
 
 		// Ctrl+/ (CMD on Mac) to pull this modal up
 		"keybinds": (
+			"shortcuts": "keybind-shortcuts", // class found in JS
+
 			"modal": "keyboardShortcutsModal_ad95dc",
 			"title": "modalTitle_ad95dc",
 			"subtitle": "modalSubtitle_ad95dc",
 			"list": "keyboardShortcutList_ad95dc",
 			"group": "keyboardShortcutListGroup_ad95dc",
-			"firstGroup": "firstGroup_e1764c",
-			"description": "keybindDescription_c0b6a8",
-			"shortcuts": "keybind-shortcuts",
+			"firstGroup": "firstGroup_ad95dc",
+			"groupDescription": "keybindGroupDescription_ad95dc",
 			"key": "keybindKey_ad95dc",
 
 			"ddrArrows": "ddrArrows_ad95dc",
@@ -3712,7 +3787,7 @@ $classes: (
 			"right": "right_ad95dc",
 		),
 
-		// Join a server with the "Rules Screening" set up. It's got a checkbox at the bottom. Rules are on a few lines.
+		// Join a server with the "Rules Screening" set up but not onboarding. It's got a checkbox at the bottom. Rules are on a few lines.
 		"rulesScreening": (
 			// one line, main shit really
 			"container": "container_a74b6f", // whole modal
@@ -3725,8 +3800,8 @@ $classes: (
 			"emoji": "emoji_a74b6f", // the extra +n emoji has an inline style, uses header secondary
 			"onlineCount": "onlineCount_a74b6f",
 			"dot": "dot_a74b6f",
-			"dotOnline": "dotOnline__24e39",
-			"dotMembers": "dotMembers_cc8098",
+			"dotOnline": "dotOnline_a74b6f",
+			"dotMembers": "dotMembers_a74b6",
 			"divider": "divider_a74b6f",
 			"modal": "modal_a74b6f", // actually for the main body of the modal in question. wankers.
 			"sequencer": "sequencer_a74b6f",
@@ -3764,34 +3839,34 @@ $classes: (
 				"requirementText": "requirementText_b007eb",
 				"requirementSuccess": "requirementSuccess_b007eb",
 				"requirementFailure": "requirementFailure_b007eb",
-				"container": "container__76e33",
+				// "container": "container__76e33",
 				"footnote": "footnote_b007eb",
 			),
 
 			// rules stuff, different line again
 			"rules": (
-				"formItem": "formItem_de52c4",
-				"settingsFormItem": "settingsFormItem__039ce",
-				"wrapperBase": "wrapperBase__49de5",
-				"formFieldWrapper": "formFieldWrapper_ff716d",
-				"settingsFormFieldWrapper": "settingsFormFieldWrapper__3ff83",
-				"verificationFieldWrapper": "verificationFieldWrapper_d60dc6",
-				"verificationIcon": "verificationIcon__56a17",
-				"verificationLabel": "verificationLabel__40a78",
-				"verificationCheckmark": "verificationCheckmark__44896",
-				"verificationConfirmation": "verificationConfirmation_de3602",
-				"termsRow": "termsRow_bd5b94",
-				"termsRowContent": "termsRowContent_bd5b94",
-				"checkbox": "checkbox_bd5b94",
-				"formItemDescription": "formItemDescription__0d806",
-				"verifyConfirmText": "verifyConfirmText_bd5b94",
-				"settingsLink": "settingsLink__75822",
-				"radioItem": "radioItem_c81615",
-				"fieldBackground": "fieldBackground_bd5b94",
-				"termsFieldBody": "termsFieldBody_bd5b94",
-				"textInputFieldBodyInput": "textInputFieldBodyInput_bd5b94",
-				"paragraphFieldBody": "paragraphFieldBody_bd5b94",
-				"multipleChoiceIcon": "multipleChoiceIcon_bd5b94",
+				// "formItem": "formItem_de52c4",
+				// "settingsFormItem": "settingsFormItem__039ce",
+				// "wrapperBase": "wrapperBase__49de5",
+				// "formFieldWrapper": "formFieldWrapper_ff716d",
+				// "settingsFormFieldWrapper": "settingsFormFieldWrapper__3ff83",
+				// "verificationFieldWrapper": "verificationFieldWrapper_d60dc6",
+				// "verificationIcon": "verificationIcon__56a17",
+				// "verificationLabel": "verificationLabel__40a78",
+				// "verificationCheckmark": "verificationCheckmark__44896",
+				// "verificationConfirmation": "verificationConfirmation_de3602",
+				// "termsRow": "termsRow_bd5b94",
+				// "termsRowContent": "termsRowContent_bd5b94",
+				// "checkbox": "checkbox_bd5b94",
+				// "formItemDescription": "formItemDescription__0d806",
+				// "verifyConfirmText": "verifyConfirmText_bd5b94",
+				// "settingsLink": "settingsLink__75822",
+				// "radioItem": "radioItem_c81615",
+				// "fieldBackground": "fieldBackground_bd5b94",
+				// "termsFieldBody": "termsFieldBody_bd5b94",
+				// "textInputFieldBodyInput": "textInputFieldBodyInput_bd5b94",
+				// "paragraphFieldBody": "paragraphFieldBody_bd5b94",
+				// "multipleChoiceIcon": "multipleChoiceIcon_bd5b94",
 			)
 		),
 
@@ -3846,7 +3921,7 @@ $classes: (
 			"categoryIcon": "icon_c9d951",
 			"sidebarList": "list_efd8e6", // if you see below at the category of the same name, this is paired with WRAPPER.
 			"categoryHeader": "categoryHeader_fe2299",
-			"autocompleteRowVertical": "autocompleteRowVertical_bcc24e", // there's nothing on this rule
+			"autocompleteRowVertical": "autocompleteRowVertical_bcc24e", // class exists, could reside in js. my scraper only scrapes css
 			"clickable": "clickable_bcc24e",
 			"base": "base_bcc24e", // wanna apply theming to this? background-modifier-hover: clickable[aria-disabled=false]>:hover,clickable[aria-selected=true]> 
 			// option does not cover optional stuff
@@ -3861,7 +3936,7 @@ $classes: (
 		"sidebarList": (
 			"wrapper": "wrapper_ba23fe",
 			"list": "list_efd8e6",
-			"scroller": "scroller_dcade6", // this one is on line 28. likely used in a lot more than just modals
+			// "scroller": "scroller_dcade6",
 		),
 		
 		// Emoji wants to be special
@@ -3886,10 +3961,10 @@ $classes: (
 		// You'll also have to have not clicked the "don't show me this again" box
 		"problemInfo": (
 			"section": "problemInfo_b58b14",
-			"root": "root_ee4ca6",
-			"option": "option_ee4ca6",
-			"text": "text_ee4ca6",
-			"caret": "caret_ee4ca6",
+			"root": "root_c3b890",
+			"option": "option_c3b890",
+			"text": "text_c3b890",
+			"caret": "caret_c3b890",
 		),
 
 		// Submit feedback in above 
@@ -3939,7 +4014,7 @@ $classes: (
 		// While searching, click "before", "after" or "during" to pull the cal/date picker up
 		"calendar": (
 			"datePicker": "datePicker_b0286e", // outer class
-			"picker": "calendarPicker__47c85", // inner class
+			"picker": "calendarPicker_be05cd", // inner class
 
 			"react": (
 				"datePicker": "react-datepicker",
@@ -4003,19 +4078,19 @@ $classes: (
 		// Within audit log, click either filter by user or filter by action
 		"searchPopup": (
 			"container": "container_ac201b",
-			"inner": "inner__999f6",
-			"iconLayout": "iconLayout__67261",
-			"iconContainer": "iconContainer__4d295",
+			"inner": "inner_c18ec9",
+			"iconLayout": "iconLayout_c18ec9",
+			"iconContainer": "iconContainer_c18ec9",
 			"icon": "alias friends searchIcon",
-			"iconVisible": "visible_c5d475",
-			"iconClear": "clear__9f79a",
+			"iconVisible": "visible_c18ec9",
+			"iconClear": "clear_c18ec9",
 		),
 
 		// Within server settings, click "members" and then "prune" at the top
 		// aka "purge"
 		"prune": (
-			"pruneDetails": "pruneDetails__6413b",
-			"role": "role_a46991",
+			"pruneDetails": "pruneDetails_ce3fe1",
+			"role": "role_ce3fe1",
 			"content": "content_ce3fe1",
 			"spacing": "spacing_ce3fe1",
 		),
@@ -4032,31 +4107,31 @@ $classes: (
 			"loadingForeground": "popoutLoadingForeground_cf58b5", // contains background-image
 		),
 
-		// Within the boost page, click "Boost This Server"
-		"boost": (
-			"header": "header-kxb7f7",
-			"content": "content-2eQb8J", // may be applied elsewhere
-			"guildBackground": "guildBackground-3BSNJY", // that lottie thing is in here
-			"guildStar": "guildStar-2w95PD",
-			"selectGuild": "selectGuild-XtzmSc",
-			"subscription": "subscription-1wJwQk",
-			"guildCard": "guildCard-u7HSAA", // used alongside sub
-			"subscriptionInfo": "subscriptionInfo-2W0COT",
-			"guildName": "guildName-31s6aW",
-			"tierInfo": "tierInfo-2VmQOo",
-			"tierPill": "tierPill-l7DvKo",
-			"upsellFooter": "upsellFooter-1H_OCF",
-		),
+		// // Within the boost page, click "Boost This Server"
+		// "boost": (
+		// 	"header": "header-kxb7f7",
+		// 	"content": "content-2eQb8J", // may be applied elsewhere
+		// 	"guildBackground": "guildBackground-3BSNJY", // that lottie thing is in here
+		// 	"guildStar": "guildStar-2w95PD",
+		// 	"selectGuild": "selectGuild-XtzmSc",
+		// 	"subscription": "subscription-1wJwQk",
+		// 	"guildCard": "guildCard-u7HSAA", // used alongside sub
+		// 	"subscriptionInfo": "subscriptionInfo-2W0COT",
+		// 	"guildName": "guildName-31s6aW",
+		// 	"tierInfo": "tierInfo-2VmQOo",
+		// 	"tierPill": "tierPill-l7DvKo",
+		// 	"upsellFooter": "upsellFooter-1H_OCF",
+		// ),
 
-		// ..On the other hand, clicking the x/y boosts panel brings this up
-		"boostInfo": (
-			"wrapper": "wrapper-poygym",
-			"closeButton": "closeButton-3ZDr7w",
-			"image": "heroImage-1BTx4r",
-			"heading": "heading-2jcBDo",
-			"perks": "perks-2IIbWQ",
-			"footer": "footer-2iOddC",
-		),
+		// // ..On the other hand, clicking the x/y boosts panel brings this up
+		// "boostInfo": (
+		// 	"wrapper": "wrapper-poygym",
+		// 	"closeButton": "closeButton-3ZDr7w",
+		// 	"image": "heroImage-1BTx4r",
+		// 	"heading": "heading-2jcBDo",
+		// 	"perks": "perks-2IIbWQ",
+		// 	"footer": "footer-2iOddC",
+		// ),
 
 		// Create Group DM
 		// classes could be used elsewhere; all classes ripped from two rules, both nowhere near each other
@@ -4072,7 +4147,7 @@ $classes: (
 			"mobileToolsContainer": "mobileToolsContainer_e6af9c",
 			"mobileToolsCloseIcon": "mobileToolsCloseIcon_e6af9c",
 			"copyInput": "copyInput_e6af9c",
-			"noBorder": "noBorder__0a7b8",
+			// "noBorder": "noBorder__0a7b8",
 			"copyButton": "copyButton_e6af9c",
 			"errorState": "errorState_e6af9c",
 			"errorStateIcon": "errorStateIcon_e6af9c",
@@ -4082,7 +4157,7 @@ $classes: (
 			"noResults": "noResults_e6af9c",
 			"footerSeparator": "footerSeparator_e6af9c",
 			"footer": "footer_e6af9c",
-			"weightMedium": "weightMedium__9d39f",
+			// "weightMedium": "weightMedium__9d39f",
 			"selectExistingFormHeader": "selectExistingFormHeader_e6af9c",
 			"confirmChannelItemContainer": "confirmChannelItemContainer_e6af9c",
 			"confirmChannelName": "confirmChannelName_e6af9c",
@@ -4092,15 +4167,14 @@ $classes: (
 			"footerText": "footerText_e6af9c",
 		),
 
-		// Perks
-		// These appear in a few modals - best seen when clicking the x/y boosts panel.
-		// Line 258 of 2022-09-14_15:25 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css
-		"perks": (
-			"row": "perkRow-10K6XE",
-			"iconContainer": "perkIconContainer-25jfLV",
-			"icon": "perkIcon-2DG0tJ",
-			"description": "perkDescription-3e1T_w",
-		),
+		// // Perks
+		// // These appear in a few modals - best seen when clicking the x/y boosts panel.
+		// "perks": (
+		// 	"row": "perkRow-10K6XE",
+		// 	"iconContainer": "perkIconContainer-25jfLV",
+		// 	"icon": "perkIcon-2DG0tJ",
+		// 	"description": "perkDescription-3e1T_w",
+		// ),
 
 		// Upload a text-based file and click expand (beer emoji in theme)
 		"textFileExpanded": (
@@ -4124,9 +4198,9 @@ $classes: (
 			"emojis": "emojis_b58b14",
 			"emoji": "emoji_b58b14",
 			"emojiSelected": "selected_b58b14",
-			"sad": "emojiSad__7d02b",
-			"neutral": "emojiNeutral__82512",
-			"happy": "emojiHappy__22cbb",
+			"sad": "emojiSad_b58b14",
+			"neutral": "emojiNeutral_b58b14",
+			"happy": "emojiHappy_b58b14b",
 		),
 
 		// Click the rocket within the chat bar or 
@@ -4152,21 +4226,21 @@ $classes: (
 			// "scrollTierBackground": "scrollTierBackground-BnWR8k", // removed?
 			// "scrollTierBackgroundUpsell": "scrollTierBackgroundUpsell-2oh_9T", // removed, likely because they're free now
 
-			"scrollSection": "scrollSection-HnJkHK",
-			"nitroCTAContainer": "tierCtaContainer-f-B1mz",
-			"shelf": "shelf-3D6g4D",
-			"item": "activityItem-1Z9CTr",
+			"scrollSection": "!scrollSection-HnJkHK",
+			"nitroCTAContainer": "!tierCtaContainer-f-B1mz",
+			"shelf": "!shelf-3D6g4D",
+			"item": "!activityItem-1Z9CTr",
 			// "imageContainer": "activityImageContainer-3FIpli", // NOT FOUND
-			"image": "activityImage-3308Ih",
-			"video": "activityVideo-3VVUcy", // also has image class, has anim and pos. duplicated as child with video tag rather than div
+			"image": "!activityImage-3308Ih",
+			"video": "!activityVideo-3VVUcy", // also has image class, has anim and pos. duplicated as child with video tag rather than div
 			// "videoFadeout": "videoFadeOut-1qkfRd", // NOT FOUND
-			"overlayBadge": "overlayBadge-2HAW2N",
-			"badgeContainer": "badgeContainer-2a1nPp",
-			"textContainer": "activityTextContainer-2l4Dnr", // body of item
-			"tagsContainer": "activityTagsContainer-2tHK0W",
-			"tag": "activityTag-3C3YK5",
+			"overlayBadge": "!overlayBadge-2HAW2N",
+			"badgeContainer": "!badgeContainer-2a1nPp",
+			"textContainer": "!activityTextContainer-2l4Dnr", // body of item
+			"tagsContainer": "!activityTagsContainer-2tHK0W",
+			"tag": "!activityTag-3C3YK5",
 
-			"footer": "footer-yVEuwO",
+			"footer": "!footer-yVEuwO",
 		),
 
 		// Change your avatar (or banner w/ nitro) or a server's icon
@@ -4192,8 +4266,8 @@ $classes: (
 				"upsell": "nitroPreviewUpsell_f55465", // own line
 
 				"notice": "notice_f97380",
-				"withRightPadding": "noticeWithRightPadding_ffbb3f",
-				"withoutRightPadding": "noticeWithoutRightPadding__3d9e0",
+				"withRightPadding": "noticeWithRightPadding_f97380",
+				"withoutRightPadding": "noticeWithoutRightPadding_f97380",
 				"left": "noticeLeft_f97380",
 				"icon": "icon_f97380",
 				"text": "text_f97380",
@@ -4213,7 +4287,7 @@ $classes: (
 		// bot/external application authentication/oauth
 		// Quickest way might be starting an activity that requires an external application, like youtube/"watch together"
 		"oauth": (
-			"wrapper": "oauth2Wrapper_c2b22e",
+			// "wrapper": "oauth2Wrapper_c2b22e", // split into several classes
 			"authorize": "authorize_c5a065",
 			"header": "header_ac2a99",
 			"headerIcons": "headerIcons_ac2a99",
@@ -4222,8 +4296,8 @@ $classes: (
 			"scopes": "scopes_cf14a8", // basically permissions of application
 			"sectionLabel": "sectionLabel_cf14a8",
 			"scope": "scope_cf14a8",
-			"scopeCheck": "scopeCheck_c4c2dd",
-			"scopeTimes": "scopeTimes__83c10", // it's a cross
+			// "scopeCheck": "scopeCheck_c4c2dd",
+			// "scopeTimes": "scopeTimes__83c10", // it's a cross
 			"scopeIcon": "icon_cf14a8",
 			"scopeInner": "scopeInner_cf14a8",
 
@@ -4296,7 +4370,7 @@ $classes: (
 			"scroller": "container_af1167",
 			"resultPlaceholder": "placeholder_bad108",
 			"result": "result_bad108",
-			"resultFocused": "focused_bad108", // press arrow keys
+			// "resultFocused": "focused_bad108", // focused now uses [data-focused=true]
 			"favoritesFade": "categoryFadeBlurple_af1167",
 			"categoryFade": "categoryFade_af1167",
 			"endContainer": "endContainer_bad108",
@@ -4372,7 +4446,7 @@ $classes: (
 			"item": "emojiItem_fbfedd",
 			"itemLarge": "emojiItemLarge_fbfedd",
 			"itemSelected": "emojiItemSelected_fbfedd",
-			"itemDisabled": "emojiItemDisabled__843ea", // no nitro? use a plugin. that's what you're here for, right?
+			// "itemDisabled": "emojiItemDisabled__843ea", // no nitro? use a plugin. that's what you're here for, right?
 			"imageLoading": "imageLoading_b000dd",
 			
 			"inspectorGrid": "inspector_c6ee36", // bar at bottom should use the class under expressionPicker.
@@ -4398,32 +4472,32 @@ $classes: (
 
 			// When you're hoving over a message, click the add reaction button. This also includes "super" reactions.
 			"floating": (
-				"wrapper": "contentWrapper_eab878", // removed class!
-				"isBurstReactionPicker": "isBurstReactionPicker_b9ca03", // shows up when super reactions are selected
+				// "wrapper": "contentWrapper_eab878", // removed class!
+				// "isBurstReactionPicker": "isBurstReactionPicker_b9ca03", // shows up when super reactions are selected
 
-				"nav": "nav__2aafa", // at top of modal, swapping between reaction and super reaction
-				"navList": "navList__8438b",
+				// "nav": "nav__2aafa", // at top of modal, swapping between reaction and super reaction
+				// "navList": "navList__8438b",
 
-				"navItem": "navItem_bd587d",
-				"navButton": "navButton__0565e",
-				"navButtonActive": "navButtonActive_b003de",
-				"navButtonSuperReactActive": "navButtonSuperReactActive__01546",
+				// "navItem": "navItem_bd587d",
+				// "navButton": "navButton__0565e",
+				// "navButtonActive": "navButtonActive_b003de",
+				// "navButtonSuperReactActive": "navButtonSuperReactActive__01546",
 
-				"betaTag": "betaTag__403f6",
-				"burstReactionTabTooltip": "burstReactionTabTooltip__8478c",
-				"burstReactionCoachmarkTooltip": "burstReactionCoachmarkTooltip_e4df14",
-				"burstReactionTooltip": "burstReactionTooltip__34a31",
-				"burstTooltipImage": "burstTooltipImage__78e9e",
-				"burstTooltipImageContainer": "burstTooltipImageContainer__9a746",
-				"burstTooltipTitle": "burstTooltipTitle_cc311b",
-				"nitroWheel": "nitroWheel__14f2e",
-				"burstTooltipButtons": "burstTooltipButtons__0df29",
-				"button": "button__14887",
-				"blankButton": "blankButton__3364c",
+				// "betaTag": "betaTag__403f6",
+				// "burstReactionTabTooltip": "burstReactionTabTooltip__8478c",
+				// "burstReactionCoachmarkTooltip": "burstReactionCoachmarkTooltip_e4df14",
+				// "burstReactionTooltip": "burstReactionTooltip__34a31",
+				// "burstTooltipImage": "burstTooltipImage__78e9e",
+				// "burstTooltipImageContainer": "burstTooltipImageContainer__9a746",
+				// "burstTooltipTitle": "burstTooltipTitle_cc311b",
+				// "nitroWheel": "nitroWheel__14f2e",
+				// "burstTooltipButtons": "burstTooltipButtons__0df29",
+				// "button": "button__14887",
+				// "blankButton": "blankButton__3364c",
 
-				"sparkleStar": "sparkleStar__429cc",
-				"sparklePlus": "sparklePlus__55383",
-				"sparkles": "sparkles__65284",
+				"sparkleStar": "sparkleStar_f9af59",
+				"sparklePlus": "sparklePlus_f9af59",
+				// "sparkles": "sparkles__65284",
 
 				// only named so as it's the dumb preview thing that begs for the user to buy nitro
 				"nonNitroBlocker": (
@@ -4435,7 +4509,7 @@ $classes: (
 					"headerText": "headerText_c43059",
 					"subheaderText": "subheaderText_c43059",
 					"ctaActionWrapper": "ctaActionWrapper_c43059",
-					"button": "button_cd9cbe",
+					// "button": "button_cd9cbe",
 				),
 
 				"upsellContainer": "upsellContainer_a3bc57", // "Unlock these emojis with Nitro" shows up when reacting
@@ -4463,8 +4537,8 @@ $classes: (
 			"icon": "icon_d90b3d",
 
 			"caret": "caret_d90b3d",
-			"imageContainer": "imageContainer_d90b3d", // no idea where but there you go
-			"image": "image_d90b3d", // no idea where but there you go
+			// "imageContainer": "imageContainer_d90b3d", // no idea where but there you go
+			// "image": "image_d90b3d", // no idea where but there you go
 			"checkbox": "checkbox_d90b3d",
 			"checkboxCheck": "check_d90b3d",
 			"radioSelection": "radioSelection_d90b3d",
@@ -4486,8 +4560,8 @@ $classes: (
 			"sparkles": "sparkles_d90b3d", // no idea where
 
 			// Arrow in different rule, along with "open" 
-			"arrow": "arrow_d64d50",
-			"arrowOpen": "open_d64d50",
+			// "arrow": "arrow_d64d50",
+			// "arrowOpen": "open_d64d50",
 			
 			// Right click a message in a channel you can add reactions to
 			"quickReactWrapper": "wrapper_a24e84",
@@ -4524,10 +4598,10 @@ $classes: (
 			"searchable": "searchable_f6639d",
 			"searchInput": "searchInput_f6639d",
 			"editing": "editing_f6639d",
-			"label": "label__29233",
+			"label": "label_f6639d",
 			"selectPositionTop": "selectPositionTop_f6639d",
 			"disabled": "disabled_f6639d",
-			"hidden": "hidden__609fe",
+			"hidden": "hidden_f6639d",
 			"iconsContainer": "iconsContainer_f6639d",
 			"iconsCenter": "iconsCenter_f6639d",
 			"placeholder": "placeholder_f6639d",
@@ -4541,7 +4615,7 @@ $classes: (
 			"prefix": "prefix_f6639d",
 			"suffix": "suffix_f6639d",
 			"content": "content_f6639d",
-			"optionPillWrapper": "optionPillWrapper_b66cc4",
+			"optionPillWrapper": "optionPillWrapper_f6639d",
 			"optionPillContainer": "optionPillContainer_f6639d",
 			"optionPillItem": "optionPillItem_f6639d",
 			"optionPill": "optionPill_f6639d",
@@ -4573,8 +4647,8 @@ $classes: (
 			"roundButton": "button_e258f5",
 			"secondary": "secondary_e258f5", // background secondary, hover primary
 			"tertiary": "tertiary_e258f5", // background tertiary, hover floating
-			"buttonDisabled": "disabled__4d064",
-			"size32": "size32_eadcb9",
+			"buttonDisabled": "disabled_e258f5",
+			"size32": "size32_e258f5",
 			"channelHeader": "channelHeader_f3978e",
 			"guildIcon": "guildIcon_f3978e",
 			"dmIcon": "dmIcon_f3978e",
@@ -4606,7 +4680,7 @@ $classes: (
 				"container": "container_ddb5b4",
 				"close": "closeButton_ddb5b4",
 				"messageContainer": "messageContainer_ddb5b4",
-				"jumpButton": "jumpButton_aab0bc",
+				// "jumpButton": "jumpButton_aab0bc",
 				"message": "message_ddb5b4",
 				"scrollingFooterWrap": "scrollingFooterWrap_ac90a2",
 			),
@@ -4643,13 +4717,13 @@ $classes: (
 			"loadingVisible": "visible_ac90a2",
 			"remove": "closeIcon_ac90a2",
 			"emptyPlaceholder": "emptyPlaceholder_ac90a2",
-			"emptyBottom": "bottom_a1c45e", // in a rule
+			"emptyBottom": "bottom_ac90a2", // in a rule
 			"emptyImage": "image_ac90a2",
 			"emptyBody": "body_ac90a2",
 			"footer": "footer_ac90a2",
-			"block": "block_dcc874", // discord put this on the rules for some reason? lots of inline
-			"protip": "pro_dcc874", // inline color
-			"tip": "tip_dcc874",
+			"block": "block_b5053a", // discord put this on the rules for some reason? lots of inline
+			"protip": "pro_b5053a", // inline color
+			"tip": "tip_b5053a",
 		),
 
 		// Either dropdown in header bar or from hovering on a channel with an active thread
@@ -4680,7 +4754,7 @@ $classes: (
 
 			// empty list - 1052
 			"emptyContainer": "container_ebd74a",
-			"emptyCompact": "compact_e80f0f", // no idea how to get this, seems to be unrelated to compact mode
+			// "emptyCompact": "compact_e80f0f", // no idea how to get this, seems to be unrelated to compact mode
 			"emptyIconContainer": "iconContainer_ebd74a",
 			"emptyIcon": "icon_ebd74a",
 			"emptyStars": "stars_ebd74a",
@@ -4706,7 +4780,7 @@ $classes: (
 			"applicationIcon": "applicationIcon_ec99f9",
 			"applicationNameContainer": "applicationNameContainer_ec99f9",
 			"applicationNameText": "applicationNameText_ec99f9",
-			"searchBar": "searchBar__9d934",
+			"searchBar": "searchBar_ec99f9",
 		),
 
 		// Upload a file. That's really all there is to it.
@@ -4715,7 +4789,7 @@ $classes: (
 		// "fileTypes" are for the different icons, likely mostly unused lol
 		// "pop" refers to the little elements that appear briefly, named after one of the elements
 		// "modify" is when you've clicked the pencil icon in the chatbar, it's got some overlap with drop most likely
-		// "fail" is the popup saying "it's too big" either with or without nitro, needs testing
+		// "fail" was probably removed? i don't know.
 		"upload": (
 			"areaPosition": "uploadArea_a7d72e" "uploadArea_a7d72e", // line 767, applies position fixed and other things with thread sidebar open/floating
 			"inner": "inner_f82cc7", // Line 531, Used in drop and modify
@@ -4737,7 +4811,7 @@ $classes: (
 					"one": "one_f82cc7", // uses document
 					
 					"wrapTwo": "wrapTwo_f82cc7",
-					"two": "two_f82cc7", // uses unage
+					"two": "two_f82cc7", // uses image
 					
 					"wrapThree": "wrapThree_f82cc7",
 					"three": "three_f82cc7", // uses code
@@ -4769,8 +4843,6 @@ $classes: (
 			),
 
 			// These little things appear briefly and ARE used elsewhere within modals or the app itself.
-			// Colors, Types and Base are on line 606 of 2022-09-14_15:25 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css 
-			// Numbered Sparkles, Crosses, Pops and Lights are on the same line as drop
 			"pop": (
 				"base": "base_bce2e6",
 				"sparkle": "sparkle_bce2e6",
@@ -4788,17 +4860,17 @@ $classes: (
 
 				// Colors use images
 				"sparkleWhite": "sparkleWhite_bce2e6",
-				"sparkleGrey": "sparkleGrey_c0e89a",
-				"sparkleBlurple": "sparkleBlurple_d642cb",
-				"popWhite": "popWhite_a82c71",
-				"popGrey": "popGrey_a4283d",
-				"popBlurple": "popBlurple__2642d",
-				"lightWhite": "lightWhite_d2ebe8",
-				"lightGrey": "lightGrey__3c855",
-				"lightBlurple": "lightBlurple__1956c",
-				"crossWhite": "crossWhite__49507",
-				"crossGrey": "crossGrey_d9b16f",
-				"crossBlurple": "crossBlurple_b0f0f9",
+				"sparkleGrey": "sparkleGrey_bce2e6",
+				"sparkleBlurple": "sparkleBlurple_bce2e6",
+				"popWhite": "popWhite_bce2e6",
+				"popGrey": "popGrey_bce2e6",
+				"popBlurple": "popBlurple_bce2e6",
+				"lightWhite": "lightWhite_bce2e6",
+				"lightGrey": "lightGrey_bce2e6",
+				"lightBlurple": "lightBlurple_bce2e6",
+				"crossWhite": "crossWhite_bce2e6",
+				"crossGrey": "crossGrey_bce2e6",
+				"crossBlurple": "crossBlurple_bce2e6",
 			),
 
 			"modify": (
@@ -4835,8 +4907,8 @@ $classes: (
 				"art": "art_ffaecb",
 				"sparkleBadge": "sparkleBadge_ffaecb",
 				"newBadge": "newBadge_ffaecb",
-				"learnMoreLink": "learnMoreLink__97b89",
-				"context": "context_e4de9b",
+				// "learnMoreLink": "learnMoreLink__97b89",
+				// "context": "context_e4de9b",
 			),
 		),
 
@@ -4849,10 +4921,10 @@ $classes: (
 
 		// Within a forum, click the guidelines book then click "View All"
 		"guidelines": (
-			"container": "container-2HUAgg",
-			"header": "header-2NSwww",
-			"content": "content-AhlVt4",
-			"rulesIcon": "rulesIcon-2nQiTc",
+			"container": "container_ada0d0",
+			"header": "header_ada0d0",
+			"content": "content_ada0d0",
+			"rulesIcon": "rulesIcon_ada0d0",
 		),
 
 	),
@@ -4923,21 +4995,21 @@ $classes: (
 	// These may get merged in with the rest above so this area is far more chaotic than the others.
 	"experiments": (
 		// 2022-07_channel_highlights - Currently seems to replace the "New messages" and "Jump to present" bars.
-		"newMessagesPillContainer": "newMessagesPillContainer__0afdc",
-		"newMessagesPill": "newMessagesPill__26926",
-		"newMessagesClear": "newMessagesClear__308be",
-		"newMessagesClearIcon": "newMessagesClearIcon__0ab21",
-		"jumpToPresentButtonContainer": "jumpToPresentButtonContainer__6d308",
-		"jumpToPresentButton": "jumpToPresentButton_b22607",
-		"jumpToPresentButtonIcon": "jumpToPresentButtonIcon_a99ebe",
-		"jumpToPresentSpinner": "jumpToPresentSpinner__6e9d2",
-		"jumpToPresentSpinnerItem": "jumpToPresentSpinnerItem__4283b",
+		// "newMessagesPillContainer": "newMessagesPillContainer__0afdc",
+		// "newMessagesPill": "newMessagesPill__26926",
+		// "newMessagesClear": "newMessagesClear__308be",
+		// "newMessagesClearIcon": "newMessagesClearIcon__0ab21",
+		// "jumpToPresentButtonContainer": "jumpToPresentButtonContainer__6d308",
+		// "jumpToPresentButton": "jumpToPresentButton_b22607",
+		// "jumpToPresentButtonIcon": "jumpToPresentButtonIcon_a99ebe",
+		// "jumpToPresentSpinner": "jumpToPresentSpinner__6e9d2",
+		// "jumpToPresentSpinnerItem": "jumpToPresentSpinnerItem__4283b",
 
 		// 2022-11_client_themes - Currently three "treatments", allows a custom background via adding a class to html.
 		// Treatment 1 - Client Themes
 		// No classes added; custom option broken.
 		// Treatment 2 - Client Themes Sidebar Editor
-		"themesCustomThemeBackground": "custom-theme-background", // applied to html
+		// "themesCustomThemeBackground": "custom-theme-background", // applied to html
 		"themesPresets": "presets_f45ea6",
 		"themesBasicSelectors": "basicThemeSelectors_",
 		"themesSelectorContainer": "themeSelectionContainer_cb7c27",
@@ -4966,8 +5038,6 @@ $classes: (
 		"themesSidebarCloseCircle": "closeCircle_c9dda6",
 		"themesSidebarBody": "editorBody_c9dda6",
 		"themesSidebarSelectionGroup": "selectionGroup_c9dda6",
-		"themesSidebarBetaTagContainer": "betaTagContainer__6d662",
-		"themesSidebarBetaTag": "betaTag__72e8a",
 		"themesSidebarFooter": "editorFooter_c9dda6",
 		"themesSidebarFooterButton": "footerButton_c9dda6", // exit preview
 	),
@@ -5004,7 +5074,9 @@ $classes: (
 			"init": ("item" "anotherItem" "yetAnotherItem"),
 			"spaceSep": "item2" "butAnother" "nyaaa",
 			// "brackets": ["item" "item2" "item3" "fark" "item with spaces"], // vscodium syntax highlighting doesn't like it but this is perfectly valid with quotation marks.
-		)
+		),
+		"g": "staticClass",
+		"h": "alias test g", // static alias
 	),
 	
 );

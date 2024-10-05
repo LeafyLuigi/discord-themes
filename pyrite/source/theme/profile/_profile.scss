@@ -19,9 +19,9 @@
 // }
 
 #{c(profile outer unthemed)} {
-	#{c(profile modal badgeList)},
-	#{c(profile overlay overlay)},
-	#{c(profile modal relationshipButtons)} {
+	// #{c(profile modal badgeList)},
+	// #{c(profile modal relationshipButtons)},
+	#{c(profile overlay overlay)} {
 		background: $card;
 	}
 }

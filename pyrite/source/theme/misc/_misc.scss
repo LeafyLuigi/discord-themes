@@ -376,7 +376,7 @@ $defaultPresets: "1186899913515204700";
 			--client-mod-image: url('https://leafyluigi.github.io/images/betterdiscord.png');
 		}
 	}
-	#{c(chat messageAttachment)} {
+	#{c(chat messageAttachmentsContainer)} {
 		&::before {
 			content: "";
 			background: var(--client-mod-image,none) center/cover no-repeat;

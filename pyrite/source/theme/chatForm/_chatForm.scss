@@ -100,14 +100,6 @@
 	display: none;
 }
 
-// text colors that may be used elsewhere
-#{c(chatForm colorBrand)} {
-	color: $primary;
-}
-#{c(chatForm colorError)} {
-	color: $red;
-}
-
 // send button
 :is(#{c(main dark)},#{c(main light)}) {
 	#{c(chatForm sendButton)}:is(:hover,:active,[class]) #{c(chatForm sendButtonActiveChild)} {

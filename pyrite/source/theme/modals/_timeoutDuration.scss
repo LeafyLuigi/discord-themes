@@ -4,7 +4,7 @@
 		background-color: $card;
 		border-color: $primary;
 	}
-	#{c(modals timeoutDuration selected)} {
+	#{c(modals timeoutDuration selectorButtonSelected)} {
 		background-color: $primary;
 	}
 }

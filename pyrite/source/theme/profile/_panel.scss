@@ -1,9 +1,9 @@
 @use "backend" as *;
 /* Start User Profile Panel */
-#{c(profile panel panel)} {
+#{c(profile outer panel)} {
 	--width: 340px;
 	--hide-var: var(--hide-profile-panel);
 }
-#{c(profile panel activityBackground)} {
-	background: $card;
-}
+// #{c(profile panel activityBackground)} {
+// 	background: $card;
+// }

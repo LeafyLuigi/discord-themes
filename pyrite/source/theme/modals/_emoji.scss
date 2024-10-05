@@ -64,22 +64,22 @@
 	}
 }
 
-#{c(modals emoji floating wrapper)} {
-	background: var(--modal-background);
-	backdrop-filter: blur(5px);
-	height: auto;
-}
+// #{c(modals emoji floating wrapper)} {
+// 	background: var(--modal-background);
+// 	backdrop-filter: blur(5px);
+// 	height: auto;
+// }
 
-#{c(modals emoji hasTabWrapper)} {
-	#{c(modals emoji categoryList)} #{c(modals sidebarList scroller)} {
-		height: calc(100% - 48px);
-	}
-}
+// #{c(modals emoji hasTabWrapper)} {
+// 	#{c(modals emoji categoryList)} #{c(modals sidebarList scroller)} {
+// 		height: calc(100% - 48px);
+// 	}
+// }
 
-#{c(modals emoji floating nonNitroBlocker wrapper)} {
-	// background-color: transparent;
-	// BACKGROUND HAS BEEN INTENTIONALLY LEFT GREY
-}
+// #{c(modals emoji floating nonNitroBlocker wrapper)} {
+// 	// background-color: transparent;
+// 	// BACKGROUND HAS BEEN INTENTIONALLY LEFT GREY
+// }
 #{c(modals emoji floating nonNitroBlocker banner)} {
 	&[autoplay] {
 		display: none;

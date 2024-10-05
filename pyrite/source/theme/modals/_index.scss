@@ -3,14 +3,14 @@
 @forward "_searchBar.scss";
 
 // The locations of the modals can be found within the classes file.
-@forward "_activities.scss"; // haha i disabled the "you need nitro" part of the modal :^)
+// @forward "_activities.scss"; // needs reworking
 @forward "_addConnections.scss";
 @forward "_addServer.scss";
 @forward "_autocomplete.scss";
 @forward "_avatarUpload.scss"; // also includes banners/gifs
 @forward "_bannedUser.scss";
-@forward "_boost.scss";
-@forward "_boostInfo.scss";
+// @forward "_boost.scss"; // needs reworking
+// @forward "_boostInfo.scss"; // needs reworking
 // @forward "_browserInvite.scss"; // I CANNOT FIND THIS MODAL.
 @forward "_calendar.scss";
 @forward "_createChannel.scss";
@@ -21,12 +21,12 @@
 @forward "_groupDm.scss";
 // @forward "_guidelines.scss"; // empty file
 @forward "_incomingCall.scss";
-@forward "_inviteOthers.scss";
+// @forward "_inviteOthers.scss"; // empty file
 @forward "_keybinds.scss";
 @forward "_loadingPopout.scss";
 @forward "_mentionWarning.scss";
 @forward "_nicknameChange.scss"; // includes changing a friend's nick though there's no edits for that
-@forward "_oauth.scss";
+// @forward "_oauth.scss"; // needs reworking
 @forward "_openThreadsPopout.scss";
 // @forward "_perks.scss"; // no edits applied via theme
 @forward "_pin.scss"; // does not apply to any previously pinned messages, only adding/removing
@@ -36,7 +36,7 @@
 // @forward "_rating.scss"; // no edits applied via theme
 @forward "_reactions.scss";
 @forward "_regionSelect.scss";
-@forward "_rulesScreening.scss";
+// @forward "_rulesScreening.scss"; // needs reworking
 @forward "_search.scss";
 @forward "_searchPopup.scss";
 @forward "_sidebarList.scss"; // poorly named category because it's used in multiple modals. check autocomplete for more.

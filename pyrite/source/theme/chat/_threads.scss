@@ -8,13 +8,12 @@
 	#{c(header toolbar)} {
 		right: 0;
 	}
-	&~div[style*=min-width]:has(+#{c(chat layerWrapper)}>#{c(threads notFloating)}) {
-		display: none;
-	}
+	// &~div[style*=min-width]:has(+#{c(chat layerWrapper)}>#{c(threads notFloating)}) {
+	// 	display: none;
+	// }
 }
-:is(#{c(main dark)},#{c(main light)}) #{c(threads resizeHandle)} {
+#{c(threads resizeHandle)} {
 	background: transparent;
-	width: 4px;
 	transition: background-color 0.25s ease-in-out 0.25s; 
 	&:hover,
 	&:active {
@@ -60,9 +59,9 @@
 		min-width: 0;
 	}
 }
-#{c(chat layerWrapper)} {
-	position: unset;
-}
+// #{c(chat layerWrapper)} {
+// 	position: unset;
+// }
 #{c(threads floating)} {
 	position: unset;
 	border-left: 4px solid transparent;

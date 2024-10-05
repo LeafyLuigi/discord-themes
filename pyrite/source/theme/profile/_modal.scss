@@ -9,9 +9,9 @@
 		@include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter),$z:null);
 	}
 }
-#{c(profile modal premiumIconWrapper)} {
-	display: none;
-}
+// #{c(profile modal premiumIconWrapper)} {
+// 	display: none;
+// }
 // // failed attempt at making border around avi
 // #{c(profile modal header)} {z-index: -1;}
 // #{c(profile modal header)}>div:not([class]):before {
@@ -39,60 +39,60 @@
 //   z-index: 1;
 // }
 
-#{c(profile modal relationshipButtons)} {
-	padding: 4px;
-	background-color: var(--profile-body-background-color);
-	margin: -4px;
-	border-radius: 8px;
-	// literally just for self
-	&:empty {
-		display: none;
-	}
-}
-:not(#{c(profile modal pendingIncoming)})>#{c(profile modal actionButton)}:nth-last-child(2) {
-	margin-right: 8px;
-}
-#{c(profile modal additionalActionsIcon)} {
-	margin-left: 0;
-}
-#{c(profile modal tabBar)} {
-	gap: unset;
-	overflow-x: scroll; // scroll for languages with longer strings
-	@supports (scrollbar-width: none) {
-		scrollbar-width: none;
-	}
-	@supports selector(div::-webkit-scrollbar) {
-		&::-webkit-scrollbar {
-			display: none;
-		}
-	}
-}
-#{c(profile modal tabBarContainer)} {
-	margin-top: 18px;
-	padding-bottom: 2px;
-}
-#{c(profile modal tabBarItem)} {
-	--local-border: var(--primary-color);
-	padding: 0 10px;
-	margin: 0 4px;
-	height: unset;
-	border: 2px solid var(--local-border) !important; // !important reason: override tab bar line's removal of bottom border
-	border-radius: 5px;
-	z-index: 1;
-	@include bg($bg:transparent,$o:0.2,$br:5px);
-	&:is(:hover,:active) {
-		--local-border: var(--hover-color);
-		&:before {
-			background-color: $hover;
-		}
-	}
-	&#{c(tab selected)} {
-		--local-border: var(--hover-color);
-		&:before {
-			background-color: $primary;
-		}
-	}
-}
+// #{c(profile modal relationshipButtons)} {
+// 	padding: 4px;
+// 	background-color: var(--profile-body-background-color);
+// 	margin: -4px;
+// 	border-radius: 8px;
+// 	// literally just for self
+// 	&:empty {
+// 		display: none;
+// 	}
+// }
+// :not(#{c(profile modal pendingIncoming)})>#{c(profile modal actionButton)}:nth-last-child(2) {
+// 	margin-right: 8px;
+// }
+// #{c(profile modal additionalActionsIcon)} {
+// 	margin-left: 0;
+// }
+// #{c(profile modal tabBar)} {
+// 	gap: unset;
+// 	overflow-x: scroll; // scroll for languages with longer strings
+// 	@supports (scrollbar-width: none) {
+// 		scrollbar-width: none;
+// 	}
+// 	@supports selector(div::-webkit-scrollbar) {
+// 		&::-webkit-scrollbar {
+// 			display: none;
+// 		}
+// 	}
+// }
+// #{c(profile modal tabBarContainer)} {
+// 	margin-top: 18px;
+// 	padding-bottom: 2px;
+// }
+// #{c(profile modal tabBarItem)} {
+// 	--local-border: var(--primary-color);
+// 	padding: 0 10px;
+// 	margin: 0 4px;
+// 	height: unset;
+// 	border: 2px solid var(--local-border) !important; // !important reason: override tab bar line's removal of bottom border
+// 	border-radius: 5px;
+// 	z-index: 1;
+// 	@include bg($bg:transparent,$o:0.2,$br:5px);
+// 	&:is(:hover,:active) {
+// 		--local-border: var(--hover-color);
+// 		&:before {
+// 			background-color: $hover;
+// 		}
+// 	}
+// 	&#{c(tab selected)} {
+// 		--local-border: var(--hover-color);
+// 		&:before {
+// 			background-color: $primary;
+// 		}
+// 	}
+// }
 
 #{c(profile modal noteTextarea)} {
 	&,
@@ -100,13 +100,12 @@
 		background-color: transparent;
 	}
 }
-#{c(profile modal body)} #{c(profile modal guildAvatarWithoutIcon)} {
+#{c(profile modal guildAvatarWithoutIcon)} {
 	background-color: $card;
 }
 #{c(profile modal connections container)} {
 	background-color: transparent;
 }
-#{c(memberList avatarWrapper)}svg>foreignObject circle,
-#{c(profile modal avatar)}>svg>foreignObject+:is(circle,rect:not(:last-child)) {
+#{c(memberList avatarWrapper)}svg>foreignObject+:is(circle,rect:not(:last-child)) {
 	opacity: 0 !important; // !important reason: inline style
 }

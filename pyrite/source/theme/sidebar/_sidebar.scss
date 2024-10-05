@@ -139,7 +139,7 @@
 		width: 240px;
 	}
 }
-:is(#{c(sidebar channelModeUnreadLessImportant)},#{c(sidebar channelModeUnreadImportant)}) #{c(sidebar channelUnreadBlob)} {
+#{c(sidebar channelModeUnreadImportant)} #{c(sidebar channelUnreadBlob)} {
 	background-color: $primary;
 }
 #{c(sidebar bannerVisible)} #{c(sidebar channelsHeader)} {
@@ -271,7 +271,7 @@
 	color: var(--selected-channel-color);
 }
 
-:is(#{c(sidebar channelModeUnreadLessImportant)},#{c(sidebar channelModeUnreadImportant)}) {
+#{c(sidebar channelModeUnreadImportant)} {
 	color: var(--unread-channel-color);
 	#{c(sidebar channelUnreadBlob)} {
 		display: var(--show-channel-unread-dot, block);

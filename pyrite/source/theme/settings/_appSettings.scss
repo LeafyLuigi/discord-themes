@@ -105,9 +105,9 @@
 	margin-top: 10px;
 }
 
-#{c(appSettings keybindImage)} {
-	display: none;
-}
+// #{c(appSettings keybindImage)} {
+// 	display: none;
+// }
 #{c(appSettings keybindCard)} {
 	padding: 10px 0;
 	&:before {
@@ -131,9 +131,9 @@
 	padding: 9px 0;
 }
 
-#{c(appSettings gameFlowerStar)} > path {
-	fill: $secondary;
-}
+// #{c(appSettings gameFlowerStar)} > path {
+// 	fill: $secondary;
+// }
 #{c(appSettings game)} {
 	#{c(appSettings gameLastPlayed)} + div {
 		position: relative;

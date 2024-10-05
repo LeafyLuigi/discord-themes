@@ -4,7 +4,7 @@
 		box-shadow: none;
 	}
 	:is(#{c(modals gif result)}:hover,
-	#{c(modals gif resultFocused)}) {
+	[data-focused=true]) {
 		box-shadow: none;
 		&::after {
 			box-shadow: inset 0 0 0 2px $primary, inset 0 0 0 3px $card;
