@@ -304,11 +304,11 @@ div#{c(text lineClamp2Plus)} {
 }
 
 /* Official Preset Previews */
-$orangeSynthscape: "1186899494231613502";
-$pinkSunset: "1186899552872185866";
-$blueOcean: "1186899634262638692";
-$yellowFlower: "1186899737824210995";
-$defaultPresets: "1186899913515204700";
+$orangeSynthscape: "1298585998942273536";
+$pinkSunset: "1298586022619385870";
+$blueOcean: "1298586050134020120";
+$yellowFlower: "1298586092890751048";
+$defaultPresets: "1298586139720155198";
 
 :is(
 #message-accessories-#{$orangeSynthscape},
@@ -376,15 +376,15 @@ $defaultPresets: "1186899913515204700";
 			--client-mod-image: url('https://leafyluigi.github.io/images/betterdiscord.png');
 		}
 	}
-	#{c(chat messageAttachmentsContainer)} {
+	#{c(embeds textContainerUp)} {
 		&::before {
 			content: "";
 			background: var(--client-mod-image,none) center/cover no-repeat;
 			width: 48px;
 			height: 48px;
 			position: absolute;
-			top: 0;
-			right: 0;
+			top: 8px;
+			left: 8px;
 			z-index: 1;
 		}
 	}
@@ -401,6 +401,6 @@ $defaultPresets: "1186899913515204700";
 //   box-sizing: border-box;
 //   padding: 10px 0;
 //   background-color: $header;
-//   display: var(--update-notice-dec23, block);
+//   display: var(--update-notice-oct24, block);
 //   z-index: 2500;
 // }

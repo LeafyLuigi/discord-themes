@@ -1,0 +1,121 @@
+@use "backend" as *;
+// File is used for Markup stuffs
+:root {
+	--chat-font-size: 1rem;
+	--chat-line-height: 1.375rem;
+	--chat-font-color: var(--text-normal);
+	--chat-font-weight: 400;
+	--chat-font-style: normal;
+	// a; links
+	--chat-link-color: var(--text-link);
+	// a:hover (custom); links on hover
+	--chat-link-color-hover: var(--chat-link-color);
+	// strong; **bold**
+	--chat-bold-font-weight: 700;
+	// em; *italics* _italics_
+	--chat-emphasis-style: italic;
+	// u; __underline__
+	--chat-underline-decoration: underline;
+	// s; ~~strikethrough~~
+	--chat-strikethrough-decoration: line-through;
+	// pre; used for outer stuff for big codeblocks
+	--chat-preformatted-font-size: .75rem;
+	--chat-preformatted-line-height: 1rem;
+	// small; -# subtext
+	--chat-subtext-color: var(--text-muted);
+	--chat-subtext-font-size: .8125rem;
+	--chat-subtext-line-height: 1.11719rem;
+	// code; `inline code` ```large code blocks```
+	--chat-code-font-size: .875rem;
+	--chat-code-line-height: 1.125rem;
+	// code.inline; `inline code`
+	--chat-inline-code-font-size: 85%;
+	// h1,h2,h3,h4,h5,h6; # h1 | ## h2 | ### h3 | (h4, h5 and h6 do not appear to be possible to make)
+	--chat-headings-font-weight: 700;
+	--chat-headings-font-color: var(--header-primary);
+	--chat-headings-line-height: 1.375em;
+	// above but with .inlineFormat_[hash] class with it; genuinely no idea how to make this appear
+	--chat-inline-headings-font-weight: 600;
+	--chat-inline-headings-font-color: inherit;
+	--chat-inline-headings-line-height: 1.25em;
+	// h1; # h1
+	--chat-h1-font-size: 1.5rem;
+	// h2; ## h2
+	--chat-h2-font-size: 1.25rem;
+	// h3; ### h3
+	--chat-h3-font-size: 1rem;
+	// visual refresh experiment. gotta be unlucky if this effects you
+	--chat-visual-refresh-line-height: 1.5rem;
+	// light theme font weight without being zoomed in
+	--chat-light-theme-not-zoomed-in-font-weight: 500;
+}
+#{c(chat markup)} {
+	font-style: var(--chat-font-style,normal);
+	font-size: var(--chat-font-size,1rem);
+	line-height: var(--chat-line-height,1.375rem);
+	color: var(--chat-font-color,var(--text-normal));
+	font-weight: var(--chat-font-weight,400);
+	a {
+		color: var(--chat-link-color);
+		&:hover {
+			color: var(--chat-link-color-hover, var(--text-link));
+		}
+	}
+	strong {
+		font-weight: var(--chat-bold-font-weight,700);
+	}
+	em {
+		font-style: var(--chat-emphasis-style,italic);
+	}
+	u {
+		text-decoration: var(--chat-underline-decoration,underline);
+	}
+	s {
+		text-decoration: var(--chat-strikethrough-decoration,line-through);
+	}
+	pre {
+		font-size: var(--chat-preformatted-font-size,.75rem);
+		line-height: var(--chat-preformatted-line-height,1rem);
+	}
+	small:not(#{c(chat markupInlineFormat)}) {
+		color: var(--chat-subtext-color,var(--text-muted));
+		font-size: var(--chat-subtext-font-size,.8125rem);
+		line-height: var(--chat-subtext-line-height,1.11719rem);
+	}
+	code {
+		font-size: var(--chat-code-font-size,.875rem);
+		line-height: var(--chat-code-line-height,1.125rem);
+		&.inline {
+			font-size: var(--chat-inline-code-font-size,85%);
+		}
+	}
+	:is(h1,h2,h3,h4,h5,h6) {
+		font-weight: var(--chat-headings-font-weight,700);
+		color: var(--chat-headings-font-color,var(--header-primary));
+		line-height: var(--chat-headings-line-height,1.375em);
+		&#{c(chat markupInlineFormat)} {
+			font-weight: var(--chat-inline-headings-font-weight,600);
+			color: var(--chat-inline-headings-font-color,inherit);
+			line-height: var(--chat-inline-headings-line-height,1.25em);
+		}
+	}
+	h1 {
+		font-size: var(--chat-h1-font-size,1.5rem);
+	}
+	h2 {
+		font-size: var(--chat-h2-font-size,1.25rem);
+	}
+	h3 {
+		font-size: var(--chat-h3-font-size,1rem);
+	}
+	#{c(main visualRefresh)} & {
+		line-height: var(--chat-visual-refresh-line-height,1.5rem);
+	}
+	// "all" for every device, "-webkit-max-device-pixel-ratio" nonstandard zoom check thing with max of 1 being not zoomed in
+	@media all and (-webkit-max-device-pixel-ratio: 1) {
+		// light theme only reduce font weight... stuff? appears without zooming in on light theme
+		#{c(main light)} & {
+			font-weight: var(--chat-light-theme-not-zoomed-in-font-font-weight,500);
+		}
+	}
+}

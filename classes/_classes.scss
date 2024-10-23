@@ -209,6 +209,8 @@ $classes: (
 
 		"ring": "focus-rings-ring",
 
+		"visualRefresh": "visual-refresh", // Experiment that causes the app to look much more like the mobile app. Fun.
+
 		// these will eventually be removed
 		"checkboxWrapper": "!alias checkbox wrapper",
 		"checkboxWrapperDisabled": "!alias checkbox wrapperDisabled",
@@ -856,6 +858,7 @@ $classes: (
 		"messageGroupStart": "groupStart_d5deea",
 		"cozyMessage": "cozyMessage_d5deea",
 		"markup": "markup_f8f345",
+		"markupInlineFormat": "inlineFormat_f8f345",
 		"message": "message_d5deea",
 		"messageWrapper": "wrapper_f9f2ca",
 		"replying": "replying_d5deea",
@@ -2915,7 +2918,7 @@ $classes: (
 			"headerInner": "headerInner_b9fccc",
 
 			// "topSection": "topSection_b9fccc",
-			// "body": "body_bc9cc2",
+			"body": "body_b9fccc",
 			// "divider": "divider_b9fccc",
 			// includes other classes from 305 for colors
 			// "tabBarContainer": "tabBarContainer_b9fccc",

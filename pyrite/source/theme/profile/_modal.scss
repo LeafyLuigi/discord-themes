@@ -6,7 +6,19 @@
 		z-index: 0; // used to further fix background stuff
 	}
 	#{c(profile outer unthemed)} {
-		@include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter),$z:null);
+		@include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter));
+		#{c(profile modal body)} {
+			gap: 0;
+		}
+		#{c(profile username container)} {
+			background: $card;
+			padding: 16px 16px 0 16px;
+			border-radius: 8px 8px 0 0;
+		}
+		#{c(profile overlay overlay)} {
+			border-width: 1px 0 0;
+			border-radius: 0 0 8px 8px;
+		}
 	}
 }
 // #{c(profile modal premiumIconWrapper)} {

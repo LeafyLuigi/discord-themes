@@ -1,18 +1,15 @@
 /**
  * @name Pyrite
  * @author LeafyLuigi
- * @version 0.2.4
+ * @version 0.2.5
  * @description Pyrite for Vencord.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
- * @invite 7P99YTBRUu
+ * @invite EeQQTWbTf5
  */
 
 /* Import Base */
 @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/base.css);
-
-/* Import User Modal Layout */
-@import url(https://leafyluigi.github.io/discord-themes/pyrite/build/userModalLayout.css);
 
 /* Import Vencord Only Features */
 @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/vencord.css);
@@ -93,10 +90,6 @@
 	--user-modal-filter: none;
 	--user-popout-filter: none;
 
-	/* User Modal Layout sizes. Changing these HAS NOT BEEN TESTED. */
-	--user-modal-width: 900px;
-	--user-modal-height: 600px;
-
 	/* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
 	--hide-speed: 0.5s;
 	--hide-member-list: 1;
@@ -113,13 +106,13 @@
 	--HSL-server-direction: column; /* Direction of the server list. | OPTIONS: column, column-reverse | DEFAULT: column */
 
 	/* Debug; please do not touch */
-	--update-notice-dec23: none;
+	--update-notice-oct24: none;
 }
 
 
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
-.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]) {
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=userProfileOuterThemed_]) {
 	--card-background: rgba(0,0,0,0.5);
 	--side-shading: rgba(0,0,0,0.5);
 	--middle-shading: rgba(0,0,0,0.3);
@@ -132,7 +125,7 @@
 
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
-.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_]):not(div[class*=userProfileOuterThemed_]):not(div[class*=sidebar_]):not(nav[class*=guilds_]):not(div[class*=sidebarRegion_]) {
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_],div[class*=userProfileOuterThemed_],div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]) {
 	--card-background: rgba(255,255,255,0.05);
 	--side-shading: rgba(255,255,255,0.4);
 	--middle-shading: rgba(255,255,255,0.3);
@@ -141,4 +134,114 @@
 	/* The following are applied to buttons to indicate hover and being held down. */
 	--hover-filter: rgba(255,255,255,0.2);
 	--active-filter: rgba(255,255,255,0.4);
+}
+
+/*
+***********************************************************************************************
+** WARNING: *VERY* ADVANCED USERS ONLY. IF THIS SECTION IS TOO CONFUSING FOR YOU, IGNORE IT. **
+***********************************************************************************************
+
+Chat markup stuff. Change the appearance of certain in-chat text components.
+I strongly recommend reading Mozilla Development Network (MDN) for more information on the below variable kinds.
+
+Font sizes:
+	For accessibility reasons and there being a text size slider in Discord's settings, it is strongly recommended
+	to use "rem" units or percentages instead of other units ("px", "em", etc), using calc,
+	absolute sizes ("xx-small", "medium", "xxx-large", etc) or relative sizes ("smaller" and "larger").
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
+
+Line heights:
+	Line heights should always be larger than the font size. Either no specified unit (ie 1.2) should be used or
+	"rem" units should be used, preferably the former. Avoid percentages. A similar reason as above applies here.
+	The keyword "normal" may be used instead.
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
+
+Font weights:
+	Font weights are for the weight (or boldness) of the font. The weights depend on the chosen font and may or
+	may not appear. Numeric values between 1 and 1000 (inclusive) are accepted, as are certain keywords.
+	Headings usually have a higher weight than regular text.
+	"normal" is an alias for 400 while "bold" is an alias for 700. "lighter" and "bolder" may be used as relative keywords.
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+
+Font styles:
+	Font styles control the style of the text. These are either normal, italic or oblique. Italic text is generally cursive
+	while Oblique text is usually just normal text at an angle. Oblique text can also have a specified angle.
+	Note that not all fonts contain both Italic or Oblique styles with the latter usually being less common.
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-style
+
+Decorations:
+	Text decorations are extra things added to the text as a whole. The theme uses the CSS shorthand "text-decoration" within.
+	Only the "line" is used by default, though all will be explained:
+		- Line (text-decoration-line) controls where the line is placed. Accepted keyword values include "underline", "overline",
+			"line-through" and "none". Multiple non-none values may be used (ie text-decoration-line: underline overline;).
+			Underline will show a line underneath the text, overline will show a line above the text, line-through will show a
+			line through the text itself and none will not have any lines.
+		- Colour (text-decoration-color) controls the colour of all lines.
+		- Style (text-decoration-style) specifies the style of lines used. Accepted values include "solid", "double", "dotted",
+			"dashed" and "wavy".
+		- Thickness (text-decoration-thickness) is for how thick the lines are. 
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
+*/
+:root {
+	/* Default text components */
+	--chat-font-size: 1rem; /* Default 1rem */
+	--chat-line-height: 1.375rem; /* Default 1.375rem */
+	--chat-font-color: var(--text-normal); /* Default var(--text-normal) */
+	--chat-font-style: normal; /* Default normal */
+	--chat-font-weight: 400; /* Default 400 */
+	--chat-light-theme-not-zoomed-in-font-weight: 500; /* Default 500 | Light theme font weight without being zoomed in. This falls back to the default value above otherwise. */
+	
+	/* Links. */
+	--chat-link-color: var(--text-link); /* Default var(--text-link) */
+	--chat-link-color-hover: var(--chat-link-color); /* Default var(--chat-link-color) */
+
+	/* Bold text (eg **bold**) */
+	--chat-bold-font-weight: 700; /* Default 700 */
+
+	/* Italicised text (eg *italics* or _italics_) */
+	--chat-emphasis-style: italic; /* Default italic */
+
+	/* Underlined text (eg __underline__); note that this does not override underlines for links. */
+	--chat-underline-decoration: underline; /* Default underline */
+
+	/* Striked through text (eg ~~strikethrough~~) */
+	--chat-strikethrough-decoration: line-through; /* Default line-through */
+
+	/* Preformatted text. Appears to be used for outer stuff for big codeblocks. */
+	--chat-preformatted-font-size: .75rem; /* Default .75rem */
+	--chat-preformatted-line-height: 1rem; /* Default 1rem */
+
+	/* Subtext (eg -# subtext); note that the default values at default settings look very similar to the "Only you can see this" text by Clyde or other bots. */
+	--chat-subtext-color: var(--text-muted);/* Default var(--text-muted) */
+	--chat-subtext-font-size: .8125rem; /* Default .8125rem */
+	--chat-subtext-line-height: 1.11719rem; /* Default 1.11719rem */
+
+	/* Codeblocks, both inline and large (eg `inline code` and ```large code blocks```) */
+	--chat-code-font-size: .875rem; /* Default .875rem */
+	--chat-code-line-height: 1.125rem; /* Default 1.125rem */
+
+	/* Inline codeblock specifically has a smaller font size. (eg `inline code`) */
+	--chat-inline-code-font-size: 85%; /* Default 85% */
+
+	/* All HTML heading tags [h1,h2,h3,h4,h5,h6] (eg # h1 | ## h2 | ### h3 | (h4, h5 and h6 do not appear to be possible to made)) */
+	--chat-headings-font-weight: 700; /* Default 700 */
+	--chat-headings-font-color: var(--header-primary); /* Default var(--header-primary) */
+	--chat-headings-line-height: 1.375em; /* Default 1.375em */
+
+	/* Above but with .inlineFormat_[hash] class with it; I genuinely no idea how to make these appear */
+	--chat-inline-headings-font-weight: 600; /* Default 600 */
+	--chat-inline-headings-font-color: inherit; /* Default inherit */
+	--chat-inline-headings-line-height: 1.25em; /* Default 1.25rem */
+
+	/* First HTML heading (eg # h1) */
+	--chat-h1-font-size: 1.5rem; /* Default 1.5rem */
+
+	/* Second HTML heading (eg ## h2) */
+	--chat-h2-font-size: 1.25rem; /* Default 1.25rem */
+
+	/* Third HTML heading (eg ### h3). Other headings do not have their own rules. */
+	--chat-h3-font-size: 1rem; /* Default 1rem */
+
+	/* "Visual Refresh" experiment [2024-05_desktop_visual_refresh; Treatment 1: Refresh Enabled]. This likely will not effect you. */
+	--chat-visual-refresh-line-height: 1.5rem; /* Default 1.5rem */
 }
