@@ -40,6 +40,7 @@
 }
 
 :is(#{c(main dark)},#{c(main light)}) #{c(chatForm scrollableContainer)},
+#{c(chatForm stackedBars)},
 #{c(chatForm themedBackground)},
 #{c(chatForm attachedBars)},
 #{c(chatForm replyBar)},

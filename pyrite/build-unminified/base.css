@@ -1840,6 +1840,7 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 }
 
 :is(.theme-dark, .theme-light) .scrollableContainer_bdf0de,
+.stackedBars_bdf0de,
 .themedBackground_bdf0de,
 .attachedBars_bdf0de,
 .replyBar_b11c5e,
