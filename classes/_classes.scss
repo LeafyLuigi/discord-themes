@@ -1450,24 +1450,25 @@ $classes: (
 	"chatForm": (
 		"form": "form_a7d72e",
 		// the two below were both applied on a disabled chat and an enabled one. second one has the background. still unsure about it.
-		"channelTextAreaBase": "channelTextArea_d0696b", // base being applied to *every* form
+		"channelTextAreaBase": "channelTextArea_bdf0de", // base being applied to *every* form
 		"channelTextAreaMain": "channelTextArea_a7d72e", // used at bottom of text channels
-		"channelTextAreaDisabled": "channelTextAreaDisabled_d0696b", // you can't type into this channel
-		"innerDisabled": "innerDisabled_d0696b", // paired with inner
-		"scrollableContainer": "scrollableContainer_d0696b",
-		"inner": "inner_d0696b",
-		"sansAttachButton": "sansAttachButton_d0696b", // always on the main bar for some reason
+		"channelTextAreaDisabled": "channelTextAreaDisabled_bdf0de", // you can't type into this channel
+		"themedBackground": "themedBackground_bdf0de", // has background
+		"innerDisabled": "innerDisabled_bdf0de", // paired with inner
+		"scrollableContainer": "scrollableContainer_bdf0de",
+		"inner": "inner_bdf0de",
+		"sansAttachButton": "sansAttachButton_bdf0de", // always on the main bar for some reason
 		"uploadInput": "uploadInput_f298d4",
 		"attachWrapper": "attachWrapper_f298d4",
-		"attachButton": "attachButton_d0696b",
+		"attachButton": "attachButton_bdf0de",
 		"attachButtonInner": "attachButtonInner_f298d4",
 		"attachButtonPlus": "attachButtonPlus_f298d4",
-		"textArea": "textArea_d0696b",
-		"textAreaDisabled": "textAreaDisabled_d0696b",
-		"textAreaSlate": "textAreaSlate_d0696b",
+		"textArea": "textArea_bdf0de",
+		"textAreaDisabled": "textAreaDisabled_bdf0de",
+		"textAreaSlate": "textAreaSlate_bdf0de",
 		"placeholder": "placeholder_a552a6", // phantom text usually saying "Message $channel/$user"
-		"buttons": "buttons_d0696b",
-		"buttonContainer": "buttonContainer_d0696b",
+		"buttons": "buttons_bdf0de",
+		"buttonContainer": "buttonContainer_bdf0de",
 		"buttonWrapper": "buttonWrapper_f9af59",
 		"button": "alias button button",
 
@@ -1477,7 +1478,7 @@ $classes: (
 		"buttonActive": "active_f9af59",
 		"jumpToPresentBar": "jumpToPresentBar_cf58b5",
 		"messagesErrorBar": "messagesErrorBar_cf58b5",
-		"attachedBars": "attachedBars_d0696b",
+		"attachedBars": "attachedBars_bdf0de",
 		"clipContainer": "clipContainer_b11c5e",
 		"replyContainer": "container_b11c5e",
 		"replyBar": "replyBar_b11c5e",
