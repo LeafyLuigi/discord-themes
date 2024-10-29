@@ -2,7 +2,6 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
-// @use "map" as *;
 
 ////////////////////
 /// VERY IMPORTANT INFO FOR SEARCHING OR ADDING CLASS NAMES
@@ -55,20 +54,20 @@
 
 @function checkString($class,$alias: false) {
 	// debug locator string thingy
-	@if string.slice($class,1,1) == "!" {
+	@if str-slice($class,1,1) == "!" {
 		@warn "[DEBUG] The class, \"#{$class}\", was used";
-		$class: string.slice($class,2,-1);
+		$class: str-slice($class,2,-1);
 	}
-	@if string.slice($class,1,1) == "." {
+	@if str-slice($class,1,1) == "." {
 		@error "Dot at start of string within list. Please fix and try again.";
 	}
-	@if string.slice($class,1,6) == "alias " {
+	@if str-slice($class,1,6) == "alias " {
 		// force error on already tested aliases to prevent loops
 		@if $alias == true {
-			@error "Do not point aliases to other aliases as to prevent loops. Please fix this and try again.";
+			@error "Issue caused by \"#{$class}\". Do not point aliases to other aliases as to prevent loops. Please fix this and try again.";
 		}
 		$aliasList: (); // create fake list to be thrown into function again
-		$aliasQuery: string.slice($class, 7, -1); // remove `alias ` from query
+		$aliasQuery: str-slice($class, 7, -1); // remove `alias ` from query
 		$spaceIndex: str-index($aliasQuery, $substring: " "); // finds first space
 		@while $spaceIndex != null {
 			$item: str-slice($aliasQuery, 1, $spaceIndex - 1);
@@ -77,9 +76,9 @@
 			$spaceIndex: str-index($aliasQuery, $substring: " "); // if not found this declared null
 		}
 		$aliasList: append($aliasList, $aliasQuery, space); // adds last item after @while
-		@return #{c($aliasList, $alias:true)}; // thrown back into the class list as the new query
+		@return #{class($aliasList, $alias:true)}; // thrown back into the class list as the new query
 	}
-	@if string.slice($class,1,1) == "#" {
+	@if str-slice($class,1,1) == "#" {
 		@return $class;
 	} @else {
 		@return "."+$class;
@@ -101,14 +100,14 @@
 	$fullClassList: "";
 	$l: $classes;
 	@each $item in $l {
-		// list.nth($item,1); // category name
-		// type-of(list.nth($item,2)); // whole map
-		@each $subitem in list.nth($item,2) {
+		// nth($item,1); // category name
+		// type-of(nth($item,2)); // whole map
+		@each $subitem in nth($item,2) {
 			// $subitem should always be a list, don't question it.
-			$fullClassList: $fullClassList + debug_dump_all_classes_in_list("",list.nth($subitem,2));
+			$fullClassList: $fullClassList + debug_dump_all_classes_in_list("",nth($subitem,2));
 		}
 	}
-	@debug $fullClassList;
+	// @debug $fullClassList;
 	@return $fullClassList;
 }
 @function debug_dump_all_classes_in_list($strOfClasses,$listToDump) {
@@ -123,25 +122,107 @@
 		} @else if type-of($class) == list {
 			// @debug "it's a list.";
 			// skip first item since that'll be for the list identifier
-			$classesFromList: $classesFromList + debug_dump_all_classes_in_list($classesFromList,list.nth($class,2));
+			$classesFromList: $classesFromList + debug_dump_all_classes_in_list($classesFromList,nth($class,2));
 		}
 	}
 	@return $classesFromList;
 }
 @function debug_checkString($class) {
-	@if string.slice($class,1,1) == "!" {
-		$class: string.slice($class,2,-1); // remove `!`
+	@if str-slice($class,1,1) == "!" {
+		$class: str-slice($class,2,-1); // remove `!`
 	}
-	@if string.slice($class,1,1) == "." {
+	@if str-slice($class,1,1) == "." {
 		@return ""; // despite this actually intending to throw an error, it's better to skip them outright.
 	}
-	@if string.slice($class,1,6) == "alias " {
+	@if str-slice($class,1,6) == "alias " {
 		@return ""; // ignore all aliases
 	}
-	@if string.slice($class,1,1) == "#" {
+	@if str-slice($class,1,1) == "#" {
 		@return $class;
 	} @else {
 		@return "."+$class;
+	}
+}
+@function debug_dump_all_aliases_yes_i_am_sure() {
+	$fullClassList: "";
+	$l: $classes;
+	@each $item in $l {
+		// nth($item,1); // category name
+		// type-of(nth($item,2)); // whole map
+		@each $subitem in nth($item,2) {
+			// $subitem should always be a list, don't question it.
+			$fullClassList: $fullClassList + debug_dump_all_aliases_in_list("",nth($subitem,2));
+		}
+	}
+	// @debug $fullClassList;
+	@return $fullClassList;
+}
+@function debug_dump_all_aliases_in_list($strOfClasses,$listToDump) {
+	$classesFromList: "";
+	@each $class in $listToDump {
+		// @debug type-of($class) "|" $class;
+		@if type-of($class) == string {
+			$checkString: debug_checkString_alias($class);
+			@if $checkString != "" {
+				$classesFromList: $classesFromList + $checkString + "\A";
+			}
+		} @else if type-of($class) == list {
+			// @debug "it's a list.";
+			// skip first item since that'll be for the list identifier
+			$classesFromList: $classesFromList + debug_dump_all_aliases_in_list($classesFromList,nth($class,2));
+		}
+	}
+	@return $classesFromList;
+}
+@function debug_checkString_alias($class,$alias: false) {
+	@if type-of($class) == list {
+		$allClasses: $classes;
+		@each $item in $class {
+			$allClasses: map-get($allClasses, "#{$item}");
+			@if not $allClasses {
+				@if $alias {
+					@error "Unknown alias \"#{$item}\" in category: #{$class}. Please fix the classes list.";
+				} @else {
+					@error "Unknown class or ID \"#{$item}\" in category: #{$class}. Was the classes file not saved?";
+				}
+			}
+		}
+		$class: $allClasses;
+	}
+	@if type-of($class) == string {
+		@if str-slice($class,1,1) == "!" {
+			$class: str-slice($class,2,-1); // remove `!`
+		}
+		@if str-slice($class,1,1) == "." {
+			@return ""; // despite this actually intending to throw an error, it's better to skip them outright.
+		}
+		@if str-slice($class,1,6) == "alias " {
+			// force error on already tested aliases to prevent loops
+			@if $alias == true {
+				@error "Issue caused by \"#{$class}\". Do not point aliases to other aliases as to prevent loops. Please fix this and try again.";
+			}
+			$aliasList: (); // create fake list to be thrown into function again
+			$aliasQuery: str-slice($class, 7, -1); // remove `alias ` from query
+			$spaceIndex: str-index($aliasQuery, $substring: " "); // finds first space
+			@while $spaceIndex != null {
+				$item: str-slice($aliasQuery, 1, $spaceIndex - 1);
+				$aliasQuery: str-slice($aliasQuery, $spaceIndex+1,-1);
+				$aliasList: append($aliasList, $item, space);
+				$spaceIndex: str-index($aliasQuery, $substring: " "); // if not found this declared null
+			}
+			$aliasList: append($aliasList, $aliasQuery, space); // adds last item after @while
+			// @debug $aliasList;
+			@return #{debug_checkString_alias($aliasList, $alias:true)}; // thrown back into the class list as the new query
+		}
+	}
+	@if $alias == true {
+		@if str-slice($class,1,1) == "#" {
+			@return $class;
+		} @else {
+			@return "."+$class;
+		}
+	} @else {
+		@return ""; // return empty for non-aliases.
 	}
 }
 
@@ -218,12 +299,12 @@ $classes: (
 		"checkboxInput": "!alias checkbox input",
 		"checkboxChecked": "!alias checkbox checked",
 		"checkboxRound": "!alias checkbox round",
-		"checkboxWrapperRow": "!alias checkbox wrapperRow",
-		"toggle": "!alias main sliderContainer",
+		// "checkboxWrapperRow": "!alias checkbox wrapperRow",
+		// "toggle": "!alias main sliderContainer",
 		"fullMotion": "!alias main options fullMotion",
 		"reduceMotion": "!alias main options reduceMotion",
 		"groupSpacing16": "!alias main options messageSpacing 16",
-		"sliderContainer": "!alias slider container", // that sliding selection thing
+		// "sliderContainer": "!alias slider container", // that sliding selection thing
 		"slider": "!alias slider slider",
 		"sliderChecked": "!alias slider checked",
 		"sliderDisabled": "!alias slider disabled",
@@ -588,11 +669,11 @@ $classes: (
 		"participant": "participant_ea9cce",
 		"spriteWrapper": "spriteWrapper_ea9cce", // this to crossWhite seem to relate to the little animation when leaving a call
 		"sprite": "sprite_ea9cce",
-		"crossBase": "alias modals upload base",
-		"cross": "alias modals upload cross",
-		"crossBlurple": "alias modals upload crossBlurple",
-		"crossGrey": "alias modals upload crossGrey",
-		"crossWhite": "alias modals upload crossWhite",
+		"crossBase": "alias modals upload pop base",
+		"cross": "alias modals upload pop cross",
+		"crossBlurple": "alias modals upload pop crossBlurple",
+		"crossGrey": "alias modals upload pop crossGrey",
+		"crossWhite": "alias modals upload pop crossWhite",
 		"avatarWrapper": "wrapper_db83a2",
 		"avatarClickable": "clickable_db83a2",
 		"callAvatarMask": "callAvatarMask_db83a2",
@@ -2388,14 +2469,14 @@ $classes: (
 		"panelButtonEnabled": "enabled_adca65",
 		"panelButtonRedIcon": "redIcon_b2ca13", // used with server muted/deafened - see also profile/status/panel
 		"panelAvatarWrapper": "avatarWrapper_b2ca13",
-		"panelWithTag": "alias profile modal status panel withTagAsButton",
-		"panelWithTagless": "alias profile modal status panel withTagless",
+		// "panelWithTag": "alias profile modal status panel withTagAsButton",
+		// "panelWithTagless": "alias profile modal status panel withTagless",
 		"panelAvatar": "avatar_b2ca13",
 		"panelAvatarSpeaking": "avatarSpeaking_c51b4e", // also in same group in shared: avatar_c51b4e avatarDecoration_c51b4e avatarStack_c51b4e cursorDefault_c51b4e mask_c51b4e pointer_c51b4e pointerEvents_c51b4e status_bf52c0 svg_c51b4e wrapper_c51b4e
-		"panelName": "alias profile modal status panel nameTag",
-		"panelNameCanCopy": "alias profile modal status panel canCopy",
+		// "panelName": "alias profile modal status panel nameTag",
+		// "panelNameCanCopy": "alias profile modal status panel canCopy",
 		"panelStatusSubtext": "subtext_be40e6",
-		"panelUsernameContainer": "alias profile modal status panel usernameContainer",
+		// "panelUsernameContainer": "alias profile modal status panel usernameContainer",
 		"panelActionButtons": "actionButtons_adcaac",
 		
 		// panelWrapper line
@@ -2510,7 +2591,7 @@ $classes: (
 		"yellow": "tooltipYellow_b6c360",
 
 		// different css lines
-		"reactionTooltipEmoji": "alias reaction tooltip emoji",
+		// "reactionTooltipEmoji": "alias reaction tooltip emoji",
 		"stageListenerPill": "stageListenerPill_a6ae3c",
 	),
 
@@ -2931,14 +3012,14 @@ $classes: (
 			"outer": "alias profile outer modal",
 			"inner": "alias profile inner modal",
 						
-			"profileBanner": "alias profile banner profile",
-			"profileBannerPremium": "alias profile banner profilePremium",
+			// "profileBanner": "alias profile banner profile",
+			// "profileBannerPremium": "alias profile banner profilePremium",
 			
 			// "premiumIconWrapper": "alias profile banner premiumIconWrapper",
 			// "premiumIconWrapperClickable": "alias profile banner premiumIconWrapperClickable",
 			// "premiumIcon": "alias profile banner premiumIcon",
 
-			"badge24": "alias profile badge badge24",
+			// "badge24": "alias profile badge badge24",
 			
 			// removed stuffs
 			// "header": "header_ec3b75",
@@ -3059,7 +3140,7 @@ $classes: (
 
 			// "banner": "alias profile banner panel",
 
-			"avatarPosition": "alias profile avatar position panel",
+			// "avatarPosition": "alias profile avatar position panel",
 
 			// "badgeListGroup": "badgelistGroup_ab525a",
 			// "badgeList": "badgeList_ab525a",
@@ -3088,7 +3169,7 @@ $classes: (
 			"collapseButtonContent": "collapseBtnContent_a4a127",
 			"collapseButtonIcon": "iconWrapper_a4a127",
 
-			"connectionDivider": "alias profile panel friendsDivider",
+			// "connectionDivider": "alias profile panel friendsDivider",
 			// "connectionItem": "profilePanelConnectionItem_ec153b",
 			// "connectionAvatar": "connectionAvatar__76b5a",
 			// "connectionText": "textGroup_cfa265",
@@ -3104,37 +3185,37 @@ $classes: (
 
 			"overlayBackground": "alias profile overlay popout",
 			"outer": "alias profile outer popout",
-			"inner": "alias profile inner popout",
+			// "inner": "alias profile inner popout",
 			
 			"banner": "alias profile banner banner",
-			"popoutBanner": "alias profile banner popout",
-			"popoutBannerPremium": "alias profile banner popoutPremium",
-			"popoutNoBannerPremium": "alias profile banner popoutNoBannerPremium",
-			"bannerPremium": "alias profile banner premium",
-			"roundedBanner": "alias profile banner rounded",
+			// "popoutBanner": "alias profile banner popout",
+			// "popoutBannerPremium": "alias profile banner popoutPremium",
+			// "popoutNoBannerPremium": "alias profile banner popoutNoBannerPremium",
+			// "bannerPremium": "alias profile banner premium",
+			// "roundedBanner": "alias profile banner rounded",
 
-			"pencilContainer": "alias profile banner pencilContainer",
-			"pencilIcon": "alias profile banner pencilIcon",
+			// "pencilContainer": "alias profile banner pencilContainer",
+			// "pencilIcon": "alias profile banner pencilIcon",
 
 			"avatarClickable": "alias profile avatar clickable",
-			"avatarWrapperNormal": "alias profile avatar wrapperNormal",
-			"avatarWrapper": "alias profile avatar wrapper",
-			"avatarPositionNormal": "alias profile avatar position normal",
-			"avatarPositionPremium": "alias profile avatar position premiumBanner",
-			"avatarPositionPremiumNoBanner": "alias profile avatar position premiumNoBanner",
-			"avatarHoverTarget": "alias profile avatar hoverTarget",
+			// "avatarWrapperNormal": "alias profile avatar wrapperNormal",
+			// "avatarWrapper": "alias profile avatar wrapper",
+			// "avatarPositionNormal": "alias profile avatar position normal",
+			// "avatarPositionPremium": "alias profile avatar position premiumBanner",
+			// "avatarPositionPremiumNoBanner": "alias profile avatar position premiumNoBanner",
+			// "avatarHoverTarget": "alias profile avatar hoverTarget",
 			// "avatarHint": "alias profile avatar hint",
-			"avatarHintInner": "alias profile avatar hintInner",
+			// "avatarHintInner": "alias profile avatar hintInner",
 
 			// "badges": "alias profile avatar badges", // don't ask why it's in avatar; it's on that line
-			"badgesContainer": "alias profile badge container",
-			"badgesWithContent": "alias profile badge containerWithContent",
-			"badgeClickable": "alias profile badge clickable",
-			"badge22": "alias profile badge badge22",
-			"badge": "alias profile badge badge",
+			// "badgesContainer": "alias profile badge container",
+			// "badgesWithContent": "alias profile badge containerWithContent",
+			// "badgeClickable": "alias profile badge clickable",
+			// "badge22": "alias profile badge badge22",
+			// "badge": "alias profile badge badge",
 
-			"bodySection": "alias profile nonModal section",
-			"lastSection": "alias profile nonModal lastSection",
+			// "bodySection": "alias profile nonModal section",
+			// "lastSection": "alias profile nonModal lastSection",
 
 			// "customStatusSection": "customStatusSection_d2b491",
 			// "usernameSection": "usernameSection_d2b491",
@@ -3142,25 +3223,25 @@ $classes: (
 			// "scroller": "scroller_d2b491",
 			// "scrollerSeparator": "scrollerSeparator_d2b491",
 
-			"userText": "alias profile nonModal userText userText",
-			"userTagNoNickname": "alias profile nonModal userText tagNoNickname",
-			"userTagWithNickname": "alias profile nonModal userText tagWithNickname",
-			"userTag": "alias profile nonModal userText tag",
-			"nickname": "alias profile nonModal userText nickname",
-			"userTagUsernameNoNickname": "alias profile nonModal userText tagUsernameNoNickname",
-			"userTagUsernameBase": "alias profile nonModal userText tagUsernameBase",
-			"userTagDiscriminatorNoNickname": "alias profile nonModal userText tagDiscriminatorNoNickname",
-			"discrimBase": "alias profile nonModal userText discrimBase",
+			// "userText": "alias profile nonModal userText userText",
+			// "userTagNoNickname": "alias profile nonModal userText tagNoNickname",
+			// "userTagWithNickname": "alias profile nonModal userText tagWithNickname",
+			// "userTag": "alias profile nonModal userText tag",
+			// "nickname": "alias profile nonModal userText nickname",
+			// "userTagUsernameNoNickname": "alias profile nonModal userText tagUsernameNoNickname",
+			// "userTagUsernameBase": "alias profile nonModal userText tagUsernameBase",
+			// "userTagDiscriminatorNoNickname": "alias profile nonModal userText tagDiscriminatorNoNickname",
+			// "discrimBase": "alias profile nonModal userText discrimBase",
 
 			"nameTag": "alias nameTag nameTag",
 			"username": "alias nameTag username",
 
-			"bodyScroller": "alias profile popout scroller",
-			"bodySectionTitle": "alias profile nonModal title",
+			// "bodyScroller": "alias profile popout scroller",
+			// "bodySectionTitle": "alias profile nonModal title",
 
 			"memberSinceContainer": "alias profile memberSince container",
 			"discordIcon": "alias profile memberSince discordIcon",
-			"body": "alias profile nonModal body",
+			// "body": "alias profile nonModal body",
 			"memberSinceDivider": "alias profile memberSince divider",
 			
 			// all on same line
@@ -3327,13 +3408,13 @@ $classes: (
 
 		"profileImageUploader": "imageUploader_de76e4",
 		// "profileAvatarUploader": "avatarUploaderInner_ab876d",
-		"profileBody": "alias profile settings body",
+		// "profileBody": "alias profile settings body",
 
 		"radioGroupItem": "item_eb92a8",
 		"radioBar": "radioBar_eb92a8",
 		"radioBarInfo": "info_eb92a8",
-		"radioBarName": "alias text text mMedium", // primary text
-		"radioBarDesc": "alias text text sNormal", // small print
+		// "radioBarName": "alias text text mMedium", // primary text
+		// "radioBarDesc": "alias text text sNormal", // small print
 		"radioIconForeground": "radioIconForeground_eb92a8", // selected radio button's circle inner
 
 		"formNotice": "formNotice_aae945", // "Check out our Terms of Service and Privacy Policy", authorized apps box at top | formNoticeBody_aae945 formNoticeTitle_aae945 icon_aae945 whiteText_aae945
@@ -3341,7 +3422,7 @@ $classes: (
 		"cardPrimary": "alias card primary",
 		"cardPrimaryEditable": "alias card primaryEditable",
 		"cardPrimaryOutline": "alias card primaryOutline",
-		"cardPrimaryOutlineEditable": "alias card primaryOutlineEditable",
+		// "cardPrimaryOutlineEditable": "alias card primaryOutlineEditable",
 
 		"authedApp": "authedApp_f0135d",
 		"authedPermission": "permission_f0135d",
@@ -5067,7 +5148,7 @@ $classes: (
 		// category for alias
 		"d": (
 			"foobar": "alias test a foo", // output should be "bar"
-			"loopback": "alias test d loopback" // should error
+			// "loopback": "alias test d loopback" // should error; commented because **IT DOES**
 		),
 		// category to test dots (for class names) and hashes (for ids) etc
 		"e": (

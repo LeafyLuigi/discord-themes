@@ -77,7 +77,7 @@ $allColors: (
 // SCSS scale-color($col, $saturation: -5%) doesn't work in the same way as Discord's own saturation magik. As such all variations on what the saturation is has to be used.
 
 // attempt for finding -10% saturation from #23a55a -- this should've been #30995c but was #2a9f5b instead.
-// $a: list.nth($allOnline,1);
+// $a: nth($allOnline,1);
 // @debug rgba(red($a), blue($a), green($a), alpha($a));
 // @debug scale-color($a, $saturation:-10%);
 
@@ -93,17 +93,17 @@ $allColors: (
 	@each $colType in $allColors {
 		$listDone: (); // temp list for completed colors to avoid repeating
 		$list: ":is(";
-		@each $col in list.nth($colType,2) {
-			@if not list.index($listDone, $col) {
+		@each $col in nth($colType,2) {
+			@if not index($listDone, $col) {
 				// @debug $col;
 				$list: $list+'[fill="'+$col+'"],[fill="rgba('+color.channel($col,"red",$space: rgb)+', '+color.channel($col,"green",$space: rgb)+', '+color.channel($col,"blue",$space: rgb)+', 1)"],';
-				$listDone: list.append($listDone,$col);
+				$listDone: append($listDone,$col);
 			}
 		}
 		$list: str-slice($list,1,-2)+")"; // remove last comma and close list
 		// @debug $list;
 		&#{$list} {
-			fill: var(--#{list.nth($colType,1)})
+			fill: var(--#{nth($colType,1)})
 		}
 	}
 }
@@ -113,17 +113,17 @@ $allColors: (
 	@each $colType in $allColors {
 		$listDone: (); // temp list for completed colors to avoid repeating
 		$list: ":is(";
-		@each $col in list.nth($colType,2) {
-			@if not list.index($listDone, $col) {
+		@each $col in nth($colType,2) {
+			@if not index($listDone, $col) {
 				// @debug $col;
 				$list: $list+'[style*="rgb('+color.channel($col,"red",$space: rgb)+', '+color.channel($col,"green",$space: rgb)+', '+color.channel($col,"blue",$space: rgb)+')"],';
-				$listDone: list.append($listDone,$col);
+				$listDone: append($listDone,$col);
 			}
 		}
 		$list: str-slice($list,1,-2)+")"; // remove last comma and close list
 		// @debug $list;
 		&#{$list} {
-			background-color: var(--#{list.nth($colType,1)}) !important; // !important reason: override inline style
+			background-color: var(--#{nth($colType,1)}) !important; // !important reason: override inline style
 		}
 	}
 }
