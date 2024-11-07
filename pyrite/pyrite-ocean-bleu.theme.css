@@ -1,7 +1,7 @@
 /**
  * @name Pyrite - Océan Bleu
  * @author LeafyLuigi
- * @version 0.2.5
+ * @version 0.2.6
  * @description Pyrite for BetterDiscord/BandagedBD/Vencord. Océan Bleu Edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
@@ -117,7 +117,7 @@
 
 /* Feel free to edit these ones for Dark Mode */
 .theme-dark,
-.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=userProfileOuterThemed_]) {
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=fullSize_],[class*=biteSize_])) {
 	--card-background: rgba(0,0,0,0.5);
 	--side-shading: rgba(0,0,0,0.5);
 	--middle-shading: rgba(0,0,0,0.3);
@@ -130,7 +130,7 @@
 
 /* Feel free to edit these ones for Light Mode */
 .theme-light,
-.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_],div[class*=userProfileOuterThemed_],div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]) {
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_],div[class*=outer_]:is([class*=fullSize_],[class*=biteSize_]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]) {
 	--card-background: rgba(255,255,255,0.05);
 	--side-shading: rgba(255,255,255,0.4);
 	--middle-shading: rgba(255,255,255,0.3);
@@ -196,10 +196,6 @@ Decorations:
 	--chat-font-weight: 400; /* Default 400 */
 	--chat-light-theme-not-zoomed-in-font-weight: 500; /* Default 500 | Light theme font weight without being zoomed in. This falls back to the default value above otherwise. */
 	
-	/* Links. */
-	--chat-link-color: var(--text-link); /* Default var(--text-link) */
-	--chat-link-color-hover: var(--chat-link-color); /* Default var(--chat-link-color) */
-
 	/* Bold text (eg **bold**) */
 	--chat-bold-font-weight: 700; /* Default 700 */
 
