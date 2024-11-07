@@ -2605,44 +2605,48 @@ $classes: (
 
 		"showOutOfBoundaryComponents": "showOutOfBoundaryComponents_c69a7b", // no idea what this is for tbh
 
-		"overlay": (
-			"overlay": "overlayBackground_c69a7b",
-			
-			"popout": "userPopoutOverlayBackground_c69a7b",
-			"modal": "userProfileModalOverlayBackground_c69a7b",
-			// "panel": "userPanelOverlayBackground_a2b6ae",
-			"biteSizeOverlayBackground": "biteSizeOverlayBackground_c69a7b",
-			"fullSizeOverlayBackground": "fullSizeOverlayBackground_c69a7b",
-		),
+		"themed": "custom-profile-theme",
+		"overlay": "overlay_c69a7b",
+		// (
+		// 	"overlay": "overlayBackground_c69a7b",
+		// 	"popout": "userPopoutOverlayBackground_c69a7b",
+		// 	"modal": "userProfileModalOverlayBackground_c69a7b",
+		// 	// "panel": "userPanelOverlayBackground_a2b6ae",
+		// 	"biteSizeOverlayBackground": "biteSizeOverlayBackground_c69a7b",
+		// 	"fullSizeOverlayBackground": "fullSizeOverlayBackground_c69a7b",
+		// ),
+		"biteSize": "biteSize_c69a7b",
+		"fullSize": "fullSize_c69a7b",
+		"outer": "outer_c69a7b",
+		// (
+		// 	"outer": "userProfileOuter_c69a7b",
+		// 	"themed": "userProfileOuterThemed_c69a7b",
+		// 	"unthemed": "userProfileOuterUnthemed_c69a7b",
 
-		"outer": (
-			"outer": "userProfileOuter_c69a7b",
-			"themed": "userProfileOuterThemed_c69a7b",
-			"unthemed": "userProfileOuterUnthemed_c69a7b",
+		// 	"card": "userCardOuter_c69a7b",
+		// 	"popout": "userPopoutOuter_c69a7b",
+		// 	"modal": "userProfileModalOuter_c69a7b",
+		// 	"panel": "userPanelOuter_c69a7b",
+		// 	"biteSizeOuter": "biteSizeOuter_c69a7b",
+		// 	"fullSizeOuter": "fullSizeOuter_c69a7b",
+		// ),
 
-			"card": "userCardOuter_c69a7b",
-			"popout": "userPopoutOuter_c69a7b",
-			"modal": "userProfileModalOuter_c69a7b",
-			"panel": "userPanelOuter_c69a7b",
-			"biteSizeOuter": "biteSizeOuter_c69a7b",
-			"fullSizeOuter": "fullSizeOuter_c69a7b",
-		),
+		"inner": "inner_c69a7b",
+		// (
+		// 	"inner": "userProfileInner_c69a7b",
+		// 	"themedPremiumWithoutBanner": "userProfileInnerThemedPremiumWithoutBanner_c69a7b",
+		// 	"themedWithBanner": "userProfileInnerThemedWithBanner_c69a7b",
+		// 	"themedNonPremium": "userProfileInnerThemedNonPremium_c69a7b", // so basically "without theme"
 
-		"inner": (
-			"inner": "userProfileInner_c69a7b",
-			"themedPremiumWithoutBanner": "userProfileInnerThemedPremiumWithoutBanner_c69a7b",
-			"themedWithBanner": "userProfileInnerThemedWithBanner_c69a7b",
-			"themedNonPremium": "userProfileInnerThemedNonPremium_c69a7b", // so basically "without theme"
+		// 	"card": "userCardInner_c69a7b",
+		// 	// "popout": "userPopoutInner_c69a7b",
+		// 	"modal": "userProfileModalInner_c69a7b",
+		// 	"panel": "userPanelInner_c69a7b",
+		// 	"biteSizeInnerThemed": "biteSizeInnerThemed_c69a7b",
+		// 	"fullSizeInnerThemed": "fullSizeInnerThemed_c69a7b",
 
-			"card": "userCardInner_c69a7b",
-			// "popout": "userPopoutInner_c69a7b",
-			"modal": "userProfileModalInner_c69a7b",
-			"panel": "userPanelInner_c69a7b",
-			"biteSizeInnerThemed": "biteSizeInnerThemed_c69a7b",
-			"fullSizeInnerThemed": "fullSizeInnerThemed_c69a7b",
-
-			"panelThemed": "userPanelInnerThemed_c69a7b",
-		),
+		// 	"panelThemed": "userPanelInnerThemed_c69a7b",
+		// ),
 
 		// "bannerSVGWrapper": "alias profile banner svgWrapper",
 		// Banners are in their own line. The SVG Wrapper is in its own line.
@@ -3112,6 +3116,7 @@ $classes: (
 		// Panel: Go to the DMs of someone while your screen is larger than
 		// 1132px wide and you've not disabled the panel via header
 		"panel": (
+			"panel": "panel_c69a7b",
 			"container": "container_a823cd",
 
 			"activity": "activity_a972fe",

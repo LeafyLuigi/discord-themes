@@ -1,8 +1,11 @@
 @use "backend" as *;
 /* Start User Profile Panel */
-#{c(profile outer panel)} {
+#{c(profile panel panel)} {
 	--width: 340px;
 	--hide-var: var(--hide-profile-panel);
+	&#{c(profile themed)} {
+		background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-secondary-color)) transparent;
+	}
 }
 // #{c(profile panel activityBackground)} {
 // 	background: $card;

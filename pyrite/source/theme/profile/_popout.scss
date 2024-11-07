@@ -1,6 +1,6 @@
 @use "backend" as *;
 /* Start User Popout */
-#{c(profile popout outer)}:not(#{c(profile outer themed)}) {
+#{c(profile biteSize)}:not(#{c(profile themed)}) {
 	@include bg($f:var(--user-popout-filter),$bgf:var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment));
 	position: relative;
 	box-shadow: none;
@@ -14,8 +14,7 @@
 	// #{c(profile popout badges)} {
 	// 	background-color: $card;
 	// }
-	#{c(profile inner biteSizeInnerThemed)},
-	#{c(profile inner fullSizeInnerThemed)} {
+	#{c(profile inner)} {
 		background: transparent;
 	}
 	#{c(profile popout bitesize body)} {

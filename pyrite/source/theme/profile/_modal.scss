@@ -5,7 +5,7 @@
 		transform: unset !important; // !important reason: required to fix background attachment
 		z-index: 0; // used to further fix background stuff
 	}
-	#{c(profile outer unthemed)} {
+	#{c(profile outer)}:not(#{c(profile themed)}) {
 		@include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter));
 		#{c(profile modal body)} {
 			gap: 0;
@@ -15,12 +15,20 @@
 			padding: 16px 16px 0 16px;
 			border-radius: 8px 8px 0 0;
 		}
-		#{c(profile overlay overlay)} {
+		#{c(profile overlay)} {
 			border-width: 1px 0 0;
 			border-radius: 0 0 8px 8px;
 		}
 	}
 }
+
+#{c(profile fullSize)}:not(#{c(profile themed)}) {
+	background: transparent;
+	#{c(profile overlay)} {
+		background: $card;
+	}
+}
+
 // #{c(profile modal premiumIconWrapper)} {
 // 	display: none;
 // }

@@ -104,8 +104,8 @@ $card: var(--card-background);
 // server icons, server folders
 
 // size = 80
-#{c(profile popout outer)},
-// #{c(profile panel panel)},
+#{c(profile outer)},
+#{c(profile panel panel)},
 #{c(userSettings profileImageUploader)},
 #{c(modals avatarUpload contentCircle)} {
 	--br-multi: 2.5;

@@ -17,18 +17,3 @@
 // 	--account-profile-popout-menu-hover: var(--primary-color); // status picker - despite variable name, primary is used for parity with menus
 // 	--profile-note-background-color: transparent; // focused note textarea, also for some reason not defined in profile colors
 // }
-
-#{c(profile outer unthemed)} {
-	// #{c(profile modal badgeList)},
-	// #{c(profile modal relationshipButtons)},
-	#{c(profile overlay overlay)} {
-		background: $card;
-	}
-}
-#{c(profile inner panelThemed)},
-#{c(profile outer unthemed)},
-#{c(profile inner themedNonPremium)},
-#{c(profile inner biteSizeInnerThemed)},
-#{c(profile inner fullSizeInnerThemed)} {
-	background: transparent;
-}
