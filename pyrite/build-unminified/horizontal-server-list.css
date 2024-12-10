@@ -132,7 +132,7 @@
 .wrapper_bc7085 ul[role=group] {
   display: flex;
   flex-direction: var(--server-direction);
-  gap: var(--server-spacing);
+  gap: var(--server-spacing) !important;
 }
 
 .listItem_c96c45 {

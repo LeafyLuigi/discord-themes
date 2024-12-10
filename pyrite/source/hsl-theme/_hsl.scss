@@ -146,10 +146,10 @@
 	display: flex;
 	flex-direction: var(--server-direction);
 	gap: var(--server-spacing);
-	ul[role='group'] { // folder items
+	ul[role=group] { // folder items
 		display: flex;
 		flex-direction: var(--server-direction);
-		gap: var(--server-spacing);
+		gap: var(--server-spacing) !important; // !important reason: element.style
 	}
 }
 
