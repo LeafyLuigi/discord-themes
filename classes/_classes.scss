@@ -248,7 +248,7 @@ $classes: (
 		"mobileApp": "mobileApp_bd26cc",
 		"allowsScrolling": "allowsScrolling_bd26cc",
 
-		"appInner": "app_a01fb1",
+		"appInner": "app_a01fb1", // this one shakes
 		"layers": "layers_a01fb1",
 		
 		// all on same line
@@ -662,6 +662,8 @@ $classes: (
 		"contextMenuNub": "contextMenuNub_ef18ee", // said drop down arrow
 		"contextMenuCaret": "contextMenuCaret_ef18ee", // the ^ symbol
 		"caretTransition": "transition_f48d4e",
+		"centerButton": "centerButton_ef18ee",
+		"centerButtonIcon": "centerIcon_ef18ee",
 		"caretOpen": "open_ef18ee", // paired with contextMenuCaret to rotate
 		"caretDirectionDown": "directionDown_f48d4e",
 
@@ -874,6 +876,11 @@ $classes: (
 		"chatScrollerInner": "scrollerInner_e2e187",
 		"chatScrollerNSFW": "scroller_fbb822",
 		"chatGatedContent": "gatedContent_def860",
+		"chatGatedImage": "image_def860",
+		"chatGatedTitle": "title_def860",
+		"chatGatedDescription": "description_def860",
+		"chatGatedSeparator": "separator_def860", // no idea how to actually get it :)
+		"chatGatedAction": "action_def860", // buttons
 		"chatContentInner": "chatContent_a7d72e",
 		"chatLoadingWrapper": "wrapper_cdfd51",
 		"scrollerSpacer": "scrollerSpacer_e2e187", // placed at bottom of message list
@@ -922,6 +929,7 @@ $classes: (
 		"allowedRoleButton": "role_f1044f", // element kind button
 		"allowedRole": "role_e5bd91",
 		"allowedRole2": "role_d70de6", // paired with above
+		"allowedRoleColor": "roleColor_d70de6",
 
 		"messageContents": "contents_f9f2ca",
 		"messageAttachmentsContainer": "container_b558d0",
@@ -1449,13 +1457,15 @@ $classes: (
 		"channelTextAreaDisabled": "channelTextAreaDisabled_bdf0de", // you can't type into this channel
 		"themedBackground": "themedBackground_bdf0de", // has background
 		"stackedBars": "stackedBars_bdf0de", // also has background
+		"stackedAttachedBar": "stackedAttachedBar_bdf0de",
 		"innerDisabled": "innerDisabled_bdf0de", // paired with inner
 		"scrollableContainer": "scrollableContainer_bdf0de",
 		"inner": "inner_bdf0de",
 		"sansAttachButton": "sansAttachButton_bdf0de", // always on the main bar for some reason
 		"uploadInput": "uploadInput_f298d4",
 		"attachWrapper": "attachWrapper_f298d4",
-		"attachButton": "attachButton_bdf0de",
+		"attachButton": "attachButton_f298d4",
+		"attachButton2": "attachButton_bdf0de", // multiple classes same name same element fun fun
 		"attachButtonInner": "attachButtonInner_f298d4",
 		"attachButtonPlus": "attachButtonPlus_f298d4",
 		"textArea": "textArea_bdf0de",
@@ -1463,16 +1473,20 @@ $classes: (
 		"textAreaSlate": "textAreaSlate_bdf0de",
 		"placeholder": "placeholder_a552a6", // phantom text usually saying "Message $channel/$user"
 		"buttons": "buttons_bdf0de",
-		"buttonContainer": "buttonContainer_bdf0de",
-		"buttonWrapper": "buttonWrapper_f9af59",
 		"button": "alias button button",
-
+		"buttonContainer": "buttonContainer_bdf0de",
+		"buttonInner": "button_f9af59",
+		"buttonWrapper": "buttonWrapper_f9af59",
+		
+		"emojiButton": "emojiButton_d91a75",
+		
 		"xmasGiftButton": "container_dfb455", // Make sure to remove this if it yk gets removed
 
 		"lookBlank": "alias button lookBlank",
 		"buttonActive": "active_f9af59",
 		"jumpToPresentBar": "jumpToPresentBar_cf58b5",
 		"messagesErrorBar": "messagesErrorBar_cf58b5",
+		"hasMore": "hasMore_cf58b5",
 		"attachedBars": "attachedBars_bdf0de",
 		"clipContainer": "clipContainer_b11c5e",
 		"replyContainer": "container_b11c5e",
@@ -1481,6 +1495,8 @@ $classes: (
 		"mentionButton": "mentionButton_b11c5e",
 		"replyName": "name_b11c5e",
 		"threadSuggestionBar": "threadSuggestionBar_b11c5e",
+
+		"inlineLink": "fakeLink_cdb578",
 
 		// also applies to blocked
 		"followWrapper": "wrapper_faf5ab",
@@ -1506,6 +1522,7 @@ $classes: (
 
 		"typingBase": "base_d7ebeb",
 		"typing": "typing_d7ebeb",
+		"typingText": "text_d7ebeb",
 		"typingDots": "dots_ce0450",
 		"typingDotsThemed": "themed_ce0450", // found in chatHome's widgets may not apply elsewhere
 
@@ -1602,7 +1619,7 @@ $classes: (
 		"embedGridContainer": "gridContainer_b0068a",
 		"embedSuppressButton": "embedSuppressButton_b0068a",
 		"embedVideo": "embedVideo_b0068a",
-		"attachment": "attachment_b52bef", // attachmentInner_b52bef cancelButton_b52bef downloadButton__3fb6d downloadWrapper_b46225 fileNameLink_b52bef filename_b52bef filenameLinkWrapper_b52bef filenameWrapper_b52bef icon_b52bef metadata_b52bef newMosaicStyle_b52bef progress_b52bef progressContainer_b52bef rate__50023 size_b52bef
+		"attachment": "file_f46c86", // attachmentInner_b52bef cancelButton_b52bef downloadButton__3fb6d downloadWrapper_b46225 fileNameLink_b52bef filename_b52bef filenameLinkWrapper_b52bef filenameWrapper_b52bef icon_b52bef metadata_b52bef newMosaicStyle_b52bef progress_b52bef progressContainer_b52bef rate__50023 size_b52bef
 		"textContainerUp": "container_d8e2d0", // parent of below class
 		"textContainer": "textContainer_d8e2d0",
 		"textFooter": "footer_d8e2d0",
@@ -1763,6 +1780,8 @@ $classes: (
 
 		"empty": "friendsEmpty_a62993",
 		"emptyImage": "image_a3747e",
+		"emptyTitle": "title_a3747e",
+		"emptyText": "text_a3747e",
 
 		"nowPlayingColumn": "nowPlayingColumn_c2739c",
 		"nowPlayingContainer": "container_bf550a",
@@ -1993,6 +2012,7 @@ $classes: (
 	),
 	"notice": (
 		"base": "notice_be03aa",
+		"button": "button_be03aa",
 		"closeButton": "closeButton_be03aa", // "X" on right
 		"colorWarning": "colorWarning_be03aa", // shown when nitro is about to end when you don't have a payment option. on same line as other notice stuff
 		"colorDanger": "colorDanger_be03aa", // mic muted
@@ -2172,25 +2192,25 @@ $classes: (
 
 		// separated "discover" button - kinda unsure about most of these classes ngl
 		"discover": (
-			"container": "container_aa1bff",
+			"container": "container_d71945",
 			"popup": ( // not sure what the popup class actually is
-				"anchor": "popoutAnchor_aa1bff",
-				"container": "popoutContainer_aa1bff",
-				"caret": "popoutCaret_aa1bff",
-				"caretLeft": "popoutCaretLeft_aa1bff",
-				"content": "popoutContent_aa1bff",
+				"anchor": "popoutAnchor_d71945",
+				"container": "popoutContainer_d71945",
+				"caret": "popoutCaret_d71945",
+				"caretLeft": "popoutCaretLeft_d71945",
+				"content": "popoutContent_d71945",
 			),
-			"footer": "footer_aa1bff", // in list, has gradient within and discover button (different class group)
-			"gradient": "gradient_aa1bff",
-			"gradientHidden": "gradientHidden_aa1bff", // only shown when server list is at the bottom
-			"backgroundImage": "backgroundImage_aa1bff",
-			"genericBackgroundImage": "genericBackgroundImage_aa1bff", // seems like placeholder for "quest"/sponsored stuff
+			"footer": "footer_d71945", // in list, has gradient within and discover button (different class group)
+			"gradient": "gradient_d71945",
+			"gradientHidden": "gradientHidden_d71945", // only shown when server list is at the bottom
+			"backgroundImage": "backgroundImage_d71945",
+			"genericBackgroundImage": "genericBackgroundImage_d71945", // seems like placeholder for "quest"/sponsored stuff
 			// sponsored images. thse contain a `background-image: url(https://cdn.discordapp.com/assets/clans/DiscoveryUpsell_{$game}_Background.png)`.
-			"genshin": "genshinBackgroundImage_aa1bff", // linked image is of Xinayun. 5.1 is around the corner from time of writing. She was added in 4.4; 9 months ago. actual lmao.
-			"valorant": "valorantBackgroundImage_aa1bff", // i don't play valorant so no funny commentary from me this time
+			"genshin": "genshinBackgroundImage_d71945", // linked image is of Xinayun. 5.1 is around the corner from time of writing. She was added in 4.4; 9 months ago. actual lmao.
+			"valorant": "valorantBackgroundImage_d71945", // i don't play valorant so no funny commentary from me this time
 			// end of sponsored images
-			"close": "close_aa1bff",
-			"coachmarkTextContainer": "coachmarkTextContainer_aa1bff",
+			"close": "close_d71945",
+			"coachmarkTextContainer": "coachmarkTextContainer_d71945",
 		)
 	),
 	"serverSettings": (
@@ -2244,6 +2264,11 @@ $classes: (
 		"privateChannelsHeaderContainer": "privateChannelsHeaderContainer_c47fa9",
 		"privateChannelsHeader": "headerText_c47fa9",
 		"privateChannel": "channel_c91bad",
+		"privateChannelActivity": "activity_c91bad", // shows for user, use subtext:not(activity) to only target group
+		"privateChannelSubtext": "subText_ec8679", // shows when user is playing game or has custom status, always shows with group
+		"privateChannelAvatar": "avatar_ec8679",
+		"privateChannelName": "name_ec8679", // username/group name
+		"privateChannelHighlighted": "highlighted_ec8679", // unread, makes channel name white
 		"privateChannelInteractive": "interactive_f5eb4b", // on same line with this same comment: interactive|selected|muted
 		"privateChannelInteractive2": "interactive_c91bad", // paired with above
 		"privateChannelLinkButton": "linkButton_c91bad", // used for home, nitro, library etc
@@ -2263,6 +2288,7 @@ $classes: (
 		"channelsHeader": "header_fd6364",
 		"communityInfoVisible": "communityInfoVisible_fd6364",
 		"serverName": "name_fd6364",
+		"serverNameButton": "headerButton_fd6364",
 
 		"communityInfo": "communityInfo_fd6364",
 		"communityInfoPill": "communityInfoPill_fd6364",
@@ -2290,16 +2316,25 @@ $classes: (
 		"channelModeUnreadImportant": "modeUnreadImportant_d8bfb3",
 		"channelModeConnected": "modeConnected_d8bfb3",
 		"channelModeLocked": "modeLocked_d8bfb3",
+		"channelLink": "link_d8bfb3",
+		"channelLinkTop": "linkTop_d8bfb3",
 		"channelIconContainer": "iconContainer_d8bfb3",
 		"channelIcon": "icon_d8bfb3",
 		"channelName": "name_d8bfb3",
 		"channelChildren": "children_d8bfb3",
+		"channelItemIcon": "iconItem_f6f816",
+		"channelActionIcon": "actionIcon_f6f816",
+		"channelStatusText": "statusText_e66732",
+		"channelStatusPencilIcon": "pencilIcon_e66732",
 		"channelUserLimitWrapper": "wrapper_a5bc92",
 		"channelUsers": "users_a5bc92",
 		"channelTotal": "total_a5bc92",
 		"channelUnreadBlob": "unread_d8bfb3",
 		"channelUnreadBlobImportant": "unreadImportant_d8bfb3",
 		"channelUnreadBanners": "unread_c43953",
+		"channelDragBefore": "containerDragBefore_f6f816", // drag either channel or category header
+		"channelDragAfter": "containerDragAfter_f6f816", // no idea how to get this one
+		"channelDragOver": "containerUserOver_f6f816", // no idea how to get this one
 
 		"threadsContainer": "container_e1e976",
 		"threadsSpine": "spine_e1e976",
@@ -2307,13 +2342,15 @@ $classes: (
 
 		"categoryContainerDefault": "containerDefault_a08117",
 		"categoryWrapper": "wrapper_a08117",
+		"categoryClickable": "clickable_a08117",
 		"categoryMainContent": "mainContent_a08117",
 		"categoryMuted": "muted_a08117",
 		"categoryCollapsed": "collapsed_a08117",
-		"categoryArrow": "arrow_d64d50",
 		"categoryName": "name_a08117",
 		"categoryOverflow": "overflow_a82120",
 		"categoryChildren": "children_a08117",
+		"categoryArrow": "icon_a08117", // class formerly called arrow, hide/unhide toggle
+		"categoryAddButtonIcon": "addButtonIcon_a08117", // add channel to category button
 
 		"panels": "panels_a4d4d9",
 		"panelWrapper": "wrapper_adcaac",
@@ -2327,14 +2364,16 @@ $classes: (
 		"panelButtons": "buttons_b2ca13",
 		"panelButton": "button_adca65",
 		"panelButtonEnabled": "enabled_adca65",
+		"panelButtonDisabled": "disabled_adca65",
 		"panelButtonRedIcon": "redIcon_b2ca13", // used with server muted/deafened - see also profile/status/panel
 		"panelAvatarWrapper": "avatarWrapper_b2ca13",
 		"panelAvatar": "avatar_b2ca13",
+		"panelNameTag": "nameTag_b2ca13",
 		"panelAvatarSpeaking": "avatarSpeaking_c51b4e", // also in same group in shared: avatar_c51b4e avatarDecoration_c51b4e avatarStack_c51b4e cursorDefault_c51b4e mask_c51b4e pointer_c51b4e pointerEvents_c51b4e status_bf52c0 svg_c51b4e wrapper_c51b4e
 		"panelStatusSubtext": "subtext_be40e6",
 		"panelActionButtons": "actionButtons_adcaac",
-		
-		// panelWrapper line
+		"panelStreaming": "panel_bf1a22", // appears when streaming something
+
 		"noiseCancellationPopout": "noiseCancellationPopout_adcaac",
 		"noiseCancellationTooltip": "noiseCancellationTooltip_adcaac",
 		"krispLogo": "krispLogo_adcaac",
@@ -2356,6 +2395,7 @@ $classes: (
 		"panelViewAsRolesWarning": "viewAsRolesWarning_adcaac",
 		"panelViewAsRolesWarningText": "viewAsRolesWarningText_adcaac",
 		"panelViewAsRolesWarningButton": "viewAsRolesWarningButton_adcaac",
+		"panelLottieIcon": "lottieIcon_f73ef7", // used by animated icons such as "noise suppression by kirsp"
 		
 		"loadingSidebar": "alias sidebar channelsContainer",
 		"loadingAnimationContainer": "container_b68b01", // container has animation tag on it
@@ -2373,12 +2413,16 @@ $classes: (
 		"voiceListCollapse": "listCollapse_d80634",
 		"voiceList": "list_a478e5",
 		"voiceCollapsed": "collapsed_a478e5",
+		"voiceUserDraggable": "draggable_ac3629",
 		"voiceUser": "voiceUser_d80634",
 		"voiceUserClickable": "clickable_d80634",
 		"voiceUserOverlap": "overlap_d80634", // for collapsed/hide names
+		"voiceUserSelected": "selected_d80634",
 		"voiceUserContent": "content_d80634",
+		"voiceAvatarContainer": "avatarContainer_d80634",
 		"voiceAvatar": "avatar_d80634",
 		"voiceSpeaking": "avatarSpeaking_d80634",
+		"voiceUsername": "username_d80634",
 		"voiceUsernameSpeaking": "usernameSpeaking_d80634",
 
 		// shit name - used for Quickswitch, Boost this server (inc friends, community and "box picture"), Student Hubs...
@@ -2838,10 +2882,10 @@ $classes: (
 			// in sidebar
 			"panel": (
 				"container": "container_b2ca13",
-				"avatarWrapper": "avatarWrapper_b2ca13", // applies to whole thing
-				"avatar": "avatar_b2ca13",
+				"avatarWrapper": "alias sidebar panelAvatarWrapper", // applies to whole thing
+				"avatar": "alias sidebar panelAvatar",
 
-				"nameTag": "nameTag_b2ca13",
+				"nameTag": "alias sidebar panelNameTag",
 
 				"canCopy": "canCopy_b2ca13",
 				"customStatus": "customStatus_b2ca13",
@@ -2964,6 +3008,7 @@ $classes: (
 		"addAccountMetadataContainer": "metadataContainer_e2a436",
 		"connection": "connection_e2a436",
 		"connectionHeader": "connectionHeader_e2a436",
+		"connectionAccountLabel": "connectionAccountLabel_e2a436",
 		"connectionIcon": "connectionIcon_e2a436",
 		"connectionDelete": "connectionDelete_e2a436",
 
@@ -3880,8 +3925,12 @@ $classes: (
 			"scroller": "container_af1167",
 			"resultPlaceholder": "placeholder_bad108",
 			"result": "result_bad108",
+			"resultFocused": "focused_bad108",
 			"favoritesFade": "categoryFadeBlurple_af1167",
 			"categoryFade": "categoryFade_af1167",
+			"categoryText": "categoryText_af1167",
+			"categoryIcon": "categoryIcon_af1167",
+			"categoryName": "categoryName_af1167",
 			"endContainer": "endContainer_bad108",
 			"results": "results_bad108",
 			"noResultsWrapper": "wrapper_e78f9e",
@@ -4260,7 +4309,7 @@ $classes: (
 		// "modify" is when you've clicked the pencil icon in the chatbar, it's got some overlap with drop most likely
 		// "fail" was probably removed? i don't know.
 		"upload": (
-			"areaPosition": "uploadArea_a7d72e" "uploadArea_a7d72e", // applies position fixed and other things with thread sidebar open/floating
+			"areaPosition": "uploadArea_a7d72e", // applies position fixed and other things with thread sidebar open/floating
 			"inner": "inner_f82cc7", // Used in drop and modify
 
 			// Seems to be line 531 of 2022-09-14_15:33 UTC+8: https://canary.discord.com/assets/40532.a635ae389e26e316ec3b.css 
