@@ -29,7 +29,8 @@
 #{c(call container)},
 #{c(call videoWrapper)},
 #{c(call videoEnded)},
-#{c(call streamBackground)} { 
+#{c(call streamBackground)},
+#{c(call channelChatWrapper)} { 
 	background-color: transparent;
 }
 #{c(call root)} {

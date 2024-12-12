@@ -173,6 +173,7 @@
 }
 
 #{c(chat gifFavoriteButton)} {
+	background: $card;
 	#{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)} #{c(chat gifFavoriteIcon)} {
 		animation: gifBounce .4s linear;
 	}

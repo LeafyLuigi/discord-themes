@@ -840,7 +840,8 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 .callContainer_d880dc,
 .wrapper_ba4b17,
 .tile_dc5fc4,
-.root_a6876b {
+.root_a6876b,
+.channelChatWrapper_d880dc {
   background-color: transparent;
 }
 
@@ -1206,6 +1207,9 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   font-weight: 600;
 }
 
+.gifFavoriteButton_c5e128 {
+  background: var(--card-background);
+}
 .gifFavoriteButton_c5e128 .selected_c5e128.showPulse_c5e128 .icon_c5e128 {
   animation: gifBounce 0.4s linear;
 }
