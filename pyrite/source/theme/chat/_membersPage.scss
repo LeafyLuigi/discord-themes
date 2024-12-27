@@ -1,12 +1,12 @@
 @use "backend" as *;
 // Members Page
 :is(#{c(main dark)},#{c(main light)}) {
-	:is(
-		#{c(membersPage page)},
-		#{c(membersPage container)}
-	) {
+	#{c(membersPage container)} {
 		background: transparent;
 	}
+}
+#{c(membersPage page)} { 
+	background: transparent !important; // !important reason: discord uses important
 }
 #{c(membersPage mainTableContainer)} {
 	background: $card;

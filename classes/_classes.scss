@@ -1984,6 +1984,7 @@ $classes: (
 		"placeholderUsernameMultiple": "mulitplePlaceholderUsername_dac468",
 	),
 	// this area doesn't show up if you don't have any pending requests.
+	// it can be accessed by going to https://discord.com/message-requests
 	// (default repo) the main file is under pyrite/source/theme/friends
 	"messageRequests": (
 		"container": "container_f3abf4",
@@ -1997,6 +1998,8 @@ $classes: (
 
 		"item": "messageRequestItem_a5de62",
 		"active": "active_a5de62",
+
+		"emptyStateContainer": "emptyStateContainer_c353e6", // not sure if this is used elsewhere.
 	),
 	// shared classes. used as aliases from elsewhere.
 	"nameTag": (

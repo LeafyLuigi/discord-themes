@@ -231,8 +231,7 @@ body,
 }
 
 /* show/hide for side-panels (like member list and profile panels) */
-:is(.content_a7d72e > :is(div, aside),
-.content_a7d72e > .container_cbd271) {
+.content_a7d72e > :is(div, aside, .container_cbd271):not(.emptyStateContainer_c353e6) {
   background: var(--background, var(--side-shading));
   left: calc((var(--width, 240px) - 60px) * var(--hide-var, --hide-fallback-enabled));
   transition: var(--hide-speed, 0.5s) transform ease-out, var(--hide-speed, 0.5s) backdrop-filter ease-out;
@@ -241,8 +240,7 @@ body,
   z-index: 2;
 }
 
-.app-focused :is(.content_a7d72e > :is(div, aside),
-.content_a7d72e > .container_cbd271):is(:hover, :focus-within) {
+.app-focused .content_a7d72e > :is(div, aside, .container_cbd271):not(.emptyStateContainer_c353e6):is(:hover, :focus-within) {
   transform: translateX(calc(-1 * (var(--width, 240px) - 60px) * var(--hide-var, --hide-fallback-enabled)));
   backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));
 }
@@ -1529,9 +1527,12 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   color: var(--primary-color);
 }
 
-:is(.theme-dark, .theme-light) :is(.page_d20375,
-.container_d20375) {
+:is(.theme-dark, .theme-light) .container_d20375 {
   background: transparent;
+}
+
+.page_d20375 {
+  background: transparent !important;
 }
 
 .mainTableContainer_e23072 {
@@ -4194,6 +4195,10 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 }
 .button_e258f5:hover:not(.disabled_e258f5) {
   background: var(--hover-color);
+}
+
+.recentMentionsPopout_ddb5b4[style*=max-height] {
+  max-height: 80vh !important;
 }
 
 .friendRequestsButton_c0c071 {

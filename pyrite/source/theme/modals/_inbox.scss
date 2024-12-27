@@ -23,6 +23,9 @@
 		background: $hover;
 	}
 }
+#{c(modals inbox popout)}[style*=max-height] {
+	max-height: 80vh !important; // !important reason: inline style
+}
 
 #{c(modals inbox friendRequestsButton)} {
 	border: 1px solid currentColor;
