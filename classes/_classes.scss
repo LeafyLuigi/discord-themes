@@ -4447,6 +4447,33 @@ $classes: (
 			"rulesIcon": "rulesIcon_ada0d0",
 		),
 
+		// Click an image (png, jpg, gif) in chat. This may not apply to videos or other embeds.
+		"mediaViewer": (
+			"carouselModal": "carouselModal_c319f9", // put on modal root
+			"base": "base_a70b96", // applies to top bar and action buttons
+			"topBar": "topBar_bf8df0", // has ::before with gradient background
+			"closeButton": "closeButton_bf8df0",
+			"closeButtonInner": "closeButtonInner_bf8df0",
+			"messageContents": "messageContents_bf8df0", // displayed in topBar
+			"timestamp": "timestamp_bf8df0",
+
+			"group": "group_a70b96", // holds action buttons and wrapper chain
+
+			"mediaContainerWrapper": "wrapper_a24281", // parent of mediaContainer
+			"mediaContainer": "mediaContainer_a24281", // parent of mediaWrapper
+			"mediaWrapper": "mediaWrapper_a24281", // parent of innerWrapper
+			"innerWrapper": "innerWrapper_a24281", // parent of imageWrapperZoom and imageWrapperParent (same element)
+			"imageWrapperZoom": "wrapper_a4c000", // class named so as it has a zoomed class with same suffix. paired with imageWrapperParent... why are there so many wrappers.
+			"zoomed": "zoomed_a4c000", // click on image
+			"imageWrapperParent": "wrapper_ace4fb", // paired with imageWrapperZoom. parent to imageWrapperInner
+			"imageWrapperInner": "imageWrapper_d4597d", // WHY ARE THERE SO MANY WRAPPERS. parent to loadingOverlay
+			"loadingOverlay": "loadingOverlay_d4597d", // parent to the img element.
+
+			"actionButtons": "actionButtons_dda074", // paired with base. holds many buttons.
+			"actionButton": "actionButton_dda074", // individual button. paired with actionButtonWrapper for some reason. has aira-label.
+			"actionButtonWrapper": "actionButtonWrapper_dda074", // parent to actionButtonInner
+			"actionButtonInner": "actionButtonInner_dda074",
+		),
 	),
 	// holy shit end of modals
 

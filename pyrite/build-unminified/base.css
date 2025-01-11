@@ -3583,6 +3583,14 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   border-radius: 50%;
 }
 
+.topBar_bf8df0::before {
+  content: none;
+}
+
+.actionButtons_dda074 {
+  background: var(--card-background);
+}
+
 :is(.theme-dark, .theme-light) .contentWarningPopout_fa823b {
   background: var(--modal-background);
   box-shadow: none;

@@ -1,0 +1,7 @@
+@use "backend" as *;
+#{c(modals mediaViewer topBar)}::before {
+	content: none;
+}
+#{c(modals mediaViewer actionButtons)} {
+	background: $card;
+}
