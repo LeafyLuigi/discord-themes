@@ -233,7 +233,7 @@
 // CURRENT CATEGORY NAME IS MORE OR LESS WHAT AREA OF PYRITE WAS THEMED AT THE TIME.
 // IF AN ELEMENT HAS MULTIPLE CLASSES, TRY ALL OF THEM AS ONLY ONE WAS LIKELY USED WHEN THEMING.
 // EACH LINE OF DISCORD'S BASE CSS SEEMS TO BE RELATED TO ONE PART OF THE SITE, EACH LONE NUMBER IS A REFERENCE TO THAT LINE AND IS BASED ON THE CSS FILE LINKED NEARBY.
-// BROAD CLASSES SUCH AS THOSE THAT APPLY IN MULTIPLE UNRELATED AREAS (ie directionRow__65900) ARE NOT CURRENTLY LISTED HERE AND IF THEY ARE THE LABEL IS WORSE THAN USELESS.
+// BROAD CLASSES SUCH AS THOSE THAT APPLY IN MULTIPLE UNRELATED AREAS (ie directionRow_*) ARE NOT CURRENTLY LISTED HERE AND IF THEY ARE THE LABEL IS WORSE THAN USELESS.
 // THIS LIST IS NOT AND NEVER WILL BE 100% COMPLETE AS CLASSES CHANGE CONSTANTLY, THINGS GET ADDED OR REMOVED AND DISCORD IS AN ABSOLUTE PAIN TO DEAL WITH.
 ////////////////
 
@@ -603,6 +603,7 @@ $classes: (
 
 		// colors / hovers / borders
 		"colorBrand": "colorBrand_dd4f85",
+		"colorBrandInverted": "colorBrandInverted_dd4f85",
 		"colorGreen": "colorGreen_dd4f85",
 		"colorLink": "colorLink_dd4f85",
 		"colorPrimary": "colorPrimary_dd4f85",
@@ -3504,9 +3505,10 @@ $classes: (
 		"autocomplete": (
 			"modal": "autocomplete_bcc24e", // apply :not(emojiAutocomplete modal) to target only this
 			"inner": "autocompleteInner_bcc24e", // apply not with emoji to target only this
+			"contentTitle": "contentTitle_bcc24e", // at top of emoji autocomplete
 			"rail": "rail_fe2299", // sidebar thingy w/ default commands and bot icons
 			"railWrapper": "wrapper_efd8e6", // background applied to this class. ugh.
-			"category": "wrapper_efd8e6",
+			// "category": "wrapper_efd8e6", // duplicate class lol
 			"categorySelectable": "selectable_c9d951",
 			"categorySelected": "selected_c9d951",
 			"categoryIcon": "icon_c9d951",
@@ -4434,7 +4436,6 @@ $classes: (
 
 		// unless the popout profile has previously loaded, click on a username in chat or someone in the member list
 		// the line this on appears to be the only rule.
-		// Line 29 of 2022-12-29: https://discord.com/assets/40532.f7b1e10347ef10e790ac.css
 		"loadingPopout": (
 			"popout": "loadingPopout_a8c724",
 		),

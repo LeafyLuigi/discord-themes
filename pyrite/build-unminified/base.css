@@ -444,10 +444,8 @@ html {
 .avatar_f9f2ca[src*="309976820109803520"] ~ .header_f9f2ca {
   --local-tag: var(--tag-dev);
 }
-.avatar_f9f2ca[src*="126652966265421824"] ~ .header_f9f2ca {
-  --local-tag: var(--tag-helper);
-}
-.avatar_f9f2ca[src*="393900343135830016"] ~ .header_f9f2ca {
+
+.avatar_f9f2ca:is([src*="126652966265421824"], [src*="393900343135830016"]) ~ .header_f9f2ca {
   --local-tag: var(--tag-helper);
 }
 
@@ -559,6 +557,40 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 }
 .lookFilled_dd4f85.colorRed_dd4f85:disabled {
   background: var(--red-color);
+}
+.lookFilled_dd4f85.colorBrandInverted_dd4f85 {
+  color: var(--primary-color);
+  background-color: var(--card-background);
+}
+.lookFilled_dd4f85.colorBrandInverted_dd4f85:before {
+  border-radius: 3px;
+  background-color: transparent;
+  z-index: 1;
+  content: "";
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.lookFilled_dd4f85.colorBrandInverted_dd4f85 > .contents_dd4f85 {
+  z-index: 2;
+}
+.lookFilled_dd4f85.colorBrandInverted_dd4f85:hover:not(:disabled) {
+  background-color: var(--primary-color);
+}
+.lookFilled_dd4f85.colorBrandInverted_dd4f85:hover:not(:disabled)::before {
+  background: var(--hover-filter);
+}
+.lookFilled_dd4f85.colorBrandInverted_dd4f85:active:not(:disabled) {
+  background-color: var(--primary-color);
+}
+.lookFilled_dd4f85.colorBrandInverted_dd4f85:active:not(:disabled)::before {
+  background: var(--active-filter);
+}
+.lookFilled_dd4f85.colorBrandInverted_dd4f85:disabled {
+  background-color: var(--card-background);
 }
 .lookFilled_dd4f85:is(.colorBrand_dd4f85, .colorPrimary_dd4f85) {
   background: var(--primary-color);
@@ -4370,7 +4402,6 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   background-color: var(--red-color);
 }
 
-/* Start Profile */
 /* Start User Modal */
 .root_b9fccc[style*=transform] {
   transform: unset !important;
@@ -4471,7 +4502,10 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   --hide-var: var(--hide-profile-panel);
 }
 .panel_c69a7b.custom-profile-theme {
-  background: linear-gradient(var(--profile-gradient-primary-color), var(--profile-gradient-secondary-color)) transparent;
+  --background: transparent;
+}
+.panel_c69a7b.custom-profile-theme .inner_c69a7b {
+  background: linear-gradient(var(--profile-gradient-primary-color), var(--profile-gradient-secondary-color));
 }
 
 /* Start Profile in Settings */

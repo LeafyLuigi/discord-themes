@@ -147,6 +147,10 @@ $active-filter: var(--active-filter);
 	&#{c(button colorRed)} {
 		@include button-bg($color: $red);
 	}
+
+	&#{c(button colorBrandInverted)} {
+		@include button-inverted($color: $primary);
+	}
 	
 	// &#{c(button colorWhite)} {
 	// }

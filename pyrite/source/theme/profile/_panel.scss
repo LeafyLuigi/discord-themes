@@ -4,7 +4,10 @@
 	--width: 340px;
 	--hide-var: var(--hide-profile-panel);
 	&#{c(profile themed)} {
-		background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-secondary-color)) transparent;
+		--background: transparent;
+		#{c(profile inner)} {
+			background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-secondary-color));
+		}
 	}
 }
 // #{c(profile panel activityBackground)} {

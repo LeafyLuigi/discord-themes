@@ -7,6 +7,8 @@ html {
 	// By default this is entirely used for the en-GB and en-US langs. fallback below for en-US
 	--theme-name: "Pyrite";
 	--theme-name-beta: "Pyrite Beta Branch";
+
+	// Tags are used for contributors who have assisted one way or another with the theme.
 	--tag-dev: "Theme Dev";
 	--tag-translator: "Theme Translator";
 	--tag-helper: "Theme Helper";
@@ -48,6 +50,7 @@ html {
 // [lang="da"] {}
 // [lang="de"] {}
 // [lang="es-ES"] {}
+// [lang="es-419"] {}
 // [lang="hr"] {}
 // [lang="it"] {}
 // [lang="lt"] {}
@@ -75,31 +78,43 @@ html {
 
 // Below are things that use the translations above.
 /* User Tags */
-$dev: (
-	"309976820109803520", // Leafy
-);
-$helper: (
-	"126652966265421824", // Scars
-	"393900343135830016", // Nyx
-);
-$translator: (
+$tags: (
+	"dev": ( // Main developer of the theme.
+		"309976820109803520", // Leafy
+	),
+	"helper": ( // People who have contributed to the theme one way or another, be it support or CSS.
+		"126652966265421824", // Scars
+		"393900343135830016", // Nyx
+	),
+	// "translator": ( // People who have translated the theme, even partially.
 
+	// ),
 );
-#{c(chat chatAvatar)} {
-	@each $userID in $dev {
-		&[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
-			--local-tag: var(--tag-dev);
+
+// group = what tag will be used, will be inserted as `var(--tag-#{$group})`
+// user = string list for what user(s) will have that tag
+// itm = an item in alias when it's a list
+// output --lang is the name, as above
+@each $group, $user in $tags {
+	// for lists
+	$k: "";
+	@if type-of($user) == list {
+		@if length($user) > 1 {
+			$k: ":is("; // start :is(
+			@for $i from 1 through length($user) {
+				$k: str-insert($k,"[src*=\"" + nth($user,$i) + "\"],",-1);
+			}
+			// remove extra comma, add closing )
+			$k: str-slice($k,0,-2) + ")";
+		} @else {
+			$k: "[src*=\"" + nth($user,1) + "\"]";
 		}
+	} @else {
+	// and for single strings
+		$k: "[src*=\"#{$user}\"]";
 	}
-	@each $userID in $helper {
-		&[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
-			--local-tag: var(--tag-helper);
-		}
-	}
-	@each $userID in $translator {
-		&[src*="#{$userID}"] ~ #{c(chat chatHeaderUsername)} {
-			--local-tag: var(--tag-translator);
-		}
+	#{c(chat chatAvatar)}#{$k} ~ #{c(chat chatHeaderUsername)} {
+		--local-tag: var(--tag-#{$group});
 	}
 }
 
