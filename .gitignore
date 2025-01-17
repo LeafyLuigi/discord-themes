@@ -108,7 +108,5 @@ dist
 .vscode/
 realgar/
 sulfide/
-pyrite/build/classes/
-pyrite/build-unminified/classes/
 realgar-package.json
 clearvision6/
