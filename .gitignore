@@ -107,4 +107,5 @@ dist
 # Manual Ignores
 .vscode/
 realgar/
+sulfide/
 realgar-package.json

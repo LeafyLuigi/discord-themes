@@ -1,0 +1,5 @@
+[submodule "pyrite/source/classes"]
+	path = pyrite/source/classes
+	url = https://github.com/LeafyLuigi/sulfide
+	shallow = true
+	branch = master
