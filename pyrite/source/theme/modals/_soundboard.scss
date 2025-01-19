@@ -1,0 +1,8 @@
+@use "backend" as *;
+// Soundboard popout
+#{c(modals soundboard modal)} {
+	&,
+	&#{c(modals soundboard refresh)} {
+		background: $card;	
+	}
+}

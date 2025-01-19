@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "sass:list";
 @use "sass:meta";
+@use "sass:string";
 @use "backend" as *;
 /* Start Member List */
 // both have to be listed for both servers and group dms
@@ -93,17 +94,17 @@ $allColors: (
 	@each $colType in $allColors {
 		$listDone: (); // temp list for completed colors to avoid repeating
 		$list: ":is(";
-		@each $col in nth($colType,2) {
-			@if not index($listDone, $col) {
+		@each $col in list.nth($colType,2) {
+			@if not list.index($listDone, $col) {
 				// @debug $col;
 				$list: $list+'[fill="'+$col+'"],[fill="rgba('+color.channel($col,"red",$space: rgb)+', '+color.channel($col,"green",$space: rgb)+', '+color.channel($col,"blue",$space: rgb)+', 1)"],';
-				$listDone: append($listDone,$col);
+				$listDone: list.append($listDone,$col);
 			}
 		}
-		$list: str-slice($list,1,-2)+")"; // remove last comma and close list
+		$list: string.slice($list,1,-2)+")"; // remove last comma and close list
 		// @debug $list;
 		&#{$list} {
-			fill: var(--#{nth($colType,1)})
+			fill: var(--#{list.nth($colType,1)})
 		}
 	}
 }
@@ -113,17 +114,17 @@ $allColors: (
 	@each $colType in $allColors {
 		$listDone: (); // temp list for completed colors to avoid repeating
 		$list: ":is(";
-		@each $col in nth($colType,2) {
-			@if not index($listDone, $col) {
+		@each $col in list.nth($colType,2) {
+			@if not list.index($listDone, $col) {
 				// @debug $col;
 				$list: $list+'[style*="rgb('+color.channel($col,"red",$space: rgb)+', '+color.channel($col,"green",$space: rgb)+', '+color.channel($col,"blue",$space: rgb)+')"],';
-				$listDone: append($listDone,$col);
+				$listDone: list.append($listDone,$col);
 			}
 		}
-		$list: str-slice($list,1,-2)+")"; // remove last comma and close list
+		$list: string.slice($list,1,-2)+")"; // remove last comma and close list
 		// @debug $list;
 		&#{$list} {
-			background-color: var(--#{nth($colType,1)}) !important; // !important reason: override inline style
+			background-color: var(--#{list.nth($colType,1)}) !important; // !important reason: override inline style
 		}
 	}
 }

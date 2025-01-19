@@ -1,5 +1,9 @@
 @use "start" as *;
 @use "backend" as *;
+
+@use "sass:list";
+@use "sass:meta";
+@use "sass:string";
 /* Begin I18N */
 /* If you wish to translate strings from this file into another language, copy below as a base and send a message in the support server. */
 /* In doing so you'll be given a translator tag and a role on said support server. */
@@ -98,16 +102,16 @@ $tags: (
 @each $group, $user in $tags {
 	// for lists
 	$k: "";
-	@if type-of($user) == list {
-		@if length($user) > 1 {
+	@if meta.type-of($user) == list {
+		@if list.length($user) > 1 {
 			$k: ":is("; // start :is(
-			@for $i from 1 through length($user) {
-				$k: str-insert($k,"[src*=\"" + nth($user,$i) + "\"],",-1);
+			@for $i from 1 through list.length($user) {
+				$k: string.insert($k,"[src*=\"" + list.nth($user,$i) + "\"],",-1);
 			}
 			// remove extra comma, add closing )
-			$k: str-slice($k,0,-2) + ")";
+			$k: string.slice($k,0,-2) + ")";
 		} @else {
-			$k: "[src*=\"" + nth($user,1) + "\"]";
+			$k: "[src*=\"" + list.nth($user,1) + "\"]";
 		}
 	} @else {
 	// and for single strings
@@ -131,7 +135,7 @@ $tags: (
 /* Version */
 #{c(userSettings sidebarInfo)} {
 	&::after {
-		content: $theme-name str-insert($version, " - ", 0);
+		content: $theme-name string.insert($version, " - ", 0);
 		font-style: italic;
 		color: var(--text-muted);
 		font-size: 12px;
@@ -142,7 +146,7 @@ $tags: (
 /* Beta Version (only for French and British English) */
 html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
 	&::after {
-		content: var(--theme-name-beta) str-insert($version, " - ", 0);
+		content: var(--theme-name-beta) string.insert($version, " - ", 0);
 	}
 }
 

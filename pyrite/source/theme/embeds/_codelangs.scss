@@ -1,3 +1,6 @@
+@use "sass:string";
+@use "sass:list";
+@use "sass:meta";
 @use "backend" as *;
 /* Start Codeblock langs */
 // SO HERE I'VE RIPPED OUT THE ENTIRE LIST OF VALID LANGUAGES FOR DISCORD INCLUDING ALIASES
@@ -214,18 +217,18 @@ $lang: (
 @each $ln, $alias in $lang {
 	// for lists
 	$k: "";
-	@if type-of($alias) == list {
-		@for $i from 1 through length($alias) {
-			$k: str-insert($k,"." + nth($alias,$i) + ",",-1);
+	@if meta.type-of($alias) == list {
+		@for $i from 1 through list.length($alias) {
+			$k: string.insert($k,"." + list.nth($alias,$i) + ",",-1);
 		}
 		// remove extra comma
-		$k: str-slice($k,0,-2);
+		$k: string.slice($k,0,-2);
 	} @else {
 	// and for single strings
 		$k: "."+$alias;
 	}
 	#{$k} {
-		@if str-index($ln, "--") == null {
+		@if string.index($ln, "--") == null {
 		--lang: "#{$ln}";
 		} @else {
 			--lang: #{$ln};

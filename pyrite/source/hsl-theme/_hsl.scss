@@ -1,3 +1,5 @@
+@use "sass:list";
+@use "sass:string";
 // what goes in here?
 // - Horizontal Server List support.
 // - HSL on Bottom goes in a different file.
@@ -131,13 +133,13 @@
 	$ranges: (scale(1,0.24) 0 8) (scale(1,0.7) 9 20) (scale(1,1) 21 40);
 	@each $range in $ranges {
 		$isList: ":is(";
-		@for $i from nth($range,2) through nth($range,3) {
+		@for $i from list.nth($range,2) through list.nth($range,3) {
 			$isList: $isList+"[style*='height: #{$i}'],";
 		}
-		$isList: str-slice($isList,1,-2)+")"; // remove trailing comma, add closing bracket
+		$isList: string.slice($isList,1,-2)+")"; // remove trailing comma, add closing bracket
 		
 		&#{$isList} {
-			transform: nth($range,1) !important; // !important reason: override existing important
+			transform: list.nth($range,1) !important; // !important reason: override existing important
 		}
 	}
 }
