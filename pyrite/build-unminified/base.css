@@ -277,10 +277,6 @@ body,
   background-color: var(--card-background);
 }
 
-.focus-rings-ring[style*="var(--focus-primary)"] {
-  --__adaptive-focus-color: var(--primary-color) !important;
-}
-
 a[href^="http://"] {
   color: var(--red-color);
   text-shadow: 0 0 2px var(--red-color);
@@ -445,7 +441,7 @@ html {
   --local-tag: var(--tag-dev);
 }
 
-.avatar_f9f2ca:is([src*="126652966265421824"], [src*="393900343135830016"]) ~ .header_f9f2ca {
+.avatar_f9f2ca:is([src*="126652966265421824"], [src*="393900343135830016"], [src*="240437190339854337"]) ~ .header_f9f2ca {
   --local-tag: var(--tag-helper);
 }
 

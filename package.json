@@ -20,8 +20,7 @@
     "test-pyrite-hsl-bottom": "cat pyrite/test/horizontal-server-list-bottom.css >> pyrite/test/base.css",
     "test-pyrite-uml": "cat pyrite/test/userModalLayout.css >> pyrite/test/base.css",
     "test-pyrite-windows-titlebar": "cat pyrite/test/windows-titlebar.css >> pyrite/test/base.css",
-    "test-pyrite-fix-imports": "cat pyrite/test/base.css | grep @import > pyrite/test/tmp.css && cat pyrite/test/base.css | grep -v @import >> pyrite/test/tmp.css && mv pyrite/test/tmp.css pyrite/test/base.css",
-    "cv-test": "sass --style=expanded --no-source-map clearvision6/main.scss:clearvision6/test/main.css"
+    "test-pyrite-fix-imports": "cat pyrite/test/base.css | grep @import > pyrite/test/tmp.css && cat pyrite/test/base.css | grep -v @import >> pyrite/test/tmp.css && mv pyrite/test/tmp.css pyrite/test/base.css"
   },
   "repository": {
     "type": "git",

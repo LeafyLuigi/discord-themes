@@ -257,11 +257,11 @@ body, // this one is here for transparency in bd to work
 	background-color: $card;
 }
 // Rings - tab around and you'll find it. Appears to have a class sans suffix/reroll.
-#{c(main ring)} {
-	&[style*="var(--focus-primary)"] {
-		--__adaptive-focus-color: var(--primary-color) !important; // !important reason: element.style
-	}
-}
+// #{c(main ring)} {
+// 	&[style*="var(--focus-primary)"] {
+// 		--__adaptive-focus-color: var(--primary-color) !important; // !important reason: element.style
+// 	}
+// }
 // #{c(main keyboardMode)} #{c(other focusStroke)} {
 //   fill: $primary;
 //   stroke: $primary;
