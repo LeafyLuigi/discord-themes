@@ -1,3 +1,7 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
+@use "sass:meta";
 @use "start" as *;
 @use "backend" as *;
 /* Begin Keyframes */
@@ -219,7 +223,8 @@ body, // this one is here for transparency in bd to work
 }
 
 // Enable with Beer
-// confused? https://cdn.discordapp.com/attachments/747040126294687764/827442200094179338/unknown.png
+// confused? experiment for text preview had "open with beer" as a testing bucket.
+// old image link: https://cdn.discordapp.com/attachments/747040126294687764/827442200094179338/unknown.png
 #{c(embeds textOpenFullPreview)} {
 	&:before {
 		content: "🍺";
@@ -300,21 +305,81 @@ div#{c(text lineClamp2Plus)} {
 }
 
 /* Official Preset Previews */
-$orangeSynthscape: "1304019920752869427";
-$pinkSunset: "1304019955087577088";
-$blueOcean: "1304019989182808064";
-$yellowFlower: "1304020020157878323";
-$defaultPresets: "1304020052869386242";
+// Format: $themes: (preset: (url?: $backgroundImageURL, colour?: $primaryColour, overlay?: $overlayURL, messages: $messageID $messageID... , alias?: $presetName ), ... )
+// "defaultPresets" will use the specified default: blueOcean
+//  message IDs MUST be strings.
+// parsed twice for validation then outputting css
+$themes: (
+	"orangeSynthscape": (
+		url: "https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png",
+		color: #ff6f00,
+		message: "1304019920752869427"
+	),
+	"pinkSunset": (
+		url: "https://leafyluigi.github.io/images/Long%20Exposure%20Sunset%20at%20Hull%2C%20MA%20by%20Eric%20Moreno.png",
+		color: #ffb6db,
+		overlay: "https://leafyluigi.github.io/images/preview-overlay-pink.png",
+		message: "1304019955087577088"
+	),
+	"blueOcean": (
+		url: "https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png",
+		color: #387eff,
+		message: "1304019989182808064"
+	),
+	"yellowFlower": (
+		url: "https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png",
+		color: #e6de00,
+		message: "1304020020157878323"
+	),
+	"defaultPresets": (
+		alias: "blueOcean",
+		message: "1304020052869386242"
+	)
+);
+$themesList: map.keys($themes);
+$messageIDs: ();
+@each $presetName,$presetContents in $themes {
+	// ensure message ID exists
+	@if not map.has-key($presetContents,"message") {
+		@error "\"#{$presetName}\" lacks \"message\" key. Set it to a string of the message ID.";
+	} @else {
+		@if meta.type-of(map.get($presetContents,"message")) == number {
+			@error "\"#{$presetName}\" has message ID as a number. Make it a string.";
+		}
+		$messageIDs: list.append($messageIDs,map.get($presetContents,"message"));
+	}
+	// aliases do something silly; they don't have a URL, color or overlay.
+	@if map.has-key($presetContents,"alias") {
+		$alias: #{map.get($presetContents,"alias")};
+		// abort for self referential
+		@if $alias == $presetName {
+			@error "Don't set the preset alias for \"#{$presetName}\" to itself!";
+		}
+		// abort for completely absent preset
+		@if not list.index($themesList,$alias) {
+			@error "Aliased preset \"#{$alias}\", found in \"#{$presetName}\", does not exist.";
+		}
+		// attach id for this to alias
+		// check if target has message
+		@if not map.has-key(map.get($themes,$alias),"message") {
+			@error "\"#{$alias}\" lacks \"message\" key. Set it to a string of the message ID.";
+		}
+		// add to list; deep merges are weird.
+		$themes: map.deep-merge($themes, (#{$alias}:("message": list.append(map.get(map.get($themes,$alias),"message"),map.get($presetContents,"message")))));
+	} @else {
+		// i could do other validation like making sure url is a url but eh cbf.
+	}
+}
+$presetListIDs: ":is(";
+@each $id in $messageIDs {
+	$presetListIDs: $presetListIDs+"#message-accessories-"+$id+",";
+	@if list.index($messageIDs,$id) == list.length($messageIDs) {
+		$presetListIDs: string.slice($presetListIDs,0,-2) + ")";
+	}
+}
 
-:is(
-#message-accessories-#{$orangeSynthscape},
-#message-accessories-#{$pinkSunset},
-#message-accessories-#{$blueOcean},
-#message-accessories-#{$yellowFlower},
-#message-accessories-#{$defaultPresets}
-) {
+#{$presetListIDs} {
 	#{c(embeds textContainerUp)} {
-		transform: rotate(0deg);
 		border: none;
 		background-color: transparent;
 	}
@@ -324,6 +389,9 @@ $defaultPresets: "1304020052869386242";
 	}
 	#{c(embeds textFooter)} {
 		width: 300px;
+	}
+	#{c(embeds textContainerDownload)} {
+		color: var(--local-color,inherit);
 	}
 	:is(
 		#{c(embeds toggleExpandedPreview)},
@@ -335,53 +403,66 @@ $defaultPresets: "1304020052869386242";
 		display: none;
 	}
 }
-// synthscape orange
-#message-accessories-#{$orangeSynthscape} {
-	--local-image: url('https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png');
-}
-// yellow flower
-#message-accessories-#{$yellowFlower} {
-	--local-image: url('https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png');
-}
-// pink sunset
-#message-accessories-#{$pinkSunset} {
-	--local-image: url('https://leafyluigi.github.io/images/Long%20Exposure%20Sunset%20at%20Hull%2C%20MA%20by%20Eric%20Moreno.png');
-	--preview-overlay: url('https://leafyluigi.github.io/images/preview-overlay-pink.png');
-}
-// ocean blue, current default [vencord | betterdiscord]
-:is(
-#message-accessories-#{$blueOcean},
-#message-accessories-#{$defaultPresets}
-) {
-	--local-image: url('https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png');
-}
-// use inline for defaults [vencord | betterdiscord]
-#message-accessories-#{$defaultPresets} {
-	#{c(chat nonMediaAttachmentsContainer)} {
-		flex-direction: row;
-		gap: 8px;
-	}
-	#{c(chat nonMediaAttachmentItem)} {
-		&+#{c(chat nonMediaAttachmentItem)} {
-			margin: 0;
+
+@each $presetName,$presetContents in $themes {
+	// add background, overlay, color to message id(s)
+	@if not map.has-key($presetContents,"alias") { // skip aliases
+		$selector: "";	
+		@if meta.type-of(map.get($presetContents,"message")) == string { // individual message ID
+			$selector: "#message-accessories-"+#{map.get($presetContents,"message")}
+		} @else { // :is() list
+			$selector: ":is(";
+			$messageIDs: map.get($presetContents,"message");
+			@each $id in $messageIDs {
+				$selector: $selector+"#message-accessories-"+$id+",";
+				@if list.index($messageIDs,$id) == list.length($messageIDs) {
+					$selector: string.slice($selector,0,-2) + ")";
+				}
+			}
 		}
-		&:first-child {
-			--client-mod-image: url('https://leafyluigi.github.io/images/vencord.png');
+		#{$selector} {
+			@if map.has-key($presetContents,"url") {
+				--local-image: url("#{map.get($presetContents,"url")}");
+			}
+			@if map.has-key($presetContents,"overlay") {
+				--preview-overlay: url("#{map.get($presetContents,"overlay")}");
+			}
+			@if map.has-key($presetContents,"color") {
+				--local-color: #{map.get($presetContents,"color")};
+			}
 		}
-		&:last-child {
-			--client-mod-image: url('https://leafyluigi.github.io/images/betterdiscord.png');
-		}
-	}
-	#{c(embeds textContainerUp)} {
-		&::before {
-			content: "";
-			background: var(--client-mod-image,none) center/cover no-repeat;
-			width: 48px;
-			height: 48px;
-			position: absolute;
-			top: 8px;
-			left: 8px;
-			z-index: 1;
+	} @else { // "DEFAULT PRESETS"
+		$selector: "#message-accessories-"+#{map.get($presetContents,"message")};
+
+		// use inline for defaults [vencord | betterdiscord]
+		#{$selector} {
+			#{c(chat nonMediaAttachmentsContainer)} {
+				flex-direction: row;
+				gap: 8px;
+			}
+			#{c(chat nonMediaAttachmentItem)} {
+				&+#{c(chat nonMediaAttachmentItem)} {
+					margin: 0;
+				}
+				&:first-child {
+					--client-mod-image: url('https://leafyluigi.github.io/images/vencord.png');
+				}
+				&:last-child {
+					--client-mod-image: url('https://leafyluigi.github.io/images/betterdiscord.png');
+				}
+			}
+			#{c(embeds textContainerUp)} {
+				&::before {
+					content: "";
+					background: var(--client-mod-image,none) center/cover no-repeat;
+					width: 48px;
+					height: 48px;
+					position: absolute;
+					top: 8px;
+					left: 8px;
+					z-index: 1;
+				}
+			}
 		}
 	}
 }

@@ -6,8 +6,7 @@
 .bd-addon-list .bd-addon-header {
   background-color: var(--header-shading);
 }
-.bd-addon-list .bd-description-wrap,
-.bd-addon-list .bd-footer {
+.bd-addon-list :is(.bd-description-wrap, .bd-footer) {
   background: var(--card-background);
 }
 

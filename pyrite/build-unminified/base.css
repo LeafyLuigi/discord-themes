@@ -310,20 +310,11 @@ div.lineClamp2Plus_a595eb {
 }
 
 /* Official Preset Previews */
-:is(#message-accessories-1304019920752869427,
-#message-accessories-1304019955087577088,
-#message-accessories-1304019989182808064,
-#message-accessories-1304020020157878323,
-#message-accessories-1304020052869386242) .container_d8e2d0 {
-  transform: rotate(0deg);
+:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .container_d8e2d0 {
   border: none;
   background-color: transparent;
 }
-:is(#message-accessories-1304019920752869427,
-#message-accessories-1304019955087577088,
-#message-accessories-1304019989182808064,
-#message-accessories-1304020020157878323,
-#message-accessories-1304020052869386242) .textContainer_d8e2d0::before {
+:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .textContainer_d8e2d0::before {
   content: "";
   top: 0;
   right: 0;
@@ -334,11 +325,7 @@ div.lineClamp2Plus_a595eb {
   pointer-events: none;
   background: var(--local-image) center/cover no-repeat;
 }
-:is(#message-accessories-1304019920752869427,
-#message-accessories-1304019955087577088,
-#message-accessories-1304019989182808064,
-#message-accessories-1304020020157878323,
-#message-accessories-1304020052869386242) .textContainer_d8e2d0::after {
+:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .textContainer_d8e2d0::after {
   content: "";
   top: 0;
   right: 0;
@@ -349,18 +336,13 @@ div.lineClamp2Plus_a595eb {
   pointer-events: none;
   background: var(--preview-overlay, url("https://leafyluigi.github.io/images/preview-overlay.png")) center/cover no-repeat;
 }
-:is(#message-accessories-1304019920752869427,
-#message-accessories-1304019955087577088,
-#message-accessories-1304019989182808064,
-#message-accessories-1304020020157878323,
-#message-accessories-1304020052869386242) .footer_d8e2d0 {
+:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .footer_d8e2d0 {
   width: 300px;
 }
-:is(#message-accessories-1304019920752869427,
-#message-accessories-1304019955087577088,
-#message-accessories-1304019989182808064,
-#message-accessories-1304020020157878323,
-#message-accessories-1304020052869386242) :is(.toggleExpandSection_d8e2d0,
+:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .downloadButton_d8e2d0 {
+  color: var(--local-color, inherit);
+}
+:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) :is(.toggleExpandSection_d8e2d0,
 .attachmentName_d8e2d0,
 .formattedSize_d8e2d0,
 .codeIcon_d8e2d0,
@@ -370,20 +352,23 @@ pre) {
 
 #message-accessories-1304019920752869427 {
   --local-image: url("https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png");
-}
-
-#message-accessories-1304020020157878323 {
-  --local-image: url("https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png");
+  --local-color: #ff6f00;
 }
 
 #message-accessories-1304019955087577088 {
   --local-image: url("https://leafyluigi.github.io/images/Long%20Exposure%20Sunset%20at%20Hull%2C%20MA%20by%20Eric%20Moreno.png");
   --preview-overlay: url("https://leafyluigi.github.io/images/preview-overlay-pink.png");
+  --local-color: #ffb6db;
 }
 
-:is(#message-accessories-1304019989182808064,
-#message-accessories-1304020052869386242) {
+:is(#message-accessories-1304019989182808064, #message-accessories-1304020052869386242) {
   --local-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
+  --local-color: #387eff;
+}
+
+#message-accessories-1304020020157878323 {
+  --local-image: url("https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png");
+  --local-color: #e6de00;
 }
 
 #message-accessories-1304020052869386242 .nonVisualMediaItemContainer_cda674 {

@@ -24,8 +24,7 @@ $card: var(--card-background);
 	#{c(bd addonHeader)} {
 		background-color: $header;
 	}
-	#{c(bd addonDescWrap)},
-	#{c(bd addonFooter)} {
+	:is(#{c(bd addonDescWrap)},#{c(bd addonFooter)}) {
 		background: $card;
 	}
 }
@@ -123,10 +122,10 @@ html:not(#{c(os win platform)}) div#{c(sidebar sidebar)} {
 	position: relative;
 }
 #{c(bd notice)} {
+	animation: none;
 	&:first-child {
 		border-radius: 0;
 	}
-	animation: none;
 }
 
 // Better Image Viewer Plugin
