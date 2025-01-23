@@ -294,10 +294,11 @@ a[href^="http://"] {
 	background-color: transparent !important; // !important reason: override inline
 }
 
-/* remove line clamps */
-div#{c(text lineClamp2Plus)} {
-	-webkit-line-clamp: unset !important; // !important reason: override inline.
-}
+// does not appear to exist anymore?
+// /* remove line clamps */
+// div#{c(text lineClamp2Plus)} {
+// 	-webkit-line-clamp: unset !important; // !important reason: override inline.
+// }
 
 /* unbreak certain modal backgrounds */
 #{c(main options fullMotion)} :is(#{c(modals translate)},#{c(modals scale)}) {

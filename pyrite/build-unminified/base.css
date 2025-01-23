@@ -299,11 +299,6 @@ a[href^="http://"] {
   background-color: transparent !important;
 }
 
-/* remove line clamps */
-div.lineClamp2Plus_a595eb {
-  -webkit-line-clamp: unset !important;
-}
-
 /* unbreak certain modal backgrounds */
 .full-motion :is(.translate_f88ae3, .scale_f88ae3) {
   transform: unset !important;
@@ -3702,13 +3697,103 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   content: none;
 }
 
-.container_ac201b {
-  background: var(--modal-background);
-  backdrop-filter: blur(5px);
+.container_c18ec9 {
+  background: var(--card-background);
 }
 
 .wrapper_ba23fe {
   background: transparent;
+}
+
+.picker_cd703d, .picker_cd703d.refresh_cd703d {
+  background: var(--card-background);
+  backdrop-filter: blur(5px);
+}
+
+.buttonOverlayBackground_f40049 {
+  background: var(--card-background);
+}
+
+:is(.soundButtonInteractive_f40049, .soundButtonInteractiveRefresh_f40049),
+:is(.soundAddButton_c06ee5, .soundAddButtonRefresh_c06ee5) {
+  background: var(--card-background);
+  border-color: transparent;
+}
+
+:is(.soundAddButton_c06ee5, .soundAddButtonRefresh_c06ee5) {
+  border-color: var(--primary-color);
+}
+:is(.soundAddButton_c06ee5, .soundAddButtonRefresh_c06ee5):is(:hover,
+.focused_f40049) {
+  background: var(--card-background);
+}
+
+.emojiCircle_f40049, .premiumDisabledRefresh_f40049:hover .emojiCircle_f40049 {
+  background: none;
+}
+
+.premiumDisabledRefresh_f40049:is(:hover,
+.focused_f40049,
+:active:not(:focus-within)) {
+  background: none var(--card-background);
+}
+.premiumDisabledRefresh_f40049:is(:hover,
+.focused_f40049,
+:active:not(:focus-within)) {
+  border-color: transparent;
+}
+
+:is(.soundButtonInteractive_f40049, .soundButtonInteractiveRefresh_f40049) {
+  outline-offset: 0px;
+}
+:is(.soundButtonInteractive_f40049, .soundButtonInteractiveRefresh_f40049):is(.playing_f40049,
+.previewing_f40049) {
+  outline-offset: 3px;
+}
+:is(.soundButtonInteractive_f40049, .soundButtonInteractiveRefresh_f40049).playing_f40049 {
+  outline: 2px solid var(--primary-color);
+}
+:is(.soundButtonInteractive_f40049, .soundButtonInteractiveRefresh_f40049).previewing_f40049 {
+  outline: 2px solid var(--secondary-color);
+}
+.full-motion :is(.soundButtonInteractive_f40049, .soundButtonInteractiveRefresh_f40049) {
+  transition: box-shadow 0.1s ease-in-out, transform 0.2s ease, outline 0.2s ease-in-out, outline-offset 0.2s ease-in-out;
+}
+
+:is(.soundButton_f40049, .soundButtonRefresh_f40049) {
+  box-shadow: none;
+}
+
+:is(.soundButtonInteractive_f40049, .soundButtonInteractiveRefresh_f40049):not(.premiumDisabledRefresh_f40049, :has(.lockIcon_f40049)),
+:is(.soundAddButton_c06ee5, .soundAddButtonRefresh_c06ee5) {
+  border-width: 2px;
+}
+:is(.soundButtonInteractive_f40049, .soundButtonInteractiveRefresh_f40049):not(.premiumDisabledRefresh_f40049, :has(.lockIcon_f40049)):is(:hover,
+.focused_f40049),
+:is(.soundAddButton_c06ee5, .soundAddButtonRefresh_c06ee5):is(:hover,
+.focused_f40049) {
+  border-color: var(--hover-color);
+}
+
+.container_f7a22f {
+  background: var(--card-background);
+}
+
+.ctaContainer_f7a22f,
+.image_f7a22f {
+  display: none;
+}
+
+.closeButton_f7a22f {
+  opacity: 1;
+  transition: none;
+}
+.closeButton_f7a22f, .closeButton_f7a22f:hover {
+  color: var(--interactive-active);
+}
+
+.upsellContainer_ad7baa {
+  display: none;
 }
 
 .modalTextContainer_d8e2d0 {
@@ -5013,9 +5098,9 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   background-color: var(--card-background);
 }
 
-.container_c18ec9 {
-  background: var(--card-background);
-  border: var(--primary-color);
+.container_ac201b {
+  background: var(--modal-background);
+  backdrop-filter: blur(5px);
 }
 
 .icon_cc7b67,

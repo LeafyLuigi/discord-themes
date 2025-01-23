@@ -1,4 +1,5 @@
 @use "backend" as *;
-#{c(modals sidebarList wrapper)} {
+#{c(modals sidebarList wrapper)},
+#{c(modals sidebarList guildIcon)} {
 	background: transparent;
 }

@@ -62,9 +62,9 @@
 		background-color: $card;
 	}
 }
-#{c(serverSettings roleSearch)} {
-	background: $card;
-	border: $primary;
+#{c(serverSettings roleSearchPopup)} {
+	background: var(--modal-background);
+	backdrop-filter: blur(5px);
 }
 #{c(serverSettings roleEveryoneIcon)},
 #{c(serverSettings rolePreviewContainer)} {

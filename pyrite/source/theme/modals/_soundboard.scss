@@ -3,6 +3,108 @@
 #{c(modals soundboard modal)} {
 	&,
 	&#{c(modals soundboard refresh)} {
-		background: $card;	
+		background: $card;
+		backdrop-filter: blur(5px);
 	}
+}
+
+// non-refresh only stuff
+#{c(modals soundboard sound button overlayBackground)} {
+	background: $card;
+}
+
+// and both
+#{c(modals soundboard sound button interactive)},
+#{c(modals soundboard sound add button)} {
+	background: $card;
+	border-color: transparent;
+}
+#{c(modals soundboard sound add button)} {
+	border-color: $primary;
+	&:is(
+	:hover,
+	#{c(modals soundboard sound focused)}
+	) {
+		background: $card;
+	}
+}
+
+#{c(modals soundboard sound emoji circle)} {
+	&,
+	#{c(modals soundboard nitro premiumDisabled)}:hover & {
+		background: none;
+	}
+}
+#{c(modals soundboard nitro premiumDisabled)} {
+	&:is(
+		:hover,
+		#{c(modals soundboard sound focused)},
+		:active:not(:focus-within)
+	) {
+		background: none $card;
+	}
+	&:is(
+		:hover,
+		#{c(modals soundboard sound focused)},
+		:active:not(:focus-within)
+	) {
+		border-color: transparent;
+	}
+}
+
+#{c(modals soundboard sound button interactive)} {
+	outline-offset: 0px;
+	&:is(
+		#{c(modals soundboard sound playing)},
+		#{c(modals soundboard sound previewing)}
+	) {
+		outline-offset: 3px;
+	}
+	&#{c(modals soundboard sound playing)} {
+		outline: 2px solid $primary;
+	}
+	&#{c(modals soundboard sound previewing)} {
+		outline: 2px solid $secondary;
+	}
+	#{c(main options fullMotion)} & {
+		transition: box-shadow .1s ease-in-out,transform .2s ease,outline .2s ease-in-out,outline-offset .2s ease-in-out;
+	}
+}
+
+#{c(modals soundboard sound button button)} {
+	box-shadow: none;
+}
+
+// :not checks for premiumDisabled (refresh) and :has(lockIcon) (non-refresh)
+#{c(modals soundboard sound button interactive)}:not(#{c(modals soundboard nitro premiumDisabled)},:has(#{c(modals soundboard sound lockIcon)})),
+#{c(modals soundboard sound add button)} {
+	border-width: 2px;
+	&:is(
+		:hover,
+		#{c(modals soundboard sound focused)}
+	) {
+		border-color: $hover;
+	}
+}
+
+// cta thing
+#{c(modals soundboard nitro cta container)} {
+	background: $card;
+}
+#{c(modals soundboard nitro cta ctaContainer)},
+#{c(modals soundboard nitro cta image)} {
+	display: none;
+}
+#{c(modals soundboard nitro cta close)} {
+	opacity: 1;
+	transition: none;
+	&,
+	&:hover {
+		color: var(--interactive-active);
+	}
+}
+
+// remove upsell banner
+#{c(modals soundboard nitro upsell container)} {
+	display: none;
 }
