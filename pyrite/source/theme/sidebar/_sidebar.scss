@@ -3,7 +3,7 @@
 // backgrounds.. ugh.
 :is(#{c(main dark)}, #{c(main light)})
 :is(
-	#{c(sidebar channelsContainer)},
+	#{c(sidebar server container)},
 	#{c(sidebar panelContainer)},
 	#{c(sidebar panelVoiceContainer)},
 	#{c(sidebar panelActivityContainer)}
@@ -47,28 +47,28 @@
 	}
 }
 // Area - Friends List
-#{c(sidebar privateChannels)} {
+#{c(sidebar private channels)} {
 	background: transparent;
-	#{c(sidebar searchBar)} {
+	#{c(sidebar private searchBar)} {
 		z-index: 1010;
 		box-shadow: none;
 	}
-	#{c(sidebar scroller)} {
+	#{c(sidebar private scroller)} {
 		margin-top: calc(36px * $nc);
 		background: transparent;
 		width: 240px;
-		#{c(sidebar privateChannelLink)}:is([href="/store"],[href="/library"],[href="/shop"]),
-		#{c(sidebar privateChannelBadgeIcon)} {
+		#{c(sidebar private link)}:is([href="/store"],[href="/library"],[href="/shop"]),
+		#{c(sidebar private channelBadgeIcon)} {
 			display: none;
 		}
-		#{c(sidebar privateChannel)} {
+		#{c(sidebar private channel)} {
 			padding: 0;
 		}
-		#{c(sidebar privateChannelLink)} {
+		#{c(sidebar private link)} {
 			padding: 1px 0;
 		}
 	}
-	#{c(sidebar privateChannelRecipientsInviteButtonIcon)} {
+	#{c(sidebar private inviteButtonIcon)} {
 		color: var(--interactive-normal);
 		order: -1;
 		&:hover {
@@ -77,17 +77,17 @@
 		}
 	}
 }
-#{c(sidebar searchBar)} {
-	#{c(sidebar searchBarComponent)} {
+#{c(sidebar private searchBar)} {
+	#{c(sidebar private searchBarComponent)} {
 		-webkit-app-region: no-drag;
 		background: $card;
 	}
 }
-#{c(sidebar privateChannelLoadingEmpty)} {
+#{c(sidebar private loadingEmpty)} {
 	fill: $primary;
 }
 
-#{c(sidebar privateChannelsHeader)} {
+#{c(sidebar private headerText)} {
 	color: var(--category-color);
 	display: flex;
 	justify-content: center;
@@ -102,51 +102,51 @@
 	}
 }
 // Area - Channels
-#{c(sidebar channelsContainer)} {
+#{c(sidebar server container)} {
 	#{c(scroller content)} {
 		>div[style="height: 84px;"]{
 			height: 132px !important; // !important reason: element.style
 		}
 	}
-	#{c(sidebar channelsHeaderContainer)} {
+	#{c(sidebar server header container)} {
 		box-shadow: none;
-		#{c(sidebar serverName)} {
+		#{c(sidebar server name)} {
 			@include header;
 			display: flex;
 			justify-content: center;
 		}
-		#{c(sidebar channelsHeader)} {
+		#{c(sidebar server header header)} {
 			z-index: 1010;
 			box-shadow: none;
 		}
 	}
-	#{c(sidebar animatedContainer)} {
+	#{c(sidebar server header bannerContainer)} {
 		background-color: transparent;
 		top: calc(48px + (36px * $nc));
 		z-index: 2;
 		&[style*="(-90px)"] {
 			z-index: -3000;
 		}
-		#{c(sidebar bannerImage)} {
+		#{c(sidebar server header bannerImage)} {
 			&:before {
 				content: none;
 			}
 		}
 	}
-	#{c(sidebar channelsScroller)} {
+	#{c(sidebar server scroller)} {
 		margin-top: calc(36px * $nc);
 		background-color: transparent;
 		width: 240px;
 	}
 }
-#{c(sidebar channelModeUnreadImportant)} #{c(sidebar channelUnreadBlob)} {
+#{c(sidebar server channel modeUnreadImportant)} #{c(sidebar server channel unreadBlob)} {
 	background-color: $primary;
 }
-#{c(sidebar bannerVisible)} #{c(sidebar channelsHeader)} {
+#{c(sidebar server header bannerVisible)} #{c(sidebar server header header)} {
 	filter: none;
 }
-#{c(sidebar voiceSpeaking)},
-#{c(sidebar panelAvatarSpeaking)} {
+#{c(sidebar server channel voice avatarSpeaking)},
+#{c(avatar speaking)} {
 	box-shadow: inset 0 0 0 2px $primary;
 }
 
@@ -156,7 +156,7 @@
 	background-color: $primary;
 }
 
-#{c(sidebar channelUnreadBanners)} {
+#{c(sidebar server unreadBar old unreadParent)} {
 	width: 224px;
 }
 
@@ -199,14 +199,14 @@
 	}
 }
 
-#{c(sidebar categoryChildren)} {
+#{c(sidebar server category children)} {
 	order: 1;
 }
-#{c(sidebar categoryMainContent)} {
+#{c(sidebar server category mainContent)} {
 	order: 2;
 }
 
-#{c(sidebar categoryWrapper)} #{c(sidebar categoryName)} {
+#{c(sidebar server category wrapper)} #{c(sidebar server category name)} {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -219,13 +219,13 @@
 	}
 }
 
-#{c(sidebar channelUserLimitWrapper)} {
+#{c(sidebar server channel voiceLimitWrapper)} {
 	background-color: $card;
 }
-#{c(sidebar channelUsers)} {
+#{c(sidebar server channel voiceLimitUsers)} {
 	background-color: transparent;
 }
-#{c(sidebar channelTotal)} {
+#{c(sidebar server channel voiceLimitTotal)} {
 	background-color: transparent;
 	&::after {
 		content: "/";
@@ -236,22 +236,22 @@
 	}
 }
 
-#{c(sidebar channelName)},
-#{c(sidebar channelIcon)},
-#{c(sidebar categoryArrow)},
-#{c(sidebar categoryName)} {
+#{c(sidebar server channel name)},
+#{c(sidebar server channel icon)},
+#{c(sidebar server category icon)},
+#{c(sidebar server category name)} {
 	color: inherit !important; // !important reason: i am very lazy. https://cdn.discordapp.com/attachments/747040126294687764/965181579259428924/unknown.png
 }
-#{c(sidebar channelWrapper)} a {
+#{c(sidebar server channel wrapper)} a {
 	color: inherit;
 }
 
-#{c(sidebar privateChannelInteractive)},
-#{c(sidebar channelWrapper)} {
+#{c(sidebar private interactiveBG)},
+#{c(sidebar server channel wrapper)} {
 	color: var(--read-channel-color);
 }
 
-#{c(sidebar privateChannelInteractive2)} {
+#{c(sidebar private interactive)} {
 	&:hover,&:focus-within {
 		background: var(--background-modifier-hover);
 	}
@@ -260,51 +260,51 @@
 	}
 }
 
-#{c(sidebar privateChannelSelected)} {
+#{c(sidebar private selectedBG)} {
 	background: var(--background-modifier-selected);
 }
 
-#{c(sidebar channelModeSelected)},
-#{c(sidebar privateChannelInteractiveSelected)},
-#{c(sidebar channelWrapper)}:hover:not(#{c(sidebar channelModeMuted)}):not(#{c(sidebar channelModeLocked)}),
-#{c(sidebar privateChannelInteractive)}:hover:not(#{c(sidebar privateChannelMuted)}) {
+#{c(sidebar server channel modeSelected)},
+#{c(sidebar private interactiveSelected)},
+#{c(sidebar server channel wrapper)}:hover:not(#{c(sidebar server channel modeMuted)}):not(#{c(sidebar server channel modeLocked)}),
+#{c(sidebar private interactiveBG)}:hover:not(#{c(sidebar private mutedBG)}) {
 	color: var(--selected-channel-color);
 }
 
-#{c(sidebar channelModeUnreadImportant)} {
+#{c(sidebar server channel modeUnreadImportant)} {
 	color: var(--unread-channel-color);
-	#{c(sidebar channelUnreadBlob)} {
+	#{c(sidebar server channel unreadBlob)} {
 		display: var(--show-channel-unread-dot, block);
 		background-color: currentColor;
 	}
-	#{c(sidebar channelUnreadBlob)},
-	#{c(sidebar channelName)},
-	#{c(sidebar channelIcon)} {
+	#{c(sidebar server channel unreadBlob)},
+	#{c(sidebar server channel name)},
+	#{c(sidebar server channel icon)} {
 		filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
 	}
 }
 
-#{c(sidebar channelModeMuted)} {
+#{c(sidebar server channel modeMuted)} {
 	color: var(--muted-channel-color);
 }
-#{c(sidebar channelModeConnected)} {
+#{c(sidebar server channel modeConnected)} {
 	color: var(--category-color);
 }
-#{c(sidebar channelModeLocked)} {
+#{c(sidebar server channel modeLocked)} {
 	color: var(--locked-voice-channel-color);
 }
 
-#{c(sidebar categoryWrapper)},
-#{c(sidebar categoryWrapper)}:hover {
+#{c(sidebar server category wrapper)},
+#{c(sidebar server category wrapper)}:hover {
 	color: var(--category-color);
-	&#{c(sidebar categoryCollapsed)} {
+	&#{c(sidebar server category collapsed)} {
 		color: var(--read-channel-color);
 	}
-	&#{c(sidebar categoryMuted)} {
+	&#{c(sidebar server category muted)} {
 		color: var(--muted-channel-color);
 	}
-	&:not(#{c(sidebar categoryCollapsed)}) {
-		#{c(sidebar categoryName)}::before {
+	&:not(#{c(sidebar server category collapsed)}) {
+		#{c(sidebar server category name)}::before {
 			background: linear-gradient(to left, currentColor -50%, transparent 50%);
 		}
 	}

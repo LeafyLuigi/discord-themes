@@ -44,7 +44,7 @@
 		-webkit-app-region: no-drag;
 	}
 }
-#{c(header status)} > svg > rect {
+#{c(avatar pointerEvents)} > svg > rect {
 	// &[fill*="hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%)"],
 	&[fill*="rgba(59, 165, 92, 1)"] {
 		fill: $green;

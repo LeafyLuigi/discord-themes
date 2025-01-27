@@ -33,7 +33,7 @@ $card: var(--card-background);
 #{c(friends activeNowAvatar)} > svg > foreignObject,
 
 // private chats avatar/group chat icon, affects "my account" avatar, user popout avatar, user profile avatar
-#{c(memberList avatarWrapper)},
+#{c(avatar wrapper)},
 
 // chat avatar, also affects friends list and member list
 #{c(chat chatAvatar)},
@@ -88,7 +88,7 @@ $card: var(--card-background);
 #{c(friends activeNowAvatar)} > svg > foreignObject,
 
 // private chats avatar/group chat icon, affects "my account" avatar, user popout avatar, user profile avatar
-#{c(memberList avatarWrapper)} > svg > foreignObject
+#{c(avatar wrapper)} > svg > foreignObject
 
 // // hover over avatar in popout to see this
 // #{c(profile popout avatarHint)} > foreignObject,
@@ -121,11 +121,11 @@ $card: var(--card-background);
 // }
 
 #{c(friends activeNowAvatar)} svg,
-#{c(memberList avatarWrapper)} > svg
+#{c(avatar wrapper)} > svg
 {
 	overflow: visible;
 }
-#{c(memberList avatarWrapper)} #{c(memberList avatarMask)} {
+#{c(avatar wrapper)} #{c(avatar mask)} {
 	>foreignObject[height="24"] {
 		&,&~rect,&~circle {
 			--size: 24px;

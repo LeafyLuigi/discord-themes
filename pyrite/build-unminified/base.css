@@ -3701,7 +3701,8 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
   background: var(--card-background);
 }
 
-.wrapper_ba23fe {
+.wrapper_ba23fe,
+.guildIcon_bfabc4 {
   background: transparent;
 }
 
@@ -4015,10 +4016,6 @@ html:is([lang=en-GB], [lang=fr]) .info_c5a741::after {
 .stickerCategoryGenericSelected_a7a485:hover,
 .searchSuggestion_de4721 {
   background-color: var(--card-background);
-}
-
-.guildIcon_bfabc4 {
-  background: transparent;
 }
 
 .header_d8cdac {

@@ -126,6 +126,6 @@
 #{c(profile modal connections container)} {
 	background-color: transparent;
 }
-#{c(memberList avatarWrapper)}svg>foreignObject+:is(circle,rect:not(:last-child)) {
+#{c(avatar wrapper)}svg>foreignObject+:is(circle,rect:not(:last-child)) {
 	opacity: 0 !important; // !important reason: inline style
 }

@@ -82,16 +82,16 @@
 	height: 4px;
 	margin-bottom: -2px;
 }
-#{c(serverList unreadMention)},
-#{c(serverList mentionBar)},
-#{c(serverList mentionBar)}:active,
-// #{c(serverList unreadMention2Mention)},
-#{c(serverList unreadMention2Bar)} {
+#{c(sidebar server unreadBar old unread)},
+#{c(sidebar server unreadBar old mention)},
+#{c(sidebar server unreadBar old mention)}:active,
+// #{c(sidebar server unreadBar mentionsBar)},
+#{c(sidebar server unreadBar bar)} {
 	background-color: $primary;
 }
 
-#{c(serverList unreadMention2UnreadIcon)},
-#{c(serverList unreadMention2Text)} {
+#{c(sidebar server unreadBar unreadIcon)},
+#{c(sidebar server unreadBar text)} {
 	color: var(--status-danger-text) !important; // !important reason: inline style with barText when not mentioned
 }
 
