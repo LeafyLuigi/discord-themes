@@ -78,18 +78,18 @@ body .channelTabs-mentionBadge {
 body .channelTabs-mentionBadge.channelTabs-noMention {
   background-color: transparent;
 }
-body .typeMacOS_a934d8.titleBar_a934d8 ~ div #channelTabs-container > :first-child > :first-child {
+body .typeMacOS__421ed.titleBar__421ed ~ div #channelTabs-container > :first-child > :first-child {
   margin-left: 3px;
 }
 
-.platform-win body .typeWindows_a934d8 {
+.platform-win body .typeWindows__421ed {
   top: calc(var(--channel-tabs-enabled, 0) * (var(--channel-tabs-tabBar-enabled, 1) * (var(--channelTabs-tabHeight) + 3px) + var(--channel-tabs-favBar-enabled, 1) * (var(--channelTabs-favHeight) + 8px)));
 }
-.platform-win body .typeWindows_a934d8::before {
+.platform-win body .typeWindows__421ed::before {
   height: calc(18px - 18px * var(--channel-tabs-enabled, 0));
 }
 
-html:not(.platform-win) div.sidebar_a4d4d9 {
+html:not(.platform-win) div.sidebar_c48ade {
   border-radius: 0;
 }
 
@@ -119,11 +119,11 @@ body .xenoLib-notification-content-wrapper .xenoLib-notification-loadbar {
   background-image: linear-gradient(130deg, var(--primary-color), var(--secondary-color));
 }
 
-div.appMount_ea7e65 > .layerContainer_cd0de5 {
+div.appMount__51fd7 > .layerContainer_da8173 {
   z-index: 1100;
 }
 
-.bg_d4b6c5 + .notice_be03aa {
+.bg__960e4 + .notice__6e2b9 {
   width: calc(100vw - 3 * var(--win-min-max-close-button-width));
   top: 0;
 }
