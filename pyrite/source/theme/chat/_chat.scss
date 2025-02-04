@@ -27,7 +27,7 @@
 
 #{c(chat mentioned)},
 #{c(chat ephemeral)} {
-	@include bg($bg:var(--mention-background),$o:var(--mention-opacity),$w:-webkit-fill-available,$tr:all ease-out);
+	@include bg($bg:var(--mention-background),$o:var(--mention-opacity),$w:100%,$tr:all ease-out);
 }
 #{c(chat mentioned)},
 #{c(chat ephemeral)} {

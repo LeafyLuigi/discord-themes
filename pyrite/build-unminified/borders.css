@@ -36,7 +36,6 @@
 .headerAvatar__00943 > svg > foreignObject,
 .wrapper__44b0c > svg > foreignObject {
   mask: none;
-  -webkit-mask: none;
 }
 
 .outer_c0bea0,
@@ -100,16 +99,7 @@
   right: 0;
   z-index: 1;
   background: var(--green-color);
-}
-@supports (mask: url()) {
-  .wrapper__44b0c .mask__44b0c foreignObject[mask*=mobile]:after {
-    mask: var(--__mask) center no-repeat;
-  }
-}
-@supports (-webkit-mask: url()) {
-  .wrapper__44b0c .mask__44b0c foreignObject[mask*=mobile]:after {
-    -webkit-mask: var(--__mask) center no-repeat;
-  }
+  mask: var(--__mask) center no-repeat;
 }
 .wrapper__44b0c .mask__44b0c foreignObject[mask*=mobile][width="32"] img {
   width: calc(100% - 12px);

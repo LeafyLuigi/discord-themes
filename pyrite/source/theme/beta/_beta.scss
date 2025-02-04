@@ -164,7 +164,7 @@ html[lang="fr"] {
 	// 	position: absolute;
 	// 	right: 0;
 	// }
-	// .tutorialContainer-1pL9QS~div:not([class]):not([aria-label]) .wrapper-3kah-n::after {
+	// .tutorialContainer-1pL9QS~div:not([class],[aria-label]) .wrapper-3kah-n::after {
 	// 	padding-left: 22px;
 	// 	content: attr(aria-label);
 	// 	color: white;

@@ -13,10 +13,10 @@
 	}
 }
 
-#{c(pages channelsDismissable container)} {
+#{c(pages channelsDismissible container)} {
 	@include card;
 }
-#{c(pages channelsDismissable image)} {
+#{c(pages channelsDismissible image)} {
 	display: none;
 }
 

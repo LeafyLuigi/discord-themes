@@ -94,7 +94,7 @@
   align-items: var(--server-alignment);
   justify-content: var(--server-alignment);
 }
-.scroller_ef3116 > div[aria-label] {
+.scroller_ef3116 > div[aria-label]:has(> div.listItem__650eb) {
   display: flex;
   flex-direction: var(--server-direction);
   gap: var(--server-spacing);
@@ -149,7 +149,8 @@
 .expandedFolderBackground__48112 {
   border-radius: 10px;
 }
-.expandedFolderBackground__48112 ~ ul {
+
+.stack_dbd263 {
   height: auto !important;
 }
 

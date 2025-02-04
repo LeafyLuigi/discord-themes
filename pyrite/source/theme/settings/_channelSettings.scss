@@ -6,7 +6,7 @@
 	}
 }
 #{c(channelSettings inviteRow)} {
-	#{c(channelSettings inviteDefault)} {
+	#{c(removeButton default)} {
 		transition: 0.25s background-color ease-in-out;
 		background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
 		&:not(:hover) {

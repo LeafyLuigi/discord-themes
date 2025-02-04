@@ -4,7 +4,7 @@
 	max-height: 80vh;
 }
 // profile "status" has an inner menu. the not allows the submenus to work
-#{c(profile status popoutWrapper)} #{c(modals menus menu)}:not(#{c(modals menus submenu)}) {
+#{c(profile status accountProfilePopoutWrapper)} #{c(modals menus menu)}:not(#{c(modals menus submenu)}) {
 	background: transparent;
 	&:before {
 		content: none;

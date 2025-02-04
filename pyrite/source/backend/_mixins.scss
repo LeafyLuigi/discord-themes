@@ -22,7 +22,7 @@
 		@if $bdf {backdrop-filter: $bdf;}
 		@if $bgf {background: $bgf;} // background full
 		@if $war {-webkit-app-region: $war;}
-		@if $wm {-webkit-mask: $wm;mask:$wm;}
+		@if $wm {mask:$wm;}
 	}
 }
 
@@ -46,7 +46,7 @@
 		@if $f {filter: $f;}
 		@if $bgf {background: $bgf;} // background full
 		@if $war {-webkit-app-region: $war;}
-		@if $wm {-webkit-mask: $wm;mask:$wm;} // "mask" doesn't work unless it's on firefox.
+		@if $wm {mask:$wm;} // "mask" doesn't work unless it's on firefox.
 	}
 }
 

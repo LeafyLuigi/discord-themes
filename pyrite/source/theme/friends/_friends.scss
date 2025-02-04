@@ -4,7 +4,7 @@
 	:is(#{c(friends container)},#{c(friends multipleIconWrapper)}) {
 		background: transparent;
 	}
-	#{c(friends itemCardSeperator)} {
+	#{c(friends itemCardSeparator)} {
 		background-color: $secondary;
 		margin: 4px 8px;
 	}
@@ -94,9 +94,9 @@
 #{c(friends multipleIcon)} {
 	height: initial;
 	width: initial;
-	> g > path {
-		fill: var(--text-normal);
-	}
+	// > g > path {
+	// 	fill: var(--text-normal);
+	// }
 }
 
 #{c(friends nowPlayingScroller)} {

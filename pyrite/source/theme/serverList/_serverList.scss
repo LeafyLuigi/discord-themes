@@ -108,10 +108,8 @@
 	background-color: $card;
 }
 
-#{c(serverList serverWrapper)} {
-	> svg > foreignObject {
-		mask: none;
-	}
+#{c(serverList serverWrapper)} > svg > foreignObject {
+	mask: none;
 }
 
 #{c(serverList discover footer)},

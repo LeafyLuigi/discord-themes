@@ -2,12 +2,14 @@
 // solely to make any themers lives harder, each rule is prefixed with (dark/light +) calendarPicker
 // well, that is until you account for the line prior; in which case holy torture.
 :is(#{c(main dark)}, #{c(main light)}) #{c(modals calendar picker)} {
-	:is(#{c(modals calendar react datePicker)},
-	#{c(modals calendar react header)},
-	#{c(modals calendar react dayDisabled)},
-	#{c(modals calendar react dayOutsideMonth)},
-	#{c(modals calendar react day)}:is(#{c(modals calendar react dayDisabled)},
-									   #{c(modals calendar react dayDisabled)}:hover
+	:is(
+		#{c(modals calendar react datePicker)},
+		#{c(modals calendar react header)},
+		#{c(modals calendar react dayDisabled)},
+		#{c(modals calendar react dayOutsideMonth)},
+		#{c(modals calendar react day)}:is(
+			#{c(modals calendar react dayDisabled)},
+			#{c(modals calendar react dayDisabled)}:hover
 		)
 	) {
 		background: transparent;

@@ -1,7 +1,7 @@
 @use "backend" as *;
 /* Start Server Settings */
 :is(#{c(main dark)},#{c(main light)}) {
-	#{c(serverSettings emojiRemoveDefault)} {
+	#{c(removeButton default)} {
 		background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
 		&:not(:hover) {
 			background-color: transparent;
@@ -75,7 +75,7 @@
 }
 #{c(serverSettings emojiRow)} {
 	padding: 10px 0;
-	#{c(serverSettings emojiRemoveDefault)} {
+	#{c(removeButton default)} {
 		opacity: 1;
 		top: calc(50% - 12px);
 		right: 4px;
@@ -87,7 +87,7 @@
 		}
 	}
 }
-#{c(serverSettings auditScroller)} {
+#{c(userSettings customScroller)} {
 	background-color: $middle;
 }
 #{c(serverSettings templateDescriptionBox)},
@@ -103,7 +103,7 @@
 		fill: $red;
 	}
 }
-#{c(serverSettings rolePage)} #{c(serverSettings rolePageScroller)},
+#{c(serverSettings rolePage)} #{c(userSettings customScroller)},
 #{c(serverSettings roleTitleContainer)},
 #{c(serverSettings roleHeader)},
 #{c(serverSettings enableCommunityFeatureIcon)},

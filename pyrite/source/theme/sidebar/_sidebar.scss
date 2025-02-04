@@ -4,9 +4,9 @@
 :is(#{c(main dark)}, #{c(main light)})
 :is(
 	#{c(sidebar server container)},
-	#{c(sidebar panelContainer)},
-	#{c(sidebar panelVoiceContainer)},
-	#{c(sidebar panelActivityContainer)}
+	#{c(sidebar server panel container)},
+	#{c(sidebar server panel voice container)},
+	#{c(sidebar server panel activity activityPanel)}
 ) {
 	background: transparent;
 }
@@ -161,27 +161,27 @@
 }
 
 // Panels
-#{c(sidebar panels)} {
+#{c(sidebar server panel panels)} {
 	background: transparent;
 	width: 240px;
-	#{c(sidebar panelUsername)} {
+	#{c(sidebar server panel username)} {
 		@include header;
 	}
 	:is(
-	// #{c(sidebar panelContainer)} #{c(sidebar panelButtonRow)},
-	// #{c(sidebar panelVoiceContainer)} #{c(sidebar panelInner)} ~ #{c(sidebar panelButtonRow)},
-	#{c(sidebar panelActivityContainer)} #{c(sidebar panelActivityActions)}) {
+	// #{c(sidebar server panel container)} #{c(sidebar server panelButtonRow)},
+	// #{c(sidebar server panel voice container)} #{c(sidebar server panel voice inner)} ~ #{c(sidebar server panelButtonRow)},
+	#{c(sidebar server panel activity activityPanel)} #{c(sidebar server panel activityActions)}) {
 		border: 1px solid $middle;
 		border-radius: 8px;
 	}
 }
-#{c(sidebar panelButtons)} {
+#{c(sidebar server panel buttons buttons)} {
 	background: transparent;
 	border: 1px solid $middle;
 	box-sizing: content-box;
 	border-radius: 8px;
 }
-#{c(sidebar panelButton)} {
+#{c(sidebar server panel buttons button)} {
 	&:first-of-type::before {
 		border-bottom-left-radius: 8px;
 		border-top-left-radius: 8px;
@@ -266,7 +266,7 @@
 
 #{c(sidebar server channel modeSelected)},
 #{c(sidebar private interactiveSelected)},
-#{c(sidebar server channel wrapper)}:hover:not(#{c(sidebar server channel modeMuted)}):not(#{c(sidebar server channel modeLocked)}),
+#{c(sidebar server channel wrapper)}:hover:not(#{c(sidebar server channel modeMuted)},#{c(sidebar server channel modeLocked)}),
 #{c(sidebar private interactiveBG)}:hover:not(#{c(sidebar private mutedBG)}) {
 	color: var(--selected-channel-color);
 }

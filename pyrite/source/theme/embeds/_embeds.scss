@@ -139,37 +139,34 @@
 	border: none;
 }
 
-#{c(embeds gameInvite)} {
-	#{c(embeds gameCoverImageWrapper)} {
-		max-width: unset;
-		&~ #{c(embeds gameFullHeight)} {
-			#{c(embeds gameArtwork)} {
-				display: none;
-			}
-			#{c(embeds gameState)} {
-				display: flex;
-				font-size: 0;
-				> span {
-					font-size: 16px;
-				}
-			}
+// #{c(embeds gameInvite)} {
+// }
+#{c(embeds gameCoverImageWrapper)} {
+	max-width: unset;
+	&~ #{c(embeds gameFullHeight)} {
+		#{c(embeds gameArtwork)} {
+			display: none;
 		}
+		// #{c(embeds gameState)} {
+		// 	display: flex;
+		// 	font-size: 0;
+		// 	> span {
+		// 		font-size: 16px;
+		// 	}
+		// }
 	}
-	#{c(embeds gameCoverImage)} {
-		-webkit-mask: none;
-		mask: none;
-		&#{c(embeds gameCoverImageActionable)} {
-			&#{c(embeds gameCoverImageBlured)} {
-				filter: none;
-			}
-		}
-		&#{c(embeds gameCoverImageNotActionable)} {
-			filter: none;
-		}
+}
+#{c(embeds gameCoverImage)} {
+	mask: none;
+	&:is(
+		#{c(embeds gameCoverImageActionable)}#{c(embeds gameCoverImageBlurred)},
+		#{c(embeds gameCoverImageNotActionable)}
+	) {
+		filter: none;
 	}
-	#{c(embeds gameHeader)} {
-		@include header;
-	}
+}
+#{c(embeds gameHeader)} {
+	@include header;
 }
 
 #{c(media audioControls)} {

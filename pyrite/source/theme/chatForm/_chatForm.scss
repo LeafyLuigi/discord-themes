@@ -81,7 +81,7 @@
 #{c(chatForm inlineUpload)} {
 	background-color: $card;
 }
-#{c(chatForm inlineSpoilerTag)} {
+#{c(forums upload altTag)} {
 	background-color: $secondary;
 	color: var(--text-normal);
 }
@@ -95,7 +95,7 @@
 // delete gift nitro button. might cock up a few plugins.
 // Also remove stupid apps button
 #{c(chatForm appsButton)},
-#{c(chatForm buttons)} > :is(#{c(chatForm button)},
+#{c(chatForm buttons)} > :is(#{c(button button)},
 #{c(chatForm xmasGiftButton)}) {
 	display: none;
 }

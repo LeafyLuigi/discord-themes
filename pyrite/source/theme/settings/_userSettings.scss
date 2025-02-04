@@ -38,7 +38,7 @@
 // }
 #{c(userSettings contentRegionScroller)} {
 	background-color: $middle;
-	#{c(serverSettings auditScroller)} {
+	#{c(userSettings customScroller)} {
 		background-color: transparent;
 	}
 }
@@ -143,9 +143,9 @@
 #{c(userSettings subscriptionsNoItemsCardSubs)},
 #{c(userSettings subscriptionsNoItemsCardCredits)},
 #{c(userSettings connection)},
-#{c(userSettings cardPrimary)},
-#{c(userSettings cardPrimaryEditable)},
-#{c(userSettings cardPrimaryOutline)},
+#{c(card primary)},
+#{c(card primaryEditable)},
+#{c(card primaryOutline)},
 #{c(userSettings addConnectionContainer)} {
 	@include card;
 }

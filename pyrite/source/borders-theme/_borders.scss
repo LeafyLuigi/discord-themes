@@ -97,7 +97,6 @@ $card: var(--card-background);
 // #{c(profile bannerSVGWrapper)}
 {
 	mask: none;
-	-webkit-mask: none;
 }
 
 // MAYBE:
@@ -185,12 +184,7 @@ $card: var(--card-background);
 				right: 0;
 				z-index: 1;
 				background: var(--green-color);
-				@supports (mask: url()) {
-					mask: var(--__mask) center no-repeat;
-				}
-				@supports (-webkit-mask: url()) {
-					-webkit-mask: var(--__mask) center no-repeat;
-				}
+				mask: var(--__mask) center no-repeat;
 			}
 			&[width="32"] img {
 				width: calc(100% - 12px);
