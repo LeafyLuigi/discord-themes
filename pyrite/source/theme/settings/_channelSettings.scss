@@ -35,51 +35,39 @@
 }
 
 #{c(channelSettings permGroup)} {
+	display: flex;
+	gap: 6px;
 	border: none;
 }
 #{c(channelSettings permItem)} {
-	background-color: $card;
-	border-radius: 50%;
+	background-color: currentColor;
+	border: 8px solid;
 	width: 28px;
-	> svg {
+	border-radius: 50%;
+	&[aria-checked] svg {
 		display: none;
+	}
+	&#{c(channelSettings permSelected)} {
+		background-color: currentColor;
+		border-color: currentColor;
 	}
 }
 #{c(channelSettings permDeny)} {
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
-	background-color: $red;
+	color: $red;
 	&#{c(channelSettings permSelected)} {
-		background-color: currentColor;
-		border: 8px solid $red;
-	}
-	&:hover:not(#{c(channelSettings permSelected)}) {
-		background-color: $red;
-		cursor: pointer;
+		border-color: $red;
 	}
 }
 #{c(channelSettings permNoop)} {
-	background-color: $offline;
+	color: $offline;
 	&#{c(channelSettings permSelected)} {
-		background-color: currentColor;
-		border: 8px solid $offline;
-	}
-	&:hover:not(#{c(channelSettings permSelected)}) {
-		background-color: $offline;
-		cursor: pointer;
+		border-color: $offline;
 	}
 }
 #{c(channelSettings permAllow)} {
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-	background-color: $green;
+	color: $green;
 	&#{c(channelSettings permSelected)} {
-		background-color: currentColor;
-		border: 8px solid $green;
-	}
-	&:hover:not(#{c(channelSettings permSelected)}) {
-		background-color: $green;
-		cursor: pointer;
+		border-color: $green;
 	}
 }
 #{c(channelSettings roleScroller)},

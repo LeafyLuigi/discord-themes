@@ -109,7 +109,7 @@
 	gap: var(--server-spacing);
 	align-items: var(--server-alignment);
 	justify-content: var(--server-alignment);
-	& > div[aria-label]:has(>div#{c(serverList listItem)}) { // as much as i hate to say it... this is the element <div aria-label="Servers">. Contains all the servers.
+	& > div[aria-label]:has(>#{c(serverList listItem)}) { // as much as i hate to say it... this is the element <div aria-label="Servers">. Contains all the servers.
 		display: flex;
 		flex-direction: var(--server-direction);
 		gap: var(--server-spacing);

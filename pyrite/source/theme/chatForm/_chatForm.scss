@@ -95,20 +95,20 @@
 // delete gift nitro button. might cock up a few plugins.
 // Also remove stupid apps button
 #{c(chatForm appsButton)},
-#{c(chatForm buttons)} > :is(#{c(button button)},
-#{c(chatForm xmasGiftButton)}) {
+#{c(chatForm buttons)} > :is(
+	#{c(button button)},
+	#{c(chatForm xmasGiftButton)}
+) {
 	display: none;
 }
 
 // send button
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(chatForm sendButton)}:is(:hover,:active,[class]) #{c(chatForm sendButtonActiveChild)} {
-		color: var(--color);
-	}
+#{c(chatForm sendButtonActiveChild)} {
+	color: var(--color) !important; // !important reason: many rules containing :focus, :focus-within and :hover exist.
 }
 #{c(chatForm sendButton)} {
 	--color: var(--primary-color);
-	&:is(:hover,:active) {
+	&:is(:hover,:active,:focus,:focus-within) {
 		--color: var(--hover-color);
 	}
 }

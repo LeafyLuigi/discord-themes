@@ -55,19 +55,9 @@ $nc: var(--notice-count, 0);
 
 // specific notices
 #{c(notice completeSteps)},
+#{c(notice viewServerAsRole)},
 #{c(notice previewServerNotice)} {
 	height: 36px;
-}
-#{c(notice viewServerAsRole)} {
-	height: 36px;
-	> button {
-		&:first-child {
-			left: 8px;
-		}
-		&:last-child {
-			right: 8px;
-		}
-	}
 }
 #{c(notice colorDefault)} {
 	background-color: $green;

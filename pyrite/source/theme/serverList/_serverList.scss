@@ -108,7 +108,7 @@
 	background-color: $card;
 }
 
-#{c(serverList serverWrapper)} > svg > foreignObject {
+#{c(serverList serverWrapper)} > svg > foreignObject[mask^="url(#"] {
 	mask: none;
 }
 

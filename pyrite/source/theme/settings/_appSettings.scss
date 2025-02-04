@@ -135,10 +135,10 @@
 // 	fill: $secondary;
 // }
 #{c(appSettings game)} {
-	#{c(appSettings gameLastPlayed)} + div {
-		position: relative;
-		right: 32px;
-	}
+	// #{c(appSettings gameLastPlayed)} + div {
+	// 	position: relative;
+	// 	right: 32px;
+	// }
 	#{c(appSettings gameRemove)} {
 		opacity: 1;
 		top: 15px;

@@ -450,16 +450,16 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 }
 
 /* Language Tab Beta Labels (only for French and British English) */
-#language-tab .info__001a7 > div:after {
+#language-tab .info__001a7:after {
   font-size: 14px;
   color: var(--primary-color);
   font-style: italic;
 }
 
-#language-tab div[role=radiogroup] .item__001a7:nth-child(3) .info__001a7 > div:after {
+#language-tab div[role=radiogroup] .item__001a7:nth-child(3) .info__001a7:after {
   content: var(--beta-en-GB);
 }
-#language-tab div[role=radiogroup] .item__001a7:nth-child(7) .info__001a7 > div:after {
+#language-tab div[role=radiogroup] .item__001a7:nth-child(7) .info__001a7:after {
   content: var(--beta-fr);
 }
 
@@ -1912,14 +1912,14 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   display: none;
 }
 
-:is(.theme-dark, .theme-light) .button_aa63ab:is(:hover, :active, [class]) .activeButtonChild_aa63ab {
-  color: var(--color);
+.activeButtonChild_aa63ab {
+  color: var(--color) !important;
 }
 
 .button_aa63ab {
   --color: var(--primary-color);
 }
-.button_aa63ab:is(:hover, :active) {
+.button_aa63ab:is(:hover, :active, :focus, :focus-within) {
   --color: var(--hover-color);
 }
 
@@ -3205,22 +3205,6 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   -webkit-app-region: no-drag;
 }
 
-.pointerEvents__44b0c > svg > rect[fill*="rgba(59, 165, 92, 1)"] {
-  fill: var(--green-color);
-}
-.pointerEvents__44b0c > svg > rect[fill*="rgba(250, 166, 26, 1)"] {
-  fill: var(--yellow-color);
-}
-.pointerEvents__44b0c > svg > rect[fill*="rgba(237, 66, 69, 1)"] {
-  fill: var(--red-color);
-}
-.pointerEvents__44b0c > svg > rect[fill*="rgba(89, 54, 149, 1)"] {
-  fill: var(--live-color);
-}
-.pointerEvents__44b0c > svg > rect[fill*="rgba(116, 127, 141, 1)"] {
-  fill: var(--offline-color);
-}
-
 .icon__9293f {
   color: var(--header-primary);
 }
@@ -4428,18 +4412,9 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 }
 
 .notice__30f28,
+.notice_c9e42f,
 .notice_c5cd6a {
   height: 36px;
-}
-
-.notice_c9e42f {
-  height: 36px;
-}
-.notice_c9e42f > button:first-child {
-  left: 8px;
-}
-.notice_c9e42f > button:last-child {
-  right: 8px;
 }
 
 .colorDefault__6e2b9 {
@@ -4774,7 +4749,7 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   background-color: var(--card-background);
 }
 
-.wrapper_cc5dd2 > svg > foreignObject {
+.wrapper_cc5dd2 > svg > foreignObject[mask^="url(#"] {
   mask: none;
 }
 
@@ -4912,10 +4887,6 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   padding: 9px 0;
 }
 
-.game_cc46f0 .lastPlayed_cc46f0 + div {
-  position: relative;
-  right: 32px;
-}
 .game_cc46f0 .removeGame_cc46f0 {
   opacity: 1;
   top: 15px;
@@ -4958,56 +4929,44 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 }
 
 .group__344e6 {
+  display: flex;
+  gap: 6px;
   border: none;
 }
 
 .item__344e6 {
-  background-color: var(--card-background);
-  border-radius: 50%;
+  background-color: currentColor;
+  border: 8px solid;
   width: 28px;
+  border-radius: 50%;
 }
-.item__344e6 > svg {
+.item__344e6[aria-checked] svg {
   display: none;
+}
+.item__344e6.selected__344e6 {
+  background-color: currentColor;
+  border-color: currentColor;
 }
 
 .deny__344e6 {
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  background-color: var(--red-color);
+  color: var(--red-color);
 }
 .deny__344e6.selected__344e6 {
-  background-color: currentColor;
-  border: 8px solid var(--red-color);
-}
-.deny__344e6:hover:not(.selected__344e6) {
-  background-color: var(--red-color);
-  cursor: pointer;
+  border-color: var(--red-color);
 }
 
 .passthrough__344e6 {
-  background-color: var(--offline-color);
+  color: var(--offline-color);
 }
 .passthrough__344e6.selected__344e6 {
-  background-color: currentColor;
-  border: 8px solid var(--offline-color);
-}
-.passthrough__344e6:hover:not(.selected__344e6) {
-  background-color: var(--offline-color);
-  cursor: pointer;
+  border-color: var(--offline-color);
 }
 
 .allow__344e6 {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: var(--green-color);
+  color: var(--green-color);
 }
 .allow__344e6.selected__344e6 {
-  background-color: currentColor;
-  border: 8px solid var(--green-color);
-}
-.allow__344e6:hover:not(.selected__344e6) {
-  background-color: var(--green-color);
-  cursor: pointer;
+  border-color: var(--green-color);
 }
 
 .scroller_ff90b2,

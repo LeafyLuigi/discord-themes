@@ -152,16 +152,16 @@ html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
 }
 
 /* Language Tab Beta Labels (only for French and British English) */
-#language-tab #{c(userSettings radioBarInfo)} > div:after {
+#language-tab #{c(userSettings radioBarInfo)}:after {
 	font-size: 14px;
 	color: $primary;
 	font-style: italic;
 }
 #language-tab div[role="radiogroup"] #{c(userSettings radioGroupItem)} {
-	&:nth-child(3) #{c(userSettings radioBarInfo)} > div:after {
+	&:nth-child(3) #{c(userSettings radioBarInfo)}:after {
 		content: var(--beta-en-GB);
 	}
-	&:nth-child(7) #{c(userSettings radioBarInfo)} > div:after {
+	&:nth-child(7) #{c(userSettings radioBarInfo)}:after {
 		content: var(--beta-fr);
 	}
 }
