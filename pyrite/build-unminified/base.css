@@ -5593,6 +5593,101 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 }
 
 /* Begin Beta Branch */
+.visual-refresh :is(.appMount__51fd7,
+body,
+.bg__960e4,
+.wrapper_ef3116,
+.privateChannels__35e86,
+.clickable_f37cb1,
+.header_f37cb1,
+.users__260e1,
+.total__260e1,
+.panels_c48ade,
+.tabBody__133bf,
+.chat_f75fb0) {
+  background: transparent;
+}
+.visual-refresh :is(.wrapper__260e1) {
+  background: var(--card-background);
+}
+.visual-refresh :is(.chatContent_f75fb0) {
+  background: var(--middle-shading);
+}
+.visual-refresh :is(.bar_c38106) {
+  background: var(--header-shading);
+}
+.visual-refresh :is(.sidebarList_c48ade) {
+  background: var(--side-shading);
+}
+.visual-refresh .container__9293f.themed__9293f {
+  background: var(--middle-shading);
+}
+.visual-refresh :is(.sidebarList_c48ade,
+.searchBar__35e86,
+.panels_c48ade,
+.buttons__37e49,
+.wrapper__260e1,
+.container__133bf,
+.header_f37cb1,
+.container__9293f) {
+  border: none;
+}
+.visual-refresh .chat_f75fb0[data-has-border=true] {
+  border: none;
+}
+.visual-refresh .trailing_c38106 .anchor_edefb8[href="https://support.discord.com"] {
+  display: none;
+}
+.visual-refresh .sidebar_c48ade::before, .visual-refresh .sidebar_c48ade::after {
+  width: var(--custom-guild-sidebar-width);
+}
+.visual-refresh:is(.platform-linux,
+.platform-web) .guilds_c48ade::before, .visual-refresh:is(.platform-linux,
+.platform-web) .guilds_c48ade::after {
+  content: none;
+}
+.visual-refresh:is(.platform-linux,
+.platform-web) .tree_ef3116 {
+  top: 0;
+  height: 100%;
+}
+.visual-refresh .wrapper_ef3116 {
+  margin-bottom: var(--custom-app-panels-height, 0);
+}
+.visual-refresh .sidebarList_c48ade {
+  border-radius: 0;
+}
+.visual-refresh .searchBar__35e86 {
+  box-sizing: content-box;
+}
+.visual-refresh .scroller__629e4,
+.visual-refresh .scroller__99e7c {
+  width: unset;
+}
+.visual-refresh .sidebar_c48ade::before, .visual-refresh .sidebar_c48ade::after {
+  content: none;
+}
+.visual-refresh .panels_c48ade {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-shadow: none;
+}
+.visual-refresh .panels_c48ade::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--side-shading);
+  width: var(--custom-guild-list-width);
+}
+.visual-refresh .header_f37cb1 {
+  border-radius: 0;
+}
+
 /* Default Variables */
 :root {
   /* forced by theme */

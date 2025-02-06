@@ -4,9 +4,9 @@
 :is(#{c(main dark)}, #{c(main light)})
 :is(
 	#{c(sidebar server container)},
-	#{c(sidebar server panel container)},
-	#{c(sidebar server panel voice container)},
-	#{c(sidebar server panel activity activityPanel)}
+	#{c(sidebar panel container)},
+	#{c(sidebar panel voice container)},
+	#{c(sidebar panel activity activityPanel)}
 ) {
 	background: transparent;
 }
@@ -161,27 +161,27 @@
 }
 
 // Panels
-#{c(sidebar server panel panels)} {
+#{c(sidebar panel panels)} {
 	background: transparent;
 	width: 240px;
-	#{c(sidebar server panel username)} {
+	#{c(sidebar panel username)} {
 		@include header;
 	}
 	:is(
-	// #{c(sidebar server panel container)} #{c(sidebar server panelButtonRow)},
-	// #{c(sidebar server panel voice container)} #{c(sidebar server panel voice inner)} ~ #{c(sidebar server panelButtonRow)},
-	#{c(sidebar server panel activity activityPanel)} #{c(sidebar server panel activityActions)}) {
+	// #{c(sidebar panel container)} #{c(sidebar panelButtonRow)},
+	// #{c(sidebar panel voice container)} #{c(sidebar panel voice inner)} ~ #{c(sidebar panelButtonRow)},
+	#{c(sidebar panel activity activityPanel)} #{c(sidebar panel activityActions)}) {
 		border: 1px solid $middle;
 		border-radius: 8px;
 	}
 }
-#{c(sidebar server panel buttons buttons)} {
+#{c(sidebar panel buttons buttons)} {
 	background: transparent;
 	border: 1px solid $middle;
 	box-sizing: content-box;
 	border-radius: 8px;
 }
-#{c(sidebar server panel buttons button)} {
+#{c(sidebar panel buttons button)} {
 	&:first-of-type::before {
 		border-bottom-left-radius: 8px;
 		border-top-left-radius: 8px;
