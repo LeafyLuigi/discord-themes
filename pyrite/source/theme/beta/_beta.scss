@@ -21,16 +21,15 @@ html[lang="fr"] {
 		#{c(main bg)},
 		// server list
 		#{c(serverList wrapper)},
+		// sidebar channel list
+		.sidebarList_c48ade
 		// sidebar list
 		#{c(sidebar private channels)},
 		// server header
-		#{c(sidebar server header clickable)},
 		#{c(sidebar server header header)},
 		// channel user limit
 		#{c(sidebar server channel voiceLimitUsers)},
 		#{c(sidebar server channel voiceLimitTotal)},
-		// sidebar panel
-		#{c(sidebar panel panels)},
 		// friends page
 		#{c(friends tabBody)},
 		// chat is this real
@@ -40,7 +39,14 @@ html[lang="fr"] {
 	}
 	// and card stuff
 	:is(
-		#{c(sidebar server channel voiceLimitWrapper)}
+		// voice limit
+		#{c(sidebar server channel voiceLimitWrapper)},
+		// chat divider
+		#{c(chat dividerContent)},
+		// embeds
+		#{c(embeds embedFull)},
+		// poll
+		#{c(embeds poll container)}
 	) {
 		background: $card;
 	}
@@ -54,14 +60,22 @@ html[lang="fr"] {
 	// and header stuff
 	:is(
 		// top bar thing
-		.bar_c38106
+		.bar_c38106,
+		// server header
+		#{c(sidebar server header clickable)},
+		// private channel header
+		#{c(sidebar private searchBar)}
 	) {
 		background: $header;
 	}
 	// and side stuff
 	:is(
-		// sidebar channel list
-		.sidebarList_c48ade
+		// sidebar panel
+		#{c(sidebar panel panels)},
+		// sidebar server
+		#{c(sidebar server scroller)},
+		// private channels scrollbar
+		#{c(sidebar private scroller)}
 	) {
 		background: $side;
 	}
@@ -70,7 +84,7 @@ html[lang="fr"] {
 
 	// themed header
 	#{c(header header)}#{c(header themed)} {
-		background: $middle;
+		background: $header;
 	}
 
 	// remove borders
@@ -99,18 +113,50 @@ html[lang="fr"] {
 		border: none;
 	}
 
+	// add back borders
+	// :is(
+	//
+	// ) {
+	// 	border-color: $primary;
+	// }
+	:is(
+		// poll container
+		#{c(embeds poll container)}
+	) {
+		border-color: $secondary;
+	}
+
+	// border radius == 0
+	:is(
+		// sidebar channel list
+		.sidebarList_c48ade,
+		// panel
+		#{c(sidebar panel panels)}
+	) {
+		border-radius: 0;
+	}
+
 	// remove help button
 	.trailing_c38106 #{c(main anchorLink)}[href="https://support.discord.com"] {
 		display: none;
 	}
-	// sidebar background
-	#{c(sidebar sidebar)} {
-		&::before,
-		&::after {
-			width: var(--custom-guild-sidebar-width);
+	// windows stuff
+	&#{c(os win platform)} {
+		// fix server list
+		#{c(serverList servers)} {
+			margin-top: 0;
+			&::before,
+			&::after {
+				content: none;
+			}
+		}
+		// window buttons aren't there anymore
+		#{c(header toolbar)} {
+			padding-right: unset;
+			margin-right: unset;
 		}
 	}
-	// linux/web server list
+	// linux/web stuff
 	&:is(
 		#{c(os linux)},
 		#{c(os web)}
@@ -128,13 +174,16 @@ html[lang="fr"] {
 			height: 100%;
 		}
 	}
+	// dms scroller margin
+	#{c(sidebar private scroller)},
 	// server list margin
 	#{c(serverList wrapper)} {
 		margin-bottom: var(--custom-app-panels-height,0);
 	}
-	// sidebar channel list
-	.sidebarList_c48ade {
-		border-radius: 0;
+	// channel list margins
+	#{c(sidebar server scroller)} {
+		margin-bottom: 0;
+		margin-right: 0;
 	}
 	// private searchbar
 	#{c(sidebar private searchBar)} {
@@ -158,17 +207,6 @@ html[lang="fr"] {
 		bottom: 0;
 		width: 100%;
 		box-shadow: none;
-		&::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			z-index: -1;
-			pointer-events: none;
-			background: $side;
-			width: var(--custom-guild-list-width);
-		}
 	}
 	// server header
 	#{c(sidebar server header header)} {
@@ -178,6 +216,5 @@ html[lang="fr"] {
 
 // TODO WITH THE REFRESH:
 // Move inbox button down into header bar
-// Go back to $header for header bar (et al)
 // Fix notices
 // a whole host of other unthemed areas

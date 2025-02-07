@@ -5597,30 +5597,35 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 body,
 .bg__960e4,
 .wrapper_ef3116,
-.privateChannels__35e86,
-.clickable_f37cb1,
+.sidebarList_c48ade .privateChannels__35e86,
 .header_f37cb1,
 .users__260e1,
 .total__260e1,
-.panels_c48ade,
 .tabBody__133bf,
 .chat_f75fb0) {
   background: transparent;
 }
-.visual-refresh :is(.wrapper__260e1) {
+.visual-refresh :is(.wrapper__260e1,
+.content__908e2,
+.embedFull__623de,
+.container__0be77) {
   background: var(--card-background);
 }
 .visual-refresh :is(.chatContent_f75fb0) {
   background: var(--middle-shading);
 }
-.visual-refresh :is(.bar_c38106) {
+.visual-refresh :is(.bar_c38106,
+.clickable_f37cb1,
+.searchBar__35e86) {
   background: var(--header-shading);
 }
-.visual-refresh :is(.sidebarList_c48ade) {
+.visual-refresh :is(.panels_c48ade,
+.scroller__629e4,
+.scroller__99e7c) {
   background: var(--side-shading);
 }
 .visual-refresh .container__9293f.themed__9293f {
-  background: var(--middle-shading);
+  background: var(--header-shading);
 }
 .visual-refresh :is(.sidebarList_c48ade,
 .searchBar__35e86,
@@ -5635,11 +5640,25 @@ body,
 .visual-refresh .chat_f75fb0[data-has-border=true] {
   border: none;
 }
+.visual-refresh :is(.container__0be77) {
+  border-color: var(--secondary-color);
+}
+.visual-refresh :is(.sidebarList_c48ade,
+.panels_c48ade) {
+  border-radius: 0;
+}
 .visual-refresh .trailing_c38106 .anchor_edefb8[href="https://support.discord.com"] {
   display: none;
 }
-.visual-refresh .sidebar_c48ade::before, .visual-refresh .sidebar_c48ade::after {
-  width: var(--custom-guild-sidebar-width);
+.visual-refresh.platform-win .guilds_c48ade {
+  margin-top: 0;
+}
+.visual-refresh.platform-win .guilds_c48ade::before, .visual-refresh.platform-win .guilds_c48ade::after {
+  content: none;
+}
+.visual-refresh.platform-win .toolbar__9293f {
+  padding-right: unset;
+  margin-right: unset;
 }
 .visual-refresh:is(.platform-linux,
 .platform-web) .guilds_c48ade::before, .visual-refresh:is(.platform-linux,
@@ -5651,11 +5670,13 @@ body,
   top: 0;
   height: 100%;
 }
+.visual-refresh .scroller__99e7c,
 .visual-refresh .wrapper_ef3116 {
   margin-bottom: var(--custom-app-panels-height, 0);
 }
-.visual-refresh .sidebarList_c48ade {
-  border-radius: 0;
+.visual-refresh .scroller__629e4 {
+  margin-bottom: 0;
+  margin-right: 0;
 }
 .visual-refresh .searchBar__35e86 {
   box-sizing: content-box;
@@ -5672,17 +5693,6 @@ body,
   bottom: 0;
   width: 100%;
   box-shadow: none;
-}
-.visual-refresh .panels_c48ade::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: var(--side-shading);
-  width: var(--custom-guild-list-width);
 }
 .visual-refresh .header_f37cb1 {
   border-radius: 0;
