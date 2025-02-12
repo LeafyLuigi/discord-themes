@@ -22,7 +22,7 @@ html[lang="fr"] {
 		// server list
 		#{c(serverList wrapper)},
 		// sidebar channel list
-		.sidebarList_c48ade
+		#{c(sidebar list)},
 		// sidebar list
 		#{c(sidebar private channels)},
 		// server header
@@ -60,7 +60,7 @@ html[lang="fr"] {
 	// and header stuff
 	:is(
 		// top bar thing
-		.bar_c38106,
+		#{c(topBar bar)},
 		// server header
 		#{c(sidebar server header clickable)},
 		// private channel header
@@ -90,7 +90,7 @@ html[lang="fr"] {
 	// remove borders
 	:is(
 		// sidebar channel list
-		.sidebarList_c48ade,
+		#{c(sidebar list)},
 		// private searchbar
 		#{c(sidebar private searchBar)},
 		// sidebar panel
@@ -129,7 +129,7 @@ html[lang="fr"] {
 	// border radius == 0
 	:is(
 		// sidebar channel list
-		.sidebarList_c48ade,
+		#{c(sidebar list)},
 		// panel
 		#{c(sidebar panel panels)}
 	) {
@@ -137,7 +137,7 @@ html[lang="fr"] {
 	}
 
 	// remove help button
-	.trailing_c38106 #{c(main anchorLink)}[href="https://support.discord.com"] {
+	#{c(topBar trailing container)} #{c(main anchorLink)}[href="https://support.discord.com"] {
 		display: none;
 	}
 	// windows stuff
