@@ -170,7 +170,8 @@
 	:is(
 	// #{c(sidebar panel container)} #{c(sidebar panelButtonRow)},
 	// #{c(sidebar panel voice container)} #{c(sidebar panel voice inner)} ~ #{c(sidebar panelButtonRow)},
-	#{c(sidebar panel activity activityPanel)} #{c(sidebar panel activityActions)}) {
+	#{c(sidebar panel activity activityPanel)} #{c(sidebar panel activityActions)}
+	) {
 		border: 1px solid $middle;
 		border-radius: 8px;
 	}
@@ -181,21 +182,28 @@
 	box-sizing: content-box;
 	border-radius: 8px;
 }
-#{c(sidebar panel buttons button)} {
-	&:first-of-type::before {
-		border-bottom-left-radius: 8px;
-		border-top-left-radius: 8px;
+#{c(sidebar panel buttons buttons)} {
+	#{c(sidebar panel buttons button)} {
+		@include bg($bg:$primary,$o:.6);
+		&:last-child::before {
+			border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
+		}
+		&:hover {
+			background-color: transparent;
+		}
+		&:hover::before {
+			background-color: $hover;
+		}
 	}
-	&:last-of-type::before {
-		border-top-right-radius: 8px;
-		border-bottom-right-radius: 8px;
-	}
-	&:hover {
-		background-color: transparent;
-	}
-	@include bg($bg:$primary,$o:.6);
-	&:hover::before {
-		background-color: $hover;
+}
+// mic button is a special case for some reason
+#{c(sidebar panel buttons micButtonParent)} #{c(sidebar panel buttons button)}::before {
+	border-bottom-left-radius: 8px;
+	border-top-left-radius: 8px;
+	#{c(sidebar panel buttons buttons)} & {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
 	}
 }
 
@@ -239,10 +247,8 @@
 #{c(sidebar server channel name)},
 #{c(sidebar server channel icon)},
 #{c(sidebar server category icon)},
-#{c(sidebar server category name)} {
-	color: inherit !important; // !important reason: i am very lazy. https://cdn.discordapp.com/attachments/747040126294687764/965181579259428924/unknown.png
-}
-#{c(sidebar server channel wrapper)} a {
+#{c(sidebar server category name)},
+#{c(sidebar server channel wrapper)} #{c(sidebar server channel link)} {
 	color: inherit;
 }
 
@@ -282,10 +288,16 @@
 	#{c(sidebar server channel icon)} {
 		filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
 	}
+	#{c(sidebar server channel name)} {
+		color: inherit;	
+	}
 }
 
 #{c(sidebar server channel modeMuted)} {
 	color: var(--muted-channel-color);
+	&:hover #{c(sidebar server channel name)} {
+		color: inherit;	
+	}
 }
 #{c(sidebar server channel modeConnected)} {
 	color: var(--category-color);

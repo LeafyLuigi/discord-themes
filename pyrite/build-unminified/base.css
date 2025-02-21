@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! Pyrite v0.2.6 by LeafyLuigi */
+/*! Pyrite v0.2.7 by LeafyLuigi */
 /* Begin Keyframes */
 @keyframes monke {
   0% {
@@ -305,11 +305,11 @@ a[href^="http://"] {
 }
 
 /* Official Preset Previews */
-:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .container__4d95d {
+:is(#message-accessories-1342513995042656317, #message-accessories-1342514027129081906, #message-accessories-1342514069009076367, #message-accessories-1342514121073229884, #message-accessories-1342514188735479869) .container__4d95d {
   border: none;
   background-color: transparent;
 }
-:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .textContainer__4d95d::before {
+:is(#message-accessories-1342513995042656317, #message-accessories-1342514027129081906, #message-accessories-1342514069009076367, #message-accessories-1342514121073229884, #message-accessories-1342514188735479869) .textContainer__4d95d::before {
   content: "";
   top: 0;
   right: 0;
@@ -320,7 +320,7 @@ a[href^="http://"] {
   pointer-events: none;
   background: var(--local-image) center/cover no-repeat;
 }
-:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .textContainer__4d95d::after {
+:is(#message-accessories-1342513995042656317, #message-accessories-1342514027129081906, #message-accessories-1342514069009076367, #message-accessories-1342514121073229884, #message-accessories-1342514188735479869) .textContainer__4d95d::after {
   content: "";
   top: 0;
   right: 0;
@@ -331,13 +331,13 @@ a[href^="http://"] {
   pointer-events: none;
   background: var(--preview-overlay, url("https://leafyluigi.github.io/images/preview-overlay.png")) center/cover no-repeat;
 }
-:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .footer__4d95d {
+:is(#message-accessories-1342513995042656317, #message-accessories-1342514027129081906, #message-accessories-1342514069009076367, #message-accessories-1342514121073229884, #message-accessories-1342514188735479869) .footer__4d95d {
   width: 300px;
 }
-:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) .downloadButton__4d95d {
+:is(#message-accessories-1342513995042656317, #message-accessories-1342514027129081906, #message-accessories-1342514069009076367, #message-accessories-1342514121073229884, #message-accessories-1342514188735479869) .downloadButton__4d95d {
   color: var(--local-color, inherit);
 }
-:is(#message-accessories-1304019920752869427, #message-accessories-1304019955087577088, #message-accessories-1304019989182808064, #message-accessories-1304020020157878323, #message-accessories-1304020052869386242) :is(.toggleExpandSection__4d95d,
+:is(#message-accessories-1342513995042656317, #message-accessories-1342514027129081906, #message-accessories-1342514069009076367, #message-accessories-1342514121073229884, #message-accessories-1342514188735479869) :is(.toggleExpandSection__4d95d,
 .attachmentName__4d95d,
 .formattedSize__4d95d,
 .codeIcon__4d95d,
@@ -345,41 +345,41 @@ pre) {
   display: none;
 }
 
-#message-accessories-1304019920752869427 {
+#message-accessories-1342513995042656317 {
   --local-image: url("https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png");
   --local-color: #ff6f00;
 }
 
-#message-accessories-1304019955087577088 {
+#message-accessories-1342514027129081906 {
   --local-image: url("https://leafyluigi.github.io/images/Long%20Exposure%20Sunset%20at%20Hull%2C%20MA%20by%20Eric%20Moreno.png");
   --preview-overlay: url("https://leafyluigi.github.io/images/preview-overlay-pink.png");
   --local-color: #ffb6db;
 }
 
-:is(#message-accessories-1304019989182808064, #message-accessories-1304020052869386242) {
+:is(#message-accessories-1342514069009076367, #message-accessories-1342514188735479869) {
   --local-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
   --local-color: #387eff;
 }
 
-#message-accessories-1304020020157878323 {
+#message-accessories-1342514121073229884 {
   --local-image: url("https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png");
   --local-color: #e6de00;
 }
 
-#message-accessories-1304020052869386242 .nonVisualMediaItemContainer_f4758a {
+#message-accessories-1342514188735479869 .nonVisualMediaItemContainer_f4758a {
   flex-direction: row;
   gap: 8px;
 }
-#message-accessories-1304020052869386242 .nonVisualMediaItem_f4758a + .nonVisualMediaItem_f4758a {
+#message-accessories-1342514188735479869 .nonVisualMediaItem_f4758a + .nonVisualMediaItem_f4758a {
   margin: 0;
 }
-#message-accessories-1304020052869386242 .nonVisualMediaItem_f4758a:first-child {
+#message-accessories-1342514188735479869 .nonVisualMediaItem_f4758a:first-child {
   --client-mod-image: url("https://leafyluigi.github.io/images/vencord.png");
 }
-#message-accessories-1304020052869386242 .nonVisualMediaItem_f4758a:last-child {
+#message-accessories-1342514188735479869 .nonVisualMediaItem_f4758a:last-child {
   --client-mod-image: url("https://leafyluigi.github.io/images/betterdiscord.png");
 }
-#message-accessories-1304020052869386242 .container__4d95d::before {
+#message-accessories-1342514188735479869 .container__4d95d::before {
   content: "";
   background: var(--client-mod-image, none) center/cover no-repeat;
   width: 48px;
@@ -437,7 +437,7 @@ html {
 
 /* Version */
 .info__2debe::after {
-  content: "Pyrite" " - 0.2.6";
+  content: "Pyrite" " - 0.2.7";
   font-style: italic;
   color: var(--text-muted);
   font-size: 12px;
@@ -446,7 +446,7 @@ html {
 
 /* Beta Version (only for French and British English) */
 html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
-  content: var(--theme-name-beta) " - 0.2.6";
+  content: var(--theme-name-beta) " - 0.2.7";
 }
 
 /* Language Tab Beta Labels (only for French and British English) */
@@ -1057,36 +1057,19 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   height: calc(100vh - 48px);
 }
 
-.mentioned__5126c::before,
-.ephemeral__5126c::before {
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
-  opacity: var(--mention-opacity);
-  background-color: var(--mention-background);
-  width: 100%;
-  transition: all ease-out;
-}
-
-.mentioned__5126c:hover:before,
-.ephemeral__5126c:hover:before {
-  opacity: calc(var(--mention-opacity) + 0.2);
-}
-
 .ephemeralMessage__124d2 {
   color: var(--text-normal);
 }
 
 .wrapper_f7ecac {
   background: transparent;
-  border: 1px solid var(--middle-shading);
+  padding: 0;
+  border: none;
   box-sizing: content-box;
   border-radius: 8px;
+}
+.wrapper_f7ecac .separator_f84418 {
+  display: none;
 }
 .wrapper_f7ecac .button_f7ecac::before {
   content: "";
@@ -1308,6 +1291,11 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 
 .wrapper_cb9592.chatSidebarOpen_d880dc .callContainer_cb9592 {
   border-radius: 0;
+}
+
+.mentioned__5126c::before,
+.ephemeral__5126c::before {
+  content: none;
 }
 
 .container_f369db {
@@ -5411,18 +5399,7 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   border-radius: 8px;
 }
 
-.button__67645:first-of-type::before {
-  border-bottom-left-radius: 8px;
-  border-top-left-radius: 8px;
-}
-.button__67645:last-of-type::before {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-.button__67645:hover {
-  background-color: transparent;
-}
-.button__67645::before {
+.buttons__37e49 .button__67645::before {
   content: "";
   top: 0;
   right: 0;
@@ -5434,8 +5411,24 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   opacity: 0.6;
   background-color: var(--primary-color);
 }
-.button__67645:hover::before {
+.buttons__37e49 .button__67645:last-child::before {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.buttons__37e49 .button__67645:hover {
+  background-color: transparent;
+}
+.buttons__37e49 .button__67645:hover::before {
   background-color: var(--hover-color);
+}
+
+.micButtonParent__37e49 .button__67645::before {
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.buttons__37e49 .micButtonParent__37e49 .button__67645::before {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .children__29444 {
@@ -5481,11 +5474,8 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 .name__2ea32,
 .icon__2ea32,
 .icon__29444,
-.name__29444 {
-  color: inherit !important;
-}
-
-.wrapper__2ea32 a {
+.name__29444,
+.wrapper__2ea32 .link__2ea32 {
   color: inherit;
 }
 
@@ -5524,9 +5514,15 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 .modeUnreadImportant__2ea32 .icon__2ea32 {
   filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
 }
+.modeUnreadImportant__2ea32 .name__2ea32 {
+  color: inherit;
+}
 
 .modeMuted__2ea32 {
   color: var(--muted-channel-color);
+}
+.modeMuted__2ea32:hover .name__2ea32 {
+  color: inherit;
 }
 
 .modeConnected__2ea32 {
@@ -5702,13 +5698,13 @@ body,
 /* Default Variables */
 :root {
   /* forced by theme */
-  --font-headline: var(--header-font);
-  --font-display: var(--header-font);
+  --font-headline: var(--body-font);
+  --font-display: var(--body-font);
   --font-code: var(--code-font);
   --font-primary: var(--body-font);
   --background-message-hover: transparent;
-  --background-mentioned: transparent;
-  --background-mentioned-hover: transparent;
+  --background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
+  --background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
   --text-link: var(--link-color);
   --text-positive: var(--green-color);
   --text-warning: var(--yellow-color);
@@ -5733,8 +5729,6 @@ body,
   --mention-background: var(--primary-color);
   --mention-opacity: 0.3;
   --home-icon: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
-  --user-modal-width: 900px;
-  --user-modal-height: 600px;
   --green-color: #43b581;
   --yellow-color: #f9a719;
   --red-color: #ec4144;
@@ -5751,7 +5745,6 @@ body,
   --muted-channel-color: var(--interactive-muted);
   --locked-voice-channel-color: var(--red-color);
   /* Advanced Users */
-  --header-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --code-font: Hack, Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
   --expression-picker-height: 500px;
@@ -5766,49 +5759,43 @@ body,
   --hide-channel-list: 0;
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
-  /* Better Discord Toggles and whatnot - These should get overwritten if the user's browser supports :has() */
-  --channel-tabs-enabled: 0;
-  --channel-tabs-tabBar-enabled: 1; /* follows default: enabled */
-  --channel-tabs-favBar-enabled: 1; /* follows default: enabled */
   /* Internal please ignore */
 }
 
-/* Feel free to edit these ones for Dark Mode */
 .theme-dark,
 .theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=fullSize_], [class*=biteSize_])) {
-  --card-background: rgba(0,0,0,0.5);
-  --side-shading: rgba(0,0,0,0.5);
-  --middle-shading: rgba(0,0,0,0.3);
-  --header-shading: rgba(0,0,0,0.7);
-  --hover-filter: rgba(0,0,0,0.2);
-  --active-filter: rgba(0,0,0,0.4);
-  --interactive-normal:#b9bbbe;
-  --interactive-hover:#dcddde;
-  --interactive-active:#fff;
-  --interactive-muted:#4f545c;
-  --background-modifier-hover:rgba(79,84,92,0.16);
-  --background-modifier-active:rgba(79,84,92,0.24);
-  --background-modifier-selected:rgba(79,84,92,0.32);
-  --background-modifier-accent:hsla(0,0%,100%,0.06);
+  --card-background: rgba(0, 0, 0, 0.5);
+  --side-shading: rgba(0, 0, 0, 0.5);
+  --middle-shading: rgba(0, 0, 0, 0.3);
+  --header-shading: rgba(0, 0, 0, 0.7);
+  --hover-filter: rgba(0, 0, 0, 0.2);
+  --active-filter: rgba(0, 0, 0, 0.4);
+  --interactive-normal: #b9bbbe;
+  --interactive-hover: #dcddde;
+  --interactive-active: #fff;
+  --interactive-muted: #4f545c;
+  --background-modifier-hover: rgba(79, 84, 92, 0.16);
+  --background-modifier-active: rgba(79, 84, 92, 0.24);
+  --background-modifier-selected: rgba(79, 84, 92, 0.32);
+  --background-modifier-accent: hsla(0, 0%, 100%, 0.06);
 }
 
-/* Feel free to edit these ones for Light Mode */
 .theme-light,
 .theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_], div[class*=outer_]:is([class*=fullSize_], [class*=biteSize_]), div[class*=sidebar_], nav[class*=guilds_], div[class*=sidebarRegion_]) {
-  --card-background: rgba(255,255,255,0.05);
-  --side-shading: rgba(255,255,255,0.4);
-  --middle-shading: rgba(255,255,255,0.3);
-  --header-shading: rgba(255,255,255,0.5);
-  --hover-filter: rgba(255,255,255,0.2);
-  --active-filter: rgba(255,255,255,0.4);
-  --interactive-normal:#4f5660;
-  --interactive-hover:#2e3338;
-  --interactive-active:#060607;
-  --interactive-muted:#c7ccd1;
-  --background-modifier-hover:rgba(116,127,141,0.08);
-  --background-modifier-active:rgba(116,127,141,0.16);
-  --background-modifier-selected:rgba(116,127,141,0.24);
-  --background-modifier-accent:rgba(6,6,7,0.08);
+  --card-background: rgba(255, 255, 255, 0.05);
+  --side-shading: rgba(255, 255, 255, 0.4);
+  --middle-shading: rgba(255, 255, 255, 0.3);
+  --header-shading: rgba(255, 255, 255, 0.5);
+  --hover-filter: rgba(255, 255, 255, 0.2);
+  --active-filter: rgba(255, 255, 255, 0.4);
+  --interactive-normal: #4f5660;
+  --interactive-hover: #2e3338;
+  --interactive-active: #060607;
+  --interactive-muted: #c7ccd1;
+  --background-modifier-hover: rgba(116, 127, 141, 0.08);
+  --background-modifier-active: rgba(116, 127, 141, 0.16);
+  --background-modifier-selected: rgba(116, 127, 141, 0.24);
+  --background-modifier-accent: rgba(6, 6, 7, 0.08);
 }
 
 .theme-dark,

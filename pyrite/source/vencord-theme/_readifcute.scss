@@ -1,24 +1,24 @@
 @use "start" as *;
 @use "backend" as *;
 /*! #{$theme-name} v#{$version} - Vencord Addon by LeafyLuigi */
-#{c(vencord addonCard)} {
+#{c(vencord addon card)} {
 	&,
 	&:hover {
 		@include card;
 	}
 }
-#{c(vencord pluginsInfoButton)} {
+#{c(vencord addon infoButton)} {
 	&::before {
 		content: none;
 	}
 }
-#{c(vencord authorModalName)} {
+#{c(vencord authorModal name)} {
 	&,
 	&::before {
 		background: $primary;
 	}
 }
-#{c(vencord authorModalLinks)} {
+#{c(vencord authorModal links)} {
 	img {
 		border-color: $primary;
 	}
@@ -27,12 +27,13 @@
 	}
 }
 
-#{c(vencord shcAllowed)} {
+#{c(vencord notification root)},
+#{c(vencord shc allowedUsersAndRolesContainer)} {
 	@include card;
 }
 
 :is(#{c(main dark)},#{c(main light)}) {
-	#{c(vencord spotifyPlayer)} {
+	#{c(vencord spotify player)} {
 		border-bottom-color: transparent;
 		background: transparent;
 	}

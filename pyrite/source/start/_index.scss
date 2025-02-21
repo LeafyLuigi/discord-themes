@@ -1,2 +1,199 @@
-$version: "0.2.6";
+@use "sass:map";
+$version: "0.2.7";
 $theme-name: "Pyrite";
+
+$source: "https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite";
+$invite: "EeQQTWbTf5";
+
+$desc-vencord: "for Vencord.";
+$desc-betterdiscord: "for BetterDiscord.";
+$desc: "for Vencord and BetterDiscord.";
+
+$import-url: "https://leafyluigi.github.io/discord-themes/";
+$import-build: "pyrite/build/";
+$import-base: "base.css";
+$import-vencord: "vencord.css";
+$import-betterdiscord: "better-discord.css";
+$import-base: "base.css";
+$import-whitney: "whitney.css";
+$import-hsl: "horizontal-server-list.css";
+$import-hslbottom: "horizontal-server-list-bottom.css";
+$import-borders: "borders.css";
+$import-wintitlebar: "windows-titlebar.css";
+
+$var-examples: "pyrite/var-examples.html";
+
+$blacklist-theme-dark-classes: "div[class*=layer_],div[class*=outer_]:is([class*=fullSize_],[class*=biteSize_])";
+$blacklist-theme-light-classes: "div[class*=layer_],div[class*=outer_]:is([class*=fullSize_],[class*=biteSize_]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]";
+
+@function v($key,$val:null) {
+	$allVars: $defaults;
+	@if not map.has-key($allVars,$key) {
+		@error #{$key} not found in variables, aborting;
+	}
+	@if $val == null {
+		@return map.get($allVars,$key);
+	} @else {
+		@return $val;
+	}
+}
+// DEFAULT VARIABLES FOR PYRITE
+$defaults: (
+	// forced + debug stuff
+	update-notice-var: --update-notice-feb25, // this is set to NONE in the .css file ONLY
+	font-headline: var(--body-font),
+	font-display: var(--body-font),
+	font-code: var(--code-font),
+	font-primary: var(--body-font),
+	background-message-hover: transparent,
+	background-mentioned: rgb(from var(--mention-background) r g b / var(--mention-opacity)),
+	background-mentioned-hover: rgb(from var(--mention-background) r g b / calc(0.2 + var(--mention-opacity))),
+	text-link: var(--link-color),
+	text-positive: var(--green-color),
+	text-warning: var(--yellow-color),
+	text-danger: var(--red-color),
+	text-brand: var(--primary-color),
+	secret-orange: #f57531,
+	brand-experiment: var(--primary-color),
+	focus-primary: var(--primary-color),
+	channel-icon: inherit,
+	hide-fallback-enabled: 1,
+	hide-fallback-disabled: 0,
+	// dark+light vars
+	dark-interactive-normal: #b9bbbe,
+	dark-interactive-hover: #dcddde,
+	dark-interactive-active: #fff,
+	dark-interactive-muted: #4f545c,
+	dark-background-modifier-hover:rgba(79,84,92,0.16),
+	dark-background-modifier-active:rgba(79,84,92,0.24),
+	dark-background-modifier-selected:rgba(79,84,92,0.32),
+	dark-background-modifier-accent:hsla(0,0%,100%,0.06),
+	light-interactive-normal:#4f5660,
+	light-interactive-hover:#2e3338,
+	light-interactive-active:#060607,
+	light-interactive-muted:#c7ccd1,
+	light-background-modifier-hover:rgba(116,127,141,0.08),
+	light-background-modifier-active:rgba(116,127,141,0.16),
+	light-background-modifier-selected:rgba(116,127,141,0.24),
+	light-background-modifier-accent:rgba(6,6,7,0.08),
+	dl-input-background: var(--card-background),
+	dl-control-brand-foreground: var(--primary-color),
+	dl-control-brand-foreground-new: var(--primary-color),
+	dl-deprecated-text-input-bg: var(--input-background),
+	dl-deprecated-text-input-border: var(--primary-color),
+	dl-modal-background: var(--card-background),
+	dl-modal-footer-background: transparent,
+	dl-__spoiler-background-color--hidden: var(--card-background),
+	dl-__spoiler-background-color--hidden--hover: var(--card-background),
+	dl-__spoiler-background-color--revealed: var(--card-background),
+	dl-brand-500: var(--primary-color),
+	dl-dark-elevation-low: unset,
+	dl-dark-elevation-high: unset,
+	dl-dark-elevation-border: unset,
+	dl-light-elevation-low: unset,
+	dl-light-elevation-high: unset,
+	dl-light-elevation-border: unset,
+	dl-elevation-stroke: unset,
+	dl-elevation-low: unset,
+	dl-elevation-medium: unset,
+	dl-elevation-high: unset,
+	dl-info-positive-foreground: var(--green-color),
+	dl-info-warning-foreground: var(--yellow-color),
+	dl-info-danger-foreground: var(--red-color),
+	dl-info-help-foreground: var(--link-color),
+	dl-status-positive-background: var(--green-color),
+	dl-status-warning-background: var(--yellow-color),
+	dl-status-danger-background: var(--red-color),
+	dl-status-positive: var(--green-color),
+	dl-status-warning: var(--yellow-color),
+	dl-status-danger: var(--red-color),
+	dl-text-positive: var(--green-color),
+	dl-text-warning: var(--yellow-color),
+	dl-text-danger: var(--red-color),
+
+	// customisable
+	background-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png"),
+	user-modal-image: var(--background-image),
+	user-popout-image: var(--background-image),
+	home-icon: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png"),
+	background-attachment: fixed,
+	user-modal-attachment: var(--background-attachment),
+	user-popout-attachment: var(--background-attachment),
+	primary-color: #387eff,
+	secondary-color: #3298e0,
+	hover-color: #139dff,
+	tooltip-color: #1967ab,
+	green-color: #43b581,
+	yellow-color: #f9a719,
+	red-color: #ec4144,
+	link-color: #00aef3,
+	live-color: #583594,
+	offline-color: #737e8c,
+	category-color: var(--header-primary),
+	selected-channel-color: var(--header-primary),
+	unread-channel-color: var(--primary-color),
+	unread-channel-glow: drop-shadow(0 0 4px),
+	read-channel-color: var(--interactive-normal),
+	muted-channel-color: var(--interactive-muted),
+	show-channel-unread-dot: block,
+	locked-voice-channel-color: var(--red-color),
+	mention-background: var(--primary-color),
+	mention-opacity: 0.3,
+	code-font: "Hack, Monaco, Consolas, Courier, monospace",
+	body-font: "Whitney, \"gg sans\", \"Noto Sans\", \"Helvetica Neue\", Helvetica, sans-serif",
+	expression-picker-height: 500px,
+	background-filter: none,
+	user-modal-filter: none,
+	user-popout-filter: none,
+	hide-speed: 0.5s,
+	hide-member-list: 1,
+	hide-active-now: 1,
+	hide-profile-panel: 1,
+	hide-channel-list: 0,
+	win-min-max-close-button-width: 28px,
+	HSL-server-icon-size: 40px,
+	HSL-server-spacing: 10px,
+	HSL-server-direction: column,
+	// dark + light vars
+	dark-card-background: rgba(0,0,0,0.5),
+	dark-side-shading: rgba(0,0,0,0.5),
+	dark-middle-shading: rgba(0,0,0,0.3),
+	dark-header-shading: rgba(0,0,0,0.7),
+	dark-hover-filter: rgba(0,0,0,0.2),
+	dark-active-filter: rgba(0,0,0,0.4),
+	light-card-background: rgba(255,255,255,0.05),
+	light-side-shading: rgba(255,255,255,0.4),
+	light-middle-shading: rgba(255,255,255,0.3),
+	light-header-shading: rgba(255,255,255,0.5),
+	light-hover-filter: rgba(255,255,255,0.2),
+	light-active-filter: rgba(255,255,255,0.4),
+	// extreme advanced chat markup stuffs
+	markup-chat-font-size: 1rem,
+	markup-chat-line-height: 1.375rem,
+	markup-chat-font-color: var(--text-normal),
+	markup-chat-font-style: normal,
+	markup-chat-font-weight: 400,
+	markup-chat-light-theme-not-zoomed-in-font-weight: 500,
+	markup-chat-bold-font-weight: 700,
+	markup-chat-emphasis-style: italic,
+	markup-chat-underline-decoration: underline,
+	markup-chat-strikethrough-decoration: line-through,
+	markup-chat-preformatted-font-size: .75rem,
+	markup-chat-preformatted-line-height: 1rem,
+	markup-chat-subtext-color: var(--text-muted),
+	markup-chat-subtext-font-size: .8125rem,
+	markup-chat-subtext-line-height: 1.11719rem,
+	markup-chat-code-font-size: .875rem,
+	markup-chat-code-line-height: 1.125rem,
+	markup-chat-inline-code-font-size: 85%,
+	markup-chat-headings-font-weight: 700,
+	markup-chat-headings-font-color: var(--header-primary),
+	markup-chat-headings-line-height: 1.375em,
+	markup-chat-inline-headings-font-weight: 600,
+	markup-chat-inline-headings-font-color: inherit,
+	markup-chat-inline-headings-line-height: 1.25em,
+	markup-chat-h1-font-size: 1.5rem,
+	markup-chat-h2-font-size: 1.25rem,
+	markup-chat-h3-font-size: 1rem,
+	markup-chat-visual-refresh-line-height: 1.5rem,
+);

@@ -1,4 +1,4 @@
-/*! Pyrite v0.2.6 - Vencord Addon by LeafyLuigi */
+/*! Pyrite v0.2.7 - Vencord Addon by LeafyLuigi */
 .vc-addon-card, .vc-addon-card:hover {
   border: 1px solid var(--secondary-color);
   background-color: var(--card-background);
@@ -19,7 +19,8 @@
   border-color: var(--hover-color);
 }
 
-.shc-lock-screen-allowed-users-and-roles-container {
+.vc-notification-root,
+.vc-shc-allowed-users-and-roles-container {
   border: 1px solid var(--secondary-color);
   background-color: var(--card-background);
 }

@@ -24,26 +24,19 @@
 	@include bg($h:48px,$bg:$header);
 	@include bg2($bg:$middle,$h:calc(100vh - 48px),$top:48px);
 }
-
-#{c(chat mentioned)},
-#{c(chat ephemeral)} {
-	@include bg($bg:var(--mention-background),$o:var(--mention-opacity),$w:100%,$tr:all ease-out);
-}
-#{c(chat mentioned)},
-#{c(chat ephemeral)} {
-	&:hover:before {
-		opacity: calc( var(--mention-opacity) + 0.2 );
-	}
-}
 #{c(chat ephemeralMessage)} {
 	color: var(--text-normal);
 }
 
 #{c(chat buttonWrapper)} {
 	background: transparent;
-	border: 1px solid $middle;
+	padding: 0;
+	border: none;
 	box-sizing: content-box;
 	border-radius: 8px;
+	#{c(chat buttonSeparator)} {
+		display: none;
+	}
 	#{c(chat button)} {
 		@include bg($bg:$primary,$o:0.6);
 		&:first-of-type::before {
@@ -128,7 +121,6 @@
 #{c(chat allowedRole)} {
 	background-color: var(--card-background);
 }
-
 
 #{c(chat messageContent)} {
 	#{c(chat chatTimestamp)} {
@@ -233,10 +225,6 @@
 	fill: $red;
 }
 
-// #{c(chat messageAttachment)} {
-// 	width: unset;
-// }
-
 :is(#{c(main dark)},#{c(main light)}) {
 	#{c(chat channelLinkUserMentionWrapper)} {
 		display: inline-block;
@@ -254,7 +242,7 @@
 	}
 }
 #{c(chat mentioned)} {
-		#{c(chat channelLinkUserMentionWrapper)} {
+	#{c(chat channelLinkUserMentionWrapper)} {
 		color: var(--interactive-active);
 		&::before {
 			opacity: .75;
@@ -265,4 +253,12 @@
 // vc chat
 #{c(call wrapper)}#{c(chat chatSidebarOpen)} #{c(call container)} {
 	border-radius: 0;
+}
+
+// message backgrounds such as @mention, ephemeral and :hover
+#{c(chat mentioned)},
+#{c(chat ephemeral)} {
+	&::before {
+		content: none;
+	}
 }

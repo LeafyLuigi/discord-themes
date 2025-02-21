@@ -43,26 +43,23 @@ $card: var(--card-background);
 }
 
 // Channel Tabs Plugin
-@supports selector(div:has(a)) {
-	body {
-		&:has(#channelTabs-container) {
-			--channel-tabs-enabled: 1;
-		}
-		&:has(#{c(bdPlugin channelTabsTabContainer)}) {
-			--channel-tabs-tabBar-enabled: 1;
-		}
-		&:has(#{c(bdPlugin channelTabsFavContainer)}) {
-			--channel-tabs-favBar-enabled: 1;
-		}
-		&:not(:has(#{c(bdPlugin channelTabsTabContainer)})) {
-			--channel-tabs-tabBar-enabled: 0;
-		}
-		&:not(:has(#{c(bdPlugin channelTabsFavContainer)})) {
-			--channel-tabs-favBar-enabled: 0;
-		}
-	}
-}
 body {
+	&:has(#channelTabs-container) {
+		--channel-tabs-enabled: 1;
+	}
+	&:has(#{c(bdPlugin channelTabsTabContainer)}) {
+		--channel-tabs-tabBar-enabled: 1;
+	}
+	&:has(#{c(bdPlugin channelTabsFavContainer)}) {
+		--channel-tabs-favBar-enabled: 1;
+	}
+	&:not(:has(#{c(bdPlugin channelTabsTabContainer)})) {
+		--channel-tabs-tabBar-enabled: 0;
+	}
+	&:not(:has(#{c(bdPlugin channelTabsFavContainer)})) {
+		--channel-tabs-favBar-enabled: 0;
+	}
+	
 	#channelTabs-container {
 		padding: 0;
 		z-index: 1011;

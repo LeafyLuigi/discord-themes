@@ -1,0 +1,260 @@
+@use "start" as *;
+/** 
+ * @name #{$theme-name} - Synthscape Orange
+ * @author LeafyLuigi
+ * @version #{$version}
+ * @description #{$theme-name} #{$desc} - Synthscape Orange edition.
+ * @source #{$source}
+ * @website #{$source}
+ * @invite #{$invite}
+ */
+
+/* Main Imports */
+/* Import Base */
+@import url(#{$import-url}#{$import-build}#{$import-base});
+/* Import BetterDiscord Only Features */
+@import url(#{$import-url}#{$import-build}#{$import-betterdiscord});
+/* Import Vencord Only Features */
+@import url(#{$import-url}#{$import-build}#{$import-vencord});
+
+/*
+Imports for optional things:
+
+To enable any of these, uncomment of the line containing the `@import` you wish to use.
+
+Whitney Font support. Font file basically stolen from https://github.com/Overimagine1/old-discord-font. */
+@import url(#{$import-url}#{$import-whitney});
+
+/*
+HorizontalServerList. Forked from Gibbu. Do not use this with the original. */
+/* @import url(#{$import-url}#{$import-build}#{$import-hsl}); */
+
+/*
+HorizontalServerList on bottom. Requires the above import. */
+/* @import url(#{$import-url}#{$import-build}#{$import-hslbottom}); */
+
+/*
+Border Radius / Radical Status. Does not include Gibbu's base for Radical Status. Incompatible with it. */
+/* @import url(#{$import-url}#{$import-build}#{$import-borders}) */
+
+/*
+Restore Windows Titlebar. This will not work for those using Mac OS, Linux or using Web. */
+/* @import url(#{$import-url}#{$import-build}#{$import-wintitlebar}); */
+
+/*
+Theme Base
+If you wish to read what these variables mean, open this link in your browser:
+#{$import-url}#{$var-examples} */
+:root {
+	/* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
+	--background-image: #{v(background-image,url("https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png"))};
+	--user-modal-image: #{v(user-modal-image)};
+	--user-popout-image: #{v(user-popout-image)};
+	/* Home icon is for the little button in the top left. */
+	--home-icon: #{v(home-icon,url("https://leafyluigi.github.io/images/Sunset%20Nature%2024%20by%20Bouzid27.png"))};
+	/* 
+	Image attachment can be "fixed", "scroll" or "local".
+	scroll/local attaches the background to the modal completely while fixed keeps it in line with the background.
+	Default is "fixed" */
+	--background-attachment: #{v(background-attachment)};
+	--user-modal-attachment: #{v(user-modal-attachment)};
+	--user-popout-attachment: #{v(user-popout-attachment)};
+	/*
+	Colours.
+	Primary is the "main colour".
+	Secondary is an accent colour of sorts. It's not used as often as Primary. It should be a shade or two lighter or darker compared to Primary.
+	Hover is a secondary accent colour of sorts and is often used when hovering over something. Like Secondary, it should be a shade or two lighter or darker compared to Primary.
+	Tooltip is used for tooltips. It can whatever colour you wish. */
+	--primary-color: #{v(primary-color,#ff6f00)};
+	--secondary-color: #{v(secondary-color,#e06100)};
+	--hover-color: #{v(hover-color,#ff801f)};
+	--tooltip-color: #{v(tooltip-color,#b85000)};
+	/*
+	These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex.
+	Green's default here is the old green. The current green is #3ba55d */
+	--green-color: #{v(green-color)};
+	--yellow-color: #{v(yellow-color)};
+	--red-color: #{v(red-color)};
+	--link-color: #{v(link-color)};
+	--live-color: #{v(live-color)};
+	--offline-color: #{v(offline-color)};
+	/*
+	Channels
+	These are used for channel related things. "Channels" may apply to DMs or Server channels. */
+	--category-color: #{v(category-color)}; /* Applies to uncollapsed categories, member list groups and applies to active voice/stage channel. */
+	--selected-channel-color: #{v(selected-channel-color)}; /* Applies to selected channel as well as non-locked, non-muted channels on hover. */
+	--unread-channel-color: #{v(unread-channel-color)}; /* Applies to unread channels. Combined with below can give a glow. */
+	--unread-channel-glow: #{v(unread-channel-glow)}; /* More advanced. Uses the filter's drop-shadow function to give a glow. */
+	--read-channel-color: #{v(read-channel-color)}; /* Applies unread, unmuted, unlocked (voice) channels and unmuted collapsed categories. */
+	--muted-channel-color: #{v(muted-channel-color)}; /* Applies to muted channels and categories. Ignores hover from selected. */
+	--show-channel-unread-dot: #{v(show-channel-unread-dot)}; /* Toggle display of the unread channel dot. Valid options: "block" and "none", both without quotations. "block" shows the blob and "none" hides it. */
+	--locked-voice-channel-color: #{v(locked-voice-channel-color)}; /* Applies to locked voice channels. Does NOT include full voice channels. */
+
+	/*
+	Background default to Primary. Default opacity is 0.3 while on hover it's a static +0.2 compared to not hovered. */
+	--mention-background: #{v(mention-background)};
+	--mention-opacity: #{v(mention-opacity)};
+
+	/*
+	For Advanced Users */
+	--code-font: #{v(code-font)};
+	--body-font: #{v(body-font)};
+	--expression-picker-height: #{v(expression-picker-height)}; /* Height of the combined Gif/Sticker/Emoji picker. Does not effect adding reactions. Default and minimum height 500px (498px for Discord's base) and a maximum of 70vh. If Discord is smaller than 720px vertically, this won't apply. */
+	--background-filter: #{v(background-filter)};
+	--user-modal-filter: #{v(user-modal-filter)};
+	--user-popout-filter: #{v(user-popout-filter)};
+
+	/*
+	Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
+	--hide-speed: #{v(hide-speed)};
+	--hide-member-list: #{v(hide-member-list)};
+	--hide-active-now: #{v(hide-active-now)};
+	--hide-profile-panel: #{v(hide-profile-panel)};
+	--hide-channel-list: #{v(hide-channel-list)};
+
+	/*
+	Windows Only - How many *pixels* wide the min/max/close buttons should be. This will not work when using the "Restore Windows Titlebar" Import. */
+	--win-min-max-close-button-width: #{v(win-min-max-close-button-width)}; /* default: 28px, square: 48px */
+
+	/*
+	Using HSL? You can freely change these variables for a different look. */
+	--HSL-server-icon-size: #{v(HSL-server-icon-size)}; /* Size of the server icons | DEFAULT: 40px */
+	--HSL-server-spacing: #{v(HSL-server-spacing)}; /* Spacing between each server icon | DEFAULT: 10px */
+	--HSL-server-direction: #{v(HSL-server-direction)}; /* Direction of the server list. | OPTIONS: column, column-reverse | DEFAULT: column */
+
+	/* Debug; please do not touch */
+	#{v(update-notice-var)}: none; // theme file requires periodic updating.
+}
+
+
+/* Feel free to edit these ones for Dark Mode */
+.theme-dark,
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
+	--card-background: #{v(dark-card-background)};
+	--side-shading: #{v(dark-side-shading)};
+	--middle-shading: #{v(dark-middle-shading)};
+	--header-shading: #{v(dark-header-shading)};
+
+	/* The following are applied to buttons to indicate hover and being held down. */
+	--hover-filter: #{v(dark-hover-filter)};
+	--active-filter: #{v(dark-active-filter)};
+}
+
+/* Feel free to edit these ones for Light Mode */
+.theme-light,
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(#{$blacklist-theme-light-classes}) {
+	--card-background: #{v(light-card-background)};
+	--side-shading: #{v(light-side-shading)};
+	--middle-shading: #{v(light-middle-shading)};
+	--header-shading: #{v(light-header-shading)};
+
+	/* The following are applied to buttons to indicate hover and being held down. */
+	--hover-filter: #{v(light-hover-filter)};
+	--active-filter: #{v(light-active-filter)};
+}
+
+/*
+***********************************************************************************************
+** WARNING: *VERY* ADVANCED USERS ONLY. IF THIS SECTION IS TOO CONFUSING FOR YOU, IGNORE IT. **
+***********************************************************************************************
+
+Chat markup stuff. Change the appearance of certain in-chat text components.
+I strongly recommend reading Mozilla Development Network (MDN) for more information on the below variable kinds.
+
+Font sizes:
+	For accessibility reasons and there being a text size slider in Discord's settings, it is strongly recommended
+	to use "rem" units or percentages instead of other units ("px", "em", etc), using calc,
+	absolute sizes ("xx-small", "medium", "xxx-large", etc) or relative sizes ("smaller" and "larger").
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
+
+Line heights:
+	Line heights should always be larger than the font size. Either no specified unit (ie 1.2) should be used or
+	"rem" units should be used, preferably the former. Avoid percentages. A similar reason as above applies here.
+	The keyword "normal" may be used instead.
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
+
+Font weights:
+	Font weights are for the weight (or boldness) of the font. The weights depend on the chosen font and may or
+	may not appear. Numeric values between 1 and 1000 (inclusive) are accepted, as are certain keywords.
+	Headings usually have a higher weight than regular text.
+	"normal" is an alias for 400 while "bold" is an alias for 700. "lighter" and "bolder" may be used as relative keywords.
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+
+Font styles:
+	Font styles control the style of the text. These are either normal, italic or oblique. Italic text is generally cursive
+	while Oblique text is usually just normal text at an angle. Oblique text can also have a specified angle.
+	Note that not all fonts contain both Italic or Oblique styles with the latter usually being less common.
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-style
+
+Decorations:
+	Text decorations are extra things added to the text as a whole. The theme uses the CSS shorthand "text-decoration" within.
+	Only the "line" is used by default, though all will be explained:
+		- Line (text-decoration-line) controls where the line is placed. Accepted keyword values include "underline", "overline",
+			"line-through" and "none". Multiple non-none values may be used (ie text-decoration-line: underline overline;).
+			Underline will show a line underneath the text, overline will show a line above the text, line-through will show a
+			line through the text itself and none will not have any lines.
+		- Colour (text-decoration-color) controls the colour of all lines.
+		- Style (text-decoration-style) specifies the style of lines used. Accepted values include "solid", "double", "dotted",
+			"dashed" and "wavy".
+		- Thickness (text-decoration-thickness) is for how thick the lines are. 
+	MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
+*/
+:root {
+	/* Default text components */
+	--chat-font-size: #{v(markup-chat-font-size)}; /* Default 1rem */
+	--chat-line-height: #{v(markup-chat-line-height)}; /* Default 1.375rem */
+	--chat-font-color: #{v(markup-chat-font-color)}; /* Default var(--text-normal) */
+	--chat-font-style: #{v(markup-chat-font-style)}; /* Default normal */
+	--chat-font-weight: #{v(markup-chat-font-weight)}; /* Default 400 */
+	--chat-light-theme-not-zoomed-in-font-weight: #{v(markup-chat-light-theme-not-zoomed-in-font-weight)}; /* Default 500 | Light theme font weight without being zoomed in. This falls back to the default value above otherwise. */
+	
+	/* Bold text (eg **bold**) */
+	--chat-bold-font-weight: #{v(markup-chat-bold-font-weight)}; /* Default 700 */
+
+	/* Italicised text (eg *italics* or _italics_) */
+	--chat-emphasis-style: #{v(markup-chat-emphasis-style)}; /* Default italic */
+
+	/* Underlined text (eg __underline__); note that this does not override underlines for links. */
+	--chat-underline-decoration: #{v(markup-chat-underline-decoration)}; /* Default underline */
+
+	/* Striked through text (eg ~~strikethrough~~) */
+	--chat-strikethrough-decoration: #{v(markup-chat-strikethrough-decoration)}; /* Default line-through */
+
+	/* Preformatted text. Appears to be used for outer stuff for big codeblocks. */
+	--chat-preformatted-font-size: #{v(markup-chat-preformatted-font-size)}; /* Default .75rem */
+	--chat-preformatted-line-height: #{v(markup-chat-preformatted-line-height)}; /* Default 1rem */
+
+	/* Subtext (eg -# subtext); note that the default values at default settings look very similar to the "Only you can see this" text by Clyde or other bots. */
+	--chat-subtext-color: #{v(markup-chat-subtext-color)};/* Default var(--text-muted) */
+	--chat-subtext-font-size: #{v(markup-chat-subtext-font-size)}; /* Default .8125rem */
+	--chat-subtext-line-height: #{v(markup-chat-subtext-line-height)}; /* Default 1.11719rem */
+
+	/* Codeblocks, both inline and large (eg `inline code` and ```large code blocks```) */
+	--chat-code-font-size: #{v(markup-chat-code-font-size)}; /* Default .875rem */
+	--chat-code-line-height: #{v(markup-chat-code-line-height)}; /* Default 1.125rem */
+
+	/* Inline codeblock specifically has a smaller font size. (eg `inline code`) */
+	--chat-inline-code-font-size: #{v(markup-chat-inline-code-font-size)}; /* Default 85% */
+
+	/* All HTML heading tags [h1,h2,h3,h4,h5,h6] (eg # h1 | ## h2 | ### h3 | (h4, h5 and h6 do not appear to be possible to made)) */
+	--chat-headings-font-weight: #{v(markup-chat-headings-font-weight)}; /* Default 700 */
+	--chat-headings-font-color: #{v(markup-chat-headings-font-color)}; /* Default var(--header-primary) */
+	--chat-headings-line-height: #{v(markup-chat-headings-line-height)}; /* Default 1.375em */
+
+	/* Above but with .inlineFormat_[hash] class with it; I genuinely no idea how to make these appear */
+	--chat-inline-headings-font-weight: #{v(markup-chat-inline-headings-font-weight)}; /* Default 600 */
+	--chat-inline-headings-font-color: #{v(markup-chat-inline-headings-font-color)}; /* Default inherit */
+	--chat-inline-headings-line-height: #{v(markup-chat-inline-headings-line-height)}; /* Default 1.25rem */
+
+	/* First HTML heading (eg # h1) */
+	--chat-h1-font-size: #{v(markup-chat-h1-font-size)}; /* Default 1.5rem */
+
+	/* Second HTML heading (eg ## h2) */
+	--chat-h2-font-size: #{v(markup-chat-h2-font-size)}; /* Default 1.25rem */
+
+	/* Third HTML heading (eg ### h3). Other headings do not have their own rules. */
+	--chat-h3-font-size: #{v(markup-chat-h3-font-size)}; /* Default 1rem */
+
+	/* "Visual Refresh" experiment [2024-05_desktop_visual_refresh; Treatment 1: Refresh Enabled]. This likely will not effect you. */
+	--chat-visual-refresh-line-height: #{v(markup-chat-visual-refresh-line-height)}; /* Default 1.5rem */
+}
