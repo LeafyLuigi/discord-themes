@@ -107,30 +107,31 @@
 //   color: $yellow;
 // }
 
-#{c(header tabBar)}#{c(tab topPill)} {
-	#{c(header tabBarItem)} {
-		// and the blocked tab
-		&#{c(tab themed)} {
-			&:nth-last-child(2) {
-				color: var(--interactive-active);
-				background-color: $red;
-			}
-		}
-		&#{c(tab selected)}#{c(tab themed)} {
-			&:nth-last-child(2) {
-				color: $red;
-				background-color: var(--background-modifier-selected);
-				// for parity
-				&:hover{
-					background-color: var(--background-modifier-hover);
-				}
-				&:active{
-					background-color: var(--background-modifier-active);
-				}
-			}
-		}
-	}
-}
+// they removed the block tab
+// #{c(header tabBar)}#{c(tab topPill)} {
+// 	#{c(header tabBarItem)} {
+// 		// and the blocked tab
+// 		&#{c(tab themed)} {
+// 			&:nth-last-child(2) {
+// 				color: var(--interactive-active);
+// 				background-color: $red;
+// 			}
+// 		}
+// 		&#{c(tab selected)}#{c(tab themed)} {
+// 			&:nth-last-child(2) {
+// 				color: $red;
+// 				background-color: var(--background-modifier-selected);
+// 				// for parity
+// 				&:hover{
+// 					background-color: var(--background-modifier-hover);
+// 				}
+// 				&:active{
+// 					background-color: var(--background-modifier-active);
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
 // Hide Help icon. Can be accessed by pressing F1.
 #{c(header toolbar)} {

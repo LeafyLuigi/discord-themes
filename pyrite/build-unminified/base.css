@@ -3231,21 +3231,6 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   background: var(--card-background);
 }
 
-.tabBar__133bf.topPill_b3f026 .item__133bf.themed_b3f026:nth-last-child(2) {
-  color: var(--interactive-active);
-  background-color: var(--red-color);
-}
-.tabBar__133bf.topPill_b3f026 .item__133bf.selected_b3f026.themed_b3f026:nth-last-child(2) {
-  color: var(--red-color);
-  background-color: var(--background-modifier-selected);
-}
-.tabBar__133bf.topPill_b3f026 .item__133bf.selected_b3f026.themed_b3f026:nth-last-child(2):hover {
-  background-color: var(--background-modifier-hover);
-}
-.tabBar__133bf.topPill_b3f026 .item__133bf.selected_b3f026.themed_b3f026:nth-last-child(2):active {
-  background-color: var(--background-modifier-active);
-}
-
 .toolbar__9293f > a[href*="support.discord.com"] {
   display: none;
 }
