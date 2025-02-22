@@ -37,6 +37,10 @@ html[lang="fr"] {
 	) {
 		background: transparent;
 	}
+	// extra transparent stuff
+	#{c(sidebar server header hasBanner)} #{c(sidebar server header header)} {
+		background: transparent;
+	}
 	// and card stuff
 	:is(
 		// voice limit
@@ -46,7 +50,9 @@ html[lang="fr"] {
 		// embeds
 		#{c(embeds embedFull)},
 		// poll
-		#{c(embeds poll container)}
+		#{c(embeds poll container)},
+		// active now card
+		#{c(friends itemCardOuter)}
 	) {
 		background: $card;
 	}
@@ -109,6 +115,7 @@ html[lang="fr"] {
 		border: none;
 	}
 	// remove borders (extra)
+	#{c(sidebar server header hasBanner)} #{c(sidebar server header header)},
 	#{c(chat chat)}[data-has-border=true] {
 		border: none;
 	}
@@ -144,8 +151,6 @@ html[lang="fr"] {
 	&#{c(os win platform)} {
 		// fix server list
 		#{c(serverList servers)} {
-			margin-top: 0;
-			&::before,
 			&::after {
 				content: none;
 			}
@@ -163,15 +168,14 @@ html[lang="fr"] {
 	) {
 		// ::before and ::after
 		#{c(serverList servers)} {
-			&::before,
 			&::after {
 				content: none;
 			}
+			// @include bg($bg:$header,$h:48px);
 		}
 		// list
 		#{c(serverList tree)} {
-			top: 0;
-			height: 100%;
+			height: calc(100% - 48px);
 		}
 	}
 	// dms scroller margin
@@ -188,13 +192,19 @@ html[lang="fr"] {
 	// private searchbar
 	#{c(sidebar private searchBar)} {
 		box-sizing: content-box; // revert border-box
+		// remove that fucking button colour
+		#{c(button lookFilled)}#{c(button colorPrimary)} {
+			background: transparent;
+			&::before {
+				content: none;
+			}
+		}
 	}
-	// unset (private) channel scroller width
-	#{c(sidebar server scroller)},
-	#{c(sidebar private scroller)} {
-		width: unset;
+	// sidebar panel buttons
+	#{c(sidebar panel buttons buttons)} {
+		gap: 0;
 	}
-	// remove backgroudns
+	// remove backgrounds
 	#{c(sidebar sidebar)} {
 		&::before,
 		&::after {
@@ -211,6 +221,20 @@ html[lang="fr"] {
 	// server header
 	#{c(sidebar server header header)} {
 		border-radius: 0;
+	}
+	// channel stuff
+	#{c(sidebar server channel modeUnreadImportant)} #{c(sidebar server channel icon)} {
+		color: inherit;
+	}
+	// add friend header bar button
+	#{c(header tabBar)} #{c(header tabBarItem)}#{c(header addFriend)}#{c(header addFriend)}#{c(header addFriend)} {
+		&:hover {
+			background: $hover;
+		}
+		&[aria-selected=true] {
+			background: rgb(from $primary r g b / 0.2);
+			color: $primary;
+		}
 	}
 }
 

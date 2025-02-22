@@ -5210,7 +5210,8 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 .container__37e49,
 .container_e131a9,
 .activityPanel_c48ade,
-.content__37e49) {
+.content__37e49,
+.scroller__99e7c) {
   background: transparent;
 }
 
@@ -5257,25 +5258,6 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 .privateChannels__35e86 {
   background: transparent;
 }
-.privateChannels__35e86 .searchBar__35e86 {
-  z-index: 1010;
-  box-shadow: none;
-}
-.privateChannels__35e86 .scroller__99e7c {
-  margin-top: calc(36px * var(--notice-count, 0));
-  background: transparent;
-  width: 240px;
-}
-.privateChannels__35e86 .scroller__99e7c .link__972a0:is([href="/store"], [href="/library"], [href="/shop"]),
-.privateChannels__35e86 .scroller__99e7c .badgeIconPrivateMessages__80f39 {
-  display: none;
-}
-.privateChannels__35e86 .scroller__99e7c .channel__972a0 {
-  padding: 0;
-}
-.privateChannels__35e86 .scroller__99e7c .link__972a0 {
-  padding: 1px 0;
-}
 .privateChannels__35e86 .privateChannelRecipientsInviteButtonIcon__99e7c {
   color: var(--interactive-normal);
   order: -1;
@@ -5285,9 +5267,22 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   filter: drop-shadow(0 0 2px var(--interactive-normal));
 }
 
+.searchBar__35e86 {
+  z-index: 1010;
+  box-shadow: none;
+}
 .searchBar__35e86 .searchBarComponent__35e86 {
   -webkit-app-region: no-drag;
   background: var(--card-background);
+}
+
+.scroller__99e7c {
+  margin-top: calc(36px * var(--notice-count, 0));
+}
+
+.link__972a0:is([href="/store"], [href="/library"], [href="/shop"]),
+.badgeIconPrivateMessages__80f39 {
+  display: none;
 }
 
 .empty__99e7c {
@@ -5309,43 +5304,49 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   background: linear-gradient(to left, currentColor -50%, transparent 50%);
 }
 
-.container__2637a :is(.content__99f8c, .content_d125d2) > div[style="height: 84px;"] {
+:is(.content__99f8c, .content_d125d2) > div[style="height: 84px;"] {
   height: 132px !important;
 }
-.container__2637a .container_f37cb1 {
+
+.container_f37cb1 {
   box-shadow: none;
 }
-.container__2637a .container_f37cb1 .name_f37cb1 {
+
+.name_f37cb1 {
   color: var(--header-primary);
   text-shadow: 2px 2px 4px var(--header-secondary);
   display: flex;
   justify-content: center;
 }
-.container__2637a .container_f37cb1 .header_f37cb1 {
-  z-index: 1010;
-  box-shadow: none;
-}
-.container__2637a .animatedContainer_f37cb1 {
-  background-color: transparent;
+
+.animatedContainer_f37cb1 {
+  background: transparent;
   top: calc(48px + 36px * var(--notice-count, 0));
   z-index: 2;
 }
-.container__2637a .animatedContainer_f37cb1[style*="(-90px)"] {
+.animatedContainer_f37cb1[style*="(-90px)"] {
   z-index: -3000;
 }
-.container__2637a .animatedContainer_f37cb1 .bannerImage_f37cb1:before {
+
+.bannerImage_f37cb1:before {
   content: none;
 }
-.container__2637a .scroller__629e4 {
+
+.scroller__629e4 {
   margin-top: calc(36px * var(--notice-count, 0));
-  background-color: transparent;
-  width: 240px;
+  background: transparent;
 }
 
 .modeUnreadImportant__2ea32 .unread__2ea32 {
-  background-color: var(--primary-color);
+  background: var(--primary-color);
 }
 
+.header_f37cb1 {
+  z-index: 1010;
+}
+.hasBanner_f37cb1 .header_f37cb1, .hasBanner_f37cb1 .header_f37cb1:hover {
+  box-shadow: none;
+}
 .bannerVisible_f37cb1 .header_f37cb1 {
   filter: none;
 }
@@ -5358,7 +5359,7 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 .category__3b43f,
 .channelIcon__3b43f,
 .channelName__3b43f {
-  background-color: var(--primary-color);
+  background: var(--primary-color);
 }
 
 .unread__629e4 {
@@ -5488,6 +5489,10 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   color: var(--selected-channel-color);
 }
 
+.wrapper__2ea32:hover .name__2ea32 {
+  color: inherit;
+}
+
 .modeUnreadImportant__2ea32 {
   color: var(--unread-channel-color);
 }
@@ -5588,10 +5593,14 @@ body,
 .chat_f75fb0) {
   background: transparent;
 }
+.visual-refresh .hasBanner_f37cb1 .header_f37cb1 {
+  background: transparent;
+}
 .visual-refresh :is(.wrapper__260e1,
 .content__908e2,
 .embedFull__623de,
-.container__0be77) {
+.container__0be77,
+.outer_bf1984) {
   background: var(--card-background);
 }
 .visual-refresh :is(.chatContent_f75fb0) {
@@ -5620,6 +5629,7 @@ body,
 .container__9293f) {
   border: none;
 }
+.visual-refresh .hasBanner_f37cb1 .header_f37cb1,
 .visual-refresh .chat_f75fb0[data-has-border=true] {
   border: none;
 }
@@ -5633,10 +5643,7 @@ body,
 .visual-refresh .trailing_c38106 .anchor_edefb8[href="https://support.discord.com"] {
   display: none;
 }
-.visual-refresh.platform-win .guilds_c48ade {
-  margin-top: 0;
-}
-.visual-refresh.platform-win .guilds_c48ade::before, .visual-refresh.platform-win .guilds_c48ade::after {
+.visual-refresh.platform-win .guilds_c48ade::after {
   content: none;
 }
 .visual-refresh.platform-win .toolbar__9293f {
@@ -5644,14 +5651,12 @@ body,
   margin-right: unset;
 }
 .visual-refresh:is(.platform-linux,
-.platform-web) .guilds_c48ade::before, .visual-refresh:is(.platform-linux,
 .platform-web) .guilds_c48ade::after {
   content: none;
 }
 .visual-refresh:is(.platform-linux,
 .platform-web) .tree_ef3116 {
-  top: 0;
-  height: 100%;
+  height: calc(100% - 48px);
 }
 .visual-refresh .scroller__99e7c,
 .visual-refresh .wrapper_ef3116 {
@@ -5664,9 +5669,14 @@ body,
 .visual-refresh .searchBar__35e86 {
   box-sizing: content-box;
 }
-.visual-refresh .scroller__629e4,
-.visual-refresh .scroller__99e7c {
-  width: unset;
+.visual-refresh .searchBar__35e86 .lookFilled__201d5.colorPrimary__201d5 {
+  background: transparent;
+}
+.visual-refresh .searchBar__35e86 .lookFilled__201d5.colorPrimary__201d5::before {
+  content: none;
+}
+.visual-refresh .buttons__37e49 {
+  gap: 0;
 }
 .visual-refresh .sidebar_c48ade::before, .visual-refresh .sidebar_c48ade::after {
   content: none;
@@ -5679,6 +5689,16 @@ body,
 }
 .visual-refresh .header_f37cb1 {
   border-radius: 0;
+}
+.visual-refresh .modeUnreadImportant__2ea32 .icon__2ea32 {
+  color: inherit;
+}
+.visual-refresh .tabBar__133bf .item__133bf.addFriend__133bf.addFriend__133bf.addFriend__133bf:hover {
+  background: var(--hover-color);
+}
+.visual-refresh .tabBar__133bf .item__133bf.addFriend__133bf.addFriend__133bf.addFriend__133bf[aria-selected=true] {
+  background: rgb(from var(--primary-color) r g b/0.2);
+  color: var(--primary-color);
 }
 
 /* Default Variables */

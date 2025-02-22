@@ -7,7 +7,8 @@
 	#{c(sidebar panel container)},
 	#{c(sidebar panel voice container)},
 	#{c(sidebar panel activity activityPanel)},
-	#{c(sidebar panel content)}
+	#{c(sidebar panel content)},
+	#{c(sidebar private scroller)}
 ) {
 	background: transparent;
 }
@@ -50,25 +51,6 @@
 // Area - Friends List
 #{c(sidebar private channels)} {
 	background: transparent;
-	#{c(sidebar private searchBar)} {
-		z-index: 1010;
-		box-shadow: none;
-	}
-	#{c(sidebar private scroller)} {
-		margin-top: calc(36px * $nc);
-		background: transparent;
-		width: 240px;
-		#{c(sidebar private link)}:is([href="/store"],[href="/library"],[href="/shop"]),
-		#{c(sidebar private channelBadgeIcon)} {
-			display: none;
-		}
-		#{c(sidebar private channel)} {
-			padding: 0;
-		}
-		#{c(sidebar private link)} {
-			padding: 1px 0;
-		}
-	}
 	#{c(sidebar private inviteButtonIcon)} {
 		color: var(--interactive-normal);
 		order: -1;
@@ -79,10 +61,19 @@
 	}
 }
 #{c(sidebar private searchBar)} {
+	z-index: 1010;
+	box-shadow: none;
 	#{c(sidebar private searchBarComponent)} {
 		-webkit-app-region: no-drag;
 		background: $card;
 	}
+}
+#{c(sidebar private scroller)} {
+	margin-top: calc(36px * $nc);
+}
+#{c(sidebar private link)}:is([href="/store"],[href="/library"],[href="/shop"]),
+#{c(sidebar private channelBadgeIcon)} {
+	display: none;
 }
 #{c(sidebar private loadingEmpty)} {
 	fill: $primary;
@@ -103,48 +94,49 @@
 	}
 }
 // Area - Channels
-#{c(sidebar server container)} {
-	#{c(scroller content)} {
-		>div[style="height: 84px;"]{
-			height: 132px !important; // !important reason: element.style
-		}
+#{c(scroller content)} {
+	// banner spacer thing
+	>div[style="height: 84px;"]{
+		height: 132px !important; // !important reason: element.style
 	}
-	#{c(sidebar server header container)} {
-		box-shadow: none;
-		#{c(sidebar server name)} {
-			@include header;
-			display: flex;
-			justify-content: center;
-		}
-		#{c(sidebar server header header)} {
-			z-index: 1010;
-			box-shadow: none;
-		}
+}
+#{c(sidebar server header container)} {
+	box-shadow: none;
+}
+#{c(sidebar server name)} {
+	@include header;
+	display: flex;
+	justify-content: center;
+}
+#{c(sidebar server header bannerContainer)} {
+	background: transparent;
+	top: calc(48px + (36px * $nc));
+	z-index: 2;
+	&[style*="(-90px)"] {
+		z-index: -3000;
 	}
-	#{c(sidebar server header bannerContainer)} {
-		background-color: transparent;
-		top: calc(48px + (36px * $nc));
-		z-index: 2;
-		&[style*="(-90px)"] {
-			z-index: -3000;
-		}
-		#{c(sidebar server header bannerImage)} {
-			&:before {
-				content: none;
-			}
-		}
+}
+#{c(sidebar server header bannerImage)} {
+	&:before {
+		content: none;
 	}
-	#{c(sidebar server scroller)} {
-		margin-top: calc(36px * $nc);
-		background-color: transparent;
-		width: 240px;
-	}
+}
+#{c(sidebar server scroller)} {
+	margin-top: calc(36px * $nc);
+	background: transparent;
 }
 #{c(sidebar server channel modeUnreadImportant)} #{c(sidebar server channel unreadBlob)} {
-	background-color: $primary;
+	background: $primary;
 }
-#{c(sidebar server header bannerVisible)} #{c(sidebar server header header)} {
-	filter: none;
+#{c(sidebar server header header)} {
+	z-index: 1010;
+	#{c(sidebar server header hasBanner)} &,
+	#{c(sidebar server header hasBanner)} &:hover {
+		box-shadow: none;
+	}
+	#{c(sidebar server header bannerVisible)} & {
+		filter: none;
+	}
 }
 #{c(sidebar server channel voice avatarSpeaking)},
 #{c(avatar speaking)} {
@@ -154,7 +146,7 @@
 #{c(sidebar loadingCategory)},
 #{c(sidebar loadingChannelIcon)},
 #{c(sidebar loadingChannelName)} {
-	background-color: $primary;
+	background: $primary;
 }
 
 #{c(sidebar server unreadBar old unreadParent)} {
@@ -276,6 +268,12 @@
 #{c(sidebar server channel wrapper)}:hover:not(#{c(sidebar server channel modeMuted)},#{c(sidebar server channel modeLocked)}),
 #{c(sidebar private interactiveBG)}:hover:not(#{c(sidebar private mutedBG)}) {
 	color: var(--selected-channel-color);
+}
+
+#{c(sidebar server channel wrapper)}:hover {
+	#{c(sidebar server channel name)} {
+		color: inherit;	
+	}
 }
 
 #{c(sidebar server channel modeUnreadImportant)} {
