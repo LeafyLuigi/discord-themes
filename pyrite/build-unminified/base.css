@@ -5224,7 +5224,8 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 :is(.theme-dark, .theme-light) :is(.container__2637a,
 .container__37e49,
 .container_e131a9,
-.activityPanel_c48ade) {
+.activityPanel_c48ade,
+.content__37e49) {
   background: transparent;
 }
 
