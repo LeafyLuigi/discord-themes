@@ -39,3 +39,19 @@
 	}
 
 }
+
+// revert chat markup colors
+#{c(vencord messageLogger deleted)} {
+	#{c(chat markup)} {
+		color: var(--text-normal);
+		small:not(#{c(chat markupInlineFormat)}) {
+			color: var(--text-muted);
+		}
+		:is(h1,h2,h3,h4,h5,h6) {
+			color: var(--header-primary);
+			&#{c(chat markupInlineFormat)} {
+				color: inherit;
+			}
+		}
+	}
+}

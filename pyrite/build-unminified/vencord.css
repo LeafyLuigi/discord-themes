@@ -29,3 +29,16 @@
   border-bottom-color: transparent;
   background: transparent;
 }
+
+.messagelogger-deleted .markup__75297 {
+  color: var(--text-normal);
+}
+.messagelogger-deleted .markup__75297 small:not(.inlineFormat__75297) {
+  color: var(--text-muted);
+}
+.messagelogger-deleted .markup__75297 :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--header-primary);
+}
+.messagelogger-deleted .markup__75297 :is(h1, h2, h3, h4, h5, h6).inlineFormat__75297 {
+  color: inherit;
+}
