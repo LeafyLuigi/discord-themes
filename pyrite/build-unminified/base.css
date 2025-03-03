@@ -5590,7 +5590,8 @@ body,
 .users__260e1,
 .total__260e1,
 .tabBody__133bf,
-.chat_f75fb0) {
+.chat_f75fb0,
+.stackedBars__74017) {
   background: transparent;
 }
 .visual-refresh .hasBanner_f37cb1 .header_f37cb1 {
@@ -5699,6 +5700,16 @@ body,
 .visual-refresh .tabBar__133bf .item__133bf.addFriend__133bf.addFriend__133bf.addFriend__133bf[aria-selected=true] {
   background: rgb(from var(--primary-color) r g b/0.2);
   color: var(--primary-color);
+}
+.visual-refresh .channelTextArea_f75fb0 {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.visual-refresh-chat-input .scrollableContainer__74017 {
+  backdrop-filter: none;
+}
+.visual-refresh-chat-input .channelTextArea_f75fb0 {
+  backdrop-filter: blur(2px);
 }
 
 /* Default Variables */

@@ -33,7 +33,9 @@ html[lang="fr"] {
 		// friends page
 		#{c(friends tabBody)},
 		// chat is this real
-		#{c(chat chat)}
+		#{c(chat chat)},
+		// replying to message bar
+		#{c(chatForm stackedBars)}
 	) {
 		background: transparent;
 	}
@@ -235,6 +237,22 @@ html[lang="fr"] {
 			background: rgb(from $primary r g b / 0.2);
 			color: $primary;
 		}
+	}
+	// chat input
+	#{c(chatForm channelTextAreaMain)} {
+		background: rgb(255 255 255 / .05);
+	}
+}
+
+// CHATBOX REFRESH
+#{c(main visualRefreshChatInput)} {
+	// move backdrop filter to different element
+	#{c(chatForm scrollableContainer)} {
+		backdrop-filter: none;
+	}
+
+	#{c(chatForm channelTextAreaMain)} {
+		backdrop-filter: blur(2px);
 	}
 }
 
