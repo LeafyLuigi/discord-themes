@@ -5591,7 +5591,8 @@ body,
 .total__260e1,
 .tabBody__133bf,
 .chat_f75fb0,
-.stackedBars__74017) {
+.stackedBars__74017,
+.standardSidebarView__23e6b) {
   background: transparent;
 }
 .visual-refresh .hasBanner_f37cb1 .header_f37cb1 {
@@ -5604,7 +5605,8 @@ body,
 .outer_bf1984) {
   background: var(--card-background);
 }
-.visual-refresh :is(.chatContent_f75fb0) {
+.visual-refresh :is(.chatContent_f75fb0,
+.contentRegionScroller__23e6b) {
   background: var(--middle-shading);
 }
 .visual-refresh :is(.bar_c38106,
@@ -5614,7 +5616,8 @@ body,
 }
 .visual-refresh :is(.panels_c48ade,
 .scroller__629e4,
-.scroller__99e7c) {
+.scroller__99e7c,
+.sidebarRegionScroller__23e6b) {
   background: var(--side-shading);
 }
 .visual-refresh .container__9293f.themed__9293f {

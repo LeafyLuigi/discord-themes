@@ -35,7 +35,9 @@ html[lang="fr"] {
 		// chat is this real
 		#{c(chat chat)},
 		// replying to message bar
-		#{c(chatForm stackedBars)}
+		#{c(chatForm stackedBars)},
+		// settings
+		#{c(userSettings standardSidebarView)}
 	) {
 		background: transparent;
 	}
@@ -61,7 +63,9 @@ html[lang="fr"] {
 	// and middle stuff
 	:is(
 		// chat is this real
-		#{c(chat chatContentInner)}
+		#{c(chat chatContentInner)},
+		// settings middle
+		#{c(userSettings contentRegionScroller)}
 	) {
 		background: $middle;
 	}
@@ -83,7 +87,9 @@ html[lang="fr"] {
 		// sidebar server
 		#{c(sidebar server scroller)},
 		// private channels scrollbar
-		#{c(sidebar private scroller)}
+		#{c(sidebar private scroller)},
+		// settings side
+		#{c(userSettings sidebarRegionScroller)}
 	) {
 		background: $side;
 	}
