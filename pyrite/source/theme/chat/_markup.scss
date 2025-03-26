@@ -40,8 +40,9 @@
 	--chat-h2-font-size: 1.25rem;
 	// h3; ### h3
 	--chat-h3-font-size: 1rem;
-	// visual refresh experiment. gotta be unlucky if this effects you
-	--chat-visual-refresh-line-height: 1.5rem;
+	// removed!!
+	// // visual refresh experiment. gotta be unlucky if this effects you
+	// --chat-visual-refresh-line-height: 1.5rem;
 	// light theme font weight without being zoomed in
 	--chat-light-theme-not-zoomed-in-font-weight: 500;
 }
@@ -98,9 +99,9 @@
 	h3 {
 		font-size: var(--chat-h3-font-size,1rem);
 	}
-	#{c(main visualRefresh)} & {
-		line-height: var(--chat-visual-refresh-line-height,1.5rem);
-	}
+	// #{c(main visualRefresh)} & {
+	// 	line-height: var(--chat-visual-refresh-line-height,1.5rem);
+	// }
 	// "all" for every device, "-webkit-max-device-pixel-ratio" nonstandard zoom check thing with max of 1 being not zoomed in
 	@media all and (-webkit-max-device-pixel-ratio: 1) {
 		// light theme only reduce font weight... stuff? appears without zooming in on light theme

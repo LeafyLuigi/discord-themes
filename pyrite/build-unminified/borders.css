@@ -71,17 +71,17 @@
   --size: 120px;
   --stroke-width: 4px;
 }
-.wrapper__44b0c .mask__44b0c .dots__5ad89 {
+.wrapper__44b0c .mask__44b0c .typingDots_b88801 {
   color: var(--primary-color);
   overflow: visible;
 }
-.wrapper__44b0c .mask__44b0c .dots__5ad89 circle:nth-child(1) {
+.wrapper__44b0c .mask__44b0c .typingDots_b88801 circle:nth-child(1) {
   cx: -9;
 }
-.wrapper__44b0c .mask__44b0c .dots__5ad89 circle:nth-child(2) {
+.wrapper__44b0c .mask__44b0c .typingDots_b88801 circle:nth-child(2) {
   cx: -2;
 }
-.wrapper__44b0c .mask__44b0c .dots__5ad89 circle:nth-child(3) {
+.wrapper__44b0c .mask__44b0c .typingDots_b88801 circle:nth-child(3) {
   cx: 5;
 }
 .wrapper__44b0c .mask__44b0c foreignObject[mask*=mobile] {

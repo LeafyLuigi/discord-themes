@@ -37,7 +37,13 @@ html[lang="fr"] {
 		// replying to message bar
 		#{c(chatForm stackedBars)},
 		// settings
-		#{c(userSettings standardSidebarView)}
+		#{c(userSettings standardSidebarView)},
+		// loading chat
+		#{c(chat chatLoadingWrapper)},
+		// loading message
+		#{c(chat messageLoadingWrapper)},
+		// chat button wrapper
+		#{c(chat buttonWrapper)}
 	) {
 		background: transparent;
 	}
@@ -56,7 +62,11 @@ html[lang="fr"] {
 		// poll
 		#{c(embeds poll container)},
 		// active now card
-		#{c(friends itemCardOuter)}
+		#{c(friends itemCardOuter)},
+		// finished poll card
+		#{c(embeds poll finished container)},
+		// right click menu
+		#{c(modals menus menu)}
 	) {
 		background: $card;
 	}

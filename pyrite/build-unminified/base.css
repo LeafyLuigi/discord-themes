@@ -1729,7 +1729,6 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   --chat-h1-font-size: 1.5rem;
   --chat-h2-font-size: 1.25rem;
   --chat-h3-font-size: 1rem;
-  --chat-visual-refresh-line-height: 1.5rem;
   --chat-light-theme-not-zoomed-in-font-weight: 500;
 }
 
@@ -1786,9 +1785,6 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 }
 .markup__75297 h3 {
   font-size: var(--chat-h3-font-size, 1rem);
-}
-.visual-refresh .markup__75297 {
-  line-height: var(--chat-visual-refresh-line-height, 1.5rem);
 }
 @media all and (-webkit-max-device-pixel-ratio: 1) {
   .theme-light .markup__75297 {
@@ -5592,7 +5588,10 @@ body,
 .tabBody__133bf,
 .chat_f75fb0,
 .stackedBars__74017,
-.standardSidebarView__23e6b) {
+.standardSidebarView__23e6b,
+.wrapper_d852db,
+.wrapper_fc8177,
+.wrapper_f7ecac) {
   background: transparent;
 }
 .visual-refresh .hasBanner_f37cb1 .header_f37cb1 {
@@ -5602,7 +5601,9 @@ body,
 .content__908e2,
 .embedFull__623de,
 .container__0be77,
-.outer_bf1984) {
+.outer_bf1984,
+.container_f69538,
+.menu_c1e9c4) {
   background: var(--card-background);
 }
 .visual-refresh :is(.chatContent_f75fb0,
