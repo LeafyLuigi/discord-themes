@@ -9,7 +9,7 @@
 		color: $red;
 	}
 }
-#{c(header header)}#{c(header themed)} {
+#{c(header)}#{c(header themed)} {
 	background: $header;
 	z-index: 1010;
 }
@@ -39,7 +39,7 @@
 	@include header;
 	overflow: visible;
 }
-#{c(os mac platform)} {
+#{c(os mac)} {
 	:is(#{c(header title)},#{c(header children)},#{c(header topic)}) {
 		-webkit-app-region: no-drag;
 	}

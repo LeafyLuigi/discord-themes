@@ -14,7 +14,7 @@
 }
 
 // Base
-#{c(sidebar sidebar)} {
+#{c(sidebar)} {
 	// for hide channel list
 	overflow-x: hidden;
 	// notice stuff
@@ -43,8 +43,8 @@
 		height: 100vh;
 	}
 }
-#{c(os mac platform)} {
-	#{c(sidebar sidebar)}::after {
+#{c(os mac)} {
+	#{c(sidebar)}::after {
 		-webkit-app-region: drag;
 	}
 }
@@ -322,7 +322,7 @@
 }
 
 // Hide Sidebar
-#{c(sidebar sidebar)} {
+#{c(sidebar)} {
 	width: calc(240px - (168px * var(--hide-channel-list, 0)));
 	transition: var(--hide-speed, 0.5s) width ease-out;
 	&:hover,&:focus-within {

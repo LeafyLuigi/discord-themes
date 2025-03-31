@@ -29,7 +29,7 @@
 	}
 
 	// Win + Mac
-	&:is(#{c(os win platform)},#{c(os mac platform)}) {
+	&:is(#{c(os win)},#{c(os mac)}) {
 		#{c(error note)} {
 			text-align: left;
 			white-space: pre-line;
@@ -48,7 +48,7 @@
 	}
 
 	// Win
-	&#{c(os win platform)} {
+	&#{c(os win)} {
 		#{c(error text)} {
 			width: 70vw;
 			padding: 100px;
@@ -82,7 +82,7 @@
 	}
 
 	// Mac
-	&#{c(os mac platform)} {
+	&#{c(os mac)} {
 		#{c(error page)} {
 			@include bg($bg: $middle);
 		}

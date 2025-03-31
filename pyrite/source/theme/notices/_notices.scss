@@ -3,22 +3,22 @@
 // local variable
 $nc: var(--notice-count, 0);
 
-#{c(main base)} :where(#{c(bd notices)}:not(:empty),#{c(notice base)}) { // using :where() instead of :is() because specificity
+#{c(main base)} :where(#{c(bd notices)}:not(:empty),#{c(notice)}) { // using :where() instead of :is() because specificity
 	~#{c(main content)} {
 		--notice-count: 1;
 	}
-	+#{c(notice base)} {
+	+#{c(notice)} {
 		~#{c(main content)} {
 			--notice-count: 2;
 		}
-		+#{c(notice base)}~#{c(main content)} {
+		+#{c(notice)}~#{c(main content)} {
 			--notice-count: 3;
 		}
 	}
 }
 // notice base
 // it's done in this odd manner to bypass specificity
-:is(:where(#{c(bd notices)}:not(:empty)),#{c(notice base)}) {
+:is(:where(#{c(bd notices)}:not(:empty)),#{c(notice)}) {
 	border-radius: 0;
 	box-shadow: none;
 	max-height: 36px;
@@ -32,14 +32,14 @@ $nc: var(--notice-count, 0);
 }
 
 // It works somehow lol
-:is(:where(#{c(bd notices)}:not(:empty)),#{c(notice base)}) ~ #{c(main content)} {
+:is(:where(#{c(bd notices)}:not(:empty)),#{c(notice)}) ~ #{c(main content)} {
 	// unset overflow for these areas: friends, chat, call, side-thread
-	:is(#{c(friends container)},#{c(chat chat)},#{c(call container)},#{c(threads container)}) {
+	:is(#{c(friends container)},#{c(chat)},#{c(call container)},#{c(threads container)}) {
 		overflow: unset;
 	}
 
 	// move header, sidebar searchbar and psudo-header for: no channel, discovery page, sidebar (again)
-	:is(#{c(header header)},#{c(chat noChannel)}::before,#{c(discover pageWrapper)}::before) {
+	:is(#{c(header)},#{c(chat noChannel)}::before,#{c(discover pageWrapper)}::before) {
 		top: calc(-36px * $nc);
 	}
 

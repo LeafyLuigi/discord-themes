@@ -100,7 +100,7 @@ body {
 		margin-left: 3px;
 	}
 }
-#{c(os win platform)} body {
+#{c(os win)} body {
 	#{c(os win type)} {
 		// i hate math.
 		top: calc(var(--channel-tabs-enabled,0) * ( var(--channel-tabs-tabBar-enabled,1) * (var(--channelTabs-tabHeight) + 3px ) + var(--channel-tabs-favBar-enabled,1) * (var(--channelTabs-favHeight) + 8px) ));
@@ -109,7 +109,7 @@ body {
 		}
 	}
 }
-html:not(#{c(os win platform)}) div#{c(sidebar sidebar)} {
+html:not(#{c(os win)}) div#{c(sidebar)} {
 	border-radius: 0;
 }
 
@@ -154,7 +154,7 @@ div#{c(main appMount)} > #{c(main layerContainer)} {
 	z-index: 1100; // "div" is there to overwrite the css priority.
 }
 // Fix up the borked update notice
-#{c(main bg)}+#{c(notice base)} {
+#{c(main bg)}+#{c(notice)} {
 	width: calc(100vw - 3 * var(--win-min-max-close-button-width));
 	top: 0;
 }

@@ -96,7 +96,7 @@
 // Also remove stupid apps button
 #{c(chatForm appsButton)},
 #{c(chatForm buttons)} > :is(
-	#{c(button button)},
+	#{c(button)},
 	#{c(chatForm xmasGiftButton)}
 ) {
 	display: none;

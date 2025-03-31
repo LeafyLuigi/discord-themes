@@ -125,8 +125,8 @@ body, // this one is here for transparency in bd to work
 }
 
 // Windows
-#{c(os win platform)} {
-	#{c(sidebar sidebar)} {
+#{c(os win)} {
+	#{c(sidebar)} {
 		border-radius: 0;
 	}
 	#{c(serverList servers)} {
@@ -161,7 +161,7 @@ body, // this one is here for transparency in bd to work
 }
 
 // Mac
-#{c(os mac platform)} {
+#{c(os mac)} {
 	#{c(serverList servers)} {
 		margin-top: 48px;
 		overflow: visible;
@@ -242,7 +242,7 @@ body, // this one is here for transparency in bd to work
 // }
 
 /* Checkboxes */
-#{c(checkbox checkbox)} {
+#{c(checkbox)} {
 	border-color: $primary !important; // !important reason: element.style when selected
 	&#{c(checkbox checked)} {
 		box-shadow: inset 0 0 3px 1px $primary;

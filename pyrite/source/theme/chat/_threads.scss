@@ -3,7 +3,7 @@
 #{c(threads jump)} {
 	background-color: $card;
 }
-#{c(chat chat)}#{c(chat threadSidebarOpen)} {
+#{c(chat)}#{c(chat threadSidebarOpen)} {
 	border-radius: 0;
 	#{c(header toolbar)} {
 		right: 0;
@@ -55,7 +55,7 @@
 // Floating Chat
 #{c(chat threadSidebarFloating)} {
 	#{c(forums headerRow)},
-	:is(#{c(forums grid grid)},#{c(forums list list)})>div:first-child {
+	:is(#{c(forums grid)},#{c(forums list)})>div:first-child {
 		min-width: 0;
 	}
 }

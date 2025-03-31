@@ -5,7 +5,7 @@
 	position: relative;
 	box-shadow: none;
 	background-color: transparent;
-	#{c(role role)} {
+	#{c(role)} {
 		background: $card;
 	}
 	// #{c(profile popout note)} textarea:focus {

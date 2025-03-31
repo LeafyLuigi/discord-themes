@@ -2,7 +2,7 @@
 @use "backend" as *;
 /*! #{$theme-name} v#{$version} - Restore Window Titlebar Addon by LeafyLuigi. */
 // for anything that was messed with that isn't just on windows
-#{c(os win platform)} {
+#{c(os win)} {
 	--windows-titlebar-enabled: 1;
 	#{c(header toolbar)} {
 		padding-right: unset;

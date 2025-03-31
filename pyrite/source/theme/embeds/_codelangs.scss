@@ -236,11 +236,11 @@ $lang: (
 	}
 }
 // big undo for embeded text files
-#{c(embeds textContainer)} #{c(hljs hljs)} {
+#{c(embeds textContainer)} #{c(hljs)} {
 	--lang: none;
 	transform: unset;
 }
-#{c(hljs hljs)}::before {
+#{c(hljs)}::before {
 	content: var(--lang);
 	position: absolute;
 	top: 0.25rem;

@@ -14,6 +14,29 @@ html[lang="fr"] {
 // this stuff is basically thrown together real quick,
 // don't expect it to last forever.
 #{c(main visualRefresh)} {
+	// VARIABLE FIXING
+	&#{c(main light)},
+	&#{c(main dark)},
+	&#{c(main darker)},
+	&#{c(main midnight)},
+	#{c(main light)},
+	#{c(main dark)},
+	#{c(main darker)},
+	#{c(main midnight)} {
+		--input-background: var(--card-background);
+		--modal-background: var(--card-background);
+		--modal-footer-background: transparent;
+		--text-positive: var(--green-color);
+		--text-warning: var(--yellow-color);
+		--scrollbar-auto-scrollbar-color-thumb: var(--primary-color);
+		--scrollbar-auto-scrollbar-color-track: transparent;
+		--scrollbar-auto-thumb: var(--primary-color);
+		--scrollbar-auto-track: transparent;
+		--scrollbar-thin-thumb: var(--primary-color);
+		--background-message-hover: transparent;
+		--background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
+		--background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
+	}
 	:is(
 		// ensure transparency in theme
 		#{c(main appMount)},
@@ -33,7 +56,7 @@ html[lang="fr"] {
 		// friends page
 		#{c(friends tabBody)},
 		// chat is this real
-		#{c(chat chat)},
+		#{c(chat)},
 		// replying to message bar
 		#{c(chatForm stackedBars)},
 		// settings
@@ -43,7 +66,17 @@ html[lang="fr"] {
 		// loading message
 		#{c(chat messageLoadingWrapper)},
 		// chat button wrapper
-		#{c(chat buttonWrapper)}
+		#{c(chat buttonWrapper)},
+		// threads chat
+		#{c(threads container)},
+		// threads resize handle
+		#{c(threads resizeHandle)},
+		// threads top bar / header thing
+		#{c(forums open topBar container)},
+		// embeded text file footer
+		#{c(embeds textFooter)},
+		// server voice channel side chat
+		#{c(call channelChatWrapper)}
 	) {
 		background: transparent;
 	}
@@ -66,7 +99,11 @@ html[lang="fr"] {
 		// finished poll card
 		#{c(embeds poll finished container)},
 		// right click menu
-		#{c(modals menus menu)}
+		#{c(modals menus menu)},
+		// forums search / create post box
+		#{c(forums mainCard)},
+		// forums guidelines
+		#{c(forums guidelines container)}
 	) {
 		background: $card;
 	}
@@ -75,7 +112,9 @@ html[lang="fr"] {
 		// chat is this real
 		#{c(chat chatContentInner)},
 		// settings middle
-		#{c(userSettings contentRegionScroller)}
+		#{c(userSettings contentRegionScroller)},
+		// voice channel call middle thing
+		#{c(call root)}
 	) {
 		background: $middle;
 	}
@@ -107,7 +146,7 @@ html[lang="fr"] {
 	// some things are different...
 
 	// themed header
-	#{c(header header)}#{c(header themed)} {
+	#{c(header)}#{c(header themed)} {
 		background: $header;
 	}
 
@@ -128,25 +167,35 @@ html[lang="fr"] {
 		// server header
 		#{c(sidebar server header header)},
 		// header bar
-		#{c(header header)}
+		#{c(header)},
+		// threads chat (it has top and left)
+		#{c(threads container)},
+		// call container (it has top and right)
+		#{c(call container)}
 	) {
 		border: none;
 	}
 	// remove borders (extra)
 	#{c(sidebar server header hasBanner)} #{c(sidebar server header header)},
-	#{c(chat chat)}[data-has-border=true] {
+	#{c(chat)}[data-has-border=true] {
 		border: none;
+	}
+	#{c(messageRequests container)} {
+		border-top: none;
 	}
 
 	// add back borders
 	// :is(
-	//
 	// ) {
 	// 	border-color: $primary;
 	// }
 	:is(
 		// poll container
-		#{c(embeds poll container)}
+		#{c(embeds poll container)},
+		// forums search / create post box
+		#{c(forums mainCard)},
+		// forums guidelines
+		#{c(forums guidelines container)}
 	) {
 		border-color: $secondary;
 	}
@@ -166,7 +215,7 @@ html[lang="fr"] {
 		display: none;
 	}
 	// windows stuff
-	&#{c(os win platform)} {
+	&#{c(os win)} {
 		// fix server list
 		#{c(serverList servers)} {
 			&::after {
@@ -223,7 +272,7 @@ html[lang="fr"] {
 		gap: 0;
 	}
 	// remove backgrounds
-	#{c(sidebar sidebar)} {
+	#{c(sidebar)} {
 		&::before,
 		&::after {
 			content: none;

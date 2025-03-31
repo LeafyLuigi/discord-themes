@@ -1,6 +1,6 @@
 @use "backend" as *;
 /* Start Roles */
-#{c(role role)} {
+#{c(role)} {
 	background: var(--profile-role-pill-background-color,$card);
 }
 :is(#{c(main dark)}, #{c(main light)}) {

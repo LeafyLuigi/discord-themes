@@ -37,7 +37,7 @@
 	top: unset;
 	bottom: calc(var(--server-size) / -1 + var(--server-size) / 2 - 8px);
 }
-#{c(os win platform)} {
+#{c(os win)} {
 	#{c(serverList servers)} {
 		// margin-top: 0;
 		top: unset;

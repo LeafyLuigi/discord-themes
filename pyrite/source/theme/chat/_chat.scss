@@ -1,6 +1,6 @@
 @use "backend" as *;
 /* Begin Chat */
-#{c(chat chat)},
+#{c(chat)},
 #{c(chat chatLoadingWrapper)},
 #{c(chat messageLoadingWrapper)},
 #{c(chat chatContent)} {

@@ -76,7 +76,7 @@
 	&#{c(serverList hidden)} + #{c(main base)} {
 		top: 0;
 	}
-	#{c(os win platform)} & {
+	#{c(os win)} & {
 		top: calc(-48px + (1 - var(--hsl-bottom-enabled,0)) * var(--server-container));
 		height: calc(100vw - (1 - var(--hsl-bottom-enabled,0)) * (3 * var(--win-min-max-close-button-width)));
 		&::before {
@@ -192,7 +192,7 @@
 	top: calc((var(--server-size) - 10px));
 }
 
-#{c(os mac platform)} {
+#{c(os mac)} {
 	#{c(os mac type)} {
 		width: 100%;
 	}
@@ -212,7 +212,7 @@
 }
 
 // Windows
-#{c(os win platform)} {
+#{c(os win)} {
 	#{c(os win type)} {
 		height: 0;
 		margin-top: 0;
@@ -224,7 +224,7 @@
 
 // Mac is currently untested.
 // Mac
-// #{c(os mac platform)} {
+// #{c(os mac)} {
 // 	#{c(os mac type)} #{c(os mac buttons)} {
 // 		padding: 10px;
 // 		margin-top: -22px;
@@ -266,7 +266,7 @@
 // 		top: 20px;
 // 		padding-top: 22px;
 // 	}
-// 	:is(#{c(header header)},#{c(sidebar sidebar)}:after) {
+// 	:is(#{c(header)},#{c(sidebar)}:after) {
 // 		-webkit-app-region: unset;
 // 	}
 // 	#{c(main base)} {
