@@ -262,38 +262,38 @@ html[lang="fr"] {
 			padding-right: unset;
 			margin-right: unset;
 		}
-		// move inbox icon back down
-		// this 100% will cause issues with open side chats et al.
-		#{c(topBar bar)} {
-			z-index: 1011;
-		}
-		#{c(topBar title container)} {
-			display: none;
-		}
-		#{c(topBar trailing container)} {
-			position: absolute;
-			gap: 0;
-		}
-		#{c(topBar trailing winButtons)} {
-			gap: 0;
-			&::before {
-				content: none;
-			}
-		}
-		#{c(topBar trailing winButton)} {
-			width: var(--win-min-max-close-button-width);
-			height: 48px;
-		}
-		#{c(topBar trailing recentsIcon)} {
-			right: var(--space-xs);
-		}
-		#{c(chat layerWrapper)},
-		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
-			#{c(header toolbar)} {
-				// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
-				margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
-			}
-		}
+		// // move inbox icon back down
+		// // this 100% will cause issues with open side chats et al.
+		// #{c(topBar bar)} {
+		// 	z-index: 1011;
+		// }
+		// #{c(topBar title container)} {
+		// 	display: none;
+		// }
+		// #{c(topBar trailing container)} {
+		// 	position: absolute;
+		// 	gap: 0;
+		// }
+		// #{c(topBar trailing winButtons)} {
+		// 	gap: 0;
+		// 	&::before {
+		// 		content: none;
+		// 	}
+		// }
+		// #{c(topBar trailing winButton)} {
+		// 	width: var(--win-min-max-close-button-width);
+		// 	height: 48px;
+		// }
+		// #{c(topBar trailing recentsIcon)} {
+		// 	right: var(--space-xs);
+		// }
+		// #{c(chat layerWrapper)},
+		// #{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+		// 	#{c(header toolbar)} {
+		// 		// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
+		// 		margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+		// 	}
+		// }
 	}
 	// linux/web stuff
 	&:is(
