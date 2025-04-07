@@ -3,7 +3,6 @@
 #{c(modals upload inner)} #{c(modals upload fileTypes icon)}:not([class*=" "]) {
 	// background is intentionally set to those colors to mirror a grid pattern.
 	background: $primary repeating-conic-gradient(#0004 0% 25%, #eee4 0% 50%) center/10px 10px !important; // !important reason: background repeat and position get overwritten by another rule
-	box-shadow: none;
 	transition: all 0.25s linear;
 	-webkit-user-drag: none;
 	margin-left: 8px !important; // !important reason: inline, cbf with above

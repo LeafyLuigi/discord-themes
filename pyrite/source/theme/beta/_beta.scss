@@ -36,6 +36,8 @@ html[lang="fr"] {
 		--background-message-hover: transparent;
 		--background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
 		--background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
+
+		--custom-app-top-bar-height: 0px;
 	}
 	:is(
 		// ensure transparency in theme
@@ -76,13 +78,26 @@ html[lang="fr"] {
 		// embeded text file footer
 		#{c(embeds textFooter)},
 		// server voice channel side chat
-		#{c(call channelChatWrapper)}
+		#{c(call channelChatWrapper)},
+		// uploading file chatform background
+		#{c(chatForm channelAttachmentArea)},
+		// uploading file inline file
+		#{c(chatForm inlineUpload)},
+		// embeded text file
+		#{c(embeds textContainer)}
 	) {
 		background: transparent;
 	}
 	// extra transparent stuff
 	#{c(sidebar server header hasBanner)} #{c(sidebar server header header)} {
 		background: transparent;
+	}
+	// because something likes to use !important.
+	:is(
+		// members list page
+		#{c(membersPage page)}
+	) {
+		background: transparent !important; // !important reason: override existing !important
 	}
 	// and card stuff
 	:is(
@@ -103,7 +118,13 @@ html[lang="fr"] {
 		// forums search / create post box
 		#{c(forums mainCard)},
 		// forums guidelines
-		#{c(forums guidelines container)}
+		#{c(forums guidelines container)},
+		// attached file
+		#{c(embeds attachment)},
+		// uploading file inline file
+		#{c(chatForm inlineUpload)},
+		// customise page prompt
+		#{c(pages customise prompt)}
 	) {
 		background: $card;
 	}
@@ -118,6 +139,11 @@ html[lang="fr"] {
 	) {
 		background: $middle;
 	}
+	// it likes to think it's important.
+	// customise roles page
+	#{c(pages header container)} {
+		background: $middle !important; // !important reason: override existing !important
+	}
 	// and header stuff
 	:is(
 		// top bar thing
@@ -128,6 +154,11 @@ html[lang="fr"] {
 		#{c(sidebar private searchBar)}
 	) {
 		background: $header;
+	}
+	// it likes to think it's important.
+	// customise roles page header
+	#{c(pages header)} {
+		background: $header !important; // !important reason: override existing !important
 	}
 	// and side stuff
 	:is(
@@ -195,7 +226,11 @@ html[lang="fr"] {
 		// forums search / create post box
 		#{c(forums mainCard)},
 		// forums guidelines
-		#{c(forums guidelines container)}
+		#{c(forums guidelines container)},
+		// attached file
+		#{c(embeds attachment)},
+		// customise page prompt
+		#{c(pages customise prompt)}
 	) {
 		border-color: $secondary;
 	}
@@ -227,6 +262,38 @@ html[lang="fr"] {
 			padding-right: unset;
 			margin-right: unset;
 		}
+		// move inbox icon back down
+		// this 100% will cause issues with open side chats et al.
+		#{c(topBar bar)} {
+			z-index: 1011;
+		}
+		#{c(topBar title container)} {
+			display: none;
+		}
+		#{c(topBar trailing container)} {
+			position: absolute;
+			gap: 0;
+		}
+		#{c(topBar trailing winButtons)} {
+			gap: 0;
+			&::before {
+				content: none;
+			}
+		}
+		#{c(topBar trailing winButton)} {
+			width: var(--win-min-max-close-button-width);
+			height: 48px;
+		}
+		#{c(topBar trailing recentsIcon)} {
+			right: var(--space-xs);
+		}
+		#{c(chat layerWrapper)},
+		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+			#{c(header toolbar)} {
+				// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
+				margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+			}
+		}
 	}
 	// linux/web stuff
 	&:is(
@@ -243,6 +310,24 @@ html[lang="fr"] {
 		// list
 		#{c(serverList tree)} {
 			height: calc(100% - 48px);
+		}
+		// move inbox icon back down
+		// this 100% will cause issues with open side chats et al.
+		#{c(topBar bar)} {
+			z-index: 1011;
+		}
+		#{c(topBar title container)} {
+			display: none;
+		}
+		#{c(topBar trailing recentsIcon)} {
+			position: absolute;
+			top: 8px;
+		}
+		#{c(chat layerWrapper)},
+		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+			#{c(header toolbar)} {
+				margin-right: calc(32px + var(--space-xs));
+			}
 		}
 	}
 	// dms scroller margin
@@ -303,9 +388,38 @@ html[lang="fr"] {
 			color: $primary;
 		}
 	}
-	// chat input
-	#{c(chatForm channelTextAreaMain)} {
+	:is(
+		// chat input
+		#{c(chatForm channelTextAreaMain)},
+		// blocked + follow chatform wrapper
+		#{c(chatForm followWrapper)}
+	) {
 		background: rgb(255 255 255 / .05);
+		border: none;
+	}
+	// tooltip pointers
+	#{c(tooltips pointer)} {
+		display: none;
+	}
+	// customise roles page override hide stuff
+	:is(
+		#{c(pages header tabBar)},
+		#{c(pages customise scroller)}
+	) {
+		--background: transparent;
+		backdrop-filter: unset !important; // !important reason: override css from hidden member list et al
+		left: unset !important; // !important reason: override css from hidden member list et al
+		transform: unset !important; // !important reason: override css from hidden member list et al
+	}
+	#{c(pages header tabBar)} {
+		margin-left: 32px !important; // !important reason: override css from hidden member list et al
+	}
+	#{c(pages customise scroller)} {
+		margin-left: unset !important; // !important reason: override css from hidden member list et al
+	}
+	// members page background fix
+	#{c(membersPage page)}>#{c(scroller base)} {
+		background: $middle;
 	}
 }
 
@@ -318,6 +432,36 @@ html[lang="fr"] {
 
 	#{c(chatForm channelTextAreaMain)} {
 		backdrop-filter: blur(2px);
+	}
+}
+
+// REMOVE SHADOWS
+#{c(main light)},
+#{c(main dark)},
+#{c(main darker)},
+#{c(main midnight)} {
+	// takes initial string `--shadow` then appends each key/value going down the list, ie `--shadow-low`
+	// sets the value to predetermined `unset` (tho changeable for testing)
+	// each key also has an associated `-filter` variable. ie `--shadow-border-filter`
+	$value: unset;
+	$filterValue: unset; // use `drop-shadow()` for testing
+	$list: (
+		"-border",
+		"-button-overlay",
+		"-high",
+		"-ledge",
+		"-low",
+		"-low-active",
+		"-low-hover",
+		"-medium",
+		"-mobile-navigator-x",
+		"-top-high",
+		"-top-ledge",
+		"-top-low",
+	);
+	@each $i in $list {
+		--shadow#{$i}: #{$value};
+		--shadow#{$i}-filter: #{$filterValue}; 
 	}
 }
 
