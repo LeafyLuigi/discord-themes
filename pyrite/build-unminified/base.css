@@ -5596,7 +5596,6 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   --background-message-hover: transparent;
   --background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
   --background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
-  --custom-app-top-bar-height: 0px;
 }
 .visual-refresh :is(.appMount__51fd7,
 body,
@@ -5708,6 +5707,10 @@ body,
 .visual-refresh.platform-win .toolbar__9293f {
   padding-right: unset;
   margin-right: unset;
+}
+.visual-refresh:is(.platform-linux,
+.platform-web) {
+  --custom-app-top-bar-height: 0px;
 }
 .visual-refresh:is(.platform-linux,
 .platform-web) .guilds_c48ade::after {

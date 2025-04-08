@@ -37,7 +37,7 @@ html[lang="fr"] {
 		--background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
 		--background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
 
-		--custom-app-top-bar-height: 0px;
+		// --custom-app-top-bar-height: 0px;
 	}
 	:is(
 		// ensure transparency in theme
@@ -313,6 +313,8 @@ html[lang="fr"] {
 		}
 		// move inbox icon back down
 		// this 100% will cause issues with open side chats et al.
+		// variable for reasons.
+		--custom-app-top-bar-height: 0px;
 		#{c(topBar bar)} {
 			z-index: 1011;
 		}
