@@ -401,6 +401,14 @@ html {
   --tag-helper: "Theme Helper";
   --settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
   --theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
+  --css-generic-recommendation: "As a result of the above issue(s), part of the theme may not work. ";
+  --css-outdated-windows: "You should probably update to a supported Windows version then update Discord.";
+  --css-outdated-mac: "You should probably update to a supported macOS version then update Discord.";
+  --css-outdated-linux: "Honestly, I trust that you know what you're doing. Best update the package to the latest version if possible.";
+  --css-outdated-browser: "You should update your browser or the OS should you no longer be able to update your browser.";
+  --css-has-selector-broken: "CSS :has() selector does not work.\a";
+  --css-oklab-broken: "Oklab colour space missing.\a";
+  --css-relative-colour-broken: "Relative colour mixing does not work.\a";
   --code-plain-text: "Plain Text";
   --error-reload: "please click this";
   --error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
@@ -409,6 +417,11 @@ html {
   --client-preset-disabled2: "If you wish to edit the way your theme looks, you can edit your theme file. If you need help in doing so, please join the support server.";
   --beta-en-GB: "Pyrite Beta Branch";
   --beta-fr: "Branche Bêta de Pyrite";
+}
+
+[lang=en-US] {
+  --css-relative-colour-broken: "Relative color mixing does not work.\a";
+  --css-oklab-broken: "Oklab color space broken.\a";
 }
 
 [lang=fr] {
@@ -464,6 +477,56 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
 }
 
 /* Redownload pls bar */
+@supports not (selector(div:has(+a))) {
+  :root {
+    --p1: var(--css-has-selector-broken);
+  }
+}
+@supports not (color: oklab(0.5 0.4 0.4)) {
+  :root {
+    --p2: var(--css-oklab-broken);
+  }
+}
+@supports not (color: hsl(from rgb(255 255 255 / 0%) h s l / alpha)) {
+  :root {
+    --p3: var(--css-relative-colour-broken);
+  }
+}
+@supports (not (selector(div:has(+a)))) or (not (color: oklab(0.5 0.4 0.4))) or (not (color: hsl(from rgb(255 255 255 / 0%) h s l / alpha))) {
+  .bg__960e4::before, .bg__960e4::after {
+    margin: 1rem;
+    position: absolute;
+    color: #fff;
+    white-space: pre-wrap;
+    box-sizing: border-box;
+    padding: 1rem;
+    font-size: 1rem;
+    background: #000;
+    display: block;
+    z-index: 2500;
+    opacity: 0;
+    transition: opacity 0.5s 10s;
+  }
+  .bg__960e4::before {
+    content: var(--p1,"") var(--p2,"") var(--p3,"") ;
+  }
+  .bg__960e4::after {
+    bottom: 0;
+    right: 0;
+  }
+  .platform-win .bg__960e4::after {
+    content: var(--css-generic-recommendation) var(--css-outdated-windows);
+  }
+  .platform-osx .bg__960e4::after {
+    content: var(--css-generic-recommendation) var(--css-outdated-mac);
+  }
+  .platform-linux .bg__960e4::after {
+    content: var(--css-generic-recommendation) var(--css-outdated-linux);
+  }
+  .platform-web .bg__960e4::after {
+    content: var(--css-generic-recommendation) var(--css-outdated-browser);
+  }
+}
 /* Start Buttons */
 .lookFilled__201d5::before {
   transition: background-color 0.17s ease;
@@ -5588,6 +5651,7 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
   --modal-footer-background: transparent;
   --text-positive: var(--green-color);
   --text-warning: var(--yellow-color);
+  --text-link: var(--link-color);
   --scrollbar-auto-scrollbar-color-thumb: var(--primary-color);
   --scrollbar-auto-scrollbar-color-track: transparent;
   --scrollbar-auto-thumb: var(--primary-color);

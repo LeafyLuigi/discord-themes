@@ -28,6 +28,7 @@ html[lang="fr"] {
 		--modal-footer-background: transparent;
 		--text-positive: var(--green-color);
 		--text-warning: var(--yellow-color);
+		--text-link: var(--link-color);
 		--scrollbar-auto-scrollbar-color-thumb: var(--primary-color);
 		--scrollbar-auto-scrollbar-color-track: transparent;
 		--scrollbar-auto-thumb: var(--primary-color);
@@ -36,7 +37,6 @@ html[lang="fr"] {
 		--background-message-hover: transparent;
 		--background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
 		--background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
-
 		// --custom-app-top-bar-height: 0px;
 	}
 	:is(
