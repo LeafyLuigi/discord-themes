@@ -395,7 +395,6 @@ pre) {
 /* In doing so you'll be given a translator tag and a role on said support server. */
 html {
   --theme-name: "Pyrite";
-  --theme-name-beta: "Pyrite Beta Branch";
   --tag-dev: "Theme Dev";
   --tag-translator: "Theme Translator";
   --tag-helper: "Theme Helper";
@@ -409,6 +408,7 @@ html {
   --css-has-selector-broken: "CSS :has() selector does not work.\a";
   --css-oklab-broken: "Oklab colour space missing.\a";
   --css-relative-colour-broken: "Relative colour mixing does not work.\a";
+  --css-nesting-selector-broken: "CSS & nesting selector does not work.\a";
   --code-plain-text: "Plain Text";
   --error-reload: "please click this";
   --error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
@@ -426,7 +426,6 @@ html {
 
 [lang=fr] {
   --theme-name: "Pyrite";
-  --theme-name-beta: "Branche Bêta de Pyrite";
 }
 
 /* User Tags */
@@ -457,26 +456,6 @@ html {
   line-height: 16px;
 }
 
-/* Beta Version (only for French and British English) */
-html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
-  content: var(--theme-name-beta) " - 0.2.7";
-}
-
-/* Language Tab Beta Labels (only for French and British English) */
-#language-tab .info__001a7:after {
-  font-size: 14px;
-  color: var(--primary-color);
-  font-style: italic;
-}
-
-#language-tab div[role=radiogroup] .item__001a7:nth-child(3) .info__001a7:after {
-  content: var(--beta-en-GB);
-}
-#language-tab div[role=radiogroup] .item__001a7:nth-child(7) .info__001a7:after {
-  content: var(--beta-fr);
-}
-
-/* Redownload pls bar */
 @supports not (selector(div:has(+a))) {
   :root {
     --p1: var(--css-has-selector-broken);
@@ -492,7 +471,12 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
     --p3: var(--css-relative-colour-broken);
   }
 }
-@supports (not (selector(div:has(+a)))) or (not (color: oklab(0.5 0.4 0.4))) or (not (color: hsl(from rgb(255 255 255 / 0%) h s l / alpha))) {
+@supports not (selector(div &)) {
+  :root {
+    --p4: var(--css-nesting-selector-broken);
+  }
+}
+@supports (not (selector(div:has(+a)))) or (not (color: oklab(0.5 0.4 0.4))) or (not (color: hsl(from rgb(255 255 255 / 0%) h s l / alpha))) or (not (selector(div &))) {
   .bg__960e4::before, .bg__960e4::after {
     margin: 1rem;
     position: absolute;
@@ -508,7 +492,7 @@ html:is([lang=en-GB], [lang=fr]) .info__2debe::after {
     transition: opacity 0.5s 10s;
   }
   .bg__960e4::before {
-    content: var(--p1,"") var(--p2,"") var(--p3,"") ;
+    content: var(--p1,"") var(--p2,"") var(--p3,"") var(--p4,"") ;
   }
   .bg__960e4::after {
     bottom: 0;
@@ -5765,12 +5749,62 @@ body,
 .visual-refresh .trailing_c38106 .anchor_edefb8[href="https://support.discord.com"] {
   display: none;
 }
+.visual-refresh.platform-win {
+  --custom-app-top-bar-height: 0px;
+}
 .visual-refresh.platform-win .guilds_c48ade::after {
   content: none;
 }
 .visual-refresh.platform-win .toolbar__9293f {
   padding-right: unset;
   margin-right: unset;
+}
+.visual-refresh.platform-win .bar_c38106 {
+  z-index: 1011;
+}
+.visual-refresh.platform-win .title_c38106 {
+  display: none;
+}
+.visual-refresh.platform-win .trailing_c38106 {
+  gap: 0;
+  top: 24px;
+}
+.visual-refresh.platform-win .winButtons_c38106 {
+  gap: 0;
+}
+.visual-refresh.platform-win .winButtons_c38106::before {
+  content: none;
+}
+.visual-refresh.platform-win .winButton_c38106 {
+  width: var(--win-min-max-close-button-width);
+  height: 48px;
+}
+.visual-refresh.platform-win .recentsIcon_c99c29 {
+  right: var(--space-xs);
+}
+.visual-refresh.platform-win .chatLayerWrapper__01ae2 .toolbar__9293f,
+.visual-refresh.platform-win .chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
+  margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled, 0)) * var(--win-min-max-close-button-width));
+}
+.visual-refresh.platform-osx {
+  --custom-app-top-bar-height: 0px;
+}
+.visual-refresh.platform-osx .wrapper_ef3116 {
+  margin-top: 48px;
+}
+.visual-refresh.platform-osx .bar_c38106 {
+  z-index: 1011;
+}
+.visual-refresh.platform-osx .title_c38106 {
+  display: none;
+}
+.visual-refresh.platform-osx .trailing_c38106 {
+  gap: 0;
+  top: 24px;
+}
+.visual-refresh.platform-osx .chatLayerWrapper__01ae2 .toolbar__9293f,
+.visual-refresh.platform-osx .chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
+  margin-right: calc(32px + var(--space-xs));
 }
 .visual-refresh:is(.platform-linux,
 .platform-web) {
@@ -5868,13 +5902,6 @@ body,
 }
 .visual-refresh .page_c791b2 > :is(.scrollerBase__99f8c, .scrollerBase_d125d2) {
   background: var(--middle-shading);
-}
-
-.visual-refresh-chat-input .scrollableContainer__74017 {
-  backdrop-filter: none;
-}
-.visual-refresh-chat-input .channelTextArea_f75fb0 {
-  backdrop-filter: blur(2px);
 }
 
 .theme-light,

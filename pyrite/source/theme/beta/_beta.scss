@@ -249,6 +249,7 @@ html[lang="fr"] {
 	#{c(topBar trailing container)} #{c(main anchorLink)}[href="https://support.discord.com"] {
 		display: none;
 	}
+	@debug TODO - CONSOLIDATE REMOVAL OF TOP BAR INTO ONE GROUP;
 	// windows stuff
 	&#{c(os win)} {
 		// fix server list
@@ -258,42 +259,69 @@ html[lang="fr"] {
 			}
 		}
 		// window buttons aren't there anymore
+		--custom-app-top-bar-height: 0px;
 		#{c(header toolbar)} {
 			padding-right: unset;
 			margin-right: unset;
 		}
-		// // move inbox icon back down
-		// // this 100% will cause issues with open side chats et al.
-		// #{c(topBar bar)} {
-		// 	z-index: 1011;
-		// }
-		// #{c(topBar title container)} {
-		// 	display: none;
-		// }
-		// #{c(topBar trailing container)} {
-		// 	position: absolute;
-		// 	gap: 0;
-		// }
-		// #{c(topBar trailing winButtons)} {
-		// 	gap: 0;
-		// 	&::before {
-		// 		content: none;
-		// 	}
-		// }
-		// #{c(topBar trailing winButton)} {
-		// 	width: var(--win-min-max-close-button-width);
-		// 	height: 48px;
-		// }
-		// #{c(topBar trailing recentsIcon)} {
-		// 	right: var(--space-xs);
-		// }
-		// #{c(chat layerWrapper)},
-		// #{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
-		// 	#{c(header toolbar)} {
-		// 		// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
-		// 		margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
-		// 	}
-		// }
+		// move inbox icon back down
+		// this 100% will cause issues with open side chats et al.
+		#{c(topBar bar)} {
+			z-index: 1011;
+		}
+		#{c(topBar title container)} {
+			display: none;
+		}
+		#{c(topBar trailing container)} {
+			gap: 0;
+			top: 24px;
+		}
+		#{c(topBar trailing winButtons)} {
+			gap: 0;
+			&::before {
+				content: none;
+			}
+		}
+		#{c(topBar trailing winButton)} {
+			width: var(--win-min-max-close-button-width);
+			height: 48px;
+		}
+		#{c(topBar trailing recentsIcon)} {
+			right: var(--space-xs);
+		}
+		#{c(chat layerWrapper)},
+		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+			#{c(header toolbar)} {
+				// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
+				margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+			}
+		}
+	}
+	// mac stuff
+	&#{c(os mac)} {
+		// fix server list
+		#{c(serverList wrapper)} {
+			margin-top: 48px;
+		}
+		// move inbox icon back down
+		--custom-app-top-bar-height: 0px;
+		// this 100% will cause issues with open side chats et al.
+		#{c(topBar bar)} {
+			z-index: 1011;
+		}
+		#{c(topBar title container)} {
+			display: none;
+		}
+		#{c(topBar trailing container)} {
+			gap: 0;
+			top: 24px;
+		}
+		#{c(chat layerWrapper)},
+		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+			#{c(header toolbar)} {
+				margin-right: calc(32px + var(--space-xs));
+			}
+		}
 	}
 	// linux/web stuff
 	&:is(
@@ -425,17 +453,18 @@ html[lang="fr"] {
 	}
 }
 
-// CHATBOX REFRESH
-#{c(main visualRefreshChatInput)} {
-	// move backdrop filter to different element
-	#{c(chatForm scrollableContainer)} {
-		backdrop-filter: none;
-	}
+// experiment removed
+// // CHATBOX REFRESH
+// #{c(main visualRefreshChatInput)} {
+// 	// move backdrop filter to different element
+// 	#{c(chatForm scrollableContainer)} {
+// 		backdrop-filter: none;
+// 	}
 
-	#{c(chatForm channelTextAreaMain)} {
-		backdrop-filter: blur(2px);
-	}
-}
+// 	#{c(chatForm channelTextAreaMain)} {
+// 		backdrop-filter: blur(2px);
+// 	}
+// }
 
 // REMOVE SHADOWS
 #{c(main light)},

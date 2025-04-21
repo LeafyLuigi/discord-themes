@@ -11,7 +11,7 @@
 html {
 	// By default this is entirely used for the en-GB and en-US langs. fallback below for en-US
 	--theme-name: "Pyrite";
-	--theme-name-beta: "Pyrite Beta Branch";
+	// --theme-name-beta: "Pyrite Beta Branch";
 
 	// Tags are used for contributors who have assisted one way or another with the theme.
 	--tag-dev: "Theme Dev";
@@ -32,6 +32,7 @@ html {
 	--css-has-selector-broken: "CSS :has() selector does not work.\a";
 	--css-oklab-broken: "Oklab colour space missing.\a";
 	--css-relative-colour-broken: "Relative colour mixing does not work.\a";
+	--css-nesting-selector-broken: "CSS & nesting selector does not work.\a";
 
 	// Used within codelangs file for Codeblocks sans formatting or language
 	--code-plain-text: "Plain Text";
@@ -61,7 +62,7 @@ html {
 // Partially translated by Leafy
 [lang="fr"] {
 	--theme-name: "Pyrite";
-	--theme-name-beta: "Branche Bêta de Pyrite";
+	// --theme-name-beta: "Branche Bêta de Pyrite";
 }
 
 // Current Untranslated Discord Languages (2022-09-02) - Uncomment whatever one you'd like to edit and go for it.
@@ -158,29 +159,29 @@ $tags: (
 	}
 }
 
-/* Beta Version (only for French and British English) */
-html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
-	&::after {
-		content: var(--theme-name-beta) string.insert($version, " - ", 0);
-	}
-}
+// /* Beta Version (only for French and British English) */
+// html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
+// 	&::after {
+// 		content: var(--theme-name-beta) string.insert($version, " - ", 0);
+// 	}
+// }
 
-/* Language Tab Beta Labels (only for French and British English) */
-#language-tab #{c(userSettings radioBarInfo)}:after {
-	font-size: 14px;
-	color: $primary;
-	font-style: italic;
-}
-#language-tab div[role="radiogroup"] #{c(userSettings radioGroupItem)} {
-	&:nth-child(3) #{c(userSettings radioBarInfo)}:after {
-		content: var(--beta-en-GB);
-	}
-	&:nth-child(7) #{c(userSettings radioBarInfo)}:after {
-		content: var(--beta-fr);
-	}
-}
+// /* Language Tab Beta Labels (only for French and British English) */
+// #language-tab #{c(userSettings radioBarInfo)}:after {
+// 	font-size: 14px;
+// 	color: $primary;
+// 	font-style: italic;
+// }
+// #language-tab div[role="radiogroup"] #{c(userSettings radioGroupItem)} {
+// 	&:nth-child(3) #{c(userSettings radioBarInfo)}:after {
+// 		content: var(--beta-en-GB);
+// 	}
+// 	&:nth-child(7) #{c(userSettings radioBarInfo)}:after {
+// 		content: var(--beta-fr);
+// 	}
+// }
 
-/* Redownload pls bar */
+// /* Redownload pls bar */
 // #{c(main appContainer)}::before {
 // 	content: var(--theme-update-warning);
 // 	text-align: center;
@@ -225,6 +226,28 @@ $cssSupportList: (
 		// only testing hsl but it's supported in all browsers
 		// cr 119 / ff 128 / s 18 (16.4 with required % values)
 		test: "color: hsl(from rgb(255 255 255 / 0%) h s l / alpha)"
+	),
+	"nesting-selector": (
+		// eventually sass will allow for the native css nesting selector to function.
+		// https://sass-lang.com/blog/sass-and-native-nesting/#the-plan-for-sass
+		// native & works as follows:
+		// div, span, #id {
+		// 	& button {}
+		// }
+		// h5, h6, .class {
+		// 	body & {}
+		// }
+		// div i {
+		//  span & {}
+		// }
+		// which is equal to
+		// :is(div, span, #id) button {} | works fine despite the mixed specificities
+		// body :is(h5, h6, .class) {} | works fine again with mixed specificities
+		// span :is(div, i) {} | not ideal
+		// 
+		// test checks for fully supported, not half broken webkit/blink initial implementation.
+		// cr 120 (full) / ff 117 / s 17.2 (full)
+		test: "selector(div &)"
 	)
 );
 
