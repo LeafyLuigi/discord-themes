@@ -1,23 +1,38 @@
 @use "backend" as *;
 /* Begin Chat */
-#{c(chat)},
-#{c(chat chatLoadingWrapper)},
-#{c(chat messageLoadingWrapper)},
-#{c(chat chatContent)} {
-	background: transparent;
+:is(
+	#{c(chat)},
+	#{c(chat chatLoadingWrapper)},
+	#{c(chat messageLoadingWrapper)}
+) {
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
+}
+// border shows up when opening a thread
+#{c(main visualRefresh)} #{c(chat)}[data-has-border=true] {
+	border: none;
 }
 #{c(chat chatContent)} {
 	&::before {
 		content: none;
 	}
 	#{c(forums loadingContainer)} {
-		background-color: $middle;
+		background: $middle;
 	}
 }
-#{c(chat chatContentInner)},
-#{c(chat chatScrollerNSFW)},
 #{c(chat noChat)}#{c(chat chatContent)} {
 	background: $middle;
+}
+:is(
+	#{c(chat chatScrollerNSFW)},
+	#{c(chat chatContentInner)}
+) {
+	#{c(main visualRefresh)} &,
+	& {
+		background: $middle;
+	}
 }
 
 #{c(chat noChannel)} {
@@ -29,11 +44,14 @@
 }
 
 #{c(chat buttonWrapper)} {
-	background: transparent;
 	padding: 0;
 	border: none;
 	box-sizing: content-box;
 	border-radius: 8px;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 	#{c(chat buttonSeparator)} {
 		display: none;
 	}
@@ -70,16 +88,19 @@
 
 #{c(chat dividerContent)} {
 	text-align: center;
-	background: $card;
 	color: $primary;
 	font-weight: normal;
 	margin: 0 8px;
 	padding: 2px 10px;
 	flex: 1 1 auto;
+	#{c(main visualRefresh)} &,
+	& {
+		background: $card;
+	}
 }
 
 #{c(chat newMessagesBar)} {
-	background-color: $primary;
+	background: $primary;
 	box-shadow: none;
 	opacity: 0.75;
 	&:hover {
@@ -97,7 +118,7 @@
 		filter: drop-shadow(2px 2px 2px $secondary);
 	}
 	#{c(chat replyBadge)} {
-		background-color: $card;
+		background: $card;
 	}
 	// allows for spoiler hover
 	#{c(chat repliedTextPreview)} #{c(chat repliedTextContent)} {
@@ -111,7 +132,7 @@
 
 #{c(chat chatHeader)} {
 	#{c(chat emptyChannelIcon)} {
-		background-color: var(--card-background);
+		background: var(--card-background);
 	}
 	#{c(chat chatHeaderButton)},
 	#{c(chat chatHeaderButton)}:hover {
@@ -119,7 +140,7 @@
 	}
 }
 #{c(chat allowedRole)} {
-	background-color: var(--card-background);
+	background: var(--card-background);
 }
 
 #{c(chat messageContent)} {
@@ -156,9 +177,9 @@
 }
 
 #{c(chat botTag)} {
-	background-color: $primary;
+	background: $primary;
 	&#{c(chat botTagOp)} {
-		background-color: $card;
+		background: $card;
 		color: $primary;
 		font-weight: 600;
 	}
@@ -188,11 +209,11 @@
 }
 
 #{c(chat blockquoteContainer)} blockquote {
-	background-color: $card;
+	background: $card;
 	padding: 2px 8px 2px 12px;
 }
 #{c(chat blockquoteDivider)} {
-	background-color: $primary;
+	background: $primary;
 }
 
 #{c(reaction reaction)} {
@@ -229,7 +250,7 @@
 	#{c(chat channelLinkUserMentionWrapper)} {
 		display: inline-block;
 		transform: rotate(0deg);
-		background-color: transparent;
+		background: transparent;
 		color: var(--interactive-hover);
 		transition: color 50ms ease-out;
 		@include bg($tr:opacity 50ms ease-out,$br:3px,$bg:$primary,$o:.25);

@@ -38,205 +38,45 @@ html[lang="fr"] {
 		--background-message-hover: transparent;
 		--background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
 		--background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
+		--background-code: var(--card-background);
 	}
 	:is(
-		// sidebar channel list
-		#{c(sidebar list)},
-		// sidebar list
-		#{c(sidebar private channels)},
-		// server header
-		#{c(sidebar server header header)},
-		// channel user limit
-		#{c(sidebar server channel voiceLimitUsers)},
-		#{c(sidebar server channel voiceLimitTotal)},
-		// friends page
-		#{c(friends tabBody)},
-		// chat is this real
-		#{c(chat)},
-		// replying to message bar
-		#{c(chatForm stackedBars)},
 		// settings
-		#{c(userSettings standardSidebarView)},
-		// loading chat
-		#{c(chat chatLoadingWrapper)},
-		// loading message
-		#{c(chat messageLoadingWrapper)},
-		// chat button wrapper
-		#{c(chat buttonWrapper)},
-		// threads chat
-		#{c(threads container)},
-		// threads resize handle
-		#{c(threads resizeHandle)},
-		// threads top bar / header thing
-		#{c(forums open topBar container)},
-		// embeded text file footer
-		#{c(embeds textFooter)},
-		// server voice channel side chat
-		#{c(call channelChatWrapper)},
-		// uploading file chatform background
-		#{c(chatForm channelAttachmentArea)},
-		// uploading file inline file
-		#{c(chatForm inlineUpload)},
-		// embeded text file
-		#{c(embeds textContainer)}
+		#{c(userSettings standardSidebarView)}
 	) {
 		background: transparent;
-	}
-	// extra transparent stuff
-	#{c(sidebar server header hasBanner)} #{c(sidebar server header header)} {
-		background: transparent;
-	}
-	// because something likes to use !important.
-	:is(
-		// members list page
-		#{c(membersPage page)}
-	) {
-		background: transparent !important; // !important reason: override existing !important
 	}
 	// and card stuff
 	:is(
-		// voice limit
-		#{c(sidebar server channel voiceLimitWrapper)},
-		// chat divider
-		#{c(chat dividerContent)},
-		// embeds
-		#{c(embeds embedFull)},
-		// poll
-		#{c(embeds poll container)},
-		// active now card
-		#{c(friends itemCardOuter)},
-		// finished poll card
-		#{c(embeds poll finished container)},
 		// right click menu
-		#{c(modals menus menu)},
-		// forums search / create post box
-		#{c(forums mainCard)},
-		// forums guidelines
-		#{c(forums guidelines container)},
-		// attached file
-		#{c(embeds attachment)},
-		// uploading file inline file
-		#{c(chatForm inlineUpload)},
-		// customise page prompt
-		#{c(pages customise prompt)}
+		#{c(modals menus menu)}
 	) {
 		background: $card;
 	}
 	// and middle stuff
 	:is(
-		// chat is this real
-		#{c(chat chatContentInner)},
 		// settings middle
-		#{c(userSettings contentRegionScroller)},
-		// voice channel call middle thing
-		#{c(call root)}
+		#{c(userSettings contentRegionScroller)}
 	) {
 		background: $middle;
-	}
-	// it likes to think it's important.
-	// customise roles page
-	#{c(pages header container)} {
-		background: $middle !important; // !important reason: override existing !important
 	}
 	// and header stuff
 	:is(
 		// top bar thing
-		#{c(topBar bar)},
-		// server header
-		#{c(sidebar server header clickable)},
-		// private channel header
-		#{c(sidebar private searchBar)}
+		#{c(topBar bar)}
 	) {
 		background: $header;
 	}
-	// it likes to think it's important.
-	// customise roles page header
-	#{c(pages header)} {
-		background: $header !important; // !important reason: override existing !important
-	}
 	// and side stuff
 	:is(
-		// sidebar panel
-		#{c(sidebar panel panels)},
-		// sidebar server
-		#{c(sidebar server scroller)},
-		// private channels scrollbar
-		#{c(sidebar private scroller)},
 		// settings side
 		#{c(userSettings sidebarRegionScroller)}
 	) {
 		background: $side;
 	}
 
-	// some things are different...
-
-	// themed header
-	#{c(header)}#{c(header themed)} {
-		background: $header;
-	}
-
-	// remove borders
-	:is(
-		// sidebar channel list
-		#{c(sidebar list)},
-		// private searchbar
-		#{c(sidebar private searchBar)},
-		// sidebar panel
-		#{c(sidebar panel panels)},
-		// sidebar panel buttons
-		#{c(sidebar panel buttons buttons)},
-		// voice channel limit
-		#{c(sidebar server channel voiceLimitWrapper)},
-		// friends page container
-		#{c(friends container)},
-		// server header
-		#{c(sidebar server header header)},
-		// header bar
-		#{c(header)},
-		// threads chat (it has top and left)
-		#{c(threads container)},
-		// call container (it has top and right)
-		#{c(call container)}
-	) {
-		border: none;
-	}
-	// remove borders (extra)
-	#{c(sidebar server header hasBanner)} #{c(sidebar server header header)},
-	#{c(chat)}[data-has-border=true] {
-		border: none;
-	}
 	#{c(messageRequests container)} {
 		border-top: none;
-	}
-
-	// add back borders
-	// :is(
-	// ) {
-	// 	border-color: $primary;
-	// }
-	:is(
-		// poll container
-		#{c(embeds poll container)},
-		// forums search / create post box
-		#{c(forums mainCard)},
-		// forums guidelines
-		#{c(forums guidelines container)},
-		// attached file
-		#{c(embeds attachment)},
-		// customise page prompt
-		#{c(pages customise prompt)}
-	) {
-		border-color: $secondary;
-	}
-
-	// border radius == 0
-	:is(
-		// sidebar channel list
-		#{c(sidebar list)},
-		// panel
-		#{c(sidebar panel panels)}
-	) {
-		border-radius: 0;
 	}
 
 	// remove help button
@@ -259,10 +99,10 @@ html[lang="fr"] {
 					// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
 					margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
 				}
-				#{c(header headerTitle)} {
-					// -webkit-app-region: drag;
-					// padding-right: calc(var(--space-xs) + 32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
-				}
+				// #{c(header headerTitle)} {
+				// 	// -webkit-app-region: drag;
+				// 	// padding-right: calc(var(--space-xs) + 32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+				// }
 			}
 		}
 		// z-index so it matches the header bar
@@ -357,109 +197,11 @@ html[lang="fr"] {
 			height: calc(100% - 48px);
 		}
 	}
-	// dms scroller margin
-	#{c(sidebar private scroller)} {
-		margin-bottom: var(--custom-app-panels-height,0);
-	}
-	// channel list margins
-	#{c(sidebar server scroller)} {
-		margin-bottom: 0;
-		margin-right: 0;
-	}
-	// private searchbar
-	#{c(sidebar private searchBar)} {
-		box-sizing: content-box; // revert border-box
-		// remove that fucking button colour
-		#{c(button lookFilled)}#{c(button colorPrimary)} {
-			background: transparent;
-			&::before {
-				content: none;
-			}
-		}
-	}
-	// sidebar panel buttons
-	#{c(sidebar panel buttons buttons)} {
-		gap: 0;
-	}
-	// remove backgrounds
-	#{c(sidebar)} {
-		&::before,
-		&::after {
-			content: none;
-		}
-	}
-	// panels
-	#{c(sidebar panel panels)} {
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		box-shadow: none;
-	}
-	// server header
-	#{c(sidebar server header header)} {
-		border-radius: 0;
-	}
-	// channel stuff
-	#{c(sidebar server channel modeUnreadImportant)} #{c(sidebar server channel icon)} {
-		color: inherit;
-	}
-	// add friend header bar button
-	#{c(header tabBar)} #{c(header tabBarItem)}#{c(header addFriend)}#{c(header addFriend)}#{c(header addFriend)} {
-		&:hover {
-			background: $hover;
-		}
-		&[aria-selected=true] {
-			background: rgb(from $primary r g b / 0.2);
-			color: $primary;
-		}
-	}
-	:is(
-		// chat input
-		#{c(chatForm channelTextAreaMain)},
-		// blocked + follow chatform wrapper
-		#{c(chatForm followWrapper)}
-	) {
-		background: rgb(255 255 255 / .05);
-		border: none;
-	}
 	// tooltip pointers
 	#{c(tooltips pointer)} {
 		display: none;
 	}
-	// customise roles page override hide stuff
-	:is(
-		#{c(pages header tabBar)},
-		#{c(pages customise scroller)}
-	) {
-		--background: transparent;
-		backdrop-filter: unset !important; // !important reason: override css from hidden member list et al
-		left: unset !important; // !important reason: override css from hidden member list et al
-		transform: unset !important; // !important reason: override css from hidden member list et al
-	}
-	#{c(pages header tabBar)} {
-		margin-left: 32px !important; // !important reason: override css from hidden member list et al
-	}
-	#{c(pages customise scroller)} {
-		margin-left: unset !important; // !important reason: override css from hidden member list et al
-	}
-	// members page background fix
-	#{c(membersPage page)}>#{c(scroller base)} {
-		background: $middle;
-	}
 }
-
-// experiment removed
-// // CHATBOX REFRESH
-// #{c(main visualRefreshChatInput)} {
-// 	// move backdrop filter to different element
-// 	#{c(chatForm scrollableContainer)} {
-// 		backdrop-filter: none;
-// 	}
-
-// 	#{c(chatForm channelTextAreaMain)} {
-// 		backdrop-filter: blur(2px);
-// 	}
-// }
 
 // REMOVE SHADOWS
 #{c(main light)},

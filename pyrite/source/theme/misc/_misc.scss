@@ -205,9 +205,12 @@ body, // this one is here for transparency in bd to work
 	}
 }
 
-/* show/hide for side-panels (like member list and profile panels) */
-// ":not" required to prevent message requests area from being fucky
-#{c(chat chatContent)} > :is(div, aside,#{c(memberList container)}):not(#{c(messageRequests emptyStateContainer)}) {
+/* show/hide for side-panels */
+#{c(chat chatContent)} > :is(
+	#{c(memberList container)},
+	#{c(profile panel panel)}
+),
+#{c(friends nowPlayingColumn)} {
 	background: var(--background,var(--side-shading));
 	left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled));
 	transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
@@ -217,7 +220,11 @@ body, // this one is here for transparency in bd to work
 }
 #{c(main focused)} {
 	#{c(chat chatContent)} > 
-	:is(div, aside,	#{c(memberList container)}):not(#{c(messageRequests emptyStateContainer)}) {
+	:is(
+		#{c(memberList container)},
+		#{c(profile panel panel)}
+	),
+	#{c(friends nowPlayingColumn)} {
 		&:is(:hover,:focus-within) {
 			transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, --hide-fallback-enabled))));
 			backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));

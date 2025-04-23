@@ -7,21 +7,29 @@
 	}
 }
 #{c(chatForm followWrapper)} {
-	@include card-light;
 	border-width: 0;
 	z-index: 0; // messes with member list. set to 1 by discord
 	backdrop-filter: blur(2px);
 	#{c(chatForm followImage)} {
 		display: none;
 	}
+	#{c(main visualRefresh)} &,
+	& {
+		@include card-light;
+		border: none;
+	}
 }
 
 #{c(chatForm channelTextAreaBase)} {
-	@include card-light;
 	border-width: 0;
 	&:focus-within {
 		border-width: 0;
 		box-shadow: 0 0 2px 2px $primary;
+	}
+	#{c(main visualRefresh)} &,
+	& {
+		@include card-light;
+		border: none;
 	}
 }
 
@@ -30,22 +38,29 @@
 }
 
 #{c(chatForm jumpToPresentBar)} {
-	background-color: $card;
+	background: $card;
 	opacity: 1;
 	backdrop-filter: blur(2px);
 }
 #{c(chatForm messagesErrorBar)} {
-	background-color: $red;
+	background: $red;
 	opacity: 1;
 }
-
-:is(#{c(main dark)},#{c(main light)}) #{c(chatForm scrollableContainer)},
-#{c(chatForm stackedBars)},
+#{c(chatForm scrollableContainer)},
 #{c(chatForm themedBackground)},
 #{c(chatForm attachedBars)},
 #{c(chatForm replyBar)},
 #{c(chatForm threadSuggestionBar)} {
-	background-color: transparent;
+	background: transparent;
+}
+:is(
+	#{c(chatForm stackedBars)},
+	#{c(chatForm channelAttachmentArea)}
+) {
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }
 #{c(chatForm clipContainer)} {
 	margin-top: 0;
@@ -79,17 +94,20 @@
 	}
 }
 #{c(chatForm inlineUpload)} {
-	background-color: $card;
+	#{c(main visualRefresh)} &,
+	& {
+		background: $card;
+	}
 }
 #{c(forums upload altTag)} {
-	background-color: $secondary;
+	background: $secondary;
 	color: var(--text-normal);
 }
 
 #{c(chatForm beforeInlineCode)},
 #{c(chatForm inlineCode)},
 #{c(chatForm afterInlineCode)} {
-	background-color: $card;
+	background: $card;
 }
 
 // delete gift nitro button. might cock up a few plugins.

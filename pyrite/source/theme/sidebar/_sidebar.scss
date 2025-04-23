@@ -1,16 +1,23 @@
 @use "backend" as *;
 /* Start Sidebar */
 // backgrounds.. ugh.
-:is(#{c(main dark)}, #{c(main light)})
+// :is(#{c(main dark)}, #{c(main light)})
 :is(
-	#{c(sidebar server container)},
-	#{c(sidebar panel container)},
-	#{c(sidebar panel voice container)},
-	#{c(sidebar panel activity activityPanel)},
-	#{c(sidebar panel content)},
-	#{c(sidebar private scroller)}
+	#{c(sidebar panel container)}
 ) {
 	background: transparent;
+}
+:is(
+	#{c(sidebar server container)},
+	// #{c(sidebar panel container)},
+	// #{c(sidebar panel voice container)},
+	#{c(sidebar panel activity activityPanel)}
+	// #{c(sidebar panel content)}
+) {
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }
 
 // Base
@@ -35,22 +42,41 @@
 		- (var(--windows-titlebar-enabled,0) * 18px)
 	);
 	// end notice stuff
-	background-color: transparent;
 	@include bg($bg:$side,$top:48px,$w:240px);
 	@include bg2($bg:$header,$h:48px,$w:240px,$z:1001);
 	
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
+	#{c(main visualRefresh)} & {
+		&::before,
+		&::after {
+			content: none;
+		}
+	}
 	#{c(serverList servers)}#{c(serverList hidden)} + & {
 		height: 100vh;
 	}
 }
-#{c(os mac)} {
-	#{c(sidebar)}::after {
-		-webkit-app-region: drag;
+#{c(sidebar list)} {
+	#{c(main visualRefresh)} &,
+	& {
+		border: none;
+		border-radius: 0;
 	}
 }
+// #{c(os mac)} {
+// 	#{c(sidebar)}::after {
+// 		-webkit-app-region: drag;
+// 	}
+// }
 // Area - Friends List
 #{c(sidebar private channels)} {
-	background: transparent;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 	#{c(sidebar private inviteButtonIcon)} {
 		color: var(--interactive-normal);
 		order: -1;
@@ -61,8 +87,23 @@
 	}
 }
 #{c(sidebar private searchBar)} {
+	background: $header;
 	z-index: 1010;
 	box-shadow: none;
+	#{c(main visualRefresh)} & {
+		box-sizing: content-box; // revert border-box
+		// remove that fucking button colour
+		#{c(button lookFilled)}#{c(button colorPrimary)} {
+			background: transparent;
+			&::before {
+				content: none;
+			}
+		}
+	}
+	#{c(main visualRefresh)} &,
+	& {
+		border: none;
+	}
 	#{c(sidebar private searchBarComponent)} {
 		-webkit-app-region: no-drag;
 		background: $card;
@@ -70,6 +111,13 @@
 }
 #{c(sidebar private scroller)} {
 	margin-top: calc(36px * $nc);
+	#{c(main visualRefresh)} &,
+	& {
+		background: $side;
+	}
+	#{c(main visualRefresh)} & {
+		margin-bottom: var(--custom-app-panels-height,0);
+	}
 }
 #{c(sidebar private link)}:is([href="/store"],[href="/library"],[href="/shop"]),
 #{c(sidebar private channelBadgeIcon)} {
@@ -93,7 +141,7 @@
 		background: linear-gradient(to left, currentColor -50%, transparent 50%);
 	}
 }
-// Area - Channels
+// Area - Servers
 #{c(scroller content)} {
 	// banner spacer thing
 	>div[style="height: 84px;"]{
@@ -102,6 +150,7 @@
 }
 #{c(sidebar server header container)} {
 	box-shadow: none;
+	background: $header;
 }
 #{c(sidebar server name)} {
 	@include header;
@@ -123,19 +172,41 @@
 }
 #{c(sidebar server scroller)} {
 	margin-top: calc(36px * $nc);
-	background: transparent;
+	#{c(main visualRefresh)} & {
+		margin-bottom: 0;
+		margin-right: 0;
+	}
+	#{c(main visualRefresh)} &,
+	& {
+		background: $side;
+	}
 }
-#{c(sidebar server channel modeUnreadImportant)} #{c(sidebar server channel unreadBlob)} {
-	background: $primary;
+#{c(sidebar server channel modeUnreadImportant)} {
+	#{c(main visualRefresh)} & #{c(sidebar server channel icon)} {
+		color: inherit;
+	}
+	#{c(sidebar server channel unreadBlob)} {
+		background: $primary;
+	}
 }
 #{c(sidebar server header header)} {
 	z-index: 1010;
+	#{c(main visualRefresh)} & {
+		border-radius: 0;
+	}
+	#{c(main visualRefresh)} #{c(sidebar server header hasBanner)} & {
+		border: none;
+	}
 	#{c(sidebar server header hasBanner)} &,
 	#{c(sidebar server header hasBanner)} &:hover {
 		box-shadow: none;
 	}
 	#{c(sidebar server header bannerVisible)} & {
 		filter: none;
+	}
+	#{c(main visualRefresh)} &,
+	& {
+		border: none;
 	}
 }
 #{c(sidebar server channel voice avatarSpeaking)},
@@ -155,15 +226,25 @@
 
 // Panels
 #{c(sidebar panel panels)} {
-	background: transparent;
-	width: 240px;
+	#{c(main visualRefresh)} & {
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		box-shadow: none;
+	}
 	#{c(sidebar panel username)} {
 		@include header;
 	}
+	#{c(main visualRefresh)} &,
+	& {
+		background: $side;
+		border: none;
+		border-radius: 0;
+	}
 	:is(
-	// #{c(sidebar panel container)} #{c(sidebar panelButtonRow)},
-	// #{c(sidebar panel voice container)} #{c(sidebar panel voice inner)} ~ #{c(sidebar panelButtonRow)},
-	#{c(sidebar panel activity activityPanel)} #{c(sidebar panel activityActions)}
+		// #{c(sidebar panel container)} #{c(sidebar panelButtonRow)},
+		// #{c(sidebar panel voice container)} #{c(sidebar panel voice inner)} ~ #{c(sidebar panelButtonRow)},
+		#{c(sidebar panel activity activityPanel)} #{c(sidebar panel activityActions)}
 	) {
 		border: 1px solid $middle;
 		border-radius: 8px;
@@ -171,11 +252,16 @@
 }
 #{c(sidebar panel buttons buttons)} {
 	background: transparent;
-	border: 1px solid $middle;
+	// border: 1px solid $middle;
 	box-sizing: content-box;
 	border-radius: 8px;
-}
-#{c(sidebar panel buttons buttons)} {
+	#{c(main visualRefresh)} & {
+		gap: 0;
+	}
+	#{c(main visualRefresh)} &,
+	& {
+		border: none;
+	}
 	#{c(sidebar panel buttons button)} {
 		@include bg($bg:$primary,$o:.6);
 		&:last-child::before {
@@ -221,19 +307,34 @@
 }
 
 #{c(sidebar server channel voiceLimitWrapper)} {
-	background-color: $card;
+	#{c(main visualRefresh)} &,
+	& {
+		height: 20px; // force it :)
+		line-height: 20px;
+		background: $card;
+		border: none;
+	}
 }
 #{c(sidebar server channel voiceLimitUsers)} {
-	background-color: transparent;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }
 #{c(sidebar server channel voiceLimitTotal)} {
-	background-color: transparent;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 	&::after {
 		content: "/";
 		width: auto;
 		height: auto;
-		border: none;
-		left: -6px;
+		#{c(main visualRefresh)} &,
+		& {
+			left: -6px;
+			border: none;
+		}
 	}
 }
 

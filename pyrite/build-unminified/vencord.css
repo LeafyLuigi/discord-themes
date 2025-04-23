@@ -42,3 +42,7 @@
 .messagelogger-deleted .markup__75297 :is(h1, h2, h3, h4, h5, h6).inlineFormat__75297 {
   color: inherit;
 }
+
+.content_f75fb0 > :is(.managedReactiveScroller_eed6a8, .managedReactiveScroller_d125d2) {
+  background: var(--middle-shading);
+}

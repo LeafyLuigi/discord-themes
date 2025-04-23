@@ -1,53 +1,22 @@
 @use "backend" as *;
 /* Start Embeds */
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(embeds gift)} {
+:is(
+	#{c(embeds codeblock)},
+	#{c(embeds invite)},
+	#{c(embeds attachment)},
+	#{c(media audioWrapper)},
+	#{c(embeds textContainerUp)},
+	#{c(embeds threadContainer)},
+	#{c(embeds poll container)},
+	#{c(embeds poll finished container)},
+	#{c(embeds gift)},
+	#{c(embeds gameInvite)},
+	#{c(embeds voiceMessage container)}
+) {
+	#{c(main visualRefresh)} &,
+	& {
 		@include card;
-		&:hover {
-			background-color: var(--card-background);
-		}
-		#{c(embeds giftInvalidPoop)} {
-			background-color: transparent;
-		}
 	}
-	#{c(media audioWrapper)} {
-		@include card;
-		width: 100% !important; // !important reason: element.style
-	}
-	#{c(embeds inviteResolvingBackground)} {
-		background-image: linear-gradient(90deg,$primary,$secondary,$primary);
-	}
-	#{c(embeds gameInvite)} {
-		@include card;
-		height: 250px;
-		max-width: 250px;
-		padding: 10px;
-	}
-
-	#{c(embeds voiceMessage container)} {
-		background-color: $card;
-		&:not(#{c(embeds voiceMessage playing)}) {
-			#{c(embeds voiceMessage playButtonContainer)} {
-				&:active,
-				& {
-					background: $primary;
-				}
-				&:hover {
-					background: $hover;
-				}
-			}
-		}
-	}
-	#{c(embeds voiceMessage ripple)} {
-		background: $primary;
-	}
-}
-#{c(embeds codeblock)},
-#{c(embeds invite)},
-#{c(embeds attachment)},
-#{c(embeds poll container)},
-#{c(embeds poll finished container)} {
-	@include card;
 }
 
 #{c(embeds poll header)} #{c(embeds poll question)} {
@@ -88,8 +57,11 @@
 }
 
 #{c(embeds embedFull)} {
-	background-color: $card;
 	border-left-color: $primary;
+	#{c(main visualRefresh)} &,
+	& {
+		background: $card;
+	}
 	#{c(embeds embedSuppressButton)} {
 		top: 0;
 		right: 0;
@@ -129,14 +101,13 @@
 	transform: rotate(0deg); // this is for codelangs :)
 }
 
-#{c(embeds textContainerUp)},
-#{c(embeds threadContainer)} {
-	@include card;
-}
 #{c(embeds textContainer)},
 #{c(embeds textFooter)} {
-	background-color: transparent;
-	border: none;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+		border: none;
+	}
 }
 
 // #{c(embeds gameInvite)} {
@@ -171,4 +142,45 @@
 
 #{c(media audioControls)} {
 	min-width: 400px;
+}
+
+#{c(embeds gift)} {
+	&:hover {
+		#{c(main visualRefresh)} &,
+		& {
+			background: $card;
+		}
+	}
+	#{c(embeds giftInvalidPoop)} {
+		background-color: transparent; // has image
+	}
+}
+// #{c(media audioWrapper)} {
+// 	width: 100% !important; // !important reason: element.style
+// }
+#{c(embeds inviteResolvingBackground)} {
+	background-image: linear-gradient(90deg,$primary,$secondary,$primary);
+}
+#{c(embeds gameInvite)} {
+	height: 250px;
+	max-width: 250px;
+	padding: 10px;
+}
+
+#{c(embeds voiceMessage container)} {
+	&:not(#{c(embeds voiceMessage playing)}) {
+		#{c(embeds voiceMessage playButtonContainer)} {
+			&:active,
+			& {
+				background: $primary;
+			}
+			&:hover {
+				background: $hover;
+			}
+		}
+	}
+}
+#{c(embeds voiceMessage ripple)} {
+	// background: $primary;
+	background: transparent;
 }

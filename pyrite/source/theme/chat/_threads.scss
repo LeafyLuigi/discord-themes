@@ -13,16 +13,23 @@
 	// }
 }
 #{c(threads resizeHandle)} {
-	background: transparent;
 	transition: background-color 0.25s ease-in-out 0.25s; 
 	&:hover,
 	&:active {
 		background: $primary;
 	}
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }
 #{c(threads container)} {
 	border-radius: 0;
-	background-color: transparent;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+		border: none;
+	}
 }
 #{c(threads newThreadContainer)} {
 	background: none;
@@ -35,10 +42,10 @@
 }
 #{c(threads header)},
 #{c(threads newChat)} {
-	background-color: $middle;
+	background: $middle;
 }
 #{c(threads iconWrapper)} {
-	background-color: $card;
+	background: $card;
 }
 // #{c(threads newTextAreaFocused)} {
 // 	border-color: transparent;

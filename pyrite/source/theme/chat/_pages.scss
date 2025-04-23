@@ -1,6 +1,6 @@
 @use "backend" as *;
 /* Browse Channels page */
-:is(#{c(main dark)},#{c(main light)}) {
+// :is(#{c(main dark)},#{c(main light)}) {
 	:is(
 		// #{c(pages container)},
 		// #{c(pages customise scrollerContainer)},
@@ -8,8 +8,17 @@
 	) {
 		background: transparent;
 	}
-	#{c(pages header container)} {
-		background: $middle;
+// }
+#{c(pages header container)} {
+	#{c(main visualRefresh)} &,
+	& {
+		background: $middle !important; // !important reason: override existing !important
+	}
+}
+#{c(pages header)} {
+	#{c(main visualRefresh)} &,
+	& {
+		background: $header !important; // !important reason: override existing !important
 	}
 }
 
@@ -28,7 +37,10 @@
 }
 
 #{c(pages customise prompt)} {
-	@include card;
+	#{c(main visualRefresh)} &,
+	& {
+		@include card;
+	}
 }
 #{c(pages customise profileCard)} {
 	background: $card;

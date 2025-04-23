@@ -1,17 +1,26 @@
 @use "backend" as *;
 /* Start Header */
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(header akaBadge)} {
-		background-color: $secondary;
-		color: var(--header-primary);
-	}
-	#{c(header updateDownloadingCloud)} {
-		color: $red;
-	}
+// :is(#{c(main dark)},#{c(main light)}) {
+#{c(header akaBadge)} {
+	background-color: $secondary;
+	color: var(--header-primary);
 }
-#{c(header)}#{c(header themed)} {
-	background: $header;
-	z-index: 1010;
+#{c(header updateDownloadingCloud)} {
+	color: $red;
+}
+// }
+#{c(header)} {
+	#{c(main visualRefresh)} &,
+	& {
+		border: none;
+	}
+	&#{c(header themed)} {
+		z-index: 1010;
+		#{c(main visualRefresh)} &,
+		& {
+			background: $header;
+		}
+	}
 }
 #{c(header input)} {
 	@include header;
@@ -107,32 +116,6 @@
 //   color: $yellow;
 // }
 
-// they removed the block tab
-// #{c(header tabBar)}#{c(tab topPill)} {
-// 	#{c(header tabBarItem)} {
-// 		// and the blocked tab
-// 		&#{c(tab themed)} {
-// 			&:nth-last-child(2) {
-// 				color: var(--interactive-active);
-// 				background-color: $red;
-// 			}
-// 		}
-// 		&#{c(tab selected)}#{c(tab themed)} {
-// 			&:nth-last-child(2) {
-// 				color: $red;
-// 				background-color: var(--background-modifier-selected);
-// 				// for parity
-// 				&:hover{
-// 					background-color: var(--background-modifier-hover);
-// 				}
-// 				&:active{
-// 					background-color: var(--background-modifier-active);
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
 // Hide Help icon. Can be accessed by pressing F1.
 #{c(header toolbar)} {
 	&>a[href*="support.discord.com"] {
@@ -142,4 +125,18 @@
 		cursor: not-allowed;
 		color: $red;
 	} 
+}
+
+// add friend header bar button
+#{c(header tabBar)} #{c(header tabBarItem)}#{c(header addFriend)}#{c(header addFriend)}#{c(header addFriend)} {
+	#{c(main visualRefresh)} &,
+	& {
+		&:hover {
+			background: $hover;
+		}
+		&[aria-selected=true] {
+			background: rgb(from $primary r g b / 0.2);
+			color: $primary;
+		}
+	}
 }

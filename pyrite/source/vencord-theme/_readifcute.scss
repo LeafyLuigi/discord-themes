@@ -55,3 +55,8 @@
 		}
 	}
 }
+
+// show hidden channels "this is a hidden text channel" has transparent background
+#{c(chat chatContent)}>#{c(scroller managedReactiveScroller)} {
+	background: $middle;
+}

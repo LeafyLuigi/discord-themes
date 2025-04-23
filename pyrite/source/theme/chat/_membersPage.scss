@@ -1,20 +1,33 @@
 @use "backend" as *;
 // Members Page
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(membersPage container)} {
-		background: transparent;
+#{c(membersPage container)} {
+	background: transparent;
+}
+#{c(main visualRefresh)} #{c(membersPage header)} {
+	height: var(--custom-channel-header-height);
+}
+#{c(membersPage page)} {
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent !important; // !important reason: discord uses important
 	}
 }
-#{c(membersPage page)} { 
-	background: transparent !important; // !important reason: discord uses important
-}
 #{c(membersPage mainTableContainer)} {
-	background: $card;
 	box-shadow: none;
+	#{c(main visualRefresh)} &,
+	& {
+		background: $card;
+	}
 }
-#{c(membersPage scroller)} {
-	background: $middle;
+#{c(membersPage page)}>#{c(scroller base)} {
+	#{c(main visualRefresh)} &,
+	& {
+		background: $middle;
+	}
 }
+// #{c(membersPage scroller)} {
+// 	background: $middle;
+// }
 #{c(membersPage otherRoles)} {
 	background: $card;
 }

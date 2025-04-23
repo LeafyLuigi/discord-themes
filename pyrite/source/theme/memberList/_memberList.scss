@@ -7,10 +7,11 @@
 // both have to be listed for both servers and group dms
 #{c(memberList container)}, #{c(memberList wrap)} {
 	--width: 240px;
+	// --background: var(--side-shading);
 	--hide-var: var(--hide-member-list);
 }
 #{c(memberList wrap)} {
-	background-color: transparent;
+	background: transparent;
 	min-width: auto;
 	flex-basis: 0px;
 }

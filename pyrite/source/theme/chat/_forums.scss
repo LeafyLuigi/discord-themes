@@ -1,12 +1,27 @@
 @use "backend" as *;
 // Forums
 #{c(forums container)} {
-	background: $middle;
+	#{c(main visualRefresh)} &,
+	& {
+		background: $middle;
+	}
 }
 
-#{c(forums header)},
+#{c(forums mainCard)} {
+	#{c(main visualRefresh)} &,
+	& {
+		@include card;
+	}
+}
+
+// #{c(forums header)} {
+// 	@include card;
+// }
 #{c(forums guidelines container)} {
-	@include card;
+	#{c(main visualRefresh)} &,
+	& {
+		@include card;
+	}
 }
 #{c(forums headerWithMatchingPosts)} {
 	border-bottom: 0;
@@ -216,7 +231,10 @@
 	}
 }
 #{c(forums open topBar container)} {
-	background: transparent;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }
 #{c(forums open topBar addReactButton)}, #{c(forums open topBar buttonInner)} {
 	height: 20px;
