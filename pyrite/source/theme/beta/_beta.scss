@@ -15,6 +15,7 @@ html[lang="fr"] {
 // don't expect it to last forever.
 #{c(main visualRefresh)} {
 	// VARIABLE FIXING
+	--custom-app-top-bar-height: 0px; // for removing top bar
 	&#{c(main light)},
 	&#{c(main dark)},
 	&#{c(main darker)},
@@ -37,15 +38,8 @@ html[lang="fr"] {
 		--background-message-hover: transparent;
 		--background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
 		--background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
-		// --custom-app-top-bar-height: 0px;
 	}
 	:is(
-		// ensure transparency in theme
-		#{c(main appMount)},
-		body,
-		#{c(main bg)},
-		// server list
-		#{c(serverList wrapper)},
 		// sidebar channel list
 		#{c(sidebar list)},
 		// sidebar list
@@ -249,7 +243,86 @@ html[lang="fr"] {
 	#{c(topBar trailing container)} #{c(main anchorLink)}[href="https://support.discord.com"] {
 		display: none;
 	}
-	@debug TODO - CONSOLIDATE REMOVAL OF TOP BAR INTO ONE GROUP;
+	// move inbox icon back down; remove top bar
+	& {
+		// icon for margin-right; this must be done differently for windows
+		#{c(chat layerWrapper)},
+		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+			#{c(header toolbar)} {
+				margin-right: calc(32px + var(--space-xs));
+			}
+		}
+		&#{c(os win)} {
+			#{c(chat layerWrapper)},
+			#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+				#{c(header toolbar)} {
+					// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
+					margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+				}
+				#{c(header headerTitle)} {
+					// -webkit-app-region: drag;
+					// padding-right: calc(var(--space-xs) + 32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+				}
+			}
+		}
+		// z-index so it matches the header bar
+		#{c(topBar bar)} {
+			z-index: 1011;
+		}
+		// remove the centre part with the name and icon
+		#{c(topBar title container)} {
+			display: none;
+		}
+		// windows only stuff
+		&#{c(os win)} {
+			#{c(topBar trailing winButtons)} {
+				gap: 0;
+				&::before {
+					content: none;
+				}
+			}
+			#{c(topBar trailing winButton)} {
+				width: var(--win-min-max-close-button-width);
+				height: 48px;
+			}
+			#{c(topBar trailing recentsIcon)} {
+				right: var(--space-xs);
+			}
+		}
+		// windows and mac
+		&:is(#{c(os win)}, #{c(os mac)}) {
+			#{c(topBar trailing container)} {
+				gap: 0;
+				top: 24px;
+			}
+			#{c(topBar bar)} {
+				@include bg($top:0,$bottom:null,$right:0,$left:0,$h:28px,$war:drag,$z:2);
+			}
+			// make sure shit is still clickable
+			:is(
+				#{c(header title)},
+				#{c(sidebar server header clickable)}
+			) {
+				-webkit-app-region: no-drag;
+			}
+		}
+		// linux and web
+		&:is(#{c(os linux)}, #{c(os web)}) {
+			#{c(topBar trailing recentsIcon)} {
+				position: absolute;
+				top: 8px;
+			}
+		}
+		// linux, web and mac
+		:is(#{c(os linux)}, #{c(os web)}, #{c(os mac)}) {
+			#{c(chat layerWrapper)},
+			#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+				#{c(header headerTitle)} {
+					padding-right: calc(var(--space-xs) + 32px);
+				}
+			}
+		}
+	}
 	// windows stuff
 	&#{c(os win)} {
 		// fix server list
@@ -259,70 +332,14 @@ html[lang="fr"] {
 			}
 		}
 		// window buttons aren't there anymore
-		--custom-app-top-bar-height: 0px;
 		#{c(header toolbar)} {
 			padding-right: unset;
 			margin-right: unset;
 		}
-		// move inbox icon back down
-		// this 100% will cause issues with open side chats et al.
-		#{c(topBar bar)} {
-			z-index: 1011;
-		}
-		#{c(topBar title container)} {
-			display: none;
-		}
-		#{c(topBar trailing container)} {
-			gap: 0;
-			top: 24px;
-		}
-		#{c(topBar trailing winButtons)} {
-			gap: 0;
-			&::before {
-				content: none;
-			}
-		}
-		#{c(topBar trailing winButton)} {
-			width: var(--win-min-max-close-button-width);
-			height: 48px;
-		}
-		#{c(topBar trailing recentsIcon)} {
-			right: var(--space-xs);
-		}
-		#{c(chat layerWrapper)},
-		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
-			#{c(header toolbar)} {
-				// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
-				margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
-			}
-		}
 	}
 	// mac stuff
-	&#{c(os mac)} {
-		// fix server list
-		#{c(serverList wrapper)} {
-			margin-top: 48px;
-		}
-		// move inbox icon back down
-		--custom-app-top-bar-height: 0px;
-		// this 100% will cause issues with open side chats et al.
-		#{c(topBar bar)} {
-			z-index: 1011;
-		}
-		#{c(topBar title container)} {
-			display: none;
-		}
-		#{c(topBar trailing container)} {
-			gap: 0;
-			top: 24px;
-		}
-		#{c(chat layerWrapper)},
-		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
-			#{c(header toolbar)} {
-				margin-right: calc(32px + var(--space-xs));
-			}
-		}
-	}
+	// &#{c(os mac)} {
+	// }
 	// linux/web stuff
 	&:is(
 		#{c(os linux)},
@@ -339,31 +356,9 @@ html[lang="fr"] {
 		#{c(serverList tree)} {
 			height: calc(100% - 48px);
 		}
-		// move inbox icon back down
-		// this 100% will cause issues with open side chats et al.
-		// variable for reasons.
-		--custom-app-top-bar-height: 0px;
-		#{c(topBar bar)} {
-			z-index: 1011;
-		}
-		#{c(topBar title container)} {
-			display: none;
-		}
-		#{c(topBar trailing recentsIcon)} {
-			position: absolute;
-			top: 8px;
-		}
-		#{c(chat layerWrapper)},
-		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
-			#{c(header toolbar)} {
-				margin-right: calc(32px + var(--space-xs));
-			}
-		}
 	}
 	// dms scroller margin
-	#{c(sidebar private scroller)},
-	// server list margin
-	#{c(serverList wrapper)} {
+	#{c(sidebar private scroller)} {
 		margin-bottom: var(--custom-app-panels-height,0);
 	}
 	// channel list margins

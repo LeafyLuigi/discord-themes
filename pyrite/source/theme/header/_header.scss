@@ -24,11 +24,11 @@
 	&:after {
 		content: none;
 	}
-	> #{c(header iconWrapper)} {
-		> #{c(header icon)} {
-			filter: drop-shadow(2px 2px 2px var(--header-secondary));
-		}
-	}
+	// > #{c(header iconWrapper)} {
+	// 	> #{c(header icon)} {
+	// 		filter: drop-shadow(2px 2px 2px var(--header-secondary));
+	// 	}
+	// }
 }
 #{c(header divider)} {
 	margin: 0;

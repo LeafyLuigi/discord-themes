@@ -1,7 +1,13 @@
 @use "backend" as *;
 /* Start Server List */
 #{c(serverList wrapper)} {
-	background-color: transparent;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
+	#{c(main visualRefresh)} & {
+		margin-bottom: var(--custom-app-panels-height,0);
+	}
 	&:focus {
 		outline: 0;
 	}
@@ -14,7 +20,6 @@
 	}
 }
 
-:is(#{c(main dark)},#{c(main light)}) #{c(serverList scroller)},
 #{c(serverList folder)},
 #{c(serverList folder)}#{c(serverList folderHover)} {
 	background: transparent;
