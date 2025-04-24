@@ -1,6 +1,6 @@
 @use "backend" as *;
 /* Start User Popout */
-#{c(profile biteSize)}:not(#{c(profile themed)}) {
+#{c(profile popout)}:not(#{c(profile themed)}) {
 	@include bg($f:var(--user-popout-filter),$bgf:var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment));
 	position: relative;
 	box-shadow: none;
@@ -31,5 +31,27 @@
 	border-color: currentColor;
 	&:hover {
 		color: $hover;
+	}
+}
+// remove button ::before
+#{c(profile themed)} {
+	#{c(profile themeColor)}#{c(profile themeColor button)} {
+		&::before {
+			content: none;
+		}
+		// copy over existing css
+		&:hover:not(:disabled) {
+			background: color-mix(in srgb,var(--profile-gradient-button-color) 80%,transparent);
+		}
+		&:active:not(:disabled) {
+			background: color-mix(in srgb,var(--profile-gradient-button-color) 90%,transparent);
+		}
+		&:disabled {
+			background: var(--profile-gradient-button-color);
+		}
+	}
+	#{c(scroller base)} {
+		--scrollbar-thin-thumb: var(--profile-primary-color);
+		--scrollbar-auto-thumb: var(--profile-primary-color);
 	}
 }

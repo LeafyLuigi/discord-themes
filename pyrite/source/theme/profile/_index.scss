@@ -1,7 +1,7 @@
 // Profiles include anything involving an Avatar, Username, Discriminator and (optionally) can be customized.
 // Basically this means a popout, modal and the side in a dm.
 
-// @forward "profile"; // Generic classes only.
+@forward "profile"; // Generic classes only.
 
 @forward "modal"; // Right click a user's avatar/username in chat/sidebar/member list and click "Profile", click the avatar in a popout
 @forward "popout"; // Click a user's avatar/username in chat or member list

@@ -222,8 +222,8 @@ body,
 }
 
 /* show/hide for side-panels */
-.content_f75fb0 > :is(.container_c8ffbb,
-.panel_c0bea0),
+.content_f75fb0 > .container_c8ffbb,
+.user-profile-sidebar,
 .nowPlayingColumn__133bf {
   background: var(--background, var(--side-shading));
   left: calc((var(--width, 240px) - 60px) * var(--hide-var, --hide-fallback-enabled));
@@ -233,8 +233,8 @@ body,
   z-index: 2;
 }
 
-.app-focused .content_f75fb0 > :is(.container_c8ffbb,
-.panel_c0bea0):is(:hover, :focus-within),
+.app-focused .content_f75fb0 > .container_c8ffbb:is(:hover, :focus-within),
+.app-focused .user-profile-sidebar:is(:hover, :focus-within),
 .app-focused .nowPlayingColumn__133bf:is(:hover, :focus-within) {
   transform: translateX(calc(-1 * (var(--width, 240px) - 60px) * var(--hide-var, --hide-fallback-enabled)));
   backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));
@@ -404,6 +404,7 @@ html {
   --css-oklab-broken: "Oklab colour space missing.\a";
   --css-relative-colour-broken: "Relative colour mixing does not work.\a";
   --css-nesting-selector-broken: "CSS & nesting selector does not work.\a";
+  --css-color-mix-broken: "Unable to mix colours using color-mix().\a";
   --code-plain-text: "Plain Text";
   --error-reload: "please click this";
   --error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
@@ -417,6 +418,7 @@ html {
 [lang=en-US] {
   --css-relative-colour-broken: "Relative color mixing does not work.\a";
   --css-oklab-broken: "Oklab color space broken.\a";
+  --css-color-mix-broken: "Unable to mix colors using color-mix().\a";
 }
 
 [lang=fr] {
@@ -456,22 +458,27 @@ html {
     --p1: var(--css-has-selector-broken);
   }
 }
+@supports not (color: color-mix(in srgb, yellow 100%, blue)) {
+  :root {
+    --p2: var(--css-color-mix-broken);
+  }
+}
 @supports not (color: oklab(0.5 0.4 0.4)) {
   :root {
-    --p2: var(--css-oklab-broken);
+    --p3: var(--css-oklab-broken);
   }
 }
 @supports not (color: hsl(from rgb(255 255 255 / 0%) h s l / alpha)) {
   :root {
-    --p3: var(--css-relative-colour-broken);
+    --p4: var(--css-relative-colour-broken);
   }
 }
 @supports not (selector(div &)) {
   :root {
-    --p4: var(--css-nesting-selector-broken);
+    --p5: var(--css-nesting-selector-broken);
   }
 }
-@supports (not (selector(div:has(+a)))) or (not (color: oklab(0.5 0.4 0.4))) or (not (color: hsl(from rgb(255 255 255 / 0%) h s l / alpha))) or (not (selector(div &))) {
+@supports (not (selector(div:has(+a)))) or (not (color: color-mix(in srgb, yellow 100%, blue))) or (not (color: oklab(0.5 0.4 0.4))) or (not (color: hsl(from rgb(255 255 255 / 0%) h s l / alpha))) or (not (selector(div &))) {
   .bg__960e4::before, .bg__960e4::after {
     margin: 1rem;
     position: absolute;
@@ -487,7 +494,7 @@ html {
     transition: opacity 0.5s 10s;
   }
   .bg__960e4::before {
-    content: var(--p1,"") var(--p2,"") var(--p3,"") var(--p4,"") ;
+    content: var(--p1,"") var(--p2,"") var(--p3,"") var(--p4,"") var(--p5,"") ;
   }
   .bg__960e4::after {
     bottom: 0;
@@ -1144,7 +1151,7 @@ html {
   z-index: -1;
   pointer-events: none;
   opacity: 0.6;
-  background-color: var(--primary-color);
+  background-color: var(--profile-primary-color, var(--primary-color));
 }
 .wrapper_f7ecac .button_f7ecac:first-of-type::before {
   border-bottom-left-radius: 8px;
@@ -1158,7 +1165,7 @@ html {
   background-color: transparent;
 }
 .wrapper_f7ecac .button_f7ecac:hover::before {
-  background-color: var(--hover-color);
+  background-color: var(--profile-secondary-color, var(--hover-color));
 }
 
 .hasContent__908e2 {
@@ -1904,7 +1911,7 @@ html {
 }
 .channelTextArea__74017:focus-within {
   border-width: 0;
-  box-shadow: 0 0 2px 2px var(--primary-color);
+  box-shadow: 0 0 2px 2px var(--profile-primary-color, var(--primary-color));
 }
 .visual-refresh .channelTextArea__74017, .channelTextArea__74017 {
   border: 1px solid var(--secondary-color);
@@ -4511,6 +4518,18 @@ html {
   background-color: var(--red-color);
 }
 
+/* Start Profile */
+.custom-user-profile-theme {
+  --profile-primary-color: color-mix(in oklab,
+  	var(--profile-gradient-primary-color) 80%,
+  	var(--profile-gradient-secondary-color)
+  );
+  --profile-secondary-color: color-mix(in oklab,
+  	var(--profile-gradient-primary-color) 20%,
+  	var(--profile-gradient-secondary-color)
+  );
+}
+
 /* Start User Modal */
 .root__24502[style*=transform] {
   transform: unset !important;
@@ -4543,11 +4562,28 @@ html {
   border-radius: 0 0 8px 8px;
 }
 
-.fullSize_c0bea0:not(.custom-user-profile-theme) {
+.custom-user-profile-theme .inner_c0bea0 {
+  --profile-gradient-start: color-mix(in oklab,
+  	rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount),
+  	var(--profile-gradient-primary-color)
+  );
+  --profile-gradient-end: color-mix(in oklab,
+  	rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount),
+  	var(--profile-gradient-secondary-color)
+  );
+}
+
+.user-profile-modal:not(.custom-user-profile-theme) {
   background: transparent;
 }
-.fullSize_c0bea0:not(.custom-user-profile-theme) .overlay_c0bea0 {
+.user-profile-modal:not(.custom-user-profile-theme) .overlay_c0bea0 {
   background: var(--card-background);
+}
+.user-profile-modal:not(.custom-user-profile-theme) .container_d1d9f3 {
+  height: 100%;
+  border-radius: 0 0 8px 8px;
+  background: var(--card-background);
+  margin: 0 16px 16px;
 }
 
 .textarea_dde0a8, .textarea_dde0a8:focus {
@@ -4567,12 +4603,12 @@ html {
 }
 
 /* Start User Popout */
-.biteSize_c0bea0:not(.custom-user-profile-theme) {
+.user-profile-popout:not(.custom-user-profile-theme) {
   position: relative;
   box-shadow: none;
   background-color: transparent;
 }
-.biteSize_c0bea0:not(.custom-user-profile-theme)::before {
+.user-profile-popout:not(.custom-user-profile-theme)::before {
   content: "";
   top: 0;
   right: 0;
@@ -4584,13 +4620,13 @@ html {
   filter: var(--user-popout-filter);
   background: var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment);
 }
-.biteSize_c0bea0:not(.custom-user-profile-theme) .role_dfa8b6 {
+.user-profile-popout:not(.custom-user-profile-theme) .role_dfa8b6 {
   background: var(--card-background);
 }
-.biteSize_c0bea0:not(.custom-user-profile-theme) .inner_c0bea0 {
+.user-profile-popout:not(.custom-user-profile-theme) .inner_c0bea0 {
   background: transparent;
 }
-.biteSize_c0bea0:not(.custom-user-profile-theme) .body__5be3e {
+.user-profile-popout:not(.custom-user-profile-theme) .body__5be3e {
   background: var(--card-background);
   padding: 4px;
   margin: 0 12px;
@@ -4605,16 +4641,37 @@ html {
   color: var(--hover-color);
 }
 
+.custom-user-profile-theme .themeColor_fb7f94.button_fb7f94::before {
+  content: none;
+}
+.custom-user-profile-theme .themeColor_fb7f94.button_fb7f94:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--profile-gradient-button-color) 80%, transparent);
+}
+.custom-user-profile-theme .themeColor_fb7f94.button_fb7f94:active:not(:disabled) {
+  background: color-mix(in srgb, var(--profile-gradient-button-color) 90%, transparent);
+}
+.custom-user-profile-theme .themeColor_fb7f94.button_fb7f94:disabled {
+  background: var(--profile-gradient-button-color);
+}
+.custom-user-profile-theme :is(.scrollerBase__99f8c, .scrollerBase_d125d2) {
+  --scrollbar-thin-thumb: var(--profile-primary-color);
+  --scrollbar-auto-thumb: var(--profile-primary-color);
+}
+
 /* Start User Profile Panel */
-.panel_c0bea0 {
+.user-profile-sidebar {
   --width: 340px;
   --hide-var: var(--hide-profile-panel);
 }
-.panel_c0bea0.custom-user-profile-theme {
+.user-profile-sidebar.custom-user-profile-theme {
   --background: transparent;
 }
-.panel_c0bea0.custom-user-profile-theme .inner_c0bea0 {
+.user-profile-sidebar.custom-user-profile-theme .inner_c0bea0 {
   background: linear-gradient(var(--profile-gradient-primary-color), var(--profile-gradient-secondary-color));
+}
+
+.user-profile-sidebar:not(.custom-user-profile-theme) .overlay_c0bea0 {
+  background: var(--card-background);
 }
 
 /* Start Profile in Settings */
@@ -5968,7 +6025,7 @@ html {
 }
 
 .theme-dark,
-.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=fullSize_], [class*=biteSize_])) {
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
   --card-background: rgba(0, 0, 0, 0.5);
   --side-shading: rgba(0, 0, 0, 0.5);
   --middle-shading: rgba(0, 0, 0, 0.3);
@@ -5986,7 +6043,7 @@ html {
 }
 
 .theme-light,
-.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_], div[class*=outer_]:is([class*=fullSize_], [class*=biteSize_]), div[class*=sidebar_], nav[class*=guilds_], div[class*=sidebarRegion_]) {
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal]), div[class*=sidebar_], nav[class*=guilds_], div[class*=sidebarRegion_]) {
   --card-background: rgba(255, 255, 255, 0.05);
   --side-shading: rgba(255, 255, 255, 0.4);
   --middle-shading: rgba(255, 255, 255, 0.3);

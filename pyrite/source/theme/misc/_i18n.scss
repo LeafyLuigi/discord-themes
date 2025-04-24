@@ -33,6 +33,7 @@ html {
 	--css-oklab-broken: "Oklab colour space missing.\a";
 	--css-relative-colour-broken: "Relative colour mixing does not work.\a";
 	--css-nesting-selector-broken: "CSS & nesting selector does not work.\a";
+	--css-color-mix-broken: "Unable to mix colours using color-mix().\a";
 
 	// Used within codelangs file for Codeblocks sans formatting or language
 	--code-plain-text: "Plain Text";
@@ -58,6 +59,7 @@ html {
 [lang="en-US"] {
 	--css-relative-colour-broken: "Relative color mixing does not work.\a";
 	--css-oklab-broken: "Oklab color space broken.\a";
+	--css-color-mix-broken: "Unable to mix colors using color-mix().\a";
 }
 // Partially translated by Leafy
 [lang="fr"] {
@@ -213,6 +215,11 @@ $cssSupportList: (
 		// :has is based and is used in certain parts of the theme.
 		// cr 105 / ff 121 / s 15.4
 		test: "selector(div:has(+a))"
+	),
+	"color-mix": (
+		// mixing colours is fun.
+		// cr 111 / ff 113 / s 16.2
+		test: "color: color-mix(in srgb, yellow 100%, blue)"
 	),
 	"oklab": (
 		// oklab is based. https://youtu.be/nJlZT5AE9zY

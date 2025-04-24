@@ -22,10 +22,27 @@
 	}
 }
 
-#{c(profile fullSize)}:not(#{c(profile themed)}) {
+#{c(profile themed)} #{c(profile inner)} {
+	--profile-gradient-start: color-mix(in oklab,
+		rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount),
+		var(--profile-gradient-primary-color)
+	);
+	--profile-gradient-end: color-mix(in oklab,
+		rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount),
+		var(--profile-gradient-secondary-color)
+	);
+}
+
+#{c(profile modal)}:not(#{c(profile themed)}) {
 	background: transparent;
 	#{c(profile overlay)} {
 		background: $card;
+	}
+	#{c(profile modal bodyContainer)} {
+		height: 100%;
+		border-radius: 0 0 8px 8px;
+		background: $card;
+		margin: 0 16px 16px;
 	}
 }
 

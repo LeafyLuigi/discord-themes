@@ -23,8 +23,8 @@ $import-wintitlebar: "windows-titlebar.css";
 
 $var-examples: "pyrite/var-examples.html";
 
-$blacklist-theme-dark-classes: "div[class*=layer_],div[class*=outer_]:is([class*=fullSize_],[class*=biteSize_])";
-$blacklist-theme-light-classes: "div[class*=layer_],div[class*=outer_]:is([class*=fullSize_],[class*=biteSize_]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]";
+$blacklist-theme-dark-classes: "div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])";
+$blacklist-theme-light-classes: "div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]";
 
 @function v($key,$val:null) {
 	$allVars: $defaults;

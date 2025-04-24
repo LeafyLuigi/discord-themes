@@ -104,7 +104,7 @@ $card: var(--card-background);
 
 // size = 80
 #{c(profile outer)},
-#{c(profile panel panel)},
+#{c(profile panel)},
 #{c(userSettings profileImageUploader)},
 #{c(modals avatarUpload contentCircle)} {
 	--br-multi: 2.5;

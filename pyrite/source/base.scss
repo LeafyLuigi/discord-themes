@@ -87,7 +87,7 @@
 // previewContainer is used in role editing
 // default-colors is used on other-themed profiles
 .theme-dark,
-.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=fullSize_],[class*=biteSize_])) {
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
 	--card-background: #{v(dark-card-background)};
 	--side-shading: #{v(dark-side-shading)};
 	--middle-shading: #{v(dark-middle-shading)};
@@ -109,7 +109,7 @@
 // ...(cont from dark's comment)
 // sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
 .theme-light,
-.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_],div[class*=outer_]:is([class*=fullSize_],[class*=biteSize_]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]) {
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]) {
 	--card-background: #{v(light-card-background)};
 	--side-shading: #{v(light-side-shading)};
 	--middle-shading: #{v(light-middle-shading)};

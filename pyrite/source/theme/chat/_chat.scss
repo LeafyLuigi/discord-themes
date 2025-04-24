@@ -56,7 +56,7 @@
 		display: none;
 	}
 	#{c(chat button)} {
-		@include bg($bg:$primary,$o:0.6);
+		@include bg($bg:var(--profile-primary-color,$primary),$o:0.6);
 		&:first-of-type::before {
 			border-bottom-left-radius: 8px;
 			border-top-left-radius: 8px;
@@ -69,7 +69,7 @@
 			background-color: transparent;
 		}
 		&:hover::before {
-			background-color: $hover;
+			background-color: var(--profile-secondary-color,$hover);
 		}
 	}
 }

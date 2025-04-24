@@ -1,6 +1,6 @@
 @use "backend" as *;
 /* Start User Profile Panel */
-#{c(profile panel panel)} {
+#{c(profile panel)} {
 	--width: 340px;
 	--hide-var: var(--hide-profile-panel);
 	&#{c(profile themed)} {
@@ -10,6 +10,6 @@
 		}
 	}
 }
-// #{c(profile panel activityBackground)} {
-// 	background: $card;
-// }
+#{c(profile panel)}:not(#{c(profile themed)}) #{c(profile panel colorOverlay)} {
+	background: $card;
+}
