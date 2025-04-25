@@ -88,14 +88,15 @@ code,
 }
 
 html,
-body,
 .app__160d8 {
   background: transparent;
 }
 
 .visual-refresh :is(.appMount__51fd7,
-.bg__960e4), :is(.appMount__51fd7,
-.bg__960e4) {
+.bg__960e4,
+body), :is(.appMount__51fd7,
+.bg__960e4,
+body) {
   background: transparent;
 }
 

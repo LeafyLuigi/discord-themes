@@ -94,13 +94,13 @@ code,
 
 // Transparency to allow the background to work.
 html, // because maybe?
-body, // this one is here for transparency in bd to work
 #{c(main appInner)} {
 	background: transparent;
 }
 :is(
 	#{c(main appMount)},
-	#{c(main bg)}
+	#{c(main bg)},
+	body // this one is here for transparency in bd to work
 ) {
 	#{c(main visualRefresh)} &,
 	& {
