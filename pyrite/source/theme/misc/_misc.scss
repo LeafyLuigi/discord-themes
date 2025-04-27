@@ -207,6 +207,7 @@ html, // because maybe?
 
 /* show/hide for side-panels */
 #{c(chat chatContent)} > #{c(memberList container)},
+#{c(chat chatContentInner)} + #{c(memberList wrap)},
 #{c(profile panel)},
 #{c(friends nowPlayingColumn)} {
 	background: var(--background,var(--side-shading));
@@ -218,6 +219,7 @@ html, // because maybe?
 }
 #{c(main focused)} {
 	#{c(chat chatContent)} > #{c(memberList container)},
+	#{c(chat chatContentInner)} + #{c(memberList wrap)},
 	#{c(profile panel)},
 	#{c(friends nowPlayingColumn)} {
 		&:is(:hover,:focus-within) {

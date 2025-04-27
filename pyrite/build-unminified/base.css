@@ -224,6 +224,7 @@ body) {
 
 /* show/hide for side-panels */
 .content_f75fb0 > .container_c8ffbb,
+.chatContent_f75fb0 + .membersWrap_c8ffbb,
 .user-profile-sidebar,
 .nowPlayingColumn__133bf {
   background: var(--background, var(--side-shading));
@@ -235,6 +236,7 @@ body) {
 }
 
 .app-focused .content_f75fb0 > .container_c8ffbb:is(:hover, :focus-within),
+.app-focused .chatContent_f75fb0 + .membersWrap_c8ffbb:is(:hover, :focus-within),
 .app-focused .user-profile-sidebar:is(:hover, :focus-within),
 .app-focused .nowPlayingColumn__133bf:is(:hover, :focus-within) {
   transform: translateX(calc(-1 * (var(--width, 240px) - 60px) * var(--hide-var, --hide-fallback-enabled)));
