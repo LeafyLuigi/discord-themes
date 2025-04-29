@@ -115,7 +115,7 @@
 #{c(chat repliedMessage)} {
 	&::before {
 		border-color: $primary;
-		filter: drop-shadow(2px 2px 2px $secondary);
+		// filter: drop-shadow(2px 2px 2px $secondary);
 	}
 	#{c(chat replyBadge)} {
 		background: $card;
@@ -132,7 +132,7 @@
 
 #{c(chat chatHeader)} {
 	#{c(chat emptyChannelIcon)} {
-		background: var(--card-background);
+		background: $card;
 	}
 	#{c(chat chatHeaderButton)},
 	#{c(chat chatHeaderButton)}:hover {
@@ -140,7 +140,7 @@
 	}
 }
 #{c(chat allowedRole)} {
-	background: var(--card-background);
+	background: $card;
 }
 
 #{c(chat messageContent)} {
@@ -230,7 +230,7 @@
 		border-color: $secondary;
 		#{c(reaction count)} {
 			color: $primary;
-			text-shadow: .125rem .125rem .1875rem;
+			// text-shadow: .125rem .125rem calc(var(--blur-intensity,1) * .1875rem);
 		}
 	}
 	#{c(reaction count)} {

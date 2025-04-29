@@ -2,12 +2,14 @@
 @use "sass:list";
 @use "sass:meta";
 @use "sass:string";
+@use "sass:map";
+@use "sass:math";
 @use "backend" as *;
 /* Start Member List */
 // both have to be listed for both servers and group dms
 #{c(memberList container)}, #{c(memberList wrap)} {
 	--width: 240px;
-	// --background: var(--side-shading);
+	// --background: var(--hsl-side-shading);
 	--hide-var: var(--hide-member-list);
 }
 #{c(memberList wrap)} {
@@ -57,75 +59,79 @@
 
 
 // For each of the colors, the variable used (excluding `var(--...)`) should be the first value then the colors for each saturation value.
-// online
-$allOnline: "green-color", (#23a55a, #299f5b, #30995c, #35935d, #3a8e5e, #3f895f, #45845f, #497f60, #4d7b60, #507861, #547562, #577162, #5a6e62, #5c6c63, #5f6a63, #606864, #616764, #636664, #646564, #646464, #646464 );
-// idle
-$allIdle: "yellow-color", (#f0b232, #e6ae3c, #deac44, #d6a94c, #cea654, #c6a45c, #bfa163, #b99f69, #b39d6f, #ae9b74, #a99a7a, #a4987e, #a09682, #9d9585, #999489, #97938b, #95928d, #93928f, #929190, #919191, #919191 );
-// dnd
-$allDND: "red-color", (#f23f43, #ea474b, #e15054, #da575b, #d25f62, #cb6668, #c46d6f, #bf7274, #b9787a, #b47d7e, #af8283, #ab8687, #a78a8b, #a48d8e, #a09191, #9e9393, #9c9595, #9b9697, #999898, #999898, #999999 );
-// streaming / live
-$allLive: "live-color", (#593695, #5b3a91, #5b3f8c, #5d4388, #5d4884, #5e4b80, #604e7d, #605279, #615477, #625774, #625a71, #635c6f, #645e6e, #64606b, #64616a, #656368, #656467, #656467, #656566, #656566, #666666 );
-// invis/offline
-$allInvisOffline: "offline-color", (#80848e, #80848e, #82848c, #82848c, #82858c, #83868b, #84868b, #84868a, #858689, #858689, #868789, #868788, #868788, #868788, #868788, #878788, #878787, #878787, #878787, #878787, #878787 );
+// 
+// attempting to find what colour is what via the js files (2025-04-28)
+// online uses GREEN_NEW_38, idle is YELLOW_NEW_30, dnd is RED_NEW_46, streaming uses twitch's default colour and invis+offline+"unknown" uses NEUTRAL_34
+// these default values are:
+// GREEN_NEW_38: hsl(134.694 43.363% 44.314%) => #40a258
+// YELLOW_NEW_30: hsl(34.219 55.652% 54.902%) => #cc954c
+// RED_NEW_46: hsl(357.342 66.949% 53.725%) => #d83a41
+// TWITCH: hsl(264.13 100% 63.922%) => #9147ff
+// NEUTRAL_34: hsl(233.333 3.734% 52.745%) => #82838b
+// 
+// with saturation-factor involved, the middle value is multiplied by 1,.95,.9,.85,...,.1,.05,0.
+// this then obviously changes the hex value. using #40a258 and .95 as an example, the hsl becomes hsl(134.694 41.19485% 44.314%) => #42a059
+// this is *exactly* what we see for that example.
+// #40a258 and .9 becomes hsl(134.694 39.026700000000003% 44.314%) or #459d5b.
+// this seems to match.
+
+@function alterSat($color,$alter) {
+	@return color.change($color,$saturation: $alter * color.channel($color,"saturation",$space:hsl),$space:hsl);
+}
+@function splitRGB($color) {
+	// returns a map with rounded rgb values
+	$map: (
+		"r": math.round(color.channel($color,"red",$space:rgb)),
+		"g": math.round(color.channel($color,"green",$space:rgb)),
+		"b": math.round(color.channel($color,"blue",$space:rgb)),
+	);
+	@return $map;
+}
+@function colorToHexStr($color) {
+	@return string.to-lower-case("#"+string.slice(color.ie-hex-str($color),4,-1));
+}
+// @debug colorToHexStr(alterSat(#40a258,0.95)); // expected #42a059
+
 $allColors: (
-	$allOnline,
-	$allIdle,
-	$allDND,
-	$allLive,
-	$allInvisOffline
+	"hsl-green-color": #40a258,
+	"hsl-yellow-color": #cc954c,
+	"hsl-red-color": #d83a41,
+	"hsl-live-color": #9147ff,
+	"hsl-offline-color": #82838b,
 );
 
-
-// SCSS scale-color($col, $saturation: -5%) doesn't work in the same way as Discord's own saturation magik. As such all variations on what the saturation is has to be used.
-
-// attempt for finding -10% saturation from #23a55a -- this should've been #30995c but was #2a9f5b instead.
-// $a: nth($allOnline,1);
-// @debug rgba(red($a), blue($a), green($a), alpha($a));
-// @debug scale-color($a, $saturation:-10%);
-
-$allColors: (
-	$allOnline,
-	$allIdle,
-	$allDND,
-	$allLive,
-	$allInvisOffline
-);
-
-:is(#{c(avatar pointerEvents)},#{c(avatar mask)}>svg>rect) {
-	@each $colType in $allColors {
-		$listDone: (); // temp list for completed colors to avoid repeating
-		$list: ":is(";
-		@each $col in list.nth($colType,2) {
-			@if not list.index($listDone, $col) {
-				// @debug $col;
-				$list: $list+'[fill="'+$col+'"],[fill="rgba('+color.channel($col,"red",$space: rgb)+', '+color.channel($col,"green",$space: rgb)+', '+color.channel($col,"blue",$space: rgb)+', 1)"],';
-				$listDone: list.append($listDone,$col);
-			}
+@each $var,$val in $allColors {
+	$listDone: (); // temp list for completed colors to avoid repeating
+	$listFill: ":is("; // for member list, top of dms etc
+	$listBackground: ":is("; // for status changer
+	$i: 1;
+	@while $i >= 0 {
+		// @debug $i;
+		$altered: alterSat($val,$i);
+		$newVal: colorToHexStr($altered);
+		$split: splitRGB($altered); // these need to be rounded.
+		// @debug $val, $i, $newVal;
+		@if not list.index($listDone, $newVal) {
+			$listFill: $listFill+"[fill=\""+#{$newVal}+"\"],";
+			$listBackground: $listBackground+"[style=\"background-color: rgb("+map.get($split,"r")+", "+map.get($split,"g")+", "+map.get($split,"b")+");\"],";
+			$listDone: list.append($listDone,$newVal);
 		}
-		$list: string.slice($list,1,-2)+")"; // remove last comma and close list
-		// @debug $list;
-		&#{$list} {
-			fill: var(--#{list.nth($colType,1)})
+		$i: $i - 0.05;
+	}
+	$listFill: string.slice($listFill,1,-2)+")"; // remove last comma and close list
+	$listBackground: string.slice($listBackground,1,-2)+")"; // remove last comma and close list
+	:is(#{c(avatar pointerEvents)},#{c(avatar mask)}>svg>rect,#{c(avatar cursorDefault)}>rect) {
+		&#{$listFill} {
+			fill: var(--#{$var});
 		}
 	}
-}
-// CHANGE STATUS MENU ICONS
-// this is only here because i'm not duplicating the lists twice.
-#{c(modals menus status)} {
-	@each $colType in $allColors {
-		$listDone: (); // temp list for completed colors to avoid repeating
-		$list: ":is(";
-		@each $col in list.nth($colType,2) {
-			@if not list.index($listDone, $col) {
-				// @debug $col;
-				$list: $list+'[style*="rgb('+color.channel($col,"red",$space: rgb)+', '+color.channel($col,"green",$space: rgb)+', '+color.channel($col,"blue",$space: rgb)+')"],';
-				$listDone: list.append($listDone,$col);
+	// since no live in status picker
+	@if $var != "hsl-live-color" {
+		// it's probably better to do this as nth-child but eh fuck it
+		#{c(modals menus status)} {
+			&#{$listBackground} {
+				background-color: var(--#{$var}) !important; // !important reason: override inline style
 			}
-		}
-		$list: string.slice($list,1,-2)+")"; // remove last comma and close list
-		// @debug $list;
-		&#{$list} {
-			background-color: var(--#{list.nth($colType,1)}) !important; // !important reason: override inline style
 		}
 	}
 }

@@ -5,8 +5,8 @@
 }
 :is(#{c(main dark)}, #{c(main light)}) {
 	#{c(role overflow popout popout)} {
-		background: var(--modal-background);
-		backdrop-filter: blur(5px);
+		background: $modal;
+		backdrop-filter: blur(calc($blur * 5px));
 	}
 }
 #{c(role overflow popout header)} {

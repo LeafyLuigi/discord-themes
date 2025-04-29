@@ -63,8 +63,8 @@
 	}
 }
 #{c(serverSettings roleSearchPopup)} {
-	background: var(--modal-background);
-	backdrop-filter: blur(5px);
+	background: $modal;
+	backdrop-filter: blur(calc($blur * 5px));
 }
 #{c(serverSettings roleEveryoneIcon)},
 #{c(serverSettings rolePreviewContainer)} {

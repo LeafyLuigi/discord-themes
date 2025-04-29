@@ -173,10 +173,10 @@
 	#{c(main light)},
 	#{c(main dark)}
 ) {
-	--scrollbar-auto-scrollbar-color-thumb: var(--primary-color);
+	--scrollbar-auto-scrollbar-color-thumb: var(--hsl-primary-color);
     --scrollbar-auto-scrollbar-color-track: transparent;
-    --scrollbar-auto-thumb: var(--primary-color);
+    --scrollbar-auto-thumb: var(--hsl-primary-color);
     --scrollbar-auto-track: transparent;
-    --scrollbar-thin-thumb: var(--primary-color);
+    --scrollbar-thin-thumb: var(--hsl-primary-color);
     --scrollbar-thin-track: transparent;
 }

@@ -90,9 +90,9 @@ $active-filter: var(--active-filter);
 
 @mixin button-inverted($color: null) {
 	@include button-color($color);
-	background-color: var(--card-background);
+	background-color: var(--hsl-card-background);
 	&:disabled {
-		background-color: var(--card-background);
+		background-color: var(--hsl-card-background);
 	}
 }
 
@@ -101,7 +101,7 @@ $active-filter: var(--active-filter);
 	color: $color;
 	background-color: transparent;
 	@include bg($br:3px,$bg:transparent,$z:1);
-	> .contents-3ca1mk {
+	> .contents__201d5 {
 		z-index: 2;
 	}
 	&:hover:not(:disabled) {
@@ -123,12 +123,12 @@ $active-filter: var(--active-filter);
 @mixin button-link($color: null) {
 	color: $color;
 	background-color: transparent;
-	> .contents-3ca1mk {
+	> .contents__201d5 {
 		z-index: 2;
 	}
 	&:hover:not(:disabled),
 	&:active:not(:disabled) {
-		>.contents-3ca1mk {
+		>.contents__201d5 {
 			background-image: linear-gradient(0deg,transparent,transparent 1px, $color 0,$color 2px,transparent 0);
 		}
 	}

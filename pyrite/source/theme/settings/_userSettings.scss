@@ -15,11 +15,14 @@
 	#{c(userSettings subscriptionsNoItemsIconCredits)},
 	#{c(userSettings addAccountMetadataContainer)}
 	) {
-		background-color: transparent;
+		background: transparent;
 	}
 }
 #{c(userSettings sidebarRegionScroller)} {
-	background-color: $side;
+	#{c(main visualRefresh)} &,
+	& {
+		background: $side;
+	}
 }
 #{c(userSettings sidebar)} {
 	#{c(tab header)} {
@@ -28,7 +31,7 @@
 		font-size: 16px;
 	}
 	#{c(tab separator)} {
-		background-color: $secondary;
+		background: $secondary;
 	}
 }
 // #{c(userSettings sidebarInfo)} {
@@ -37,20 +40,23 @@
 // 	}
 // }
 #{c(userSettings contentRegionScroller)} {
-	background-color: $middle;
+	#{c(main visualRefresh)} &,
+	& {
+		background: $middle;
+	}
 	#{c(userSettings customScroller)} {
-		background-color: transparent;
+		background: transparent;
 	}
 }
 #{c(userSettings accountProfile)} {
-	background-color: $card;
+	background: $card;
 	#{c(userSettings accountProfileBackground)} {
 		padding: 8px 0 0 0;
-		background-color: transparent;
+		background: transparent;
 	}
 	#{c(userSettings accountProfileAvatar)} {
 		border-color: transparent;
-		background-color: transparent;
+		background: transparent;
 	}
 }
 // #{c(userSettings nitroFeatureImageWrapper)} {
@@ -64,18 +70,17 @@
 // 	color: $yellow;
 // }
 #{c(userSettings radioGroupItem)} {
-	backdrop-filter: blur(3px);
-	background-color: var(--background-modifier-accent);
+	backdrop-filter: blur(calc($blur * 3px));
+	background: var(--background-modifier-accent);
 	&:hover:not([aria-checked=true]) {
-		background-color: var(--background-modifier-hover);
+		background: var(--background-modifier-hover);
 	}
 	&[aria-checked=true] {
-		background-color: var(--background-modifier-selected);
+		background: var(--background-modifier-selected);
 	}
 }
 #{c(userSettings radioBar)} {
-	border-left: 3px solid;
-	border-left-color: var(--radio-bar-accent-color, --header-primary);
+	border-left: 3px solid var(--radio-bar-accent-color, var(--header-primary));
 	&[style*="--radio-bar-accent-color"] {
 		#{c(userSettings radioIconForeground)} {
 			color: var(--radio-bar-accent-color);
@@ -98,22 +103,22 @@
 	color: $primary;
 }
 #{c(userSettings addAccountButtonInner)} {
-	background-color: var(--background-modifier-accent);
+	background: var(--background-modifier-accent);
 	&:hover {
-		background-color: var(--background-modifier-hover);
+		background: var(--background-modifier-hover);
 	}
 }
 #{c(userSettings connectionHeader)} {
-	background-color: transparent;
+	background: transparent;
 	padding: 10px 20px;
 }
 // #{c(userSettings boostGuildsSection)} {
 // 	margin-bottom: 32px;
 // }
 // #{c(userSettings boostCardWrapper)} {
-// 	background-color: transparent;
+// 	background: transparent;
 // 	#{c(friends itemCardOuter)} {
-// 		background-color: transparent;
+// 		background: transparent;
 // 	}
 // }
 // #{c(userSettings boostDealWrapper)}::before {
@@ -129,7 +134,7 @@
 		border-color: currentColor;
 		&:hover,
 		&:active {
-			background-color: transparent;
+			background: transparent;
 		}
 		&>svg>path {
 			fill: currentColor;
@@ -155,11 +160,17 @@
 // #{c(userSettings nitroRedirectContainer)},
 // #{c(userSettings boostCardNoIcon)} 
 #{c(userSettings giftPromotionCard)} {
-	background-color: $card;
+	background: $card;
 }
 #{c(main appLayer)},
-#{c(userSettings standardSidebarView)},
 #{c(userSettings contentRegion)},
 #{c(userSettings contentColumn)} #{c(userSettings fieldList)} {
-	background-color: transparent;
+	background: transparent;
+}
+
+#{c(userSettings standardSidebarView)} {
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }

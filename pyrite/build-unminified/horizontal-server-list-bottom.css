@@ -8,12 +8,12 @@
   content: 'Do NOT use the "horizontal-server-list-bottom" import without "horizontal-server-list" enabled.';
   text-align: center;
   position: absolute;
-  color: var(--red-color);
+  color: var(--hsl-red-color);
   font-weight: 600;
   white-space: pre-wrap;
   box-sizing: border-box;
   padding: 10px 0;
-  background-color: var(--header-shading);
+  background-color: var(--hsl-header-shading);
   display: var(--hide-hsl-bottom-warning, block);
   z-index: 2500;
 }

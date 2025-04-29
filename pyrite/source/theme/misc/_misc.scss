@@ -66,6 +66,25 @@
 	}
 }
 
+/* Begin Variable fixing */
+:root {
+	$hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
+	--hsl-tooltip-color: hsl(from var(--tooltip-color) #{$hslColor});
+	--hsl-primary-color: hsl(from var(--primary-color) #{$hslColor});
+	--hsl-secondary-color: hsl(from var(--secondary-color) #{$hslColor});
+	--hsl-hover-color: hsl(from var(--hover-color) #{$hslColor});
+	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
+	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
+	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
+	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
+	--hsl-green-color: hsl(from var(--green-color) #{$hslColor});
+	--hsl-yellow-color: hsl(from var(--yellow-color) #{$hslColor});
+	--hsl-red-color: hsl(from var(--red-color) #{$hslColor});
+	--hsl-link-color: hsl(from var(--link-color) #{$hslColor});
+	--hsl-live-color: hsl(from var(--live-color) #{$hslColor});
+	--hsl-offline-color: hsl(from var(--offline-color) #{$hslColor});
+}
+
 /* Begin Misc */
 // Fonts
 // body fonts
@@ -74,9 +93,9 @@ body, button, input, select, textarea {
 	font-family: var(--body-font);
 }
 ::selection {
-	background-color: $secondary;
-
+	background: $secondary;
 }
+
 // code fonts
 code,
 #{c(chatForm inlineCode)},
@@ -129,6 +148,8 @@ html, // because maybe?
 	background: linear-gradient(to bottom, $header 48px, $middle 48px);
 }
 
+// OS stuff
+
 // Windows
 #{c(os win)} {
 	#{c(sidebar)} {
@@ -139,9 +160,14 @@ html, // because maybe?
 		overflow: visible;
 		@include bg($z:1010,$bg:$header,$w:72px,$h:48px,$top:-48px);
 	}
-	#{c(header toolbar)} {
-		padding-right: calc((1 - var(--hsl-bottom-enabled,0)) * 3 * var(--win-min-max-close-button-width));
-		margin-right: -6px;
+	&#{c(main visualRefresh)} #{c(serverList servers)}::after {
+		content: none;
+	}
+	&:not(#{c(main visualRefresh)}) {
+		#{c(header toolbar)} {
+			padding-right: calc((1 - var(--hsl-bottom-enabled,0)) * 3 * var(--win-min-max-close-button-width));
+			margin-right: -6px;
+		}
 	}
 }
 #{c(os win type)} {
@@ -190,6 +216,7 @@ html, // because maybe?
 // #{c(os mac buttons)} {
 // 	height: 48px;
 // }
+
 // Linux, Web
 :is(#{c(os linux)},#{c(os web)}) {
 	#{c(serverList scroller)} {
@@ -203,6 +230,16 @@ html, // because maybe?
 		position: relative;
 		height: calc(100vh - 48px);
 	}
+	&#{c(main visualRefresh)} {
+		#{c(serverList tree)} {
+			height: calc(100% - 48px);
+		}
+		#{c(serverList servers)} {
+			&::after {
+				content: none;
+			}
+		}
+	}
 }
 
 /* show/hide for side-panels */
@@ -211,9 +248,9 @@ html, // because maybe?
 #{c(profile panel)},
 #{c(friends nowPlayingColumn)} {
 	background: var(--background,var(--side-shading));
-	left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled));
+	left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, var(--hide-fallback-enabled)));
 	transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
-	margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, --hide-fallback-enabled)));
+	margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, var(--hide-fallback-enabled))));
 	position: relative;
 	z-index: 2; // just in case of buttons
 }
@@ -223,8 +260,8 @@ html, // because maybe?
 	#{c(profile panel)},
 	#{c(friends nowPlayingColumn)} {
 		&:is(:hover,:focus-within) {
-			transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, --hide-fallback-enabled))));
-			backdrop-filter: blur(calc(var(--hide-var, --hide-fallback-enabled) * 3px));
+			transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled)))));
+			backdrop-filter: blur(calc($blur * var(--hide-var, var(--hide-fallback-enabled)) * 3px));
 		}
 	}
 }
@@ -251,7 +288,7 @@ html, // because maybe?
 // commented bc i cannot find a way to get it up
 // #{c(main areYouARobotContainer)} {
 //   background-color: $header;
-//   backdrop-filter: blur(5px);
+//   backdrop-filter: blur(calc($blur * 5px));
 // }
 
 /* Checkboxes */
@@ -288,7 +325,7 @@ html, // because maybe?
 // insecure links
 a[href^="http://"] {
 	color: $red;
-	text-shadow: 0 0 2px $red;
+	// text-shadow: 0 0 calc(var(--blur-intensity,1) * 2px) $red;
 }
 
 /* HLJS */
@@ -299,11 +336,11 @@ a[href^="http://"] {
 
 /* A few blurs */
 #{c(loading container)} {
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(calc($blur * 5px));
 }
 #{c(main backdrop)},
 #{c(main backdropWithLayer)} {
-	backdrop-filter: blur(3px) !important; // !important reason: override inline
+	backdrop-filter: blur(calc($blur * 3px)) !important; // !important reason: override inline
 	background-color: transparent !important; // !important reason: override inline
 }
 
@@ -314,8 +351,13 @@ a[href^="http://"] {
 // }
 
 /* unbreak certain modal backgrounds */
-#{c(main options fullMotion)} :is(#{c(modals translate)},#{c(modals scale)}) {
-	transform: unset !important; // !important reason: override other rules that have it, namely with the animator* rules.
+#{c(main options fullMotion)} {
+	:is(
+		#{c(modals translate)},
+		#{c(modals scale)}
+	) {
+		transform: unset !important; // !important reason: override other rules that have it, namely with the animator* rules.
+	}
 }
 
 /* Official Preset Previews */
@@ -345,6 +387,11 @@ $themes: (
 		color: #e6de00,
 		message: "1342514121073229884"
 	),
+	// "greenForest": (
+	// 	url: "https://leafyluigi.github.io/images/Path by Risto Saukonpää.png",
+	// 	color: #85ad49,
+	// 	message: ""
+	// ),
 	"defaultPresets": (
 		alias: "blueOcean",
 		message: "1342514188735479869"
@@ -492,6 +539,6 @@ $presetListIDs: ":is(";
 //   box-sizing: border-box;
 //   padding: 10px 0;
 //   background-color: $header;
-//   display: var(--update-notice-oct24, block);
+//   display: var(--update-notice-may25, block);
 //   z-index: 2500;
 // }

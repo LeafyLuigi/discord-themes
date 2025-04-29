@@ -78,7 +78,7 @@
 }
 
 .tree_ef3116 {
-  background-color: var(--header-shading);
+  background-color: var(--hsl-header-shading);
 }
 :is(.platform-linux, .platform-web) .tree_ef3116 {
   top: unset;

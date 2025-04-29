@@ -1,10 +1,9 @@
 @use "backend" as *;
 :is(#{c(main dark)},#{c(main light)}) {
 	#{c(modals mentionWarning popout)} {
-		background: var(--modal-background);
+		background: $modal;
 		box-shadow: none;
-		backdrop-filter: blur(5px);
-		@debug "modal filter variable?";
+		backdrop-filter: blur(calc($blur * 5px));
 	}
 	:is(#{c(modals mentionWarning body)},#{c(modals mentionWarning footer)}) {
 		background: transparent;

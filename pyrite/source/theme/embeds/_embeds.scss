@@ -24,10 +24,10 @@
 }
 
 #{c(embeds poll votedStyles)} {
-	--custom-poll-style-vote-percentage: var(--secondary-color);
+	--custom-poll-style-vote-percentage: var(--hsl-secondary-color);
 }
 #{c(embeds poll victorStyles)} {
-	--custom-poll-style-vote-percentage: var(--green-color);
+	--custom-poll-style-vote-percentage: var(--hsl-green-color);
 }
 #{c(embeds poll votePercentageBar)} {
 	background-color: transparent;
@@ -68,7 +68,7 @@
 		color: $primary;
 		&:hover {
 			color: $hover;
-			filter: drop-shadow(0 0 2px currentColor);
+			// filter: drop-shadow(0 0 2px currentColor);
 		}
 	}
 }

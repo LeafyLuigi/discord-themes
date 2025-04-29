@@ -56,7 +56,7 @@
 #{c(chat cozy)}#{c(threads msgHasThread)}::after,
 #{c(threads msgSpine)} {
 	border-color: $primary;
-	filter: drop-shadow(2px 2px 2px $secondary);
+	// filter: drop-shadow(2px 2px 2px $secondary);
 }
 
 // Floating Chat

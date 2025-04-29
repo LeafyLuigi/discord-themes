@@ -1,5 +1,5 @@
 @use "backend" as *;
-:is(#{c(main dark)},#{c(main light)}) {
+// :is(#{c(main dark)},#{c(main light)}) {
 	#{c(modals gif header)} {
 		box-shadow: none;
 	}
@@ -33,7 +33,7 @@
 	#{c(modals gif sadImage)} {
 		display: none;
 	}
-}
+// }
 
 #{c(modals gif result)} {
 	// loading category in
@@ -55,9 +55,15 @@
 	}
 }
 
-#{c(modals gif header)},
 #{c(modals gif container)} {
 	background: transparent;
+}
+
+#{c(modals gif header)} {
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }
 
 :is(

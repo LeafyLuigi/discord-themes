@@ -212,7 +212,7 @@
 // 	// padding: 0 .3125rem;
 // }
 // #{c(forums reactions me)} #{c(forums reactions count)} {
-// 	// text-shadow: .125rem .125rem .1875rem;
+// 	// text-shadow: .125rem .125rem calc(var(--blur-intensity,1) * .1875rem);
 // }
 // #{c(forums reactions count)} {
 // 	color: var(--text-muted);

@@ -15,7 +15,7 @@
 }
 #{c(modals emoji skinOptions)} {
 	background: transparent;
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(calc($blur * 5px));
 	border-color: transparent;
 }
 #{c(modals emoji defaultCategorySelected)},
@@ -38,16 +38,22 @@
 
 #{c(modals emoji header)},
 #{c(modals emoji picker)} {
-	background: transparent;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }
 #{c(modals emoji categoryHeader)} {
-	background: transparent;
 	position: unset;
 	top: unset;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }
 #{c(modals emoji wrapper)} {
-	background: var(--modal-background);
-	backdrop-filter: blur(5px);
+	background: $modal;
+	backdrop-filter: blur(calc($blur * 5px));
 	border-radius: 8px;
 }
 #{c(modals emoji hasTabWrapper)} {
@@ -65,8 +71,8 @@
 }
 
 // #{c(modals emoji floating wrapper)} {
-// 	background: var(--modal-background);
-// 	backdrop-filter: blur(5px);
+// 	background: $modal;
+// 	backdrop-filter: blur(calc($blur * 5px));
 // 	height: auto;
 // }
 

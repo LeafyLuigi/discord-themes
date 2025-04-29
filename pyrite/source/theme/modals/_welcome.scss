@@ -1,6 +1,6 @@
 @use "backend" as *;
 #{c(modals welcome main)} {
-	background: var(--modal-background);
+	background: $modal;
 }
 #{c(modals welcome optionContainer)},
 #{c(modals welcome optionContainer)}:hover {

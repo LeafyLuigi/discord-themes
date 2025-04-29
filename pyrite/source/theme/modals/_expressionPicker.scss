@@ -7,15 +7,21 @@
 	}
 }
 #{c(modals expressionPicker contentWrapper)} {
-	background: var(--modal-background);
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(calc($blur * 5px));
+	#{c(main visualRefresh)} &,
+	& {
+		background: $modal;
+	}
 }
 #{c(modals expressionPicker navButtonActive)} {
 	background: $primary;
 }
 
 #{c(modals expressionPicker inspector)} {
-	background: transparent;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }
 
 #{c(modals expressionPicker positionContainer)} {

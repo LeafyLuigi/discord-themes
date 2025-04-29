@@ -4,7 +4,7 @@
 	&,
 	&#{c(modals soundboard refresh)} {
 		background: $card;
-		backdrop-filter: blur(5px);
+		backdrop-filter: blur(calc($blur * 5px));
 	}
 }
 

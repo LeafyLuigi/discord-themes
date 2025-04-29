@@ -61,7 +61,7 @@
 
 #{c(friends nowPlayingColumn)} {
 	--width: 360px;
-	--background: var(--side-shading);
+	--background: var(--hsl-side-shading);
 	--hide-var: var(--hide-active-now);
 }
 #{c(friends multipleIconWrapper)},

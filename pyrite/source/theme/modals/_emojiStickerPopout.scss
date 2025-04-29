@@ -1,7 +1,7 @@
 @use "backend" as *;
 #{c(modals emojiStickerPopout container)} {
-	background: var(--modal-background);
-	backdrop-filter: blur(5px);
+	background: $modal;
+	backdrop-filter: blur(calc($blur * 5px));
 }
 #{c(modals emojiStickerPopout guildSection)} {
 	background: transparent;

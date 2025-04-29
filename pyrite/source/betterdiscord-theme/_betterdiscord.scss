@@ -8,13 +8,13 @@
 @use "classes" as *;
 @use "backend" as *;
 
-$primary: var(--primary-color);
-$secondary: var(--secondary-color);
-$hover: var(--hover-color);
-$side: var(--side-shading);
-$middle: var(--middle-shading);
-$header: var(--header-shading);
-$card: var(--card-background);
+$primary: var(--hsl-primary-color);
+$secondary: var(--hsl-secondary-color);
+$hover: var(--hsl-hover-color);
+$side: var(--hsl-side-shading);
+$middle: var(--hsl-middle-shading);
+$header: var(--hsl-header-shading);
+$card: var(--hsl-card-background);
 
 /* Begin BD Addon */
 #{c(bd addonList)} {

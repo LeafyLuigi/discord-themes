@@ -34,6 +34,7 @@ html {
 	--css-relative-colour-broken: "Relative colour mixing does not work.\a";
 	--css-nesting-selector-broken: "CSS & nesting selector does not work.\a";
 	--css-color-mix-broken: "Unable to mix colours using color-mix().\a";
+	--css-gradient-colour-space-broken: "Gradients lack colour space support.\a";
 
 	// Used within codelangs file for Codeblocks sans formatting or language
 	--code-plain-text: "Plain Text";
@@ -60,6 +61,7 @@ html {
 	--css-relative-colour-broken: "Relative color mixing does not work.\a";
 	--css-oklab-broken: "Oklab color space broken.\a";
 	--css-color-mix-broken: "Unable to mix colors using color-mix().\a";
+	--css-gradient-colour-space-broken: "Gradients lack color space support.\a";
 }
 // Partially translated by Leafy
 [lang="fr"] {
@@ -220,6 +222,11 @@ $cssSupportList: (
 		// mixing colours is fun.
 		// cr 111 / ff 113 / s 16.2
 		test: "color: color-mix(in srgb, yellow 100%, blue)"
+	),
+	"gradient-colour-space": (
+		// gradients need to support colour spaces otherwise they look like utter shit.
+		// cr 111 / ff 127 / s 16.2
+		test: "background-image: linear-gradient(in srgb, #ff0, #00f)"
 	),
 	"oklab": (
 		// oklab is based. https://youtu.be/nJlZT5AE9zY

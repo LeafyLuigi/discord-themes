@@ -7,26 +7,26 @@
 
 @use "classes" as *;
 
-$primary: var(--primary-color);
-$secondary: var(--secondary-color);
-$hover: var(--hover-color);
-$side: var(--side-shading);
-$middle: var(--middle-shading);
-$header: var(--header-shading);
-$card: var(--card-background);
+$primary: var(--hsl-primary-color);
+$secondary: var(--hsl-secondary-color);
+$hover: var(--hsl-hover-color);
+$side: var(--hsl-side-shading);
+$middle: var(--hsl-middle-shading);
+$header: var(--hsl-header-shading);
+$card: var(--hsl-card-background);
 
 :root{
 	--avatar-radius: 8px;
 	--border-radius: 8px;
 	--border-radius-small: 4px;
 	/* These are here to overwrite Radical Status' variables. They also provide compatibility with Better Status Indicators on Powercord */
-	--rs-online-color: var(--green-color);
-	--rs-idle-color: var(--yellow-color);
-	--rs-dnd-color: var(--red-color);
-	--rs-offline-color: var(--offline-color);
-	--rs-streaming-color: var(--live-color); 
-	--rs-invisible-color: var(--offline-color);
-	--rs-phone-color: var(--green-color);
+	--rs-online-color: var(--hsl-green-color);
+	--rs-idle-color: var(--hsl-yellow-color);
+	--rs-dnd-color: var(--hsl-red-color);
+	--rs-offline-color: var(--hsl-offline-color);
+	--rs-streaming-color: var(--hsl-live-color); 
+	--rs-invisible-color: var(--hsl-offline-color);
+	--rs-phone-color: var(--hsl-green-color);
 }
 
 // active now avatar
@@ -224,19 +224,19 @@ $card: var(--card-background);
 		width: var(--size);
 		stroke: var(--color);
 		&:is([mask*="online"],[fill="#3ba55c"]) {
-			--color: var(--green-color);
+			--color: var(--hsl-green-color);
 		}
 		&:is([mask*="idle"],[fill="#faa61a"]) {
-			--color: var(--yellow-color);
+			--color: var(--hsl-yellow-color);
 		}
 		&:is([mask*="dnd"],[fill="#ed4245"]) {
-			--color: var(--red-color);
+			--color: var(--hsl-red-color);
 		}
 		&:is([mask*="streaming"],[fill="#593695"]) {
-			--color: var(--live-color);
+			--color: var(--hsl-live-color);
 		}
 		&:is([mask*="offline"],[fill="#747f8d"]) {
-			--color: var(--offline-color);
+			--color: var(--hsl-offline-color);
 		}
 	}
 	circle {

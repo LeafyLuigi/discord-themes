@@ -1,7 +1,7 @@
 /*! Pyrite v0.2.7 - Vencord Addon by LeafyLuigi */
 .vc-addon-card, .vc-addon-card:hover {
-  border: 1px solid var(--secondary-color);
-  background-color: var(--card-background);
+  border: 1px solid var(--hsl-secondary-color);
+  background-color: var(--hsl-card-background);
 }
 
 .vc-plugins-info-button::before {
@@ -9,20 +9,20 @@
 }
 
 .vc-author-modal-name, .vc-author-modal-name::before {
-  background: var(--primary-color);
+  background: var(--hsl-primary-color);
 }
 
 .vc-author-modal-links img {
-  border-color: var(--primary-color);
+  border-color: var(--hsl-primary-color);
 }
 .vc-author-modal-links a:hover img {
-  border-color: var(--hover-color);
+  border-color: var(--hsl-hover-color);
 }
 
 .vc-notification-root,
 .vc-shc-allowed-users-and-roles-container {
-  border: 1px solid var(--secondary-color);
-  background-color: var(--card-background);
+  border: 1px solid var(--hsl-secondary-color);
+  background-color: var(--hsl-card-background);
 }
 
 :is(.theme-dark, .theme-light) #vc-spotify-player {
@@ -44,5 +44,5 @@
 }
 
 .content_f75fb0 > :is(.managedReactiveScroller_eed6a8, .managedReactiveScroller_d125d2) {
-  background: var(--middle-shading);
+  background: var(--hsl-middle-shading);
 }

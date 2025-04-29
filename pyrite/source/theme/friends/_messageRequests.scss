@@ -3,6 +3,9 @@
 // These are only here because I can put them here. It could potentially relate to chat more.
 #{c(messageRequests container)} {
 	border-radius: 0;
+	#{c(main visualRefresh)} & {
+		border-top: none;
+	}
 	#{c(chat chatContent)} {
 		background: $middle;
 	}

@@ -51,32 +51,32 @@
 }
 
 @mixin menu {
-	@include bg($br:4px,$bdf:blur(5px),$bg:transparent);
+	@include bg($br:4px,$bdf:blur(calc(var(--blur-intensity,1) * 5px)),$bg:transparent);
 	background-color: var(--modal-background);
 }
 @mixin menu-on-item {
 	background-color: var(--modal-background);
 	border-radius: 4px;
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(calc(var(--blur-intensity,1) * 5px));
 }
 
 @mixin card {
-	border: 1px solid var(--secondary-color);
-	background-color: var(--card-background);
+	border: 1px solid var(--hsl-secondary-color);
+	background-color: var(--hsl-card-background);
 }
 
 @mixin card-light {
-	border: 1px solid var(--secondary-color);
+	border: 1px solid var(--hsl-secondary-color);
 	background-color: rgba(255,255,255,0.05); // intentionally set colors
 }
 @mixin card-dark {
-	border: 1px solid var(--secondary-color);
+	border: 1px solid var(--hsl-secondary-color);
 	background-color: rgba(0,0,0,0.5); // intentionally set colors
 }
 
 @mixin header {
 	color: var(--header-primary);
-	text-shadow: 2px 2px 4px var(--header-secondary);
+	// text-shadow: 2px 2px calc(var(--blur-intensity,1) * 4px) var(--header-secondary);
 }
 @mixin header-line-before {
 	@include header;

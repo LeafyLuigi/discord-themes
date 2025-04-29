@@ -4,15 +4,15 @@
   background-color: transparent;
 }
 .bd-addon-list .bd-addon-header {
-  background-color: var(--header-shading);
+  background-color: var(--hsl-header-shading);
 }
 .bd-addon-list :is(.bd-description-wrap, .bd-footer) {
-  background: var(--card-background);
+  background: var(--hsl-card-background);
 }
 
 .bd-search-wrapper {
-  background-color: var(--card-background);
-  border: var(--primary-color);
+  background-color: var(--hsl-card-background);
+  border: var(--hsl-primary-color);
 }
 
 .floating-window {
@@ -20,7 +20,7 @@
 }
 
 .floating-window-titlebar {
-  background-color: var(--header-shading);
+  background-color: var(--hsl-header-shading);
 }
 
 .floating-window-content {
@@ -57,11 +57,11 @@ body :is(.channelTabs-tabContainer, .channelTabs-favContainer)::-webkit-scrollba
   height: 0;
 }
 body .channelTabs-tabContainer {
-  background-color: var(--header-shading);
+  background-color: var(--hsl-header-shading);
   flex-wrap: nowrap;
 }
 body .channelTabs-favContainer {
-  background-color: var(--middle-shading);
+  background-color: var(--hsl-middle-shading);
   flex-wrap: nowrap;
 }
 body .channelTabs-favContainer.channelTabs-noFavs {
@@ -71,7 +71,7 @@ body .channelTabs-unreadBadge.channelTabs-noUnread {
   background-color: transparent;
 }
 body .channelTabs-mentionBadge {
-  background-color: var(--primary-color);
+  background-color: var(--hsl-primary-color);
 }
 body .channelTabs-mentionBadge.channelTabs-noMention {
   background-color: transparent;
@@ -107,14 +107,14 @@ body .biv-overlay {
 }
 body .BIV-zoom-lens-round,
 body .BIV-zoom-lens {
-  border-color: var(--primary-color);
+  border-color: var(--hsl-primary-color);
 }
 
 body .xenoLib-notifications {
   z-index: 1100;
 }
 body .xenoLib-notification-content-wrapper .xenoLib-notification-loadbar {
-  background-image: linear-gradient(130deg, var(--primary-color), var(--secondary-color));
+  background-image: linear-gradient(130deg, var(--hsl-primary-color), var(--hsl-secondary-color));
 }
 
 div.appMount__51fd7 > .layerContainer_da8173 {

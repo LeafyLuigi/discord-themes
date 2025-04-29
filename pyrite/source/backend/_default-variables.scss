@@ -1,24 +1,26 @@
 //shorthands
-$tooltip: var(--tooltip-color);
-$primary: var(--primary-color);
-$secondary: var(--secondary-color);
-$hover: var(--hover-color);
+$tooltip: var(--hsl-tooltip-color);
+$primary: var(--hsl-primary-color);
+$secondary: var(--hsl-secondary-color);
+$hover: var(--hsl-hover-color);
 $home: var(--home-icon);
-$side: var(--side-shading);
-$middle: var(--middle-shading);
-$header: var(--header-shading);
-$card: var(--card-background);
+$side: var(--hsl-side-shading);
+$middle: var(--hsl-middle-shading);
+$header: var(--hsl-header-shading);
+$card: var(--hsl-card-background);
 $gradient: var(--gradient-colors);
+$modal: var(--modal-background);
 // NOTE: secondary : will be similar to primary BUT a shade or two ligter/darker.
 // NOTE: hover : black at 0.2 opacity to get the hover color.
 // NOTE: active : black at 0.3(?) opacity to get the active color.
 
-$green: var(--green-color);
-$yellow: var(--yellow-color);
-$red: var(--red-color);
-$link: var(--link-color);
-$live: var(--live-color);
-$offline: var(--offline-color);
+$green: var(--hsl-green-color);
+$yellow: var(--hsl-yellow-color);
+$red: var(--hsl-red-color);
+$link: var(--hsl-link-color);
+$live: var(--hsl-live-color);
+$offline: var(--hsl-offline-color);
 $nc: var(--notice-count, 0);
+$blur: var(--blur-intensity, 1);
 
 // default discord shorthands

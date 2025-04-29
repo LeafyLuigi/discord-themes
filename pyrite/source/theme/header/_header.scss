@@ -1,14 +1,6 @@
 @use "backend" as *;
 /* Start Header */
-// :is(#{c(main dark)},#{c(main light)}) {
-#{c(header akaBadge)} {
-	background-color: $secondary;
-	color: var(--header-primary);
-}
-#{c(header updateDownloadingCloud)} {
-	color: $red;
-}
-// }
+// file also includes top bar that gets removed by the theme
 #{c(header)} {
 	#{c(main visualRefresh)} &,
 	& {
@@ -47,6 +39,13 @@
 #{c(header title)} {
 	@include header;
 	overflow: visible;
+}
+#{c(header akaBadge)} {
+	background-color: $secondary;
+	color: var(--header-primary);
+}
+#{c(header updateDownloadingCloud)} {
+	color: $red;
 }
 #{c(os mac)} {
 	:is(#{c(header title)},#{c(header children)},#{c(header topic)}) {
@@ -91,11 +90,11 @@
 	&:hover {
 		#{c(header icon)} {
 			color: $hover;
-			filter: drop-shadow(0 0 2px currentColor);
+			// filter: drop-shadow(0 0 2px currentColor);
 		}
-		#{c(header iconBadge)} {
-			filter: drop-shadow(0 0 2px currentColor);
-		}
+		// #{c(header iconBadge)} {
+		// 	// filter: drop-shadow(0 0 2px currentColor);
+		// }
 	}
 }
 #{c(header updateDownloadingIcon)} {
@@ -108,7 +107,7 @@
 	order: 1;
 }
 #{c(header searchBar)} {
-	background: var(--card-background);
+	background: $card;
 }
 
 // i got no idea how to get this
@@ -116,11 +115,7 @@
 //   color: $yellow;
 // }
 
-// Hide Help icon. Can be accessed by pressing F1.
 #{c(header toolbar)} {
-	&>a[href*="support.discord.com"] {
-		display: none;
-	}
 	#{c(header iconWrapper)}:not(#{c(header iconClickable)}) #{c(header icon)} {
 		cursor: not-allowed;
 		color: $red;
@@ -137,6 +132,98 @@
 		&[aria-selected=true] {
 			background: rgb(from $primary r g b / 0.2);
 			color: $primary;
+		}
+	}
+}
+
+// Hide Help icon. Can be accessed by pressing F1.
+#{c(topBar bar)} {
+	#{c(main visualRefresh)} &,
+	& {
+		background: $header;
+	}
+}
+#{c(topBar trailing container)} #{c(main anchorLink)}[href="https://support.discord.com"] {
+	display: none;
+}
+
+#{c(main visualRefresh)} {
+	--custom-app-top-bar-height: 0px; // for removing top bar
+	// icon for margin-right; this must be done differently for windows
+	#{c(chat layerWrapper)},
+	#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+		#{c(header toolbar)} {
+			margin-right: calc(32px + var(--space-xs));
+		}
+	}
+	&#{c(os win)} {
+		#{c(chat layerWrapper)},
+		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+			#{c(header toolbar)} {
+				// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
+				margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+			}
+			// #{c(header headerTitle)} {
+			// 	// -webkit-app-region: drag;
+			// 	// padding-right: calc(var(--space-xs) + 32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+			// }
+		}
+	}
+	// z-index so it matches the header bar
+	#{c(topBar bar)} {
+		z-index: 1011;
+	}
+	// remove the centre part with the name and icon
+	#{c(topBar title container)} {
+		display: none;
+	}
+	// windows only stuff
+	&#{c(os win)} {
+		#{c(topBar trailing winButtons)} {
+			gap: 0;
+			&::before {
+				content: none;
+			}
+		}
+		#{c(topBar trailing winButton)} {
+			width: var(--win-min-max-close-button-width);
+			height: 48px;
+		}
+		#{c(topBar trailing recentsIcon)} {
+			right: var(--space-xs);
+		}
+	}
+	// windows and mac
+	&:is(#{c(os win)}, #{c(os mac)}) {
+		#{c(topBar trailing container)} {
+			gap: 0;
+			top: 24px;
+		}
+		#{c(topBar bar)} {
+			@include bg($top:0,$bottom:null,$right:0,$left:0,$h:28px,$war:drag,$z:2);
+		}
+		// make sure shit is still clickable
+		:is(
+			#{c(header title)},
+			#{c(sidebar server header clickable)}
+		) {
+			-webkit-app-region: no-drag;
+		}
+	}
+	// linux and web
+	&:is(#{c(os linux)}, #{c(os web)}) {
+		#{c(topBar trailing recentsIcon)} {
+			position: absolute;
+			top: 8px;
+		}
+	}
+	// linux, web and mac
+	:is(#{c(os linux)}, #{c(os web)}, #{c(os mac)}) {
+		#{c(chat layerWrapper)},
+		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+			#{c(header headerTitle)} {
+				padding-right: calc(var(--space-xs) + 32px);
+			}
 		}
 	}
 }

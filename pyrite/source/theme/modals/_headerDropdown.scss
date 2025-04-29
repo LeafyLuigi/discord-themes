@@ -1,10 +1,18 @@
 @use "backend" as *;
 // inbox's unread is here because it can be
-#{c(modals headerDropdown messagesPopoutWrap)}, #{c(modals inbox unread popout)}, #{c(modals inbox forYou container)} {
-	background: var(--modal-background);
+#{c(modals headerDropdown messagesPopoutWrap)},
+#{c(modals inbox unread popout)},
+#{c(modals inbox forYou container)} {
 	top: 4px;
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(calc($blur * 5px));
+	#{c(main visualRefresh)} &,
+	& {
+		background: $modal;
+	}
 }
 #{c(modals headerDropdown header)} {
-	background: transparent;
+	#{c(main visualRefresh)} &,
+	& {
+		background: transparent;
+	}
 }

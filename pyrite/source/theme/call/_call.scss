@@ -181,7 +181,7 @@
 }
 // #{c(stage speakerRaiseHandBadge)} {
 // 	background: $primary;
-// 	filter: drop-shadow(0 0 3px var(--secondary-color)) drop-shadow(0 0 5px var(--secondary-color));
+// 	filter: drop-shadow(0 0 3px var(--hsl-secondary-color)) drop-shadow(0 0 5px var(--hsl-secondary-color));
 // }
 // #{c(main options fullMotion)}#{c(main focused)} {
 // 	#{c(stage speakerRaiseHandBadge)} {

@@ -4,13 +4,13 @@
   --border-radius: 8px;
   --border-radius-small: 4px;
   /* These are here to overwrite Radical Status' variables. They also provide compatibility with Better Status Indicators on Powercord */
-  --rs-online-color: var(--green-color);
-  --rs-idle-color: var(--yellow-color);
-  --rs-dnd-color: var(--red-color);
-  --rs-offline-color: var(--offline-color);
-  --rs-streaming-color: var(--live-color);
-  --rs-invisible-color: var(--offline-color);
-  --rs-phone-color: var(--green-color);
+  --rs-online-color: var(--hsl-green-color);
+  --rs-idle-color: var(--hsl-yellow-color);
+  --rs-dnd-color: var(--hsl-red-color);
+  --rs-offline-color: var(--hsl-offline-color);
+  --rs-streaming-color: var(--hsl-live-color);
+  --rs-invisible-color: var(--hsl-offline-color);
+  --rs-phone-color: var(--hsl-green-color);
 }
 
 .headerAvatar__00943 > svg > foreignObject,
@@ -72,7 +72,7 @@
   --stroke-width: 4px;
 }
 .wrapper__44b0c .mask__44b0c .typingDots_b88801 {
-  color: var(--primary-color);
+  color: var(--hsl-primary-color);
   overflow: visible;
 }
 .wrapper__44b0c .mask__44b0c .typingDots_b88801 circle:nth-child(1) {
@@ -134,19 +134,19 @@
   stroke: var(--color);
 }
 .wrapper__44b0c .mask__44b0c rect:is([mask*=online], [fill="#3ba55c"]) {
-  --color: var(--green-color);
+  --color: var(--hsl-green-color);
 }
 .wrapper__44b0c .mask__44b0c rect:is([mask*=idle], [fill="#faa61a"]) {
-  --color: var(--yellow-color);
+  --color: var(--hsl-yellow-color);
 }
 .wrapper__44b0c .mask__44b0c rect:is([mask*=dnd], [fill="#ed4245"]) {
-  --color: var(--red-color);
+  --color: var(--hsl-red-color);
 }
 .wrapper__44b0c .mask__44b0c rect:is([mask*=streaming], [fill="#593695"]) {
-  --color: var(--live-color);
+  --color: var(--hsl-live-color);
 }
 .wrapper__44b0c .mask__44b0c rect:is([mask*=offline], [fill="#747f8d"]) {
-  --color: var(--offline-color);
+  --color: var(--hsl-offline-color);
 }
 .wrapper__44b0c .mask__44b0c circle {
   r: calc(var(--size) * 0.5);

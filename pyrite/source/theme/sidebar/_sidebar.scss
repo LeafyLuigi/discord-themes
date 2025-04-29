@@ -82,7 +82,7 @@
 		order: -1;
 		&:hover {
 			color: var(--interactive-hover);
-			filter: drop-shadow(0 0 2px var(--interactive-normal));
+			// filter: drop-shadow(0 0 2px var(--interactive-normal));
 		}
 	}
 }
@@ -383,11 +383,11 @@
 		display: var(--show-channel-unread-dot, block);
 		background-color: currentColor;
 	}
-	#{c(sidebar server channel unreadBlob)},
-	#{c(sidebar server channel name)},
-	#{c(sidebar server channel icon)} {
-		filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
-	}
+	// #{c(sidebar server channel unreadBlob)},
+	// #{c(sidebar server channel name)},
+	// #{c(sidebar server channel icon)} {
+	// 	filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
+	// }
 	#{c(sidebar server channel name)} {
 		color: inherit;	
 	}
