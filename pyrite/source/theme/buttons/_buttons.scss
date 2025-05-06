@@ -40,38 +40,17 @@
 /// 
 ////////////////////////
 
-@debug "Switch buttons to variables";
+@debug "use color-mix for buttons";
 
 $hover-filter: var(--hover-filter);
 $active-filter: var(--active-filter);
 /// Button : (background / border) color will need to be defined.
 @mixin button-base($color: null) {
-	&:before {
-		border-radius: 3px;
-		background-color: transparent;
-		z-index: 1;
-		content: "";
-		top: 0;
-		right: 0;
-		left: 0;
-		bottom: 0;
-		position: absolute;
-		pointer-events: none;
-	}
-	> #{c(button contents)} {
-		z-index: 2;
-	}
 	&:hover:not(:disabled) {
-		background-color: $color;
-		&::before {
-			background: $hover-filter;
-		}
+		background: color-mix(in oklab, $color 80%, $hover-filter);
 	}
 	&:active:not(:disabled) {
-		background-color: $color;
-		&::before {
-			background: $active-filter;
-		}
+		background: color-mix(in oklab, $color 70%, $active-filter);
 	}
 }
 
@@ -90,42 +69,27 @@ $active-filter: var(--active-filter);
 
 @mixin button-inverted($color: null) {
 	@include button-color($color);
-	background-color: var(--hsl-card-background);
+	background: var(--hsl-card-background);
 	&:disabled {
-		background-color: var(--hsl-card-background);
+		background: var(--hsl-card-background);
 	}
 }
 
 @mixin button-border($color: null) {
 	border-color: $color;
 	color: $color;
-	background-color: transparent;
-	@include bg($br:3px,$bg:transparent,$z:1);
-	> .contents__201d5 {
-		z-index: 2;
-	}
+	background: transparent;
 	&:hover:not(:disabled) {
-		background-color: transparent;
-		&::before {
-			background-color: $color;
-			opacity: 0.15;
-		}
+		background: color-mix(in oklab, transparent 85%, $color);
 	}
 	&:active:not(:disabled) {
-		background-color: transparent;
-		&::before {
-			background-color: $color;
-			opacity: 0.2;
-		}
+		background: color-mix(in oklab, transparent 70%, $color);
 	}
 }
 
 @mixin button-link($color: null) {
 	color: $color;
-	background-color: transparent;
-	> .contents__201d5 {
-		z-index: 2;
-	}
+	background: transparent;
 	&:hover:not(:disabled),
 	&:active:not(:disabled) {
 		>.contents__201d5 {

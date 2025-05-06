@@ -1,4 +1,6 @@
 @use "sass:map";
+@use "sass:meta";
+@use "sass:string";
 $version: "0.2.7";
 $theme-name: "Pyrite";
 
@@ -25,6 +27,38 @@ $var-examples: "pyrite/var-examples.html";
 
 $blacklist-theme-dark-classes: "div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])";
 $blacklist-theme-light-classes: "div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]";
+
+// once @property is implemented within Vencord, switch to this.
+@function p($key,$syntax:null,$formalName:null,$formalDesc:null,$val:null) {
+	// Only the note and value are optional.
+	// $key is the name as stored in $defaults
+	// $syntax is either a CSS type (ie <color>) or a string like (for background attachment "scroll|fixed|local"; which would include the global values)
+	// $formalName is the written out name (ie "primary-color" becomes "Primary Colour")
+	// $formalDesc is an optional string that is given as a description for the variable (ie for Primary Colour, it could be "Main accent colour.")
+	// $val is an optional overriding value and must match $syntax. Without it, the value in $defaults is used.
+	$allVars: $defaults;
+	$map: ();
+	@if not map.has-key($allVars,$key) {
+		@error #{$key} not found in variables, aborting;
+	} @else {
+		$map: map.set($map,"init",$key);
+	}
+	@if meta.type-of($syntax) != string {
+		@error Syntax for #{$key} needs to be a string, aborting;
+	} @else {
+		@if string.slice($syntax,1,1) == "<" and string.slice($syntax,-1,-1) == ">" {
+			// should be fine to pass as is
+			$map: map.set($map,"syntax",$syntax);
+		} @else {
+			// TODO
+		}
+	}
+	@if meta.type-of($formalName) != string {
+		@error Formal name for #{$key} needs to be a string, aborting;
+	}
+	@debug $map;
+	@return null;
+}
 
 @function v($key,$val:null) {
 	$allVars: $defaults;
@@ -132,7 +166,7 @@ $defaults: (
 	category-color: var(--header-primary),
 	selected-channel-color: var(--header-primary),
 	unread-channel-color: var(--hsl-primary-color),
-	unread-channel-glow: drop-shadow(0 0 4px),
+	// unread-channel-glow: drop-shadow(0 0 4px),
 	read-channel-color: var(--interactive-normal),
 	muted-channel-color: var(--interactive-muted),
 	show-channel-unread-dot: block,
@@ -157,18 +191,30 @@ $defaults: (
 	HSL-server-spacing: 10px,
 	HSL-server-direction: column,
 	// dark + light vars
-	dark-card-background: rgba(0,0,0,0.5),
-	dark-side-shading: rgba(0,0,0,0.5),
-	dark-middle-shading: rgba(0,0,0,0.3),
-	dark-header-shading: rgba(0,0,0,0.7),
-	dark-hover-filter: rgba(0,0,0,0.2),
-	dark-active-filter: rgba(0,0,0,0.4),
 	light-card-background: rgba(255,255,255,0.05),
 	light-side-shading: rgba(255,255,255,0.4),
 	light-middle-shading: rgba(255,255,255,0.3),
 	light-header-shading: rgba(255,255,255,0.5),
 	light-hover-filter: rgba(255,255,255,0.2),
 	light-active-filter: rgba(255,255,255,0.4),
+	dark-card-background: rgba(0,0,0,0.4),
+	dark-side-shading: rgba(0,0,0,0.4),
+	dark-middle-shading: rgba(0,0,0,0.2),
+	dark-header-shading: rgba(0,0,0,0.6),
+	dark-hover-filter: rgba(0,0,0,0.2),
+	dark-active-filter: rgba(0,0,0,0.4),
+	darker-card-background: rgba(0,0,0,0.5),
+	darker-side-shading: rgba(0,0,0,0.5),
+	darker-middle-shading: rgba(0,0,0,0.3),
+	darker-header-shading: rgba(0,0,0,0.7),
+	darker-hover-filter: rgba(0,0,0,0.2),
+	darker-active-filter: rgba(0,0,0,0.4),
+	midnight-card-background: rgba(0,0,0,0.7),
+	midnight-side-shading: rgba(0,0,0,0.7),
+	midnight-middle-shading: rgba(0,0,0,0.6),
+	midnight-header-shading: rgba(0,0,0,0.8),
+	midnight-hover-filter: rgba(0,0,0,0.2),
+	midnight-active-filter: rgba(0,0,0,0.4),
 	// extreme advanced chat markup stuffs
 	markup-chat-font-size: 1rem,
 	markup-chat-line-height: 1.375rem,

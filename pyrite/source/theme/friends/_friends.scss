@@ -26,6 +26,9 @@
 	&:before {
 		content: none;
 	}
+	#{c(main visualRefresh)}#{c(main midnight)} & {
+		border-left: none;
+	}
 }
 // remove "new private group" button in header, "explore public servers" button/header in add friends
 #{c(friends container)} #{c(friends inviteToolbar)},

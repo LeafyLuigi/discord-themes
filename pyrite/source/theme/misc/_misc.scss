@@ -66,25 +66,6 @@
 	}
 }
 
-/* Begin Variable fixing */
-:root {
-	$hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
-	--hsl-tooltip-color: hsl(from var(--tooltip-color) #{$hslColor});
-	--hsl-primary-color: hsl(from var(--primary-color) #{$hslColor});
-	--hsl-secondary-color: hsl(from var(--secondary-color) #{$hslColor});
-	--hsl-hover-color: hsl(from var(--hover-color) #{$hslColor});
-	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
-	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
-	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
-	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
-	--hsl-green-color: hsl(from var(--green-color) #{$hslColor});
-	--hsl-yellow-color: hsl(from var(--yellow-color) #{$hslColor});
-	--hsl-red-color: hsl(from var(--red-color) #{$hslColor});
-	--hsl-link-color: hsl(from var(--link-color) #{$hslColor});
-	--hsl-live-color: hsl(from var(--live-color) #{$hslColor});
-	--hsl-offline-color: hsl(from var(--offline-color) #{$hslColor});
-}
-
 /* Begin Misc */
 // Fonts
 // body fonts
@@ -125,6 +106,11 @@ html, // because maybe?
 	& {
 		background: transparent;
 	}
+}
+
+// remove stray `;`
+#{c(main appContainer)} {
+	color: transparent;
 }
 
 // Set z-index

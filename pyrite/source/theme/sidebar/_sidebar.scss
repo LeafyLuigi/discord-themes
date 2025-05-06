@@ -25,7 +25,7 @@
 	// for hide channel list
 	overflow-x: hidden;
 	// notice stuff
-	top: calc($nc * -36px);
+	// top: calc($nc * -36px);
 	position: relative;
 	// math is hard.
 	height: calc(100vh
@@ -62,6 +62,7 @@
 #{c(sidebar list)} {
 	#{c(main visualRefresh)} &,
 	& {
+		overflow: visible;
 		border: none;
 		border-radius: 0;
 	}
@@ -110,7 +111,6 @@
 	}
 }
 #{c(sidebar private scroller)} {
-	margin-top: calc(36px * $nc);
 	#{c(main visualRefresh)} &,
 	& {
 		background: $side;
@@ -142,6 +142,9 @@
 	}
 }
 // Area - Servers
+#{c(main visualRefresh)} #{c(sidebar server container)} {
+	margin-left: 0; // remove a single dark pixel for notices.
+}
 #{c(scroller content)} {
 	// banner spacer thing
 	>div[style="height: 84px;"]{
@@ -171,7 +174,6 @@
 	}
 }
 #{c(sidebar server scroller)} {
-	margin-top: calc(36px * $nc);
 	#{c(main visualRefresh)} & {
 		margin-bottom: 0;
 		margin-right: 0;
@@ -220,9 +222,9 @@
 	background: $primary;
 }
 
-#{c(sidebar server unreadBar old unreadParent)} {
-	width: 224px;
-}
+// #{c(sidebar server unreadBar old unreadParent)} {
+// 	width: 224px;
+// }
 
 // Panels
 #{c(sidebar panel panels)} {
@@ -422,23 +424,26 @@
 	}
 }
 
-// Hide Sidebar
-#{c(sidebar)} {
-	width: calc(240px - (168px * var(--hide-channel-list, 0)));
-	transition: var(--hide-speed, 0.5s) width ease-out;
-	&:hover,&:focus-within {
-		width: 240px;
-		&::before,
-		&::after {
-			width: 240px;
-		}
-	}
-	&::before,
-	&::after {
-		transition: var(--hide-speed, 0.5s) width ease-out;
-		width: calc(240px - (168px * var(--hide-channel-list, 0)));
-	}
-}
+// // Hide Sidebar
+// #{c(sidebar)} {
+// 	#{c(main visualRefresh)} &,
+// 	& {
+// 		width: calc(var(--custom-guild-sidebar-width,240px) - (168px * var(--hide-channel-list, 0)));
+// 		transition: var(--hide-speed, 0.5s) width ease-out;
+// 		&:hover,&:focus-within {
+// 			width: var(--custom-guild-sidebar-width,240px);
+// 			&::before,
+// 			&::after {
+// 				width: var(--custom-guild-sidebar-width,240px);
+// 			}
+// 		}
+// 		&::before,
+// 		&::after {
+// 			transition: var(--hide-speed, 0.5s) width ease-out;
+// 			width: calc(var(--custom-guild-sidebar-width,240px) - (168px * var(--hide-channel-list, 0)));
+// 		}
+// 	}
+// }
 
 // // notices (ie "how to use quickswitch", "boost this server" etc) and event notices
 // #{c(sidebar notice container)} {

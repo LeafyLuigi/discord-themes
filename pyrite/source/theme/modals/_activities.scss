@@ -24,23 +24,3 @@
 #{c(modals activities item)}:hover {
 	background: $card;
 }
-
-// Add text describing disabled usage for non-nitro users
-#{c(modals activities nitroCTAContainer)} + #{c(modals activities shelf)} {
-	margin-top: 2em;
-	&:before {
-		content: var(--modal-activities-non-nitro);
-		position: absolute;
-		color: var(--header-primary);
-		font-size: 1em;
-		font-style: italic;
-		margin-top: -1.5em;
-		justify-self: center;
-	}
-	// ...and disable cursor for those items
-	#{c(modals activities item)} {
-		opacity: 0.5;
-		pointer-events: none;
-		cursor: not-allowed;
-	}
-}

@@ -31,18 +31,35 @@ $nc: var(--notice-count, 0);
 	top: 48px; // move it below header
 }
 
+#{c(notice)} {
+	#{c(main visualRefresh)} &,
+	& {
+		border: none;
+	}
+}
+
 // It works somehow lol
+#{c(chat page)} {
+	max-height: calc(100vh - (36px * $nc));
+}
+#{c(sidebar private channels)} {
+	overflow: visible;
+	// height calc: 100vh (total height) ; 36px per notice
+	max-height: calc(100vh - (36px * $nc));
+}
+#{c(header)},
+#{c(sidebar server header container)},
+#{c(chat noChannel)}::before,
+#{c(discover pageWrapper)}::before,
+#{c(sidebar private searchBar)} {
+	top: calc(-36px * $nc);
+}
 :is(:where(#{c(bd notices)}:not(:empty)),#{c(notice)}) ~ #{c(main content)} {
 	// unset overflow for these areas: friends, chat, call, side-thread
-	:is(#{c(friends container)},#{c(chat)},#{c(call container)},#{c(threads container)}) {
+	:is(#{c(friends container)},#{c(chat page)},#{c(chat)},#{c(call container)},#{c(threads container)}) {
 		overflow: unset;
 	}
-
-	// move header, sidebar searchbar and psudo-header for: no channel, discovery page, sidebar (again)
-	:is(#{c(header)},#{c(chat noChannel)}::before,#{c(discover pageWrapper)}::before) {
-		top: calc(-36px * $nc);
-	}
-
+	
 	// increase height of resize handle for threads
 	#{c(threads resizeHandle)} {
 		top: calc(-36px * $nc);

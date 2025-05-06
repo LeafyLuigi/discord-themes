@@ -102,10 +102,11 @@
 #{c(userSettings radioIconForeground)} {
 	color: $primary;
 }
+// background-color is required here as the element uses background-image
 #{c(userSettings addAccountButtonInner)} {
-	background: var(--background-modifier-accent);
+	background-color: var(--background-modifier-accent);
 	&:hover {
-		background: var(--background-modifier-hover);
+		background-color: var(--background-modifier-hover);
 	}
 }
 #{c(userSettings connectionHeader)} {

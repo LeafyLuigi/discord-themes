@@ -22,6 +22,11 @@
 		background: $middle;
 	}
 }
+#{c(main visualRefresh)}#{c(main midnight)} {
+	:is(#{c(chat chatContent)}, #{c(chat subtitleContainer)}) {
+		border-left: none;
+	}
+}
 #{c(chat noChat)}#{c(chat chatContent)} {
 	background: $middle;
 }

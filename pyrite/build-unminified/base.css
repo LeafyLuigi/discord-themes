@@ -53,24 +53,6 @@
     opacity: 1;
   }
 }
-/* Begin Variable fixing */
-:root {
-  --hsl-tooltip-color: hsl(from var(--tooltip-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-primary-color: hsl(from var(--primary-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-secondary-color: hsl(from var(--secondary-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-hover-color: hsl(from var(--hover-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-side-shading: hsl(from var(--side-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-middle-shading: hsl(from var(--middle-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-header-shading: hsl(from var(--header-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-card-background: hsl(from var(--card-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-green-color: hsl(from var(--green-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-yellow-color: hsl(from var(--yellow-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-red-color: hsl(from var(--red-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-link-color: hsl(from var(--link-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-live-color: hsl(from var(--live-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --hsl-offline-color: hsl(from var(--offline-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
-}
-
 /* Begin Misc */
 ::placeholder, ::-webkit-input-placeholder,
 body, button, input, select, textarea {
@@ -116,6 +98,10 @@ body), :is(.appMount__51fd7,
 .bg__960e4,
 body) {
   background: transparent;
+}
+
+.app_a3002d {
+  color: transparent;
 }
 
 .pictureInPicture__6341f {
@@ -439,9 +425,6 @@ html {
   --code-plain-text: "Plain Text";
   --error-reload: "please click this";
   --error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
-  --modal-activities-non-nitro: "Below will not work without Nitro.";
-  --client-preset-disabled: var(--theme-name) " intentionally breaks these presets.";
-  --client-preset-disabled2: "If you wish to edit the way your theme looks, you can edit your theme file. If you need help in doing so, please join the support server.";
   --beta-en-GB: "Pyrite Beta Branch";
   --beta-fr: "Branche Bêta de Pyrite";
 }
@@ -557,32 +540,11 @@ html {
 .lookFilled__201d5.colorGreen__201d5 {
   background: var(--hsl-green-color);
 }
-.lookFilled__201d5.colorGreen__201d5:before {
-  border-radius: 3px;
-  background-color: transparent;
-  z-index: 1;
-  content: "";
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.lookFilled__201d5.colorGreen__201d5 > .contents__201d5 {
-  z-index: 2;
-}
 .lookFilled__201d5.colorGreen__201d5:hover:not(:disabled) {
-  background-color: var(--hsl-green-color);
-}
-.lookFilled__201d5.colorGreen__201d5:hover:not(:disabled)::before {
-  background: var(--hover-filter);
+  background: color-mix(in oklab, var(--hsl-green-color) 80%, var(--hover-filter));
 }
 .lookFilled__201d5.colorGreen__201d5:active:not(:disabled) {
-  background-color: var(--hsl-green-color);
-}
-.lookFilled__201d5.colorGreen__201d5:active:not(:disabled)::before {
-  background: var(--active-filter);
+  background: color-mix(in oklab, var(--hsl-green-color) 70%, var(--active-filter));
 }
 .lookFilled__201d5.colorGreen__201d5:disabled {
   background: var(--hsl-green-color);
@@ -590,99 +552,36 @@ html {
 .lookFilled__201d5.colorRed__201d5 {
   background: var(--hsl-red-color);
 }
-.lookFilled__201d5.colorRed__201d5:before {
-  border-radius: 3px;
-  background-color: transparent;
-  z-index: 1;
-  content: "";
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.lookFilled__201d5.colorRed__201d5 > .contents__201d5 {
-  z-index: 2;
-}
 .lookFilled__201d5.colorRed__201d5:hover:not(:disabled) {
-  background-color: var(--hsl-red-color);
-}
-.lookFilled__201d5.colorRed__201d5:hover:not(:disabled)::before {
-  background: var(--hover-filter);
+  background: color-mix(in oklab, var(--hsl-red-color) 80%, var(--hover-filter));
 }
 .lookFilled__201d5.colorRed__201d5:active:not(:disabled) {
-  background-color: var(--hsl-red-color);
-}
-.lookFilled__201d5.colorRed__201d5:active:not(:disabled)::before {
-  background: var(--active-filter);
+  background: color-mix(in oklab, var(--hsl-red-color) 70%, var(--active-filter));
 }
 .lookFilled__201d5.colorRed__201d5:disabled {
   background: var(--hsl-red-color);
 }
 .lookFilled__201d5.colorBrandInverted__201d5 {
   color: var(--hsl-primary-color);
-  background-color: var(--hsl-card-background);
-}
-.lookFilled__201d5.colorBrandInverted__201d5:before {
-  border-radius: 3px;
-  background-color: transparent;
-  z-index: 1;
-  content: "";
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.lookFilled__201d5.colorBrandInverted__201d5 > .contents__201d5 {
-  z-index: 2;
+  background: var(--hsl-card-background);
 }
 .lookFilled__201d5.colorBrandInverted__201d5:hover:not(:disabled) {
-  background-color: var(--hsl-primary-color);
-}
-.lookFilled__201d5.colorBrandInverted__201d5:hover:not(:disabled)::before {
-  background: var(--hover-filter);
+  background: color-mix(in oklab, var(--hsl-primary-color) 80%, var(--hover-filter));
 }
 .lookFilled__201d5.colorBrandInverted__201d5:active:not(:disabled) {
-  background-color: var(--hsl-primary-color);
-}
-.lookFilled__201d5.colorBrandInverted__201d5:active:not(:disabled)::before {
-  background: var(--active-filter);
+  background: color-mix(in oklab, var(--hsl-primary-color) 70%, var(--active-filter));
 }
 .lookFilled__201d5.colorBrandInverted__201d5:disabled {
-  background-color: var(--hsl-card-background);
+  background: var(--hsl-card-background);
 }
 .lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5) {
   background: var(--hsl-primary-color);
 }
-.lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):before {
-  border-radius: 3px;
-  background-color: transparent;
-  z-index: 1;
-  content: "";
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5) > .contents__201d5 {
-  z-index: 2;
-}
 .lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):hover:not(:disabled) {
-  background-color: var(--hsl-primary-color);
-}
-.lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):hover:not(:disabled)::before {
-  background: var(--hover-filter);
+  background: color-mix(in oklab, var(--hsl-primary-color) 80%, var(--hover-filter));
 }
 .lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):active:not(:disabled) {
-  background-color: var(--hsl-primary-color);
-}
-.lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):active:not(:disabled)::before {
-  background: var(--active-filter);
+  background: color-mix(in oklab, var(--hsl-primary-color) 70%, var(--active-filter));
 }
 .lookFilled__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):disabled {
   background: var(--hsl-primary-color);
@@ -690,32 +589,11 @@ html {
 .lookFilled__201d5.colorLink__201d5 {
   background: var(--hsl-link-color);
 }
-.lookFilled__201d5.colorLink__201d5:before {
-  border-radius: 3px;
-  background-color: transparent;
-  z-index: 1;
-  content: "";
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.lookFilled__201d5.colorLink__201d5 > .contents__201d5 {
-  z-index: 2;
-}
 .lookFilled__201d5.colorLink__201d5:hover:not(:disabled) {
-  background-color: var(--hsl-link-color);
-}
-.lookFilled__201d5.colorLink__201d5:hover:not(:disabled)::before {
-  background: var(--hover-filter);
+  background: color-mix(in oklab, var(--hsl-link-color) 80%, var(--hover-filter));
 }
 .lookFilled__201d5.colorLink__201d5:active:not(:disabled) {
-  background-color: var(--hsl-link-color);
-}
-.lookFilled__201d5.colorLink__201d5:active:not(:disabled)::before {
-  background: var(--active-filter);
+  background: color-mix(in oklab, var(--hsl-link-color) 70%, var(--active-filter));
 }
 .lookFilled__201d5.colorLink__201d5:disabled {
   background: var(--hsl-link-color);
@@ -727,176 +605,72 @@ html {
 .lookOutlined__201d5.colorGreen__201d5 {
   border-color: var(--hsl-green-color);
   color: var(--hsl-green-color);
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorGreen__201d5::before {
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  border-radius: 3px;
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorGreen__201d5 > .contents__201d5 {
-  z-index: 2;
+  background: transparent;
 }
 .lookOutlined__201d5.colorGreen__201d5:hover:not(:disabled) {
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorGreen__201d5:hover:not(:disabled)::before {
-  background-color: var(--hsl-green-color);
-  opacity: 0.15;
+  background: color-mix(in oklab, transparent 85%, var(--hsl-green-color));
 }
 .lookOutlined__201d5.colorGreen__201d5:active:not(:disabled) {
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorGreen__201d5:active:not(:disabled)::before {
-  background-color: var(--hsl-green-color);
-  opacity: 0.2;
+  background: color-mix(in oklab, transparent 70%, var(--hsl-green-color));
 }
 .lookOutlined__201d5.colorRed__201d5 {
   border-color: var(--hsl-red-color);
   color: var(--hsl-red-color);
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorRed__201d5::before {
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  border-radius: 3px;
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorRed__201d5 > .contents__201d5 {
-  z-index: 2;
+  background: transparent;
 }
 .lookOutlined__201d5.colorRed__201d5:hover:not(:disabled) {
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorRed__201d5:hover:not(:disabled)::before {
-  background-color: var(--hsl-red-color);
-  opacity: 0.15;
+  background: color-mix(in oklab, transparent 85%, var(--hsl-red-color));
 }
 .lookOutlined__201d5.colorRed__201d5:active:not(:disabled) {
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorRed__201d5:active:not(:disabled)::before {
-  background-color: var(--hsl-red-color);
-  opacity: 0.2;
+  background: color-mix(in oklab, transparent 70%, var(--hsl-red-color));
 }
 .lookOutlined__201d5:is(.colorBrand__201d5, .colorPrimary__201d5) {
   border-color: var(--hsl-primary-color);
   color: var(--hsl-primary-color);
-  background-color: transparent;
-}
-.lookOutlined__201d5:is(.colorBrand__201d5, .colorPrimary__201d5)::before {
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  border-radius: 3px;
-  background-color: transparent;
-}
-.lookOutlined__201d5:is(.colorBrand__201d5, .colorPrimary__201d5) > .contents__201d5 {
-  z-index: 2;
+  background: transparent;
 }
 .lookOutlined__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):hover:not(:disabled) {
-  background-color: transparent;
-}
-.lookOutlined__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):hover:not(:disabled)::before {
-  background-color: var(--hsl-primary-color);
-  opacity: 0.15;
+  background: color-mix(in oklab, transparent 85%, var(--hsl-primary-color));
 }
 .lookOutlined__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):active:not(:disabled) {
-  background-color: transparent;
-}
-.lookOutlined__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):active:not(:disabled)::before {
-  background-color: var(--hsl-primary-color);
-  opacity: 0.2;
+  background: color-mix(in oklab, transparent 70%, var(--hsl-primary-color));
 }
 .lookOutlined__201d5.colorLink__201d5 {
   border-color: var(--hsl-link-color);
   color: var(--hsl-link-color);
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorLink__201d5::before {
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  border-radius: 3px;
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorLink__201d5 > .contents__201d5 {
-  z-index: 2;
+  background: transparent;
 }
 .lookOutlined__201d5.colorLink__201d5:hover:not(:disabled) {
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorLink__201d5:hover:not(:disabled)::before {
-  background-color: var(--hsl-link-color);
-  opacity: 0.15;
+  background: color-mix(in oklab, transparent 85%, var(--hsl-link-color));
 }
 .lookOutlined__201d5.colorLink__201d5:active:not(:disabled) {
-  background-color: transparent;
-}
-.lookOutlined__201d5.colorLink__201d5:active:not(:disabled)::before {
-  background-color: var(--hsl-link-color);
-  opacity: 0.2;
+  background: color-mix(in oklab, transparent 70%, var(--hsl-link-color));
 }
 
 .lookLink__201d5.colorGreen__201d5 {
   color: var(--hsl-green-color);
-  background-color: transparent;
-}
-.lookLink__201d5.colorGreen__201d5 > .contents__201d5 {
-  z-index: 2;
+  background: transparent;
 }
 .lookLink__201d5.colorGreen__201d5:hover:not(:disabled) > .contents__201d5, .lookLink__201d5.colorGreen__201d5:active:not(:disabled) > .contents__201d5 {
   background-image: linear-gradient(0deg, transparent, transparent 1px, var(--hsl-green-color) 0, var(--hsl-green-color) 2px, transparent 0);
 }
 .lookLink__201d5.colorRed__201d5 {
   color: var(--hsl-red-color);
-  background-color: transparent;
-}
-.lookLink__201d5.colorRed__201d5 > .contents__201d5 {
-  z-index: 2;
+  background: transparent;
 }
 .lookLink__201d5.colorRed__201d5:hover:not(:disabled) > .contents__201d5, .lookLink__201d5.colorRed__201d5:active:not(:disabled) > .contents__201d5 {
   background-image: linear-gradient(0deg, transparent, transparent 1px, var(--hsl-red-color) 0, var(--hsl-red-color) 2px, transparent 0);
 }
 .lookLink__201d5:is(.colorBrand__201d5, .colorPrimary__201d5) {
   color: var(--hsl-primary-color);
-  background-color: transparent;
-}
-.lookLink__201d5:is(.colorBrand__201d5, .colorPrimary__201d5) > .contents__201d5 {
-  z-index: 2;
+  background: transparent;
 }
 .lookLink__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):hover:not(:disabled) > .contents__201d5, .lookLink__201d5:is(.colorBrand__201d5, .colorPrimary__201d5):active:not(:disabled) > .contents__201d5 {
   background-image: linear-gradient(0deg, transparent, transparent 1px, var(--hsl-primary-color) 0, var(--hsl-primary-color) 2px, transparent 0);
 }
 .lookLink__201d5.colorLink__201d5 {
   color: var(--hsl-link-color);
-  background-color: transparent;
-}
-.lookLink__201d5.colorLink__201d5 > .contents__201d5 {
-  z-index: 2;
+  background: transparent;
 }
 .lookLink__201d5.colorLink__201d5:hover:not(:disabled) > .contents__201d5, .lookLink__201d5.colorLink__201d5:active:not(:disabled) > .contents__201d5 {
   background-image: linear-gradient(0deg, transparent, transparent 1px, var(--hsl-link-color) 0, var(--hsl-link-color) 2px, transparent 0);
@@ -1125,6 +899,10 @@ html {
 }
 .content_f75fb0 .loader_f75fb0 {
   background: var(--hsl-middle-shading);
+}
+
+.visual-refresh.theme-midnight :is(.content_f75fb0, .subtitleContainer_f75fb0) {
+  border-left: none;
 }
 
 .noChat_f75fb0.content_f75fb0 {
@@ -3155,6 +2933,9 @@ html {
 .tabBody__133bf:before {
   content: none;
 }
+.visual-refresh.theme-midnight .tabBody__133bf {
+  border-left: none;
+}
 
 .container__133bf .inviteToolbar__133bf,
 .header_a14595,
@@ -4465,16 +4246,21 @@ html {
 }
 
 .channelHeader__35a7e {
-  background: transparent;
   padding: 12px 16px 0;
   position: unset;
   top: unset;
 }
+.visual-refresh .channelHeader__35a7e, .channelHeader__35a7e {
+  background: transparent;
+}
 
 .messageContainer__95796 {
-  background: transparent;
   margin: 0;
   padding: 0;
+}
+.visual-refresh .messageContainer__95796, .messageContainer__95796 {
+  background: transparent;
+  border: none;
 }
 
 .button__06eda {
@@ -4500,7 +4286,7 @@ html {
   background: transparent;
 }
 
-.container__0f711 {
+.visual-refresh .container__0f711, .container__0f711 {
   background: transparent;
 }
 
@@ -4516,12 +4302,17 @@ html {
 
 .jumpButton_ed0c8c {
   opacity: 1;
-  background-color: var(--hsl-card-background);
+}
+.visual-refresh .jumpButton_ed0c8c, .jumpButton_ed0c8c {
+  background: var(--hsl-card-background);
 }
 
 .messages__1ccd1 {
-  background: transparent;
   border-radius: unset;
+}
+.visual-refresh .messages__1ccd1, .messages__1ccd1 {
+  background: transparent;
+  border: none;
 }
 
 .badge__35a7e {
@@ -4547,11 +4338,13 @@ html {
 
 .messageGroupWrapper__45690 {
   margin: 0 0 16px;
-  background-color: transparent;
   border: none;
 }
+.visual-refresh .messageGroupWrapper__45690, .messageGroupWrapper__45690 {
+  background: transparent;
+}
 
-.jumpButton__45690 {
+.visual-refresh .jumpButton__45690, .jumpButton__45690 {
   background-color: var(--hsl-card-background);
 }
 
@@ -4611,11 +4404,29 @@ html {
   top: 48px;
 }
 
-:is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content_c48ade :is(.container__133bf, .chat_f75fb0, .callContainer_cb9592, .container__01ae2) {
-  overflow: unset;
+.visual-refresh .notice__6e2b9, .notice__6e2b9 {
+  border: none;
 }
-:is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content_c48ade :is(.container__9293f, .noChannel__01d5c::before, .pageWrapper_a3a4ce::before) {
+
+.page_c48ade {
+  max-height: calc(100vh - 36px * var(--notice-count, 0));
+}
+
+.privateChannels__35e86 {
+  overflow: visible;
+  max-height: calc(100vh - 36px * var(--notice-count, 0));
+}
+
+.container__9293f,
+.container_f37cb1,
+.noChannel__01d5c::before,
+.pageWrapper_a3a4ce::before,
+.searchBar__35e86 {
   top: calc(-36px * var(--notice-count, 0));
+}
+
+:is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content_c48ade :is(.container__133bf, .page_c48ade, .chat_f75fb0, .callContainer_cb9592, .container__01ae2) {
+  overflow: unset;
 }
 :is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content_c48ade .resizeHandle__01ae2 {
   top: calc(-36px * var(--notice-count, 0));
@@ -5440,10 +5251,10 @@ html {
 }
 
 .accountButtonInner_c7f964 {
-  background: var(--background-modifier-accent);
+  background-color: var(--background-modifier-accent);
 }
 .accountButtonInner_c7f964:hover {
-  background: var(--background-modifier-hover);
+  background-color: var(--background-modifier-hover);
 }
 
 .connectionHeader_c7f964 {
@@ -5510,7 +5321,6 @@ html {
 
 .sidebar_c48ade {
   overflow-x: hidden;
-  top: calc(var(--notice-count, 0) * -36px);
   position: relative;
   height: calc(100vh - var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px) - var(--channel-tabs-enabled, 0) * (var(--channel-tabs-tabBar-enabled, 1) * var(--channel-tabs-favBar-enabled, 1) * 5px + var(--channel-tabs-tabBar-enabled, 1) * (var(--channelTabs-tabHeight, 32px) + 3px) + var(--channel-tabs-favBar-enabled, 1) * (var(--channelTabs-favHeight, 28px) + 3px)) - var(--windows-titlebar-enabled, 0) * 18px);
 }
@@ -5550,6 +5360,7 @@ html {
 }
 
 .visual-refresh .sidebarList_c48ade, .sidebarList_c48ade {
+  overflow: visible;
   border: none;
   border-radius: 0;
 }
@@ -5587,9 +5398,6 @@ html {
   background: var(--hsl-card-background);
 }
 
-.scroller__99e7c {
-  margin-top: calc(36px * var(--notice-count, 0));
-}
 .visual-refresh .scroller__99e7c, .scroller__99e7c {
   background: var(--hsl-side-shading);
 }
@@ -5621,6 +5429,10 @@ html {
   background: linear-gradient(to left, currentColor -50%, transparent 50%);
 }
 
+.visual-refresh .container__2637a {
+  margin-left: 0;
+}
+
 :is(.content__99f8c, .content_d125d2) > div[style="height: 84px;"] {
   height: 132px !important;
 }
@@ -5649,9 +5461,6 @@ html {
   content: none;
 }
 
-.scroller__629e4 {
-  margin-top: calc(36px * var(--notice-count, 0));
-}
 .visual-refresh .scroller__629e4 {
   margin-bottom: 0;
   margin-right: 0;
@@ -5695,10 +5504,6 @@ html {
 .channelIcon__3b43f,
 .channelName__3b43f {
   background: var(--hsl-primary-color);
-}
-
-.unread__629e4 {
-  width: 224px;
 }
 
 .visual-refresh .panels_c48ade {
@@ -5886,21 +5691,6 @@ html {
   background: linear-gradient(to left, currentColor -50%, transparent 50%);
 }
 
-.sidebar_c48ade {
-  width: calc(240px - 168px * var(--hide-channel-list, 0));
-  transition: var(--hide-speed, 0.5s) width ease-out;
-}
-.sidebar_c48ade:hover, .sidebar_c48ade:focus-within {
-  width: 240px;
-}
-.sidebar_c48ade:hover::before, .sidebar_c48ade:hover::after, .sidebar_c48ade:focus-within::before, .sidebar_c48ade:focus-within::after {
-  width: 240px;
-}
-.sidebar_c48ade::before, .sidebar_c48ade::after {
-  transition: var(--hide-speed, 0.5s) width ease-out;
-  width: calc(240px - 168px * var(--hide-channel-list, 0));
-}
-
 /* Begin Tooltips */
 .layerContainer_da8173 {
   z-index: 1100;
@@ -5940,6 +5730,16 @@ html {
   --focus-primary: var(--hsl-primary-color);
   --hide-fallback-enabled: 1;
   --hide-fallback-disabled: 0;
+  --hsl-tooltip-color: hsl(from var(--tooltip-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-primary-color: hsl(from var(--primary-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-secondary-color: hsl(from var(--secondary-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-hover-color: hsl(from var(--hover-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-green-color: hsl(from var(--green-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-yellow-color: hsl(from var(--yellow-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-red-color: hsl(from var(--red-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-link-color: hsl(from var(--link-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-live-color: hsl(from var(--live-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-offline-color: hsl(from var(--offline-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --background-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
@@ -5962,7 +5762,6 @@ html {
   --category-color: var(--header-primary);
   --selected-channel-color: var(--header-primary);
   --unread-channel-color: var(--hsl-primary-color);
-  --unread-channel-glow: drop-shadow(0 0 4px);
   --show-channel-unread-dot: block;
   --read-channel-color: var(--interactive-normal);
   --muted-channel-color: var(--interactive-muted);
@@ -5993,12 +5792,44 @@ html {
 
 .theme-dark,
 .theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+  --card-background: rgba(0, 0, 0, 0.4);
+  --side-shading: rgba(0, 0, 0, 0.4);
+  --middle-shading: rgba(0, 0, 0, 0.2);
+  --header-shading: rgba(0, 0, 0, 0.6);
+  --hover-filter: rgba(0, 0, 0, 0.2);
+  --active-filter: rgba(0, 0, 0, 0.4);
+  --hsl-side-shading: hsl(from var(--side-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-middle-shading: hsl(from var(--middle-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-header-shading: hsl(from var(--header-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-card-background: hsl(from var(--card-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
+}
+
+.theme-darker,
+.theme-darker :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
   --card-background: rgba(0, 0, 0, 0.5);
   --side-shading: rgba(0, 0, 0, 0.5);
   --middle-shading: rgba(0, 0, 0, 0.3);
   --header-shading: rgba(0, 0, 0, 0.7);
   --hover-filter: rgba(0, 0, 0, 0.2);
   --active-filter: rgba(0, 0, 0, 0.4);
+  --hsl-side-shading: hsl(from var(--side-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-middle-shading: hsl(from var(--middle-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-header-shading: hsl(from var(--header-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-card-background: hsl(from var(--card-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
+}
+
+.theme-midnight,
+.theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+  --card-background: rgba(0, 0, 0, 0.7);
+  --side-shading: rgba(0, 0, 0, 0.7);
+  --middle-shading: rgba(0, 0, 0, 0.6);
+  --header-shading: rgba(0, 0, 0, 0.8);
+  --hover-filter: rgba(0, 0, 0, 0.2);
+  --active-filter: rgba(0, 0, 0, 0.4);
+  --hsl-side-shading: hsl(from var(--side-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-middle-shading: hsl(from var(--middle-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-header-shading: hsl(from var(--header-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-card-background: hsl(from var(--card-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
 }
 
 .theme-light,
@@ -6009,6 +5840,10 @@ html {
   --header-shading: rgba(255, 255, 255, 0.5);
   --hover-filter: rgba(255, 255, 255, 0.2);
   --active-filter: rgba(255, 255, 255, 0.4);
+  --hsl-side-shading: hsl(from var(--side-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-middle-shading: hsl(from var(--middle-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-header-shading: hsl(from var(--header-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-card-background: hsl(from var(--card-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
 }
 
 .theme-dark,

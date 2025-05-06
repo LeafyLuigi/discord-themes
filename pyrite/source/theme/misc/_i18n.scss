@@ -44,14 +44,6 @@ html {
 	--error-reload: "please click this";
 	--error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
 
-	// Within Modals/Activities file
-	--modal-activities-non-nitro: "Below will not work without Nitro.";
-
-	// Currently within Experiments file
-	// Client themes are intentionally broken by the theme.
-	--client-preset-disabled: var(--theme-name) " intentionally breaks these presets.";
-	--client-preset-disabled2: "If you wish to edit the way your theme looks, you can edit your theme file. If you need help in doing so, please join the support server.";
-
 	// Below within this rule aren't to be copied but are always applied globally. Both British English and French are used as beta branches.
 	--beta-en-GB: "Pyrite Beta Branch";
 	--beta-fr: "Branche Bêta de Pyrite";
