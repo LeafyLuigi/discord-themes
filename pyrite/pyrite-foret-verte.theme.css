@@ -1,8 +1,8 @@
 /** 
- * @name Pyrite - BetterDiscord
+ * @name Pyrite - Forêt Verte
  * @author LeafyLuigi
  * @version 0.2.8
- * @description Pyrite for BetterDiscord.
+ * @description Pyrite for Vencord and BetterDiscord. - Forêt Verte edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @invite EeQQTWbTf5
@@ -12,8 +12,8 @@
 @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/base.css);
 /* Import BetterDiscord Only Features */
 @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/better-discord.css);
-/* Using Vencord? Comment out the above import and uncomment the following import. */
-/* @import url(https://leafyluigi.github.io/discord-themes/pyrite/build/vencord.css); */
+/* Import Vencord Only Features */
+@import url(https://leafyluigi.github.io/discord-themes/pyrite/build/vencord.css);
 /*
 Imports for optional things:
 
@@ -39,11 +39,11 @@ If you wish to read what these variables mean, open this link in your browser:
 https://leafyluigi.github.io/discord-themes/pyrite/var-examples.html */
 :root {
   /* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
-  --background-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
+  --background-image: url("https://leafyluigi.github.io/images/Path by Risto Saukonpää.png");
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
   /* Home icon is for the little button in the top left. */
-  --home-icon: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
+  --home-icon: url("https://leafyluigi.github.io/images/pexels-gilberto-olimpio-3686307.png");
   /* 
   Image attachment can be "fixed", "scroll" or "local".
   scroll/local attaches the background to the modal completely while fixed keeps it in line with the background.
@@ -56,24 +56,20 @@ https://leafyluigi.github.io/discord-themes/pyrite/var-examples.html */
   Primary is the "main colour".
   Secondary is an accent colour of sorts. It's not used as often as Primary. It should be a shade or two lighter or darker compared to Primary.
   Hover is a secondary accent colour of sorts and is often used when hovering over something. Like Secondary, it should be a shade or two lighter or darker compared to Primary.
-  Tooltip is used for tooltips. It can whatever colour you wish.
-
-  When using these variables as values for other variables, it's advised to use the HSL variant.
-  Such variables will be labeled with a dagger (†).
-  Example: --primary-color becomes --hsl-primary-color. */
-  --primary-color: #387eff; /* † */
-  --secondary-color: #3298e0; /* † */
-  --hover-color: #139dff; /* † */
-  --tooltip-color: #1967ab; /* † */
+  Tooltip is used for tooltips. It can whatever colour you wish. */
+  --primary-color: #85ad49;
+  --secondary-color: #5a7e24;
+  --hover-color: #6eaa51;
+  --tooltip-color: #435e2f;
   /*
   These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex.
   Green's default here is the old green. The current green is #3ba55d */
-  --green-color: #43b581; /* † */
-  --yellow-color: #f9a719; /* † */
-  --red-color: #ec4144; /* † */
-  --link-color: #00aef3; /* † */
-  --live-color: #583594; /* † */
-  --offline-color: #737e8c; /* † */
+  --green-color: #43b581;
+  --yellow-color: #f9a719;
+  --red-color: #ec4144;
+  --link-color: #00aef3;
+  --live-color: #583594;
+  --offline-color: #737e8c;
   /*
   Channels
   These are used for channel related things. "Channels" may apply to DMs or Server channels. */
@@ -86,7 +82,6 @@ https://leafyluigi.github.io/discord-themes/pyrite/var-examples.html */
   --locked-voice-channel-color: var(--hsl-red-color); /* Applies to locked voice channels. Does NOT include full voice channels. */
   /*
   Background default to Primary. Default opacity is 0.3 while on hover it's a static +0.2 compared to not hovered. */
-  /* --mention-background: var(--hsl-primary-color); -- See :root:root:root. */
   --mention-opacity: 0.3;
   /*
   For Advanced Users */

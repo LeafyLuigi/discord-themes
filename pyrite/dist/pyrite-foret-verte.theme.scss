@@ -1,9 +1,9 @@
 @use "start" as *;
 /** 
- * @name #{$theme-name} - Océan Bleu
+ * @name #{$theme-name} - Forêt Verte
  * @author LeafyLuigi
  * @version #{$version}
- * @description #{$theme-name} #{$desc} - Océan Bleu edition.
+ * @description #{$theme-name} #{$desc} - Forêt Verte edition.
  * @source #{$source}
  * @website #{$source}
  * @invite #{$invite}
@@ -47,11 +47,11 @@ If you wish to read what these variables mean, open this link in your browser:
 #{$import-url}#{$var-examples} */
 :root {
 	/* URL must be HTTPS and a direct link to the image. You can have a custom background image for the User Popout and the User Modals. */
-	--background-image: #{v(background-image,url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png"))};
+	--background-image: #{v(background-image,url("https://leafyluigi.github.io/images/Path by Risto Saukonpää.png"))};
 	--user-modal-image: #{v(user-modal-image)};
 	--user-popout-image: #{v(user-popout-image)};
 	/* Home icon is for the little button in the top left. */
-	--home-icon: #{v(home-icon,url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png"))};
+	--home-icon: #{v(home-icon,url("https://leafyluigi.github.io/images/pexels-gilberto-olimpio-3686307.png"))};
 	/* 
 	Image attachment can be "fixed", "scroll" or "local".
 	scroll/local attaches the background to the modal completely while fixed keeps it in line with the background.
@@ -65,10 +65,10 @@ If you wish to read what these variables mean, open this link in your browser:
 	Secondary is an accent colour of sorts. It's not used as often as Primary. It should be a shade or two lighter or darker compared to Primary.
 	Hover is a secondary accent colour of sorts and is often used when hovering over something. Like Secondary, it should be a shade or two lighter or darker compared to Primary.
 	Tooltip is used for tooltips. It can whatever colour you wish. */
-	--primary-color: #{v(primary-color,#387eff)};
-	--secondary-color: #{v(secondary-color,#3298e0)};
-	--hover-color: #{v(hover-color,#139dff)};
-	--tooltip-color: #{v(tooltip-color,#1967ab)};
+	--primary-color: #{v(primary-color,#85ad49)};
+	--secondary-color: #{v(secondary-color,#5a7e24)};
+	--hover-color: #{v(hover-color,#6eaa51)};
+	--tooltip-color: #{v(tooltip-color,#435e2f)};
 	/*
 	These colours are used for statues and other coloured things. Ignoring Green they default to Discord's HSL though converted to Hex.
 	Green's default here is the old green. The current green is #3ba55d */

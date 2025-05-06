@@ -1,7 +1,7 @@
 /** 
  * @name Pyrite - Synthscape Orange
  * @author LeafyLuigi
- * @version 0.2.7
+ * @version 0.2.8
  * @description Pyrite for Vencord and BetterDiscord. - Synthscape Orange edition.
  * @source https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
  * @website https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite
@@ -75,24 +75,23 @@ https://leafyluigi.github.io/discord-themes/pyrite/var-examples.html */
   These are used for channel related things. "Channels" may apply to DMs or Server channels. */
   --category-color: var(--header-primary); /* Applies to uncollapsed categories, member list groups and applies to active voice/stage channel. */
   --selected-channel-color: var(--header-primary); /* Applies to selected channel as well as non-locked, non-muted channels on hover. */
-  --unread-channel-color: var(--primary-color); /* Applies to unread channels. Combined with below can give a glow. */
-  --unread-channel-glow: drop-shadow(0 0 4px); /* More advanced. Uses the filter's drop-shadow function to give a glow. */
+  --unread-channel-color: var(--hsl-primary-color); /* Applies to unread channels. Combined with below can give a glow. */
   --read-channel-color: var(--interactive-normal); /* Applies unread, unmuted, unlocked (voice) channels and unmuted collapsed categories. */
   --muted-channel-color: var(--interactive-muted); /* Applies to muted channels and categories. Ignores hover from selected. */
   --show-channel-unread-dot: block; /* Toggle display of the unread channel dot. Valid options: "block" and "none", both without quotations. "block" shows the blob and "none" hides it. */
-  --locked-voice-channel-color: var(--red-color); /* Applies to locked voice channels. Does NOT include full voice channels. */
+  --locked-voice-channel-color: var(--hsl-red-color); /* Applies to locked voice channels. Does NOT include full voice channels. */
   /*
   Background default to Primary. Default opacity is 0.3 while on hover it's a static +0.2 compared to not hovered. */
-  --mention-background: var(--primary-color);
   --mention-opacity: 0.3;
   /*
   For Advanced Users */
   --code-font: Hack, Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
   --expression-picker-height: 500px; /* Height of the combined Gif/Sticker/Emoji picker. Does not effect adding reactions. Default and minimum height 500px (498px for Discord's base) and a maximum of 70vh. If Discord is smaller than 720px vertically, this won't apply. */
-  --background-filter: none;
-  --user-modal-filter: none;
-  --user-popout-filter: none;
+  --background-filter: saturate(calc(1 * var(--saturation-factor, 1)));
+  --user-modal-filter: saturate(calc(1 * var(--saturation-factor, 1)));
+  --user-popout-filter: saturate(calc(1 * var(--saturation-factor, 1)));
+  --home-icon-filter: saturate(calc(1 * var(--saturation-factor, 1)));
   /*
   Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
   --hide-speed: 0.5s;
@@ -100,6 +99,7 @@ https://leafyluigi.github.io/discord-themes/pyrite/var-examples.html */
   --hide-active-now: 1;
   --hide-profile-panel: 1;
   --hide-channel-list: 0;
+  --blur-intensity: 1;
   /*
   Windows Only - How many *pixels* wide the min/max/close buttons should be. This will not work when using the "Restore Windows Titlebar" Import. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
@@ -109,31 +109,61 @@ https://leafyluigi.github.io/discord-themes/pyrite/var-examples.html */
   --HSL-server-spacing: 10px; /* Spacing between each server icon | DEFAULT: 10px */
   --HSL-server-direction: column; /* Direction of the server list. | OPTIONS: column, column-reverse | DEFAULT: column */
   /* Debug; please do not touch */
-  --update-notice-feb25: none;
+  --update-notice-may25: none;
 }
 
-/* Feel free to edit these ones for Dark Mode */
+/* Certain things will need to be defined here, mainly due to Discord's own CSS rules. */
+:root:root:root {
+  --mention-background: var(--hsl-primary-color);
+}
+
+/* Theme-specific variables */
+/* These ones are for "Light" */
+.theme-light,
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal]), div[class*=sidebar_], nav[class*=guilds_], div[class*=sidebarRegion_]) {
+  --card-background: rgba(255, 255, 255, 0.05); /* † */
+  --side-shading: rgba(255, 255, 255, 0.4); /* † */
+  --middle-shading: rgba(255, 255, 255, 0.3); /* † */
+  --header-shading: rgba(255, 255, 255, 0.5); /* † */
+  /* The following are applied to buttons to indicate hover and being held down. */
+  --hover-filter: rgba(255, 255, 255, 0.2);
+  --active-filter: rgba(255, 255, 255, 0.4);
+}
+
+/* These ones are for "Ash" */
 .theme-dark,
-.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=fullSize_], [class*=biteSize_])) {
-  --card-background: rgba(0, 0, 0, 0.5);
-  --side-shading: rgba(0, 0, 0, 0.5);
-  --middle-shading: rgba(0, 0, 0, 0.3);
-  --header-shading: rgba(0, 0, 0, 0.7);
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+  --card-background: rgba(0, 0, 0, 0.4); /* † */
+  --side-shading: rgba(0, 0, 0, 0.4); /* † */
+  --middle-shading: rgba(0, 0, 0, 0.2); /* † */
+  --header-shading: rgba(0, 0, 0, 0.6); /* † */
   /* The following are applied to buttons to indicate hover and being held down. */
   --hover-filter: rgba(0, 0, 0, 0.2);
   --active-filter: rgba(0, 0, 0, 0.4);
 }
 
-/* Feel free to edit these ones for Light Mode */
-.theme-light,
-.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_], div[class*=outer_]:is([class*=fullSize_], [class*=biteSize_]), div[class*=sidebar_], nav[class*=guilds_], div[class*=sidebarRegion_]) {
-  --card-background: rgba(255, 255, 255, 0.05);
-  --side-shading: rgba(255, 255, 255, 0.4);
-  --middle-shading: rgba(255, 255, 255, 0.3);
-  --header-shading: rgba(255, 255, 255, 0.5);
+/* These ones are for "Dark" */
+.theme-darker,
+.theme-darker :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+  --card-background: rgba(0, 0, 0, 0.5); /* † */
+  --side-shading: rgba(0, 0, 0, 0.5); /* † */
+  --middle-shading: rgba(0, 0, 0, 0.3); /* † */
+  --header-shading: rgba(0, 0, 0, 0.7); /* † */
   /* The following are applied to buttons to indicate hover and being held down. */
-  --hover-filter: rgba(255, 255, 255, 0.2);
-  --active-filter: rgba(255, 255, 255, 0.4);
+  --hover-filter: rgba(0, 0, 0, 0.2);
+  --active-filter: rgba(0, 0, 0, 0.4);
+}
+
+/* These ones are for "Onyx" */
+.theme-midnight,
+.theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+  --card-background: rgba(0, 0, 0, 0.7); /* † */
+  --side-shading: rgba(0, 0, 0, 0.7); /* † */
+  --middle-shading: rgba(0, 0, 0, 0.6); /* † */
+  --header-shading: rgba(0, 0, 0, 0.8); /* † */
+  /* The following are applied to buttons to indicate hover and being held down. */
+  --hover-filter: rgba(0, 0, 0, 0.2);
+  --active-filter: rgba(0, 0, 0, 0.4);
 }
 
 /*

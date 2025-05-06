@@ -84,7 +84,7 @@ If you wish to read what these variables mean, open this link in your browser:
 	--category-color: #{v(category-color)}; /* Applies to uncollapsed categories, member list groups and applies to active voice/stage channel. */
 	--selected-channel-color: #{v(selected-channel-color)}; /* Applies to selected channel as well as non-locked, non-muted channels on hover. */
 	--unread-channel-color: #{v(unread-channel-color)}; /* Applies to unread channels. Combined with below can give a glow. */
-	--unread-channel-glow: #{v(unread-channel-glow)}; /* More advanced. Uses the filter's drop-shadow function to give a glow. */
+	// --unread-channel-glow: #{v(unread-channel-glow)}; /* More advanced. Uses the filter's drop-shadow function to give a glow. */
 	--read-channel-color: #{v(read-channel-color)}; /* Applies unread, unmuted, unlocked (voice) channels and unmuted collapsed categories. */
 	--muted-channel-color: #{v(muted-channel-color)}; /* Applies to muted channels and categories. Ignores hover from selected. */
 	--show-channel-unread-dot: #{v(show-channel-unread-dot)}; /* Toggle display of the unread channel dot. Valid options: "block" and "none", both without quotations. "block" shows the blob and "none" hides it. */
@@ -92,7 +92,7 @@ If you wish to read what these variables mean, open this link in your browser:
 
 	/*
 	Background default to Primary. Default opacity is 0.3 while on hover it's a static +0.2 compared to not hovered. */
-	--mention-background: #{v(mention-background)};
+	// --mention-background: #{v(mention-background)};
 	--mention-opacity: #{v(mention-opacity)};
 
 	/*
@@ -103,6 +103,7 @@ If you wish to read what these variables mean, open this link in your browser:
 	--background-filter: #{v(background-filter)};
 	--user-modal-filter: #{v(user-modal-filter)};
 	--user-popout-filter: #{v(user-popout-filter)};
+	--home-icon-filter: #{v(home-icon-filter)};
 
 	/*
 	Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
@@ -111,6 +112,7 @@ If you wish to read what these variables mean, open this link in your browser:
 	--hide-active-now: #{v(hide-active-now)};
 	--hide-profile-panel: #{v(hide-profile-panel)};
 	--hide-channel-list: #{v(hide-channel-list)};
+	--blur-intensity: #{v(blur-intensity)};
 
 	/*
 	Windows Only - How many *pixels* wide the min/max/close buttons should be. This will not work when using the "Restore Windows Titlebar" Import. */
@@ -125,33 +127,65 @@ If you wish to read what these variables mean, open this link in your browser:
 	/* Debug; please do not touch */
 	#{v(update-notice-var)}: none; // theme file requires periodic updating.
 }
+/* Certain things will need to be defined here, mainly due to Discord's own CSS rules. */
+:root:root:root {
+	--mention-background: #{v(mention-background)};
+}
 
+/* Theme-specific variables */
 
-/* Feel free to edit these ones for Dark Mode */
+/* These ones are for "Light" */
+.theme-light,
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(#{$blacklist-theme-light-classes}) {
+	--card-background: #{v(light-card-background)}; /* † */
+	--side-shading: #{v(light-side-shading)}; /* † */
+	--middle-shading: #{v(light-middle-shading)}; /* † */
+	--header-shading: #{v(light-header-shading)}; /* † */
+
+	/* The following are applied to buttons to indicate hover and being held down. */
+	--hover-filter: #{v(light-hover-filter)};
+	--active-filter: #{v(light-active-filter)};
+}
+
+/* These ones are for "Ash" */
 .theme-dark,
 .theme-dark :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
-	--card-background: #{v(dark-card-background)};
-	--side-shading: #{v(dark-side-shading)};
-	--middle-shading: #{v(dark-middle-shading)};
-	--header-shading: #{v(dark-header-shading)};
+	--card-background: #{v(dark-card-background)}; /* † */
+	--side-shading: #{v(dark-side-shading)}; /* † */
+	--middle-shading: #{v(dark-middle-shading)}; /* † */
+	--header-shading: #{v(dark-header-shading)}; /* † */
 
 	/* The following are applied to buttons to indicate hover and being held down. */
 	--hover-filter: #{v(dark-hover-filter)};
 	--active-filter: #{v(dark-active-filter)};
 }
 
-/* Feel free to edit these ones for Light Mode */
-.theme-light,
-.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(#{$blacklist-theme-light-classes}) {
-	--card-background: #{v(light-card-background)};
-	--side-shading: #{v(light-side-shading)};
-	--middle-shading: #{v(light-middle-shading)};
-	--header-shading: #{v(light-header-shading)};
+/* These ones are for "Dark" */
+.theme-darker,
+.theme-darker :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
+	--card-background: #{v(darker-card-background)}; /* † */
+	--side-shading: #{v(darker-side-shading)}; /* † */
+	--middle-shading: #{v(darker-middle-shading)}; /* † */
+	--header-shading: #{v(darker-header-shading)}; /* † */
 
 	/* The following are applied to buttons to indicate hover and being held down. */
-	--hover-filter: #{v(light-hover-filter)};
-	--active-filter: #{v(light-active-filter)};
+	--hover-filter: #{v(darker-hover-filter)};
+	--active-filter: #{v(darker-active-filter)};
 }
+
+/* These ones are for "Onyx" */
+.theme-midnight,
+.theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
+	--card-background: #{v(midnight-card-background)}; /* † */
+	--side-shading: #{v(midnight-side-shading)}; /* † */
+	--middle-shading: #{v(midnight-middle-shading)}; /* † */
+	--header-shading: #{v(midnight-header-shading)}; /* † */
+
+	/* The following are applied to buttons to indicate hover and being held down. */
+	--hover-filter: #{v(midnight-hover-filter)};
+	--active-filter: #{v(midnight-active-filter)};
+}
+
 
 /*
 ***********************************************************************************************
