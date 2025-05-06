@@ -197,6 +197,8 @@
 	&:is(#{c(os win)}, #{c(os mac)}) {
 		#{c(topBar trailing container)} {
 			gap: 0;
+		}
+		:not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {
 			top: 24px;
 		}
 		#{c(topBar bar)} {

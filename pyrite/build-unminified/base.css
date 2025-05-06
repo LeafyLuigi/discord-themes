@@ -3205,6 +3205,8 @@ html {
 }
 .visual-refresh:is(.platform-win, .platform-osx) .trailing_c38106 {
   gap: 0;
+}
+.visual-refresh:is(.platform-win, .platform-osx) :not(.systemBar_c38106) > .trailing_c38106 {
   top: 24px;
 }
 .visual-refresh:is(.platform-win, .platform-osx) .bar_c38106::before {
