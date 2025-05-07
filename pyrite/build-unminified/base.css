@@ -283,6 +283,21 @@ body) {
   background-color: transparent !important;
 }
 
+.container__87bf1 {
+  transition: ease-in-out background 0.2s;
+}
+.visual-refresh .container__87bf1 {
+  background: var(--hsl-card-background) !important;
+}
+.visual-refresh .container__87bf1.checked__87bf1 {
+  background: var(--hsl-primary-color) !important;
+  border-color: transparent;
+}
+
+.checked__87bf1 > .slider__87bf1 > svg > path {
+  fill: var(--hsl-primary-color);
+}
+
 /* "Other". */
 .developerPortalCtaWrapper_bf485f {
   background-color: var(--hsl-card-background);

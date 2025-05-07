@@ -291,6 +291,22 @@ html, // because maybe?
 		}
 	}
 }
+#{c(slider container)} {
+	transition: ease-in-out background 0.2s; 
+	#{c(main visualRefresh)} & {
+		background: $card !important; // !important reason: element.style
+	}
+	#{c(main visualRefresh)} &#{c(slider checked)} {
+		background: $primary !important; // !important reason: element.style
+		border-color: transparent;
+	}
+}
+// make slider checkmarks primary
+#{c(slider)} > svg > path {
+	#{c(slider checked)} > & {
+		fill: $primary;
+	}
+}
 
 /* "Other". */
 // I don't know where this stuff is used in the site.
