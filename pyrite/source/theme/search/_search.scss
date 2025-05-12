@@ -1,8 +1,18 @@
 @use "backend" as *;
 /* Begin Search */
-:is(#{c(main dark)},#{c(main light)}) {
-	:is(#{c(search searchFilter)},#{c(search searchAnswer)},#{c(search activeButton)},#{c(search activeButton)}:hover) {
-		background-color: $primary;
+:is(
+	#{c(search searchFilter)},
+	#{c(search searchAnswer)}
+) {
+	#{c(main visualRefresh)} &,
+	& {
+		background: $primary;
+	}
+}
+#{c(search activeButton)} {
+	&,
+	&:hover {
+		background: $primary;
 	}
 }
 #{c(search header)} {

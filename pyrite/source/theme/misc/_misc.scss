@@ -233,7 +233,7 @@ html, // because maybe?
 #{c(chat chatContentInner)} + #{c(memberList wrap)},
 #{c(profile panel)},
 #{c(friends nowPlayingColumn)} {
-	background: var(--background,var(--side-shading));
+	background: var(--background,var(--hsl-side-shading));
 	left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, var(--hide-fallback-enabled)));
 	transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
 	margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, var(--hide-fallback-enabled))));

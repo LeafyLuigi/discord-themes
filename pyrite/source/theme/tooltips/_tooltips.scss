@@ -12,19 +12,14 @@
 		display: none;
 	}
 }
-:is(#{c(main dark)},#{c(main light)}) {
-	:is(
-		#{c(tooltips black)},
-		#{c(tooltips brand)},
-		#{c(tooltips grey)},
-		#{c(tooltips primary)},
-		#{c(media bubble)}
-	) {
-		background: $tooltip;
-		color: var(--header-primary);
-		// text-shadow: 2px 2px calc(var(--blur-intensity,1) * 2px) var(--header-secondary);
-	}
+#{c(tooltips black)},
+#{c(tooltips brand)},
+#{c(tooltips grey)},
+#{c(tooltips primary)},
+#{c(media bubble)} {
+	background: $tooltip;
+	color: var(--header-primary);
 }
 #{c(tooltips stageListenerPill)} {
-	background-color: $card;
+	background: $card;
 }

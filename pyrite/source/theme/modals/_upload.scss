@@ -42,8 +42,9 @@
 	display: none;
 }
 
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(modals upload modify modal)} {
+#{c(modals upload modify modal)} {
+	#{c(main visualRefresh)} &,
+	& {
 		background: $modal;
 		backdrop-filter: blur(calc($blur * 5px));
 	}

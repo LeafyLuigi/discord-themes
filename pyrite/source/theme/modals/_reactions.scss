@@ -1,9 +1,16 @@
 @use "backend" as *;
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(modals reactions modal)} {
+#{c(modals reactions modal)} {
+	#{c(main visualRefresh)} &,
+	& {
 		background: $modal;
 	}
-	:is(#{c(modals reactions sidebar)}, #{c(modals reactions reactors)}) {
+}
+:is(
+	#{c(modals reactions sidebar)},
+	#{c(modals reactions reactors)}
+) {
+	#{c(main visualRefresh)} &,
+	& {
 		background: transparent;
 	}
 }

@@ -1,9 +1,9 @@
 @use "backend" as *;
 #{c(modals pinned messageGroup)} {
 	margin: 0 0 16px;
-	border: none;
 	#{c(main visualRefresh)} &,
 	& {	
+		border: none;
 		background: transparent;
 	}
 }

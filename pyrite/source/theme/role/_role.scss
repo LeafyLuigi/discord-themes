@@ -3,15 +3,16 @@
 #{c(role)} {
 	background: var(--profile-role-pill-background-color,$card);
 }
-:is(#{c(main dark)}, #{c(main light)}) {
-	#{c(role overflow popout popout)} {
-		background: $modal;
-		backdrop-filter: blur(calc($blur * 5px));
-	}
-}
-#{c(role overflow popout header)} {
-	color: var(--header-primary);
-}
-#{c(role overflow popout arrow)} {
-	display: none;
-}
+// i have forgotten what the role overflow popout is/was lol
+// :is(#{c(main dark)}, #{c(main light)}) {
+// 	#{c(role overflow popout popout)} {
+// 		background: $modal;
+// 		backdrop-filter: blur(calc($blur * 5px));
+// 	}
+// }
+// #{c(role overflow popout header)} {
+// 	color: var(--header-primary);
+// }
+// #{c(role overflow popout arrow)} {
+// 	display: none;
+// }

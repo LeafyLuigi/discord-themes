@@ -1,7 +1,5 @@
 @use "backend" as *;
-// solely to make any themers lives harder, each rule is prefixed with (dark/light +) calendarPicker
-// well, that is until you account for the line prior; in which case holy torture.
-:is(#{c(main dark)}, #{c(main light)}) #{c(modals calendar picker)} {
+#{c(modals calendar picker)} {
 	:is(
 		#{c(modals calendar react datePicker)},
 		#{c(modals calendar react header)},

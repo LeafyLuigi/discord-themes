@@ -251,28 +251,19 @@
 	fill: $red;
 }
 
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(chat channelLinkUserMentionWrapper)} {
-		display: inline-block;
-		transform: rotate(0deg);
-		background: transparent;
-		color: var(--interactive-hover);
-		transition: color 50ms ease-out;
-		@include bg($tr:opacity 50ms ease-out,$br:3px,$bg:$primary,$o:.25);
-		&:hover {
-			color: var(--interactive-active);
-			&::before {
-				opacity: .75;
-			}
-		}
+#{c(chat channelLinkUserMentionWrapper)} {
+	background: color-mix(in oklab, $primary 25%, transparent);
+	color: var(--interactive-hover);
+	transition: color 50ms ease-out, background 50ms ease-out;
+	&:hover {
+		color: var(--interactive-active);
+		background: color-mix(in oklab, $primary 75%, transparent);
 	}
 }
 #{c(chat mentioned)} {
 	#{c(chat channelLinkUserMentionWrapper)} {
 		color: var(--interactive-active);
-		&::before {
-			opacity: .75;
-		}
+		background: color-mix(in oklab, $primary 75%, transparent);
 	}
 }
 

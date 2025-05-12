@@ -1,14 +1,12 @@
 @use "backend" as *;
 /* Browse Channels page */
-// :is(#{c(main dark)},#{c(main light)}) {
-	:is(
-		// #{c(pages container)},
-		// #{c(pages customise scrollerContainer)},
-		#{c(pages customise emptyPage)}
-	) {
-		background: transparent;
-	}
-// }
+:is(
+	// #{c(pages container)},
+	// #{c(pages customise scrollerContainer)},
+	#{c(pages customise emptyPage)}
+) {
+	background: transparent;
+}
 #{c(pages header container)} {
 	#{c(main visualRefresh)} &,
 	& {

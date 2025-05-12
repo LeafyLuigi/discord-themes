@@ -1,12 +1,10 @@
 @use "backend" as *;
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(modals autocomplete modal)} {
-		@include menu;
-	}
-	#{c(modals autocomplete option)} {
-		background: $primary;
-		color: var(--header-primary);
-	}
+#{c(modals autocomplete modal)} {
+	@include menu;
+}
+#{c(modals autocomplete option)} {
+	background: $primary;
+	color: var(--header-primary);
 }
 #{c(modals autocomplete railWrapper)}, #{c(modals autocomplete categoryHeader)} {
 	background: transparent;

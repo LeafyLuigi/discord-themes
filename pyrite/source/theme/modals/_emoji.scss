@@ -1,5 +1,5 @@
 @use "backend" as *;
-:is(#{c(main dark)},#{c(main light)}) {
+:is(#{c(main imagesDark)},#{c(main imagesLight)}) { // uses those classes
 	#{c(modals emoji imageLoading)} {
 		background-image: none;
 	}

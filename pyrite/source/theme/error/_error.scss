@@ -1,7 +1,8 @@
 @use "backend" as *;
 /* Start Error Page */
-:is(#{c(main dark)},#{c(main light)}) {
+:is(#{c(main dark)},#{c(main light)}) { // uses theme dark/light
 	#{c(error wrapper)} {
+		// has image; requires none.
 		background: $middle none;
 	}
 }

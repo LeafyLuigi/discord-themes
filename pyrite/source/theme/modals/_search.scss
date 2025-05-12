@@ -1,14 +1,15 @@
 @use "backend" as *;
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(modals search queryHeader)} {
-		background: transparent;
-	}
+#{c(modals search queryHeader)} {
+	background: transparent;
 }
 #{c(modals search dropdown)} {
-	background: $modal;
 	backdrop-filter: blur(calc($blur * 5px));
 	position: relative;
 	top: 4px;
+	#{c(main visualRefresh)} &,
+	& {
+		background: $modal;
+	}
 }
 #{c(modals search learnMore)} {
 	display: none;

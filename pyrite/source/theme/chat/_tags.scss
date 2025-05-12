@@ -1,21 +1,15 @@
 @use "backend" as *;
 #{c(pages tags pill)} {
-	background: $card;
-	&#{c(pages tags clickable)}:not(#{c(pages tags disabled)}):hover {
+	#{c(main visualRefresh)} &,
+	& {
 		background: $card;
-		border-color: $hover;
-	}
-}
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(pages tags pill)}#{c(pages tags selected)} {
-		&,&#{c(pages tags clickable)}:not(#{c(pages tags disabled)}):hover {
-			border-color: $primary;
-			background: transparent;
-			transform: rotate(0deg);
-			@include bg($bg:$primary,$br:20px,$o:.15)
+		border: 1px solid $primary;
+		&:is(
+			#{c(pages tags selected)},
+			:hover
+		):not(#{c(pages tags disabled)}) {
+			background: rgb(from $primary r g b / .15);
 		}
 	}
+
 }
-// #{c(pages tags closeCircle)} {
-// 	background: $card;
-// }

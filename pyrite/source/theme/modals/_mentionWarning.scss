@@ -1,17 +1,16 @@
 @use "backend" as *;
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(modals mentionWarning popout)} {
-		background: $modal;
-		box-shadow: none;
-		backdrop-filter: blur(calc($blur * 5px));
-	}
-	:is(#{c(modals mentionWarning body)},#{c(modals mentionWarning footer)}) {
-		background: transparent;
-	}
-	#{c(modals mentionWarning header)} {
-		color: $red;
-	}
+#{c(modals mentionWarning popout)} {
+	background: $modal;
+	box-shadow: none;
+	backdrop-filter: blur(calc($blur * 5px));
 }
+#{c(modals mentionWarning body)} {
+	background: transparent;
+}
+#{c(modals mentionWarning header)} {
+	color: $red;
+}
+#{c(modals mentionWarning footer)},
 #{c(modals mentionWarning animation)} {
 	display: none;
 }
