@@ -100,6 +100,10 @@ body) {
   background: transparent;
 }
 
+.visual-refresh.refresh-fast-follow-guild-bg .bg__960e4 {
+  background: transparent;
+}
+
 .app_a3002d {
   color: transparent;
 }
@@ -4706,7 +4710,7 @@ html {
 }
 
 /* Start Server List */
-.visual-refresh .wrapper_ef3116, .wrapper_ef3116 {
+.visual-refresh.refresh-fast-follow-guild-bg .wrapper_ef3116, .visual-refresh .wrapper_ef3116, .wrapper_ef3116 {
   background: transparent;
 }
 .visual-refresh .wrapper_ef3116 {

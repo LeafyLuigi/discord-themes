@@ -107,6 +107,10 @@ html, // because maybe?
 		background: transparent;
 	}
 }
+// NEW EXPERIMENT. THANKS DISCORD.
+#{c(main visualRefresh)}#{c(main refreshFastFollowBackground)} #{c(main bg)} {
+	background: transparent;
+}
 
 // remove stray `;`
 #{c(main appContainer)} {

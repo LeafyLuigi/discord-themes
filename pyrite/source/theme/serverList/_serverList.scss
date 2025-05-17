@@ -1,6 +1,7 @@
 @use "backend" as *;
 /* Start Server List */
 #{c(serverList wrapper)} {
+	#{c(main visualRefresh)}#{c(main refreshFastFollowBackground)} &,
 	#{c(main visualRefresh)} &,
 	& {
 		background: transparent;
