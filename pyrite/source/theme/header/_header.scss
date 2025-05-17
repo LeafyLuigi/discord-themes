@@ -147,13 +147,17 @@
 	display: none;
 }
 
+// check for download icon using :has because fuck me.
+#{c(main base)}:has(#{c(topBar bar)}>#{c(topBar trailing container)}>#{c(topBar trailing button)}) {
+	--extra-icons: 1;
+}
 #{c(main visualRefresh)} {
 	--custom-app-top-bar-height: 0px; // for removing top bar
 	// icon for margin-right; this must be done differently for windows
 	#{c(chat layerWrapper)},
 	#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
 		#{c(header toolbar)} {
-			margin-right: calc(32px + var(--space-xs));
+			margin-right: calc(32px + var(--space-xs) + (var(--extra-icons,0) * 32px));
 		}
 	}
 	&#{c(os win)} {
@@ -161,7 +165,7 @@
 		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
 			#{c(header toolbar)} {
 				// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
-				margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+				margin-right: calc(32px + var(--space-xs) + (var(--extra-icons,0) * 32px) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
 			}
 			// #{c(header headerTitle)} {
 			// 	// -webkit-app-region: drag;

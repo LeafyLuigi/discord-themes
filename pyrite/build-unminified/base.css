@@ -3153,16 +3153,20 @@ html {
   display: none;
 }
 
+.base_c48ade:has(.bar_c38106 > .trailing_c38106 > .button__85643) {
+  --extra-icons: 1;
+}
+
 .visual-refresh {
   --custom-app-top-bar-height: 0px;
 }
 .visual-refresh .chatLayerWrapper__01ae2 .toolbar__9293f,
 .visual-refresh .chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
-  margin-right: calc(32px + var(--space-xs));
+  margin-right: calc(32px + var(--space-xs) + var(--extra-icons, 0) * 32px);
 }
 .visual-refresh.platform-win .chatLayerWrapper__01ae2 .toolbar__9293f,
 .visual-refresh.platform-win .chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
-  margin-right: calc(32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled, 0)) * var(--win-min-max-close-button-width));
+  margin-right: calc(32px + var(--space-xs) + var(--extra-icons, 0) * 32px + 3 * (1 - var(--windows-titlebar-enabled, 0)) * var(--win-min-max-close-button-width));
 }
 .visual-refresh .bar_c38106 {
   z-index: 1011;
