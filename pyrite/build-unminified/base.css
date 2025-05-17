@@ -3153,7 +3153,7 @@ html {
   display: none;
 }
 
-.base_c48ade:has(.bar_c38106 > .trailing_c38106 > .button__85643) {
+.base_c48ade:has(> .bar_c38106 > .trailing_c38106 > .button__85643) {
   --extra-icons: 1;
 }
 

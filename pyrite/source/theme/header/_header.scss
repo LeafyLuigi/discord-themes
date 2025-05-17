@@ -148,7 +148,7 @@
 }
 
 // check for download icon using :has because fuck me.
-#{c(main base)}:has(#{c(topBar bar)}>#{c(topBar trailing container)}>#{c(topBar trailing button)}) {
+#{c(main base)}:has(>#{c(topBar bar)}>#{c(topBar trailing container)}>#{c(topBar trailing button)}) {
 	--extra-icons: 1;
 }
 #{c(main visualRefresh)} {
