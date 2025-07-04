@@ -31,7 +31,7 @@
 }
 
 .messagelogger-deleted .markup__75297 {
-  color: var(--text-normal);
+  color: var(--text-default);
 }
 .messagelogger-deleted .markup__75297 small:not(.inlineFormat__75297) {
   color: var(--text-muted);
