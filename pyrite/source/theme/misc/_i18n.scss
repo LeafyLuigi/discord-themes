@@ -145,7 +145,7 @@ $tags: (
 }
 
 /* Version */
-#{c(userSettings sidebarInfo)} {
+#{c(settings sidebar info)} {
 	&::after {
 		content: $theme-name string.insert($version, " - ", 0);
 		font-style: italic;
@@ -156,7 +156,7 @@ $tags: (
 }
 
 // /* Beta Version (only for French and British English) */
-// html:is([lang="en-GB"],[lang="fr"]) #{c(userSettings sidebarInfo)} {
+// html:is([lang="en-GB"],[lang="fr"]) #{c(settings sidebar info)} {
 // 	&::after {
 // 		content: var(--theme-name-beta) string.insert($version, " - ", 0);
 // 	}

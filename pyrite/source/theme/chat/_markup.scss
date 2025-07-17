@@ -1,9 +1,10 @@
 @use "backend" as *;
 // File is used for Markup stuffs
 :root {
+	--text-normal: var(--text-default); // ONLY EXISTS AS A FALLBACK.
 	--chat-font-size: 1rem;
 	--chat-line-height: 1.375rem;
-	--chat-font-color: var(--text-normal);
+	--chat-font-color: var(--text-default);
 	--chat-font-weight: 400;
 	--chat-font-style: normal;
 	// strong; **bold**
@@ -50,7 +51,7 @@
 	font-style: var(--chat-font-style,normal);
 	font-size: var(--chat-font-size,1rem);
 	line-height: var(--chat-line-height,1.375rem);
-	color: var(--chat-font-color,var(--text-normal));
+	color: var(--chat-font-color,var(--text-default));
 	font-weight: var(--chat-font-weight,400);
 	strong {
 		font-weight: var(--chat-bold-font-weight,700);

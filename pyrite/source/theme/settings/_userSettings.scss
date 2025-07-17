@@ -18,13 +18,13 @@
 		background: transparent;
 	}
 }
-#{c(userSettings sidebarRegionScroller)} {
+#{c(settings sidebar regionScroller)} {
 	#{c(main visualRefresh)} &,
 	& {
 		background: $side;
 	}
 }
-#{c(userSettings sidebar)} {
+#{c(settings sidebar)} {
 	#{c(tab header)} {
 		@include header;
 		font-weight: 600;
@@ -34,27 +34,27 @@
 		background: $secondary;
 	}
 }
-// #{c(userSettings sidebarInfo)} {
+// #{c(settings sidebar info)} {
 // 	#{c(chatForm colorMuted)} {
 // 		color: var(--interactive-normal);
 // 	}
 // }
-#{c(userSettings contentRegionScroller)} {
+#{c(settings content regionScroller)} {
 	#{c(main visualRefresh)} &,
 	& {
 		background: $middle;
 	}
-	#{c(userSettings customScroller)} {
+	#{c(settings content customScroller)} {
 		background: transparent;
 	}
 }
-#{c(userSettings accountProfile)} {
+#{c(settings myAccount security profileCard account)} {
 	background: $card;
-	#{c(userSettings accountProfileBackground)} {
+	#{c(settings myAccount security profileCard background)} {
 		padding: 8px 0 0 0;
 		background: transparent;
 	}
-	#{c(userSettings accountProfileAvatar)} {
+	#{c(settings myAccount security profileCard avatar)} {
 		border-color: transparent;
 		background: transparent;
 	}
@@ -125,13 +125,13 @@
 // #{c(userSettings boostDealWrapper)}::before {
 // 	content: none;
 // }
-#{c(userSettings closeButtonContainer)} {
+#{c(settings tools container)} {
 	color: $primary;
 	&:hover,
 	&:active {
 		color: $hover;
 	}
-	#{c(userSettings closeButton)} {
+	#{c(settings tools closeButton)} {
 		border-color: currentColor;
 		&:hover,
 		&:active {
@@ -141,8 +141,8 @@
 			fill: currentColor;
 		}
 	}
-	#{c(userSettings closeButton)}+#{c(userSettings closeButtonKeybind)},
-	#{c(userSettings closeButton)} {
+	#{c(settings tools closeButton)}+#{c(settings tools keybind)},
+	#{c(settings tools closeButton)} {
 		color: currentColor;
 	}
 }
@@ -164,12 +164,12 @@
 	background: $card;
 }
 #{c(main appLayer)},
-#{c(userSettings contentRegion)},
-#{c(userSettings contentColumn)} #{c(userSettings fieldList)} {
+#{c(settings content)},
+#{c(settings content column)} #{c(settings myAccount security profileCard field list)} {
 	background: transparent;
 }
 
-#{c(userSettings standardSidebarView)} {
+#{c(settings standardSidebarView)} {
 	#{c(main visualRefresh)} &,
 	& {
 		background: transparent;

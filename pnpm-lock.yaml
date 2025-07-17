@@ -8,6 +8,33 @@ importers:
 
   .:
     devDependencies:
+      '@sass-fairy/break':
+        specifier: ^1.2.0
+        version: 1.2.0
+      '@sass-fairy/color':
+        specifier: ^1.2.0
+        version: 1.2.0
+      '@sass-fairy/exception':
+        specifier: ^1.1.1
+        version: 1.1.1
+      '@sass-fairy/list':
+        specifier: ^1.2.4
+        version: 1.2.4
+      '@sass-fairy/map':
+        specifier: ^1.1.1
+        version: 1.1.1
+      '@sass-fairy/math':
+        specifier: ^1.0.3
+        version: 1.0.3
+      '@sass-fairy/meta':
+        specifier: ^1.0.2
+        version: 1.0.2
+      '@sass-fairy/string':
+        specifier: ^1.3.1
+        version: 1.3.1
+      '@sass-fairy/url':
+        specifier: ^1.0.1
+        version: 1.0.1
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)
@@ -122,6 +149,33 @@ packages:
   '@parcel/watcher@2.5.0':
     resolution: {integrity: sha512-i0GV1yJnm2n3Yq1qw6QrUrd/LI9bE8WEBOTtOkpCXHHdyN3TAGgqAK/DAT05z4fq2x04cARXt2pDmjWjL92iTQ==}
     engines: {node: '>= 10.0.0'}
+
+  '@sass-fairy/break@1.2.0':
+    resolution: {integrity: sha512-8ehJlpc+gxinYQMAWofkJ0rgu1pcMTVlf6sF5g37Ao6f5x/prZNZ9HY9704al8t9VhoMYQnOvO6+p3MfMdxz5A==}
+
+  '@sass-fairy/color@1.2.0':
+    resolution: {integrity: sha512-xCzUodRnh4Q3CGb7qG5Ubqov/YbT1bwMw1/FHfcJkrqEoQ2ZQHqAZgsDLyP9I9Wd566vbHNPg7WCPeWkv/rOgQ==}
+
+  '@sass-fairy/exception@1.1.1':
+    resolution: {integrity: sha512-DP3dwerkS/gE79CaCzaE46zkTSWxmUc8Q/8Io6FC9qYRaNJ5aR8l1IvRbEe6ZnsnVE1+Ow1XOzC9uL2eeh62Hg==}
+
+  '@sass-fairy/list@1.2.4':
+    resolution: {integrity: sha512-gs+96qO1kqPbnDU0tqG9/V77ceUXtA8grYQ554jIEQKYerFRs8usUs7KUu7JZJfkmEDpyoDbvNm18vr1WVgz6w==}
+
+  '@sass-fairy/map@1.1.1':
+    resolution: {integrity: sha512-TUTUuuGHKPEVsYeqV97lq82wijzxG7Z4MvS17SII1YXC3TfqGORy8D7IZwzCbh53j9PxFMgLyzhe+Bfa4GGSDA==}
+
+  '@sass-fairy/math@1.0.3':
+    resolution: {integrity: sha512-Lg/0vwx9Y7BSl/hTy3zO13bObx3dz8wkV/G6suX8B2j3IloXMGZmvdlmGwH+8J4e9/nUA/Yv3N9B6+W/IdLHmw==}
+
+  '@sass-fairy/meta@1.0.2':
+    resolution: {integrity: sha512-LLQnuY5kLdsGjGM+r94y3xew1wi7iok4Ciw43fYC9fCtyvwbeohMA0OK4vjl2iP9RaGIMEWfpjX7WZ0gSc5sSQ==}
+
+  '@sass-fairy/string@1.3.1':
+    resolution: {integrity: sha512-uOBQn5/jBc2agMy4PXofRJnlpQ1Z4msV6INjs3xK4MmjAOIQXbh0pgVPMKfVN/j/7uJbhf9mLksvUsxO7s685A==}
+
+  '@sass-fairy/url@1.0.1':
+    resolution: {integrity: sha512-NFWtfXHsFym+SqPGNEvu+80aDbjYzGJKONRTVKnux3xtmaPzPcOQvy8amWOxZTjCZaKeXyNVKp4prVvwGOSZkg==}
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -600,6 +654,52 @@ snapshots:
       '@parcel/watcher-win32-ia32': 2.5.0
       '@parcel/watcher-win32-x64': 2.5.0
     optional: true
+
+  '@sass-fairy/break@1.2.0':
+    dependencies:
+      '@sass-fairy/color': 1.2.0
+      '@sass-fairy/exception': 1.1.1
+      '@sass-fairy/list': 1.2.4
+      '@sass-fairy/map': 1.1.1
+      '@sass-fairy/string': 1.3.1
+      '@sass-fairy/url': 1.0.1
+
+  '@sass-fairy/color@1.2.0':
+    dependencies:
+      '@sass-fairy/exception': 1.1.1
+
+  '@sass-fairy/exception@1.1.1': {}
+
+  '@sass-fairy/list@1.2.4':
+    dependencies:
+      '@sass-fairy/exception': 1.1.1
+      '@sass-fairy/math': 1.0.3
+      '@sass-fairy/meta': 1.0.2
+
+  '@sass-fairy/map@1.1.1':
+    dependencies:
+      '@sass-fairy/exception': 1.1.1
+      '@sass-fairy/list': 1.2.4
+      '@sass-fairy/meta': 1.0.2
+
+  '@sass-fairy/math@1.0.3':
+    dependencies:
+      '@sass-fairy/exception': 1.1.1
+
+  '@sass-fairy/meta@1.0.2':
+    dependencies:
+      '@sass-fairy/exception': 1.1.1
+
+  '@sass-fairy/string@1.3.1':
+    dependencies:
+      '@sass-fairy/exception': 1.1.1
+      '@sass-fairy/list': 1.2.4
+
+  '@sass-fairy/url@1.0.1':
+    dependencies:
+      '@sass-fairy/exception': 1.1.1
+      '@sass-fairy/list': 1.2.4
+      '@sass-fairy/string': 1.3.1
 
   ansi-regex@5.0.1: {}
 

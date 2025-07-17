@@ -87,7 +87,7 @@
 		}
 	}
 }
-#{c(userSettings customScroller)} {
+#{c(settings content customScroller)} {
 	background-color: $middle;
 }
 #{c(serverSettings templateDescriptionBox)},
@@ -103,7 +103,7 @@
 		fill: $red;
 	}
 }
-#{c(serverSettings rolePage)} #{c(userSettings customScroller)},
+#{c(serverSettings rolePage)} #{c(settings content customScroller)},
 #{c(serverSettings roleTitleContainer)},
 #{c(serverSettings roleHeader)},
 #{c(serverSettings enableCommunityFeatureIcon)},

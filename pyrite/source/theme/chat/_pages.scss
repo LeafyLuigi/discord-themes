@@ -28,7 +28,7 @@
 }
 
 #{c(pages channels channelRow)} {
-	color: var(--text-normal); // this is only here because i'm lazy with the icons, of which they broke this section
+	color: var(--text-default); // this is only here because i'm lazy with the icons, of which they broke this section
 	&,&:hover:not(#{c(pages channels disabled)}) {
 		background: $card;
 	}

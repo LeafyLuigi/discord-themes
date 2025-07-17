@@ -45,7 +45,7 @@
 	@include bg2($bg:$middle,$h:calc(100vh - 48px),$top:48px);
 }
 #{c(chat ephemeralMessage)} {
-	color: var(--text-normal);
+	color: var(--text-default);
 }
 
 #{c(chat buttonWrapper)} {

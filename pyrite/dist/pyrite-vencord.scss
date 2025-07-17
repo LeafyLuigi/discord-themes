@@ -234,7 +234,7 @@ Decorations:
 	/* Default text components */
 	--chat-font-size: #{v(markup-chat-font-size)}; /* Default 1rem */
 	--chat-line-height: #{v(markup-chat-line-height)}; /* Default 1.375rem */
-	--chat-font-color: #{v(markup-chat-font-color)}; /* Default var(--text-normal) */
+	--chat-font-color: #{v(markup-chat-font-color)}; /* Default var(--text-default) */
 	--chat-font-style: #{v(markup-chat-font-style)}; /* Default normal */
 	--chat-font-weight: #{v(markup-chat-font-weight)}; /* Default 400 */
 	--chat-light-theme-not-zoomed-in-font-weight: #{v(markup-chat-light-theme-not-zoomed-in-font-weight)}; /* Default 500 | Light theme font weight without being zoomed in. This falls back to the default value above otherwise. */

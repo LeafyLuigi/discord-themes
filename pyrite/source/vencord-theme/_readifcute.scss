@@ -43,7 +43,7 @@
 // revert chat markup colors
 #{c(vencord messageLogger deleted)} {
 	#{c(chat markup)} {
-		color: var(--text-normal);
+		color: var(--text-default);
 		small:not(#{c(chat markupInlineFormat)}) {
 			color: var(--text-muted);
 		}

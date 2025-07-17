@@ -25,7 +25,7 @@
 	#{c(appSettings gameNowPlaying)} {
 		@include card-dark;
 		#{c(appSettings gameName)} {
-			color: var(--text-normal);
+			color: var(--text-default);
 		}
 		:is(#{c(appSettings gameLastPlayed)},#{c(appSettings gameOverlayStatusText)}) {
 			color: var(--text-muted);

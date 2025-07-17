@@ -3,7 +3,7 @@
 #{c(main dark)} #{c(modals addServer modal)} {
 	--header-primary:#fff;
 	--header-secondary:#b9bbbe;
-	--text-normal:#dcddde;
+	--text-default:#dcddde;
 	--text-muted:#72767d;
 	--text-link:hsl(197,calc(var(--saturation-factor, 1)*100%),47.8%);
 	--interactive-normal:#b9bbbe;
@@ -15,7 +15,7 @@
 	--deprecated-text-input-border:rgba(0,0,0,0.3);
 }
 #{c(modals addServer modal)} #{c(button lookBlank)} {
-	color: var(--text-normal);
+	color: var(--text-default);
 }
 
 #{c(modals addServer createAServerTemplatesList)},

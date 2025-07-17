@@ -1,5 +1,5 @@
 @use "backend" as *;
 /* Start Profile in Settings */
-#{c(profile settings badgeList)}:empty {
+#{c(settings myAccount security profileCard badgeList)}:empty {
 	background: transparent;
 }
