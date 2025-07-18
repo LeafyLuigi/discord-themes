@@ -4056,9 +4056,6 @@ html {
   backdrop-filter: unset;
   border-radius: unset;
 }
-.emojiPickerHasTabWrapper_c0e32c .emojiPicker_c0e32c {
-  min-height: 450px;
-}
 .emojiPickerHasTabWrapper_c0e32c .categoryList_c0e32c {
   min-height: 352px;
 }
