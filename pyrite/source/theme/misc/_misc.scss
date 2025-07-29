@@ -102,13 +102,10 @@ html, // because maybe?
 	#{c(main bg)},
 	body // this one is here for transparency in bd to work
 ) {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 // NEW EXPERIMENT. THANKS DISCORD.
-#{c(main visualRefresh)}#{c(main refreshFastFollowBackground)} #{c(main bg)} {
+#{c(main refreshFastFollowBackground)} #{c(main bg)} {
 	background: transparent;
 }
 
@@ -150,14 +147,8 @@ html, // because maybe?
 		overflow: visible;
 		@include bg($z:1010,$bg:$header,$w:72px,$h:48px,$top:-48px);
 	}
-	&#{c(main visualRefresh)} #{c(serverList servers)}::after {
+	#{c(serverList servers)}::after {
 		content: none;
-	}
-	&:not(#{c(main visualRefresh)}) {
-		#{c(header toolbar)} {
-			padding-right: calc((1 - var(--hsl-bottom-enabled,0)) * 3 * var(--win-min-max-close-button-width));
-			margin-right: -6px;
-		}
 	}
 }
 #{c(os win type)} {
@@ -183,9 +174,6 @@ html, // because maybe?
 
 // Mac
 #{c(os mac)} {
-	&#{c(main visualRefresh)} #{c(serverList wrapper)} {
-		margin-top: 48px;
-	}
 	#{c(serverList wrapper)} {
 		margin-top: 48px;
 		overflow: visible;
@@ -219,16 +207,6 @@ html, // because maybe?
 		top: 48px;
 		position: relative;
 		height: calc(100vh - 48px);
-	}
-	&#{c(main visualRefresh)} {
-		#{c(serverList tree)} {
-			height: calc(100% - 48px);
-		}
-		#{c(serverList servers)} {
-			&::after {
-				content: none;
-			}
-		}
 	}
 }
 
@@ -297,10 +275,8 @@ html, // because maybe?
 }
 #{c(slider container)} {
 	transition: ease-in-out background 0.2s; 
-	#{c(main visualRefresh)} & {
-		background: $card !important; // !important reason: element.style
-	}
-	#{c(main visualRefresh)} &#{c(slider checked)} {
+	background: $card !important; // !important reason: element.style
+	&#{c(slider checked)} {
 		background: $primary !important; // !important reason: element.style
 		border-color: transparent;
 	}

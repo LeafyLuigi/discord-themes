@@ -285,7 +285,4 @@ Decorations:
 
 	/* Third HTML heading (eg ### h3). Other headings do not have their own rules. */
 	--chat-h3-font-size: #{v(markup-chat-h3-font-size)}; /* Default 1rem */
-
-	/* "Visual Refresh" experiment [2024-05_desktop_visual_refresh; Treatment 1: Refresh Enabled]. This likely will not effect you. */
-	--chat-visual-refresh-line-height: #{v(markup-chat-visual-refresh-line-height)}; /* Default 1.5rem */
 }

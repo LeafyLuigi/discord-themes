@@ -8,20 +8,14 @@
 }
 #{c(modals expressionPicker contentWrapper)} {
 	backdrop-filter: blur(calc($blur * 5px));
-	#{c(main visualRefresh)} &,
-	& {
-		background: $modal;
-	}
+	background: $modal;
 }
 #{c(modals expressionPicker navButtonActive)} {
 	background: $primary;
 }
 
 #{c(modals expressionPicker inspector)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 
 #{c(modals expressionPicker positionContainer)} {

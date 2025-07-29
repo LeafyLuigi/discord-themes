@@ -1,28 +1,16 @@
 @use "backend" as *;
 // Forums
 #{c(forums container)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $middle;
-	}
+	background: $middle;
 }
 
-#{c(forums mainCard)} {
-	#{c(main visualRefresh)} &,
-	& {
-		@include card;
-	}
+#{c(forums guidelines container)},
+#{c(forums mainCard)},
+#{c(forums tags dropdown)},
+#{c(forums tags tagsButton)} {
+	@include card;
 }
 
-// #{c(forums header)} {
-// 	@include card;
-// }
-#{c(forums guidelines container)} {
-	#{c(main visualRefresh)} &,
-	& {
-		@include card;
-	}
-}
 #{c(forums headerWithMatchingPosts)} {
 	border-bottom: 0;
 }
@@ -33,17 +21,6 @@
 
 #{c(forums form)} #{c(forums submitButton)} {
 	border-radius: 3px;
-}
-
-:is(
-	#{c(forums tags dropdown)},
-	#{c(forums tags tagsButton)}
-) {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $card;
-		border: 1px solid $primary;
-	}
 }
 
 #{c(forums tags tagsButton)} {
@@ -137,7 +114,7 @@
 // }
 
 #{c(forums list card)} {
-	#{c(main visualRefresh)} &:is(
+	&:is(
 		#{c(forums list isOpen)},
 		:hover
 	) {
@@ -248,10 +225,7 @@
 	}
 }
 #{c(forums open topBar container)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 #{c(forums open topBar addReactButton)}, #{c(forums open topBar buttonInner)} {
 	height: 20px;

@@ -38,22 +38,13 @@
 	background: transparent;
 }
 #{c(call container)} {
-	#{c(main visualRefresh)} &,
-	& {
-		border: none;
-	}
+	border: none;
 }
 #{c(call channelChatWrapper)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 #{c(call root)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $middle;
-	}
+	background: $middle;
 }
 #{c(call status)} {
 	background: $primary;

@@ -14,22 +14,16 @@
 }
 #{c(threads resizeHandle)} {
 	transition: background-color 0.25s ease-in-out 0.25s; 
+	background: transparent;
 	&:hover,
 	&:active {
 		background: $primary;
 	}
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
 }
 #{c(threads container)} {
 	border-radius: 0;
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-		border: none;
-	}
+	background: transparent;
+	border: none;
 }
 #{c(threads newThreadContainer)} {
 	background: none;

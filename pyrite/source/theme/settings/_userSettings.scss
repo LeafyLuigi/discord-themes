@@ -19,10 +19,7 @@
 	}
 }
 #{c(settings sidebar regionScroller)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $side;
-	}
+	background: $side;
 }
 #{c(settings sidebar)} {
 	#{c(tab header)} {
@@ -40,10 +37,7 @@
 // 	}
 // }
 #{c(settings content regionScroller)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $middle;
-	}
+	background: $middle;
 	#{c(settings content customScroller)} {
 		background: transparent;
 	}
@@ -170,8 +164,5 @@
 }
 
 #{c(settings standardSidebarView)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }

@@ -1,13 +1,8 @@
 @use "backend" as *;
 /* Begin Search */
-:is(
-	#{c(search searchFilter)},
-	#{c(search searchAnswer)}
-) {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $primary;
-	}
+#{c(search searchFilter)},
+#{c(search searchAnswer)} {
+	background: $primary;
 }
 #{c(search activeButton)} {
 	&,

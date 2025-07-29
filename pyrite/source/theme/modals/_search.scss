@@ -6,10 +6,7 @@
 	backdrop-filter: blur(calc($blur * 5px));
 	position: relative;
 	top: 4px;
-	#{c(main visualRefresh)} &,
-	& {
-		background: $modal;
-	}
+	background: $modal;
 }
 #{c(modals search learnMore)} {
 	display: none;

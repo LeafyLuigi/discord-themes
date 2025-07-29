@@ -10,26 +10,20 @@
 	border-width: 0;
 	z-index: 0; // messes with member list. set to 1 by discord
 	backdrop-filter: blur(calc($blur * 2px));
+	@include card-light;
+	border: none;
 	#{c(chatForm followImage)} {
 		display: none;
-	}
-	#{c(main visualRefresh)} &,
-	& {
-		@include card-light;
-		border: none;
 	}
 }
 
 #{c(chatForm channelTextAreaBase)} {
 	border-width: 0;
+	@include card-light;
+	border: none;
 	&:focus-within {
 		border-width: 0;
 		box-shadow: 0 0 2px 2px var(--profile-primary-color, $primary);
-	}
-	#{c(main visualRefresh)} &,
-	& {
-		@include card-light;
-		border: none;
 	}
 }
 
@@ -50,17 +44,10 @@
 #{c(chatForm themedBackground)},
 #{c(chatForm attachedBars)},
 #{c(chatForm replyBar)},
-#{c(chatForm threadSuggestionBar)} {
+#{c(chatForm threadSuggestionBar)},
+#{c(chatForm stackedBars)},
+#{c(chatForm channelAttachmentArea)} {
 	background: transparent;
-}
-:is(
-	#{c(chatForm stackedBars)},
-	#{c(chatForm channelAttachmentArea)}
-) {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
 }
 #{c(chatForm clipContainer)} {
 	margin-top: 0;
@@ -93,17 +80,11 @@
 		color: var(--interactive-normal);
 	}
 }
-#{c(chatForm inlineUpload)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $card;
-	}
-}
 #{c(forums upload altTag)} {
 	background: $secondary;
 	color: var(--text-default);
 }
-
+#{c(chatForm inlineUpload)},
 #{c(chatForm beforeInlineCode)},
 #{c(chatForm inlineCode)},
 #{c(chatForm afterInlineCode)} {

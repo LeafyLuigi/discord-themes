@@ -1,22 +1,18 @@
 @use "backend" as *;
 /* Start Embeds */
-:is(
-	#{c(embeds codeblock)},
-	#{c(embeds invite)},
-	#{c(embeds attachment)},
-	#{c(media audioWrapper)},
-	#{c(embeds textContainerUp)},
-	#{c(embeds threadContainer)},
-	#{c(embeds poll container)},
-	#{c(embeds poll finished container)},
-	#{c(embeds gift)},
-	#{c(embeds gameInvite)},
-	#{c(embeds voiceMessage container)}
-) {
-	#{c(main visualRefresh)} &,
-	& {
-		@include card;
-	}
+#{c(embeds codeblock)},
+#{c(embeds invite)},
+#{c(embeds attachment)},
+#{c(media audioWrapper)},
+#{c(embeds textContainerUp)},
+#{c(embeds threadContainer)},
+#{c(embeds poll container)},
+#{c(embeds poll finished container)},
+#{c(embeds gift)},
+#{c(embeds gameInvite)},
+#{c(embeds voiceMessage container)},
+#{c(embeds inviteNew)} {
+	@include card;
 }
 
 #{c(embeds poll header)} #{c(embeds poll question)} {
@@ -48,7 +44,10 @@
 }
 
 #{c(embeds invite)} {
-	:is(#{c(embeds inviteServerIcon)},#{c(embeds inviteServerIconExpired)}) {
+	:is(
+		#{c(embeds inviteServerIcon)},
+		#{c(embeds inviteServerIconExpired)}
+	) {
 		background-color: transparent;
 	}
 }
@@ -58,10 +57,7 @@
 
 #{c(embeds embedFull)} {
 	border-left-color: $primary;
-	#{c(main visualRefresh)} &,
-	& {
-		background: $card;
-	}
+	background: $card;
 	#{c(embeds embedSuppressButton)} {
 		top: 0;
 		right: 0;
@@ -82,7 +78,12 @@
 	opacity: 0.5;
 }
 
-:is(#{c(media barBuffer)},#{c(media barWrapper)},#{c(media barPreview)},#{c(media barProgress)}) {
+:is(
+	#{c(media barBuffer)},
+	#{c(media barWrapper)},
+	#{c(media barPreview)},
+	#{c(media barProgress)}
+) {
 	&:before,
 	&:after {
 		content: none;
@@ -103,11 +104,8 @@
 
 #{c(embeds textContainer)},
 #{c(embeds textFooter)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-		border: none;
-	}
+	background: transparent;
+	border: none;
 }
 
 // #{c(embeds gameInvite)} {
@@ -146,10 +144,7 @@
 
 #{c(embeds gift)} {
 	&:hover {
-		#{c(main visualRefresh)} &,
-		& {
-			background: $card;
-		}
+		background: $card;
 	}
 	#{c(embeds giftInvalidPoop)} {
 		background-color: transparent; // has image
@@ -180,6 +175,8 @@
 		}
 	}
 }
+#{c(embeds inviteNew footerContent)},
+#{c(embeds inviteNew extra wrapper)},
 #{c(embeds voiceMessage ripple)} {
 	// background: $primary;
 	background: transparent;

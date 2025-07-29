@@ -14,10 +14,7 @@
 }
 #{c(modals sticker header)} {
 	box-shadow: none;
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 #{c(modals sticker upsell)} {
 	display: none;
@@ -25,10 +22,7 @@
 #{c(modals sticker packHeader)} {
 	position: unset;
 	top: unset;
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 #{c(modals sticker inspected)} #{c(modals sticker inspectedIndicator)} {
 	mask: none;

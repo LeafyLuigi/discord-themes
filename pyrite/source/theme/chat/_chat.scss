@@ -5,13 +5,10 @@
 	#{c(chat chatLoadingWrapper)},
 	#{c(chat messageLoadingWrapper)}
 ) {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 // border shows up when opening a thread
-#{c(main visualRefresh)} #{c(chat)}[data-has-border=true] {
+#{c(chat)}[data-has-border=true] {
 	border: none;
 }
 #{c(chat chatContent)} {
@@ -22,22 +19,22 @@
 		background: $middle;
 	}
 }
-#{c(main visualRefresh)}#{c(main midnight)} {
-	:is(#{c(chat chatContent)}, #{c(chat subtitleContainer)}) {
+#{c(main midnight)} {
+	:is(
+		#{c(chat chatContent)},
+		#{c(chat subtitleContainer)},
+		#{c(chat page)}
+	) {
 		border-left: none;
 	}
 }
 #{c(chat noChat)}#{c(chat chatContent)} {
 	background: $middle;
 }
-:is(
-	#{c(chat chatScrollerNSFW)},
-	#{c(chat chatContentInner)}
-) {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $middle;
-	}
+
+#{c(chat chatScrollerNSFW)},
+#{c(chat chatContentInner)} {
+	background: $middle;
 }
 
 #{c(chat noChannel)} {
@@ -53,10 +50,7 @@
 	border: none;
 	box-sizing: content-box;
 	border-radius: 8px;
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 	#{c(chat buttonSeparator)} {
 		display: none;
 	}
@@ -98,10 +92,7 @@
 	margin: 0 8px;
 	padding: 2px 10px;
 	flex: 1 1 auto;
-	#{c(main visualRefresh)} &,
-	& {
-		background: $card;
-	}
+	background: $card;
 }
 
 #{c(chat newMessagesBar)} {

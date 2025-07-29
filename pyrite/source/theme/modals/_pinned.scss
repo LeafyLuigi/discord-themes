@@ -1,17 +1,11 @@
 @use "backend" as *;
 #{c(modals pinned messageGroup)} {
 	margin: 0 0 16px;
-	#{c(main visualRefresh)} &,
-	& {	
-		border: none;
-		background: transparent;
-	}
+	background: transparent;
+	border: none;
 }
 #{c(modals pinned jumpButton)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background-color: $card;
-	}
+	background-color: $card;
 }
 #{c(modals pinned actionButtons)} {
 	display: flex;

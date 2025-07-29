@@ -2,10 +2,7 @@
 /* Start Friends Area */
 #{c(friends itemCardSeparator)} {
 	margin: 4px 8px;
-	#{c(main visualRefresh)} &,
-	& {
-		background: $secondary;
-	}
+	background: $secondary;
 }
 // :is(#{c(friends voiceSectionIconWrapper)},#{c(friends partyMemberOverflow)},#{c(friends itemCard)}) {
 // 	&:is(#{c(friends itemCardInteractive)}:hover,#{c(friends itemCardActive)}) {
@@ -13,21 +10,13 @@
 // 	}
 // }
 #{c(friends container)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-		border: none;
-	}
+	background: transparent;
+	border: none;
 }
 #{c(friends tabBody)} {
-	#{c(main visualRefresh)} & {
-		background: transparent;
-	}
+	background: transparent;
 	&:before {
 		content: none;
-	}
-	#{c(main visualRefresh)}#{c(main midnight)} & {
-		border-left: none;
 	}
 }
 // remove "new private group" button in header, "explore public servers" button/header in add friends
@@ -98,21 +87,13 @@
 }
 
 #{c(friends nowPlayingScroller)} {
-	#{c(main visualRefresh)} &,
-	& {
-		border-left: none;
-		margin-left: 0;
-	}
+	border-left: none;
+	margin-left: 0;
 }
-:is(
-	#{c(friends itemCardOuter)},
-	#{c(friends emptyCard)},
-	#{c(friends itemCard)}
-) {
-	#{c(main visualRefresh)} &,
-	& {
-		@include card;
-	}
+#{c(friends itemCardOuter)},
+#{c(friends emptyCard)},
+#{c(friends itemCard)} {
+	@include card;
 }
 #{c(friends emptyCard)} {
 	margin-top: 8px;
@@ -121,10 +102,7 @@
 	padding: 8px;
 	&#{c(friends itemCardInteractive)}:hover,
 	&#{c(friends itemCardActive)} {
-		#{c(main visualRefresh)} &,
-		& {
-			background: $card;
-		}
+		background: $card;
 	}
 	#{c(friends itemCardBody)} {
 		background: transparent;

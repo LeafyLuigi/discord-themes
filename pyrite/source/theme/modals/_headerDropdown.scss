@@ -5,14 +5,8 @@
 #{c(modals inbox forYou container)} {
 	top: 4px;
 	backdrop-filter: blur(calc($blur * 5px));
-	#{c(main visualRefresh)} &,
-	& {
-		background: $modal;
-	}
+	background: $modal;
 }
 #{c(modals headerDropdown header)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }

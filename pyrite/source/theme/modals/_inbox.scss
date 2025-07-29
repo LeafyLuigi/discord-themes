@@ -9,19 +9,13 @@
 	padding: 12px 16px 0;
 	position: unset;
 	top: unset;
-	#{c(main visualRefresh)} &,
-	& {	
-		background: transparent;
-	}
+	background: transparent;
 }
 #{c(modals inbox mentions messageContainer)} {
 	margin: 0;
 	padding: 0;
-	#{c(main visualRefresh)} &,
-	& {	
-		background: transparent;
-		border: none;
-	}
+	background: transparent;
+	border: none;
 }
 #{c(modals inbox roundButton)} {
 	background: $primary;
@@ -46,10 +40,7 @@
 }
 
 #{c(modals inbox forYou bodyContainer)} {
-	#{c(main visualRefresh)} &,
-	& {	
-		background: transparent;
-	}
+	background: transparent;
 }
 
 // This box shows up when you've got shit unread but haven't clicked the button inside it. Doesn't add anything.
@@ -66,20 +57,14 @@
 
 #{c(modals inbox jumpButton)} {
 	opacity: 1;
-	#{c(main visualRefresh)} &,
-	& {	
-		background: $card;
-	}
+	background: $card;
 }
 
 
 #{c(modals inbox unread messages)} {
 	border-radius: unset;
-	#{c(main visualRefresh)} &,
-	& {	
-		background: transparent;
-		border: none;
-	}
+	background: transparent;
+	border: none;
 }
 #{c(modals inbox unread mentionBadge)} {
 	background: $primary;

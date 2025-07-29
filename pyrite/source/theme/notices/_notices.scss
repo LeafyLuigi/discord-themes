@@ -32,10 +32,7 @@ $nc: var(--notice-count, 0);
 }
 
 #{c(notice)} {
-	#{c(main visualRefresh)} &,
-	& {
-		border: none;
-	}
+	border: none;
 }
 
 // It works somehow lol

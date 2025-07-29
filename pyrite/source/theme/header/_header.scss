@@ -2,16 +2,10 @@
 /* Start Header */
 // file also includes top bar that gets removed by the theme
 #{c(header)} {
-	#{c(main visualRefresh)} &,
-	& {
-		border: none;
-	}
+	border: none;
 	&#{c(header themed)} {
 		z-index: 1010;
-		#{c(main visualRefresh)} &,
-		& {
-			background: $header;
-		}
+		background: $header;
 	}
 }
 #{c(header input)} {
@@ -124,24 +118,18 @@
 
 // add friend header bar button
 #{c(header tabBar)} #{c(header tabBarItem)}#{c(header addFriend)}#{c(header addFriend)}#{c(header addFriend)} {
-	#{c(main visualRefresh)} &,
-	& {
-		&:hover {
-			background: $hover;
-		}
-		&[aria-selected=true] {
-			background: rgb(from $primary r g b / 0.2);
-			color: $primary;
-		}
+	&:hover {
+		background: $hover;
+	}
+	&[aria-selected=true] {
+		background: rgb(from $primary r g b / 0.2);
+		color: $primary;
 	}
 }
 
 // Hide Help icon. Can be accessed by pressing F1.
 #{c(topBar bar)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $header;
-	}
+	background: $header;
 }
 #{c(topBar trailing container)} #{c(main anchorLink)}[href="https://support.discord.com"] {
 	display: none;
@@ -151,85 +139,76 @@
 #{c(main base)}:has(>#{c(topBar bar)}>#{c(topBar trailing container)}>#{c(topBar trailing button)}) {
 	--extra-icons: 1;
 }
-#{c(main visualRefresh)} {
+// z-index so it matches the header bar
+#{c(topBar bar)} {
+	z-index: 1011;
+}
+// remove the centre part with the name and icon
+#{c(topBar title container)} {
+	display: none;
+}
+:root {
 	--custom-app-top-bar-height: 0px; // for removing top bar
-	// icon for margin-right; this must be done differently for windows
+}
+// icon for margin-right; this must be done differently for windows
+#{c(chat layerWrapper)},
+#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+	#{c(header toolbar)} {
+		margin-right: calc(32px + var(--space-xs) + (var(--extra-icons,0) * 32px));
+	}
+}
+#{c(os win)} {
 	#{c(chat layerWrapper)},
 	#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
 		#{c(header toolbar)} {
-			margin-right: calc(32px + var(--space-xs) + (var(--extra-icons,0) * 32px));
+			// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
+			margin-right: calc(32px + var(--space-xs) + (var(--extra-icons,0) * 32px) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+		}
+		// #{c(header headerTitle)} {
+		// 	// -webkit-app-region: drag;
+		// 	// padding-right: calc(var(--space-xs) + 32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+		// }
+	}
+}
+// windows only stuff
+#{c(os win)} {
+	#{c(topBar trailing winButtons)} {
+		gap: 0;
+		&::before {
+			content: none;
 		}
 	}
-	&#{c(os win)} {
-		#{c(chat layerWrapper)},
-		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
-			#{c(header toolbar)} {
-				// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
-				margin-right: calc(32px + var(--space-xs) + (var(--extra-icons,0) * 32px) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
-			}
-			// #{c(header headerTitle)} {
-			// 	// -webkit-app-region: drag;
-			// 	// padding-right: calc(var(--space-xs) + 32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
-			// }
-		}
+	#{c(topBar trailing winButton)} {
+		width: var(--win-min-max-close-button-width);
+		height: 48px;
 	}
-	// z-index so it matches the header bar
+	#{c(topBar trailing recentsIcon)} {
+		right: var(--space-xs);
+	}
+}
+// windows and mac
+:is(#{c(os win)}, #{c(os mac)}) {
+	#{c(topBar trailing container)} {
+		gap: 0;
+	}
+	:not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {
+		top: 24px;
+	}
 	#{c(topBar bar)} {
-		z-index: 1011;
+		@include bg($top:0,$bottom:null,$right:0,$left:0,$h:28px,$war:drag,$z:2);
 	}
-	// remove the centre part with the name and icon
-	#{c(topBar title container)} {
-		display: none;
+	// make sure shit is still clickable
+	:is(
+		#{c(header title)},
+		#{c(sidebar server header clickable)}
+	) {
+		-webkit-app-region: no-drag;
 	}
-	// windows only stuff
-	&#{c(os win)} {
-		#{c(topBar trailing winButtons)} {
-			gap: 0;
-			&::before {
-				content: none;
-			}
-		}
-		#{c(topBar trailing winButton)} {
-			width: var(--win-min-max-close-button-width);
-			height: 48px;
-		}
-		#{c(topBar trailing recentsIcon)} {
-			right: var(--space-xs);
-		}
-	}
-	// windows and mac
-	&:is(#{c(os win)}, #{c(os mac)}) {
-		#{c(topBar trailing container)} {
-			gap: 0;
-		}
-		:not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {
-			top: 24px;
-		}
-		#{c(topBar bar)} {
-			@include bg($top:0,$bottom:null,$right:0,$left:0,$h:28px,$war:drag,$z:2);
-		}
-		// make sure shit is still clickable
-		:is(
-			#{c(header title)},
-			#{c(sidebar server header clickable)}
-		) {
-			-webkit-app-region: no-drag;
-		}
-	}
-	// linux and web
-	&:is(#{c(os linux)}, #{c(os web)}) {
-		#{c(topBar trailing recentsIcon)} {
-			position: absolute;
-			top: 8px;
-		}
-	}
-	// linux, web and mac
-	:is(#{c(os linux)}, #{c(os web)}, #{c(os mac)}) {
-		#{c(chat layerWrapper)},
-		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
-			#{c(header headerTitle)} {
-				padding-right: calc(var(--space-xs) + 32px);
-			}
-		}
+}
+// linux and web
+:is(#{c(os linux)}, #{c(os web)}) {
+	#{c(topBar trailing recentsIcon)} {
+		position: absolute;
+		top: 8px;
 	}
 }

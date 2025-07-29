@@ -38,18 +38,12 @@
 
 #{c(modals emoji header)},
 #{c(modals emoji picker)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 #{c(modals emoji categoryHeader)} {
 	position: unset;
 	top: unset;
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 #{c(modals emoji wrapper)} {
 	background: $modal;

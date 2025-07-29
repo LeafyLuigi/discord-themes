@@ -3,27 +3,18 @@
 #{c(membersPage container)} {
 	background: transparent;
 }
-#{c(main visualRefresh)} #{c(membersPage header)} {
+#{c(membersPage header)} {
 	height: var(--custom-channel-header-height);
 }
 #{c(membersPage page)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent !important; // !important reason: discord uses important
-	}
+	background: transparent !important; // !important reason: discord uses important
 }
 #{c(membersPage mainTableContainer)} {
 	box-shadow: none;
-	#{c(main visualRefresh)} &,
-	& {
-		background: $card;
-	}
+	background: $card;
 }
 #{c(membersPage page)}>#{c(scroller base)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $middle;
-	}
+	background: $middle;
 }
 // #{c(membersPage scroller)} {
 // 	background: $middle;

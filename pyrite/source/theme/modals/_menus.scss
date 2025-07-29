@@ -1,10 +1,7 @@
 @use "backend" as *;
 #{c(modals menus menu)} {
 	max-height: 80vh;
-	#{c(main visualRefresh)} &,
-	& {
-		@include menu;
-	}
+	@include menu;
 }
 // profile "status" has an inner menu. the not allows the submenus to work
 #{c(profile status accountProfilePopoutWrapper)} #{c(modals menus menu)}:not(#{c(modals menus submenu)}) {

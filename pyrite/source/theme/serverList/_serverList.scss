@@ -1,16 +1,13 @@
 @use "backend" as *;
 /* Start Server List */
 #{c(serverList wrapper)} {
-	#{c(main visualRefresh)}#{c(main refreshFastFollowBackground)} &,
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
-	#{c(main visualRefresh)} & {
-		margin-bottom: var(--custom-app-panels-height,0);
-	}
+	margin-bottom: var(--custom-app-panels-height,0);
+	background: transparent;
 	&:focus {
 		outline: 0;
+	}
+	#{c(main refreshFastFollowBackground)} & {
+		background: transparent;
 	}
 }
 
@@ -37,15 +34,24 @@
 		background-color: $card;
 		transition: background-color .1s ease-out,color .1s ease-out,border-radius 0.1s ease-out;
 	}
-	&:is(#{c(serverList selected)},:hover) {
+	&:is(
+		#{c(serverList selected)},
+		:hover
+	) {
 		#{c(serverList iconChildWrapper)} {
 			background-color: $primary;
 		}
-		:is(#{c(serverList serverIcon)},#{c(serverList iconChildWrapper)}) {
+		:is(
+			#{c(serverList serverIcon)},
+			#{c(serverList iconChildWrapper)}
+		) {
 			border-radius: 33%;
 		}
 	}
-	:is(#{c(serverList serverIcon)},#{c(serverList iconChildWrapper)}) {
+	:is(
+		#{c(serverList serverIcon)},
+		#{c(serverList iconChildWrapper)}
+	) {
 		border-radius: 50%;
 		transition: border-radius 0.1s;
 	}
@@ -65,7 +71,10 @@
 	background-color: $primary;
 }
 
-:is(#{c(serverList dragCenterTarget)},#{c(serverList dragTarget)})#{c(serverList dragOver)}:before {
+:is(
+	#{c(serverList dragCenterTarget)},
+	#{c(serverList dragTarget)}
+)#{c(serverList dragOver)}:before {
 	background-color: $green; //moving bar thing
 }
 
@@ -76,7 +85,10 @@
 			filter: var(--home-icon-filter);
 			color: transparent;
 		}
-		&:is(#{c(serverList selected)},:hover) {
+		&:is(
+			#{c(serverList selected)},
+			:hover
+		) {
 			#{c(serverList iconChildWrapper)} {
 				background-color: $primary;
 			}

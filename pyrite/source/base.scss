@@ -24,6 +24,18 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--focus-primary: #{v(focus-primary)}; // tab around wheeee
 	--hide-fallback-enabled: #{v(hide-fallback-enabled)}; // used for hidable elements, default "hidden"
 	--hide-fallback-disabled: #{v(hide-fallback-disabled)}; // used for hidable elements, default visible
+	
+	// new button styles
+	--control-background-primary-default: #{v(btn-background-primary-default)};
+	--control-border-primary-default: #{v(btn-border-primary-default)};
+	// --control-text-primary-default: #{v(btn-text-primary-default)};
+	--control-background-primary-hover: #{v(btn-background-primary-hover)};
+	--control-border-primary-hover: #{v(btn-border-primary-hover)};
+	// --control-text-primary-hover: #{v(btn-text-primary-hover)};
+	--control-background-primary-active: #{v(btn-background-primary-active)};
+	--control-border-primary-active: #{v(btn-border-primary-active)};
+	// --control-text-primary-active: #{v(btn-text-primary-active)};
+
 	// hsl stuff, don't worry about it.
 	--hsl-tooltip-color: hsl(from var(--tooltip-color) #{$hslColor});
 	--hsl-primary-color: hsl(from var(--primary-color) #{$hslColor});
@@ -205,36 +217,31 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--text-danger: #{v(dl-text-danger)};
 }
 
-#{c(main visualRefresh)} {
-	&#{c(main light)},
-	&#{c(main dark)},
-	&#{c(main darker)},
-	&#{c(main midnight)},
-	#{c(main light)},
-	#{c(main dark)},
-	#{c(main darker)},
-	#{c(main midnight)} {
-		// force set by theme
-		--text-positive: #{v(text-positive)};
-		--text-warning: #{v(text-warning)};
-		--text-link: #{v(text-link)};
-		--text-brand: #{v(text-brand)};
-		--background-message-hover: #{v(background-message-hover)};
-		--background-mentioned: #{v(background-mentioned)};
-		--background-mentioned-hover: #{v(background-mentioned-hover)};
-		--channel-icon: #{v(channel-icon)};
+#{c(main light)},
+#{c(main dark)},
+#{c(main darker)},
+#{c(main midnight)} {
+	// force set by theme
+	--text-positive: #{v(text-positive)};
+	--text-warning: #{v(text-warning)};
+	--text-link: #{v(text-link)};
+	--text-brand: #{v(text-brand)};
+	--background-message-hover: #{v(background-message-hover)};
+	--background-mentioned: #{v(background-mentioned)};
+	--background-mentioned-hover: #{v(background-mentioned-hover)};
+	--channel-icon: #{v(channel-icon)};
 
-		--input-background: var(--hsl-card-background);
-		--modal-background: var(--hsl-card-background);
-		--modal-footer-background: transparent;
-		--scrollbar-auto-scrollbar-color-thumb: var(--hsl-primary-color);
-		--scrollbar-auto-scrollbar-color-track: transparent;
-		--scrollbar-auto-thumb: var(--hsl-primary-color);
-		--scrollbar-auto-track: transparent;
-		--scrollbar-thin-thumb: var(--hsl-primary-color);
-		--background-code: var(--hsl-card-background);
-	}
+	--input-background: var(--hsl-card-background);
+	--modal-background: var(--hsl-card-background);
+	--modal-footer-background: transparent;
+	--scrollbar-auto-scrollbar-color-thumb: var(--hsl-primary-color);
+	--scrollbar-auto-scrollbar-color-track: transparent;
+	--scrollbar-auto-thumb: var(--hsl-primary-color);
+	--scrollbar-auto-track: transparent;
+	--scrollbar-thin-thumb: var(--hsl-primary-color);
+	--background-code: var(--hsl-card-background);
 }
+
 // REMOVE SHADOWS
 #{c(main light)},
 #{c(main dark)},

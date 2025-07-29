@@ -4,17 +4,12 @@
 #{c(sidebar panel container)} {
 	background: transparent;
 }
-:is(
-	#{c(sidebar server container)},
-	// #{c(sidebar panel container)},
-	// #{c(sidebar panel voice container)},
-	#{c(sidebar panel activity activityPanel)}
-	// #{c(sidebar panel content)}
-) {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+#{c(sidebar server container)},
+// #{c(sidebar panel container)},
+// #{c(sidebar panel voice container)},
+// #{c(sidebar panel content)},
+#{c(sidebar panel activity activityPanel)} {
+	background: transparent;
 }
 
 // Base
@@ -42,27 +37,19 @@
 	@include bg($bg:$side,$top:48px,$w:240px);
 	@include bg2($bg:$header,$h:48px,$w:240px,$z:1001);
 	
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
-	#{c(main visualRefresh)} & {
-		&::before,
-		&::after {
-			content: none;
-		}
+	background: transparent;
+	&::before,
+	&::after {
+		content: none;
 	}
 	#{c(serverList servers)}#{c(serverList hidden)} + & {
 		height: 100vh;
 	}
 }
 #{c(sidebar list)} {
-	#{c(main visualRefresh)} &,
-	& {
-		overflow: visible;
-		border: none;
-		border-radius: 0;
-	}
+	overflow: visible;
+	border: none;
+	border-radius: 0;
 }
 // #{c(os mac)} {
 // 	#{c(sidebar)}::after {
@@ -71,10 +58,7 @@
 // }
 // Area - Friends List
 #{c(sidebar private channels)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 	#{c(sidebar private inviteButtonIcon)} {
 		color: var(--interactive-normal);
 		order: -1;
@@ -88,19 +72,14 @@
 	background: $header;
 	z-index: 1010;
 	box-shadow: none;
-	#{c(main visualRefresh)} & {
-		box-sizing: content-box; // revert border-box
-		// remove that fucking button colour
-		#{c(button lookFilled)}#{c(button colorPrimary)} {
-			background: transparent;
-			&::before {
-				content: none;
-			}
+	border: none;
+	box-sizing: content-box; // revert border-box
+	// remove that fucking button colour
+	#{c(button lookFilled)}#{c(button colorPrimary)} {
+		background: transparent;
+		&::before {
+			content: none;
 		}
-	}
-	#{c(main visualRefresh)} &,
-	& {
-		border: none;
 	}
 	#{c(sidebar private searchBarComponent)} {
 		-webkit-app-region: no-drag;
@@ -108,13 +87,8 @@
 	}
 }
 #{c(sidebar private scroller)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $side;
-	}
-	#{c(main visualRefresh)} & {
-		margin-bottom: var(--custom-app-panels-height,0);
-	}
+	background: $side;
+	margin-bottom: var(--custom-app-panels-height,0);
 }
 #{c(sidebar private link)}:is([href="/store"],[href="/library"],[href="/shop"]),
 #{c(sidebar private channelBadgeIcon)} {
@@ -139,7 +113,7 @@
 	}
 }
 // Area - Servers
-#{c(main visualRefresh)} #{c(sidebar server container)} {
+#{c(sidebar server container)} {
 	margin-left: 0; // remove a single dark pixel for notices.
 }
 #{c(scroller content)} {
@@ -171,17 +145,12 @@
 	}
 }
 #{c(sidebar server scroller)} {
-	#{c(main visualRefresh)} & {
-		margin-bottom: 0;
-		margin-right: 0;
-	}
-	#{c(main visualRefresh)} &,
-	& {
-		background: $side;
-	}
+	margin-bottom: 0;
+	margin-right: 0;
+	background: $side;
 }
 #{c(sidebar server channel modeUnreadImportant)} {
-	#{c(main visualRefresh)} & #{c(sidebar server channel icon)} {
+	#{c(sidebar server channel icon)} {
 		color: inherit;
 	}
 	#{c(sidebar server channel unreadBlob)} {
@@ -190,10 +159,9 @@
 }
 #{c(sidebar server header header)} {
 	z-index: 1010;
-	#{c(main visualRefresh)} & {
-		border-radius: 0;
-	}
-	#{c(main visualRefresh)} #{c(sidebar server header hasBanner)} & {
+	border-radius: 0;
+	border: none;
+	#{c(sidebar server header hasBanner)} & {
 		border: none;
 	}
 	#{c(sidebar server header hasBanner)} &,
@@ -202,10 +170,6 @@
 	}
 	#{c(sidebar server header bannerVisible)} & {
 		filter: none;
-	}
-	#{c(main visualRefresh)} &,
-	& {
-		border: none;
 	}
 }
 #{c(sidebar server channel voice avatarSpeaking)},
@@ -225,20 +189,15 @@
 
 // Panels
 #{c(sidebar panel panels)} {
-	#{c(main visualRefresh)} & {
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		box-shadow: none;
-	}
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	box-shadow: none;
+	background: $side;
+	border: none;
+	border-radius: 0;
 	#{c(sidebar panel username)} {
 		@include header;
-	}
-	#{c(main visualRefresh)} &,
-	& {
-		background: $side;
-		border: none;
-		border-radius: 0;
 	}
 	:is(
 		// #{c(sidebar panel container)} #{c(sidebar panelButtonRow)},
@@ -251,16 +210,10 @@
 }
 #{c(sidebar panel buttons buttons)} {
 	background: transparent;
-	// border: 1px solid $middle;
 	box-sizing: content-box;
 	border-radius: 8px;
-	#{c(main visualRefresh)} & {
-		gap: 0;
-	}
-	#{c(main visualRefresh)} &,
-	& {
-		border: none;
-	}
+	gap: 0;
+	border: none;
 	#{c(sidebar panel buttons button)} {
 		@include bg($bg:$primary,$o:.6);
 		&:last-child::before {
@@ -306,34 +259,22 @@
 }
 
 #{c(sidebar server channel voiceLimitWrapper)} {
-	#{c(main visualRefresh)} &,
-	& {
-		height: 20px; // force it :)
-		line-height: 20px;
-		background: $card;
-		border: none;
-	}
+	height: 20px; // force it :)
+	line-height: 20px;
+	background: $card;
+	border: none;
 }
 #{c(sidebar server channel voiceLimitUsers)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 }
 #{c(sidebar server channel voiceLimitTotal)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 	&::after {
 		content: "/";
 		width: auto;
 		height: auto;
-		#{c(main visualRefresh)} &,
-		& {
-			left: -6px;
-			border: none;
-		}
+		left: -6px;
+		border: none;
 	}
 }
 
@@ -351,7 +292,8 @@
 }
 
 #{c(sidebar private interactive)} {
-	&:hover,&:focus-within {
+	&:hover,
+	&:focus-within {
 		background: var(--background-modifier-hover);
 	}
 	&:active {
@@ -421,28 +363,29 @@
 	}
 }
 
+#{c(sidebar boostBar progressContainer)} {
+	background: $card;
+}
+
 // // Hide Sidebar
-// #{c(sidebar)} {
-// 	#{c(main visualRefresh)} &,
-// 	& {
-// 		width: calc(var(--custom-guild-sidebar-width,240px) - (168px * var(--hide-channel-list, 0)));
-// 		transition: var(--hide-speed, 0.5s) width ease-out;
-// 		&:hover,&:focus-within {
-// 			width: var(--custom-guild-sidebar-width,240px);
-// 			&::before,
-// 			&::after {
-// 				width: var(--custom-guild-sidebar-width,240px);
-// 			}
-// 		}
+// #{c(sidebar list)} {
+// 	width: calc(var(--custom-guild-sidebar-width,240px) - (168px * var(--hide-channel-list, 0)));
+// 	transition: var(--hide-speed, 0.5s) width ease-out;
+// 	&:hover,&:focus-within {
+// 		width: var(--custom-guild-sidebar-width,240px);
 // 		&::before,
 // 		&::after {
-// 			transition: var(--hide-speed, 0.5s) width ease-out;
-// 			width: calc(var(--custom-guild-sidebar-width,240px) - (168px * var(--hide-channel-list, 0)));
+// 			width: var(--custom-guild-sidebar-width,240px);
 // 		}
+// 	}
+// 	&::before,
+// 	&::after {
+// 		transition: var(--hide-speed, 0.5s) width ease-out;
+// 		width: calc(var(--custom-guild-sidebar-width,240px) - (168px * var(--hide-channel-list, 0)));
 // 	}
 // }
 
-// // notices (ie "how to use quickswitch", "boost this server" etc) and event notices
+// notices (ie "how to use quickswitch", "boost this server" etc) and event notices
 // #{c(sidebar notice container)} {
 // 	width: 240px;
 // }

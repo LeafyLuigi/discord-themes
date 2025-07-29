@@ -1,15 +1,9 @@
 @use "backend" as *;
 #{c(modals quickswitch modal)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $modal;
-	}
+	background: $modal;
 }
 #{c(modals quickswitch scroller)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: transparent;
-	}
+	background: transparent;
 	&::-webkit-scrollbar-track {
 		background: transparent !important; // !important reason: discord uses important
 	}

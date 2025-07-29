@@ -9,8 +9,8 @@
 	background: transparent;
 }
 #{c(modals createEvent previewCard)} {
-	:is(#{c(main dark)}, #{c(main light)}) &, // old style has dark/light for some reason
-	#{c(main visualRefresh)} & {
+	// old style has dark/light for some reason
+	:is(#{c(main dark)}, #{c(main light)}) & {
 		background: $card;
 		border-color: $primary;
 	}

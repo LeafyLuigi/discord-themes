@@ -7,10 +7,7 @@
 	z-index: 2000;
 }
 #{c(tooltips pointer)} {
-	#{c(main visualRefresh)} &,
-	& {
-		display: none;
-	}
+	display: none !important; // !important reason: despite being display none, it still shows up for some reason.
 }
 #{c(tooltips black)},
 #{c(tooltips brand)},

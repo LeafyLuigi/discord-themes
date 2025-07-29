@@ -32,3 +32,7 @@ The class list is a large SCSS map with the ability to call sub-maps (_ie #{c(fo
 Within the `package.json` file, you'll find some bash commands. It's a mess and needs updating like finding a way to make them all work without manually adding (or removing) a command (or 5) to the file per theme. To add to this, follow what's already there and add to `copyClasses`, `test` and `build`. You'll also need to add the following folder to the theme you want to add: `$themeName/source/classes` as the `cp` command may not make a directory should it doesn't exist. The `_classes.scss` file could probably be renamed to `_index.scss` and likely wouldn't change all too much. Most `_index.scss` files are only redirects anyway.
 
 The classes list uses a format of `#{c($category $class)}` where both `$category` and `$class` are descriptive. It also adds a preceding `.` to the class name upon `test` or `build`, meaning IDs (which use #) and HTML elements can't be used for the initial character. That syntax also causes an error if the file you're editing lacks `@use "classes" as *;`, the classes file hasn't been called _at all_ or whatever being used in place of `"classes"` (in Pyrite's case this is "backend") hasn't been used as *.
+
+## Contributing
+
+Feel free to contribute, however, use of AI in any way, including GitHub's stupid built-in copilot slop machine will NOT be considered.

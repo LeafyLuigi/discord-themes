@@ -1,15 +1,11 @@
 @use "backend" as *;
 #{c(pages tags pill)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $card;
-		border: 1px solid $primary;
-		&:is(
-			#{c(pages tags selected)},
-			:hover
-		):not(#{c(pages tags disabled)}) {
-			background: rgb(from $primary r g b / .15);
-		}
+	background: $card;
+	border: 1px solid $primary;
+	&:is(
+		#{c(pages tags selected)},
+		:hover
+	):not(#{c(pages tags disabled)}) {
+		background: rgb(from $primary r g b / .15);
 	}
-
 }

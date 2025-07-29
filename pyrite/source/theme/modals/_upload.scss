@@ -43,11 +43,8 @@
 }
 
 #{c(modals upload modify modal)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $modal;
-		backdrop-filter: blur(calc($blur * 5px));
-	}
+	background: $modal;
+	backdrop-filter: blur(calc($blur * 5px));
 	#{c(modals upload modify footer)} {
 		background: transparent;
 	}

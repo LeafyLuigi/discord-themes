@@ -1,25 +1,18 @@
 @use "backend" as *;
 /* Browse Channels page */
-:is(
-	// #{c(pages container)},
-	// #{c(pages customise scrollerContainer)},
-	#{c(pages customise emptyPage)}
-) {
+// #{c(pages container)},
+// #{c(pages customise scrollerContainer)},
+#{c(pages customise emptyPage)} {
 	background: transparent;
 }
 #{c(pages header container)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $middle !important; // !important reason: override existing !important
-	}
+	background: $middle !important; // !important reason: override existing !important
 }
 #{c(pages header)} {
-	#{c(main visualRefresh)} &,
-	& {
-		background: $header !important; // !important reason: override existing !important
-	}
+	background: $header !important; // !important reason: override existing !important
 }
 
+#{c(pages customise prompt)},
 #{c(pages channelsDismissible container)} {
 	@include card;
 }
@@ -29,17 +22,12 @@
 
 #{c(pages channels channelRow)} {
 	color: var(--text-default); // this is only here because i'm lazy with the icons, of which they broke this section
-	&,&:hover:not(#{c(pages channels disabled)}) {
+	&,
+	&:hover:not(#{c(pages channels disabled)}) {
 		background: $card;
 	}
 }
 
-#{c(pages customise prompt)} {
-	#{c(main visualRefresh)} &,
-	& {
-		@include card;
-	}
-}
 #{c(pages customise profileCard)} {
 	background: $card;
 }
