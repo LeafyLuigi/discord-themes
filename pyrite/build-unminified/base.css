@@ -3168,7 +3168,6 @@ html {
 .membersWrap_c8ffbb {
   background: transparent;
   min-width: auto;
-  flex-basis: 0px;
 }
 
 .members_c8ffbb {
@@ -4651,10 +4650,12 @@ html {
   background-color: var(--hsl-card-background);
   transition: background-color 0.1s ease-out, color 0.1s ease-out, border-radius 0.1s ease-out;
 }
-.wrapper__6e9f8:is(.selected__6e9f8, :hover) .childWrapper__6e9f8 {
+.wrapper__6e9f8:is(.selected__6e9f8,
+:hover) .childWrapper__6e9f8 {
   background-color: var(--hsl-primary-color);
 }
-.wrapper__6e9f8:is(.selected__6e9f8, :hover) :is(.icon__6e9f8,
+.wrapper__6e9f8:is(.selected__6e9f8,
+:hover) :is(.icon__6e9f8,
 .childWrapper__6e9f8) {
   border-radius: 33%;
 }
