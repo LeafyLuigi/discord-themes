@@ -176,7 +176,11 @@
 #{c(avatar speaking)} {
 	box-shadow: inset 0 0 0 2px $primary;
 }
-
+#{c(sidebar loadingAnimationContainer)} {
+	padding-top: calc(48px + 16px); // 48 for top bar, 16 from original css rule
+	@include bg($bg:$header,$h:48px);
+	@include bg2($bg:$side,$top:48px);
+}
 #{c(sidebar loadingCategory)},
 #{c(sidebar loadingChannelIcon)},
 #{c(sidebar loadingChannelName)} {
