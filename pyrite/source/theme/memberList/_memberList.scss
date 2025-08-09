@@ -60,15 +60,16 @@
 
 // For each of the colors, the variable used (excluding `var(--...)`) should be the first value then the colors for each saturation value.
 // 
-// attempting to find what colour is what via the js files (2025-04-28)
+// attempting to find what colour is what via the js files (2025-07-28)
 // online uses GREEN_NEW_38, idle is YELLOW_NEW_30, dnd is RED_NEW_46, streaming uses twitch's default colour and invis+offline+"unknown" uses NEUTRAL_34
 // these default values are:
-// GREEN_NEW_38: hsl(134.694 43.363% 44.314%) => #40a258
-// YELLOW_NEW_30: hsl(34.219 55.652% 54.902%) => #cc954c
-// RED_NEW_46: hsl(357.342 66.949% 53.725%) => #d83a41
+// GREEN_NEW_38: hsl(134.526 41.485% 44.902%) => #43a25a
+// YELLOW_NEW_30: hsl(33.559 52.679% 56.078%) => #ca9654
+// RED_NEW_46: hsl(356.962 66.949% 53.725%) => #d83a42
 // TWITCH: hsl(264.13 100% 63.922%) => #9147ff
 // NEUTRAL_34: hsl(233.333 3.734% 52.745%) => #82838b
 // 
+// (below uses old values for green)
 // with saturation-factor involved, the middle value is multiplied by 1,.95,.9,.85,...,.1,.05,0.
 // this then obviously changes the hex value. using #40a258 and .95 as an example, the hsl becomes hsl(134.694 41.19485% 44.314%) => #42a059
 // this is *exactly* what we see for that example.
@@ -90,12 +91,13 @@
 @function colorToHexStr($color) {
 	@return string.to-lower-case("#"+string.slice(color.ie-hex-str($color),4,-1));
 }
+// (this uses an old value for green)
 // @debug colorToHexStr(alterSat(#40a258,0.95)); // expected #42a059
 
 $allColors: (
-	"hsl-green-color": #40a258,
-	"hsl-yellow-color": #cc954c,
-	"hsl-red-color": #d83a41,
+	"hsl-green-color": #43a25a,
+	"hsl-yellow-color": #ca9654,
+	"hsl-red-color": #d83a42,
 	"hsl-live-color": #9147ff,
 	"hsl-offline-color": #82838b,
 );
@@ -120,7 +122,11 @@ $allColors: (
 	}
 	$listFill: string.slice($listFill,1,-2)+")"; // remove last comma and close list
 	$listBackground: string.slice($listBackground,1,-2)+")"; // remove last comma and close list
-	:is(#{c(avatar pointerEvents)},#{c(avatar mask)}>svg>rect,#{c(avatar cursorDefault)}>rect) {
+	:is(
+		#{c(avatar pointerEvents)},
+		#{c(avatar mask)}>svg>rect,
+		#{c(avatar cursorDefault)}>rect
+	) {
 		&#{$listFill} {
 			fill: var(--#{$var});
 		}
