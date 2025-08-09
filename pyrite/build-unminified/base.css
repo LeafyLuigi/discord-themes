@@ -221,7 +221,10 @@ body) {
 :is(.platform-linux, .platform-web) .tree_ef3116 {
   top: 48px;
   position: relative;
-  height: calc(100vh - 48px);
+  height: calc(100vh - 48px - var(--custom-app-panels-height, 0px));
+}
+:is(.platform-linux, .platform-web) .unreadMentionsIndicatorTop_ef3116 {
+  top: 48px;
 }
 
 /* show/hide for side-panels */
@@ -4671,7 +4674,7 @@ html {
   border-radius: 50%;
   transition: color 0.15s ease-out, background-color 0.15s ease-out, border-radius 0.15s;
 }
-.circleIconButton__5bc7e.selected__5bc7e {
+.circleIconButton__5bc7e.selected__5bc7e, .circleIconButton__5bc7e:hover:not(.disabled__5bc7e) {
   background-color: var(--hsl-primary-color);
   border-radius: 33%;
 }

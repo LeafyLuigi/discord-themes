@@ -42,7 +42,7 @@
 	&::after {
 		content: none;
 	}
-	#{c(serverList servers)}#{c(serverList hidden)} + & {
+	#{c(serverList)}#{c(serverList hidden)} + & {
 		height: 100vh;
 	}
 }

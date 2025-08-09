@@ -142,12 +142,12 @@ html, // because maybe?
 	#{c(sidebar)} {
 		border-radius: 0;
 	}
-	#{c(serverList servers)} {
+	#{c(serverList)} {
 		margin-top: 48px;
 		overflow: visible;
 		@include bg($z:1010,$bg:$header,$w:72px,$h:48px,$top:-48px);
 	}
-	#{c(serverList servers)}::after {
+	#{c(serverList)}::after {
 		content: none;
 	}
 }
@@ -200,13 +200,16 @@ html, // because maybe?
 	#{c(serverList scroller)} {
 		padding: 4px 0 0 0;
 	}
-	#{c(serverList servers)} {
+	#{c(serverList)} {
 		@include bg($bg:$header,$w:100%,$h:48px,$z:1010);
 	}
 	#{c(serverList tree)} {
 		top: 48px;
 		position: relative;
-		height: calc(100vh - 48px);
+		height: calc(100vh - 48px - var(--custom-app-panels-height,0px));
+	}
+	#{c(serverList unreadMentionsBar top)} {
+		top: 48px;
 	}
 }
 

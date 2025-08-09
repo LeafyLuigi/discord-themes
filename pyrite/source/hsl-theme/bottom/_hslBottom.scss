@@ -23,7 +23,7 @@
 	top: 0;
 	bottom: var(--server-container);
 }
-#{c(serverList servers)} {
+#{c(serverList)} {
 	transform-origin: 0 100%;
 	top: unset;
 	left: 100vw;
@@ -38,7 +38,7 @@
 	bottom: calc(var(--server-size) / -1 + var(--server-size) / 2 - 8px);
 }
 #{c(os win)} {
-	#{c(serverList servers)} {
+	#{c(serverList)} {
 		// margin-top: 0;
 		top: unset;
 		// height: calc(100vw - (3 * var(--win-min-max-close-button-width)));

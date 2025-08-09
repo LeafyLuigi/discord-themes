@@ -19,10 +19,10 @@
 }
 
 #{c(serverList folder)},
-#{c(serverList folder)}#{c(serverList folderHover)} {
+#{c(serverList folder)}#{c(serverList folder hover)} {
 	background: transparent;
 }
-#{c(serverList expandedFolderBackground)} {
+#{c(serverList folder expandedFolderBackground)} {
 	background: $card;
 }
 #{c(serverList serverWrapperSimple)} {
@@ -61,7 +61,8 @@
 	color: $primary;
 	border-radius: 50%;
 	transition: color .15s ease-out,background-color .15s ease-out,border-radius 0.15s;
-	&#{c(serverList addServerSelected)} {
+	&#{c(serverList addServer selected)},
+	&:hover:not(#{c(serverList addServer disabled)}) {
 		background-color: $primary;
 		border-radius: 33%;
 	}
