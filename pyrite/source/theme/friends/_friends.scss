@@ -1,14 +1,14 @@
 @use "backend" as *;
+
 /* Start Friends Area */
-#{c(friends itemCardSeparator)} {
-	margin: 4px 8px;
-	background: $secondary;
+
+@if $lite != 1 {
+	// can't remember what this was so it's skipped in lite
+	#{c(friends itemCardSeparator)} {
+		background: $secondary;
+		margin: 4px 8px;
+	}
 }
-// :is(#{c(friends voiceSectionIconWrapper)},#{c(friends partyMemberOverflow)},#{c(friends itemCard)}) {
-// 	&:is(#{c(friends itemCardInteractive)}:hover,#{c(friends itemCardActive)}) {
-// 		background-color: $card;
-// 	}
-// }
 #{c(friends container)} {
 	background: transparent;
 	border: none;
@@ -33,20 +33,23 @@
 		margin-top: 0;
 	}
 }
-#{c(friends actionButton)} {
-	color: $primary;
-	border: 1px solid;
-	background: $card;
-	border-color: currentColor;
-	&:hover {
-		color: $hover;
-	}
-	&#{c(friends highlight)} {
+
+@if $lite != 1 {
+	#{c(friends actionButton)} {
+		color: $primary;
+		border: 1px solid;
 		background: $card;
-	}
-	&#{c(friends actionButtonDeny)} {
+		border-color: currentColor;
 		&:hover {
-			color: $red;
+			color: $hover;
+		}
+		&#{c(friends highlight)} {
+			background: $card;
+		}
+		&#{c(friends actionButtonDeny)} {
+			&:hover {
+				color: $red;
+			}
 		}
 	}
 }
@@ -75,6 +78,8 @@
 		margin-left: 5px;
 	}
 }
+
+@if $lite != 1 {
 #{c(friends multipleIconWrapper)} {
 	border-radius: 0%;
 }
@@ -124,4 +129,6 @@
 
 #{c(friends searchIcon)} {
 	z-index: 0; // messes with active now
+}
+
 }

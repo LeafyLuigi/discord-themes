@@ -1,4 +1,6 @@
 @use "backend" as *;
+// file is skipped for lite
+@if $lite != 1 {
 /* Start Embeds */
 #{c(embeds codeblock)},
 #{c(embeds invite)},
@@ -180,4 +182,6 @@
 #{c(embeds voiceMessage ripple)} {
 	// background: $primary;
 	background: transparent;
+}
+
 }

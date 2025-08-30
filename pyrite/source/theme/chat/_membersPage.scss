@@ -1,4 +1,6 @@
 @use "backend" as *;
+@if $lite != 1 {
+
 // Members Page
 #{c(membersPage container)} {
 	background: transparent;
@@ -38,4 +40,6 @@
 }
 #{c(membersPage loaderBar)} {
 	background: $primary;
+}
+
 }

@@ -1,0 +1,274 @@
+@use "start" as *;
+/*! #{$theme-name-lite} v#{$version} by LeafyLuigi */
+
+// Import Functions, Variables, Mixins and Class list functionality.
+@use "backend" as * with (
+	$lite: 1,
+);
+
+// Contains the theme proper.
+@use "theme";
+
+$hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
+/* Default Variables */
+// Default variables are stored in `start/_index.scss`.
+// Vars labeled with a dagger (†) have a HSL variable available and should be used instead of the raw value. Example: --primary-color => --hsl-primary-color.
+// Vars labeled with a double dagger (‡) get overridden by .visual-refresh.theme :(
+:root {
+	/* forced by theme */
+	--font-headline: #{v(font-headline)}; // removes the ABC Ginto Nord font
+	--font-display: #{v(font-display)}; // display is used for headers
+	--font-code: #{v(font-code)};
+	--font-primary: #{v(font-primary)};
+	--secret-orange: #{v(secret-orange)}; // used in only one place - radio bar. converted from hsl.
+	--brand-experiment: #{v(brand-experiment)}; // fallback for dumb discord stuff
+	--focus-primary: #{v(focus-primary)}; // tab around wheeee
+	--hide-fallback-enabled: #{v(hide-fallback-enabled)}; // used for hidable elements, default "hidden"
+	--hide-fallback-disabled: #{v(hide-fallback-disabled)}; // used for hidable elements, default visible
+	
+	// new button styles
+	--control-background-primary-default: #{v(btn-background-primary-default)};
+	--control-border-primary-default: #{v(btn-border-primary-default)};
+	// --control-text-primary-default: #{v(btn-text-primary-default)};
+	--control-background-primary-hover: #{v(btn-background-primary-hover)};
+	--control-border-primary-hover: #{v(btn-border-primary-hover)};
+	// --control-text-primary-hover: #{v(btn-text-primary-hover)};
+	--control-background-primary-active: #{v(btn-background-primary-active)};
+	--control-border-primary-active: #{v(btn-border-primary-active)};
+	// --control-text-primary-active: #{v(btn-text-primary-active)};
+
+	// hsl stuff, don't worry about it.
+	--hsl-tooltip-color: hsl(from var(--tooltip-color) #{$hslColor});
+	--hsl-primary-color: hsl(from var(--primary-color) #{$hslColor});
+	--hsl-secondary-color: hsl(from var(--secondary-color) #{$hslColor});
+	--hsl-hover-color: hsl(from var(--hover-color) #{$hslColor});
+	--hsl-green-color: hsl(from var(--green-color) #{$hslColor});
+	--hsl-yellow-color: hsl(from var(--yellow-color) #{$hslColor});
+	--hsl-red-color: hsl(from var(--red-color) #{$hslColor});
+	--hsl-link-color: hsl(from var(--link-color) #{$hslColor});
+	--hsl-live-color: hsl(from var(--live-color) #{$hslColor});
+	--hsl-offline-color: hsl(from var(--offline-color) #{$hslColor});
+
+	--background-image: #{v(background-image)};
+	--user-modal-image: #{v(user-modal-image)};
+	--user-popout-image: #{v(user-popout-image)};
+	--background-attachment: #{v(background-attachment)};
+	--user-modal-attachment: #{v(user-modal-attachment)};
+	--user-popout-attachment: #{v(user-popout-attachment)};
+	--primary-color: #{v(primary-color)}; // †
+	--secondary-color: #{v(secondary-color)}; // †
+	--hover-color: #{v(hover-color)}; // †
+	--tooltip-color: #{v(tooltip-color)}; // †
+	// --mention-background: #{v(mention-background)};
+	--mention-opacity: #{v(mention-opacity)};
+	--home-icon: #{v(home-icon)};
+
+	--green-color: #{v(green-color)}; // †
+	--yellow-color: #{v(yellow-color)}; // †
+	--red-color: #{v(red-color)}; // †
+	--link-color: #{v(link-color)}; // †
+	--live-color: #{v(live-color)}; // †
+	--offline-color: #{v(offline-color)}; // †
+
+	/* Channels */
+	--category-color: #{v(category-color)};
+	--selected-channel-color: #{v(selected-channel-color)};
+	--unread-channel-color: #{v(unread-channel-color)};
+	// --unread-channel-glow: #{v(unread-channel-glow)};
+	--show-channel-unread-dot: #{v(show-channel-unread-dot)};
+	--read-channel-color: #{v(read-channel-color)};
+	--muted-channel-color: #{v(muted-channel-color)};
+	--locked-voice-channel-color: #{v(locked-voice-channel-color)};
+
+	/* Advanced Users */
+	--code-font: #{v(code-font)};
+	--body-font: #{v(body-font)};
+	--expression-picker-height: #{v(expression-picker-height)}; // Height of the combined Gif/Sticker/Emoji picker. Does not effect adding reactions. Default and minimum height 500px (498px for Discord's base) and a maximum of 70vh. If Discord is smaller than 720px vertically, this won't apply.
+	--background-filter: #{v(background-filter)};
+	--user-modal-filter: #{v(user-modal-filter)};
+	--user-popout-filter: #{v(user-popout-filter)};
+	--home-icon-filter: #{v(home-icon-filter)};
+
+	/* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
+	--hide-speed: #{v(hide-speed)}; // speed for animations for the below. must be a time value. you can add a second value for delay
+	--hide-member-list: #{v(hide-member-list)};
+	--hide-active-now: #{v(hide-active-now)};
+	--hide-profile-panel: #{v(hide-profile-panel)};
+	--hide-channel-list: #{v(hide-channel-list)};
+	--blur-intensity: #{v(blur-intensity)};
+
+	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
+	--win-min-max-close-button-width: #{v(win-min-max-close-button-width)}; /* default: 28px, square: 48px */
+
+	/* Internal please ignore */
+	// --update-notice-may25: none;
+}
+:root:root:root {
+	--mention-background: #{v(mention-background)};
+}
+
+.theme-dark,
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
+	--card-background: #{v(dark-card-background)}; // †
+	--side-shading: #{v(dark-side-shading)}; // †
+	--middle-shading: #{v(dark-middle-shading)}; // †
+	--header-shading: #{v(dark-header-shading)}; // †
+
+	--hover-filter: #{v(dark-hover-filter)};
+	--active-filter: #{v(dark-active-filter)};
+
+	// forced by theme to make sure it works
+	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
+	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
+	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
+	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
+}
+.theme-darker,
+.theme-darker :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
+	--card-background: #{v(darker-card-background)}; // †
+	--side-shading: #{v(darker-side-shading)}; // †
+	--middle-shading: #{v(darker-middle-shading)}; // †
+	--header-shading: #{v(darker-header-shading)}; // †
+
+	--hover-filter: #{v(darker-hover-filter)};
+	--active-filter: #{v(darker-active-filter)};
+
+	// forced by theme to make sure it works
+	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
+	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
+	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
+	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
+}
+.theme-midnight,
+.theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
+	--card-background: #{v(midnight-card-background)}; // †
+	--side-shading: #{v(midnight-side-shading)}; // †
+	--middle-shading: #{v(midnight-middle-shading)}; // †
+	--header-shading: #{v(midnight-header-shading)}; // †
+
+	--hover-filter: #{v(dark-hover-filter)};
+	--active-filter: #{v(dark-active-filter)};
+	
+	// forced by theme to make sure it works
+	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
+	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
+	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
+	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
+}
+// ...(cont from dark's comment)
+// sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
+.theme-light,
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]) {
+	--card-background: #{v(light-card-background)}; // †
+	--side-shading: #{v(light-side-shading)}; // †
+	--middle-shading: #{v(light-middle-shading)}; // †
+	--header-shading: #{v(light-header-shading)}; // †
+
+	--hover-filter: #{v(light-hover-filter)};
+	--active-filter: #{v(light-active-filter)};
+
+	// forced by theme to make sure it works
+	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
+	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
+	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
+	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
+}
+
+.theme-dark,
+.theme-light {
+	// below: defaults set by theme
+	// those labeled with double dagger (‡) get overridden by .visual-refresh.theme
+	// --input-background: #{v(dl-input-background)}; // ‡
+	--control-brand-foreground: #{v(dl-control-brand-foreground)};
+	--control-brand-foreground-new: #{v(dl-control-brand-foreground-new)};
+	--deprecated-text-input-bg: #{v(dl-deprecated-text-input-bg)};
+	--deprecated-text-input-border: #{v(dl-deprecated-text-input-border)};
+	// --modal-background: #{v(dl-modal-background)}; // ‡
+	// --modal-footer-background: #{v(dl-modal-footer-background)}; // ‡
+	--__spoiler-background-color--hidden: #{v(dl-__spoiler-background-color--hidden)};
+	--__spoiler-background-color--hidden--hover: #{v(dl-__spoiler-background-color--hidden--hover)};
+	--__spoiler-background-color--revealed: #{v(dl-__spoiler-background-color--revealed)};
+	--brand-500: #{v(dl-brand-500)};
+	
+	// below: remove elevation box shadows
+	--dark-elevation-low: #{v(dl-dark-elevation-low)};
+	--dark-elevation-high: #{v(dl-dark-elevation-high)};
+	--dark-elevation-border: #{v(dl-dark-elevation-border)};
+	--light-elevation-low: #{v(dl-light-elevation-low)};
+	--light-elevation-high: #{v(dl-light-elevation-high)};
+	--light-elevation-border: #{v(dl-light-elevation-border)};
+	--elevation-stroke: #{v(dl-elevation-stroke)};
+	--elevation-low: #{v(dl-elevation-low)};
+	--elevation-medium: #{v(dl-elevation-medium)};
+	--elevation-high: #{v(dl-elevation-high)};
+
+	// below: colors set to same as variables above
+	--info-positive-foreground: #{v(dl-info-positive-foreground)};
+	--info-warning-foreground: #{v(dl-info-warning-foreground)};
+	--info-danger-foreground: #{v(dl-info-danger-foreground)};
+	--info-help-foreground: #{v(dl-info-help-foreground)};
+	--status-positive-background: #{v(dl-status-positive-background)};
+	--status-warning-background: #{v(dl-status-warning-background)};
+	--status-danger-background: #{v(dl-status-danger-background)};
+	--status-positive: #{v(dl-status-positive)};
+	--status-warning: #{v(dl-status-warning)};
+	--status-danger: #{v(dl-status-danger)};
+	// --text-positive: #{v(dl-text-positive)}; // ‡
+	// --text-warning: #{v(dl-text-warning)}; // ‡
+	--text-danger: #{v(dl-text-danger)};
+}
+
+#{c(main light)},
+#{c(main dark)},
+#{c(main darker)},
+#{c(main midnight)} {
+	// force set by theme
+	--text-positive: #{v(text-positive)};
+	--text-warning: #{v(text-warning)};
+	--text-link: #{v(text-link)};
+	--text-brand: #{v(text-brand)};
+	--background-message-hover: #{v(background-message-hover)};
+	--background-mentioned: #{v(background-mentioned)};
+	--background-mentioned-hover: #{v(background-mentioned-hover)};
+	--channel-icon: #{v(channel-icon)};
+
+	--input-background: var(--hsl-card-background);
+	--modal-background: var(--hsl-card-background);
+	--modal-footer-background: transparent;
+	--scrollbar-auto-scrollbar-color-thumb: var(--hsl-primary-color);
+	--scrollbar-auto-scrollbar-color-track: transparent;
+	--scrollbar-auto-thumb: var(--hsl-primary-color);
+	--scrollbar-auto-track: transparent;
+	--scrollbar-thin-thumb: var(--hsl-primary-color);
+	--background-code: var(--hsl-card-background);
+}
+
+// REMOVE SHADOWS
+#{c(main light)},
+#{c(main dark)},
+#{c(main darker)},
+#{c(main midnight)} {
+	// takes initial string `--shadow` then appends each key/value going down the list, ie `--shadow-low`
+	// sets the value to predetermined `unset` (tho changeable for testing)
+	// each key also has an associated `-filter` variable. ie `--shadow-border-filter`
+	$value: unset;
+	$filterValue: unset; // use `drop-shadow()` for testing
+	$list: (
+		"-border",
+		"-button-overlay",
+		"-high",
+		"-ledge",
+		"-low",
+		"-low-active",
+		"-low-hover",
+		"-medium",
+		"-mobile-navigator-x",
+		"-top-high",
+		"-top-ledge",
+		"-top-low",
+	);
+	@each $i in $list {
+		--shadow#{$i}: #{$value};
+		--shadow#{$i}-filter: #{$filterValue}; 
+	}
+}

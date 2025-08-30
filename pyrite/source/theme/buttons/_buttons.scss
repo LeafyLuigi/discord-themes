@@ -1,5 +1,7 @@
 @use "backend" as *;
-/* Start Buttons */
+@if $lite != 1 { // im pedantic
+	/* Start Buttons */
+}
 // THIS WILL **NOT** BE EVERY BUTTON. SOME WILL BE UNIQUELY THEMED.
 
 // Button Locations:
@@ -98,6 +100,8 @@ $active-filter: var(--active-filter);
 
 
 
+@if $lite != 1 {
+// this entire file will be skipped in Lite.
 #{c(button lookFilled)} {
 	&::before {
 		transition: background-color .17s ease;
@@ -163,4 +167,6 @@ $active-filter: var(--active-filter);
 	}
 	// &#{c(button colorTransparent)} {
 	// }
+}
+
 }

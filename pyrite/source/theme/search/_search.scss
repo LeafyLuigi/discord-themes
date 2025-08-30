@@ -1,4 +1,6 @@
 @use "backend" as *;
+// entire file skipped in Lite
+@if $lite != 1 {
 /* Begin Search */
 #{c(search searchFilter)},
 #{c(search searchAnswer)} {
@@ -56,4 +58,6 @@
 }
 #{c(search button)} {
 	background-color: $card;
+}
+
 }

@@ -1,4 +1,6 @@
 @use "backend" as *;
+@if $lite != 1 {
+
 /* Start Calls */
 #{c(call wrapper)} {
 	background: $middle;
@@ -185,4 +187,6 @@
 #{c(stage rowContainer)},
 #{c(stage participants)} {
 	background: transparent;
+}
+
 }

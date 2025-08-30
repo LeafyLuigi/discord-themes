@@ -169,10 +169,8 @@
 // // #{c(scroller scrolling)}#{c(scroller fade)}::-webkit-scrollbar-track {
 // // 	visibility: visible;
 // // }
-:is(
-	#{c(main light)},
-	#{c(main dark)}
-) {
+#{c(main light)},
+#{c(main dark)} {
 	--scrollbar-auto-scrollbar-color-thumb: var(--hsl-primary-color);
     --scrollbar-auto-scrollbar-color-track: transparent;
     --scrollbar-auto-thumb: var(--hsl-primary-color);

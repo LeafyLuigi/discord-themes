@@ -2,7 +2,8 @@
 /* Begin Chat Form */
 #{c(chatForm form)} {
 	margin-top: 0;
-	&::before,&::after {
+	&::before,
+	&::after {
 		content: none;
 	}
 }
@@ -40,54 +41,51 @@
 	background: $red;
 	opacity: 1;
 }
-#{c(chatForm scrollableContainer)},
 #{c(chatForm themedBackground)},
 #{c(chatForm attachedBars)},
-#{c(chatForm replyBar)},
-#{c(chatForm threadSuggestionBar)},
 #{c(chatForm stackedBars)},
 #{c(chatForm channelAttachmentArea)} {
 	background: transparent;
 }
+
+#{c(chatForm threadSuggestionBar)},
+#{c(chatForm replyBar)},
+#{c(chatForm scrollableContainer)} {
+	background: transparent;
+	backdrop-filter: blur(calc($blur * 2px));
+}
 #{c(chatForm clipContainer)} {
 	margin-top: 0;
 	padding-top: 0;
-}
-#{c(chatForm replyBar)},
-#{c(chatForm scrollableContainer)} {
-	backdrop-filter: blur(calc($blur * 2px));
-}
-#{c(chatForm scrollableContainer)} {
-	max-height: 30vh;
-	// margin-bottom: 24px;
-}
-#{c(chatForm replyContainer)} {
-	#{c(chatForm replyName)} {
-		color: $primary;
-		// text-shadow: 2px 2px calc(var(--blur-intensity,1) * 4px) currentColor;
-	}
-}
-#{c(chatForm replyActions)}>div[class=""] {
-	&[aria-checked=false] #{c(chatForm mentionButton)} {
-		color: $red !important; // !important reason: inline style
-	}
-	&[aria-checked=true] #{c(chatForm mentionButton)} {
-		color: $green !important; // !important reason: inline style
-	}
 }
 #{c(chatForm textArea)} {
 	#{c(chatForm placeholder)} {
 		color: var(--interactive-normal);
 	}
 }
-#{c(forums upload altTag)} {
-	background: $secondary;
-	color: var(--text-default);
+@if $lite != 1 {
+	#{c(chatForm scrollableContainer)} {
+		max-height: 30vh;
+	}
+	#{c(chatForm replyContainer)} {
+		#{c(chatForm replyName)} {
+			color: $primary;
+		}
+	}
+	#{c(chatForm replyActions)}>div[class=""] {
+		&[aria-checked=false] #{c(chatForm mentionButton)} {
+			color: $red !important; // !important reason: inline style
+		}
+		&[aria-checked=true] #{c(chatForm mentionButton)} {
+			color: $green !important; // !important reason: inline style
+		}
+	}
+	#{c(forums upload altTag)} {
+		background: $secondary;
+		color: var(--text-default);
+	}
 }
-#{c(chatForm inlineUpload)},
-#{c(chatForm beforeInlineCode)},
-#{c(chatForm inlineCode)},
-#{c(chatForm afterInlineCode)} {
+#{c(chatForm inlineUpload)} {
 	background: $card;
 }
 

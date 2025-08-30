@@ -17,7 +17,7 @@
 		outline: none;
 	}
 }
-
+@if $lite != 1 {
 #{c(serverList folder)},
 #{c(serverList folder)}#{c(serverList folder hover)} {
 	background: transparent;
@@ -78,6 +78,7 @@
 )#{c(serverList dragOver)}:before {
 	background-color: $green; //moving bar thing
 }
+}
 
 #{c(serverList homeContainer)} {
 	#{c(serverList iconWrapper)} {
@@ -96,6 +97,7 @@
 		}
 	}
 }
+@if $lite != 1 {
 #{c(serverList serverSeparator)} {
 	background: linear-gradient(to bottom, $secondary, transparent);
 	width: 48px;
@@ -135,4 +137,5 @@
 #{c(serverList discover footer)},
 #{c(serverList discover gradient)} {
 	background: none;
+}
 }

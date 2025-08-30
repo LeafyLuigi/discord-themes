@@ -1,4 +1,6 @@
 @use "backend" as *;
+@if $lite != 1 {
+	
 // Home
 :is(#{c(main dark)},#{c(main light)}) {
 	#{c(homePage background)} {
@@ -37,4 +39,6 @@
 }
 #{c(homePage widgetGuildDotOnline)} {
 	background-color: $green;
+}
+
 }

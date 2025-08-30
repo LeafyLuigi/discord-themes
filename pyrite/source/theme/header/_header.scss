@@ -1,4 +1,5 @@
 @use "backend" as *;
+
 /* Start Header */
 // file also includes top bar that gets removed by the theme
 #{c(header)} {
@@ -34,12 +35,15 @@
 	@include header;
 	overflow: visible;
 }
-#{c(header akaBadge)} {
-	background-color: $secondary;
-	color: var(--header-primary);
-}
-#{c(header updateDownloadingCloud)} {
-	color: $red;
+
+@if $lite != 1 {
+	#{c(header akaBadge)} {
+		background-color: $secondary;
+		color: var(--header-primary);
+	}
+	#{c(header updateDownloadingCloud)} {
+		color: $red;
+	}
 }
 #{c(os mac)} {
 	:is(#{c(header title)},#{c(header children)},#{c(header topic)}) {
@@ -68,34 +72,37 @@
 // 		fill: $offline;
 // 	}
 // }
-#{c(header icon)} {
-	color: var(--header-primary);
-}
-#{c(header iconBadge)} {
-	background-color: $secondary;
-}
-#{c(header iconClickable)} {
+
+@if $lite != 1 {
 	#{c(header icon)} {
-		color: $primary;
-		path {
-			fill: currentColor;
-		}
+		color: var(--header-primary);
 	}
-	&:hover {
+	#{c(header iconBadge)} {
+		background-color: $secondary;
+	}
+	#{c(header iconClickable)} {
 		#{c(header icon)} {
-			color: $hover;
-			// filter: drop-shadow(0 0 2px currentColor);
+			color: $primary;
+			path {
+				fill: currentColor;
+			}
 		}
-		// #{c(header iconBadge)} {
-		// 	// filter: drop-shadow(0 0 2px currentColor);
-		// }
+		&:hover {
+			#{c(header icon)} {
+				color: $hover;
+				// filter: drop-shadow(0 0 2px currentColor);
+			}
+			// #{c(header iconBadge)} {
+			// 	// filter: drop-shadow(0 0 2px currentColor);
+			// }
+		}
 	}
-}
-#{c(header updateDownloadingIcon)} {
-	color: $red;
-}
-#{c(header updateIconForeground)} {
-	fill: $red;
+	#{c(header updateDownloadingIcon)} {
+		color: $red;
+	}
+	#{c(header updateIconForeground)} {
+		fill: $red;
+	}
 }
 #{c(header search)} {
 	order: 1;
@@ -109,21 +116,24 @@
 //   color: $yellow;
 // }
 
-#{c(header toolbar)} {
-	#{c(header iconWrapper)}:not(#{c(header iconClickable)}) #{c(header icon)} {
-		cursor: not-allowed;
-		color: $red;
-	} 
-}
 
-// add friend header bar button
-#{c(header tabBar)} #{c(header tabBarItem)}#{c(header addFriend)}#{c(header addFriend)}#{c(header addFriend)} {
-	&:hover {
-		background: $hover;
+@if $lite != 1 {
+	#{c(header toolbar)} {
+		#{c(header iconWrapper)}:not(#{c(header iconClickable)}) #{c(header icon)} {
+			cursor: not-allowed;
+			color: $red;
+		} 
 	}
-	&[aria-selected=true] {
-		background: rgb(from $primary r g b / 0.2);
-		color: $primary;
+
+	// add friend header bar button
+	#{c(header tabBar)} #{c(header tabBarItem)}#{c(header addFriend)}#{c(header addFriend)}#{c(header addFriend)} {
+		&:hover {
+			background: $hover;
+		}
+		&[aria-selected=true] {
+			background: rgb(from $primary r g b / 0.2);
+			color: $primary;
+		}
 	}
 }
 

@@ -9,8 +9,13 @@
 /* If you wish to translate strings from this file into another language, copy below as a base and send a message in the support server. */
 /* In doing so you'll be given a translator tag and a role on said support server. */
 html {
-	// By default this is entirely used for the en-GB and en-US langs. fallback below for en-US
-	--theme-name: "Pyrite";
+	// By default this is entirely used for the en-GB and en-US langs. fallback below for en-US.
+	// For this one, please include the entire @if statement.
+	@if $lite != 1 {
+		--theme-name: "Pyrite";
+	} @else {
+		--theme-name: "Pyrite - Lite"; // "Lite" as in lightweight.
+	}
 	// --theme-name-beta: "Pyrite Beta Branch";
 
 	// Tags are used for contributors who have assisted one way or another with the theme.
@@ -18,46 +23,56 @@ html {
 	--tag-translator: "Theme Translator";
 	--tag-helper: "Theme Helper";
 	
-	--settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
-	--theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
-
-	// CSS incompatibility warnings; used within this file.
-	--css-generic-recommendation: "As a result of the above issue(s), part of the theme may not work. "; // keep the space at the end.
-	--css-outdated-windows: "You should probably update to a supported Windows version then update Discord.";
-	--css-outdated-mac: "You should probably update to a supported macOS version then update Discord.";
-	--css-outdated-linux: "Honestly, I trust that you know what you're doing. Best update the package to the latest version if possible.";
-	--css-outdated-browser: "You should update your browser or the OS should you no longer be able to update your browser.";
+	// The rest below do not need to be translated for "lite".
+	@if $lite != 1 {
+		--settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
+		--theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
 	
-	// for these, leave the `\a` at the end as that's for a newline.
-	--css-has-selector-broken: "CSS :has() selector does not work.\a";
-	--css-oklab-broken: "Oklab colour space missing.\a";
-	--css-relative-colour-broken: "Relative colour mixing does not work.\a";
-	--css-nesting-selector-broken: "CSS & nesting selector does not work.\a";
-	--css-color-mix-broken: "Unable to mix colours using color-mix().\a";
-	--css-gradient-colour-space-broken: "Gradients lack colour space support.\a";
-
-	// Used within codelangs file for Codeblocks sans formatting or language
-	--code-plain-text: "Plain Text";
-
-	// Within error file
-	// Error page partial jokes - Not every joke will be listed and instead this is only the button for the time being.
-	--error-reload: "please click this";
-	--error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
-
-	// Below within this rule aren't to be copied but are always applied globally. Both British English and French are used as beta branches.
-	--beta-en-GB: "Pyrite Beta Branch";
-	--beta-fr: "Branche Bêta de Pyrite";
+		// CSS incompatibility warnings; used within this file.
+		--css-generic-recommendation: "As a result of the above issue(s), part of the theme may not work. "; // keep the space at the end.
+		--css-outdated-windows: "You should probably update to a supported Windows version then update Discord.";
+		--css-outdated-mac: "You should probably update to a supported macOS version then update Discord.";
+		--css-outdated-linux: "Honestly, I trust that you know what you're doing. Best update the package to the latest version if possible.";
+		--css-outdated-browser: "You should update your browser or the OS should you no longer be able to update your browser.";
+		
+		// for these, leave the `\a` at the end as that's for a newline.
+		--css-has-selector-broken: "CSS :has() selector does not work.\a";
+		--css-oklab-broken: "Oklab colour space missing.\a";
+		--css-relative-colour-broken: "Relative colour mixing does not work.\a";
+		--css-nesting-selector-broken: "CSS & nesting selector does not work.\a";
+		--css-color-mix-broken: "Unable to mix colours using color-mix().\a";
+		--css-gradient-colour-space-broken: "Gradients lack colour space support.\a";
+	
+		// Used within codelangs file for Codeblocks sans formatting or language
+		--code-plain-text: "Plain Text";
+	
+		// Within error file
+		// Error page partial jokes - Not every joke will be listed and instead this is only the button for the time being.
+		--error-reload: "please click this";
+		--error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
+	
+		// Below within this rule aren't to be copied but are always applied globally. Both British English and French are used as beta branches.
+		--beta-en-GB: "Pyrite Beta Branch";
+		--beta-fr: "Branche Bêta de Pyrite";
+	}
 }
 // Just in case of stupid American spellings
 [lang="en-US"] {
-	--css-relative-colour-broken: "Relative color mixing does not work.\a";
-	--css-oklab-broken: "Oklab color space broken.\a";
-	--css-color-mix-broken: "Unable to mix colors using color-mix().\a";
-	--css-gradient-colour-space-broken: "Gradients lack color space support.\a";
+	// These do not need to be translated for Lite.
+	@if $lite != 1 {
+		--css-relative-colour-broken: "Relative color mixing does not work.\a";
+		--css-oklab-broken: "Oklab color space broken.\a";
+		--css-color-mix-broken: "Unable to mix colors using color-mix().\a";
+		--css-gradient-colour-space-broken: "Gradients lack color space support.\a";
+	}
 }
 // Partially translated by Leafy
 [lang="fr"] {
-	--theme-name: "Pyrite";
+	@if $lite != 1 {
+		--theme-name: "Pyrite";
+	} @else {
+		--theme-name: "Pyrite - Léger";
+	}
 	// --theme-name-beta: "Branche Bêta de Pyrite";
 }
 
@@ -147,7 +162,7 @@ $tags: (
 /* Version */
 #{c(settings sidebar info)} {
 	&::after {
-		content: $theme-name string.insert($version, " - ", 0);
+		content: var(--theme-name) string.insert($version, " - ", 0);
 		font-style: italic;
 		color: var(--text-muted);
 		font-size: 12px;
@@ -191,138 +206,142 @@ $tags: (
 // 	z-index: 2500;
 // }
 
-// CSS testing
-// define list of things to test; do this in order of oldest supported.
-$cssSupportList: (
-	// example:
-	// 
-	// "var-name" which becomes "--css-var-name-broken": "as defined above";
-	// (
-	// 	test: "this is what goes in the brackets for @support."
-	// 	(NYI) win|mac|lin|web : 0|1 -- 1 to skip testing on that platform, implied 0
-	// )
-	// 
-	// explicit testing for chrome 108 / electron 22
-	// (last version for windows 7/8/8.1 and mac Catalina)
-	// is not done. those users can stop whinging.
-	"has-selector": (
-		// :has is based and is used in certain parts of the theme.
-		// cr 105 / ff 121 / s 15.4
-		test: "selector(div:has(+a))"
-	),
-	"color-mix": (
-		// mixing colours is fun.
-		// cr 111 / ff 113 / s 16.2
-		test: "color: color-mix(in srgb, yellow 100%, blue)"
-	),
-	"gradient-colour-space": (
-		// gradients need to support colour spaces otherwise they look like utter shit.
-		// cr 111 / ff 127 / s 16.2
-		test: "background-image: linear-gradient(in srgb, #ff0, #00f)"
-	),
-	"oklab": (
-		// oklab is based. https://youtu.be/nJlZT5AE9zY
-		// only really gonna be used for transitions between colours
-		// cr 111 / ff 113 / s 15.4
-		// relative for below (untested)
-		// cr 119 / ff 128 / s 16.4
-		test: "color: oklab(0.5 0.4 0.4)" // should be red-yellow
-	),
-	"relative-colour": (
-		// only testing hsl but it's supported in all browsers
-		// cr 119 / ff 128 / s 18 (16.4 with required % values)
-		test: "color: hsl(from rgb(255 255 255 / 0%) h s l / alpha)"
-	),
-	"nesting-selector": (
-		// eventually sass will allow for the native css nesting selector to function.
-		// https://sass-lang.com/blog/sass-and-native-nesting/#the-plan-for-sass
-		// native & works as follows:
-		// div, span, #id {
-		// 	& button {}
-		// }
-		// h5, h6, .class {
-		// 	body & {}
-		// }
-		// div i {
-		//  span & {}
-		// }
-		// which is equal to
-		// :is(div, span, #id) button {} | works fine despite the mixed specificities
-		// body :is(h5, h6, .class) {} | works fine again with mixed specificities
-		// span :is(div, i) {} | not ideal
-		// 
-		// test checks for fully supported, not half broken webkit/blink initial implementation.
-		// cr 120 (full) / ff 117 / s 17.2 (full)
-		test: "selector(div &)"
-	)
-);
+// CSS testing -- does not happen for Lite.
+@if $lite != 1 {
 
-$i: 1; // for below @each, used for vars
-$supportsList: ""; // currently empty string which would become @supports not (test) or not (test) or not (test) etc {}
-$issueList: ""; // currently empty string which becomes the value for `content`
-@each $css, $val in $cssSupportList {
-	@if map.get($val, "test") == null {
-		@error "No test found. Aborting.";
-	} @else {
-		$supportsList: $supportsList + "(not (" + map.get($val, "test") + ")) or ";
+	// define list of things to test; do this in order of oldest supported.
+	$cssSupportList: (
+		// example:
+		// 
+		// "var-name" which becomes "--css-var-name-broken": "as defined above";
+		// (
+		// 	test: "this is what goes in the brackets for @support."
+		// 	(NYI) win|mac|lin|web : 0|1 -- 1 to skip testing on that platform, implied 0
+		// )
+		// 
+		// explicit testing for chrome 108 / electron 22
+		// (last version for windows 7/8/8.1 and mac Catalina)
+		// is not done. those users can stop whinging.
+		"has-selector": (
+			// :has is based and is used in certain parts of the theme.
+			// cr 105 / ff 121 / s 15.4
+			test: "selector(div:has(+a))"
+		),
+		"color-mix": (
+			// mixing colours is fun.
+			// cr 111 / ff 113 / s 16.2
+			test: "color: color-mix(in srgb, yellow 100%, blue)"
+		),
+		"gradient-colour-space": (
+			// gradients need to support colour spaces otherwise they look like utter shit.
+			// cr 111 / ff 127 / s 16.2
+			test: "background-image: linear-gradient(in srgb, #ff0, #00f)"
+		),
+		"oklab": (
+			// oklab is based. https://youtu.be/nJlZT5AE9zY
+			// only really gonna be used for transitions between colours
+			// cr 111 / ff 113 / s 15.4
+			// relative for below (untested)
+			// cr 119 / ff 128 / s 16.4
+			test: "color: oklab(0.5 0.4 0.4)" // should be red-yellow
+		),
+		"relative-colour": (
+			// only testing hsl but it's supported in all browsers
+			// cr 119 / ff 128 / s 18 (16.4 with required % values)
+			test: "color: hsl(from rgb(255 255 255 / 0%) h s l / alpha)"
+		),
+		"nesting-selector": (
+			// eventually sass will allow for the native css nesting selector to function.
+			// https://sass-lang.com/blog/sass-and-native-nesting/#the-plan-for-sass
+			// native & works as follows:
+			// div, span, #id {
+			// 	& button {}
+			// }
+			// h5, h6, .class {
+			// 	body & {}
+			// }
+			// div i {
+			//  span & {}
+			// }
+			// which is equal to
+			// :is(div, span, #id) button {} | works fine despite the mixed specificities
+			// body :is(h5, h6, .class) {} | works fine again with mixed specificities
+			// span :is(div, i) {} | not ideal
+			// 
+			// test checks for fully supported, not half broken webkit/blink initial implementation.
+			// cr 120 (full) / ff 117 / s 17.2 (full)
+			test: "selector(div &)"
+		)
+	);
+	
+	$i: 1; // for below @each, used for vars
+	$supportsList: ""; // currently empty string which would become @supports not (test) or not (test) or not (test) etc {}
+	$issueList: ""; // currently empty string which becomes the value for `content`
+	@each $css, $val in $cssSupportList {
+		@if map.get($val, "test") == null {
+			@error "No test found. Aborting.";
+		} @else {
+			$supportsList: $supportsList + "(not (" + map.get($val, "test") + ")) or ";
+		}
+		// problematic things will go under root
+		@supports not (#{map.get($val,"test")}) {
+			:root {
+				--p#{$i}: var(--css-#{$css}-broken);
+			}
+		}
+		$issueList: $issueList + "var(--p#{$i},\"\") ";
+		$i: $i + 1;
 	}
-	// problematic things will go under root
-	@supports not (#{map.get($val,"test")}) {
-		:root {
-			--p#{$i}: var(--css-#{$css}-broken);
-		}
-	}
-	$issueList: $issueList + "var(--p#{$i},\"\") ";
-	$i: $i + 1;
-}
-$supportsList: string.slice($supportsList, 1, -6) + ")";
-@supports #{$supportsList} {
-	#{c(main bg)} {
-		&::before,
-		&::after {
-			margin: 1rem;
-			position: absolute;
-			color: #fff;
-			white-space: pre-wrap;
-			box-sizing: border-box;
-			padding: 1rem;
-			font-size: 1rem;
-			background: #000;
-			display: block;
-			z-index: 2500;
-			opacity: 0;
-			transition: opacity 0.5s 10s;
-		}
-		&::before {
-			content: #{$issueList};
-		}
-		&::after {
-			bottom: 0;
-			right: 0;
-		}
-		// if win != 1
-		#{c(os win)} & {
+	$supportsList: string.slice($supportsList, 1, -6) + ")";
+	@supports #{$supportsList} {
+		#{c(main bg)} {
+			&::before,
 			&::after {
-				content: var(--css-generic-recommendation) var(--css-outdated-windows);
+				margin: 1rem;
+				position: absolute;
+				color: #fff;
+				white-space: pre-wrap;
+				box-sizing: border-box;
+				padding: 1rem;
+				font-size: 1rem;
+				background: #000;
+				display: block;
+				z-index: 2500;
+				opacity: 0;
+				transition: opacity 0.5s 10s;
 			}
-		}
-		// if mac != 1
-		#{c(os mac)} & {
-			&::after {
-				content: var(--css-generic-recommendation) var(--css-outdated-mac);
+			&::before {
+				content: #{$issueList};
 			}
-		}
-		// if lin != 1
-		#{c(os linux)} & {
 			&::after {
-				content: var(--css-generic-recommendation) var(--css-outdated-linux);
+				bottom: 0;
+				right: 0;
 			}
-		}
-		// if web != 1
-		#{c(os web)} & {
-			&::after {
-				content: var(--css-generic-recommendation) var(--css-outdated-browser);
+			// if win != 1
+			#{c(os win)} & {
+				&::after {
+					content: var(--css-generic-recommendation) var(--css-outdated-windows);
+				}
+			}
+			// if mac != 1
+			#{c(os mac)} & {
+				&::after {
+					content: var(--css-generic-recommendation) var(--css-outdated-mac);
+				}
+			}
+			// if lin != 1
+			#{c(os linux)} & {
+				&::after {
+					content: var(--css-generic-recommendation) var(--css-outdated-linux);
+				}
+			}
+			// if web != 1
+			#{c(os web)} & {
+				&::after {
+					content: var(--css-generic-recommendation) var(--css-outdated-browser);
+				}
 			}
 		}
 	}
+	
 }

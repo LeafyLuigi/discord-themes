@@ -1,4 +1,6 @@
 @use "backend" as *;
+@if $lite != 1 {
+
 // File is used for Markup stuffs
 :root {
 	--text-normal: var(--text-default); // ONLY EXISTS AS A FALLBACK.
@@ -104,4 +106,6 @@
 			font-weight: var(--chat-light-theme-not-zoomed-in-font-font-weight,500);
 		}
 	}
+}
+
 }

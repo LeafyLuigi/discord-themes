@@ -1,4 +1,7 @@
 @use "backend" as *;
+// file is entirely skipped in lite
+@if $lite != 1 {
+
 #{c(pages tags pill)} {
 	background: $card;
 	border: 1px solid $primary;
@@ -8,4 +11,6 @@
 	):not(#{c(pages tags disabled)}) {
 		background: rgb(from $primary r g b / .15);
 	}
+}
+
 }

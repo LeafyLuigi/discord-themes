@@ -2,6 +2,8 @@
 @use "sass:list";
 @use "sass:meta";
 @use "backend" as *;
+// file is skipped for lite
+@if $lite != 1 {
 /* Start Codeblock langs */
 // SO HERE I'VE RIPPED OUT THE ENTIRE LIST OF VALID LANGUAGES FOR DISCORD INCLUDING ALIASES
 // DO NOTE THAT STRINGS GET PARSED TWICE; YOU'LL NEED TO DOUBLE THE AMOUNT OF BACK SLASHES.
@@ -202,7 +204,7 @@ $lang: (
 	"YAML": ("yaml", "yml"),
 	"Zephir": ("zephir", "zep"),
 	// as there's multiples for it, it's here too.
-	"OCaml or SML": ("ml"),
+	"OCaml / SML": ("ml"),
 );
 
 
@@ -253,4 +255,6 @@ $lang: (
 	line-height: 0.875rem;
 	color: var(--text-muted);
 	font-style: italic;
+}
+
 }

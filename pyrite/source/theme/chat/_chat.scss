@@ -1,10 +1,8 @@
 @use "backend" as *;
 /* Begin Chat */
-:is(
-	#{c(chat)},
-	#{c(chat chatLoadingWrapper)},
-	#{c(chat messageLoadingWrapper)}
-) {
+#{c(chat)},
+#{c(chat chatLoadingWrapper)},
+#{c(chat messageLoadingWrapper)} {
 	background: transparent;
 }
 // border shows up when opening a thread
@@ -37,12 +35,14 @@
 	background: $middle;
 }
 
-#{c(chat noChannel)} {
-	@include bg($h:48px,$bg:$header);
-	@include bg2($bg:$middle,$h:calc(100vh - 48px),$top:48px);
-}
-#{c(chat ephemeralMessage)} {
-	color: var(--text-default);
+@if $lite != 1 {
+	#{c(chat noChannel)} {
+		@include bg($h:48px,$bg:$header);
+		@include bg2($bg:$middle,$h:calc(100vh - 48px),$top:48px);
+	}
+	#{c(chat ephemeralMessage)} {
+		color: var(--text-default);
+	}
 }
 
 #{c(chat buttonWrapper)} {
@@ -108,40 +108,46 @@
 	}
 }
 
-#{c(chat repliedMessage)} {
-	&::before {
-		border-color: $primary;
-		// filter: drop-shadow(2px 2px 2px $secondary);
-	}
-	#{c(chat replyBadge)} {
-		background: $card;
-	}
-	// allows for spoiler hover
-	#{c(chat repliedTextPreview)} #{c(chat repliedTextContent)} {
-		pointer-events: unset;
-		// disallow click links
-		a, span {
-			pointer-events: none;
+@if $lite != 1 {
+	#{c(chat repliedMessage)} {
+		#{c(chat repliedMessageClickableSpine)} {
+			border-color: $primary;
+		}
+		// #{c(chat replyBadge)} {
+		// 	background: $card;
+		// }
+		// allows for spoiler hover
+		#{c(chat repliedTextPreview)} #{c(chat repliedTextContent)} {
+			pointer-events: unset;
+			// disallow click links
+			:is(
+				a,
+				span
+			):not(
+				#{c(chat spoiler content)}
+			) {
+				pointer-events: none;
+			}
 		}
 	}
-}
 
-#{c(chat chatHeader)} {
-	#{c(chat emptyChannelIcon)} {
+	#{c(chat chatHeader)} {
+		#{c(chat emptyChannelIcon)} {
+			background: $card;
+		}
+		#{c(chat chatHeaderButton)},
+		#{c(chat chatHeaderButton)}:hover {
+			color: $primary;
+		}
+	}
+	#{c(chat allowedRole)} {
 		background: $card;
 	}
-	#{c(chat chatHeaderButton)},
-	#{c(chat chatHeaderButton)}:hover {
-		color: $primary;
-	}
-}
-#{c(chat allowedRole)} {
-	background: $card;
 }
 
 #{c(chat messageContent)} {
 	#{c(chat chatTimestamp)} {
-		time {
+		> time {
 			font-size: 0;
 			&:before {
 				content: "(" attr(aria-label) ")";
@@ -157,44 +163,48 @@
 #{c(chat spoiler content)}#{c(chat spoiler hidden)} {
 	--__current--spoiler-text-color: inherit;
 }
-#{c(chat spoiler content)}#{c(chat spoiler hidden)}:hover {
-	opacity: 0.7;
-	#{c(chat spoiler obscuredTextContentInner)} :is(span, code) {
-		transition: opacity .5s .5s ease-in-out;
-		opacity: 1;
+
+@if $lite != 1 {
+	#{c(chat spoiler content)}#{c(chat spoiler hidden)}:hover {
+		opacity: 0.7;
+		#{c(chat spoiler obscuredTextContentInner)} :is(span, code) {
+			transition: opacity .5s .5s ease-in-out;
+			opacity: 1;
+		}
 	}
-}
 
-// who the hell uses those wave stickers?
-#{c(chat compactContainer)},
-#{c(chat compactButton)},
-#{c(chat containerExpanded)} {
-	display: none;
-}
 
-#{c(chat botTag)} {
-	background: $primary;
-	&#{c(chat botTagOp)} {
+	// who the hell uses those wave stickers?
+	#{c(chat compactContainer)},
+	#{c(chat compactButton)},
+	#{c(chat containerExpanded)} {
+		display: none;
+	}
+
+	#{c(chat botTag)} {
+		background: $primary;
+		&#{c(chat botTagOp)} {
+			background: $card;
+			color: $primary;
+			font-weight: 600;
+		}
+	}
+
+	#{c(chat gifFavoriteButton)} {
 		background: $card;
-		color: $primary;
-		font-weight: 600;
-	}
-}
-
-#{c(chat gifFavoriteButton)} {
-	background: $card;
-	#{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)} #{c(chat gifFavoriteIcon)} {
-		animation: gifBounce .4s linear;
-	}
-	#{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)}:after {
-		animation: gifRipple .45s ease;
-	}
-	&::after {
-		border-color: $primary;
-	}
-	&:hover,
-	&#{c(chat gifFavoriteSelected)} {
-		color: $primary;
+		#{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)} #{c(chat gifFavoriteIcon)} {
+			animation: gifBounce .4s linear;
+		}
+		#{c(chat gifFavoriteSelected)}#{c(chat gifFavoriteShowPulse)}:after {
+			animation: gifRipple .45s ease;
+		}
+		&::after {
+			border-color: $primary;
+		}
+		&:hover,
+		&#{c(chat gifFavoriteSelected)} {
+			color: $primary;
+		}
 	}
 }
 
@@ -212,25 +222,27 @@
 	background: $primary;
 }
 
-#{c(reaction reaction)} {
-	&,&#{c(reaction me)},&:hover,&:active {
-		background: $card;
-	}
-	&:hover {
-		border-color: $hover;
-	}
-	&:active {
-		border-color: $primary;
-	}
-	&#{c(reaction me)} {
-		border-color: $secondary;
-		#{c(reaction count)} {
-			color: $primary;
-			// text-shadow: .125rem .125rem calc(var(--blur-intensity,1) * .1875rem);
+@if $lite != 1 {
+	#{c(reaction reaction)} {
+		&,&#{c(reaction me)},&:hover,&:active {
+			background: $card;
 		}
-	}
-	#{c(reaction count)} {
-		color: var(--text-muted);
+		&:hover {
+			border-color: $hover;
+		}
+		&:active {
+			border-color: $primary;
+		}
+		&#{c(reaction me)} {
+			border-color: $secondary;
+			#{c(reaction count)} {
+				color: $primary;
+				// text-shadow: .125rem .125rem calc(var(--blur-intensity,1) * .1875rem);
+			}
+		}
+		#{c(reaction count)} {
+			color: var(--text-muted);
+		}
 	}
 }
 
@@ -238,29 +250,31 @@
 	display: none;
 }
 
-#{c(chat chatUsernameTimedOut)} path {
-	fill: $red;
-}
-
-#{c(chat channelLinkUserMentionWrapper)} {
-	background: color-mix(in oklab, $primary 25%, transparent);
-	color: var(--interactive-hover);
-	transition: color 50ms ease-out, background 50ms ease-out;
-	&:hover {
-		color: var(--interactive-active);
-		background: color-mix(in oklab, $primary 75%, transparent);
+@if $lite != 1 {
+	#{c(chat chatUsernameTimedOut)} path {
+		fill: $red;
 	}
-}
-#{c(chat mentioned)} {
+
 	#{c(chat channelLinkUserMentionWrapper)} {
-		color: var(--interactive-active);
-		background: color-mix(in oklab, $primary 75%, transparent);
+		background: color-mix(in oklab, $primary 25%, transparent);
+		color: var(--interactive-hover);
+		transition: color 50ms ease-out, background 50ms ease-out;
+		&:hover {
+			color: var(--interactive-active);
+			background: color-mix(in oklab, $primary 75%, transparent);
+		}
 	}
-}
+	#{c(chat mentioned)} {
+		#{c(chat channelLinkUserMentionWrapper)} {
+			color: var(--interactive-active);
+			background: color-mix(in oklab, $primary 75%, transparent);
+		}
+	}
 
-// vc chat
-#{c(call wrapper)}#{c(chat chatSidebarOpen)} #{c(call container)} {
-	border-radius: 0;
+	// vc chat
+	#{c(call wrapper)}#{c(chat chatSidebarOpen)} #{c(call container)} {
+		border-radius: 0;
+	}
 }
 
 // message backgrounds such as @mention, ephemeral and :hover

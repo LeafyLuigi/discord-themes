@@ -1,5 +1,8 @@
 @use "backend" as *;
-/* Loading at launch */
-#{c(loading container)} {
-	background: transparent;
+// file skipped for lite
+@if $lite != 1 {
+	/* Loading at launch */
+	#{c(loading container)} {
+		background: transparent;
+	}
 }

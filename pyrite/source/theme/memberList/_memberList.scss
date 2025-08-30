@@ -20,36 +20,38 @@
 #{c(memberList members)} {
 	background: transparent;
 }
-#{c(memberList group)} {
-	color: var(--category-color);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	&:after {
-		content: "";
-		height: 2px;
-		flex-grow: 1;
-		background: linear-gradient(to right, currentColor -50%, transparent 50%);
-		margin-left: 5px;
-	}
-}
 
-#{c(memberList placeholderMemberGroups)},
-#{c(memberList placeholderAvatar)},
-#{c(memberList placeholderUsername)},
-#{c(memberList placeholderUsernameMultiple)} {
-	background-color: $card;
-}
-#{c(memberList offline)} {
-	opacity: 0.7;
-	transition: 0.25s all ease-in-out;
-	#{c(memberList avatar)} {
-		filter: grayscale(100%);
+@if $lite != 1 {
+	#{c(memberList group)} {
+		color: var(--category-color);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&:after {
+			content: "";
+			height: 2px;
+			flex-grow: 1;
+			background: linear-gradient(to right, currentColor -50%, transparent 50%);
+			margin-left: 5px;
+		}
 	}
-	&:hover {
-		opacity: 1;
+	#{c(memberList placeholderMemberGroups)},
+	#{c(memberList placeholderAvatar)},
+	#{c(memberList placeholderUsername)},
+	#{c(memberList placeholderUsernameMultiple)} {
+		background-color: $card;
+	}
+	#{c(memberList offline)} {
+		opacity: 0.7;
+		transition: 0.25s all ease-in-out;
 		#{c(memberList avatar)} {
-			filter: none;
+			filter: grayscale(100%);
+		}
+		&:hover {
+			opacity: 1;
+			#{c(memberList avatar)} {
+				filter: none;
+			}
 		}
 	}
 }
@@ -58,6 +60,10 @@
 }
 
 
+@if $lite != 1 {
+//////////////////////////////////////
+/// BELOW WILL BE SKIPPED IN LITE. ///
+//////////////////////////////////////
 // For each of the colors, the variable used (excluding `var(--...)`) should be the first value then the colors for each saturation value.
 // 
 // attempting to find what colour is what via the js files (2025-07-28)
@@ -76,24 +82,6 @@
 // #40a258 and .9 becomes hsl(134.694 39.026700000000003% 44.314%) or #459d5b.
 // this seems to match.
 
-@function alterSat($color,$alter) {
-	@return color.change($color,$saturation: $alter * color.channel($color,"saturation",$space:hsl),$space:hsl);
-}
-@function splitRGB($color) {
-	// returns a map with rounded rgb values
-	$map: (
-		"r": math.round(color.channel($color,"red",$space:rgb)),
-		"g": math.round(color.channel($color,"green",$space:rgb)),
-		"b": math.round(color.channel($color,"blue",$space:rgb)),
-	);
-	@return $map;
-}
-@function colorToHexStr($color) {
-	@return string.to-lower-case("#"+string.slice(color.ie-hex-str($color),4,-1));
-}
-// (this uses an old value for green)
-// @debug colorToHexStr(alterSat(#40a258,0.95)); // expected #42a059
-
 $allColors: (
 	"hsl-green-color": #43a25a,
 	"hsl-yellow-color": #ca9654,
@@ -109,9 +97,13 @@ $allColors: (
 	$i: 1;
 	@while $i >= 0 {
 		// @debug $i;
-		$altered: alterSat($val,$i);
-		$newVal: colorToHexStr($altered);
-		$split: splitRGB($altered); // these need to be rounded.
+		$altered: color.change($val,$saturation: $i * color.channel($val,"saturation",$space:hsl),$space:hsl);
+		$newVal: string.to-lower-case("#"+string.slice(color.ie-hex-str($altered),4,-1));
+		$split: (
+			"r": math.round(color.channel($altered,"red",$space:rgb)),
+			"g": math.round(color.channel($altered,"green",$space:rgb)),
+			"b": math.round(color.channel($altered,"blue",$space:rgb)),
+		); // these need to be rounded.
 		// @debug $val, $i, $newVal;
 		@if not list.index($listDone, $newVal) {
 			$listFill: $listFill+"[fill=\""+#{$newVal}+"\"],";
@@ -140,4 +132,6 @@ $allColors: (
 			}
 		}
 	}
+}
+
 }

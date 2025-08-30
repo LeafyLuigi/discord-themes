@@ -9,11 +9,13 @@
     "dist": "pnpm run dist-pyrite",
     "test": "pnpm run test-pyrite && pnpm run addWhitney-test-pyrite",
     "test-preset": "pnpm run test-pyrite && pnpm run addWhitney-test-pyrite && pnpm run test-pyrite-vencord",
+    "test-preset-lite": "pnpm run test-pyrite-lite",
     "build-pyrite": "pnpm run buildsass-pyrite && pnpm run buildprefix-pyrite",
     "dist-pyrite": "sass pyrite/dist:pyrite -I pyrite/source -I node_modules --no-source-map --no-charset --style=expanded",
     "buildsass-pyrite": "sass pyrite/source:pyrite/build-unminified -I pyrite/source -I node_modules --no-source-map && sass pyrite/source:pyrite/build -s compressed -I pyrite/source -I node_modules --no-source-map",
     "buildprefix-pyrite": "postcss pyrite/build/*.css -d pyrite/build -u autoprefixer --no-map",
     "test-pyrite": "sass pyrite/source:pyrite/test -I pyrite/source -I node_modules --no-source-map && echo .profileEffects__01370,.avatarDecoration__44b0c,.avatarDecoration_c19a55{display:none}:root{--update-notice-feb25:none} >> pyrite/test/base.css",
+    "test-pyrite-lite": "sass pyrite/source/base-lite.scss pyrite/test/base.css -I pyrite/source -I node_modules --no-source-map && echo .profileEffects__01370,.avatarDecoration__44b0c,.avatarDecoration_c19a55{display:none}:root{--update-notice-feb25:none} >> pyrite/test/base.css",
     "addWhitney-test-pyrite": "x=`echo \"@import url(https://leafyluigi.github.io/discord-themes/whitney.css);\"; cat pyrite/test/base.css` && echo \"$x\" > pyrite/test/base.css",
     "test-pyrite-vencord": "cat pyrite/test/vencord.css >> pyrite/test/base.css",
     "test-pyrite-bd": "cat pyrite/test/better-discord.css >> pyrite/test/base.css",
@@ -44,11 +46,11 @@
     "@sass-fairy/meta": "^1.0.2",
     "@sass-fairy/string": "^1.3.1",
     "@sass-fairy/url": "^1.0.1",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "npm": "^8.19.4",
     "pnpm": "^7.33.7",
-    "postcss": "^8.5.1",
+    "postcss": "^8.5.6",
     "postcss-cli": "^10.1.0",
-    "sass": "^1.83.4"
+    "sass": "^1.90.0"
   }
 }

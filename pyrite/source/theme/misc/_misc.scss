@@ -4,65 +4,67 @@
 @use "sass:meta";
 @use "start" as *;
 @use "backend" as *;
-/* Begin Keyframes */
-
-// ALWAYS USE FULL MOTION BEFORE ANIMATION.
-
-// used in: misc
-@keyframes monke {
-	0% {
-		transform: rotate(0deg);
+// no animations in Lite.
+@if $lite != 1 {
+	/* Begin Keyframes */
+	// ALWAYS USE FULL MOTION BEFORE ANIMATION.
+	
+	// used in: misc
+	@keyframes monke {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
 	}
-	100% {
-		transform: rotate(360deg);
+	
+	// used in: chat
+	@keyframes gifRipple {
+		0% {
+			transform:scale(.4);
+			opacity:1;
+		}
+		90% {
+			transform:scale(1.4);
+			opacity:0;
+		}
+		100% {
+			transform:scale(1.6);
+			opacity:0;
+		}
 	}
-}
-
-// used in: chat
-@keyframes gifRipple {
-	0% {
-		transform:scale(.4);
-		opacity:1;
+	@keyframes gifBounce {
+		25% {
+			transform:scale(.6);
+		}
+		50% {
+			transform:scale(1.2);
+		}
+		100% {
+			transform:scale(1);
+		}
 	}
-	90% {
-		transform:scale(1.4);
-		opacity:0;
+	
+	// used in: error
+	@keyframes errorScrollMac {
+		0% {
+			height: 0%;
+		}
+		100% {
+			height: 100%;
+		}
 	}
-	100% {
-		transform:scale(1.6);
-		opacity:0;
-	}
-}
-@keyframes gifBounce {
-	25% {
-		transform:scale(.6);
-	}
-	50% {
-		transform:scale(1.2);
-	}
-	100% {
-		transform:scale(1);
-	}
-}
-
-// used in: error
-@keyframes errorScrollMac {
-	0% {
-		height: 0%;
-	}
-	100% {
-		height: 100%;
-	}
-}
-@keyframes errorPopMac {
-	0% {
-		opacity: 0;
-	}
-	99% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
+	@keyframes errorPopMac {
+		0% {
+			opacity: 0;
+		}
+		99% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
 	}
 }
 
@@ -237,21 +239,23 @@ html, // because maybe?
 	}
 }
 
-// EGGS!
-#{c(main focused)}#{c(main options fullMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)},
-#{c(main focused)}#{c(main options reduceMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)}:hover {
-	animation: monke 6.9s linear infinite;
-}
-
-// Enable with Beer
-// confused? experiment for text preview had "open with beer" as a testing bucket.
-// old image link: https://cdn.discordapp.com/attachments/747040126294687764/827442200094179338/unknown.png
-#{c(embeds textOpenFullPreview)} {
-	&:before {
-		content: "🍺";
+@if $lite != 1 {
+	// EGGS!
+	#{c(main focused)}#{c(main options fullMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)},
+	#{c(main focused)}#{c(main options reduceMotion)} #{c(search noResultsImage)}#{c(search OOOOHHHHHHHHBANANA)}:hover {
+		animation: monke 6.9s linear infinite;
 	}
-	> svg {
-		display: none;
+	
+	// Enable with Beer
+	// confused? experiment for text preview had "open with beer" as a testing bucket.
+	// old image link: https://cdn.discordapp.com/attachments/747040126294687764/827442200094179338/unknown.png
+	#{c(embeds textOpenFullPreview)} {
+		&:before {
+			content: "🍺";
+		}
+		> svg {
+			display: none;
+		}
 	}
 }
 
@@ -292,20 +296,22 @@ html, // because maybe?
 }
 
 /* "Other". */
-// I don't know where this stuff is used in the site.
-#{c(other developerPortalCtaWrapper)} {
-	background-color: $card;
+@if $lite != 1 {
+	// I don't know where this stuff is used in the site.
+	#{c(other developerPortalCtaWrapper)} {
+		background-color: $card;
+	}
+	// Rings - tab around and you'll find it. Appears to have a class sans suffix/reroll.
+	// #{c(main ring)} {
+	// 	&[style*="var(--focus-primary)"] {
+	// 		--__adaptive-focus-color: var(--primary-color) !important; // !important reason: element.style
+	// 	}
+	// }
+	// #{c(main keyboardMode)} #{c(other focusStroke)} {
+	//   fill: $primary;
+	//   stroke: $primary;
+	// }
 }
-// Rings - tab around and you'll find it. Appears to have a class sans suffix/reroll.
-// #{c(main ring)} {
-// 	&[style*="var(--focus-primary)"] {
-// 		--__adaptive-focus-color: var(--primary-color) !important; // !important reason: element.style
-// 	}
-// }
-// #{c(main keyboardMode)} #{c(other focusStroke)} {
-//   fill: $primary;
-//   stroke: $primary;
-// }
 
 // insecure links
 a[href^="http://"] {
@@ -329,12 +335,6 @@ a[href^="http://"] {
 	background-color: transparent !important; // !important reason: override inline
 }
 
-// does not appear to exist anymore?
-// /* remove line clamps */
-// div#{c(text lineClamp2Plus)} {
-// 	-webkit-line-clamp: unset !important; // !important reason: override inline.
-// }
-
 /* unbreak certain modal backgrounds */
 #{c(main options fullMotion)} {
 	:is(
@@ -345,172 +345,176 @@ a[href^="http://"] {
 	}
 }
 
-/* Official Preset Previews */
-// Format: $themes: (preset: (url?: $backgroundImageURL, colour?: $primaryColour, overlay?: $overlayURL, messages: $messageID $messageID... , alias?: $presetName ), ... )
-// "defaultPresets" will use the specified default: blueOcean
-//  message IDs MUST be strings.
-// parsed twice for validation then outputting css
-$themes: (
-	"orangeSynthscape": (
-		url: "https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png",
-		color: #ff6f00,
-		message: "1369293177118265365"
-	),
-	"pinkSunset": (
-		url: "https://leafyluigi.github.io/images/Long%20Exposure%20Sunset%20at%20Hull%2C%20MA%20by%20Eric%20Moreno.png",
-		color: #ffb6db,
-		overlay: "https://leafyluigi.github.io/images/preview-overlay-pink.png",
-		message: "1369293195518803998"
-	),
-	"blueOcean": (
-		url: "https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png",
-		color: #387eff,
-		message: "1369293216385470558"
-	),
-	"yellowFlower": (
-		url: "https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png",
-		color: #e6de00,
-		message: "1369293235348045897"
-	),
-	"greenForest": (
-		url: "https://leafyluigi.github.io/images/Path by Risto Saukonpää.png",
-		color: #85ad49,
-		message: "1369293258068328550"
-	),
-	"defaultPresets": (
-		alias: "blueOcean",
-		message: "1369293283871686809"
-	)
-);
-$themesList: map.keys($themes);
-$messageIDs: ();
-@each $presetName,$presetContents in $themes {
-	// ensure message ID exists
-	@if not map.has-key($presetContents,"message") {
-		@error "\"#{$presetName}\" lacks \"message\" key. Set it to a string of the message ID.";
-	} @else {
-		@if meta.type-of(map.get($presetContents,"message")) == number {
-			@error "\"#{$presetName}\" has message ID as a number. Make it a string.";
-		}
-		$messageIDs: list.append($messageIDs,map.get($presetContents,"message"));
-	}
-	// aliases do something silly; they don't have a URL, color or overlay.
-	@if map.has-key($presetContents,"alias") {
-		$alias: #{map.get($presetContents,"alias")};
-		// abort for self referential
-		@if $alias == $presetName {
-			@error "Don't set the preset alias for \"#{$presetName}\" to itself!";
-		}
-		// abort for completely absent preset
-		@if not list.index($themesList,$alias) {
-			@error "Aliased preset \"#{$alias}\", found in \"#{$presetName}\", does not exist.";
-		}
-		// attach id for this to alias
-		// check if target has message
-		@if not map.has-key(map.get($themes,$alias),"message") {
-			@error "\"#{$alias}\" lacks \"message\" key. Set it to a string of the message ID.";
-		}
-		// add to list; deep merges are weird.
-		$themes: map.deep-merge($themes, (#{$alias}:("message": list.append(map.get(map.get($themes,$alias),"message"),map.get($presetContents,"message")))));
-	} @else {
-		// i could do other validation like making sure url is a url but eh cbf.
-	}
-}
-$presetListIDs: ":is(";
-@each $id in $messageIDs {
-	$presetListIDs: $presetListIDs+"#message-accessories-"+$id+",";
-	@if list.index($messageIDs,$id) == list.length($messageIDs) {
-		$presetListIDs: string.slice($presetListIDs,0,-2) + ")";
-	}
-}
+@if $lite != 1 {
 
-#{$presetListIDs} {
-	#{c(embeds textContainerUp)} {
-		border: none;
-		background-color: transparent;
+	/* Official Preset Previews */
+	// Format: $themes: (preset: (url?: $backgroundImageURL, colour?: $primaryColour, overlay?: $overlayURL, messages: $messageID $messageID... , alias?: $presetName ), ... )
+	// "defaultPresets" will use the specified default: blueOcean
+	//  message IDs MUST be strings.
+	// parsed twice for validation then outputting css
+	$themes: (
+		"orangeSynthscape": (
+			url: "https://leafyluigi.github.io/images/Synthscape%20by%20AxiomDesign.png",
+			color: #ff6f00,
+			message: "1369293177118265365"
+		),
+		"pinkSunset": (
+			url: "https://leafyluigi.github.io/images/Long%20Exposure%20Sunset%20at%20Hull%2C%20MA%20by%20Eric%20Moreno.png",
+			color: #ffb6db,
+			overlay: "https://leafyluigi.github.io/images/preview-overlay-pink.png",
+			message: "1369293195518803998"
+		),
+		"blueOcean": (
+			url: "https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png",
+			color: #387eff,
+			message: "1369293216385470558"
+		),
+		"yellowFlower": (
+			url: "https://leafyluigi.github.io/images/Xieleqiao Town by Huangdan2060.png",
+			color: #e6de00,
+			message: "1369293235348045897"
+		),
+		"greenForest": (
+			url: "https://leafyluigi.github.io/images/Path by Risto Saukonpää.png",
+			color: #85ad49,
+			message: "1369293258068328550"
+		),
+		"defaultPresets": (
+			alias: "blueOcean",
+			message: "1369293283871686809"
+		)
+	);
+	$themesList: map.keys($themes);
+	$messageIDs: ();
+	@each $presetName,$presetContents in $themes {
+		// ensure message ID exists
+		@if not map.has-key($presetContents,"message") {
+			@error "\"#{$presetName}\" lacks \"message\" key. Set it to a string of the message ID.";
+		} @else {
+			@if meta.type-of(map.get($presetContents,"message")) == number {
+				@error "\"#{$presetName}\" has message ID as a number. Make it a string.";
+			}
+			$messageIDs: list.append($messageIDs,map.get($presetContents,"message"));
+		}
+		// aliases do something silly; they don't have a URL, color or overlay.
+		@if map.has-key($presetContents,"alias") {
+			$alias: #{map.get($presetContents,"alias")};
+			// abort for self referential
+			@if $alias == $presetName {
+				@error "Don't set the preset alias for \"#{$presetName}\" to itself!";
+			}
+			// abort for completely absent preset
+			@if not list.index($themesList,$alias) {
+				@error "Aliased preset \"#{$alias}\", found in \"#{$presetName}\", does not exist.";
+			}
+			// attach id for this to alias
+			// check if target has message
+			@if not map.has-key(map.get($themes,$alias),"message") {
+				@error "\"#{$alias}\" lacks \"message\" key. Set it to a string of the message ID.";
+			}
+			// add to list; deep merges are weird.
+			$themes: map.deep-merge($themes, (#{$alias}:("message": list.append(map.get(map.get($themes,$alias),"message"),map.get($presetContents,"message")))));
+		} @else {
+			// i could do other validation like making sure url is a url but eh cbf.
+		}
 	}
-	#{c(embeds textContainer)} {
-		@include bg($bgf: var(--local-image) center/ cover no-repeat);
-		@include bg2($bgf: var(--preview-overlay,url('https://leafyluigi.github.io/images/preview-overlay.png')) center/ cover no-repeat);
+	$presetListIDs: ":is(";
+	@each $id in $messageIDs {
+		$presetListIDs: $presetListIDs+"#message-accessories-"+$id+",";
+		@if list.index($messageIDs,$id) == list.length($messageIDs) {
+			$presetListIDs: string.slice($presetListIDs,0,-2) + ")";
+		}
 	}
-	#{c(embeds textFooter)} {
-		width: 300px;
+	
+	#{$presetListIDs} {
+		#{c(embeds textContainerUp)} {
+			border: none;
+			background-color: transparent;
+		}
+		#{c(embeds textContainer)} {
+			@include bg($bgf: var(--local-image) center/ cover no-repeat);
+			@include bg2($bgf: var(--preview-overlay,url('https://leafyluigi.github.io/images/preview-overlay.png')) center/ cover no-repeat);
+		}
+		#{c(embeds textFooter)} {
+			width: 300px;
+		}
+		#{c(embeds textContainerDownload)} {
+			color: var(--local-color,inherit);
+		}
+		:is(
+			#{c(embeds toggleExpandedPreview)},
+			#{c(embeds attachmentName)},
+			#{c(embeds attachmentSize)},
+			#{c(embeds codeIcon)},
+			pre
+		) {
+			display: none;
+		}
 	}
-	#{c(embeds textContainerDownload)} {
-		color: var(--local-color,inherit);
+	
+	@each $presetName,$presetContents in $themes {
+		// add background, overlay, color to message id(s)
+		@if not map.has-key($presetContents,"alias") { // skip aliases
+			$selector: "";	
+			@if meta.type-of(map.get($presetContents,"message")) == string { // individual message ID
+				$selector: "#message-accessories-"+#{map.get($presetContents,"message")}
+			} @else { // :is() list
+				$selector: ":is(";
+				$messageIDs: map.get($presetContents,"message");
+				@each $id in $messageIDs {
+					$selector: $selector+"#message-accessories-"+$id+",";
+					@if list.index($messageIDs,$id) == list.length($messageIDs) {
+						$selector: string.slice($selector,0,-2) + ")";
+					}
+				}
+			}
+			#{$selector} {
+				@if map.has-key($presetContents,"url") {
+					--local-image: url("#{map.get($presetContents,"url")}");
+				}
+				@if map.has-key($presetContents,"overlay") {
+					--preview-overlay: url("#{map.get($presetContents,"overlay")}");
+				}
+				@if map.has-key($presetContents,"color") {
+					--local-color: #{map.get($presetContents,"color")};
+				}
+			}
+		} @else { // "DEFAULT PRESETS"
+			$selector: "#message-accessories-"+#{map.get($presetContents,"message")};
+	
+			// use inline for defaults [vencord | betterdiscord]
+			#{$selector} {
+				#{c(chat nonMediaAttachmentsContainer)} {
+					flex-direction: row;
+					gap: 8px;
+				}
+				#{c(chat nonMediaAttachmentItem)} {
+					&+#{c(chat nonMediaAttachmentItem)} {
+						margin: 0;
+					}
+					&:first-child {
+						--client-mod-image: url('https://leafyluigi.github.io/images/vencord.png');
+					}
+					&:last-child {
+						--client-mod-image: url('https://leafyluigi.github.io/images/betterdiscord.png');
+					}
+				}
+				#{c(embeds textContainerUp)} {
+					&::before {
+						content: "";
+						background: var(--client-mod-image,none) center/cover no-repeat;
+						width: 48px;
+						height: 48px;
+						position: absolute;
+						top: 8px;
+						left: 8px;
+						z-index: 1;
+					}
+				}
+			}
+		}
 	}
-	:is(
-		#{c(embeds toggleExpandedPreview)},
-		#{c(embeds attachmentName)},
-		#{c(embeds attachmentSize)},
-		#{c(embeds codeIcon)},
-		pre
-	) {
-		display: none;
-	}
-}
 
-@each $presetName,$presetContents in $themes {
-	// add background, overlay, color to message id(s)
-	@if not map.has-key($presetContents,"alias") { // skip aliases
-		$selector: "";	
-		@if meta.type-of(map.get($presetContents,"message")) == string { // individual message ID
-			$selector: "#message-accessories-"+#{map.get($presetContents,"message")}
-		} @else { // :is() list
-			$selector: ":is(";
-			$messageIDs: map.get($presetContents,"message");
-			@each $id in $messageIDs {
-				$selector: $selector+"#message-accessories-"+$id+",";
-				@if list.index($messageIDs,$id) == list.length($messageIDs) {
-					$selector: string.slice($selector,0,-2) + ")";
-				}
-			}
-		}
-		#{$selector} {
-			@if map.has-key($presetContents,"url") {
-				--local-image: url("#{map.get($presetContents,"url")}");
-			}
-			@if map.has-key($presetContents,"overlay") {
-				--preview-overlay: url("#{map.get($presetContents,"overlay")}");
-			}
-			@if map.has-key($presetContents,"color") {
-				--local-color: #{map.get($presetContents,"color")};
-			}
-		}
-	} @else { // "DEFAULT PRESETS"
-		$selector: "#message-accessories-"+#{map.get($presetContents,"message")};
-
-		// use inline for defaults [vencord | betterdiscord]
-		#{$selector} {
-			#{c(chat nonMediaAttachmentsContainer)} {
-				flex-direction: row;
-				gap: 8px;
-			}
-			#{c(chat nonMediaAttachmentItem)} {
-				&+#{c(chat nonMediaAttachmentItem)} {
-					margin: 0;
-				}
-				&:first-child {
-					--client-mod-image: url('https://leafyluigi.github.io/images/vencord.png');
-				}
-				&:last-child {
-					--client-mod-image: url('https://leafyluigi.github.io/images/betterdiscord.png');
-				}
-			}
-			#{c(embeds textContainerUp)} {
-				&::before {
-					content: "";
-					background: var(--client-mod-image,none) center/cover no-repeat;
-					width: 48px;
-					height: 48px;
-					position: absolute;
-					top: 8px;
-					left: 8px;
-					z-index: 1;
-				}
-			}
-		}
-	}
 }
 
 

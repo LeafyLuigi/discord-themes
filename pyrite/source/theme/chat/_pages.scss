@@ -1,4 +1,7 @@
 @use "backend" as *;
+// file is entirely skipped in lite
+@if $lite != 1 {
+
 /* Browse Channels page */
 // #{c(pages container)},
 // #{c(pages customise scrollerContainer)},
@@ -40,4 +43,6 @@
 		border-color: $primary;
 		background: transparent;
 	}
+}
+
 }

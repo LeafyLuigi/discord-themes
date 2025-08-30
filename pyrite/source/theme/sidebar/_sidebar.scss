@@ -5,9 +5,6 @@
 	background: transparent;
 }
 #{c(sidebar server container)},
-// #{c(sidebar panel container)},
-// #{c(sidebar panel voice container)},
-// #{c(sidebar panel content)},
 #{c(sidebar panel activity activityPanel)} {
 	background: transparent;
 }
@@ -51,11 +48,6 @@
 	border: none;
 	border-radius: 0;
 }
-// #{c(os mac)} {
-// 	#{c(sidebar)}::after {
-// 		-webkit-app-region: drag;
-// 	}
-// }
 // Area - Friends List
 #{c(sidebar private channels)} {
 	background: transparent;
@@ -94,6 +86,7 @@
 #{c(sidebar private channelBadgeIcon)} {
 	display: none;
 }
+@if $lite != 1 {
 #{c(sidebar private loadingEmpty)} {
 	fill: $primary;
 }
@@ -111,6 +104,7 @@
 		margin-right: 5px;
 		background: linear-gradient(to left, currentColor -50%, transparent 50%);
 	}
+}
 }
 // Area - Servers
 #{c(sidebar server container)} {
@@ -185,6 +179,17 @@
 #{c(sidebar loadingChannelIcon)},
 #{c(sidebar loadingChannelName)} {
 	background: $primary;
+}
+// remove banner backdrop blur thing
+#{c(sidebar server header bannerVisible)} {
+	:is(
+		#{c(sidebar server header eclipseBackdrop)},
+		#{c(sidebar server header eclipseForeground)},
+		#{c(sidebar server header glass)}
+	) {
+		background: none;
+		backdrop-filter: none;
+	}
 }
 
 // #{c(sidebar server unreadBar old unreadParent)} {

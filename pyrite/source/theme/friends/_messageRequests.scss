@@ -1,4 +1,6 @@
 @use "backend" as *;
+
+@if $lite != 1 {
 /* Begin Message Requests */
 // These are only here because I can put them here. It could potentially relate to chat more.
 #{c(messageRequests container)} {
@@ -18,4 +20,6 @@
 	&:last-child {
 		border-color: transparent; 
 	}
+}
+
 }

@@ -1,4 +1,7 @@
 @use "backend" as *;
+// file is entirely skipped in lite
+@if $lite != 1 {
+
 // Threads
 #{c(threads jump)} {
 	background-color: $card;
@@ -70,4 +73,6 @@
 }
 #{c(threads chatTarget)} {
 	display: none;
+}
+
 }
