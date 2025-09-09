@@ -54,9 +54,11 @@
 	background: transparent;
 	backdrop-filter: blur(calc($blur * 2px));
 }
-#{c(chatForm clipContainer)} {
-	margin-top: 0;
-	padding-top: 0;
+@if $lite != 1 {
+	#{c(chatForm clipContainer)} {
+		margin-top: 0;
+		padding-top: 0;
+	}
 }
 #{c(chatForm textArea)} {
 	#{c(chatForm placeholder)} {
@@ -102,7 +104,12 @@
 }
 #{c(chatForm sendButton)} {
 	--__color: var(--hsl-primary-color);
-	&:is(:hover,:active,:focus,:focus-within) {
+	&:is(
+		:hover,
+		:active,
+		:focus,
+		:focus-within
+	) {
 		--__color: var(--hsl-hover-color);
 	}
 }

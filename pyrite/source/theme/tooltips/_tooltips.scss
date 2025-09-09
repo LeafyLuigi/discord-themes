@@ -6,14 +6,16 @@
 #{c(tooltips tooltip)} {
 	z-index: 2000;
 }
-#{c(tooltips pointer)} {
+#{c(tooltips pointer)},
+#{c(tooltips inbox caretIcon)} {
 	display: none !important; // !important reason: despite being display none, it still shows up for some reason.
 }
 #{c(tooltips black)},
 #{c(tooltips brand)},
 #{c(tooltips grey)},
 #{c(tooltips primary)},
-#{c(media bubble)} {
+#{c(media bubble)},
+#{c(tooltips inbox)} {
 	background: $tooltip;
 	color: var(--header-primary);
 }

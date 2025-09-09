@@ -174,8 +174,8 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
 }
 
-.theme-dark,
-.theme-light {
+#{c(main dark)},
+#{c(main light)} {
 	// below: defaults set by theme
 	// those labeled with double dagger (‡) get overridden by .visual-refresh.theme
 	// --input-background: #{v(dl-input-background)}; // ‡
@@ -230,7 +230,6 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--background-message-hover: #{v(background-message-hover)};
 	--background-mentioned: #{v(background-mentioned)};
 	--background-mentioned-hover: #{v(background-mentioned-hover)};
-	--channel-icon: #{v(channel-icon)};
 
 	--input-background: var(--hsl-card-background);
 	--modal-background: var(--hsl-card-background);
@@ -241,13 +240,8 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--scrollbar-auto-track: transparent;
 	--scrollbar-thin-thumb: var(--hsl-primary-color);
 	--background-code: var(--hsl-card-background);
-}
 
-// REMOVE SHADOWS
-#{c(main light)},
-#{c(main dark)},
-#{c(main darker)},
-#{c(main midnight)} {
+	// REMOVE SHADOWS
 	// takes initial string `--shadow` then appends each key/value going down the list, ie `--shadow-low`
 	// sets the value to predetermined `unset` (tho changeable for testing)
 	// each key also has an associated `-filter` variable. ie `--shadow-border-filter`

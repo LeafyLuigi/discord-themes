@@ -240,13 +240,8 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--scrollbar-auto-track: transparent;
 	--scrollbar-thin-thumb: var(--hsl-primary-color);
 	--background-code: var(--hsl-card-background);
-}
 
-// REMOVE SHADOWS
-#{c(main light)},
-#{c(main dark)},
-#{c(main darker)},
-#{c(main midnight)} {
+	// REMOVE SHADOWS
 	// takes initial string `--shadow` then appends each key/value going down the list, ie `--shadow-low`
 	// sets the value to predetermined `unset` (tho changeable for testing)
 	// each key also has an associated `-filter` variable. ie `--shadow-border-filter`

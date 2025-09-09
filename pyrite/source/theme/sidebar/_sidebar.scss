@@ -31,8 +31,6 @@
 		- (var(--windows-titlebar-enabled,0) * 18px)
 	);
 	// end notice stuff
-	@include bg($bg:$side,$top:48px,$w:240px);
-	@include bg2($bg:$header,$h:48px,$w:240px,$z:1001);
 	
 	background: transparent;
 	&::before,
@@ -82,29 +80,33 @@
 	background: $side;
 	margin-bottom: var(--custom-app-panels-height,0);
 }
-#{c(sidebar private link)}:is([href="/store"],[href="/library"],[href="/shop"]),
+#{c(sidebar private link)}:is(
+	[href="/store"],
+	[href="/library"],
+	[href="/shop"]
+),
 #{c(sidebar private channelBadgeIcon)} {
 	display: none;
 }
 @if $lite != 1 {
-#{c(sidebar private loadingEmpty)} {
-	fill: $primary;
-}
-
-#{c(sidebar private headerText)} {
-	color: var(--category-color);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	&::before {
-		content: "";
-		height: 2px;
-		flex-grow: 1;
-		margin-right: 5px;
-		background: linear-gradient(to left, currentColor -50%, transparent 50%);
+	#{c(sidebar private loadingEmpty)} {
+		fill: $primary;
 	}
-}
+
+	#{c(sidebar private headerText)} {
+		color: var(--category-color);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		&::before {
+			content: "";
+			height: 2px;
+			flex-grow: 1;
+			margin-right: 5px;
+			background: linear-gradient(to left, currentColor -50%, transparent 50%);
+		}
+	}
 }
 // Area - Servers
 #{c(sidebar server container)} {
@@ -117,8 +119,8 @@
 	}
 }
 #{c(sidebar server header container)} {
-	box-shadow: none;
 	background: $header;
+	box-shadow: none;
 }
 #{c(sidebar server name)} {
 	@include header;
@@ -143,12 +145,15 @@
 	margin-right: 0;
 	background: $side;
 }
-#{c(sidebar server channel modeUnreadImportant)} {
-	#{c(sidebar server channel icon)} {
-		color: inherit;
-	}
-	#{c(sidebar server channel unreadBlob)} {
-		background: $primary;
+
+@if $lite != 1 {
+	#{c(sidebar server channel modeUnreadImportant)} {
+		#{c(sidebar server channel icon)} {
+			color: inherit;
+		}
+		#{c(sidebar server channel unreadBlob)} {
+			background: $primary;
+		}
 	}
 }
 #{c(sidebar server header header)} {
@@ -225,135 +230,141 @@
 	border: none;
 	#{c(sidebar panel buttons button)} {
 		@include bg($bg:$primary,$o:.6);
-		&:last-child::before {
-			border-top-right-radius: 8px;
-			border-bottom-right-radius: 8px;
-		}
-		&:hover {
-			background-color: transparent;
-		}
-		&:hover::before {
-			background-color: $hover;
+	@if $lite != 1 {
+			&:last-child::before {
+				border-top-right-radius: 8px;
+				border-bottom-right-radius: 8px;
+			}
+			&:hover {
+				background-color: transparent;
+			}
+			&:hover::before {
+				background-color: $hover;
+			}
 		}
 	}
 }
-// mic button is a special case for some reason
-#{c(sidebar panel buttons micButtonParent)} #{c(sidebar panel buttons button)}::before {
-	border-bottom-left-radius: 8px;
-	border-top-left-radius: 8px;
-	#{c(sidebar panel buttons buttons)} & {
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
+
+@if $lite != 1 {
+	// mic button is a special case for some reason
+	#{c(sidebar panel buttons micButtonParent)} #{c(sidebar panel buttons button)}::before {
+		border-bottom-left-radius: 8px;
+		border-top-left-radius: 8px;
+		#{c(sidebar panel buttons buttons)} & {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
 	}
-}
 
-#{c(sidebar server category children)} {
-	order: 1;
-}
-#{c(sidebar server category mainContent)} {
-	order: 2;
-}
-
-#{c(sidebar server category wrapper)} #{c(sidebar server category name)} {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	&::before {
-		content: "";
-		height: 2px;
-		flex-grow: 1;
-		background: transparent;
-		margin-right: 5px;
+	#{c(sidebar server category children)} {
+		order: 1;
 	}
-}
+	#{c(sidebar server category mainContent)} {
+		order: 2;
+	}
 
-#{c(sidebar server channel voiceLimitWrapper)} {
-	height: 20px; // force it :)
-	line-height: 20px;
-	background: $card;
-	border: none;
-}
-#{c(sidebar server channel voiceLimitUsers)} {
-	background: transparent;
-}
-#{c(sidebar server channel voiceLimitTotal)} {
-	background: transparent;
-	&::after {
-		content: "/";
-		width: auto;
-		height: auto;
-		left: -6px;
+	#{c(sidebar server category wrapper)} #{c(sidebar server category name)} {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&::before {
+			content: "";
+			height: 2px;
+			flex-grow: 1;
+			background: transparent;
+			margin-right: 5px;
+		}
+	}
+
+
+	#{c(sidebar server channel voiceLimitWrapper)} {
+		height: 20px; // force it :)
+		line-height: 20px;
+		background: $card;
 		border: none;
 	}
-}
-
-#{c(sidebar server channel name)},
-#{c(sidebar server channel icon)},
-#{c(sidebar server category icon)},
-#{c(sidebar server category name)},
-#{c(sidebar server channel wrapper)} #{c(sidebar server channel link)} {
-	color: inherit;
-}
-
-#{c(sidebar private interactiveBG)},
-#{c(sidebar server channel wrapper)} {
-	color: var(--read-channel-color);
-}
-
-#{c(sidebar private interactive)} {
-	&:hover,
-	&:focus-within {
-		background: var(--background-modifier-hover);
+	#{c(sidebar server channel voiceLimitUsers)} {
+		background: transparent;
 	}
-	&:active {
-		background: var(--background-modifier-active);
+	#{c(sidebar server channel voiceLimitTotal)} {
+		background: transparent;
+		&::after {
+			content: "/";
+			width: auto;
+			height: auto;
+			left: -6px;
+			border: none;
+		}
 	}
-}
 
-#{c(sidebar private selectedBG)} {
-	background: var(--background-modifier-selected);
-}
-
-#{c(sidebar server channel modeSelected)},
-#{c(sidebar private interactiveSelected)},
-#{c(sidebar server channel wrapper)}:hover:not(#{c(sidebar server channel modeMuted)},#{c(sidebar server channel modeLocked)}),
-#{c(sidebar private interactiveBG)}:hover:not(#{c(sidebar private mutedBG)}) {
-	color: var(--selected-channel-color);
-}
-
-#{c(sidebar server channel wrapper)}:hover {
-	#{c(sidebar server channel name)} {
-		color: inherit;	
+	#{c(sidebar server channel name)},
+	#{c(sidebar server channel icon)},
+	#{c(sidebar server category icon)},
+	#{c(sidebar server category name)},
+	#{c(sidebar server channel wrapper)} #{c(sidebar server channel link)} {
+		color: inherit;
 	}
-}
 
-#{c(sidebar server channel modeUnreadImportant)} {
-	color: var(--unread-channel-color);
-	#{c(sidebar server channel unreadBlob)} {
-		display: var(--show-channel-unread-dot, block);
-		background-color: currentColor;
+	#{c(sidebar private interactiveBG)},
+	#{c(sidebar server channel wrapper)} {
+		color: var(--read-channel-color);
 	}
-	// #{c(sidebar server channel unreadBlob)},
-	// #{c(sidebar server channel name)},
-	// #{c(sidebar server channel icon)} {
-	// 	filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
-	// }
-	#{c(sidebar server channel name)} {
-		color: inherit;	
-	}
-}
 
-#{c(sidebar server channel modeMuted)} {
-	color: var(--muted-channel-color);
-	&:hover #{c(sidebar server channel name)} {
-		color: inherit;	
+	#{c(sidebar private interactive)} {
+		&:hover,
+		&:focus-within {
+			background: var(--background-modifier-hover);
+		}
+		&:active {
+			background: var(--background-modifier-active);
+		}
 	}
-}
-#{c(sidebar server channel modeConnected)} {
-	color: var(--category-color);
-}
-#{c(sidebar server channel modeLocked)} {
-	color: var(--locked-voice-channel-color);
+
+	#{c(sidebar private selectedBG)} {
+		background: var(--background-modifier-selected);
+	}
+
+	#{c(sidebar server channel modeSelected)},
+	#{c(sidebar private interactiveSelected)},
+	#{c(sidebar server channel wrapper)}:hover:not(#{c(sidebar server channel modeMuted)},#{c(sidebar server channel modeLocked)}),
+	#{c(sidebar private interactiveBG)}:hover:not(#{c(sidebar private mutedBG)}) {
+		color: var(--selected-channel-color);
+	}
+
+	#{c(sidebar server channel wrapper)}:hover {
+		#{c(sidebar server channel name)} {
+			color: inherit;	
+		}
+	}
+
+	#{c(sidebar server channel modeUnreadImportant)} {
+		color: var(--unread-channel-color);
+		#{c(sidebar server channel unreadBlob)} {
+			display: var(--show-channel-unread-dot, block);
+			background-color: currentColor;
+		}
+		// #{c(sidebar server channel unreadBlob)},
+		// #{c(sidebar server channel name)},
+		// #{c(sidebar server channel icon)} {
+		// 	filter: var(--unread-channel-glow, drop-shadow(0 0 2px));
+		// }
+		#{c(sidebar server channel name)} {
+			color: inherit;	
+		}
+	}
+
+	#{c(sidebar server channel modeMuted)} {
+		color: var(--muted-channel-color);
+		&:hover #{c(sidebar server channel name)} {
+			color: inherit;	
+		}
+	}
+	#{c(sidebar server channel modeConnected)} {
+		color: var(--category-color);
+	}
+	#{c(sidebar server channel modeLocked)} {
+		color: var(--locked-voice-channel-color);
+	}
 }
 
 #{c(sidebar server category wrapper)},
@@ -372,8 +383,10 @@
 	}
 }
 
-#{c(sidebar boostBar progressContainer)} {
-	background: $card;
+@if $lite != 1 {
+	#{c(sidebar boostBar progressContainer)} {
+		background: $card;
+	}
 }
 
 // // Hide Sidebar

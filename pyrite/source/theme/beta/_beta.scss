@@ -1,5 +1,7 @@
 @use "backend" as *;
+@if $lite != 1 {
 /* Begin Beta Branch */
+
 // Expect it to not work fully.
 // html[lang="en-GB"],
 // html[lang="fr"] {
@@ -10,3 +12,5 @@
 // 	--link-color: cyan;
 // 	--offline-color: white;
 // }
+
+}

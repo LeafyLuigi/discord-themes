@@ -135,6 +135,16 @@
 			color: $primary;
 		}
 	}
+	
+	#{c(topBar trailing recentsIcon)} {
+		color: $primary;
+		&:is(
+			:hover,
+			[aria-expanded=true]
+		) {
+			color: $secondary;
+		}
+	}
 }
 
 // Hide Help icon. Can be accessed by pressing F1.
@@ -219,6 +229,6 @@
 :is(#{c(os linux)}, #{c(os web)}) {
 	#{c(topBar trailing recentsIcon)} {
 		position: absolute;
-		top: 8px;
+		top: 12px;
 	}
 }
