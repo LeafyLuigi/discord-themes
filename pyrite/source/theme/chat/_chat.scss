@@ -5,6 +5,10 @@
 #{c(chat messageLoadingWrapper)} {
 	background: transparent;
 }
+// yay random gradients
+#{c(chat gradient)} {
+	background: none;
+}
 // border shows up when opening a thread
 #{c(chat)}[data-has-border=true] {
 	border: none;
@@ -282,5 +286,12 @@
 #{c(chat ephemeral)} {
 	&::before {
 		content: none;
+	}
+}
+
+// from some bottom aligned chat input thing
+#{c(main alignChatInput)} {
+	#{c(chat scrollerSpacer)} {
+		height: var(--space-16);
 	}
 }

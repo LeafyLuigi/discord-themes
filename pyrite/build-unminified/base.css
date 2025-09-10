@@ -898,6 +898,10 @@ html {
   background: transparent;
 }
 
+.chatGradient__36d07 {
+  background: none;
+}
+
 .chat_f75fb0[data-has-border=true] {
   border: none;
 }
@@ -1164,6 +1168,10 @@ span):not(.spoilerContent__54ab5) {
 .mentioned__5126c::before,
 .ephemeral__5126c::before {
   content: none;
+}
+
+.align-chat-input .scrollerSpacer__36d07 {
+  height: var(--space-16);
 }
 
 .container_f369db {
@@ -1642,11 +1650,15 @@ span):not(.spoilerContent__54ab5) {
 }
 
 /* Begin Chat Form */
-.form_f75fb0 {
-  margin-top: 0;
-}
 .form_f75fb0::before, .form_f75fb0::after {
   content: none;
+}
+.form_f75fb0, .align-chat-input .form_f75fb0 {
+  margin-top: 0;
+}
+
+.align-chat-input .chatTypingGradientAtBottom__36d07 {
+  background: none;
 }
 
 .wrapper__44df5 {
@@ -4632,8 +4644,10 @@ span):not(.spoilerContent__54ab5) {
 
 /* Start Server List */
 .wrapper_ef3116 {
-  margin-bottom: var(--custom-app-panels-height, 0);
   background: transparent;
+}
+.wrapper_ef3116, .align-chat-input .wrapper_ef3116 {
+  margin-bottom: var(--custom-app-panels-height, 0);
 }
 .wrapper_ef3116:focus {
   outline: 0;
@@ -5288,7 +5302,10 @@ span):not(.spoilerContent__54ab5) {
 
 .scroller__99e7c {
   background: var(--hsl-side-shading);
+}
+.scroller__99e7c, .align-chat-input .scroller__99e7c {
   margin-bottom: var(--custom-app-panels-height, 0);
+  padding-bottom: 0;
 }
 
 .link__972a0:is([href="/store"],
@@ -5319,6 +5336,9 @@ span):not(.spoilerContent__54ab5) {
 
 .container__2637a {
   margin-left: 0;
+}
+.align-chat-input .container__2637a {
+  padding-bottom: var(--custom-app-panels-height, 0);
 }
 
 :is(.content__99f8c, .content_d125d2) > div[style="height: 84px;"] {
@@ -5353,6 +5373,9 @@ span):not(.spoilerContent__54ab5) {
   margin-bottom: 0;
   margin-right: 0;
   background: var(--hsl-side-shading);
+}
+.align-chat-input .scroller__629e4 {
+  padding-bottom: 0;
 }
 
 .modeUnreadImportant__2ea32 .icon__2ea32 {

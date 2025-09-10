@@ -1,12 +1,22 @@
 @use "backend" as *;
 /* Begin Chat Form */
 #{c(chatForm form)} {
-	margin-top: 0;
 	&::before,
 	&::after {
 		content: none;
 	}
+	&,
+	#{c(main alignChatInput)} & {
+		margin-top: 0;
+	}
 }
+// due to align chat input thing
+#{c(main alignChatInput)} {
+	#{c(chat gradient typingAtBottom)} {
+		background: none;
+	}
+}
+
 #{c(chatForm followWrapper)} {
 	border-width: 0;
 	z-index: 0; // messes with member list. set to 1 by discord

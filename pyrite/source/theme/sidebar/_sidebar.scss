@@ -78,7 +78,11 @@
 }
 #{c(sidebar private scroller)} {
 	background: $side;
-	margin-bottom: var(--custom-app-panels-height,0);
+	&,
+	#{c(main alignChatInput)} & {
+		margin-bottom: var(--custom-app-panels-height,0);
+		padding-bottom: 0;
+	}
 }
 #{c(sidebar private link)}:is(
 	[href="/store"],
@@ -111,6 +115,9 @@
 // Area - Servers
 #{c(sidebar server container)} {
 	margin-left: 0; // remove a single dark pixel for notices.
+	#{c(main alignChatInput)} & {
+		padding-bottom: var(--custom-app-panels-height,0);
+	}
 }
 #{c(scroller content)} {
 	// banner spacer thing
@@ -144,6 +151,9 @@
 	margin-bottom: 0;
 	margin-right: 0;
 	background: $side;
+	#{c(main alignChatInput)} & {
+		padding-bottom: 0;
+	}
 }
 
 @if $lite != 1 {
