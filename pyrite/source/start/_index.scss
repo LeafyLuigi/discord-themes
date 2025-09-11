@@ -93,6 +93,8 @@ $defaults: (
 	brand-experiment: var(--hsl-primary-color),
 	focus-primary: var(--hsl-primary-color),
 	channel-icon: inherit,
+	scrim-default: transparent,
+	scrim-lightbox: transparent,
 	hide-fallback-enabled: 1,
 	hide-fallback-disabled: 0,
 	// dark+light vars

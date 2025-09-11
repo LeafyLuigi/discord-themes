@@ -309,7 +309,8 @@ a[href^="http://"] {
 }
 
 .backdrop__78332,
-.withLayer__78332 {
+.withLayer__78332,
+.scrim_d9cec8 {
   backdrop-filter: blur(calc(var(--blur-intensity, 1) * 3px)) !important;
   background-color: transparent !important;
 }
@@ -1657,7 +1658,8 @@ span):not(.spoilerContent__54ab5) {
   margin-top: 0;
 }
 
-.align-chat-input .chatTypingGradientAtBottom__36d07 {
+.align-chat-input :is(.chatTypingGradientAtBottom__36d07,
+.chatTypingGradientNotAtBottom__36d07) {
   background: none;
 }
 
@@ -3288,6 +3290,10 @@ span):not(.spoilerContent__54ab5) {
   box-shadow: none;
 }
 
+.container__53cea {
+  background: var(--modal-background);
+}
+
 .container_fea832 {
   background: transparent;
 }
@@ -3553,6 +3559,9 @@ span):not(.spoilerContent__54ab5) {
 
 .quickswitcher_ac6cb0 {
   background: var(--modal-background);
+}
+.outerContainer__53cea .quickswitcher_ac6cb0 {
+  background: unset;
 }
 
 .scroller_ac6cb0 {
@@ -5834,6 +5843,8 @@ span):not(.spoilerContent__54ab5) {
   --background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
   --background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
   --channel-icon: inherit;
+  --scrim-default: transparent;
+  --scrim-lightbox: transparent;
   --input-background: var(--hsl-card-background);
   --modal-background: var(--hsl-card-background);
   --modal-footer-background: transparent;

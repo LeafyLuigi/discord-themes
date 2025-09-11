@@ -1,9 +1,14 @@
 @use "backend" as *;
 /* Start Modals (enjoy hell) */
-#{c(modals footer)} {
+// old styles
+#{c(modals old footer)} {
 	background: transparent;
 }
-#{c(modals footerSeparator)},
-#{c(modals separator)} {
+#{c(modals old footerSeparator)},
+#{c(modals old separator)} {
 	box-shadow: none;
+}
+
+#{c(modals new container)} {
+	background: $modal;
 }

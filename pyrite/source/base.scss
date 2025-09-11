@@ -230,6 +230,8 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--background-mentioned: #{v(background-mentioned)};
 	--background-mentioned-hover: #{v(background-mentioned-hover)};
 	--channel-icon: #{v(channel-icon)};
+	--scrim-default: #{v(scrim-default)};
+	--scrim-lightbox: #{v(scrim-lightbox)};
 
 	--input-background: var(--hsl-card-background);
 	--modal-background: var(--hsl-card-background);

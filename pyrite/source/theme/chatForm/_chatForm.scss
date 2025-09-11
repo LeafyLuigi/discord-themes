@@ -12,7 +12,10 @@
 }
 // due to align chat input thing
 #{c(main alignChatInput)} {
-	#{c(chat gradient typingAtBottom)} {
+	:is(
+		#{c(chat gradient typingAtBottom)},
+		#{c(chat gradient notAtBottom)}
+	) {
 		background: none;
 	}
 }

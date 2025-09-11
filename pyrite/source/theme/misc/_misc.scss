@@ -330,7 +330,8 @@ a[href^="http://"] {
 	backdrop-filter: blur(calc($blur * 5px));
 }
 #{c(main backdrop)},
-#{c(main backdropWithLayer)} {
+#{c(main backdropWithLayer)},
+#{c(modals new scrim)} {
 	backdrop-filter: blur(calc($blur * 3px)) !important; // !important reason: override inline
 	background-color: transparent !important; // !important reason: override inline
 }
