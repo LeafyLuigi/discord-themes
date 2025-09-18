@@ -96,7 +96,7 @@
 	margin: 0 8px;
 	padding: 2px 10px;
 	flex: 1 1 auto;
-	background: $card;
+	background: var(--hsl-date-divider-background);
 }
 
 #{c(chat newMessagesBar)} {
@@ -170,7 +170,7 @@
 
 @if $lite != 1 {
 	#{c(chat spoiler content)}#{c(chat spoiler hidden)}:hover {
-		opacity: 0.7;
+		opacity: var(--spoiler-hover-opacity);
 		#{c(chat spoiler obscuredTextContentInner)} :is(span, code) {
 			transition: opacity .5s .5s ease-in-out;
 			opacity: 1;

@@ -48,6 +48,8 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--hsl-link-color: hsl(from var(--link-color) #{$hslColor});
 	--hsl-live-color: hsl(from var(--live-color) #{$hslColor});
 	--hsl-offline-color: hsl(from var(--offline-color) #{$hslColor});
+	--hsl-date-divider-background: hsl(from var(--date-divider-background) #{$hslColor});
+	--hsl-spoiler-background: hsl(from var(--spoiler-background) #{$hslColor});
 
 	--background-image: #{v(background-image)};
 	--user-modal-image: #{v(user-modal-image)};
@@ -80,6 +82,10 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--muted-channel-color: #{v(muted-channel-color)};
 	--locked-voice-channel-color: #{v(locked-voice-channel-color)};
 
+	/* Certain Elements */
+	--date-divider-background: #{v(date-divider-background)};
+	--spoiler-background: #{v(spoiler-background)};
+
 	/* Advanced Users */
 	--code-font: #{v(code-font)};
 	--body-font: #{v(body-font)};
@@ -96,6 +102,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--hide-profile-panel: #{v(hide-profile-panel)};
 	--hide-channel-list: #{v(hide-channel-list)};
 	--blur-intensity: #{v(blur-intensity)};
+	--spoiler-hover-opacity: #{v(spoiler-hover-opacity)}; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
 
 	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
 	--win-min-max-close-button-width: #{v(win-min-max-close-button-width)}; /* default: 28px, square: 48px */

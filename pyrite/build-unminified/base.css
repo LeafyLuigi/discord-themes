@@ -1012,7 +1012,7 @@ html {
   margin: 0 8px;
   padding: 2px 10px;
   flex: 1 1 auto;
-  background: var(--hsl-card-background);
+  background: var(--hsl-date-divider-background);
 }
 
 .newMessagesBar__0f481 {
@@ -1068,7 +1068,7 @@ span):not(.spoilerContent__54ab5) {
 }
 
 .spoilerContent__54ab5.hidden__54ab5:hover {
-  opacity: 0.7;
+  opacity: var(--spoiler-hover-opacity);
 }
 .spoilerContent__54ab5.hidden__54ab5:hover .obscuredTextContentInner__54ab5 :is(span, code) {
   transition: opacity 0.5s 0.5s ease-in-out;
@@ -5692,6 +5692,8 @@ span):not(.spoilerContent__54ab5) {
   --hsl-link-color: hsl(from var(--link-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-live-color: hsl(from var(--live-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-offline-color: hsl(from var(--offline-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-date-divider-background: hsl(from var(--date-divider-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --hsl-spoiler-background: hsl(from var(--spoiler-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --background-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
   --user-modal-image: var(--background-image);
   --user-popout-image: var(--background-image);
@@ -5718,6 +5720,9 @@ span):not(.spoilerContent__54ab5) {
   --read-channel-color: var(--interactive-normal);
   --muted-channel-color: var(--interactive-muted);
   --locked-voice-channel-color: var(--hsl-red-color);
+  /* Certain Elements */
+  --date-divider-background: var(--card-background);
+  --spoiler-background: var(--card-background);
   /* Advanced Users */
   --code-font: Hack, Monaco, Consolas, Courier, monospace;
   --body-font: Whitney, "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
@@ -5733,6 +5738,7 @@ span):not(.spoilerContent__54ab5) {
   --hide-profile-panel: 1;
   --hide-channel-list: 0;
   --blur-intensity: 1;
+  --spoiler-hover-opacity: 0.7; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
   /* Internal please ignore */
@@ -5804,9 +5810,9 @@ span):not(.spoilerContent__54ab5) {
   --control-brand-foreground-new: var(--hsl-primary-color);
   --deprecated-text-input-bg: var(--input-background);
   --deprecated-text-input-border: var(--hsl-primary-color);
-  --__spoiler-background-color--hidden: var(--hsl-card-background);
-  --__spoiler-background-color--hidden--hover: var(--hsl-card-background);
-  --__spoiler-background-color--revealed: var(--hsl-card-background);
+  --__spoiler-background-color--hidden: var(--hsl-spoiler-background);
+  --__spoiler-background-color--hidden--hover: var(--hsl-spoiler-background);
+  --__spoiler-background-color--revealed: var(--hsl-spoiler-background);
   --brand-500: var(--hsl-primary-color);
   --dark-elevation-low: unset;
   --dark-elevation-high: unset;
