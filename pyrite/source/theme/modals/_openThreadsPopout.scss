@@ -1,8 +1,11 @@
 @use "backend" as *;
-#{c(modals openThreadsPopout popout)} {
-	background: $modal;
-	backdrop-filter: blur(calc($blur * 5px));
-}
-#{c(modals openThreadsPopout modal)} {
-	background: $modal !important; // !important reason: important in discord css
+@if $lite != 1 {
+
+	#{c(modals openThreadsPopout popout)} {
+		background: $modal;
+		backdrop-filter: blur(calc($blur * 5px));
+	}
+	#{c(modals openThreadsPopout modal)} {
+		background: $modal !important; // !important reason: important in discord css
+	}
 }

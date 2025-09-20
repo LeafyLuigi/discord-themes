@@ -1,4 +1,6 @@
 @use "backend" as *;
+@if $lite != 1 {
+
 // apply dark variables to override light
 #{c(main dark)} #{c(modals addServer modal)} {
 	--header-primary:#fff;
@@ -43,4 +45,6 @@
 	>div>svg>circle[fill="#5865f2"] {
 		fill: $primary;
 	}
+}
+
 }

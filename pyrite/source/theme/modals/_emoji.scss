@@ -1,4 +1,5 @@
 @use "backend" as *;
+@if $lite != 1 {
 :is(#{c(main imagesDark)},#{c(main imagesLight)}) { // uses those classes
 	#{c(modals emoji imageLoading)} {
 		background-image: none;
@@ -91,4 +92,6 @@
 
 #{c(modals emoji floating upsellContainer)} {
 	display: none;
+}
+
 }

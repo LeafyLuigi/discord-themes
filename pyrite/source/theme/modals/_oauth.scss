@@ -1,8 +1,11 @@
 @use "backend" as *;
-#{c(modals oauth wrapper)} {
-	background: $modal;
-}
-#{c(modals oauth authorize)},
-#{c(modals oauth footer)} {
-	background: transparent;
+@if $lite != 1 {
+	@debug "oauth modal needs reworking";
+	// #{c(modals oauth wrapper)} {
+	// 	background: $modal;
+	// }
+	// #{c(modals oauth authorize)},
+	// #{c(modals oauth footer)} {
+	// 	background: transparent;
+	// }
 }

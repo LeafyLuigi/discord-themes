@@ -1,4 +1,3 @@
 @use "backend" as *;
-#{c(modals eventsList header)} {
-    background: transparent;
+@if $lite != 1 {
 }

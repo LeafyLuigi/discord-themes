@@ -1,4 +1,5 @@
 @use "backend" as *;
+@if $lite != 1 {
 // Soundboard popout
 #{c(modals soundboard modal)} {
 	&,
@@ -107,4 +108,5 @@
 // remove upsell banner
 #{c(modals soundboard nitro upsell container)} {
 	display: none;
+}
 }

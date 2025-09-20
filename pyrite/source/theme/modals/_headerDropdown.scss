@@ -1,12 +1,21 @@
 @use "backend" as *;
-// inbox's unread is here because it can be
 #{c(modals headerDropdown messagesPopoutWrap)},
 #{c(modals inbox unread popout)},
 #{c(modals inbox forYou container)} {
+	// only the top 4px is done for making sure that it doesn't clip into the header for lite
 	top: 4px;
-	backdrop-filter: blur(calc($blur * 5px));
-	background: $modal;
+	@if $lite != 1 {
+		backdrop-filter: blur(calc($blur * 5px));
+		background: $modal;
+	}
 }
-#{c(modals headerDropdown header)} {
-	background: transparent;
+@if $lite != 1 {
+	#{c(modals headerDropdown header)} {
+		background: transparent;
+	}
+	// it appears in there
+	#{c(modals inbox popout)} #{c(modals headerDropdown messagesPopoutWrap)} {
+		backdrop-filter: none;
+		background: none;
+	}
 }

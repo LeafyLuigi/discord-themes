@@ -1,10 +1,12 @@
 @use "backend" as *;
-:is(#{c(main dark)}, #{c(main light)}) {
-	#{c(modals timeoutDuration item)} { // requires dark/light
-		background-color: $card;
-		border-color: $primary;
-	}
-	#{c(modals timeoutDuration selectorButtonSelected)} { // requires dark/light
-		background-color: $primary;
+@if $lite != 1 {	
+	:is(#{c(main dark)}, #{c(main light)}) {
+		#{c(modals timeoutDuration item)} { // requires dark/light
+			background-color: $card;
+			border-color: $primary;
+		}
+		#{c(modals timeoutDuration selectorButtonSelected)} { // requires dark/light
+			background-color: $primary;
+		}
 	}
 }

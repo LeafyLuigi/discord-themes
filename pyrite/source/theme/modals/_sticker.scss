@@ -1,5 +1,5 @@
 @use "backend" as *;
-
+@if $lite != 1 {
 #{c(modals sticker categoryGeneric)}:hover {
 	background-color: var(--background-modifier-hover);
 	color: var(--interactive-hover);
@@ -28,4 +28,5 @@
 	mask: none;
 	background-color: $card;
 	border-radius: 12px;
+}
 }

@@ -1,4 +1,5 @@
 @use "backend" as *;
+@if $lite != 1 {
 #{c(modals threads container)},
 #{c(modals threads header)} {
 	background: transparent;
@@ -17,4 +18,5 @@
 	&:hover {
 		border-color: $hover;
 	}
+}
 }

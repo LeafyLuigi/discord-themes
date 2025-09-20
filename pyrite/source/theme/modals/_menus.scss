@@ -1,4 +1,5 @@
 @use "backend" as *;
+@if $lite != 1 {
 #{c(modals menus menu)} {
 	max-height: 80vh;
 	@include menu;
@@ -90,4 +91,5 @@
 	&[style*="grey"] {
 		background: $offline !important; // !important reason: inline style
 	}
+}
 }

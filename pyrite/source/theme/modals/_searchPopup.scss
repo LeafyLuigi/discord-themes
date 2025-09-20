@@ -1,4 +1,7 @@
 @use "backend" as *;
-#{c(modals searchPopup container)} {
-	background: $card;
+@if $lite != 1 {
+
+	#{c(modals searchPopup container)} {
+		background: $card;
+	}
 }

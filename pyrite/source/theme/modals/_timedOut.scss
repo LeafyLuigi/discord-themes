@@ -1,11 +1,14 @@
 @use "backend" as *;
-#{c(modals timedOut container)} {
-	background: $modal;
-}
-#{c(modals timedOut iconContainer)} {
-	display: none;
-}
-#{c(modals timedOut spamBanner)} {
-	background: $header;
-	backdrop-filter: blur(calc($blur * 2px));
+@if $lite != 1 {
+
+	#{c(modals timedOut container)} {
+		background: $modal;
+	}
+	#{c(modals timedOut iconContainer)} {
+		display: none;
+	}
+	#{c(modals timedOut spamBanner)} {
+		background: $header;
+		backdrop-filter: blur(calc($blur * 2px));
+	}
 }

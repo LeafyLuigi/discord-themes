@@ -1,1 +1,6 @@
 @use "backend" as *;
+@if $lite != 1 {
+	#{c(modals browserInvite profile editProfileContainer)} {
+		@include card;
+	}
+}

@@ -1,4 +1,7 @@
 @use "backend" as *;
+
+@if $lite != 1 {
 #{c(modals keybinds modal)} {
 	background: $modal;
+}
 }

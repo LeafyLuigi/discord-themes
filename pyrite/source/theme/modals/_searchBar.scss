@@ -1,4 +1,6 @@
 @use "backend" as *;
+
+@if $lite != 1 {
 #{c(modals searchBar container)} {
 	background: transparent;
 }
@@ -13,4 +15,5 @@
 #{c(modals searchBar richTag)},
 #{c(modals searchBar richTag)}:hover {
 	background: $card;
+}
 }

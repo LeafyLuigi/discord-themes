@@ -1,4 +1,7 @@
 @use "backend" as *;
-#{c(modals regionSelect popout)} {
-	background: $card;
+@if $lite != 1 {
+
+	#{c(modals regionSelect popout)} {
+		background: $card;
+	}
 }

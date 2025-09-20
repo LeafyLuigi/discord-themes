@@ -1,8 +1,9 @@
 @use "backend" as *;
-#{c(modals welcome main)} {
-	background: $modal;
-}
-#{c(modals welcome optionContainer)},
-#{c(modals welcome optionContainer)}:hover {
-	background: $card;
+
+@if $lite != 1 {
+	@debug "welcome screen modal needs reworking";
+	#{c(modals welcome optionContainer)},
+	#{c(modals welcome optionContainer)}:hover {
+		background: $card;
+	}
 }

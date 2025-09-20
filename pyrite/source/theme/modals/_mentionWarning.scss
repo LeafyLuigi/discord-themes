@@ -1,16 +1,18 @@
 @use "backend" as *;
-#{c(modals mentionWarning popout)} {
-	background: $modal;
-	box-shadow: none;
-	backdrop-filter: blur(calc($blur * 5px));
-}
-#{c(modals mentionWarning body)} {
-	background: transparent;
-}
-#{c(modals mentionWarning header)} {
-	color: $red;
-}
-#{c(modals mentionWarning footer)},
-#{c(modals mentionWarning animation)} {
-	display: none;
+@if $lite != 1 {
+	#{c(modals mentionWarning popout)} {
+		background: $modal;
+		box-shadow: none;
+		backdrop-filter: blur(calc($blur * 5px));
+	}
+	#{c(modals mentionWarning body)} {
+		background: transparent;
+	}
+	#{c(modals mentionWarning header)} {
+		color: $red;
+	}
+	#{c(modals mentionWarning footer)},
+	#{c(modals mentionWarning animation)} {
+		display: none;
+	}
 }

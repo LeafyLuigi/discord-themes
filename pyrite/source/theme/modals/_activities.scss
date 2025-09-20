@@ -1,26 +1,30 @@
 @use "backend" as *;
-@debug "Activities modal needs rework";
-#{c(modals activities shelfTopBackground)},
-#{c(modals activities shelfTopForeground)},
-#{c(modals activities divider)},
-#{c(modals activities nitroCTAContainer)} {
-	display: none;
-}
 
-#{c(modals activities header)} {
-	background: transparent;
-}
+@if $lite != 1 {
+@debug "Activities modal needs serious rework";
+// #{c(modals activities shelfTopBackground)},
+// #{c(modals activities shelfTopForeground)},
+// #{c(modals activities divider)},
+// #{c(modals activities nitroCTAContainer)} {
+// 	display: none;
+// }
 
-#{c(modals activities shelfTitle)} {
-	margin: 0;
-}
+// #{c(modals activities header)} {
+// 	background: transparent;
+// }
 
-#{c(modals activities tag)} {
-	background: transparent;
-	border: 1px solid $primary;
-}
+// #{c(modals activities shelfTitle)} {
+// 	margin: 0;
+// }
 
-#{c(modals activities item)},
-#{c(modals activities item)}:hover {
-	background: $card;
+// #{c(modals activities tag)} {
+// 	background: transparent;
+// 	border: 1px solid $primary;
+// }
+
+// #{c(modals activities item)},
+// #{c(modals activities item)}:hover {
+// 	background: $card;
+// }
+
 }

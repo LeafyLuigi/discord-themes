@@ -1,9 +1,12 @@
 @use "backend" as *;
-#{c(modals groupDm popout)} {
-	top: 4px;
-	position: relative;
-	#{c(modals groupDm footerSeparator)} {
-		box-shadow: 0 -1px 0 $primary;
-		margin: 0;
+@if $lite != 1 {
+
+	#{c(modals groupDm popout)} {
+		top: 4px;
+		position: relative;
+		#{c(modals groupDm footerSeparator)} {
+			box-shadow: 0 -1px 0 $primary;
+			margin: 0;
+		}
 	}
 }

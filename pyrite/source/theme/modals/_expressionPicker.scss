@@ -1,4 +1,6 @@
 @use "backend" as *;
+@if $lite != 1 {
+	
 #{c(modals expressionPicker resizeHandle)} {
 	border-radius: 8px 0 0 8px;
 	background: $primary;
@@ -31,3 +33,5 @@
 // #{c(modals expressionPicker positionContainer)} #{c(modals sidebarList wrapper)} #{c(modals sidebarList scroller)} {
 // 	height: calc(100% - 48px);
 // }
+
+}

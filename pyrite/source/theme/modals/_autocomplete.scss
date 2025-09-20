@@ -1,19 +1,22 @@
 @use "backend" as *;
-#{c(modals autocomplete modal)} {
-	@include menu;
-}
-#{c(modals autocomplete option)} {
-	background: $primary;
-	color: var(--header-primary);
-}
-#{c(modals autocomplete railWrapper)}, #{c(modals autocomplete categoryHeader)} {
-	background: transparent;
-}
-#{c(modals autocomplete categorySelected)} {
-	&:hover, & {
-		background: $primary;
+@if $lite != 1 {
+
+	#{c(modals autocomplete modal)} {
+		@include menu;
 	}
-}
-#{c(modals autocomplete categorySelectable)}:hover {
-	background: $hover;
+	#{c(modals autocomplete option)} {
+		background: $primary;
+		color: var(--header-primary);
+	}
+	#{c(modals autocomplete railWrapper)}, #{c(modals autocomplete categoryHeader)} {
+		background: transparent;
+	}
+	#{c(modals autocomplete categorySelected)} {
+		&:hover, & {
+			background: $primary;
+		}
+	}
+	#{c(modals autocomplete categorySelectable)}:hover {
+		background: $hover;
+	}
 }

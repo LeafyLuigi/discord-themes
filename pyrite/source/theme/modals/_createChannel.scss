@@ -1,4 +1,6 @@
 @use "backend" as *;
+@if $lite != 1 {
 #{c(modals createChannel searchBar)} {
 	border-color: transparent;
+}
 }

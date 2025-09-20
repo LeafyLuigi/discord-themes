@@ -3414,12 +3414,17 @@ span):not(.spoilerContent__54ab5) {
   display: none;
 }
 
-.bannedUserModal_a73dc3 .header_a73dc3 {
+.bannedUserModal_cdb2b0 .header_cdb2b0 {
   justify-content: unset;
   padding: 16px;
 }
-.bannedUserModal_a73dc3 .content_a73dc3 {
+.bannedUserModal_cdb2b0 .content_cdb2b0 {
   padding-bottom: 0;
+}
+
+.editProfileContainer__42179 {
+  border: 1px solid var(--hsl-secondary-color);
+  background-color: var(--hsl-card-background);
 }
 
 .calendarPicker_d27f17 :is(.react-datepicker,
@@ -3435,11 +3440,11 @@ span):not(.spoilerContent__54ab5) {
   border-color: transparent;
 }
 
-.progressBar_f2ceaa {
+.progressBar__5537c {
   background-color: var(--hsl-card-background);
 }
 
-.selectedProgressBar_f2ceaa {
+.selectedProgressBar__5537c {
   background-color: var(--hsl-primary-color);
 }
 
@@ -3447,9 +3452,9 @@ span):not(.spoilerContent__54ab5) {
   background: transparent;
 }
 
-:is(.theme-dark, .theme-light) .previewCard_f70348 {
-  background: var(--hsl-card-background);
-  border-color: var(--hsl-primary-color);
+.previewCard_f70348 {
+  border: 1px solid var(--hsl-secondary-color);
+  background-color: var(--hsl-card-background);
 }
 
 .popoutContainer__0f481 {
@@ -3794,10 +3799,6 @@ span):not(.spoilerContent__54ab5) {
   background: transparent;
 }
 
-.main__949ab {
-  background: var(--modal-background);
-}
-
 .optionContainer__949ab,
 .optionContainer__949ab:hover {
   background: var(--hsl-card-background);
@@ -4133,7 +4134,9 @@ span):not(.spoilerContent__54ab5) {
   border: 1px solid var(--hsl-secondary-color);
 }
 
-.option__3f413:is(:hover, :focus, .focused__3f413) {
+.option__3f413:is(:hover,
+:focus,
+.focused__3f413) {
   background-color: var(--background-modifier-hover);
 }
 .option__3f413:active {
@@ -4147,7 +4150,7 @@ span):not(.spoilerContent__54ab5) {
   color: var(--hsl-primary-color);
 }
 
-.root__4325e .container__4efb4 {
+.container__53cea .container__4efb4 {
   background: transparent;
 }
 
@@ -4173,10 +4176,6 @@ span):not(.spoilerContent__54ab5) {
   background-color: transparent;
 }
 
-.header_d0b769 {
-  background: transparent;
-}
-
 .messagesPopoutWrap__45690,
 .container__2692d,
 .container_fc561d {
@@ -4187,6 +4186,11 @@ span):not(.spoilerContent__54ab5) {
 
 .header__45690 {
   background: transparent;
+}
+
+.recentMentionsPopout__95796 .messagesPopoutWrap__45690 {
+  backdrop-filter: none;
+  background: none;
 }
 
 .guildIcon__35a7e {
@@ -5636,7 +5640,7 @@ span):not(.spoilerContent__54ab5) {
 }
 
 /* Begin Tooltips */
-.layerContainer_da8173 {
+.layerContainer__59d0d {
   z-index: 1100;
 }
 

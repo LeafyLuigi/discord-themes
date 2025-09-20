@@ -1,5 +1,7 @@
 @use "backend" as *;
-#{c(modals incomingCall root)} {
-	background: $card;
-	box-shadow: none;
+@if $lite != 1 {
+	#{c(modals incomingCall root)} {
+		background: $card;
+		box-shadow: none;
+	}
 }

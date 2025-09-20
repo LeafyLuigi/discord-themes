@@ -1,17 +1,15 @@
 @use "backend" as *;
-#{c(modals createEvent progressBar)} {
-	background-color: $card;
-}
-#{c(modals createEvent progressBarSelected)} {
-	background-color: $primary;
-}
-#{c(modals createEvent textInput)} {
-	background: transparent;
-}
-#{c(modals createEvent previewCard)} {
-	// old style has dark/light for some reason
-	:is(#{c(main dark)}, #{c(main light)}) & {
-		background: $card;
-		border-color: $primary;
+@if $lite != 1 {
+	#{c(modals createEvent progressBar)} {
+		background-color: $card;
+	}
+	#{c(modals createEvent progressBarSelected)} {
+		background-color: $primary;
+	}
+	#{c(modals createEvent textInput)} {
+		background: transparent;
+	}
+	#{c(modals createEvent previewCard)} {
+		@include card;
 	}
 }

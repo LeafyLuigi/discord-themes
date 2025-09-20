@@ -1,8 +1,11 @@
 @use "backend" as *;
-#{c(modals emojiStickerPopout container)} {
-	background: $modal;
-	backdrop-filter: blur(calc($blur * 5px));
-}
-#{c(modals emojiStickerPopout guildSection)} {
-	background: transparent;
+@if $lite != 1 {
+
+	#{c(modals emojiStickerPopout container)} {
+		background: $modal;
+		backdrop-filter: blur(calc($blur * 5px));
+	}
+	#{c(modals emojiStickerPopout guildSection)} {
+		background: transparent;
+	}
 }

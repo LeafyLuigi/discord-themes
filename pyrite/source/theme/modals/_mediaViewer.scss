@@ -1,7 +1,9 @@
 @use "backend" as *;
+@if $lite != 1 {
 #{c(modals mediaViewer topBar)}::before {
 	content: none;
 }
 #{c(modals mediaViewer actionButtons)} {
 	background: $card;
+}
 }

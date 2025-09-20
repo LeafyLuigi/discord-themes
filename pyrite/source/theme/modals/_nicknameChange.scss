@@ -1,4 +1,7 @@
 @use "backend" as *;
-#{c(modals nicknameChange card)} {
-	display: none; // hides the warning
+@if $lite != 1 {
+
+	#{c(modals nicknameChange card)} {
+		display: none; // hides the warning
+	}
 }

@@ -1,4 +1,5 @@
 @use "backend" as *;
+@if $lite != 1 {
 #{c(modals pinned messageGroup)} {
 	margin: 0 0 16px;
 	background: transparent;
@@ -19,4 +20,5 @@
 #{c(modals pinned emptyImage)},
 #{c(modals pinned footer)} {
 	display: none;
+}
 }

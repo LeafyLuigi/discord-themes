@@ -1,5 +1,7 @@
 @use "backend" as *;
+@if $lite != 1 {
 #{c(modals loadingPopout popout)} {
 	background-color: transparent;
 	border-radius: 50%;
+}
 }

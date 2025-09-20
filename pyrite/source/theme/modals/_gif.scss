@@ -1,4 +1,5 @@
 @use "backend" as *;
+@if $lite != 1 {
 // :is(#{c(main dark)},#{c(main light)}) {
 	#{c(modals gif header)} {
 		box-shadow: none;
@@ -75,4 +76,6 @@
 
 #{c(modals gif container)}:after {
 	content: none;
+}
+
 }

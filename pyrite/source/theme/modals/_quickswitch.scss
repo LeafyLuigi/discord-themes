@@ -1,13 +1,16 @@
 @use "backend" as *;
-#{c(modals quickswitch modal)} {
-	background: $modal;
-	#{c(modals new outerContainer)} & {
-		background: unset;
+@if $lite != 1 {
+
+	#{c(modals quickswitch modal)} {
+		background: $modal;
+		#{c(modals new outerContainer)} & {
+			background: unset;
+		}
 	}
-}
-#{c(modals quickswitch scroller)} {
-	background: transparent;
-	&::-webkit-scrollbar-track {
-		background: transparent !important; // !important reason: discord uses important
+	#{c(modals quickswitch scroller)} {
+		background: transparent;
+		&::-webkit-scrollbar-track {
+			background: transparent !important; // !important reason: discord uses important
+		}
 	}
 }

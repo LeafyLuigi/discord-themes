@@ -1,9 +1,11 @@
 @use "backend" as *;
-#{c(modals formattingToolbar toolbar)} {
-	background-color: $card;
-	box-shadow: none;
-	backdrop-filter: blur(calc($blur * 5px));
-	&::before {
-		border-top-color: $card;
+@if $lite != 1 {
+	#{c(modals formattingToolbar)} {
+		background-color: $card;
+		box-shadow: none;
+		backdrop-filter: blur(calc($blur * 5px));
+		&::before {
+			border-top-color: $card;
+		}
 	}
 }

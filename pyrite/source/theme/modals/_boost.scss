@@ -1,12 +1,15 @@
 @use "backend" as *;
-#{c(modals boost header)} {
-	background: none;
-	height: auto;
+@if $lite != 1 {
+	@debug "work on boost shite would ya!?";
+	// @debug "need to do - n + buttons";
+	// #{c(modals boost header)} {
+	// 	background: none;
+	// 	height: auto;
+	// }
+	// #{c(modals boost content)} {
+	// 	background: transparent;
+	// }
+	// #{c(modals boost upsellFooter)}, #{c(modals boost guildBackground)}, #{c(modals boost guildStar)} {
+	// 	display: none;
+	// }
 }
-#{c(modals boost content)} {
-	background: transparent;
-}
-#{c(modals boost upsellFooter)}, #{c(modals boost guildBackground)}, #{c(modals boost guildStar)} {
-	display: none;
-}
-@debug "need to do - n + buttons";

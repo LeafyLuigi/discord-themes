@@ -1,5 +1,7 @@
 @use "backend" as *;
-#{c(modals pin message)} {
-	background: $card;
-	box-shadow: none;
+@if $lite != 1 {	
+	#{c(modals pin message)} {
+		background: $card;
+		box-shadow: none;
+	}
 }

@@ -1,14 +1,18 @@
 @use "backend" as *;
-/* Start Modals (enjoy hell) */
-// old styles
-#{c(modals old footer)} {
-	background: transparent;
-}
-#{c(modals old footerSeparator)},
-#{c(modals old separator)} {
-	box-shadow: none;
-}
+@if $lite == 1 {
+	/* Start Modals (lite hell) */
+} @else if $lite != 1 {
+	/* Start Modals (enjoy hell) */
+	// old styles
+	#{c(modals old footer)} {
+		background: transparent;
+	}
+	#{c(modals old footerSeparator)},
+	#{c(modals old separator)} {
+		box-shadow: none;
+	}
 
-#{c(modals new container)} {
-	background: $modal;
+	#{c(modals new container)} {
+		background: $modal;
+	}
 }

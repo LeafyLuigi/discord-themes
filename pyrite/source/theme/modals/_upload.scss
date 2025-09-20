@@ -1,4 +1,5 @@
 @use "backend" as *;
+@if $lite != 1 {
 // somehow having the not there allows you to select something with only the initial class. it's very nice.
 #{c(modals upload inner)} #{c(modals upload fileTypes icon)}:not([class*=" "]) {
 	// background is intentionally set to those colors to mirror a grid pattern.
@@ -48,4 +49,5 @@
 	#{c(modals upload modify footer)} {
 		background: transparent;
 	}
+}
 }

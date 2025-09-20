@@ -1,11 +1,13 @@
 @use "backend" as *;
-#{c(modals reactions modal)} {
-	background: $modal;
-}
-#{c(modals reactions sidebar)},
-#{c(modals reactions reactors)} {
-	background: transparent;
-}
-#{c(modals reactions selected)} {
-	background-color: var(--background-modifier-selected);
+@if $lite != 1 {
+	#{c(modals reactions modal)} {
+		background: $modal;
+	}
+	#{c(modals reactions sidebar)},
+	#{c(modals reactions reactors)} {
+		background: transparent;
+	}
+	#{c(modals reactions selected)} {
+		background-color: var(--background-modifier-selected);
+	}
 }

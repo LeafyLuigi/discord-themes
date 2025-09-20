@@ -1,7 +1,9 @@
 @use "backend" as *;
+@if $lite != 1 {
 #{c(modals addConnections accountButton)} #{c(modals addConnections accountButtonInner)} {
 	background-color: var(--background-modifier-accent);
 	&:hover {
 		background-color: var(--background-modifier-hover);
 	}
+}
 }
