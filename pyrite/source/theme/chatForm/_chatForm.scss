@@ -1,23 +1,16 @@
 @use "backend" as *;
 /* Begin Chat Form */
 #{c(chatForm form)} {
+	margin-top: 0;
 	&::before,
 	&::after {
 		content: none;
 	}
-	&,
-	#{c(main alignChatInput)} & {
-		margin-top: 0;
-	}
 }
 // due to align chat input thing
-#{c(main alignChatInput)} {
-	:is(
-		#{c(chat gradient typingAtBottom)},
-		#{c(chat gradient notAtBottom)}
-	) {
-		background: none;
-	}
+#{c(chat gradient typingAtBottom)},
+#{c(chat gradient notAtBottom)}	 {
+	background: none;
 }
 
 #{c(chatForm followWrapper)} {
