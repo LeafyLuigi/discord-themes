@@ -3,6 +3,7 @@
 #{c(serverList wrapper)} {
 	background: transparent;
 	margin-bottom: var(--custom-app-panels-height,0);
+	mask: none;
 	&:focus {
 		outline: 0;
 	}
