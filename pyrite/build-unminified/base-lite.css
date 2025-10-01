@@ -73,12 +73,12 @@ body) {
   border-radius: 0;
 }
 .platform-win .guilds_c48ade {
-  margin-top: 48px;
+  padding-top: 48px;
   overflow: visible;
 }
 .platform-win .guilds_c48ade::before {
   content: "";
-  top: -48px;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
@@ -91,6 +91,9 @@ body) {
 }
 .platform-win .guilds_c48ade::after {
   content: none;
+}
+.platform-win .unreadMentionsIndicatorTop_ef3116 {
+  top: 48px;
 }
 
 .typeWindows__421ed {
