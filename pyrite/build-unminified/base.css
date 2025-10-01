@@ -5303,6 +5303,9 @@ span):not(.spoilerContent__54ab5) {
   border: none;
   box-sizing: content-box;
 }
+.client-theme-color-picker .searchBar__35e86 {
+  border-bottom: none;
+}
 .searchBar__35e86 .lookFilled__201d5.colorPrimary__201d5 {
   background: transparent;
 }

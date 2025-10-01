@@ -64,6 +64,9 @@
 	box-shadow: none;
 	border: none;
 	box-sizing: content-box; // revert border-box
+	#{c(main clientThemeColorPicker)} & {
+		border-bottom: none;
+	}
 	// remove that fucking button colour
 	#{c(button lookFilled)}#{c(button colorPrimary)} {
 		background: transparent;
