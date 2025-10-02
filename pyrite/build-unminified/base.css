@@ -3103,6 +3103,10 @@ span):not(.spoilerContent__54ab5) {
   color: var(--hsl-secondary-color);
 }
 
+.badge_c99c29 {
+  background: var(--hsl-secondary-color);
+}
+
 .bar_c38106 {
   background: var(--hsl-header-shading);
 }
