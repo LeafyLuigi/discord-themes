@@ -27,6 +27,11 @@ html {
 	@if $lite != 1 {
 		--settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
 		--theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
+
+		// "edited" string for message timestamps; used within this file.
+		// don't include the brackets when translating this.
+		--edited-before: "edited "; // text before the timestamp
+		--edited-after: ""; // text after the timestamp
 	
 		// CSS incompatibility warnings; used within this file.
 		--css-generic-recommendation: "As a result of the above issue(s), part of the theme may not work. "; // keep the space at the end.
@@ -168,6 +173,25 @@ $tags: (
 		font-size: 12px;
 		line-height: 16px;
 	}
+}
+
+@if $lite != 1 {
+/* Edited Message Timestamp */
+#{c(chat messageContent)} #{c(chat chatTimestamp)} {
+	> #{c(main a11y hiddenVisually)} {
+		@include removeHiddenVisually;
+		position: unset;
+		vertical-align: baseline;
+		font-size: 0.625rem;
+		line-height: 1;
+		&::before {
+			content: "(" var(--edited-before,"");
+		}
+		&::after {
+			content: var(--edited-after,"") ")";
+		}
+	}
+}
 }
 
 // /* Beta Version (only for French and British English) */

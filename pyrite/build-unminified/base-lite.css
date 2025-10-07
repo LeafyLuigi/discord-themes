@@ -404,18 +404,6 @@ html {
   opacity: 1;
 }
 
-.messageContent_c19a55 .timestamp_c19a55 > time {
-  font-size: 0;
-}
-.messageContent_c19a55 .timestamp_c19a55 > time:before {
-  content: "(" attr(aria-label) ")";
-  text-transform: lowercase;
-  font-size: 0.625rem;
-}
-.messageContent_c19a55 .timestamp_c19a55 > time .edited_c19a55 {
-  display: none;
-}
-
 .spoilerContent__54ab5.hidden__54ab5 {
   --__current--spoiler-text-color: inherit;
 }

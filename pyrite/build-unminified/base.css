@@ -425,6 +425,8 @@ html {
   --tag-helper: "Theme Helper";
   --settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
   --theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
+  --edited-before: "edited ";
+  --edited-after: "";
   --css-generic-recommendation: "As a result of the above issue(s), part of the theme may not work. ";
   --css-outdated-windows: "You should probably update to a supported Windows version then update Discord.";
   --css-outdated-mac: "You should probably update to a supported macOS version then update Discord.";
@@ -480,6 +482,24 @@ html {
   color: var(--text-muted);
   font-size: 12px;
   line-height: 16px;
+}
+
+/* Edited Message Timestamp */
+.messageContent_c19a55 .timestamp_c19a55 > .hiddenVisually_b18fe2 {
+  width: auto;
+  height: auto;
+  clip: unset;
+  clip-path: unset;
+  position: unset;
+  vertical-align: baseline;
+  font-size: 0.625rem;
+  line-height: 1;
+}
+.messageContent_c19a55 .timestamp_c19a55 > .hiddenVisually_b18fe2::before {
+  content: "(" var(--edited-before, "");
+}
+.messageContent_c19a55 .timestamp_c19a55 > .hiddenVisually_b18fe2::after {
+  content: var(--edited-after, "") ")";
 }
 
 @supports not (selector(div:has(+a))) {
@@ -1054,15 +1074,7 @@ span):not(.spoilerContent__54ab5) {
   background: var(--hsl-card-background);
 }
 
-.messageContent_c19a55 .timestamp_c19a55 > time {
-  font-size: 0;
-}
-.messageContent_c19a55 .timestamp_c19a55 > time:before {
-  content: "(" attr(aria-label) ")";
-  text-transform: lowercase;
-  font-size: 0.625rem;
-}
-.messageContent_c19a55 .timestamp_c19a55 > time .edited_c19a55 {
+.messageContent_c19a55 .timestamp_c19a55 .edited_c19a55 {
   display: none;
 }
 

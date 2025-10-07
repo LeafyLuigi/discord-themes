@@ -149,21 +149,17 @@
 	}
 }
 
+@if $lite != 1 {
 #{c(chat messageContent)} {
 	#{c(chat chatTimestamp)} {
-		> time {
-			font-size: 0;
-			&:before {
-				content: "(" attr(aria-label) ")";
-				text-transform: lowercase;
-				font-size: 0.625rem;
-			}
-			#{c(chat chatEdited)} {
-				display: none;
-			}
+		#{c(chat chatEdited)} {
+			display: none;
 		}
+		// for the "(edited $time)" translation string, check the i18n file :)
 	}
 }
+}
+
 #{c(chat spoiler content)}#{c(chat spoiler hidden)} {
 	--__current--spoiler-text-color: inherit;
 }

@@ -123,3 +123,9 @@
 		margin-left: 5px;
 	}
 }
+@mixin removeHiddenVisually {
+	width: auto;
+	height: auto;
+	clip: unset;
+	clip-path: unset;
+}
