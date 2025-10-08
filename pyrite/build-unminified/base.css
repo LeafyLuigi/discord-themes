@@ -485,7 +485,7 @@ html {
 }
 
 /* Edited Message Timestamp */
-.messageContent_c19a55 .timestamp_c19a55 > .hiddenVisually_b18fe2 {
+.message__5126c:not(.systemMessage__5126c) .messageContent_c19a55 .timestamp_c19a55 > .hiddenVisually_b18fe2 {
   width: auto;
   height: auto;
   clip: unset;
@@ -495,10 +495,10 @@ html {
   font-size: 0.625rem;
   line-height: 1;
 }
-.messageContent_c19a55 .timestamp_c19a55 > .hiddenVisually_b18fe2::before {
+.message__5126c:not(.systemMessage__5126c) .messageContent_c19a55 .timestamp_c19a55 > .hiddenVisually_b18fe2::before {
   content: "(" var(--edited-before, "");
 }
-.messageContent_c19a55 .timestamp_c19a55 > .hiddenVisually_b18fe2::after {
+.message__5126c:not(.systemMessage__5126c) .messageContent_c19a55 .timestamp_c19a55 > .hiddenVisually_b18fe2::after {
   content: var(--edited-after, "") ")";
 }
 

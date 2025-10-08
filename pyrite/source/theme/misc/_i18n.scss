@@ -177,7 +177,7 @@ $tags: (
 
 @if $lite != 1 {
 /* Edited Message Timestamp */
-#{c(chat messageContent)} #{c(chat chatTimestamp)} {
+#{c(chat message)}:not(#{c(chat systemMessage)}) #{c(chat messageContent)} #{c(chat chatTimestamp)} {
 	> #{c(main a11y hiddenVisually)} {
 		@include removeHiddenVisually;
 		position: unset;
