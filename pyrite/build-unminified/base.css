@@ -952,6 +952,10 @@ html {
   background: var(--hsl-middle-shading);
 }
 
+.scroller__36d07::-webkit-scrollbar-track {
+  margin-bottom: 0;
+}
+
 .noChannel__01d5c::before {
   content: "";
   top: 0;

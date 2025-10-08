@@ -39,6 +39,12 @@
 	background: $middle;
 }
 
+#{c(chat chatScroller)} {
+	&::-webkit-scrollbar-track {
+		margin-bottom: 0;
+	}
+}
+
 @if $lite != 1 {
 	#{c(chat noChannel)} {
 		@include bg($h:48px,$bg:$header);

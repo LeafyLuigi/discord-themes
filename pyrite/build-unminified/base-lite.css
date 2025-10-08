@@ -334,6 +334,10 @@ html {
   background: var(--hsl-middle-shading);
 }
 
+.scroller__36d07::-webkit-scrollbar-track {
+  margin-bottom: 0;
+}
+
 .wrapper_f7ecac {
   padding: 0;
   border: none;
