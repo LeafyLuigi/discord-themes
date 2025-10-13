@@ -1169,17 +1169,17 @@ span):not(.spoilerContent__54ab5) {
   fill: var(--hsl-red-color);
 }
 
-.wrapper_d852db {
+.wrapper_f61d60 {
   background: color-mix(in oklab, var(--hsl-primary-color) 25%, transparent);
   color: var(--interactive-hover);
   transition: color 50ms ease-out, background 50ms ease-out;
 }
-.wrapper_d852db:hover {
+.wrapper_f61d60:hover {
   color: var(--interactive-active);
   background: color-mix(in oklab, var(--hsl-primary-color) 75%, transparent);
 }
 
-.mentioned__5126c .wrapper_d852db {
+.mentioned__5126c .wrapper_f61d60 {
   color: var(--interactive-active);
   background: color-mix(in oklab, var(--hsl-primary-color) 75%, transparent);
 }
