@@ -10,6 +10,8 @@
 @use "classes" as *;
 @use "backend" as *;
 
+@warn "HSL really needs updating lol";
+
 /* Begin HSL Addon */
 :root {
 	/* DO NOT CHANGE THESE VALUES. */
@@ -205,11 +207,12 @@
 	left: 0;
 }
 
-// allow interacting for these
-#{c(serverList serverWrapper)},
-#{c(serverList folder)} {
-	-webkit-app-region: no-drag;
-}
+@debug "find what these should now be";
+// // allow interacting for these
+// #{c(serverList serverWrapper)},
+// #{c(serverList folder)} {
+// 	-webkit-app-region: no-drag;
+// }
 
 // Windows
 #{c(os win)} {

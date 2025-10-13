@@ -15,7 +15,7 @@
   --server-alignment: var(--HSL-server-alignment, flex-start);
 }
 
-.wrapper__48112,
+.folderGroup__48112,
 .listItem__650eb,
 .guilds_c48ade {
   width: var(--server-container);
@@ -28,7 +28,7 @@
   height: var(--server-size);
 }
 
-.expandedFolderBackground__48112 {
+.folderGroupBackground__48112 {
   width: var(--server-size);
   left: 50%;
   translate: -50% 0;
@@ -124,12 +124,12 @@
   transform: scale(1, 1) !important;
 }
 
-.wrapper__48112 {
+.folderGroup__48112 {
   display: flex;
   flex-direction: var(--server-direction);
   gap: var(--server-spacing);
 }
-.wrapper__48112 ul[role=group] {
+.folderGroup__48112 ul[role=group] {
   display: flex;
   flex-direction: var(--server-direction);
   gap: var(--server-spacing) !important;
@@ -146,7 +146,7 @@
   width: var(--server-size);
 }
 
-.expandedFolderBackground__48112 {
+.folderGroupBackground__48112 {
   border-radius: 10px;
 }
 
@@ -182,11 +182,6 @@
 
 .accountProfilePopoutWrapper__37e49 {
   left: 0;
-}
-
-.wrapper_cc5dd2,
-.folder__48112 {
-  -webkit-app-region: no-drag;
 }
 
 .platform-win .typeWindows__421ed {

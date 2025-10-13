@@ -206,6 +206,10 @@
 // #{c(sidebar server unreadBar old unreadParent)} {
 // 	width: 224px;
 // }
+#{c(sidebar eventNotice notice)} {
+	background: $side;
+	border-bottom: none;
+}
 
 // Panels
 #{c(sidebar panel panels)} {

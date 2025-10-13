@@ -55,7 +55,7 @@
 	}
 }
 
-#{c(chat buttonWrapper)} {
+#{c(chat buttonsPopover)} {
 	padding: 0;
 	border: none;
 	box-sizing: content-box;
@@ -64,22 +64,25 @@
 	#{c(chat buttonSeparator)} {
 		display: none;
 	}
+	&:hover {
+		border: none;
+	}
 	#{c(chat button)} {
 		@include bg($bg:var(--profile-primary-color,$primary),$o:0.6);
-		&:first-of-type::before {
-			border-bottom-left-radius: 8px;
-			border-top-left-radius: 8px;
-		}
-		&:last-of-type::before {
-			border-top-right-radius: 8px;
-			border-bottom-right-radius: 8px;
-		}
 		&:hover {
 			background-color: transparent;
 		}
 		&:hover::before {
 			background-color: var(--profile-secondary-color,$hover);
 		}
+	}
+	>span:first-child>#{c(chat button)}::before {
+		border-top-left-radius: 8px;
+		border-bottom-left-radius: 8px;
+	}
+	>span:nth-last-child(2)>#{c(chat button)}::before {
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
 	}
 }
 

@@ -10,11 +10,11 @@
 	}
 }
 #{c(friends container)} {
-	background: transparent;
+	background: none;
 	border: none;
 }
 #{c(friends tabBody)} {
-	background: transparent;
+	background: none;
 	&:before {
 		content: none;
 	}
@@ -28,7 +28,7 @@
 	display: none;
 }
 #{c(friends peopleColumn)} {
-	background: $middle;
+	background: $middle; 
 	#{c(friends peopleList)} {
 		margin-top: 0;
 	}
@@ -61,7 +61,7 @@
 }
 #{c(friends multipleIconWrapper)},
 #{c(friends nowPlayingContainer)} {
-	background: transparent;
+	background: none;
 }
 #{c(friends nowPlayingHeader)} {
 	@include header;
@@ -110,10 +110,11 @@
 		background: $card;
 	}
 	#{c(friends itemCardBody)} {
-		background: transparent;
+		background: none;
 		#{c(friends itemCardBodySection)} {
 			padding: 0 6px;
-			background: transparent;
+			border: none;
+			background: none;
 		}
 	}
 }

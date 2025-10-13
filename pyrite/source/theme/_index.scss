@@ -1,25 +1,25 @@
 @forward "misc";
 // @forward "boost"; // too many reworks.
-@forward "buttons";
-@forward "call";
+@forward "buttons"; // skipped in Lite
+@forward "call"; // skipped in Lite
 @forward "chat";
 @forward "chatForm";
 // @forward "discover"; // currently going under rework.
-@forward "embeds";
-@forward "error";
+@forward "embeds"; // skipped in Lite
+@forward "error"; // skipped in Lite
 @forward "friends";
 @forward "header";
-@forward "loading";
+@forward "loading"; // skipped in Lite
 @forward "memberList";
 @forward "modals"; // All non-profile modals are in this file. locations are in the classes file.
 @forward "notices";
-@forward "profile"; // Includes Modal, Popout and Panel. Locations in index file.
-@forward "role";
+@forward "profile"; // NOT YET LOOKED AT FOR LITE // Includes Modal, Popout and Panel. Locations in index file.
+@forward "role"; // skipped in Lite
 @forward "scrollbar";
-@forward "search";
+@forward "search"; // skipped in Lite
 @forward "serverList";
-@forward "settings"; // the classes might want to be sorted akin to modals
+@forward "settings"; // NOT YET LOOKED AT FOR LITE // the classes might want to be sorted akin to modals
 @forward "sidebar";
 @forward "tooltips";
 
-@forward "beta";
+@forward "beta"; // skipped in Lite
