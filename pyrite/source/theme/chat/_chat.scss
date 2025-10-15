@@ -1,9 +1,7 @@
 @use "backend" as *;
 /* Begin Chat */
-@warn "I CANNOT BE FUCKED.";
 #{c(chat)},
 #{c(chat chatLoadingWrapper)},
-.wrapper_d852db, 
 #{c(chat messageLoadingWrapper)} {
 	background: transparent;
 }
@@ -56,8 +54,10 @@
 		color: var(--text-default);
 	}
 }
-
-#{c(chat buttonsPopover)} {
+:is(
+	#{c(chat buttonsPopover)},
+	#{c(chat buttonWrapper)}
+) {
 	padding: 0;
 	border: none;
 	box-sizing: content-box;

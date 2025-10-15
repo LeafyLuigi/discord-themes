@@ -917,7 +917,6 @@ html {
 
 /* Begin Chat */
 .chat_f75fb0,
-.wrapper__6c798,
 .wrapper_d852db,
 .wrapper_fc8177 {
   background: transparent;
@@ -986,20 +985,24 @@ html {
   color: var(--text-default);
 }
 
-.popover_f84418 {
+:is(.popover_f84418,
+.wrapper_f7ecac) {
   padding: 0;
   border: none;
   box-sizing: content-box;
   border-radius: 8px;
   background: transparent;
 }
-.popover_f84418 .separator_f84418 {
+:is(.popover_f84418,
+.wrapper_f7ecac) .separator_f84418 {
   display: none;
 }
-.popover_f84418:hover {
+:is(.popover_f84418,
+.wrapper_f7ecac):hover {
   border: none;
 }
-.popover_f84418 .button_f7ecac::before {
+:is(.popover_f84418,
+.wrapper_f7ecac) .button_f7ecac::before {
   content: "";
   top: 0;
   right: 0;
@@ -1011,17 +1014,21 @@ html {
   opacity: 0.6;
   background-color: var(--profile-primary-color, var(--hsl-primary-color));
 }
-.popover_f84418 .button_f7ecac:hover {
+:is(.popover_f84418,
+.wrapper_f7ecac) .button_f7ecac:hover {
   background-color: transparent;
 }
-.popover_f84418 .button_f7ecac:hover::before {
+:is(.popover_f84418,
+.wrapper_f7ecac) .button_f7ecac:hover::before {
   background-color: var(--profile-secondary-color, var(--hsl-hover-color));
 }
-.popover_f84418 > span:first-child > .button_f7ecac::before {
+:is(.popover_f84418,
+.wrapper_f7ecac) > span:first-child > .button_f7ecac::before {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
-.popover_f84418 > span:nth-last-child(2) > .button_f7ecac::before {
+:is(.popover_f84418,
+.wrapper_f7ecac) > span:nth-last-child(2) > .button_f7ecac::before {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -5668,19 +5675,19 @@ span):not(.spoilerContent__54ab5) {
   z-index: 1100;
 }
 
-.tooltip__382e7 {
+.tooltip_c36707 {
   z-index: 2000;
 }
 
-.tooltipPointer__382e7,
+.tooltipPointer_c36707,
 .caretIcon__4e35b {
   display: none !important;
 }
 
-.tooltipBlack__382e7,
-.tooltipBrand__382e7,
-.tooltipGrey__382e7,
-.tooltipPrimary__382e7,
+.tooltipBlack_c36707,
+.tooltipBrand_c36707,
+.tooltipGrey_c36707,
+.tooltipPrimary_c36707,
 .bubble_b26b79,
 .tooltip__4e35b {
   background: var(--hsl-tooltip-color);
