@@ -1555,7 +1555,8 @@ html {
 
 .link__972a0:is([href="/store"],
 [href="/library"],
-[href="/shop"]),
+[href="/shop"],
+[href="/quest-home"]),
 .badgeIconPrivateMessages__80f39 {
   display: none;
 }
@@ -1680,26 +1681,6 @@ html {
 .panels_c48ade :is(.activityPanel_c48ade .actions_bf1a22) {
   border: 1px solid var(--hsl-middle-shading);
   border-radius: 8px;
-}
-
-.buttons__37e49 {
-  background: transparent;
-  box-sizing: content-box;
-  border-radius: 8px;
-  gap: 0;
-  border: none;
-}
-.buttons__37e49 .button__67645::before {
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.6;
-  background-color: var(--hsl-primary-color);
 }
 
 .wrapper__29444,

@@ -87,7 +87,8 @@
 #{c(sidebar private link)}:is(
 	[href="/store"],
 	[href="/library"],
-	[href="/shop"]
+	[href="/shop"],
+	[href="/quest-home"]
 ),
 #{c(sidebar private channelBadgeIcon)} {
 	display: none;
@@ -232,28 +233,28 @@
 		border-radius: 8px;
 	}
 }
-#{c(sidebar panel buttons buttons)} {
-	background: transparent;
-	box-sizing: content-box;
-	border-radius: 8px;
-	gap: 0;
-	border: none;
-	#{c(sidebar panel buttons button)} {
-		@include bg($bg:$primary,$o:.6);
-	@if $lite != 1 {
-			&:last-child::before {
-				border-top-right-radius: 8px;
-				border-bottom-right-radius: 8px;
-			}
-			&:hover {
-				background-color: transparent;
-			}
-			&:hover::before {
-				background-color: $hover;
-			}
-		}
-	}
-}
+// #{c(sidebar panel buttons buttons)} {
+// 	background: transparent;
+// 	box-sizing: content-box;
+// 	border-radius: 8px;
+// 	gap: 0;
+// 	border: none;
+// 	#{c(sidebar panel buttons button)} {
+// 		@include bg($bg:$primary,$o:.6);
+// 	@if $lite != 1 {
+// 			&:last-child::before {
+// 				border-top-right-radius: 8px;
+// 				border-bottom-right-radius: 8px;
+// 			}
+// 			&:hover {
+// 				background-color: transparent;
+// 			}
+// 			&:hover::before {
+// 				background-color: $hover;
+// 			}
+// 		}
+// 	}
+// }
 
 @if $lite != 1 {
 	// mic button is a special case for some reason
