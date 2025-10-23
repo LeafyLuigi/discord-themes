@@ -1762,10 +1762,10 @@ span):not(.spoilerContent__54ab5) {
   color: var(--hsl-primary-color);
 }
 
-.actions__841c8 > div[class=""][aria-checked=false] .mentionButton__841c8 {
+.actions__841c8 > span > div[class=""][aria-checked=false] .mentionButton__841c8 {
   color: var(--hsl-red-color) !important;
 }
-.actions__841c8 > div[class=""][aria-checked=true] .mentionButton__841c8 {
+.actions__841c8 > span > div[class=""][aria-checked=true] .mentionButton__841c8 {
   color: var(--hsl-green-color) !important;
 }
 

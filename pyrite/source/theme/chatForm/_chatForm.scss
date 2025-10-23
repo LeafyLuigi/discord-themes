@@ -80,7 +80,7 @@
 			color: $primary;
 		}
 	}
-	#{c(chatForm replyActions)}>div[class=""] {
+	#{c(chatForm replyActions)}>span>div[class=""] {
 		&[aria-checked=false] #{c(chatForm mentionButton)} {
 			color: $red !important; // !important reason: inline style
 		}
