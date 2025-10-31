@@ -1,0 +1,19 @@
+@use "start" as *;
+@use "backend" as *;
+#{c(profile effects)},
+#{c(avatar decoration)},
+#{c(chat chatAvatarDecoration)} {
+	display: none;
+}
+:root {
+	#{v(update-notice-var)}: none
+}
+#{c(profile fonts cherryBomb)},
+#{c(profile fonts chicle)},
+#{c(profile fonts museoModerno)},
+#{c(profile fonts neoCastel)},
+#{c(profile fonts pixelify)},
+#{c(profile fonts sinistre)},
+#{c(profile fonts zillaSlab)} {
+	font-family: var(--body-font);
+}
