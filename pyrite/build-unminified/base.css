@@ -118,18 +118,18 @@ body) {
   background-color: var(--hsl-primary-color);
 }
 
-.loader_c48ade {
+.loader__5e434 {
   background: linear-gradient(to bottom, var(--hsl-header-shading) 48px, var(--hsl-middle-shading) 48px);
 }
 
-.platform-win .sidebar_c48ade {
+.platform-win .sidebar__5e434 {
   border-radius: 0;
 }
-.platform-win .guilds_c48ade {
+.platform-win .guilds__5e434 {
   padding-top: 48px;
   overflow: visible;
 }
-.platform-win .guilds_c48ade::before {
+.platform-win .guilds__5e434::before {
   content: "";
   top: 0;
   right: 0;
@@ -142,7 +142,7 @@ body) {
   height: 48px;
   width: 72px;
 }
-.platform-win .guilds_c48ade::after {
+.platform-win .guilds__5e434::after {
   content: none;
 }
 .platform-win .unreadMentionsIndicatorTop_ef3116 {
@@ -208,7 +208,7 @@ body) {
 :is(.platform-linux, .platform-web) .scroller_ef3116 {
   padding: 4px 0 0 0;
 }
-:is(.platform-linux, .platform-web) .guilds_c48ade::before {
+:is(.platform-linux, .platform-web) .guilds__5e434::before {
   content: "";
   top: 0;
   right: 0;
@@ -939,7 +939,7 @@ html {
 
 .theme-midnight :is(.content_f75fb0,
 .subtitleContainer_f75fb0,
-.page_c48ade) {
+.page__5e434) {
   border-left: none;
 }
 
@@ -3143,7 +3143,7 @@ span):not(.spoilerContent__54ab5) {
   display: none;
 }
 
-.base_c48ade:has(> .bar_c38106 > .trailing_c38106 > .button__85643) {
+.base__5e434:has(> .bar_c38106 > .trailing_c38106 > .button__85643) {
   --extra-icons: 1;
 }
 
@@ -4366,13 +4366,13 @@ span):not(.spoilerContent__54ab5) {
 }
 
 /* Start Notices */
-.base_c48ade :where(#bd-notices:not(:empty), .notice__6e2b9) ~ .content_c48ade {
+.base__5e434 :where(#bd-notices:not(:empty), .notice__6e2b9) ~ .content__5e434 {
   --notice-count: 1;
 }
-.base_c48ade :where(#bd-notices:not(:empty), .notice__6e2b9) + .notice__6e2b9 ~ .content_c48ade {
+.base__5e434 :where(#bd-notices:not(:empty), .notice__6e2b9) + .notice__6e2b9 ~ .content__5e434 {
   --notice-count: 2;
 }
-.base_c48ade :where(#bd-notices:not(:empty), .notice__6e2b9) + .notice__6e2b9 + .notice__6e2b9 ~ .content_c48ade {
+.base__5e434 :where(#bd-notices:not(:empty), .notice__6e2b9) + .notice__6e2b9 + .notice__6e2b9 ~ .content__5e434 {
   --notice-count: 3;
 }
 
@@ -4389,11 +4389,11 @@ span):not(.spoilerContent__54ab5) {
   border: none;
 }
 
-.page_c48ade {
+.page__5e434 {
   max-height: calc(100vh - 36px * var(--notice-count, 0));
 }
 
-.privateChannels__35e86 {
+.privateChannels_e6b769 {
   overflow: visible;
   max-height: calc(100vh - 36px * var(--notice-count, 0));
 }
@@ -4402,14 +4402,14 @@ span):not(.spoilerContent__54ab5) {
 .container_f37cb1,
 .noChannel__01d5c::before,
 .pageWrapper_a3a4ce::before,
-.searchBar__35e86 {
+.searchBar_e6b769 {
   top: calc(-36px * var(--notice-count, 0));
 }
 
-:is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content_c48ade :is(.container__133bf, .page_c48ade, .chat_f75fb0, .callContainer_cb9592, .container__01ae2) {
+:is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 :is(.container__133bf, .page__5e434, .chat_f75fb0, .callContainer_cb9592, .container__01ae2) {
   overflow: unset;
 }
-:is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content_c48ade .resizeHandle__01ae2 {
+:is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 .resizeHandle__01ae2 {
   top: calc(-36px * var(--notice-count, 0));
   height: 100vh;
   position: relative;
@@ -5290,57 +5290,57 @@ span):not(.spoilerContent__54ab5) {
 }
 
 .container__2637a,
-.activityPanel_c48ade {
+.activityPanel__5e434 {
   background: transparent;
 }
 
-.sidebar_c48ade {
+.sidebar__5e434 {
   overflow-x: hidden;
   position: relative;
   height: calc(100vh - var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px) - var(--channel-tabs-enabled, 0) * (var(--channel-tabs-tabBar-enabled, 1) * var(--channel-tabs-favBar-enabled, 1) * 5px + var(--channel-tabs-tabBar-enabled, 1) * (var(--channelTabs-tabHeight, 32px) + 3px) + var(--channel-tabs-favBar-enabled, 1) * (var(--channelTabs-favHeight, 28px) + 3px)) - var(--windows-titlebar-enabled, 0) * 18px);
   background: transparent;
 }
-.sidebar_c48ade::before, .sidebar_c48ade::after {
+.sidebar__5e434::before, .sidebar__5e434::after {
   content: none;
 }
-.guilds_c48ade.hidden_ef3116 + .sidebar_c48ade {
+.guilds__5e434.hidden_ef3116 + .sidebar__5e434 {
   height: 100vh;
 }
 
-.sidebarList_c48ade {
+.sidebarList__5e434 {
   overflow: visible;
   border: none;
   border-radius: 0;
 }
 
-.privateChannels__35e86 {
+.privateChannels_e6b769 {
   background: transparent;
 }
-.privateChannels__35e86 .privateChannelRecipientsInviteButtonIcon__99e7c {
+.privateChannels_e6b769 .privateChannelRecipientsInviteButtonIcon__99e7c {
   color: var(--interactive-normal);
   order: -1;
 }
-.privateChannels__35e86 .privateChannelRecipientsInviteButtonIcon__99e7c:hover {
+.privateChannels_e6b769 .privateChannelRecipientsInviteButtonIcon__99e7c:hover {
   color: var(--interactive-hover);
 }
 
-.searchBar__35e86 {
+.searchBar_e6b769 {
   background: var(--hsl-header-shading);
   z-index: 1010;
   box-shadow: none;
   border: none;
   box-sizing: content-box;
 }
-.client-theme-color-picker .searchBar__35e86 {
+.client-theme-color-picker .searchBar_e6b769 {
   border-bottom: none;
 }
-.searchBar__35e86 .lookFilled__201d5.colorPrimary__201d5 {
+.searchBar_e6b769 .lookFilled__201d5.colorPrimary__201d5 {
   background: transparent;
 }
-.searchBar__35e86 .lookFilled__201d5.colorPrimary__201d5::before {
+.searchBar_e6b769 .lookFilled__201d5.colorPrimary__201d5::before {
   content: none;
 }
-.searchBar__35e86 .searchBarComponent__35e86 {
+.searchBar_e6b769 .searchBarComponent_e6b769 {
   -webkit-app-region: no-drag;
   background: var(--hsl-card-background);
 }
@@ -5490,7 +5490,7 @@ span):not(.spoilerContent__54ab5) {
   border-bottom: none;
 }
 
-.panels_c48ade {
+.panels__5e434 {
   left: 0;
   bottom: 0;
   width: 100%;
@@ -5499,10 +5499,10 @@ span):not(.spoilerContent__54ab5) {
   border: none;
   border-radius: 0;
 }
-.panels_c48ade .title_b6c092 {
+.panels__5e434 .title_b6c092 {
   color: var(--header-primary);
 }
-.panels_c48ade :is(.activityPanel_c48ade .actions_bf1a22) {
+.panels__5e434 :is(.activityPanel__5e434 .actions_bf1a22) {
   border: 1px solid var(--hsl-middle-shading);
   border-radius: 8px;
 }

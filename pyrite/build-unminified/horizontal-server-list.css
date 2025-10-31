@@ -17,7 +17,7 @@
 
 .folderGroup__48112,
 .listItem__650eb,
-.guilds_c48ade {
+.guilds__5e434 {
   width: var(--server-container);
 }
 
@@ -34,7 +34,7 @@
   translate: -50% 0;
 }
 
-.app_a3002d .base_c48ade {
+.app_a3002d .base__5e434 {
   top: var(--server-container);
   bottom: 0;
   position: absolute;
@@ -51,7 +51,7 @@
   height: auto;
 }
 
-.guilds_c48ade {
+.guilds__5e434 {
   transform-origin: 0 0;
   transform: rotate(-90deg);
   height: 100vw;
@@ -60,20 +60,20 @@
   left: 0;
   z-index: 1010;
 }
-.guilds_c48ade.hidden_ef3116 + .base_c48ade {
+.guilds__5e434.hidden_ef3116 + .base__5e434 {
   top: 0;
 }
-.platform-win .guilds_c48ade {
+.platform-win .guilds__5e434 {
   top: calc(-48px + (1 - var(--hsl-bottom-enabled, 0)) * var(--server-container));
   height: calc(100vw - (1 - var(--hsl-bottom-enabled, 0)) * 3 * var(--win-min-max-close-button-width));
 }
-.platform-win .guilds_c48ade::before {
+.platform-win .guilds__5e434::before {
   top: unset;
   bottom: calc(-3 * var(--win-min-max-close-button-width));
   height: calc(3 * var(--win-min-max-close-button-width));
   width: var(--server-container);
 }
-:is(.platform-linux, .platform-web) .guilds_c48ade::before {
+:is(.platform-linux, .platform-web) .guilds__5e434::before {
   display: none;
 }
 
@@ -176,7 +176,7 @@
 .platform-osx .typeMacOS__421ed {
   width: 100%;
 }
-.platform-osx .base_c48ade {
+.platform-osx .base__5e434 {
   top: calc(var(--server-container) + 30px);
 }
 

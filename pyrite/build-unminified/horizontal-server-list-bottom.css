@@ -18,12 +18,12 @@
   z-index: 2500;
 }
 
-.app_a3002d .base_c48ade {
+.app_a3002d .base__5e434 {
   top: 0;
   bottom: var(--server-container);
 }
 
-.guilds_c48ade {
+.guilds__5e434 {
   transform-origin: 0 100%;
   top: unset;
   left: 100vw;
@@ -40,6 +40,6 @@
   bottom: calc(var(--server-size) / -1 + var(--server-size) / 2 - 8px);
 }
 
-.platform-win .guilds_c48ade {
+.platform-win .guilds__5e434 {
   top: unset;
 }

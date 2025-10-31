@@ -87,7 +87,7 @@ body .typeMacOS__421ed.titleBar__421ed ~ div #channelTabs-container > :first-chi
   height: calc(18px - 18px * var(--channel-tabs-enabled, 0));
 }
 
-html:not(.platform-win) div.sidebar_c48ade {
+html:not(.platform-win) div.sidebar__5e434 {
   border-radius: 0;
 }
 
