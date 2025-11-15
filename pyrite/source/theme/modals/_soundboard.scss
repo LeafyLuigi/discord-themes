@@ -109,4 +109,9 @@
 #{c(modals soundboard nitro upsell container)} {
 	display: none;
 }
+
+// fix background in sidebar list
+#{c(modals soundboard wrapper)} {
+	background: none;
+}
 }

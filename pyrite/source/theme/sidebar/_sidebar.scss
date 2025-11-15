@@ -68,7 +68,7 @@
 		border-bottom: none;
 	}
 	// remove that fucking button colour
-	#{c(button lookFilled)}#{c(button colorPrimary)} {
+	& > button {
 		background: transparent;
 		&::before {
 			content: none;

@@ -26,6 +26,9 @@
 #{c(modals emoji categoryList)} {
 	// height: 392px;
 	overflow: visible;
+	#{c(modals sidebarList scroller)} {
+		height: calc(100% - 48px);
+	}
 }
 // #{c(modals emoji unicodeShortcut)} {
 // 	bottom: -48px;

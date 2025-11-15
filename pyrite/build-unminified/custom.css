@@ -7,13 +7,3 @@
 :root {
   --update-notice-may25: none;
 }
-
-.cherryBomb__89a31,
-.chicle__89a31,
-.museoModerno__89a31,
-.neoCastel__89a31,
-.pixelify__89a31,
-.sinistre__89a31,
-.zillaSlab__89a31 {
-  font-family: var(--body-font);
-}
