@@ -189,6 +189,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--control-brand-foreground-new: #{v(dl-control-brand-foreground-new)};
 	--deprecated-text-input-bg: #{v(dl-deprecated-text-input-bg)};
 	--deprecated-text-input-border: #{v(dl-deprecated-text-input-border)};
+	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
 	// --modal-background: #{v(dl-modal-background)}; // ‡
 	// --modal-footer-background: #{v(dl-modal-footer-background)}; // ‡
 	--__spoiler-background-color--hidden: #{v(dl-__spoiler-background-color--hidden)};

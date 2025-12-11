@@ -1870,6 +1870,7 @@ html {
   --control-brand-foreground-new: var(--hsl-primary-color);
   --deprecated-text-input-bg: var(--input-background);
   --deprecated-text-input-border: var(--hsl-primary-color);
+  --interactive-normal: var(--interactive-text-default);
   --__spoiler-background-color--hidden: var(--hsl-spoiler-background);
   --__spoiler-background-color--hidden--hover: var(--hsl-spoiler-background);
   --__spoiler-background-color--revealed: var(--hsl-spoiler-background);
