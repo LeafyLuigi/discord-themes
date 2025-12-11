@@ -1192,10 +1192,6 @@ span):not(.spoilerContent__54ab5) {
   border-radius: 0;
 }
 
-.mentioned__5126c,
-.ephemeral__5126c {
-  background: none;
-}
 .mentioned__5126c::before,
 .ephemeral__5126c::before {
   content: none;
@@ -5871,8 +5867,8 @@ span):not(.spoilerContent__54ab5) {
   --text-link: var(--hsl-link-color);
   --text-brand: var(--hsl-primary-color);
   --background-message-hover: transparent;
-  --background-mentioned: rgb(from var(--mention-background) r g b/var(--mention-opacity));
-  --background-mentioned-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
+  --message-mentioned-background-default: rgb(from var(--mention-background) r g b/var(--mention-opacity));
+  --message-mentioned-background-hover: rgb(from var(--mention-background) r g b/calc(0.2 + var(--mention-opacity)));
   --channel-icon: inherit;
   --scrim-default: transparent;
   --scrim-lightbox: transparent;
