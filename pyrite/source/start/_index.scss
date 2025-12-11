@@ -97,8 +97,11 @@ $defaults: (
 	scrim-lightbox: transparent,
 	hide-fallback-enabled: 1,
 	hide-fallback-disabled: 0,
-	// dark+light vars
+	// forced but thrown under .dark, .light .dark stuff
 	dl-interactive-normal: var(--interactive-text-default),
+	dl-interactive-hover: var(--interactive-text-hover),
+	dl-interactive-active: var(--interactive-text-active),
+	// dark+light vars
 	dark-interactive-normal: #b9bbbe,
 	dark-interactive-hover: #dcddde,
 	dark-interactive-active: #fff,

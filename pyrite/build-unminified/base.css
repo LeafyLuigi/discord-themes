@@ -5769,6 +5769,9 @@ span):not(.spoilerContent__54ab5) {
   --hsl-middle-shading: hsl(from var(--middle-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-header-shading: hsl(from var(--header-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-card-background: hsl(from var(--card-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --interactive-normal: var(--interactive-text-default);
+  --interactive-hover: var(--interactive-text-hover);
+  --interactive-active: var(--interactive-text-active);
 }
 
 .theme-darker,
@@ -5783,6 +5786,9 @@ span):not(.spoilerContent__54ab5) {
   --hsl-middle-shading: hsl(from var(--middle-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-header-shading: hsl(from var(--header-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-card-background: hsl(from var(--card-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --interactive-normal: var(--interactive-text-default);
+  --interactive-hover: var(--interactive-text-hover);
+  --interactive-active: var(--interactive-text-active);
 }
 
 .theme-midnight,
@@ -5797,6 +5803,9 @@ span):not(.spoilerContent__54ab5) {
   --hsl-middle-shading: hsl(from var(--middle-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-header-shading: hsl(from var(--header-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-card-background: hsl(from var(--card-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --interactive-normal: var(--interactive-text-default);
+  --interactive-hover: var(--interactive-text-hover);
+  --interactive-active: var(--interactive-text-active);
 }
 
 .theme-light,
@@ -5811,6 +5820,9 @@ span):not(.spoilerContent__54ab5) {
   --hsl-middle-shading: hsl(from var(--middle-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-header-shading: hsl(from var(--header-shading) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-card-background: hsl(from var(--card-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --interactive-normal: var(--interactive-text-default);
+  --interactive-hover: var(--interactive-text-hover);
+  --interactive-active: var(--interactive-text-active);
 }
 
 .theme-dark,
@@ -5819,7 +5831,6 @@ span):not(.spoilerContent__54ab5) {
   --control-brand-foreground-new: var(--hsl-primary-color);
   --deprecated-text-input-bg: var(--input-background);
   --deprecated-text-input-border: var(--hsl-primary-color);
-  --interactive-normal: var(--interactive-text-default);
   --__spoiler-background-color--hidden: var(--hsl-spoiler-background);
   --__spoiler-background-color--hidden--hover: var(--hsl-spoiler-background);
   --__spoiler-background-color--revealed: var(--hsl-spoiler-background);

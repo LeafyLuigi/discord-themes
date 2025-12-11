@@ -129,6 +129,9 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
 	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
 	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
+	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
+	--interactive-hover: #{v(dl-interactive-hover)}; // fallback bc discord removed it~
+	--interactive-active: #{v(dl-interactive-active)}; // fallback bc discord removed it~
 }
 .theme-darker,
 .theme-darker :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
@@ -145,6 +148,9 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
 	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
 	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
+	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
+	--interactive-hover: #{v(dl-interactive-hover)}; // fallback bc discord removed it~
+	--interactive-active: #{v(dl-interactive-active)}; // fallback bc discord removed it~
 }
 .theme-midnight,
 .theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
@@ -161,6 +167,9 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
 	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
 	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
+	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
+	--interactive-hover: #{v(dl-interactive-hover)}; // fallback bc discord removed it~
+	--interactive-active: #{v(dl-interactive-active)}; // fallback bc discord removed it~
 }
 // ...(cont from dark's comment)
 // sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
@@ -179,6 +188,9 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
 	--hsl-header-shading: hsl(from var(--header-shading) #{$hslColor});
 	--hsl-card-background: hsl(from var(--card-background) #{$hslColor});
+	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
+	--interactive-hover: #{v(dl-interactive-hover)}; // fallback bc discord removed it~
+	--interactive-active: #{v(dl-interactive-active)}; // fallback bc discord removed it~
 }
 
 #{c(main dark)},
@@ -190,7 +202,6 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--control-brand-foreground-new: #{v(dl-control-brand-foreground-new)};
 	--deprecated-text-input-bg: #{v(dl-deprecated-text-input-bg)};
 	--deprecated-text-input-border: #{v(dl-deprecated-text-input-border)};
-	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
 	// --modal-background: #{v(dl-modal-background)}; // ‡
 	// --modal-footer-background: #{v(dl-modal-footer-background)}; // ‡
 	--__spoiler-background-color--hidden: #{v(dl-__spoiler-background-color--hidden)};
