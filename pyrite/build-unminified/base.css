@@ -1192,6 +1192,10 @@ span):not(.spoilerContent__54ab5) {
   border-radius: 0;
 }
 
+.mentioned__5126c,
+.ephemeral__5126c {
+  background: none;
+}
 .mentioned__5126c::before,
 .ephemeral__5126c::before {
   content: none;

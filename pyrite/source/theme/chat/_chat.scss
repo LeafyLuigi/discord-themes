@@ -291,6 +291,7 @@
 // message backgrounds such as @mention, ephemeral and :hover
 #{c(chat mentioned)},
 #{c(chat ephemeral)} {
+	background: none;
 	&::before {
 		content: none;
 	}

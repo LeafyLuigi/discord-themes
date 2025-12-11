@@ -437,6 +437,10 @@ html {
   display: none;
 }
 
+.mentioned__5126c,
+.ephemeral__5126c {
+  background: none;
+}
 .mentioned__5126c::before,
 .ephemeral__5126c::before {
   content: none;
