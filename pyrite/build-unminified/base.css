@@ -1746,10 +1746,6 @@ span):not(.spoilerContent__54ab5) {
   padding-top: 0;
 }
 
-.textArea__74017 .placeholder__1b31f {
-  color: var(--interactive-normal);
-}
-
 .scrollableContainer__74017 {
   max-height: 30vh;
 }
@@ -3382,10 +3378,6 @@ span):not(.spoilerContent__54ab5) {
 
 .container_eb2cd2 {
   background-color: var(--hsl-card-background);
-}
-
-.text_eb2cd2 {
-  color: var(--interactive-normal);
 }
 
 .container_eb2cd2:hover {
@@ -5320,11 +5312,10 @@ span):not(.spoilerContent__54ab5) {
   background: transparent;
 }
 .privateChannels_e6b769 .privateChannelRecipientsInviteButtonIcon__99e7c {
-  color: var(--interactive-normal);
   order: -1;
 }
-.privateChannels_e6b769 .privateChannelRecipientsInviteButtonIcon__99e7c:hover {
-  color: var(--interactive-hover);
+.privateChannels_e6b769 .privateChannelRecipientsInviteButtonIcon__99e7c, .privateChannels_e6b769 .privateChannelRecipientsInviteButtonIcon__99e7c:hover {
+  color: var(--icon-muted);
 }
 
 .searchBar_e6b769 {
@@ -5772,6 +5763,7 @@ span):not(.spoilerContent__54ab5) {
   --interactive-normal: var(--interactive-text-default);
   --interactive-hover: var(--interactive-text-hover);
   --interactive-active: var(--interactive-text-active);
+  --header-primary: var(--text-strong);
 }
 
 .theme-darker,
@@ -5789,6 +5781,7 @@ span):not(.spoilerContent__54ab5) {
   --interactive-normal: var(--interactive-text-default);
   --interactive-hover: var(--interactive-text-hover);
   --interactive-active: var(--interactive-text-active);
+  --header-primary: var(--text-strong);
 }
 
 .theme-midnight,
@@ -5806,6 +5799,7 @@ span):not(.spoilerContent__54ab5) {
   --interactive-normal: var(--interactive-text-default);
   --interactive-hover: var(--interactive-text-hover);
   --interactive-active: var(--interactive-text-active);
+  --header-primary: var(--text-strong);
 }
 
 .theme-light,
@@ -5823,6 +5817,7 @@ span):not(.spoilerContent__54ab5) {
   --interactive-normal: var(--interactive-text-default);
   --interactive-hover: var(--interactive-text-hover);
   --interactive-active: var(--interactive-text-active);
+  --header-primary: var(--text-strong);
 }
 
 .theme-dark,

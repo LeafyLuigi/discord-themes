@@ -66,11 +66,6 @@
 		padding-top: 0;
 	}
 }
-#{c(chatForm textArea)} {
-	#{c(chatForm placeholder)} {
-		color: var(--interactive-normal);
-	}
-}
 @if $lite != 1 {
 	#{c(chatForm scrollableContainer)} {
 		max-height: 30vh;

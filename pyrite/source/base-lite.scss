@@ -132,6 +132,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
 	--interactive-hover: #{v(dl-interactive-hover)}; // fallback bc discord removed it~
 	--interactive-active: #{v(dl-interactive-active)}; // fallback bc discord removed it~
+	--header-primary: #{v(dl-header-primary)}; // fallback bc discord removed it~
 }
 .theme-darker,
 .theme-darker :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
@@ -151,6 +152,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
 	--interactive-hover: #{v(dl-interactive-hover)}; // fallback bc discord removed it~
 	--interactive-active: #{v(dl-interactive-active)}; // fallback bc discord removed it~
+	--header-primary: #{v(dl-header-primary)}; // fallback bc discord removed it~
 }
 .theme-midnight,
 .theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
@@ -170,6 +172,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
 	--interactive-hover: #{v(dl-interactive-hover)}; // fallback bc discord removed it~
 	--interactive-active: #{v(dl-interactive-active)}; // fallback bc discord removed it~
+	--header-primary: #{v(dl-header-primary)}; // fallback bc discord removed it~
 }
 // ...(cont from dark's comment)
 // sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
@@ -191,6 +194,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--interactive-normal: #{v(dl-interactive-normal)}; // fallback bc discord removed it~
 	--interactive-hover: #{v(dl-interactive-hover)}; // fallback bc discord removed it~
 	--interactive-active: #{v(dl-interactive-active)}; // fallback bc discord removed it~
+	--header-primary: #{v(dl-header-primary)}; // fallback bc discord removed it~
 }
 
 #{c(main dark)},

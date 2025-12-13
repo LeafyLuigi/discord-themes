@@ -50,11 +50,10 @@
 #{c(sidebar private channels)} {
 	background: transparent;
 	#{c(sidebar private inviteButtonIcon)} {
-		color: var(--interactive-normal);
 		order: -1;
+		&,
 		&:hover {
-			color: var(--interactive-hover);
-			// filter: drop-shadow(0 0 2px var(--interactive-normal));
+			color: var(--icon-muted);
 		}
 	}
 }

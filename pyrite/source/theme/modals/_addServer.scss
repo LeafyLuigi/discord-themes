@@ -32,9 +32,6 @@
 #{c(modals addServer templateButton)} {
 	background-color: $card;
 }
-#{c(modals addServer templateButtonText)} {
-	color: var(--interactive-normal);
-}
 #{c(modals addServer templateButton)}:hover {
 	background-color: $card;
 	#{c(modals addServer templateButtonText)} {
