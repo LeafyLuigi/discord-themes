@@ -30,19 +30,19 @@
   background: transparent;
 }
 
-.messagelogger-deleted .markup__75297 {
+.messagelogger-deleted ._752971923a1e6683-markup {
   color: var(--text-default);
 }
-.messagelogger-deleted .markup__75297 small:not(.inlineFormat__75297) {
+.messagelogger-deleted ._752971923a1e6683-markup small:not(._752971923a1e6683-inlineFormat) {
   color: var(--text-muted);
 }
-.messagelogger-deleted .markup__75297 :is(h1, h2, h3, h4, h5, h6) {
+.messagelogger-deleted ._752971923a1e6683-markup :is(h1, h2, h3, h4, h5, h6) {
   color: var(--header-primary);
 }
-.messagelogger-deleted .markup__75297 :is(h1, h2, h3, h4, h5, h6).inlineFormat__75297 {
+.messagelogger-deleted ._752971923a1e6683-markup :is(h1, h2, h3, h4, h5, h6)._752971923a1e6683-inlineFormat {
   color: inherit;
 }
 
-.content_f75fb0 > :is(.managedReactiveScroller_eed6a8, .managedReactiveScroller_d125d2) {
+.f75fb00fb7356cbe-content > :is(.managedReactiveScroller_eed6a8, .d125d22cdfd32cfe-managedReactiveScroller) {
   background: var(--hsl-middle-shading);
 }
