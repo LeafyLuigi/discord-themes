@@ -30,7 +30,7 @@
   bottom: 0;
 }
 
-:is(._90d725a74e7171b7-listItemTooltip, .listItemTooltip_dfb2f8) {
+._90d725a74e7171b7-listItemTooltip {
   top: calc(var(--server-size) / -1 - 30px);
 }
 
