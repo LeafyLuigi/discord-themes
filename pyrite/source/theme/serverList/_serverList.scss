@@ -26,10 +26,6 @@
 #{c(serverList folder expandedFolderBackground)} {
 	background: $card;
 }
-#{c(serverList serverWrapperSimple)} {
-	border-radius: unset;
-	overflow: unset;
-}
 #{c(serverList iconWrapper)} {
 	#{c(serverList iconChildWrapper)} {
 		background-color: $card;

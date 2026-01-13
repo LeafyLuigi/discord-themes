@@ -17,13 +17,13 @@
 		:focus,
 		#{c(modals dropdown focused)}
 	) {
-		background-color: var(--background-modifier-hover);
+		background-color: var(--background-mod-subtle);
 	}
 	&:active {
-		background-color: var(--background-modifier-active);
+		background-color: var(--background-mod-strong);
 	}
 	&[aria-selected="true"] {
-		background-color: var(--background-modifier-selected);
+		background-color: var(--background-mod-strong);
 	}
 }
 #{c(modals dropdown selectedIcon)} {

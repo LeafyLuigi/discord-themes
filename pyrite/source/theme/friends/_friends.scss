@@ -95,6 +95,11 @@
 	border-left: none;
 	margin-left: 0;
 }
+#{c(friends itemCardHeader)} {
+	#{c(friends refreshActiveNow)} & {
+		padding: 4px;
+	}
+}
 #{c(friends itemCardOuter)},
 #{c(friends emptyCard)},
 #{c(friends itemCard)} {

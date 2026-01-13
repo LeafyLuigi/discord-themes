@@ -19,7 +19,7 @@
 		}
 	}
 	&#{c(call sidebarOpen)} {
-		:is(#{c(call container)},#{c(call callContent)}) {
+		#{c(call container)} {
 			border-radius: 0;
 		}
 	}
@@ -60,12 +60,12 @@
 #{c(call lowQualityWarningIcon)} {
 	color: $yellow;
 }
-#{c(call watchStreamButton)} {
-	background: $primary;
-	&:hover {
-		background: $hover;
-	}
-}
+// #{c(call watchStreamButton)} {
+// 	background: $primary;
+// 	&:hover {
+// 		background: $hover;
+// 	}
+// }
 
 #{c(call root)} {
 	background: $middle;
@@ -121,7 +121,7 @@
 #{c(stage tileContainer)} {
 	background: transparent;
 	&:hover {
-		background: var(--background-modifier-hover);
+		background: var(--background-mod-subtle);
 	}
 }
 

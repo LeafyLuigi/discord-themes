@@ -6,5 +6,10 @@
 	display: none;
 }
 :root {
-	#{v(update-notice-var)}: none
+	#{v(update-notice-var)}: none;
+	// --background-image: url("https://leafyluigi.github.io/images/novelance-PID-101462661.png");
 }
+// gotta have light theme shite separate lol
+// .theme-light {
+// 	--background-image: url("https://leafyluigi.github.io/images/PID-52373163--art-95954134.jpg");
+// }

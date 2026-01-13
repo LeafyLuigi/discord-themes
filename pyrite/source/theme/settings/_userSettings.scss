@@ -62,10 +62,10 @@
 	backdrop-filter: blur(calc($blur * 3px));
 	background: var(--background-modifier-accent);
 	&:hover:not([aria-checked=true]) {
-		background: var(--background-modifier-hover);
+		background: var(--background-mod-subtle);
 	}
 	&[aria-checked=true] {
-		background: var(--background-modifier-selected);
+		background: var(--background-mod-strong);
 	}
 }
 #{c(userSettings radioBar)} {
@@ -95,7 +95,7 @@
 #{c(userSettings addAccountButtonInner)} {
 	background-color: var(--background-modifier-accent);
 	&:hover {
-		background-color: var(--background-modifier-hover);
+		background-color: var(--background-mod-subtle);
 	}
 }
 #{c(userSettings connectionHeader)} {

@@ -114,7 +114,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 }
 
 .theme-dark,
-.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
+.theme-dark :not(div[class*=-previewContainer]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
 	--card-background: #{v(dark-card-background)}; // †
 	--side-shading: #{v(dark-side-shading)}; // †
 	--middle-shading: #{v(dark-middle-shading)}; // †
@@ -134,7 +134,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--header-primary: #{v(dl-header-primary)}; // fallback bc discord removed it~
 }
 .theme-darker,
-.theme-darker :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
+.theme-darker :not(div[class*=-previewContainer]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
 	--card-background: #{v(darker-card-background)}; // †
 	--side-shading: #{v(darker-side-shading)}; // †
 	--middle-shading: #{v(darker-middle-shading)}; // †
@@ -154,7 +154,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--header-primary: #{v(dl-header-primary)}; // fallback bc discord removed it~
 }
 .theme-midnight,
-.theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])) {
+.theme-midnight :not(div[class*=-previewContainer]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
 	--card-background: #{v(midnight-card-background)}; // †
 	--side-shading: #{v(midnight-side-shading)}; // †
 	--middle-shading: #{v(midnight-middle-shading)}; // †
@@ -176,7 +176,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 // ...(cont from dark's comment)
 // sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
 .theme-light,
-.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]) {
+.theme-light :not(div[class*=-previewContainer]) .theme-dark:not(#{$blacklist-theme-light-classes}) {
 	--card-background: #{v(light-card-background)}; // †
 	--side-shading: #{v(light-side-shading)}; // †
 	--middle-shading: #{v(light-middle-shading)}; // †

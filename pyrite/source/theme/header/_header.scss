@@ -223,7 +223,7 @@
 	// make sure shit is still clickable
 	:is(
 		#{c(header title)},
-		#{c(sidebar server header clickable)}
+		#{c(sidebar server header guildDropdown)}
 	) {
 		-webkit-app-region: no-drag;
 	}

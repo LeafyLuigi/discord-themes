@@ -186,7 +186,7 @@
 	}
 }
 
-:is(#{c(serverList listItemTooltip)},#{c(serverList listItemTooltipFolder)}) {
+#{c(serverList listItemTooltip)} {
 	position: absolute;
 	max-width: unset;
 	white-space: nowrap;

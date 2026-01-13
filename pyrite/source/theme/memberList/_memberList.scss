@@ -83,11 +83,11 @@
 // this seems to match.
 
 $allColors: (
-	"hsl-green-color": #43a25a,
-	"hsl-yellow-color": #ca9654,
-	"hsl-red-color": #d83a42,
+	"hsl-green-color": #45a366,
+	"hsl-yellow-color": #ffc04e,
+	"hsl-red-color": #da3e44,
 	"hsl-live-color": #9147ff,
-	"hsl-offline-color": #82838b,
+	"hsl-offline-color": #84858d,
 );
 
 @each $var,$val in $allColors {

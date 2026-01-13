@@ -119,12 +119,6 @@
 		right: 0;
 		z-index: 1;
 	}
-	#{c(removeButton filled)} {
-		transition: 0.25s background-color ease-in-out;
-		&:not(:hover) {
-			background-color: transparent;
-		}
-	}
 }
 #{c(appSettings keybindDefault)} {
 	height: unset;

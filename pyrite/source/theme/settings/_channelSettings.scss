@@ -5,18 +5,6 @@
 		border-color: var(--secondary-color);
 	}
 }
-#{c(channelSettings inviteRow)} {
-	#{c(removeButton default)} {
-		transition: 0.25s background-color ease-in-out;
-		background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
-		&:not(:hover) {
-			background-color: transparent;
-		}
-		&:hover {
-			background-color: $red;
-		}
-	}
-}
 #{c(channelSettings revokeInvite)} {
 	opacity: 1;
 	top: 8px;

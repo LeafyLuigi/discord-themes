@@ -21,10 +21,6 @@
 		border-top: 0;
 	}
 
-	#{c(forums form)} #{c(forums submitButton)} {
-		border-radius: 3px;
-	}
-
 	#{c(forums tags tagsButton)} {
 		&[aria-expanded="true"] {
 			border-color: $primary;

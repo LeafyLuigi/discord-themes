@@ -88,8 +88,7 @@
 	[href="/library"],
 	[href="/shop"],
 	[href="/quest-home"]
-),
-#{c(sidebar private channelBadgeIcon)} {
+) {
 	display: none;
 }
 @if $lite != 1 {
@@ -177,9 +176,11 @@
 		filter: none;
 	}
 }
-#{c(sidebar server channel voice avatarSpeaking)},
+#{c(sidebar server channel voice userAvatar)},
 #{c(avatar speaking)} {
-	box-shadow: inset 0 0 0 2px $primary;
+	&[style*=box-shadow] {
+		box-shadow: inset 0 0 0 2px $primary !important; // !important reason: inline style (for both)
+	}
 }
 #{c(sidebar loadingAnimationContainer)} {
 	padding-top: calc(48px + 16px); // 48 for top bar, 16 from original css rule
@@ -223,14 +224,14 @@
 	#{c(sidebar panel username)} {
 		@include header;
 	}
-	:is(
-		// #{c(sidebar panel container)} #{c(sidebar panelButtonRow)},
-		// #{c(sidebar panel voice container)} #{c(sidebar panel voice inner)} ~ #{c(sidebar panelButtonRow)},
-		#{c(sidebar panel activity activityPanel)} #{c(sidebar panel activityActions)}
-	) {
-		border: 1px solid $middle;
-		border-radius: 8px;
-	}
+	// :is(
+	// 	// #{c(sidebar panel container)} #{c(sidebar panelButtonRow)},
+	// 	// #{c(sidebar panel voice container)} #{c(sidebar panel voice inner)} ~ #{c(sidebar panelButtonRow)},
+	// 	#{c(sidebar panel activity activityPanel)} #{c(sidebar panel activityActions)}
+	// ) {
+	// 	border: 1px solid $middle;
+	// 	border-radius: 8px;
+	// }
 }
 // #{c(sidebar panel buttons buttons)} {
 // 	background: transparent;
@@ -323,15 +324,15 @@
 	#{c(sidebar private interactive)} {
 		&:hover,
 		&:focus-within {
-			background: var(--background-modifier-hover);
+			background: var(--background-mod-subtle);
 		}
 		&:active {
-			background: var(--background-modifier-active);
+			background: var(--background-mod-strong);
 		}
 	}
 
 	#{c(sidebar private selectedBG)} {
-		background: var(--background-modifier-selected);
+		background: var(--background-mod-strong);
 	}
 
 	#{c(sidebar server channel modeSelected)},

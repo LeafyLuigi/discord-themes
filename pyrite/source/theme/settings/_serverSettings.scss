@@ -1,15 +1,6 @@
 @use "backend" as *;
 /* Start Server Settings */
 :is(#{c(main dark)},#{c(main light)}) {
-	#{c(removeButton default)} {
-		background-image: url(https://leafyluigi.github.io/images/white_cross.svg);
-		&:not(:hover) {
-			background-color: transparent;
-		}
-		&:hover {
-			background-color: $red;
-		}
-	}
 	#{c(serverSettings emojiAliasInput)} #{c(serverSettings emojiInput)} {
 		background-color: $card;
 		border-color: $primary;
@@ -75,11 +66,6 @@
 }
 #{c(serverSettings emojiRow)} {
 	padding: 10px 0;
-	#{c(removeButton default)} {
-		opacity: 1;
-		top: calc(50% - 12px);
-		right: 4px;
-	}
 	#{c(serverSettings emojiAliasInput)} {
 		width: unset;
 		#{c(serverSettings emojiInput)} {

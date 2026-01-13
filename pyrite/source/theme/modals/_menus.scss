@@ -64,10 +64,10 @@
 #{c(modals menus quickReactionButton)} {
 	background: transparent;
 	&:hover {
-		background: var(--background-modifier-hover);
+		background: var(--background-mod-subtle);
 	}
 	&:active {
-		background: var(--background-modifier-active);
+		background: var(--background-mod-strong);
 	}
 }
 

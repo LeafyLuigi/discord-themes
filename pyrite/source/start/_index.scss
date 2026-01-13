@@ -27,8 +27,8 @@ $import-wintitlebar: "windows-titlebar.css";
 
 $var-examples: "pyrite/var-examples.html";
 
-$blacklist-theme-dark-classes: "div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal])";
-$blacklist-theme-light-classes: "div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]";
+$blacklist-theme-dark-classes: "div[class*=-layer],div[class*=-outer]:is([class*=user-profile-popout],[class*=user-profile-modal])";
+$blacklist-theme-light-classes: "div[class*=-layer],div[class*=-outer]:is([class*=user-profile-popout],[class*=user-profile-modal]),div[class*=-sidebar],nav[class*=-guilds],div[class*=-sidebarRegion]";
 
 // once @property is implemented within Vencord, switch to this.
 @function p($key,$syntax:null,$formalName:null,$formalDesc:null,$val:null) {
