@@ -176,10 +176,12 @@
 		filter: none;
 	}
 }
-#{c(sidebar server channel voice userAvatar)},
-#{c(avatar speaking)} {
-	&[style*=box-shadow] {
-		box-shadow: inset 0 0 0 2px $primary !important; // !important reason: inline style (for both)
+@if $lite != 1 {
+	#{c(sidebar server channel voice userAvatar)},
+	#{c(avatar speaking)} {
+		&[style*="box-shadow:"] {
+			box-shadow: inset 0 0 0 2px $primary !important; // !important reason: inline style (for both)
+		}
 	}
 }
 #{c(sidebar loadingAnimationContainer)} {

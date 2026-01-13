@@ -1575,11 +1575,6 @@ html {
   filter: none;
 }
 
-._55bab3f0b2555838-userAvatar[style*=box-shadow],
-._44b0c28be7879b7b-avatarBorder[style*=box-shadow] {
-  box-shadow: inset 0 0 0 2px var(--hsl-primary-color) !important;
-}
-
 ._3b43ffc98ef7a68a-container {
   padding-top: 64px;
 }

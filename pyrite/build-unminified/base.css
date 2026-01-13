@@ -5359,8 +5359,8 @@ span):not(._299eb87491f4b6d1-spoilerContent) {
   filter: none;
 }
 
-._55bab3f0b2555838-userAvatar[style*=box-shadow],
-._44b0c28be7879b7b-avatarBorder[style*=box-shadow] {
+._55bab3f0b2555838-userAvatar[style*="box-shadow:"],
+._44b0c28be7879b7b-avatarBorder[style*="box-shadow:"] {
   box-shadow: inset 0 0 0 2px var(--hsl-primary-color) !important;
 }
 
