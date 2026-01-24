@@ -4,7 +4,7 @@
   --hsl-bottom-enabled: 1;
 }
 
-._51fd70792ee2e563-appMount > div > :first-child::before {
+.appMount__51fd7 > div > :first-child::before {
   content: 'Do NOT use the "horizontal-server-list-bottom" import without "horizontal-server-list" enabled.';
   text-align: center;
   position: absolute;
@@ -18,28 +18,28 @@
   z-index: 2500;
 }
 
-.a3002d7de5be5280-app ._5e434347c823b592-base {
+.app_a3002d .base__5e434 {
   top: 0;
   bottom: var(--server-container);
 }
 
-._5e434347c823b592-guilds {
+.guilds__5e434 {
   transform-origin: 0 100%;
   top: unset;
   left: 100vw;
   bottom: 0;
 }
 
-._90d725a74e7171b7-listItemTooltip {
+.listItemTooltip__90d72 {
   top: calc(var(--server-size) / -1 - 30px);
 }
 
-._581051df43c5ebb6-wrapper {
+.wrapper__58105 {
   transform: rotate(-90deg) translateY(50%);
   top: unset;
   bottom: calc(var(--server-size) / -1 + var(--server-size) / 2 - 8px);
 }
 
-.platform-win ._5e434347c823b592-guilds {
+.platform-win .guilds__5e434 {
   top: unset;
 }
