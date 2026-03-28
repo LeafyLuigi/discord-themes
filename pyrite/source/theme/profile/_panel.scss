@@ -13,3 +13,7 @@
 #{c(profile panel)}:not(#{c(profile themed)}) #{c(profile panel colorOverlay)} {
 	background: $card;
 }
+// i couldn't be bothered moving classes around tonight
+#{c(experiments themesSidebarFooterButton)} {
+	display: none;
+}

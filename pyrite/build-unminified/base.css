@@ -4551,6 +4551,10 @@ span):not(.spoilerContent__299eb) {
   background: var(--hsl-card-background);
 }
 
+.footerButton__272c7 {
+  display: none;
+}
+
 /* Start Profile in Settings */
 .badgeList__1fed1:empty {
   background: transparent;
@@ -5669,7 +5673,7 @@ span):not(.spoilerContent__299eb) {
 }
 
 .theme-dark,
-.theme-dark :not(div[class*=-previewContainer]) .theme-light:not(div[class*=-layer], div[class*=-outer]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+.theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
   --card-background: rgba(0, 0, 0, 0.4);
   --side-shading: rgba(0, 0, 0, 0.4);
   --middle-shading: rgba(0, 0, 0, 0.2);
@@ -5687,7 +5691,7 @@ span):not(.spoilerContent__299eb) {
 }
 
 .theme-darker,
-.theme-darker :not(div[class*=-previewContainer]) .theme-light:not(div[class*=-layer], div[class*=-outer]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+.theme-darker :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
   --card-background: rgba(0, 0, 0, 0.5);
   --side-shading: rgba(0, 0, 0, 0.5);
   --middle-shading: rgba(0, 0, 0, 0.3);
@@ -5705,7 +5709,7 @@ span):not(.spoilerContent__299eb) {
 }
 
 .theme-midnight,
-.theme-midnight :not(div[class*=-previewContainer]) .theme-light:not(div[class*=-layer], div[class*=-outer]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+.theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
   --card-background: rgba(0, 0, 0, 0.7);
   --side-shading: rgba(0, 0, 0, 0.7);
   --middle-shading: rgba(0, 0, 0, 0.6);
@@ -5723,7 +5727,7 @@ span):not(.spoilerContent__299eb) {
 }
 
 .theme-light,
-.theme-light :not(div[class*=-previewContainer]) .theme-dark:not(div[class*=-layer], div[class*=-outer]:is([class*=user-profile-popout], [class*=user-profile-modal]), div[class*=-sidebar], nav[class*=-guilds], div[class*=-sidebarRegion]) {
+.theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal]), div[class*=sidebar_], nav[class*=guilds_], div[class*=sidebarRegion_]) {
   --card-background: rgba(255, 255, 255, 0.05);
   --side-shading: rgba(255, 255, 255, 0.4);
   --middle-shading: rgba(255, 255, 255, 0.3);
