@@ -11,6 +11,41 @@
 
 $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 /* Default Variables */
+
+@property --background-image {
+	/* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
+	// name: "Main Background Image";
+	// note: "Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64.";
+	syntax: "<image>";
+	initial-value: #{v(background-image)};
+	inherits: true;
+}
+@property --user-modal-image {
+	/* User Profile Modal Background Image. */
+	// name: "User Profile Modal Background Image";
+	// note: "";
+	syntax: "<image>";
+	initial-value: #{v(background-image)};
+	inherits: true;
+}
+@property --user-popout-image {
+	/* User Popout Modal Background Image. */
+	// name: "User Popout Modal Background Image";
+	// note: "";
+	syntax: "<image>";
+	initial-value: #{v(background-image)};
+	inherits: true;
+}
+/* Home icon is for the little button in the top left. */
+@property --home-icon {
+	// /* Home Icon Image. */
+	// name: "Home Icon Image";
+	// note: "Use a URL.";
+	syntax: "<image>";
+	initial-value: #{v(home-icon)};
+	inherits: true;
+}
+
 // Default variables are stored in `start/_index.scss`.
 // Vars labeled with a dagger (†) have a HSL variable available and should be used instead of the raw value. Example: --primary-color => --hsl-primary-color.
 // Vars labeled with a double dagger (‡) get overridden by .visual-refresh.theme :(

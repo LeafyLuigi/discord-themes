@@ -461,7 +461,7 @@ html {
   --local-tag: var(--tag-dev);
 }
 
-.avatar_c19a55:is([src*="126652966265421824"], [src*="393900343135830016"], [src*="240437190339854337"]) ~ .header_c19a55 {
+.avatar_c19a55:is([src*="126652966265421824"], [src*="393900343135830016"], [src*="240437190339854337"], [src*="1250038061925142531"]) ~ .header_c19a55 {
   --local-tag: var(--tag-helper);
 }
 
@@ -5588,6 +5588,30 @@ span):not(.spoilerContent__299eb) {
 }
 
 /* Begin Beta Branch */
+@property --background-image {
+  /* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
+  syntax: "<image>";
+  initial-value: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
+  inherits: true;
+}
+@property --user-modal-image {
+  /* User Profile Modal Background Image. */
+  syntax: "<image>";
+  initial-value: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
+  inherits: true;
+}
+@property --user-popout-image {
+  /* User Popout Modal Background Image. */
+  syntax: "<image>";
+  initial-value: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
+  inherits: true;
+}
+/* Home icon is for the little button in the top left. */
+@property --home-icon {
+  syntax: "<image>";
+  initial-value: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
+  inherits: true;
+}
 /* Default Variables */
 :root {
   /* forced by theme */
@@ -5618,9 +5642,6 @@ span):not(.spoilerContent__299eb) {
   --hsl-offline-color: hsl(from var(--offline-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-date-divider-background: hsl(from var(--date-divider-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-spoiler-background: hsl(from var(--spoiler-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --background-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
-  --user-modal-image: var(--background-image);
-  --user-popout-image: var(--background-image);
   --background-attachment: fixed;
   --user-modal-attachment: var(--background-attachment);
   --user-popout-attachment: var(--background-attachment);
@@ -5629,7 +5650,6 @@ span):not(.spoilerContent__299eb) {
   --hover-color: #139dff;
   --tooltip-color: #1967ab;
   --mention-opacity: 0.3;
-  --home-icon: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
   --green-color: #43b581;
   --yellow-color: #f9a719;
   --red-color: #ec4144;
