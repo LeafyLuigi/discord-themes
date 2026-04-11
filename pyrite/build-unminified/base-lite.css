@@ -190,6 +190,13 @@ body) {
   z-index: 2;
 }
 
+.full-motion .user-profile-sidebar.custom-user-profile-theme {
+  transition: var(--hide-speed, 0.5s) transform ease-out, var(--hide-speed, 0.5s) backdrop-filter ease-out, --profile-gradient-primary-color 0.15s ease, --profile-gradient-secondary-color 0.15s ease, --profile-gradient-modal-background-color 0.15s ease, --profile-gradient-overlay-color 0.15s ease;
+}
+
+.app-focused.reduce-motion {
+  --hide-speed: 0s;
+}
 .app-focused .content_f75fb0 > .container_c8ffbb:is(:hover, :focus-within),
 .app-focused .chatContent_f75fb0 + .membersWrap_c8ffbb:is(:hover, :focus-within),
 .app-focused .user-profile-sidebar:is(:hover, :focus-within),

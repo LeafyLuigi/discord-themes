@@ -1,6 +1,9 @@
 @use "sass:map";
 @use "sass:meta";
 @use "sass:string";
+@use "sass:list";
+@use "@sass-fairy/list" as listFairy;
+@use "@sass-fairy/string" as stringFairy;
 $version: "0.2.8";
 $theme-name: "Pyrite";
 $theme-name-lite: "Pyrite - lite";
@@ -31,34 +34,74 @@ $blacklist-theme-dark-classes: "div[class*=layer_],div[class*=outer_]:is([class*
 $blacklist-theme-light-classes: "div[class*=layer_],div[class*=outer_]:is([class*=user-profile-popout],[class*=user-profile-modal]),div[class*=sidebar_],nav[class*=guilds_],div[class*=sidebarRegion_]";
 
 // once @property is implemented within Vencord, switch to this.
-@function p($key,$syntax:null,$formalName:null,$formalDesc:null,$val:null) {
+// seems like it doesn't actually generate anything sadly.
+@function p($key,$syntax:null,$val:null,$formalName:null,$formalDesc:null,$inherits:null) {
 	// Only the note and value are optional.
 	// $key is the name as stored in $defaults
 	// $syntax is either a CSS type (ie <color>) or a string like (for background attachment "scroll|fixed|local"; which would include the global values)
+	// $val is an optional overriding value and must match $syntax. Without it, the value in $defaults is used.
 	// $formalName is the written out name (ie "primary-color" becomes "Primary Colour")
 	// $formalDesc is an optional string that is given as a description for the variable (ie for Primary Colour, it could be "Main accent colour.")
-	// $val is an optional overriding value and must match $syntax. Without it, the value in $defaults is used.
+	// $inherits is optional, defaulting to true.
 	$allVars: $defaults;
 	$map: ();
 	@if not map.has-key($allVars,$key) {
 		@error #{$key} not found in variables, aborting;
 	} @else {
-		$map: map.set($map,"init",$key);
+		$map: map.set($map,"key",$key);
 	}
 	@if meta.type-of($syntax) != string {
 		@error Syntax for #{$key} needs to be a string, aborting;
 	} @else {
-		@if string.slice($syntax,1,1) == "<" and string.slice($syntax,-1,-1) == ">" {
-			// should be fine to pass as is
-			$map: map.set($map,"syntax",$syntax);
+		$map: map.set($map,"syntax",$syntax);
+	}
+	@if meta.type-of($val) != null {
+		$map: map.set($map,"initial-value",$val);
+	}
+	@if meta.type-of($formalName) != null {
+		@if meta.type-of($formalName) != string {
+			@error Formal name for #{$key} needs to be a string, aborting;
 		} @else {
-			// TODO
+			$map: map.set($map,"formalName",$formalName);
 		}
 	}
-	@if meta.type-of($formalName) != string {
-		@error Formal name for #{$key} needs to be a string, aborting;
+	@if meta.type-of($formalDesc) != null {
+		@if meta.type-of($formalDesc) != string {
+			@error Formal description for #{$key} needs to be a string, aborting;
+		} @else {
+			$map: map.set($map,"formalDesc",$formalDesc);
+		}
 	}
-	@debug $map;
+	// inherits defaults to "true" in the spec.
+	@if $inherits == "false" {
+		$map: map.set($map,"inherits",false);
+	}
+	// attempt to change map to list then output that as warn to test
+	// required: syntax
+	$ls: ("@property --",map.get($map,"key")," {syntax:",map.get($map,"syntax"),";");
+	@if map.has-key($map,"initial-value") {
+		$ls: list.append($ls,"initial-value:");
+		$ls: list.append($ls,map.get($map,"initial-value"));
+		$ls: list.append($ls,";");
+	}
+	@if map.has-key($map,"inherits") {
+		$ls: list.append($ls,"inherits:");
+		$ls: list.append($ls,map.get($map,"inherits"));
+		$ls: list.append($ls,";");
+	}
+	@if map.has-key($map,"formalName") {
+		$ls: list.append($ls,"formalName:");
+		$ls: list.append($ls,map.get($map,"formalName"));
+		$ls: list.append($ls,";");
+	}
+	@if map.has-key($map,"formalDesc") {
+		$ls: list.append($ls,"formalDesc:");
+		$ls: list.append($ls,map.get($map,"formalDesc"));
+		$ls: list.append($ls,";");
+	}
+	$ls: list.append($ls,"}");
+	@warn stringFairy.replace(listFairy.to-string($ls),", ","");
+	// @return stringFairy.replace(listFairy.to-string($ls),", ","");
 	@return null;
 }
 
@@ -307,3 +350,14 @@ $defaults: (
 	markup-chat-h2-font-size: 1.25rem,
 	markup-chat-h3-font-size: 1rem,
 );
+
+// @property --primary-color{syntax:"<color>";initial-value:#{v(primary-color)};inherits:true}
+// @property --secondary-color{syntax:"<color>";initial-value:#{v(secondary-color)};inherits:true}
+// @property --hover-color{syntax:"<color>";initial-value:#{v(hover-color)};inherits:true}
+// @property --tooltip-color{syntax:"<color>";initial-value:#{v(tooltip-color)};inherits:true}
+// @property --green-color{syntax:"<color>";initial-value:#{v(green-color)};inherits:true}
+// @property --yellow-color{syntax:"<color>";initial-value:#{v(yellow-color)};inherits:true}
+// @property --red-color{syntax:"<color>";initial-value:#{v(red-color)};inherits:true}
+// @property --link-color{syntax:"<color>";initial-value:#{v(link-color)};inherits:true}
+// @property --live-color{syntax:"<color>";initial-value:#{v(live-color)};inherits:true}
+// @property --offline-color{syntax:"<color>";initial-value:#{v(offline-color)};inherits:true}
