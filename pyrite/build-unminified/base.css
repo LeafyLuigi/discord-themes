@@ -243,13 +243,6 @@ body) {
   z-index: 2;
 }
 
-.full-motion .user-profile-sidebar.custom-user-profile-theme {
-  transition: var(--hide-speed, 0.5s) transform ease-out, var(--hide-speed, 0.5s) backdrop-filter ease-out, --profile-gradient-primary-color 0.15s ease, --profile-gradient-secondary-color 0.15s ease, --profile-gradient-modal-background-color 0.15s ease, --profile-gradient-overlay-color 0.15s ease;
-}
-
-.app-focused.reduce-motion {
-  --hide-speed: 0s;
-}
 .app-focused .content_f75fb0 > .container_c8ffbb:is(:hover, :focus-within),
 .app-focused .chatContent_f75fb0 + .membersWrap_c8ffbb:is(:hover, :focus-within),
 .app-focused .user-profile-sidebar:is(:hover, :focus-within),
@@ -5595,30 +5588,6 @@ span):not(.spoilerContent__299eb) {
 }
 
 /* Begin Beta Branch */
-@property --background-image {
-  /* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
-  syntax: "<image>";
-  initial-value: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
-  inherits: false;
-}
-@property --user-modal-image {
-  /* User Profile Modal Background Image. */
-  syntax: "<image>";
-  initial-value: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
-  inherits: false;
-}
-@property --user-popout-image {
-  /* User Popout Modal Background Image. */
-  syntax: "<image>";
-  initial-value: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
-  inherits: false;
-}
-/* Home icon is for the little button in the top left. */
-@property --home-icon {
-  syntax: "<image>";
-  initial-value: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
-  inherits: false;
-}
 /* Default Variables */
 :root {
   /* forced by theme */
@@ -5649,6 +5618,9 @@ span):not(.spoilerContent__299eb) {
   --hsl-offline-color: hsl(from var(--offline-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-date-divider-background: hsl(from var(--date-divider-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-spoiler-background: hsl(from var(--spoiler-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
+  --background-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
+  --user-modal-image: var(--background-image);
+  --user-popout-image: var(--background-image);
   --background-attachment: fixed;
   --user-modal-attachment: var(--background-attachment);
   --user-popout-attachment: var(--background-attachment);
@@ -5657,6 +5629,7 @@ span):not(.spoilerContent__299eb) {
   --hover-color: #139dff;
   --tooltip-color: #1967ab;
   --mention-opacity: 0.3;
+  --home-icon: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
   --green-color: #43b581;
   --yellow-color: #f9a719;
   --red-color: #ec4144;
