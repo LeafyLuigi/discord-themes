@@ -16,7 +16,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	/* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
 	// name: "Main Background Image";
 	// note: "Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64.";
-	syntax: "<image>";
+	syntax: "<color> | <image>";
 	initial-value: #{v(background-image)};
 	inherits: true;
 }
@@ -24,7 +24,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	/* User Profile Modal Background Image. */
 	// name: "User Profile Modal Background Image";
 	// note: "";
-	syntax: "<image>";
+	syntax: "<color> | <image>";
 	initial-value: #{v(background-image)};
 	inherits: true;
 }
@@ -32,7 +32,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	/* User Popout Modal Background Image. */
 	// name: "User Popout Modal Background Image";
 	// note: "";
-	syntax: "<image>";
+	syntax: "<color> | <image>";
 	initial-value: #{v(background-image)};
 	inherits: true;
 }
@@ -41,7 +41,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	// /* Home Icon Image. */
 	// name: "Home Icon Image";
 	// note: "Use a URL.";
-	syntax: "<image>";
+	syntax: "<color> | <image>";
 	initial-value: #{v(home-icon)};
 	inherits: true;
 }
