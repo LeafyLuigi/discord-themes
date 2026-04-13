@@ -1,0 +1,138 @@
+@use "start" as *;
+@use "backend" as *;
+$includeExtra: 0 !default; // potential for future theme support, enable and edit file when support has been implemented.
+
+@property --background-image {
+	/* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
+	// name: "Main Background Image";
+	// note: "Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64.";
+	syntax: "<color> | <image>";
+	initial-value: #{v(background-image)};
+	inherits: true;
+}
+@property --user-modal-image {
+	/* User Profile Modal Background Image. */
+	// name: "User Profile Modal Background Image";
+	// note: "";
+	syntax: "<color> | <image>";
+	initial-value: #{v(background-image)};
+	inherits: true;
+}
+@property --user-popout-image {
+	/* User Popout Modal Background Image. */
+	// name: "User Popout Modal Background Image";
+	// note: "";
+	syntax: "<color> | <image>";
+	initial-value: #{v(background-image)};
+	inherits: true;
+}
+/* Home icon is for the little button in the top left. */
+@property --home-icon {
+	// /* Home Icon Image. */
+	// name: "Home Icon Image";
+	// note: "Use a URL.";
+	syntax: "<color> | <image>";
+	initial-value: #{v(home-icon)};
+	inherits: true;
+}
+
+/* Background attachment stuff */
+@property --background-attachment {
+	syntax: "scroll | fixed | local";
+	initial-value: #{v(background-attachment)};
+	inherits: true;
+}
+@property --user-modal-attachment {
+	syntax: "scroll | fixed | local";
+	initial-value: #{v(background-attachment)};
+	inherits: true;
+}
+@property --user-popout-attachment {
+	syntax: "scroll | fixed | local";
+	initial-value: #{v(background-attachment)};
+	inherits: true;
+}
+
+/* Colours - these are the BEFORE hsl a11y is added to them. */
+@property --primary-color {
+	syntax: "<color>";
+	initial-value: #{v(primary-color)};
+	inherits: true;
+}
+@property --secondary-color {
+	syntax: "<color>";
+	initial-value: #{v(secondary-color)};
+	inherits: true;
+}
+@property --hover-color {
+	syntax: "<color>";
+	initial-value: #{v(hover-color)};
+	inherits: true;
+}
+@property --tooltip-color {
+	syntax: "<color>";
+	initial-value: #{v(tooltip-color)};
+	inherits: true;
+}
+@property --green-color {
+	syntax: "<color>";
+	initial-value: #{v(green-color)};
+	inherits: true;
+}
+@property --yellow-color {
+	syntax: "<color>";
+	initial-value: #{v(yellow-color)};
+	inherits: true;
+}
+@property --red-color {
+	syntax: "<color>";
+	initial-value: #{v(red-color)};
+	inherits: true;
+}
+@property --link-color {
+	syntax: "<color>";
+	initial-value: #{v(link-color)};
+	inherits: true;
+}
+@property --live-color {
+	syntax: "<color>";
+	initial-value: #{v(live-color)};
+	inherits: true;
+}
+@property --offline-color {
+	syntax: "<color>";
+	initial-value: #{v(offline-color)};
+	inherits: true;
+}
+// though these are used as backgrounds, images cannot be used due to the HSL-* variable. It might work for a few elements though.
+// default value is the dark variant as that's the default theme on discord it seems.
+@property --card-background {
+	syntax: "<color>";
+	initial-value: #{v(dark-card-background)};
+	inherits: true;
+}
+@property --side-shading {
+	syntax: "<color>";
+	initial-value: #{v(dark-side-shading)};
+	inherits: true;
+}
+@property --middle-shading {
+	syntax: "<color>";
+	initial-value: #{v(dark-middle-shading)};
+	inherits: true;
+}
+@property --header-shading {
+	syntax: "<color>";
+	initial-value: #{v(dark-header-shading)};
+	inherits: true;
+}
+@property --hover-filter {
+	syntax: "<color>";
+	initial-value: #{v(dark-hover-filter)};
+	inherits: true;
+}
+@property --active-filter {
+	syntax: "<color>";
+	initial-value: #{v(dark-active-filter)};
+	inherits: true;
+}

@@ -1685,7 +1685,6 @@ html {
   background: var(--hsl-card-background);
 }
 
-/* Default Variables */
 @property --background-image {
   /* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
   syntax: "<color> | <image>";
@@ -1710,7 +1709,123 @@ html {
   initial-value: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
   inherits: true;
 }
+/* Background attachment stuff */
+@property --background-attachment {
+  syntax: "scroll | fixed | local";
+  initial-value: fixed;
+  inherits: true;
+}
+@property --user-modal-attachment {
+  syntax: "scroll | fixed | local";
+  initial-value: fixed;
+  inherits: true;
+}
+@property --user-popout-attachment {
+  syntax: "scroll | fixed | local";
+  initial-value: fixed;
+  inherits: true;
+}
+/* Colours - these are the BEFORE hsl a11y is added to them. */
+@property --primary-color {
+  syntax: "<color>";
+  initial-value: #387eff;
+  inherits: true;
+}
+@property --secondary-color {
+  syntax: "<color>";
+  initial-value: #3298e0;
+  inherits: true;
+}
+@property --hover-color {
+  syntax: "<color>";
+  initial-value: #139dff;
+  inherits: true;
+}
+@property --tooltip-color {
+  syntax: "<color>";
+  initial-value: #1967ab;
+  inherits: true;
+}
+@property --green-color {
+  syntax: "<color>";
+  initial-value: #43b581;
+  inherits: true;
+}
+@property --yellow-color {
+  syntax: "<color>";
+  initial-value: #f9a719;
+  inherits: true;
+}
+@property --red-color {
+  syntax: "<color>";
+  initial-value: #ec4144;
+  inherits: true;
+}
+@property --link-color {
+  syntax: "<color>";
+  initial-value: #00aef3;
+  inherits: true;
+}
+@property --live-color {
+  syntax: "<color>";
+  initial-value: #583594;
+  inherits: true;
+}
+@property --offline-color {
+  syntax: "<color>";
+  initial-value: #737e8c;
+  inherits: true;
+}
+@property --card-background {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.4);
+  inherits: true;
+}
+@property --side-shading {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.4);
+  inherits: true;
+}
+@property --middle-shading {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.2);
+  inherits: true;
+}
+@property --header-shading {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.6);
+  inherits: true;
+}
+@property --hover-filter {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.2);
+  inherits: true;
+}
+@property --active-filter {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.4);
+  inherits: true;
+}
+/* Default Variables */
 :root {
+  /* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+  --background-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
+  --user-modal-image: var(--background-image);
+  --user-popout-image: var(--background-image);
+  --home-icon: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
+  --background-attachment: fixed;
+  --user-modal-attachment: var(--background-attachment);
+  --user-popout-attachment: var(--background-attachment);
+  --primary-color: #387eff;
+  --secondary-color: #3298e0;
+  --hover-color: #139dff;
+  --tooltip-color: #1967ab;
+  --green-color: #43b581;
+  --yellow-color: #f9a719;
+  --red-color: #ec4144;
+  --link-color: #00aef3;
+  --live-color: #583594;
+  --offline-color: #737e8c;
   /* forced by theme */
   --font-headline: var(--body-font);
   --font-display: var(--body-font);
@@ -1739,24 +1854,8 @@ html {
   --hsl-offline-color: hsl(from var(--offline-color) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-date-divider-background: hsl(from var(--date-divider-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
   --hsl-spoiler-background: hsl(from var(--spoiler-background) h calc(var(--saturation-factor, 1) * s) l/alpha);
-  --background-image: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
-  --user-modal-image: var(--background-image);
-  --user-popout-image: var(--background-image);
-  --background-attachment: fixed;
-  --user-modal-attachment: var(--background-attachment);
-  --user-popout-attachment: var(--background-attachment);
-  --primary-color: #387eff;
-  --secondary-color: #3298e0;
-  --hover-color: #139dff;
-  --tooltip-color: #1967ab;
+  /* BELOW (and including those in the property file): SHIT THAT GOES IN THE THEME FILE */
   --mention-opacity: 0.3;
-  --home-icon: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
-  --green-color: #43b581;
-  --yellow-color: #f9a719;
-  --red-color: #ec4144;
-  --link-color: #00aef3;
-  --live-color: #583594;
-  --offline-color: #737e8c;
   /* Channels */
   --category-color: var(--header-primary);
   --selected-channel-color: var(--header-primary);
@@ -1795,6 +1894,7 @@ html {
 
 .theme-dark,
 .theme-dark :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+  /* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
   --card-background: rgba(0, 0, 0, 0.4);
   --side-shading: rgba(0, 0, 0, 0.4);
   --middle-shading: rgba(0, 0, 0, 0.2);
@@ -1813,6 +1913,7 @@ html {
 
 .theme-darker,
 .theme-darker :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+  /* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
   --card-background: rgba(0, 0, 0, 0.5);
   --side-shading: rgba(0, 0, 0, 0.5);
   --middle-shading: rgba(0, 0, 0, 0.3);
@@ -1831,6 +1932,7 @@ html {
 
 .theme-midnight,
 .theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal])) {
+  /* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
   --card-background: rgba(0, 0, 0, 0.7);
   --side-shading: rgba(0, 0, 0, 0.7);
   --middle-shading: rgba(0, 0, 0, 0.6);
@@ -1849,6 +1951,7 @@ html {
 
 .theme-light,
 .theme-light :not(div[class*=previewContainer_]) .theme-dark:not(div[class*=layer_], div[class*=outer_]:is([class*=user-profile-popout], [class*=user-profile-modal]), div[class*=sidebar_], nav[class*=guilds_], div[class*=sidebarRegion_]) {
+  /* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
   --card-background: rgba(255, 255, 255, 0.05);
   --side-shading: rgba(255, 255, 255, 0.4);
   --middle-shading: rgba(255, 255, 255, 0.3);

@@ -7,48 +7,34 @@
 // Contains the theme proper.
 @use "theme";
 
+// Import @property variables
+@use "_property.scss";
 
 $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
-
-@property --background-image {
-	/* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
-	// name: "Main Background Image";
-	// note: "Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64.";
-	syntax: "<color> | <image>";
-	initial-value: #{v(background-image)};
-	inherits: true;
-}
-@property --user-modal-image {
-	/* User Profile Modal Background Image. */
-	// name: "User Profile Modal Background Image";
-	// note: "";
-	syntax: "<color> | <image>";
-	initial-value: #{v(background-image)};
-	inherits: true;
-}
-@property --user-popout-image {
-	/* User Popout Modal Background Image. */
-	// name: "User Popout Modal Background Image";
-	// note: "";
-	syntax: "<color> | <image>";
-	initial-value: #{v(background-image)};
-	inherits: true;
-}
-/* Home icon is for the little button in the top left. */
-@property --home-icon {
-	// /* Home Icon Image. */
-	// name: "Home Icon Image";
-	// note: "Use a URL.";
-	syntax: "<color> | <image>";
-	initial-value: #{v(home-icon)};
-	inherits: true;
-}
-
 /* Default Variables */
 // Default variables are stored in `start/_index.scss`.
 // Vars labeled with a dagger (†) have a HSL variable available and should be used instead of the raw value. Example: --primary-color => --hsl-primary-color.
 // Vars labeled with a double dagger (‡) get overridden by .visual-refresh.theme :(
 :root {
+	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	--background-image: #{v(background-image)}; // <color> | <image>
+	--user-modal-image: #{v(user-modal-image)}; // <color> | <image>
+	--user-popout-image: #{v(user-popout-image)}; // <color> | <image>
+	--home-icon: #{v(home-icon)}; // <color> | <image>
+	--background-attachment: #{v(background-attachment)}; // scroll | fixed | local
+	--user-modal-attachment: #{v(user-modal-attachment)}; // scroll | fixed | local
+	--user-popout-attachment: #{v(user-popout-attachment)}; // scroll | fixed | local
+	--primary-color: #{v(primary-color)}; // † -- <color>
+	--secondary-color: #{v(secondary-color)}; // † -- <color>
+	--hover-color: #{v(hover-color)}; // † -- <color>
+	--tooltip-color: #{v(tooltip-color)}; // † -- <color> (note: this one COULD work as <image> but doesn't due to the HSL variable)
+	--green-color: #{v(green-color)}; // † -- <color>
+	--yellow-color: #{v(yellow-color)}; // † -- <color>
+	--red-color: #{v(red-color)}; // † -- <color>
+	--link-color: #{v(link-color)}; // † -- <color>
+	--live-color: #{v(live-color)}; // † -- <color>
+	--offline-color: #{v(offline-color)}; // † -- <color>
+
 	/* forced by theme */
 	--font-headline: #{v(font-headline)}; // removes the ABC Ginto Nord font
 	--font-display: #{v(font-display)}; // display is used for headers
@@ -85,26 +71,10 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--hsl-date-divider-background: hsl(from var(--date-divider-background) #{$hslColor});
 	--hsl-spoiler-background: hsl(from var(--spoiler-background) #{$hslColor});
 
-	// --background-image: #{v(background-image)};
-	// --user-modal-image: #{v(user-modal-image)};
-	// --user-popout-image: #{v(user-popout-image)};
-	--background-attachment: #{v(background-attachment)};
-	--user-modal-attachment: #{v(user-modal-attachment)};
-	--user-popout-attachment: #{v(user-popout-attachment)};
-	--primary-color: #{v(primary-color)}; // †
-	--secondary-color: #{v(secondary-color)}; // †
-	--hover-color: #{v(hover-color)}; // †
-	--tooltip-color: #{v(tooltip-color)}; // †
+	/* BELOW (and including those in the property file): SHIT THAT GOES IN THE THEME FILE */
+
 	// --mention-background: #{v(mention-background)};
 	--mention-opacity: #{v(mention-opacity)};
-	// --home-icon: #{v(home-icon)};
-
-	--green-color: #{v(green-color)}; // †
-	--yellow-color: #{v(yellow-color)}; // †
-	--red-color: #{v(red-color)}; // †
-	--link-color: #{v(link-color)}; // †
-	--live-color: #{v(live-color)}; // †
-	--offline-color: #{v(offline-color)}; // †
 
 	/* Channels */
 	--category-color: #{v(category-color)};
@@ -124,6 +94,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--code-font: #{v(code-font)};
 	--body-font: #{v(body-font)};
 	--expression-picker-height: #{v(expression-picker-height)}; // Height of the combined Gif/Sticker/Emoji picker. Does not effect adding reactions. Default and minimum height 500px (498px for Discord's base) and a maximum of 70vh. If Discord is smaller than 720px vertically, this won't apply.
+	// there isn't a `<filter-function>+` accepted by @property{syntax:""} so these are required to stay here for the time being. syntax:"*" and syntax:"<custom-ident>" also don't work
 	--background-filter: #{v(background-filter)};
 	--user-modal-filter: #{v(user-modal-filter)};
 	--user-popout-filter: #{v(user-popout-filter)};
@@ -150,14 +121,14 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 
 .theme-dark,
 .theme-dark :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
-	--card-background: #{v(dark-card-background)}; // †
-	--side-shading: #{v(dark-side-shading)}; // †
-	--middle-shading: #{v(dark-middle-shading)}; // †
-	--header-shading: #{v(dark-header-shading)}; // †
-
-	--hover-filter: #{v(dark-hover-filter)};
-	--active-filter: #{v(dark-active-filter)};
-
+	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	--card-background: #{v(dark-card-background)}; // † -- <color>
+	--side-shading: #{v(dark-side-shading)}; // † -- <color>
+	--middle-shading: #{v(dark-middle-shading)}; // † -- <color>
+	--header-shading: #{v(dark-header-shading)}; // † -- <color>
+	--hover-filter: #{v(dark-hover-filter)}; // <color>
+	--active-filter: #{v(dark-active-filter)}; // <color>
+	
 	// forced by theme to make sure it works
 	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
 	--hsl-middle-shading: hsl(from var(--middle-shading) #{$hslColor});
@@ -170,13 +141,13 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 }
 .theme-darker,
 .theme-darker :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
-	--card-background: #{v(darker-card-background)}; // †
-	--side-shading: #{v(darker-side-shading)}; // †
-	--middle-shading: #{v(darker-middle-shading)}; // †
-	--header-shading: #{v(darker-header-shading)}; // †
-
-	--hover-filter: #{v(darker-hover-filter)};
-	--active-filter: #{v(darker-active-filter)};
+	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	--card-background: #{v(darker-card-background)}; // † -- <color>
+	--side-shading: #{v(darker-side-shading)}; // † -- <color>
+	--middle-shading: #{v(darker-middle-shading)}; // † -- <color>
+	--header-shading: #{v(darker-header-shading)}; // † -- <color>
+	--hover-filter: #{v(darker-hover-filter)}; // <color>
+	--active-filter: #{v(darker-active-filter)}; // <color>
 
 	// forced by theme to make sure it works
 	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
@@ -190,13 +161,13 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 }
 .theme-midnight,
 .theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
-	--card-background: #{v(midnight-card-background)}; // †
-	--side-shading: #{v(midnight-side-shading)}; // †
-	--middle-shading: #{v(midnight-middle-shading)}; // †
-	--header-shading: #{v(midnight-header-shading)}; // †
-
-	--hover-filter: #{v(dark-hover-filter)};
-	--active-filter: #{v(dark-active-filter)};
+	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	--card-background: #{v(midnight-card-background)}; // † -- <color>
+	--side-shading: #{v(midnight-side-shading)}; // † -- <color>
+	--middle-shading: #{v(midnight-middle-shading)}; // † -- <color>
+	--header-shading: #{v(midnight-header-shading)}; // † -- <color>
+	--hover-filter: #{v(dark-hover-filter)}; // <color>
+	--active-filter: #{v(dark-active-filter)}; // <color>
 	
 	// forced by theme to make sure it works
 	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
@@ -212,13 +183,13 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 // sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
 .theme-light,
 .theme-light :not(div[class*=previewContainer_]) .theme-dark:not(#{$blacklist-theme-light-classes}) {
-	--card-background: #{v(light-card-background)}; // †
-	--side-shading: #{v(light-side-shading)}; // †
-	--middle-shading: #{v(light-middle-shading)}; // †
-	--header-shading: #{v(light-header-shading)}; // †
-
-	--hover-filter: #{v(light-hover-filter)};
-	--active-filter: #{v(light-active-filter)};
+	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	--card-background: #{v(light-card-background)}; // † -- <color>
+	--side-shading: #{v(light-side-shading)}; // † -- <color>
+	--middle-shading: #{v(light-middle-shading)}; // † -- <color>
+	--header-shading: #{v(light-header-shading)}; // † -- <color>
+	--hover-filter: #{v(light-hover-filter)}; // <color>
+	--active-filter: #{v(light-active-filter)}; // <color>
 
 	// forced by theme to make sure it works
 	--hsl-side-shading: hsl(from var(--side-shading) #{$hslColor});
