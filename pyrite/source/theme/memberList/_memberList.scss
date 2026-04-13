@@ -9,13 +9,18 @@
 // both have to be listed for both servers and group dms
 #{c(memberList container)}, #{c(memberList wrap)} {
 	--width: 240px;
-	// --background: var(--hsl-side-shading);
 	--hide-var: var(--hide-member-list);
+}
+#{c(memberList container)} {
+	background: $side;
 }
 #{c(memberList wrap)} {
 	background: transparent;
 	min-width: auto;
 	// flex-basis: 0px;
+	#{c(chat chatContentInner)} + & {
+		background: $side;
+	}
 }
 #{c(memberList members)} {
 	background: transparent;

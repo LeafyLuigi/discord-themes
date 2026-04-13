@@ -24,11 +24,11 @@
 
 #{c(profile themed)} #{c(profile inner)} {
 	--profile-gradient-start: color-mix(in oklab,
-		rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount),
+		rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount, 0%),
 		var(--profile-gradient-primary-color)
 	);
 	--profile-gradient-end: color-mix(in oklab,
-		rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount),
+		rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount, 0%),
 		var(--profile-gradient-secondary-color)
 	);
 }

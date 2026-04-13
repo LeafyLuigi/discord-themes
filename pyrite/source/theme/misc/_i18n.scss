@@ -47,6 +47,8 @@ html {
 		--css-nesting-selector-broken: "CSS & nesting selector does not work.\a";
 		--css-color-mix-broken: "Unable to mix colours using color-mix().\a";
 		--css-gradient-colour-space-broken: "Gradients lack colour space support.\a";
+		--css-container-style: "@container style() for custom variables is not supported.\a";
+		--css-container-style-range-query: "@container style() lacks range queries.\a";
 	
 		// Used within codelangs file for Codeblocks sans formatting or language
 		--code-plain-text: "Plain Text";
@@ -296,6 +298,19 @@ $tags: (
 			// test checks for fully supported, not half broken webkit/blink initial implementation.
 			// cr 120 (full) / ff 117 / s 17.2 (full)
 			test: "selector(div &)"
+		// ),
+		// // THE FOLLOWING TWO DO NOT WORK AS THERE IS CURRENTLY NO WAY TO TEST FOR AT RULE SUPPORT USING @SUPPORTS
+		// "container-style": (
+		// 	// `@container style(--variable: value)` is used to enable/disable certain parts of the theme.
+		// 	// test checks to make sure it actually works
+		// 	// cr 111 / ff (nightly behind flag) / s 18
+		// 	test: "at-rule(@container style(--__var: true))"
+		// ),
+		// "container-style-range-query": (
+		// 	// `@container style(x > variable > y)` range testing works for all types of numbers and dimensional units (time, length, etc).
+		// 	// it's used in the theme for clamping variables using @property to work as intended, being reset below zero.
+		// 	// cr 142
+		// 	test: "at-rule(@container style(0 < --__var < 100))"
 		)
 	);
 	

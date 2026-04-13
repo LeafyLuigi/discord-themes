@@ -231,30 +231,68 @@ body) {
 }
 
 /* show/hide for side-panels */
-.content_f75fb0 > .container_c8ffbb,
-.chatContent_f75fb0 + .membersWrap_c8ffbb,
-.user-profile-sidebar,
-.nowPlayingColumn__133bf {
-  background: var(--background, var(--hsl-side-shading));
-  left: calc((var(--width, 240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled)));
-  transition: var(--hide-speed, 0.5s) transform ease-out, var(--hide-speed, 0.5s) backdrop-filter ease-out;
-  margin-left: calc(-1 * (var(--width, 240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled)));
-  position: relative;
-  z-index: 2;
+@container style(--allow-element-hiding: true) {
+  @container style(0s > --hide-speed) {
+    body {
+      --hide-speed: 0.5s;
+    }
+  }
+  @container style(0s > --hide-delay) {
+    body {
+      --hide-delay: 0s;
+    }
+  }
+  @container style(0 > --hide-member-list) {
+    body {
+      --hide-member-list: 1;
+    }
+  }
+  @container style(0 > --hide-active-now) {
+    body {
+      --hide-active-now: 1;
+    }
+  }
+  @container style(0 > --hide-profile-panel) {
+    body {
+      --hide-profile-panel: 1;
+    }
+  }
+  @container style(0 > --hide-channel-list) {
+    body {
+      --hide-channel-list: 0;
+    }
+  }
+  @container style(0 > --blur-intensity) {
+    body {
+      --blur-intensity: 1;
+    }
+  }
+  @container not style(0 < --spoiler-hover-opacity < 1) {
+    body {
+      --spoiler-hover-opacity: 0.7;
+    }
+  }
+  .content_f75fb0 > .container_c8ffbb,
+  .chatContent_f75fb0 + .membersWrap_c8ffbb,
+  .user-profile-sidebar,
+  .nowPlayingColumn__133bf {
+    left: calc((var(--width, 240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled)));
+    transition: var(--hide-speed, 0.5s) var(--hide-delay, 0s) transform ease-out, var(--hide-speed, 0.5s) var(--hide-delay, 0s) backdrop-filter ease-out;
+    margin-left: calc(-1 * (var(--width, 240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled)));
+    position: relative;
+    z-index: 2;
+  }
+  .full-motion .user-profile-sidebar.custom-user-profile-theme {
+    transition: var(--hide-speed, 0.5s) var(--hide-delay, 0s) transform ease-out, var(--hide-speed, 0.5s) var(--hide-delay, 0s) backdrop-filter ease-out, --profile-gradient-primary-color 0.15s ease, --profile-gradient-secondary-color 0.15s ease, --profile-gradient-modal-background-color 0.15s ease, --profile-gradient-overlay-color 0.15s ease;
+  }
+  .app-focused .content_f75fb0 > .container_c8ffbb:is(:hover, :focus-within),
+  .app-focused .chatContent_f75fb0 + .membersWrap_c8ffbb:is(:hover, :focus-within),
+  .app-focused .user-profile-sidebar:is(:hover, :focus-within),
+  .app-focused .nowPlayingColumn__133bf:is(:hover, :focus-within) {
+    transform: translateX(calc(-1 * (var(--width, 240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled))));
+    backdrop-filter: blur(calc(var(--blur-intensity) * var(--hide-var, var(--hide-fallback-enabled)) * 3px));
+  }
 }
-
-.full-motion .user-profile-sidebar.custom-user-profile-theme {
-  transition: var(--hide-speed, 0.5s) transform ease-out, var(--hide-speed, 0.5s) backdrop-filter ease-out, --profile-gradient-primary-color 0.15s ease, --profile-gradient-secondary-color 0.15s ease, --profile-gradient-modal-background-color 0.15s ease, --profile-gradient-overlay-color 0.15s ease;
-}
-
-.app-focused .content_f75fb0 > .container_c8ffbb:is(:hover, :focus-within),
-.app-focused .chatContent_f75fb0 + .membersWrap_c8ffbb:is(:hover, :focus-within),
-.app-focused .user-profile-sidebar:is(:hover, :focus-within),
-.app-focused .nowPlayingColumn__133bf:is(:hover, :focus-within) {
-  transform: translateX(calc(-1 * (var(--width, 240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled))));
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * var(--hide-var, var(--hide-fallback-enabled)) * 3px));
-}
-
 .app-focused.full-motion .noResultsImage_a98f3b.alt_a98f3b,
 .app-focused.reduce-motion .noResultsImage_a98f3b.alt_a98f3b:hover {
   animation: monke 6.9s linear infinite;
@@ -312,13 +350,13 @@ a[href^="http://"] {
 
 /* A few blurs */
 .container_a2f514 {
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .backdrop__78332,
 .withLayer__78332,
 .scrim__40128 {
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 3px)) !important;
+  backdrop-filter: blur(calc(var(--blur-intensity) * 3px)) !important;
   background-color: transparent !important;
 }
 
@@ -442,6 +480,8 @@ html {
   --css-nesting-selector-broken: "CSS & nesting selector does not work.\a";
   --css-color-mix-broken: "Unable to mix colours using color-mix().\a";
   --css-gradient-colour-space-broken: "Gradients lack colour space support.\a";
+  --css-container-style: "@container style() for custom variables is not supported.\a";
+  --css-container-style-range-query: "@container style() lacks range queries.\a";
   --code-plain-text: "Plain Text";
   --error-reload: "please click this";
   --error-mac-do-not-restart: "DO NOT RESTART YOUR COMPUTER.";
@@ -1094,7 +1134,7 @@ span):not(.spoilerContent__299eb) {
   opacity: var(--spoiler-hover-opacity);
 }
 .spoilerContent__299eb.hidden__299eb:hover .obscuredTextContentInner__299eb :is(span, code) {
-  transition: opacity 0.5s 0.5s ease-in-out;
+  transition: opacity var(--hide-speed, 0.5s) 0.5s ease-in-out;
   opacity: 1;
 }
 
@@ -1248,7 +1288,7 @@ span):not(.spoilerContent__299eb) {
   pointer-events: none;
   border-radius: 4px;
   background-color: transparent;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .descriptionContainer_ca49a1,
@@ -1349,7 +1389,7 @@ span):not(.spoilerContent__299eb) {
 .popout__94439 {
   background-color: var(--modal-background);
   border-radius: 4px;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
   border-color: transparent;
 }
 .popout__94439 .upload_aa605f {
@@ -1685,7 +1725,7 @@ span):not(.spoilerContent__299eb) {
 .wrapper__44df5 {
   border-width: 0;
   z-index: 0;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 2px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 2px));
   border: 1px solid var(--hsl-secondary-color);
   background-color: rgba(255, 255, 255, 0.05);
   border: none;
@@ -1712,7 +1752,7 @@ span):not(.spoilerContent__299eb) {
 .jumpToPresentBar__0f481 {
   background: var(--hsl-card-background);
   opacity: 1;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 2px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 2px));
 }
 
 .messagesErrorBar__0f481 {
@@ -1731,7 +1771,7 @@ span):not(.spoilerContent__299eb) {
 .replyBar__841c8,
 .scrollableContainer__74017 {
   background: transparent;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 2px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 2px));
 }
 
 .clipContainer__841c8 {
@@ -2896,8 +2936,8 @@ span):not(.spoilerContent__299eb) {
 
 .nowPlayingColumn__133bf {
   --width: 360px;
-  --background: var(--hsl-side-shading);
   --hide-var: var(--hide-active-now);
+  background: var(--hsl-side-shading);
 }
 
 .multipleIconWrapper__00943,
@@ -3184,9 +3224,16 @@ span):not(.spoilerContent__299eb) {
   --hide-var: var(--hide-member-list);
 }
 
+.container_c8ffbb {
+  background: var(--hsl-side-shading);
+}
+
 .membersWrap_c8ffbb {
   background: transparent;
   min-width: auto;
+}
+.chatContent_f75fb0 + .membersWrap_c8ffbb {
+  background: var(--hsl-side-shading);
 }
 
 .members_c8ffbb {
@@ -3376,7 +3423,7 @@ span):not(.spoilerContent__299eb) {
   pointer-events: none;
   border-radius: 4px;
   background-color: transparent;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .option_a19535 {
@@ -3453,7 +3500,7 @@ span):not(.spoilerContent__299eb) {
 
 .popoutContainer__0f481 {
   background: var(--modal-background);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .guildSection_d5cd2d {
@@ -3463,7 +3510,7 @@ span):not(.spoilerContent__299eb) {
 .toolbar_bba883 {
   background-color: var(--hsl-card-background);
   box-shadow: none;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 .toolbar_bba883::before {
   border-top-color: var(--hsl-card-background);
@@ -3503,7 +3550,7 @@ span):not(.spoilerContent__299eb) {
 .contentWarningPopout_d2eed6 {
   background: var(--modal-background);
   box-shadow: none;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .body_d2eed6 {
@@ -3525,7 +3572,7 @@ span):not(.spoilerContent__299eb) {
 
 .popout__76f04 {
   background: var(--modal-background);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .modal__9a792 {
@@ -3592,7 +3639,7 @@ span):not(.spoilerContent__299eb) {
 }
 
 .container__55c99 {
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
   position: relative;
   top: 4px;
   background: var(--modal-background);
@@ -3617,7 +3664,7 @@ span):not(.spoilerContent__299eb) {
 
 .picker__09f65, .picker__09f65.refresh__09f65 {
   background: var(--hsl-card-background);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .buttonOverlayBackground__9be63 {
@@ -3725,7 +3772,7 @@ span):not(.spoilerContent__299eb) {
 
 .spamBanner_a2eac3 {
   background: var(--hsl-header-shading);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 2px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 2px));
 }
 
 :is(.theme-dark, .theme-light) .item__3d4a0 {
@@ -3738,7 +3785,7 @@ span):not(.spoilerContent__299eb) {
 
 .toast__3fde7 {
   background: var(--hsl-header-shading);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 2px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 2px));
 }
 
 .icon__3fde7 path[fill="#3BA55C"] {
@@ -3768,7 +3815,7 @@ span):not(.spoilerContent__299eb) {
 
 .uploadArea_b78547 {
   background: transparent;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .uploadDropModal_b78547 .bgScale_b78547 {
@@ -3791,7 +3838,7 @@ span):not(.spoilerContent__299eb) {
 
 .uploadModal_b78547 {
   background: var(--modal-background);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 .uploadModal_b78547 .footer_b78547 {
   background: transparent;
@@ -3811,7 +3858,7 @@ span):not(.spoilerContent__299eb) {
 }
 
 .contentWrapper__08434 {
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
   background: var(--modal-background);
 }
 
@@ -3974,7 +4021,7 @@ span):not(.spoilerContent__299eb) {
 
 .diversitySelectorOptions_a45a2a {
   background: transparent;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
   border-color: transparent;
 }
 
@@ -4008,7 +4055,7 @@ span):not(.spoilerContent__299eb) {
 
 .wrapper_c0e32c {
   background: var(--modal-background);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
   border-radius: 8px;
 }
 
@@ -4047,7 +4094,7 @@ span):not(.spoilerContent__299eb) {
   pointer-events: none;
   border-radius: 4px;
   background-color: transparent;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .accountProfilePopoutWrapper__37e49 .menu_c1e9c4:not(.sumenu_bc1e9c) {
@@ -4131,7 +4178,7 @@ span):not(.spoilerContent__299eb) {
 
 .popout_a16aea {
   background-color: var(--hsl-card-background);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
   border: 1px solid var(--hsl-secondary-color);
 }
 
@@ -4181,7 +4228,7 @@ span):not(.spoilerContent__299eb) {
 .container__2692d,
 .container_fc561d {
   top: 4px;
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
   background: var(--modal-background);
 }
 
@@ -4320,7 +4367,7 @@ span):not(.spoilerContent__299eb) {
   top: 4px;
   position: relative;
   background: var(--modal-background);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .container__6764b {
@@ -4445,11 +4492,11 @@ span):not(.spoilerContent__299eb) {
 
 .custom-user-profile-theme .inner_c0bea0 {
   --profile-gradient-start: color-mix(in oklab,
-  	rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount),
+  	rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount, 0%),
   	var(--profile-gradient-primary-color)
   );
   --profile-gradient-end: color-mix(in oklab,
-  	rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount),
+  	rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount, 0%),
   	var(--profile-gradient-secondary-color)
   );
 }
@@ -4544,15 +4591,19 @@ span):not(.spoilerContent__299eb) {
   --width: 340px;
   --hide-var: var(--hide-profile-panel);
 }
-.user-profile-sidebar.custom-user-profile-theme {
-  --background: transparent;
-}
 .user-profile-sidebar.custom-user-profile-theme .inner_c0bea0 {
   background: linear-gradient(var(--profile-gradient-primary-color), var(--profile-gradient-secondary-color));
 }
 
+.user-profile-sidebar:not(.custom-user-profile-theme) {
+  background: var(--hsl-side-shading);
+}
 .user-profile-sidebar:not(.custom-user-profile-theme) .overlay_c0bea0 {
   background: var(--hsl-card-background);
+}
+
+.innerContainer_c2a763 {
+  backdrop-filter: none;
 }
 
 .footerButton__272c7 {
@@ -5030,7 +5081,7 @@ span):not(.spoilerContent__299eb) {
 
 .container__3dde2 {
   background: var(--modal-background);
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 5px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 5px));
 }
 
 .icon_d8f25b,
@@ -5122,7 +5173,7 @@ span):not(.spoilerContent__299eb) {
 }
 
 .item__88a69 {
-  backdrop-filter: blur(calc(var(--blur-intensity, 1) * 3px));
+  backdrop-filter: blur(calc(var(--blur-intensity) * 3px));
   background: var(--background-modifier-accent);
 }
 .item__88a69:hover:not([aria-checked=true]) {
@@ -5713,6 +5764,51 @@ span):not(.spoilerContent__299eb) {
   initial-value: rgba(0, 0, 0, 0.4);
   inherits: true;
 }
+@property --allow-element-hiding {
+  syntax: "true | false";
+  initial-value: true;
+  inherits: true;
+}
+@property --hide-speed {
+  syntax: "<time>";
+  initial-value: 0.5s;
+  inherits: true;
+}
+@property --hide-delay {
+  syntax: "<time>";
+  initial-value: 0s;
+  inherits: true;
+}
+@property --hide-member-list {
+  syntax: "<number>";
+  initial-value: 1;
+  inherits: true;
+}
+@property --hide-active-now {
+  syntax: "<number>";
+  initial-value: 1;
+  inherits: true;
+}
+@property --hide-profile-panel {
+  syntax: "<number>";
+  initial-value: 1;
+  inherits: true;
+}
+@property --hide-channel-list {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: true;
+}
+@property --blur-intensity {
+  syntax: "<number>";
+  initial-value: 1;
+  inherits: true;
+}
+@property --spoiler-hover-opacity {
+  syntax: "<number>";
+  initial-value: 0.7; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
+  inherits: true;
+}
 /* Default Variables */
 :root {
   /* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
@@ -5733,6 +5829,17 @@ span):not(.spoilerContent__299eb) {
   --link-color: #00aef3;
   --live-color: #583594;
   --offline-color: #737e8c;
+  /* Toggles! Anything outside of those values have NOT been tested and likely aren't supported. */
+  --allow-element-hiding: true;
+  --hide-speed: 0.5s;
+  --hide-delay: 0s;
+  /* Below: 0 is the minimum. 1 to disable as the theme intends. Values above 1 are untested. These CANNOT be percentages. */
+  --hide-member-list: 1;
+  --hide-active-now: 1;
+  --hide-profile-panel: 1;
+  --hide-channel-list: 0;
+  --blur-intensity: 1;
+  --spoiler-hover-opacity: 0.7; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
   /* forced by theme */
   --font-headline: var(--body-font);
   --font-display: var(--body-font);
@@ -5782,14 +5889,6 @@ span):not(.spoilerContent__299eb) {
   --user-modal-filter: saturate(calc(1 * var(--saturation-factor, 1)));
   --user-popout-filter: saturate(calc(1 * var(--saturation-factor, 1)));
   --home-icon-filter: saturate(calc(1 * var(--saturation-factor, 1)));
-  /* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
-  --hide-speed: 0.5s;
-  --hide-member-list: 1;
-  --hide-active-now: 1;
-  --hide-profile-panel: 1;
-  --hide-channel-list: 0;
-  --blur-intensity: 1;
-  --spoiler-hover-opacity: 0.7; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
   /* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
   --win-min-max-close-button-width: 28px; /* default: 28px, square: 48px */
   /* Internal please ignore */

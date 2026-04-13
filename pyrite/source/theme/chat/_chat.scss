@@ -179,7 +179,7 @@
 	#{c(chat spoiler content)}#{c(chat spoiler hidden)}:hover {
 		opacity: var(--spoiler-hover-opacity);
 		#{c(chat spoiler obscuredTextContentInner)} :is(span, code) {
-			transition: opacity .5s .5s ease-in-out;
+			transition: opacity var(--hide-speed,0.5s) .5s ease-in-out;
 			opacity: 1;
 		}
 	}

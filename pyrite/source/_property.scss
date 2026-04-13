@@ -136,3 +136,49 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	initial-value: #{v(dark-active-filter)};
 	inherits: true;
 }
+// TOGGLES!
+@property --allow-element-hiding {
+	syntax: "true | false";
+	initial-value: #{v(allow-element-hiding)};
+	inherits: true;
+}
+@property --hide-speed {
+	syntax: "<time>"; // 0.5s default!
+	initial-value: #{v(hide-speed)}; // speed for animations for the below.
+	inherits: true;
+}
+@property --hide-delay {
+	syntax: "<time>"; // 0s default
+	initial-value: #{v(hide-delay)}; // delay for animations for the below. also applies when leaving an element.
+	inherits: true;
+}
+@property --hide-member-list {
+	syntax: "<number>"; // 0 minimum, 1 "maximum". above untested.
+	initial-value: #{v(hide-member-list)};
+	inherits: true;
+}
+@property --hide-active-now {
+	syntax: "<number>"; // 0 minimum, 1 "maximum". above untested.
+	initial-value: #{v(hide-active-now)};
+	inherits: true;
+}
+@property --hide-profile-panel {
+	syntax: "<number>"; // 0 minimum, 1 "maximum". above untested.
+	initial-value: #{v(hide-profile-panel)};
+	inherits: true;
+}
+@property --hide-channel-list {
+	syntax: "<number>"; // 0 minimum, 1 "maximum". above untested.
+	initial-value: #{v(hide-channel-list)};
+	inherits: true;
+}
+@property --blur-intensity {
+	syntax: "<number>"; // 0 minimum, 1 maximum.
+	initial-value: #{v(blur-intensity)};
+	inherits: true;
+}
+@property --spoiler-hover-opacity {
+	syntax: "<number>"; // 0 minimum (text invisible), 1 maximum (text fully visible).
+	initial-value: #{v(spoiler-hover-opacity)}; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
+	inherits: true;
+}

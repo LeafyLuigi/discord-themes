@@ -219,29 +219,75 @@ html, // because maybe?
 }
 
 /* show/hide for side-panels */
-#{c(chat chatContent)} > #{c(memberList container)},
-#{c(chat chatContentInner)} + #{c(memberList wrap)},
-#{c(profile panel)},
-#{c(friends nowPlayingColumn)} {
-	background: var(--background,var(--hsl-side-shading));
-	left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, var(--hide-fallback-enabled)));
-	transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out;
-	margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, var(--hide-fallback-enabled))));
-	position: relative;
-	z-index: 2; // just in case of buttons
-}
-#{c(main options fullMotion)} #{c(profile panel)}#{c(profile themed)} {
-	transition: var(--hide-speed,0.5s) transform ease-out, var(--hide-speed,0.5s) backdrop-filter ease-out,
-		--profile-gradient-primary-color .15s ease,--profile-gradient-secondary-color .15s ease,--profile-gradient-modal-background-color .15s ease,--profile-gradient-overlay-color .15s ease;
-}
-#{c(main focused)} {
-	#{c(chat chatContent)} > #{c(memberList container)},
-	#{c(chat chatContentInner)} + #{c(memberList wrap)},
-	#{c(profile panel)},
-	#{c(friends nowPlayingColumn)} {
-		&:is(:hover,:focus-within) {
-			transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled)))));
-			backdrop-filter: blur(calc($blur * var(--hide-var, var(--hide-fallback-enabled)) * 3px));
+@container style(--allow-element-hiding: true) {
+	// START CLAMPING
+	@container style(0s > --hide-speed) {
+		body {
+			--hide-speed: #{v(hide-speed)};
+		}
+	}
+	@container style(0s > --hide-delay) {
+		body {
+			--hide-delay: #{v(hide-delay)};
+		}
+	}
+	@container style(0 > --hide-member-list) {
+		body {
+			--hide-member-list: #{v(hide-member-list)};
+		}
+	}
+	@container style(0 > --hide-active-now) {
+		body {
+			--hide-active-now: #{v(hide-active-now)};
+		}
+	}
+	@container style(0 > --hide-profile-panel) {
+		body {
+			--hide-profile-panel: #{v(hide-profile-panel)};
+		}
+	}
+	@container style(0 > --hide-channel-list) {
+		body {
+			--hide-channel-list: #{v(hide-channel-list)};
+		}
+	}
+	@container style(0 > --blur-intensity) {
+		body {
+			--blur-intensity: #{v(blur-intensity)};
+		}
+	}
+	// if there's a `) expected` issue on the line below, it's likely wrong.
+	@container not style(0 < --spoiler-hover-opacity < 1) {
+		body {
+			--spoiler-hover-opacity: #{v(spoiler-hover-opacity)}; 
+		}
+	}
+	// END CLAMPING
+	#{c(chat chatContent)} > #{c(memberList container)}, // member list sidebar, regular chat
+	#{c(chat chatContentInner)} + #{c(memberList wrap)}, // member list sidebar, forum post
+	#{c(profile panel)}, // dms with someone with profile theme
+	#{c(friends nowPlayingColumn)} // active now in friends list
+	{
+		left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, var(--hide-fallback-enabled)));
+		transition: var(--hide-speed,0.5s) var(--hide-delay,0s) transform ease-out, var(--hide-speed,0.5s) var(--hide-delay,0s) backdrop-filter ease-out;
+		margin-left: calc( -1 * (( var(--width,240px) - 60px ) * var(--hide-var, var(--hide-fallback-enabled))));
+		position: relative;
+		z-index: 2; // just in case of buttons
+	}
+
+	#{c(main options fullMotion)} #{c(profile panel)}#{c(profile themed)} {
+		transition: var(--hide-speed,0.5s) var(--hide-delay,0s) transform ease-out, var(--hide-speed,0.5s) var(--hide-delay,0s) backdrop-filter ease-out,
+			--profile-gradient-primary-color .15s ease,--profile-gradient-secondary-color .15s ease,--profile-gradient-modal-background-color .15s ease,--profile-gradient-overlay-color .15s ease;
+	}
+	#{c(main focused)} {
+		#{c(chat chatContent)} > #{c(memberList container)},
+		#{c(chat chatContentInner)} + #{c(memberList wrap)},
+		#{c(profile panel)},
+		#{c(friends nowPlayingColumn)} {
+			&:is(:hover,:focus-within) {
+				transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled)))));
+				backdrop-filter: blur(calc($blur * var(--hide-var, var(--hide-fallback-enabled)) * 3px));
+			}
 		}
 	}
 }
@@ -323,7 +369,7 @@ html, // because maybe?
 // insecure links
 a[href^="http://"] {
 	color: $red;
-	// text-shadow: 0 0 calc(var(--blur-intensity,1) * 2px) $red;
+	// text-shadow: 0 0 calc(var(--blur-intensity) * 2px) $red;
 }
 
 /* HLJS */

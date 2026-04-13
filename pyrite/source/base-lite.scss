@@ -37,7 +37,18 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--link-color: #{v(link-color)}; // † -- <color>
 	--live-color: #{v(live-color)}; // † -- <color>
 	--offline-color: #{v(offline-color)}; // † -- <color>
-
+	/* Toggles! Anything outside of those values have NOT been tested and likely aren't supported. */
+	--allow-element-hiding: #{v(allow-element-hiding)}; // Toggles all hiding entirely. `false` disables hiding. Accepted values: true | false
+	--hide-speed: #{v(hide-speed)}; // speed for animations below. must be a time value.
+	--hide-delay: #{v(hide-delay)}; // delay for animations below. must be a time value. the delay also impacts when leaving the element. has no impact on spoilers.
+	/* Below: 0 is the minimum. 1 to disable as the theme intends. Values above 1 are untested. These CANNOT be percentages. */
+	--hide-member-list: #{v(hide-member-list)};
+	--hide-active-now: #{v(hide-active-now)};
+	--hide-profile-panel: #{v(hide-profile-panel)};
+	--hide-channel-list: #{v(hide-channel-list)};
+	--blur-intensity: #{v(blur-intensity)};
+	--spoiler-hover-opacity: #{v(spoiler-hover-opacity)}; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
+	
 	/* forced by theme */
 	--font-headline: #{v(font-headline)}; // removes the ABC Ginto Nord font
 	--font-display: #{v(font-display)}; // display is used for headers
@@ -102,15 +113,6 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--user-modal-filter: #{v(user-modal-filter)};
 	--user-popout-filter: #{v(user-popout-filter)};
 	--home-icon-filter: #{v(home-icon-filter)};
-
-	/* Toggles. From 0 (disable) to 1 (enable). Anything outside of those values have NOT been tested and likely aren't supported. */
-	--hide-speed: #{v(hide-speed)}; // speed for animations for the below. must be a time value. you can add a second value for delay
-	--hide-member-list: #{v(hide-member-list)};
-	--hide-active-now: #{v(hide-active-now)};
-	--hide-profile-panel: #{v(hide-profile-panel)};
-	--hide-channel-list: #{v(hide-channel-list)};
-	--blur-intensity: #{v(blur-intensity)};
-	--spoiler-hover-opacity: #{v(spoiler-hover-opacity)}; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
 
 	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
 	--win-min-max-close-button-width: #{v(win-min-max-close-button-width)}; /* default: 28px, square: 48px */
