@@ -6,7 +6,7 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	/* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
 	// name: "Main Background Image";
 	// note: "Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64.";
-	syntax: "<color> | <image>";
+	syntax: "<color> | <image> | none";
 	initial-value: #{v(background-image)};
 	inherits: true;
 }
@@ -14,7 +14,7 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	/* User Profile Modal Background Image. */
 	// name: "User Profile Modal Background Image";
 	// note: "";
-	syntax: "<color> | <image>";
+	syntax: "<color> | <image> | none";
 	initial-value: #{v(background-image)};
 	inherits: true;
 }
@@ -22,7 +22,7 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	/* User Popout Modal Background Image. */
 	// name: "User Popout Modal Background Image";
 	// note: "";
-	syntax: "<color> | <image>";
+	syntax: "<color> | <image> | none";
 	initial-value: #{v(background-image)};
 	inherits: true;
 }
@@ -31,7 +31,7 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	// /* Home Icon Image. */
 	// name: "Home Icon Image";
 	// note: "Use a URL.";
-	syntax: "<color> | <image>";
+	syntax: "<color> | <image> | none";
 	initial-value: #{v(home-icon)};
 	inherits: true;
 }

@@ -1736,25 +1736,25 @@ html {
 
 @property --background-image {
   /* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
-  syntax: "<color> | <image>";
+  syntax: "<color> | <image> | none";
   initial-value: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
   inherits: true;
 }
 @property --user-modal-image {
   /* User Profile Modal Background Image. */
-  syntax: "<color> | <image>";
+  syntax: "<color> | <image> | none";
   initial-value: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
   inherits: true;
 }
 @property --user-popout-image {
   /* User Popout Modal Background Image. */
-  syntax: "<color> | <image>";
+  syntax: "<color> | <image> | none";
   initial-value: url("https://leafyluigi.github.io/images/pexels-josh-sorenson-116359.png");
   inherits: true;
 }
 /* Home icon is for the little button in the top left. */
 @property --home-icon {
-  syntax: "<color> | <image>";
+  syntax: "<color> | <image> | none";
   initial-value: url("https://leafyluigi.github.io/images/pexels-chris-munnik-2604991.png");
   inherits: true;
 }
