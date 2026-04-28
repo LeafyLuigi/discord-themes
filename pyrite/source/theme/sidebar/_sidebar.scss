@@ -56,6 +56,11 @@
 			color: var(--icon-muted);
 		}
 	}
+	// fix for having no scroller when loading in
+	&:not(:has(>#{c(sidebar private scroller)})) {
+		@debug this needs check for hsl top/bottom;
+		background: linear-gradient(transparent 0px 48px, $side 48px calc(100% - var(--custom-app-panels-height, 56px)), transparent calc(100% - var(--custom-app-panels-height, 56px)) 100%) transparent;
+	}
 }
 #{c(sidebar private searchBar)} {
 	background: $header;

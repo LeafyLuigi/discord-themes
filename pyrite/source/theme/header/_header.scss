@@ -80,7 +80,7 @@
 	#{c(header iconBadge)} {
 		background-color: $secondary;
 	}
-	#{c(header iconClickable)} {
+	#{c(header iconClickable)}:where(:not(#{c(header iconDisabled)})) {
 		#{c(header icon)} {
 			color: $primary;
 			path {
@@ -141,7 +141,7 @@
 		&:is(
 			:hover,
 			[aria-expanded=true]
-		) {
+		):not(#{c(topBar trailing recentsIconDisabled)}) {
 			color: $secondary;
 		}
 	}
@@ -158,9 +158,16 @@
 	display: none;
 }
 
-// check for download icon using :has because fuck me.
-#{c(main base)}:has(>#{c(topBar bar)}>#{c(topBar trailing container)}>#{c(topBar trailing button)}) {
-	--extra-icons: 1;
+// extra button checkings
+#{c(main base)} {
+	// check for download icon using :has because fuck me.
+	&:has(>#{c(topBar bar)}>#{c(topBar trailing container)}>#{c(topBar trailing button)}) {
+		--has-download-btn: 1;
+	}
+	// check for toolbox button using :has because fuck me. (this may be triggered by other buttons)
+	&:has(>#{c(topBar bar)}>#{c(topBar trailing container)}>div:not([class])) {
+		--has-toolbox-btn: 1;
+	}
 }
 // z-index so it matches the header bar
 #{c(topBar bar)} {
@@ -177,7 +184,7 @@
 #{c(chat layerWrapper)},
 #{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
 	#{c(header toolbar)} {
-		margin-right: calc(32px + var(--space-xs) + (var(--extra-icons,0) * 32px));
+		margin-right: calc(32px + var(--space-xs) + (var(--has-download-btn,0) * 32px) + (var(--has-toolbox-btn,0) * 32px));
 	}
 }
 #{c(os win)} {
@@ -185,7 +192,7 @@
 	#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
 		#{c(header toolbar)} {
 			// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
-			margin-right: calc(32px + var(--space-xs) + (var(--extra-icons,0) * 32px) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+			margin-right: calc(32px + var(--space-xs) + (var(--has-download-btn,0) * 32px + (var(--has-toolbox-btn,0) * 32px)) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
 		}
 		// #{c(header headerTitle)} {
 		// 	// -webkit-app-region: drag;
@@ -231,7 +238,6 @@
 // linux and web
 :is(#{c(os linux)}, #{c(os web)}) {
 	#{c(topBar trailing recentsIcon)} {
-		position: absolute;
-		top: 12px;
+		top: 24px;
 	}
 }

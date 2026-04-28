@@ -5,6 +5,10 @@
 #{c(chat messageLoadingWrapper)} {
 	background: transparent;
 }
+#{c(chat page)}:has(>div[style*='background-color: transparent;']) {
+	@debug this needs hsl support;
+	background: linear-gradient($header 0px 48px, $middle 48px 100%) transparent;
+}
 // yay random gradients
 #{c(chat gradient)} {
 	background: none;
