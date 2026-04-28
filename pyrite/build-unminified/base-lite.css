@@ -346,6 +346,10 @@ html {
   background: transparent;
 }
 
+.page__5e434:has(> div[style*="background-color: transparent;"]) {
+  background: linear-gradient(var(--hsl-header-shading) 0px 48px, var(--hsl-middle-shading) 48px 100%) transparent;
+}
+
 .chatGradient__36d07 {
   background: none;
 }
@@ -683,7 +687,10 @@ html {
 }
 
 .base__5e434:has(> .bar_c38106 > .trailing_c38106 > .button__85643) {
-  --extra-icons: 1;
+  --has-download-btn: 1;
+}
+.base__5e434:has(> .bar_c38106 > .trailing_c38106 > div:not([class])) {
+  --has-toolbox-btn: 1;
 }
 
 .bar_c38106 {
@@ -694,39 +701,59 @@ html {
   display: none;
 }
 
-:root {
-  --custom-app-top-bar-height: 0px;
+@container not style(--platform: windows) {
+  body {
+    --custom-app-top-bar-height: 0px;
+  }
+  .chatLayerWrapper__01ae2 .toolbar__9293f,
+  .chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
+    margin-right: calc(32px + var(--space-xs) + var(--has-download-btn, 0) * var(--space-32) + var(--has-toolbox-btn, 0) * var(--space-32));
+  }
 }
-
-.chatLayerWrapper__01ae2 .toolbar__9293f,
-.chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
-  margin-right: calc(32px + var(--space-xs) + var(--extra-icons, 0) * 32px);
+@container not style(--restore-windows-titlebar: true) {
+  body {
+    --custom-app-top-bar-height: 0px;
+  }
+  .winButton_c38106 {
+    width: var(--win-min-max-close-button-width);
+    height: 48px;
+  }
+  .platform-win .clickable__81391 {
+    width: var(--space-32);
+    height: var(--space-32);
+  }
+  .platform-win .chatLayerWrapper__01ae2 .toolbar__9293f,
+  .platform-win .chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
+    margin-right: calc(3 * var(--space-xs) + var(--has-download-btn, 0) * var(--space-32) + var(--has-toolbox-btn, 0) * var(--space-32) + 3 * var(--win-min-max-close-button-width));
+  }
+  .platform-win :not(.systemBar_c38106) > .trailing_c38106 {
+    top: 24px;
+  }
 }
-
-.platform-win .chatLayerWrapper__01ae2 .toolbar__9293f,
-.platform-win .chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
-  margin-right: calc(32px + var(--space-xs) + var(--extra-icons, 0) * 32px + 3 * (1 - var(--windows-titlebar-enabled, 0)) * var(--win-min-max-close-button-width));
+@container style((--platform: windows) and (--restore-windows-titlebar: true)) {
+  body {
+    --custom-app-top-bar-height: 32px;
+  }
+  .winButton_c38106 {
+    height: 48px;
+  }
+  .winButton_c38106 {
+    width: var(--win-min-max-close-button-width);
+  }
+  .clickable__81391 {
+    width: var(--space-32);
+    height: var(--space-32);
+  }
 }
-
 .platform-win .winButtons_c38106 {
   gap: 0;
 }
 .platform-win .winButtons_c38106::before {
   content: none;
 }
-.platform-win .winButton_c38106 {
-  width: var(--win-min-max-close-button-width);
-  height: 48px;
-}
-.platform-win .clickable_c99c29 {
-  right: var(--space-xs);
-}
 
 :is(.platform-win, .platform-osx) .trailing_c38106 {
   gap: 0;
-}
-:is(.platform-win, .platform-osx) :not(.systemBar_c38106) > .trailing_c38106 {
-  top: 24px;
 }
 :is(.platform-win, .platform-osx) .bar_c38106::before {
   content: "";
@@ -744,9 +771,12 @@ html {
   -webkit-app-region: no-drag;
 }
 
-:is(.platform-linux, .platform-web) .clickable_c99c29 {
-  position: absolute;
-  top: 12px;
+.platform-osx :not(.systemBar_c38106) > .trailing_c38106 {
+  top: 24px;
+}
+
+:is(.platform-linux, .platform-web) .clickable__81391 {
+  top: 24px;
 }
 
 /* Start Member List */
@@ -1517,7 +1547,7 @@ html {
 .sidebar__5e434 {
   overflow-x: hidden;
   position: relative;
-  height: calc(100vh - var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px) - var(--channel-tabs-enabled, 0) * (var(--channel-tabs-tabBar-enabled, 1) * var(--channel-tabs-favBar-enabled, 1) * 5px + var(--channel-tabs-tabBar-enabled, 1) * (var(--channelTabs-tabHeight, 32px) + 3px) + var(--channel-tabs-favBar-enabled, 1) * (var(--channelTabs-favHeight, 28px) + 3px)) - var(--windows-titlebar-enabled, 0) * 18px);
+  height: calc(100vh - var(--horizontal-server-list-enabled, 0) * var(--server-container, 0px) - var(--channel-tabs-enabled, 0) * (var(--channel-tabs-tabBar-enabled, 1) * var(--channel-tabs-favBar-enabled, 1) * 5px + var(--channel-tabs-tabBar-enabled, 1) * (var(--channelTabs-tabHeight, 32px) + 3px) + var(--channel-tabs-favBar-enabled, 1) * (var(--channelTabs-favHeight, 28px) + 3px)));
   background: transparent;
 }
 .sidebar__5e434::before, .sidebar__5e434::after {
@@ -1541,6 +1571,9 @@ html {
 }
 .privateChannels_e6b769 .privateChannelRecipientsInviteButtonIcon__99e7c, .privateChannels_e6b769 .privateChannelRecipientsInviteButtonIcon__99e7c:hover {
   color: var(--icon-muted);
+}
+.privateChannels_e6b769:not(:has(> .scroller__99e7c)) {
+  background: linear-gradient(transparent 0px 48px, var(--hsl-side-shading) 48px calc(100% - var(--custom-app-panels-height, 56px)), transparent calc(100% - var(--custom-app-panels-height, 56px)) 100%) transparent;
 }
 
 .searchBar_e6b769 {
@@ -1566,7 +1599,7 @@ html {
 
 .scroller__99e7c {
   background: var(--hsl-side-shading);
-  margin-bottom: var(--custom-app-panels-height, 0);
+  margin-bottom: calc(var(--custom-app-panels-height, 0) + var(--custom-app-top-bar-height));
   padding-bottom: 0;
 }
 
@@ -1734,6 +1767,26 @@ html {
   background: var(--hsl-card-background);
 }
 
+/*! Pyrite v0.2.8 - Restore Window Titlebar Addon by LeafyLuigi. */
+@container style((--restore-windows-titlebar: true) and (--platform: windows)) {
+  .platform-win .toolbar__9293f {
+    padding-right: unset;
+    margin-right: unset;
+  }
+  .typeWindows__421ed {
+    background: var(--hsl-header-shading);
+    margin-top: 0;
+    height: auto;
+  }
+  .typeWindows__421ed::before {
+    content: none;
+  }
+  .winButton__421ed {
+    height: 22px;
+    width: 28px;
+    top: 0;
+  }
+}
 @property --background-image {
   /* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
   syntax: "<color> | <image> | none";
@@ -1855,6 +1908,21 @@ html {
   initial-value: rgba(0, 0, 0, 0.4);
   inherits: true;
 }
+@property --bool-vencord {
+  syntax: "true | false";
+  initial-value: false;
+  inherits: true;
+}
+@property --bool-betterdiscord {
+  syntax: "true | false";
+  initial-value: false;
+  inherits: true;
+}
+@property --restore-windows-titlebar {
+  syntax: "true | false";
+  initial-value: false;
+  inherits: true;
+}
 @property --allow-element-hiding {
   syntax: "true | false";
   initial-value: true;
@@ -1900,6 +1968,27 @@ html {
   initial-value: 0.7; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
   inherits: true;
 }
+@property --platform {
+  syntax: "linux | web | windows | mac";
+  initial-value: web;
+  inherits: true;
+}
+.platform-win {
+  --platform: windows;
+}
+
+.platform-osx {
+  --platform: mac;
+}
+
+.platform-linux {
+  --platform: linux;
+}
+
+.platform-web {
+  --platform: web;
+}
+
 /* Default Variables */
 :root {
   /* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
@@ -1921,6 +2010,7 @@ html {
   --live-color: #583594;
   --offline-color: #737e8c;
   /* Toggles! Anything outside of those values have NOT been tested and likely aren't supported. */
+  --restore-windows-titlebar: false;
   --allow-element-hiding: true;
   --hide-speed: 0.5s;
   --hide-delay: 0s;

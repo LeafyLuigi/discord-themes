@@ -28,7 +28,7 @@
 				(var(--channelTabs-favHeight,28px) + 3px)
 			)
 		)
-		- (var(--windows-titlebar-enabled,0) * 18px)
+		/* - (var(--windows-titlebar-enabled,0) * 18px) */
 	);
 	// end notice stuff
 	
@@ -85,7 +85,7 @@
 }
 #{c(sidebar private scroller)} {
 	background: $side;
-	margin-bottom: var(--custom-app-panels-height,0);
+	margin-bottom: calc(var(--custom-app-panels-height,0) + var(--custom-app-top-bar-height));
 	padding-bottom: 0;
 }
 #{c(sidebar private link)}:is(

@@ -177,30 +177,62 @@
 #{c(topBar title container)} {
 	display: none;
 }
-:root {
-	--custom-app-top-bar-height: 0px; // for removing top bar
-}
-// icon for margin-right; this must be done differently for windows
-#{c(chat layerWrapper)},
-#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
-	#{c(header toolbar)} {
-		margin-right: calc(32px + var(--space-xs) + (var(--has-download-btn,0) * 32px) + (var(--has-toolbox-btn,0) * 32px));
+
+// default fallbacks
+@container not style(--platform: windows) {
+	body {
+		--custom-app-top-bar-height: 0px;
 	}
-}
-#{c(os win)} {
+	// icon for margin-right; this must be done differently for windows
 	#{c(chat layerWrapper)},
 	#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
 		#{c(header toolbar)} {
-			// 32px for inbox icon, space-xs for gap, check if old windows titlebar is enabled and if not mult 3 for button width
-			margin-right: calc(32px + var(--space-xs) + (var(--has-download-btn,0) * 32px + (var(--has-toolbox-btn,0) * 32px)) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
+			margin-right: calc(32px + var(--space-xs) + (var(--has-download-btn,0) * var(--space-32)) + (var(--has-toolbox-btn,0) * var(--space-32)));
 		}
-		// #{c(header headerTitle)} {
-		// 	// -webkit-app-region: drag;
-		// 	// padding-right: calc(var(--space-xs) + 32px + var(--space-xs) + 3 * (1 - var(--windows-titlebar-enabled,0)) * var(--win-min-max-close-button-width));
-		// }
 	}
 }
-// windows only stuff
+@container not style(--restore-windows-titlebar: true) {
+	body {
+		--custom-app-top-bar-height: 0px;
+	}
+	#{c(topBar trailing winButton)} {
+		width: var(--win-min-max-close-button-width);
+		height: 48px;
+	}
+	// windows fallback
+	#{c(os win)} {
+		#{c(topBar trailing recentsIcon)} {
+			width: var(--space-32);
+			height: var(--space-32);
+		}
+		#{c(chat layerWrapper)},
+		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
+			#{c(header toolbar)} {
+				// 32px for inbox icon, 3*space-xs for gap, check for DL button (+32px), check for toolbox (+32), add 3 * min/max/close button width
+				margin-right: calc(3 * var(--space-xs) + (var(--has-download-btn,0) * var(--space-32) + var(--has-toolbox-btn,0) * var(--space-32)) + 3 * var(--win-min-max-close-button-width));
+			}
+		}
+		:not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {
+			top: 24px;
+		}
+	}
+}
+// must be windows, must have restore titlebar enabled
+@container style((--platform: windows) and (--restore-windows-titlebar: true)) {
+	body {
+		--custom-app-top-bar-height: 32px;
+	}
+	#{c(topBar trailing winButton)} {
+		height: 48px;
+	}
+	#{c(topBar trailing winButton)} {
+		width: var(--win-min-max-close-button-width);
+	}
+	#{c(topBar trailing recentsIcon)} {
+		width: var(--space-32);
+		height: var(--space-32);
+	}
+}
 #{c(os win)} {
 	#{c(topBar trailing winButtons)} {
 		gap: 0;
@@ -208,21 +240,11 @@
 			content: none;
 		}
 	}
-	#{c(topBar trailing winButton)} {
-		width: var(--win-min-max-close-button-width);
-		height: 48px;
-	}
-	#{c(topBar trailing recentsIcon)} {
-		right: var(--space-xs);
-	}
 }
 // windows and mac
 :is(#{c(os win)}, #{c(os mac)}) {
 	#{c(topBar trailing container)} {
 		gap: 0;
-	}
-	:not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {
-		top: 24px;
 	}
 	#{c(topBar bar)} {
 		@include bg($top:0,$bottom:null,$right:0,$left:0,$h:28px,$war:drag,$z:2);
@@ -234,6 +256,9 @@
 	) {
 		-webkit-app-region: no-drag;
 	}
+}
+#{c(os mac)} :not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {
+	top: 24px;
 }
 // linux and web
 :is(#{c(os linux)}, #{c(os web)}) {

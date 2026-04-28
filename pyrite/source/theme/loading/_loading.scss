@@ -5,4 +5,16 @@
 	#{c(loading container)} {
 		background: transparent;
 	}
+
+	/* individual components */
+	// remove animations
+	#{c(loading generic bar)},
+	#{c(loading generic circle)},
+	#{c(loading generic card)},
+	#{c(loading privateChannels searchInner)},
+	#{c(loading privateChannels linkIcon)},
+	#{c(loading profilePopout banner)},
+	#{c(loading profilePopout avatar)} {
+		animation: none;
+	}
 }

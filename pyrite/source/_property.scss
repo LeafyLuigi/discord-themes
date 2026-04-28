@@ -137,6 +137,21 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	inherits: true;
 }
 // TOGGLES!
+@property --bool-vencord {
+	syntax: "true | false";
+	initial-value: #{v(bool-vencord)};
+	inherits: true;
+}
+@property --bool-betterdiscord {
+	syntax: "true | false";
+	initial-value: #{v(bool-betterdiscord)};
+	inherits: true;
+}
+@property --restore-windows-titlebar {
+	syntax: "true | false";
+	initial-value: #{v(restore-windows-titlebar)};
+	inherits: true;
+}
 @property --allow-element-hiding {
 	syntax: "true | false";
 	initial-value: #{v(allow-element-hiding)};
@@ -182,3 +197,14 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	initial-value: #{v(spoiler-hover-opacity)}; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
 	inherits: true;
 }
+
+// more technical shit for me
+@property --platform {
+	syntax: "linux | web | windows | mac";
+	initial-value: web; // I DEVELOP THE THEME I DECIDE THE DEFAULTS. i use vesktop which defaults to web.
+	inherits: true;
+}
+#{c(os win)} {--platform: windows}
+#{c(os mac)} {--platform: mac}
+#{c(os linux)} {--platform: linux}
+#{c(os web)} {--platform: web}

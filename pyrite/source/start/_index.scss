@@ -75,6 +75,10 @@ $blacklist-theme-light-classes: "div[class*=layer_],div[class*=outer_]:is([class
 }
 // DEFAULT VARIABLES FOR PYRITE
 $defaults: (
+	// client mod and import stuff
+	bool-vencord: false, // false | true -- AUTODETECTED
+	bool-betterdiscord: false, // false | true -- AUTODETECTED
+	restore-windows-titlebar: false, // false | true -- MANUALLY SET - true restores the titlebar to how it's supposed to be. only works on windows (or vesktop with use native titlebar enabled).
 	// forced + debug stuff
 	update-notice-var: --update-notice-may25, // this is set to NONE in the .css file ONLY
 	font-headline: var(--body-font),

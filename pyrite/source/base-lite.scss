@@ -38,6 +38,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--live-color: #{v(live-color)}; // † -- <color>
 	--offline-color: #{v(offline-color)}; // † -- <color>
 	/* Toggles! Anything outside of those values have NOT been tested and likely aren't supported. */
+	--restore-windows-titlebar: #{v(restore-windows-titlebar)}; // Only works on Windows or Vesktop when "use native titlebar" is enabled. Restores the titlebar to what it was before. Accepted values: true | false
 	--allow-element-hiding: #{v(allow-element-hiding)}; // Toggles all hiding entirely. `false` disables hiding. Accepted values: true | false
 	--hide-speed: #{v(hide-speed)}; // speed for animations below. must be a time value.
 	--hide-delay: #{v(hide-delay)}; // delay for animations below. must be a time value. the delay also impacts when leaving the element. has no impact on spoilers.

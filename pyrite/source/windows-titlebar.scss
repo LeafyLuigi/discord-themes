@@ -1,2 +1,5 @@
 // Contains Windows Titlebar theming proper
-@use "windows-titlebar-theme";
+// @use "windows-titlebar-theme";
+body {
+	--restore-windows-titlebar: true;
+}
