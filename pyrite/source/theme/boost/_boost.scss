@@ -1,29 +1,27 @@
 @use "backend" as *;
 /* Begin Boosts */
-:is(#{c(main dark)},#{c(main light)}) {
-	#{c(boost modal)} {
-		background: $middle none;
-	}
-	#{c(boost ctaBar)} {
-		@include card;
-		background-image: none;
-	}
-	:is(#{c(boost tierMarkerBackground)},#{c(boost barBackground)},#{c(boost tierBody)},#{c(boost perk)}) {
-		background-color: $card;
-	}
-	#{c(boost tierHeaderLocked)} {
-		background-color: $header;
-	}
+.checkIcon__0a9d0 {
+  color: var(--hsl-green-color);
 }
-#{c(boost guildIcon)} {
-	background-color: transparent;
+.xIcon__0a9d0 {
+  color: var(--hsl-red-color);
 }
-#{c(boost tierMarker)} {
-	// filled would be: rgb(255, 115, 250) [both light and dark]
-	// dark mode
-	&[style*="rgb(32, 34, 37)"],
-	// light mode
-	&[style*="rgb(235, 237, 239)"] { 
-		background-color: transparent !important; // !important reason: inline
-	}
+.scroller__00843 {
+  background:var(--hsl-middle-shading);
+}
+.wrapper__3b770,
+.headerBackground__00843,
+.recommendedTierHighlight__0a9d0,
+.heroSection__9dbc9,
+.container__040eb,
+.wrapper__9ed0b,
+.wrapper__65e57 {
+  display: none;
+}
+.listItem_bb27fe {
+  background: var(--hsl-card-background);
+  border-color: var(--hsl-primary-color);
+}
+.listItem_bb27fe .question_bb27fe {
+  color: var(--text-muted) !important; /* !important reason: inline.style */
 }
