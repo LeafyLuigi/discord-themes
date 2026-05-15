@@ -168,6 +168,10 @@
 	&:has(>#{c(topBar bar)}>#{c(topBar trailing container)}>div:not([class])) {
 		--has-toolbox-btn: 1;
 	}
+	// check for vencord toolbox button using :has because fuck me.
+	&:has(#{c(topBar trailing recentsIcon)}>#{c(vencord toolbox icon)}) {
+		--has-vc-toolbox-btn: 1;
+	}
 }
 // z-index so it matches the header bar
 #{c(topBar bar)} {
@@ -187,7 +191,7 @@
 	#{c(chat layerWrapper)},
 	#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
 		#{c(header toolbar)} {
-			margin-right: calc(32px + var(--space-xs) + (var(--has-download-btn,0) * var(--space-32)) + (var(--has-toolbox-btn,0) * var(--space-32)));
+			margin-right: calc(32px + var(--space-xs) + (var(--has-download-btn,0) * var(--space-32)) + (var(--has-toolbox-btn,0) * var(--space-32) + (var(--has-vc-toolbox-btn,0) * var(--space-32))));
 		}
 	}
 }
@@ -209,7 +213,7 @@
 		#{c(chat)}:not(#{c(chat threadSidebarOpen)}) {
 			#{c(header toolbar)} {
 				// 32px for inbox icon, 3*space-xs for gap, check for DL button (+32px), check for toolbox (+32), add 3 * min/max/close button width
-				margin-right: calc(3 * var(--space-xs) + (var(--has-download-btn,0) * var(--space-32) + var(--has-toolbox-btn,0) * var(--space-32)) + 3 * var(--win-min-max-close-button-width));
+				margin-right: calc(3 * var(--space-xs) + (var(--has-download-btn,0) * var(--space-32) + var(--has-toolbox-btn,0) * var(--space-32)) + (var(--has-vc-toolbox-btn,0) * var(--space-32)) + 3 * var(--win-min-max-close-button-width));
 			}
 		}
 		:not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {

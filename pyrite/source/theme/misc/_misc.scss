@@ -284,7 +284,8 @@ html, // because maybe?
 		#{c(chat chatContentInner)} + #{c(memberList wrap)},
 		#{c(profile panel)},
 		#{c(friends nowPlayingColumn)} {
-			&:is(:hover,:focus-within) {
+			&:hover {
+			// &:is(:hover,:focus-within) {
 				transform: translateX(calc(-1 * ((var(--width,240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled)))));
 				backdrop-filter: blur(calc($blur * var(--hide-var, var(--hide-fallback-enabled)) * 3px));
 			}
@@ -369,7 +370,6 @@ html, // because maybe?
 // insecure links
 a[href^="http://"] {
 	color: $red;
-	// text-shadow: 0 0 calc(var(--blur-intensity) * 2px) $red;
 }
 
 /* HLJS */
@@ -570,18 +570,3 @@ a[href^="http://"] {
 	}
 
 }
-
-
-// /* Redownload pls bar */
-// #{c(main appContainer)}::before {
-//   content: "Your version of Pyrite is outdated. Please redownload.";
-//   text-align: center;
-//   position: absolute;
-//   color: #fff;
-//   white-space: pre-wrap;
-//   box-sizing: border-box;
-//   padding: 10px 0;
-//   background-color: $header;
-//   display: var(--update-notice-may25, block);
-//   z-index: 2500;
-// }

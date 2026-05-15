@@ -26,7 +26,7 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	initial-value: #{v(background-image)};
 	inherits: true;
 }
-/* Home icon is for the little button in the top left. */
+/* Home icon is for the little button in the top left. You can set this to `none` to use the default home icon. */
 @property --home-icon {
 	// /* Home Icon Image. */
 	// name: "Home Icon Image";
@@ -137,14 +137,9 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	inherits: true;
 }
 // TOGGLES!
-@property --bool-vencord {
-	syntax: "true | false";
-	initial-value: #{v(bool-vencord)};
-	inherits: true;
-}
-@property --bool-betterdiscord {
-	syntax: "true | false";
-	initial-value: #{v(bool-betterdiscord)};
+@property --hsl-position {
+	syntax: "disabled | top | bottom";
+	initial-value: #{v(hsl-position)};
 	inherits: true;
 }
 @property --restore-windows-titlebar {
@@ -197,8 +192,63 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	initial-value: #{v(spoiler-hover-opacity)}; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
 	inherits: true;
 }
-
+// radical status stuff
+@property --radical-status {
+	syntax: "enabled | disabled";
+	initial-value: #{v(radical-status)};
+	inherits: true;
+}
+@property --rs-small-spacing {
+	syntax: "<length>";
+	initial-value: #{v(rs-small-spacing)};
+	inherits: true;
+}
+@property --rs-medium-spacing {
+	syntax: "<length>";
+	initial-value: #{v(rs-medium-spacing)};
+	inherits: true;
+}
+@property --rs-large-spacing {
+	syntax: "<length>";
+	initial-value: #{v(rs-large-spacing)};
+	inherits: true;
+}
+@property --rs-small-width {
+	syntax: "<length>";
+	initial-value: #{v(rs-small-width)};
+	inherits: true;
+}
+@property --rs-medium-width {
+	syntax: "<length>";
+	initial-value: #{v(rs-medium-width)};
+	inherits: true;
+}
+@property --rs-large-width {
+	syntax: "<length>";
+	initial-value: #{v(rs-large-width)};
+	inherits: true;
+}
+@property --rs-avatar-shape {
+	syntax: "<length-percentage>";
+	initial-value: #{v(rs-avatar-shape)};
+	inherits: true;
+}
+@property --rs-phone-visible {
+	syntax: "true | false | block | none"; // block and none are to be mapped to true and false respectively. they're holdovers from Gibbu's.
+	initial-value: #{v(rs-phone-visible)};
+	inherits: true;
+}
 // more technical shit for me
+@property --client-mod {
+	syntax: "vencord | betterdiscord | unknown | vcbd"; // NOTE: forks, unless detected differently, will use their original client mods. "vcbd" is used when BOTH are detected for whatever reason.
+	initial-value: unknown; // I DEVELOP THE THEME I DECIDE THE DEFAULTS. despite me using vesktop, it defaults to unknown for undetected.
+	inherits: true;
+}
+:root {
+	&:has(>vencord-root) {--client-mod: vencord;}
+	&:has(>body>bd-head) {--client-mod: betterdiscord;}
+	&:has(>vencord-root):has(>body>bd-head) {--client-mod: vcbd;}
+}
 @property --platform {
 	syntax: "linux | web | windows | mac";
 	initial-value: web; // I DEVELOP THE THEME I DECIDE THE DEFAULTS. i use vesktop which defaults to web.

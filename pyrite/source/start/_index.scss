@@ -1,29 +1,22 @@
 @use "sass:map";
 @use "sass:meta";
 @use "sass:string";
-$version: "0.2.8";
+$version: "0.2.9";
 $theme-name: "Pyrite";
 $theme-name-lite: "Pyrite - lite";
 
 $source: "https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite";
 $invite: "EeQQTWbTf5";
 
-$desc-vencord: "for Vencord.";
-$desc-betterdiscord: "for BetterDiscord.";
-$desc: "for Vencord and BetterDiscord.";
-
 $import-url: "https://leafyluigi.github.io/discord-themes/";
 $import-build: "pyrite/build/";
 $import-base: "base.css";
 $import-base-lite: "base-lite.css";
-$import-vencord: "vencord.css";
-$import-betterdiscord: "better-discord.css";
 $import-base: "base.css";
 $import-whitney: "whitney.css";
 $import-hsl: "horizontal-server-list.css";
 $import-hslbottom: "horizontal-server-list-bottom.css";
 $import-borders: "borders.css";
-$import-wintitlebar: "windows-titlebar.css";
 
 $var-examples: "pyrite/var-examples.html";
 
@@ -76,11 +69,13 @@ $blacklist-theme-light-classes: "div[class*=layer_],div[class*=outer_]:is([class
 // DEFAULT VARIABLES FOR PYRITE
 $defaults: (
 	// client mod and import stuff
-	bool-vencord: false, // false | true -- AUTODETECTED
-	bool-betterdiscord: false, // false | true -- AUTODETECTED
+	client-mod: unknown, // unknown | vencord | betterdiscord | vcbd -- AUTODETECTED, DO NOT USE.
+	os: web, // web | linux | windows | mac -- AUTODETECTED, DO NOT USE.
 	restore-windows-titlebar: false, // false | true -- MANUALLY SET - true restores the titlebar to how it's supposed to be. only works on windows (or vesktop with use native titlebar enabled).
+	radical-status: false, // false | true -- MANUALLY SET - true enables a modified, more Pyrite-compatible version of Gibbu's "Radical Status" mini-theme.
+	hsl-position: disabled, // disabled | top | bottom -- MANUALLY SET - unless disabled, allows a modified, more Pyrite-compatible version of Gibbu's "Horizontal Server List" mini-theme.
 	// forced + debug stuff
-	update-notice-var: --update-notice-may25, // this is set to NONE in the .css file ONLY
+	update-notice-var: --update-notice-may26, // this is set to NONE in the .css file ONLY
 	font-headline: var(--body-font),
 	font-display: var(--body-font),
 	font-code: var(--code-font),
@@ -256,6 +251,14 @@ $defaults: (
 	blur-intensity: 1,
 	spoiler-hover-opacity: 0.7,
 	win-min-max-close-button-width: 28px,
+	rs-small-spacing: 2px, // <length>
+	rs-medium-spacing: 3px, // <length>
+	rs-large-spacing: 4px, // <length>
+	rs-small-width: 2px, // <length>
+	rs-medium-width: 3px, // <length>
+	rs-large-width: 4px, // <length>
+	rs-avatar-shape: 50%, // <length-percentage> | 50% (or an extremely high length value) for round
+	rs-phone-visible: true, // bool, false hides the phone icon
 	HSL-server-icon-size: 40px,
 	HSL-server-spacing: 10px,
 	HSL-server-direction: column,

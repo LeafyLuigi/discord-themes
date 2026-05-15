@@ -79,10 +79,12 @@
 
 #{c(serverList homeContainer)} {
 	#{c(serverList iconWrapper)} {
-		#{c(serverList iconChildWrapper)} {
-			background: $home center/cover no-repeat scroll;
-			filter: var(--home-icon-filter);
-			color: transparent;
+		@container not style(--home-icon: none) {
+			#{c(serverList iconChildWrapper)} {
+				background: $home center/cover no-repeat scroll;
+				filter: var(--home-icon-filter);
+				color: transparent;
+			}
 		}
 		&:is(
 			#{c(serverList selected)},

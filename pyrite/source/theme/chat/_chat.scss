@@ -58,10 +58,8 @@
 		color: var(--text-default);
 	}
 }
-:is(
-	#{c(chat buttonsPopover)},
-	#{c(chat buttonWrapper)}
-) {
+#{c(chat buttonsPopover)}#{c(chat buttonsPopover)},
+#{c(chat buttonWrapper)} {
 	padding: 0;
 	border: none;
 	box-sizing: content-box;
@@ -252,7 +250,7 @@
 			border-color: $secondary;
 			#{c(reaction count)} {
 				color: $primary;
-				// text-shadow: .125rem .125rem calc(var(--blur-intensity,1) * .1875rem);
+				// text-shadow: .125rem .125rem .1875rem;
 			}
 		}
 		#{c(reaction count)} {

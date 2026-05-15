@@ -17,10 +17,10 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 // Vars labeled with a double dagger (‡) get overridden by .visual-refresh.theme :(
 :root {
 	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
-	--background-image: #{v(background-image)}; // <color> | <image>
-	--user-modal-image: #{v(user-modal-image)}; // <color> | <image>
-	--user-popout-image: #{v(user-popout-image)}; // <color> | <image>
-	--home-icon: #{v(home-icon)}; // <color> | <image>
+	--background-image: #{v(background-image)}; // <color> | <image> | none
+	--user-modal-image: #{v(user-modal-image)}; // <color> | <image> | none
+	--user-popout-image: #{v(user-popout-image)}; // <color> | <image> | none
+	--home-icon: #{v(home-icon)}; // <color> | <image> | none
 	--background-attachment: #{v(background-attachment)}; // scroll | fixed | local
 	--user-modal-attachment: #{v(user-modal-attachment)}; // scroll | fixed | local
 	--user-popout-attachment: #{v(user-popout-attachment)}; // scroll | fixed | local
@@ -46,6 +46,15 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--hide-channel-list: #{v(hide-channel-list)};
 	--blur-intensity: #{v(blur-intensity)};
 	--spoiler-hover-opacity: #{v(spoiler-hover-opacity)}; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
+	/* rs stuff */
+	--rs-small-spacing: #{v(rs-small-spacing)};
+	--rs-medium-spacing: #{v(rs-medium-spacing)};
+	--rs-large-spacing: #{v(rs-large-spacing)};
+	--rs-small-width: #{v(rs-small-width)};
+	--rs-medium-width: #{v(rs-medium-width)};
+	--rs-large-width: #{v(rs-large-width)};
+	--rs-avatar-shape: #{v(rs-avatar-shape)};
+	--rs-phone-visible: #{v(rs-phone-visible)}; /* Show phone indicator for mobile users. false to hide it. Default true. Accepted values: true | false */
 
 	/* forced by theme */
 	--font-headline: #{v(font-headline)}; // removes the ABC Ginto Nord font
@@ -113,10 +122,10 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--home-icon-filter: #{v(home-icon-filter)};
 
 	/* Windows Only - How many *pixels* wide the min/max/close buttons should be. */
-	--win-min-max-close-button-width: #{v(win-min-max-close-button-width)}; /* default: 28px, square: 48px */
+	--win-min-max-close-button-width: #{v(win-min-max-close-button-width)}; /* Default: 28px, square: 48px (32px with above set to true) */
 
 	/* Internal please ignore */
-	// --update-notice-may25: none;
+	// --update-notice-may26: none;
 }
 :root:root:root {
 	--mention-background: #{v(mention-background)};

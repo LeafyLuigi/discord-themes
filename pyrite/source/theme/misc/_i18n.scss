@@ -26,7 +26,7 @@ html {
 	// The rest below do not need to be translated for "lite".
 	@if $lite != 1 {
 		--settings-lang-translate: "If you want to add (or fix) translations, feel free to join the support server.";
-		--theme-update-warning: "Your version of Pyrite is outdated. Please backup your theme and redownload.";
+		--theme-update-warning: "Your version of " var(--theme-name) " is outdated. Please backup your theme settings and redownload from the support server or GitHub.\aLinks to both are in your theme file.";
 
 		// "edited" string for message timestamps; used within this file.
 		// don't include the brackets when translating this.
@@ -114,6 +114,25 @@ html {
 // [lang="ko"] {}
 
 // Below are things that use the translations above.
+
+// /* Redownload pls bar */
+// #{c(main appContainer)}::before {
+// 	content: var(--theme-update-warning);
+// 	text-align: right;
+// 	position: absolute;
+// 	right: 0;
+// 	color: #fff;
+// 	padding: 10px 0;
+// 	white-space: pre-wrap;
+// 	box-sizing: border-box;
+// 	padding: 1rem;
+// 	font-size: 1rem;
+// 	background: #000;
+// 	z-index: 2500;
+// 	display: var(--update-notice-may26, block);
+// 	margin-top: var(--custom-app-top-bar-height);
+// }
+
 /* User Tags */
 $tags: (
 	"dev": ( // Main developer of the theme.
@@ -217,20 +236,6 @@ $tags: (
 // 	&:nth-child(7) #{c(userSettings radioBarInfo)}:after {
 // 		content: var(--beta-fr);
 // 	}
-// }
-
-// /* Redownload pls bar */
-// #{c(main appContainer)}::before {
-// 	content: var(--theme-update-warning);
-// 	text-align: center;
-// 	position: absolute;
-// 	color: #fff;
-// 	white-space: pre-wrap;
-// 	box-sizing: border-box;
-// 	padding: 10px 0;
-// 	background-color: $header;
-// 	display: var(--update-notice-feb25, block);
-// 	z-index: 2500;
 // }
 
 // CSS testing -- does not happen for Lite.

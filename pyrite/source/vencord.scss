@@ -1,2 +1,3 @@
 // Contains Vencord theming proper
-@use "vencord-theme";
+:root:has(>vencord-root) {--client-mod: vencord;}
+:root:has(>vencord-root):has(>body>bd-head) {--client-mod: vcbd;}

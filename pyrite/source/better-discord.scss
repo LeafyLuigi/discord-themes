@@ -1,2 +1,3 @@
 // Contains the Better Discord theme proper.
-@use "betterdiscord-theme";
+:root:has(>body>bd-head) {--client-mod: betterdiscord;}
+:root:has(>vencord-root):has(>body>bd-head) {--client-mod: vcbd;}
