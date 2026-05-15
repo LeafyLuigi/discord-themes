@@ -2,39 +2,39 @@
 @use "backend" as *;
 $includeExtra: 0 !default; // potential for future theme support, enable and edit file when support has been implemented.
 
-@property --background-image {
-	/* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
-	// name: "Main Background Image";
-	// note: "Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64.";
-	syntax: "<color> | <image> | none";
-	initial-value: #{v(background-image)};
-	inherits: true;
-}
-@property --user-modal-image {
-	/* User Profile Modal Background Image. */
-	// name: "User Profile Modal Background Image";
-	// note: "";
-	syntax: "<color> | <image> | none";
-	initial-value: #{v(background-image)};
-	inherits: true;
-}
-@property --user-popout-image {
-	/* User Popout Modal Background Image. */
-	// name: "User Popout Modal Background Image";
-	// note: "";
-	syntax: "<color> | <image> | none";
-	initial-value: #{v(background-image)};
-	inherits: true;
-}
-/* Home icon is for the little button in the top left. You can set this to `none` to use the default home icon. */
-@property --home-icon {
-	// /* Home Icon Image. */
-	// name: "Home Icon Image";
-	// note: "Use a URL.";
-	syntax: "<color> | <image> | none";
-	initial-value: #{v(home-icon)};
-	inherits: true;
-}
+// @property --background-image {
+// 	/* Main Background Image. Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64. */
+// 	// name: "Main Background Image";
+// 	// note: "Use a URL. You can use a website like https://www.base64-image.de/ to encode an image to base64.";
+// 	syntax: "<color> | <image> | none";
+// 	initial-value: #{v(background-image)};
+// 	inherits: true;
+// }
+// @property --user-modal-image {
+// 	/* User Profile Modal Background Image. */
+// 	// name: "User Profile Modal Background Image";
+// 	// note: "";
+// 	syntax: "<color> | <image> | none";
+// 	initial-value: #{v(background-image)};
+// 	inherits: true;
+// }
+// @property --user-popout-image {
+// 	/* User Popout Modal Background Image. */
+// 	// name: "User Popout Modal Background Image";
+// 	// note: "";
+// 	syntax: "<color> | <image> | none";
+// 	initial-value: #{v(background-image)};
+// 	inherits: true;
+// }
+// /* Home icon is for the little button in the top left. You can set this to `none` to use the default home icon. */
+// @property --home-icon {
+// 	// /* Home Icon Image. */
+// 	// name: "Home Icon Image";
+// 	// note: "Use a URL.";
+// 	syntax: "<color> | <image> | none";
+// 	initial-value: #{v(home-icon)};
+// 	inherits: true;
+// }
 
 /* Background attachment stuff */
 @property --background-attachment {
