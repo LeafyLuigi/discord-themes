@@ -192,10 +192,10 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 	initial-value: #{v(spoiler-hover-opacity)}; /* Relates to the text itself. 0 = invisible (disable), 1 = fully visible. Default 0.7. */
 	inherits: true;
 }
-// radical status stuff
-@property --radical-status {
+// radial status stuff
+@property --radial-status {
 	syntax: "enabled | disabled";
-	initial-value: #{v(radical-status)};
+	initial-value: #{v(radial-status)};
 	inherits: true;
 }
 @property --rs-small-spacing {
@@ -258,3 +258,26 @@ $includeExtra: 0 !default; // potential for future theme support, enable and edi
 #{c(os mac)} {--platform: mac}
 #{c(os linux)} {--platform: linux}
 #{c(os web)} {--platform: web}
+// HSL stuff
+
+// THIS ONLY EXISTS TO DETECT WHEN A FOLDER IS OPEN AND FIX SHIT FOR THAT!
+@property --hsl-vc-betterFoldersSidebarOut {
+	syntax: "true | false";
+	initial-value: false;
+	inherits: true;
+}
+@property --HSL-server-direction {
+	// Direction the servers should be in. "column" is the same as "left"
+	syntax: "left | right | column | column-reverse";
+	initial-value: left;
+	inherits: true;
+}
+@property --HSL-server-alignment {
+	// Alignment of servers.
+	// left == start == flex-start
+	// middle == center
+	// right ==  end == flex-end
+	syntax: "left | middle | right | start | end | flex-start | center | flex-end";
+	initial-value: left;
+	inherits: true;
+}

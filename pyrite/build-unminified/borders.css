@@ -1,9 +1,9 @@
-/*! Pyrite v0.2.8 - Border Radius Addon by LeafyLuigi */
+/*! Pyrite v0.2.9 - Border Radius Addon by LeafyLuigi */
 :root {
   --avatar-radius: 8px;
   --border-radius: 8px;
   --border-radius-small: 4px;
-  /* These are here to overwrite Radical Status' variables. They also provide compatibility with Better Status Indicators on Powercord */
+  /* These are here to overwrite Radial Status' variables. They also provide compatibility with Better Status Indicators on Powercord */
   --rs-online-color: var(--hsl-green-color);
   --rs-idle-color: var(--hsl-yellow-color);
   --rs-dnd-color: var(--hsl-red-color);

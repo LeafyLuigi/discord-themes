@@ -69,10 +69,10 @@ $blacklist-theme-light-classes: "div[class*=layer_],div[class*=outer_]:is([class
 // DEFAULT VARIABLES FOR PYRITE
 $defaults: (
 	// client mod and import stuff
-	client-mod: unknown, // unknown | vencord | betterdiscord | vcbd -- AUTODETECTED, DO NOT USE.
-	os: web, // web | linux | windows | mac -- AUTODETECTED, DO NOT USE.
+	client-mod: unknown, // unknown | vencord | betterdiscord | vcbd -- AUTODETECTED, DO NOT USE. see _property.scss
+	os: web, // web | linux | windows | mac -- AUTODETECTED, DO NOT USE. see _property.scss
 	restore-windows-titlebar: false, // false | true -- MANUALLY SET - true restores the titlebar to how it's supposed to be. only works on windows (or vesktop with use native titlebar enabled).
-	radical-status: false, // false | true -- MANUALLY SET - true enables a modified, more Pyrite-compatible version of Gibbu's "Radical Status" mini-theme.
+	radial-status: false, // false | true -- MANUALLY SET - true enables a modified, more Pyrite-compatible version of Gibbu's "Radial Status" mini-theme.
 	hsl-position: disabled, // disabled | top | bottom -- MANUALLY SET - unless disabled, allows a modified, more Pyrite-compatible version of Gibbu's "Horizontal Server List" mini-theme.
 	// forced + debug stuff
 	update-notice-var: --update-notice-may26, // this is set to NONE in the .css file ONLY

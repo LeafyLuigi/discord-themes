@@ -1,27 +1,63 @@
 @use "backend" as *;
+@if $lite != 1 {
 /* Begin Boosts */
+@warn "MAKE THESE SULFIDE CLASSES";
+// BOOST FROM DROPDOWN
 .checkIcon__0a9d0 {
-  color: var(--hsl-green-color);
+	color: $green;
 }
 .xIcon__0a9d0 {
-  color: var(--hsl-red-color);
+	color: $red;
 }
 .scroller__00843 {
-  background:var(--hsl-middle-shading);
+	background: $middle;
 }
 .wrapper__3b770,
 .headerBackground__00843,
 .recommendedTierHighlight__0a9d0,
-.heroSection__9dbc9,
+// .heroSection__9dbc9, // swap this out for removing button background upsell shit
 .container__040eb,
 .wrapper__9ed0b,
-.wrapper__65e57 {
-  display: none;
+.middleBodyContentWrapper__00843 {
+	display: none;
+}
+.tableWrapper__0a9d0 {
+	background: $card;
+	border: 1px solid $primary;
 }
 .listItem_bb27fe {
-  background: var(--hsl-card-background);
-  border-color: var(--hsl-primary-color);
+	background: $card;
+	border-color: $primary;
 }
 .listItem_bb27fe .question_bb27fe {
-  color: var(--text-muted) !important; /* !important reason: inline.style */
+	color: var(--text-muted) !important; // !important reason: inline.style
+}
+.heading__9dbc9 {
+	font-family: var(--font-display);
+	font-size: 32px;
+	font-weight: 600;
+	letter-spacing: unset;
+	line-height: 1.25;
+	text-transform: unset;
+	text-shadow: unset;
+}
+
+// BOOST PAGE
+.toolbar__89463 {
+	height: var(--custom-channel-header-height);
+}
+.container__89463,
+.contentContainer__89463 {
+	background: transparent;
+}
+.powerupsContainer__89463 {
+	background: $middle;
+}
+.sidebarContainer__89463 {
+	background: $side;
+}
+.container__5573 {
+	background: $card;
+}
+
 }

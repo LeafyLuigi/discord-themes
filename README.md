@@ -8,10 +8,10 @@ An addon for Pyrite, "Horizontal Server List", used [DiscordStyles/HorizontalSer
 
 ## Contributors:
 
-| <a href="https://github.com/LeafyLuigi" target="_blank"> <img src="https://avatars.githubusercontent.com/u/13402990?v=4" alt="" width="96px" height="96px"> </a> | 
-|:-:|
-| LeafyLuigi |
-| <a href="https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite" target="_blank">Pyrite</a> |
+| <a href="https://github.com/LeafyLuigi" target="_blank"> <img src="https://avatars.githubusercontent.com/u/13402990?v=4" alt="" width="96px" height="96px"> </a> | <a href="https://github.com/ArcVa3L" target="_blank"> <img src="https://avatars.githubusercontent.com/u/284879502?v=4" alt="" width="96px" height="96px"> </a> | <a href="https://github.com/Gibbu" target="_blank"> <img src="https://avatars.githubusercontent.com/u/20338746?v=4" alt="" width="96px" height="96px"> </a> |
+|:-:|:-:|:-:|
+| LeafyLuigi | ArcVa3L | Gibbu |
+| <a href="https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite" target="_blank">Pyrite</a> | Contributor to <a href="https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite" target="_blank">Pyrite</a> | I stole his code from <a href="https://github.com/DiscordStyles/RadialStatus" target="_blank">Radial Status</a> and <a href="https://github.com/DiscordStyles/HorizontalServerList" target="_blank">Horizontal Server List</a>. |
 
 ### Big Thanks:
 
@@ -20,7 +20,7 @@ An addon for Pyrite, "Horizontal Server List", used [DiscordStyles/HorizontalSer
 | Overimagine1 |
 | <a href="https://github.com/Overimagine1/old-discord-font" target="_blank">"Whitney" file</a> |
 
-As well as those who contributed to the [DiscordStyles/HorizontalServerList](https://github.com/DiscordStyles/HorizontalServerList) Repo.
+As well as those who contributed to the [DiscordStyles/HorizontalServerList](https://github.com/DiscordStyles/HorizontalServerList) and [DiscordStyles/RadialStatus](https://github.com/DiscordStyles/RadialStatus) Repos.
 
 ## Building from scratch:
 

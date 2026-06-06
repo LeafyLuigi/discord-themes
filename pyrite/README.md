@@ -10,7 +10,7 @@ Pyrite is supported on [BetterDiscord](https://betterdiscord.app/), [Vencord](ht
 
 ### Previews:
 
-*The below screenshots may not be up to date as Discord changes things constantly. Both the Border Radius/Radical Status and the User Modal Layout addons were enabled.*
+*The below screenshots may not be up to date as Discord changes things constantly. Both the Border Radius/Radial Status and the User Modal Layout addons were enabled.*
 
 ![profile](https://leafyluigi.github.io/images/pyrite_profile.png "Profile")
 ![main](https://leafyluigi.github.io/images/pyrite_main_window.png "Main Window")

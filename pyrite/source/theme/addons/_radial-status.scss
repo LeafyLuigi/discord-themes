@@ -1,0 +1,569 @@
+// what goes in here?
+// radial status stuff
+// this includes the avatars
+
+@use "start" as *;
+@use "backend" as *;
+
+@container style(--radial-status: enabled) {
+	// body {
+	// 	--avatar-radius: 8px;
+	// 	--border-radius: 8px;
+	// 	--border-radius-small: 4px;
+	// }
+	// // active now avatar
+	// #{c(friends activeNowAvatar)},
+	// // private chats avatar/group chat icon, affects "my account" avatar, user popout avatar, user profile avatar
+	// #{c(avatar wrapper)}, // !
+	// // chat avatar, also affects friends list and member list
+	// #{c(chat chatAvatar)}, // !
+	// // voice call avi
+	// // #{c(call avatar)}, // TODO: FIND CLASS // !
+	// // // hover over avatar in popout to see this
+	// // #{c(profile popout avatarHint)}, // !
+	// // // edit profile fake popout avatar and hint
+	// // #{c(userSettings profileAvatarUploader)}, // !
+	// // upload avi/banner modal
+	// #{c(modals avatarUpload contentCircle)} // !
+	// {
+	// 	border-radius: calc(var(--avatar-radius) * var(--br-multi, 1));
+	// }
+	// // chat date divider
+	// #{c(chat dividerContent)}, // !
+	// // friends list
+	// #{c(friends peopleColumn)} #{friends peopleListItem}:hover, // !
+	// // active now card
+	// #{c(friends itemCard)}, // !
+	// // this section could be better card
+	// #{c(friends itemCard)}, // !
+	// // friend list action button
+	// #{c(friends actionButton)}, // !
+	// // play video wrapper in chat
+	// #{c(embeds videoPlayWrapper)} // !
+	// {
+	// 	border-radius: var(--border-radius);
+	// }
+	// // online/all/pending etc buttons
+	// #{c(tab header)} #{c(tab item)} // !
+	// // image wrapper in chat
+	// // #{c(embeds imageWrapper)}
+	// {
+	// 	border-radius: var(--border-radius-small);
+	// }
+	// // mask removal for avatars
+	// // avatars
+	// #{c(avatar wrapper)} > svg > foreignObject
+	// // // hover over avatar in popout to see this
+	// // #{c(profile popout avatarHint)} > foreignObject,
+	// // // this one's for the banner, mainly due to the new avatar decorations
+	// // #{c(profile bannerSVGWrapper)}
+	// {
+	// 	mask: none;
+	// }
+	// // MAYBE:
+	// // server icons, server folders
+	// // size = 80
+	// #{c(profile outer)}, // !
+	// #{c(profile panel)}, // !
+	// #{c(userSettings profileImageUploader)}, // !
+	// #{c(modals avatarUpload contentCircle)} { // !
+	// 	--br-multi: 2.5;
+	// }
+	// // size = 120
+	// #{c(profile modal root)} { // !
+	// 	--br-multi: 4;
+	// }
+	// // and revert back to size = 40
+	// // #{c(profile modal body)},
+	// // #{c(profile panel connections)} {
+	// // 	--br-multi: 1;
+	// // }
+	// #{c(friends activeNowAvatar)} svg,
+	// #{c(avatar wrapper)} > svg
+	// {
+	// 	overflow: visible;
+	// }
+	// #{c(avatar wrapper)} #{c(avatar mask)} {
+	// 	>foreignObject[height="24"] {
+	// 		&,&~rect,&~circle {
+	// 			--size: 24px;
+	// 		}
+	// 	}
+	// 	>foreignObject[height="32"] {
+	// 		&,&~rect,&~circle {
+	// 			--size: 32px;
+	// 		}
+	// 	}
+	// 	>foreignObject[height="40"] {
+	// 		&,&~rect,&~circle {
+	// 			--size: 40px;
+	// 		}
+	// 	}
+	// 	>foreignObject[height="80"] {
+	// 		&,&~rect,&~circle {
+	// 			--size: 80px;
+	// 			--stroke-width: 3px;
+	// 		}
+	// 	}
+	// 	>foreignObject[height="120"] {
+	// 		&,&~rect,&~circle {
+	// 			--size: 120px;
+	// 			--stroke-width: 4px;
+	// 		}
+	// 	}
+	// 	#{c(chatForm typingDots)} {
+	// 		color: $primary;
+	// 		overflow: visible;
+	// 		circle {
+	// 			&:nth-child(1) {
+	// 				cx: -9;
+	// 			}
+	// 			&:nth-child(2) {
+	// 				cx: -2;
+	// 			}
+	// 			&:nth-child(3) {
+	// 				cx: 5;
+	// 			}
+	// 		}
+	// 	}
+	// 	foreignObject {
+	// 		&[mask*="mobile"] {
+	// 			--__mask: url('data:image/svg+xml; utf-8,<svg aria-hidden="true" focusable="false" data-prefix="fas" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"></path></svg>');
+	// 			width: calc(100% + 4px);
+	// 			&:after {
+	// 				content: "";
+	// 				display: block;
+	// 				position: absolute;
+	// 				width: 10px;
+	// 				height: 14px;
+	// 				top: 50%;
+	// 				transform: translateY(-50%);
+	// 				right: 0;
+	// 				z-index: 1;
+	// 				background: var(--green-color);
+	// 				mask: var(--__mask) center no-repeat;
+	// 			}
+	// 			&[width="32"] img {
+	// 				width: calc(100% - 12px);
+	// 			}
+	// 			&[width="80"] {
+	// 				img {
+	// 					width: calc(100% - 16px);
+	// 				}
+	// 				&:after {
+	// 					width: 14px;
+	// 					height: 18px;
+	// 					top: 75%;
+	// 				}
+	// 			}
+	// 			&[width="120"] {
+	// 				img {
+	// 					width: calc(100% - 24px);
+	// 				}
+	// 				&:after {
+	// 					width: 24px;
+	// 					height: 24px;
+	// 					top: 80%;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// 	rect {
+	// 		fill: transparent !important; // !important reason: fill isn't used.
+	// 		mask: none;
+	// 		x: 0;
+	// 		y: 0;
+	// 		display: block;
+	// 		rx: calc(var(--avatar-radius) * var(--br-multi, 1));
+	// 		ry: calc(var(--avatar-radius) * var(--br-multi, 1));
+	// 		stroke-width: var(--stroke-width, 2px);
+	// 		height: var(--size);
+	// 		width: var(--size);
+	// 		stroke: var(--color);
+	// 		&:is([mask*="online"],[fill="#3ba55c"]) {
+	// 			--color: var(--hsl-green-color);
+	// 		}
+	// 		&:is([mask*="idle"],[fill="#faa61a"]) {
+	// 			--color: var(--hsl-yellow-color);
+	// 		}
+	// 		&:is([mask*="dnd"],[fill="#ed4245"]) {
+	// 			--color: var(--hsl-red-color);
+	// 		}
+	// 		&:is([mask*="streaming"],[fill="#593695"]) {
+	// 			--color: var(--hsl-live-color);
+	// 		}
+	// 		&:is([mask*="offline"],[fill="#747f8d"]) {
+	// 			--color: var(--hsl-offline-color);
+	// 		}
+	// 	}
+	// 	circle {
+	// 		r: calc(var(--size) * 0.5);
+	// 		cx: calc(var(--size) * 0.5);
+	// 		cy: calc(var(--size) * 0.5);
+	// 	}
+	// }
+
+	#{c(avatar wrapper)}, // generic avatars
+	#{c(sidebar server channel voice userAvatar)} // avatar in voice chat
+	{
+		border-radius: var(--rs-avatar-shape);
+	}
+
+	// specific avatar sizes
+	#{c(vencord typingTweaks user)}, // [VC] "typing tweaks" plugin (NO STATUS)
+	#{c(vencord mentionAvatars icon)}, // [VC] "mention avatars" plugin (NO STATUS); inline border radius
+	#{c(other cv stickerUploaderUserAvatar)}, // sticker uploader (NO STATUS)
+	#{c(profile popout avatar)} // profile popout mutual (NO STATUS)
+	{
+		--__size: 16px;
+	}
+
+	#{c(serverSettings emojiRow)} #{c(sidebar private avatar)}, // emoji uploader (NO STATUS)
+	#{c(header avatar)} // header in dms; also applies to groups!
+	{
+		--__size: 20px;
+	}
+
+	#{c(reaction inner)}, // [VC] "who reacted" plugin (NO STATUS)
+	#{c(other cv tooltipActiveVoiceAvatarWithBackground)}, // tooltip on server with active voice (NO STATUS)
+	#{c(other cv inviteAvatar)}, // server settings invite creator (NO STATUS)
+	#{c(other cv rolesAvatar)}, // edit roles view members (NO STATUS)
+	#{c(other cv soundboardUploaderAvatar)}, // soundboard uploader (NO STATUS)
+	#{c(other cv auditlogFilterAvatar)}, // audit log filter by user (NO STATUS)
+	#{c(friends activeNow popout avatar)} // friends active now clicked on user popout
+	{
+		--__size: 24px;
+	}
+
+	#{c(other cv settingsA11yPreviewAvatars)}, // settings > a11y, preview
+	#{c(other cv settingsProfileCustomisationNameplatePreviewAvatar)}, // settings > profiles, nameplate preview
+	#{c(sidebar panel avatar)}, // panel in bottom left
+	#{c(memberList avatar)}, // member in server/group dm
+	#{c(friends userInfoAvatar)}, // friends list
+	#{c(friends activeNowAvatar)}, // friends list active now
+	#{c(sidebar private avatar)}, // sidebar dms
+	#{c(other cv pollVotesPopoutVoterAvatarContainer)}, // poll votes modal voter (NO STATUS)
+	#{c(modals reactions reactors)}, // reactors modal reactor (NO STATUS)
+	#{c(membersPage memberAvatar)} // members page list
+	{
+		--__size: 32px;
+	}
+
+	#{c(other cv settingsContentAndSocialUserInfo)}, // blocked/ignored user in settings (NO STATUS)
+	#{c(other cv bannedUserAvatar)}, // banned user (NO STATUS)
+	#{c(other cv auditlogAvatar)}, // audit log (NO STATUS)
+	#{c(chat chatAvatar)}, // avatar in chat (NO STATUS)
+	#{c(profile panel connectionsAvatar)} // profile panel mutual + profile modal mutual
+	{
+		--__size: 40px;
+	}
+
+	#{c(other cv settingsProfileCustomisationTab)}, // settings, top left customise button (NO STATUS)
+	#{c(other cv modviewAvatar)} // mod view
+	{
+		--__size: 48px;
+	}
+
+	#{c(profile popout)}, // popout profile
+	#{c(other cv settingsMyAccountAvatar)}, // settings > my account
+	#{c(other cv settingsMyAccountStandingAvatar)}, // settings > my account > standing (NO STATUS)
+	#{c(pages customise profileCard)}, // channels & roles, customise page (NO STATUS)
+	#{c(profile panel)} #{c(profile avatar avatar)} // profile panel
+	{
+		--__size: 80px;
+	}
+	
+	@warn TEMP WORKAROUND FOR INVALID CLASS;
+	#{c(profile modal v2)} #{c(profile avatar avatar)}, // profile modal
+	#{c(profile modal)} #{c(profile avatar avatar)} // profile modal (OLD BOTS)
+	{
+		--__size: 120px;
+	}
+
+	#{c(avatar wrapper)} {
+		// Remove masks
+		&>svg:not(:root) {
+			overflow: visible;
+			contain: none;
+
+			&>g[transform] {
+				transform: scale(1); // !important might be needed?
+			}
+
+		}
+		&>svg>foreignObject {
+			mask: none;
+		}
+
+		// Avatar shape
+		img {
+			border-radius: var(--rs-avatar-shape);
+		}
+
+		// Updated status, user typing
+		svg[width="25"][height="15"] > rect {
+			// --__mult: 2;
+			width: var(--__size, 100%);
+			height: var(--__size, 100%);
+			rx: calc(var(--rs-avatar-shape) * 2); // !important might be needed?
+			ry: calc(var(--rs-avatar-shape) * 2); // !important might be needed?
+		}
+
+		// Status ring
+		rect {
+			x: 0;
+			y: 0;
+			width: 100%;
+			height: 100%;
+			mask: none;
+			display: block;
+			// rx: calc(var(--rs-avatar-shape) * var(--__mult,1));
+			// ry: calc(var(--rs-avatar-shape) * var(--__mult,1));
+			rx: var(--rs-avatar-shape);
+			ry: var(--rs-avatar-shape);
+			fill: none;
+			stroke-width: var(--rs-small-width);
+			stroke: var(--__color,none);
+			&[x="16"] {
+				width: 24px;
+				height: 24px;
+			}
+			&[x="28"] {
+				width: 40px;
+				height: 40px;
+				overflow: visible;
+			}
+		}
+
+		// Members list, profile panel
+		&[style*="32px"] {
+			// --__size: 32px;
+			rect {
+				position: relative;
+				z-index: 0;
+			}
+		}
+
+		// Chat avatars (StatusEverywhere)
+		&[style*="40px"] {
+			// --__size: 40px;
+			// --__mult: 3.3;
+			& > svg > svg rect {
+				x: -19;
+				y: -20;
+			}
+			foreignObject[mask*="mobile"] img {
+				width: calc(100% - 18px);
+			}
+		}
+
+		// Medium ring (user popout, profile panel)
+		&[style*="80px"] {
+			// --__size: 80px;
+			// --__mult: 3.3;
+			rect {
+				stroke-width: var(--rs-medium-width);
+			}
+			img {
+				clip-path: inset(
+					calc(var(--rs-medium-spacing) - 3px) calc(var(--rs-medium-spacing) - 3px) round
+						var(--rs-avatar-shape)
+				);
+			}
+			// Updated status
+			svg#{c(avatar cursorDefault)} {
+				display: none;
+			}
+		}
+
+		// Large ring (user profile)
+		&[style*="120px"] {
+			// --__size: 120px;
+			// --__mult: 3.3;
+			rect {
+				stroke-width: var(--rs-large-width);
+				pointer-events: none;
+			}
+			img {
+				clip-path: inset(
+					calc(var(--rs-large-spacing) - 4px) calc(var(--rs-large-spacing) - 4px) round
+						var(--rs-avatar-shape)
+				);
+			}
+		}
+
+		// size stuff
+		&[style*="32px"],
+		&[style*="40px"],
+		&[style*="48px"],
+		&[style*="80px"],
+		&[style*="120px"] {
+			rect {
+				height: var(--__size, 100%);
+				width: var(--__size, 100%);
+			}
+		}
+
+		// Mobile indicator
+		foreignObject[mask*="mobile"] {
+			// Chat message top
+			&[width="24"] {
+				&:after {
+					width: 10px;
+					height: 12px;
+					top: 30%;
+				}
+			}
+			// Private chats and users sidebar
+			&[width="32"] {
+				&:after {
+					width: 10px;
+					height: 14px;
+					top: 30%;
+				}
+			}
+			// Banner wrapper private chat
+			&[width="80"] {
+				&:after {
+					width: 14px;
+					height: 18px;
+				}
+			}
+			// User profile banner
+			&[width="120"] {
+				&:after {
+					width: 24px;
+					height: 20px;
+				}
+			}
+
+			@container style((--rs-phone-visible: true) or (--rs-phone-visible: block)) {
+				&:after {
+					content: "";
+					display: block;
+					mask: url('data:image/svg+xml; utf-8,<svg aria-hidden="true" focusable="false" data-prefix="fas" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"></path></svg>')
+						center no-repeat;
+					position: absolute;
+					right: 0%;
+					bottom: 0%;
+					background: $green;
+					z-index: 1;
+				}
+			}
+
+			& + rect,
+			& + g > rect {
+				stroke: $green;
+			}
+		}
+	}
+
+	// more typing indicator stuff (less specificity)
+	#{c(avatar mask)} {
+		& > rect[x="22"] {
+			x: 0;
+			y: 0;
+		}
+		& > circle {
+			opacity: 0 !important; // !important reason: inline style for some cases
+			width: 100%;
+			height: 100%;
+			cx: 43%;
+			cy: 20;
+		}
+	}
+	// WHEN TYPING
+	// #{c(avatar pointerEvents)}[x="14.5"] {
+	// 	fill: rgba(0, 0, 0, 0.5);
+	// }
+	#{c(avatar cursorDefault)} {
+		&,
+		#{c(chatForm dots)} {
+			overflow: visible;
+		}
+		#{c(chatForm dots)} {
+			color: $primary;
+			transform: translate(calc(50% - 8.75px), calc(100% - 8.5px));
+		}
+		&:has(#{c(chatForm dots)}) > rect {
+			fill: rgba(0, 0, 0, 0.5) !important; // !important reason: override stuff from memberList
+		}
+	}
+
+	//Bottom left avatar, speaking in VC -- IT HAS INLINE STUFF
+	#{c(avatar speaking)}[style*="box-shadow:"] {
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: calc(100% - 4px);
+		height: calc(100% - 4px);
+		border-radius: var(--rs-avatar-shape);
+		box-shadow: inset 0 0 0 2px var(--rs-self-speaking-colour, var(--hsl-primary-color)) !important; // !important reason: inline style + override existing
+	}
+
+	// Mobile and typing fix for status everywhere plugins
+	#{c(chat message)} #{c(avatar wrapper)} {
+		foreignObject[mask*="mobile"] {
+			width: calc(100% + 3px);
+		}
+		rect[mask*="typing"] {
+			width: calc(100% - 9px);
+		}
+	}
+
+	// Avatar hint
+	#{c(profile avatar overlay)}::after {
+		border-radius: var(--rs-avatar-shape); // !important might be needed?
+		width: calc(100% - var(--rs-medium-width) - var(--rs-medium-spacing) + 1px * 2);
+		height: calc(100% - var(--rs-medium-width) - var(--rs-medium-spacing) + 1px * 2);
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		position: relative;
+	}
+
+	// Offline
+	#{c(memberList offline)} img {
+		clip-path: none; // !important might be needed?
+	}
+
+	// Fix clipping on user friends tab
+	#{c(friends userInfo)} #{c(avatar wrapper)} {
+		margin-top: 1px;
+		margin-left: 1px;
+	}
+
+	// Fix for avatar size and off centered status
+	#{c(avatar wrapper)}#{c(header avatar)} {
+		margin-left: var(--rs-small-width);
+	}
+	
+	#{c(avatar wrapper)}[style*="20px"] foreignObject[mask*=svg-mask-avatar-status-round-20] {
+		width: 25px;
+		height: 25px;
+	}
+
+	// individual stuff
+	#{c(other cv tooltipActiveVoiceAvatarMasked)} {
+		> foreignObject {
+			mask: none;
+		}
+		#{c(other cv tooltipSize16)} &,
+		#{c(other cv tooltipSize24)} &,
+		#{c(other cv tooltipSize32)} &,
+		#{c(other cv tooltipSize56)} & {
+			margin-inline-end: 0;
+		}
+	}
+	#{c(chat chatAvatar)},
+	#{c(other cv tooltipActiveVoiceAvatar)},
+	#{c(other cv tooltipActiveVoiceAvatarWithBackground)} {
+		border-radius: var(--rs-avatar-shape);
+	}
+	#{c(vencord mentionAvatars icon)} {
+		border-radius: var(--rs-avatar-shape) !important; // !important reason: inline style
+	}
+	#{c(profile banner mask)} > mask > circle{
+		r: 0;
+	}
+}

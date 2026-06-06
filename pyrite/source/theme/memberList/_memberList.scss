@@ -119,13 +119,50 @@ $allColors: (
 	}
 	$listFill: string.slice($listFill,1,-2)+")"; // remove last comma and close list
 	$listBackground: string.slice($listBackground,1,-2)+")"; // remove last comma and close list
-	:is(
-		#{c(avatar pointerEvents)},
-		#{c(avatar mask)}>svg>rect,
-		#{c(avatar cursorDefault)}>rect
-	) {
-		&#{$listFill} {
-			fill: var(--#{$var});
+	//// HTML TREES:
+	/// 
+	////regular pointerEvents stuff
+	//div.avatar > svg.mask
+	//> foreignObject > (div contains image)
+	//> g > rect.pointerEvents[fill=$color][mask=$mask]
+	////cursorDefault stuff
+	//div.avatar > svg.mask
+	//> foreignObject > (div contains image)
+	//> g
+	//	> svg.cursorDefault >
+	//		> mask[id] > (internals depend on status type)
+	//		> rect[fill=$col][mask=$id]
+	//	> rect.pointerEvents[fill=transparent]
+
+	// regular status
+	#{c(avatar pointerEvents)} {
+		@container not style(--radial-status: enabled) {
+			&#{$listFill} {
+				fill: var(--#{$var});
+			}
+		}
+		@container style(--radial-status: enabled) {
+			&#{$listFill} {
+				--__color: var(--#{$var});
+			}
+		}
+	}
+
+	// changed status or started typing
+	#{c(avatar mask)}:has(>mask)>g {
+		// :has(>mask)>g[SET SHIT HERE]:has(>svg>rect[FILL LIST HERE])
+		&:has(>svg>rect#{$listFill}) {
+			@container not style(--radial-status: enabled) {
+				> svg > rect {
+					fill: var(--#{$var});
+				}
+			}
+			@container style(--radial-status: enabled) {
+				--__color: var(--#{$var});
+				> svg > rect {
+					fill: transparent;
+				}
+			}
 		}
 	}
 	// since no live in status picker

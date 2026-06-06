@@ -1,0 +1,407 @@
+@use "sass:list";
+@use "sass:string";
+// what goes in here?
+// - Horizontal Server List support.
+// - HSL on Bottom goes in a different file.
+
+@use "start" as *;
+/*! #{$theme-name} v#{$version} - HSL Addon by LeafyLuigi. Original by Gibbu. */
+
+@use "classes" as *;
+@use "backend" as *;
+
+:root {
+	--serverlist-offset: var(--custom-guild-list-width);
+}
+
+@container style(--hsl-position: top) or style(--hsl-position: bottom) {
+
+	@container style(--hsl-position: top) {
+		@supports (grid-template-columns:subgrid) and (white-space-collapse:collapse) {
+			#{c(main base)} {
+				grid-template-areas:
+					"hsl hsl"
+					"titleBar titleBar"
+					"headerBar headerBar"
+					"notice notice"
+					"channelsList page";
+				grid-template-rows: [top] var(--serverlist-offset) [hslEnd] var(--custom-app-top-bar-height) [titleBarEnd] var(--custom-channel-header-height) [headerBarEnd] min-content [noticeEnd] 1fr [end];
+				grid-template-columns: [start] calc(var(--custom-guild-sidebar-width) - var(--serverlist-offset)) [channelsEnd] 1fr [end];
+
+				// and for vencord's BetterFolders support...
+				@container style(--client-mod: vencord) or style(--client-mod: vcbd) {
+					&#{c(vencord betterFolders grid)} {
+						grid-template-areas:
+							"hsl hsl"
+							"betterFoldersSidebar betterFoldersSidebar"
+							"titleBar titleBar"
+							"headerBar headerBar"
+							"notice notice"
+							"channelsList page";
+						grid-template-rows: [top] var(--serverlist-offset) [hslEnd] min-content [betterFoldersEnd] var(--custom-app-top-bar-height) [titleBarEnd] var(--custom-channel-header-height) [headerBarEnd] min-content [noticeEnd] 1fr [end];
+						grid-template-columns: [start] calc(var(--custom-guild-sidebar-width) - var(--serverlist-offset)) [channelsEnd] 1fr [end];
+					}
+				}
+			}
+		}
+	}
+	@container style(--hsl-position: bottom) {
+		@supports (grid-template-columns:subgrid) and (white-space-collapse:collapse) {
+			#{c(main base)} {
+				grid-template-areas:
+					"titleBar titleBar"
+					"headerBar headerBar"
+					"notice notice"
+					"channelsList page"
+					"hsl hsl";
+				grid-template-rows: [top] var(--custom-app-top-bar-height) [titleBarEnd] var(--custom-channel-header-height) [headerBarEnd] min-content [noticeEnd] 1fr [pageEnd] var(--serverlist-offset) [end];
+				grid-template-columns: [start] calc(var(--custom-guild-sidebar-width) - var(--serverlist-offset)) [channelsEnd] 1fr [end];
+
+				// and for vencord's BetterFolders support...
+				@container style(--client-mod: vencord) or style(--client-mod: vcbd) {
+					&#{c(vencord betterFolders grid)} {
+						grid-template-areas:
+							"titleBar titleBar"
+							"headerBar headerBar"
+							"notice notice"
+							"channelsList page"
+							"hsl hsl"
+							"betterFoldersSidebar betterFoldersSidebar";
+						grid-template-rows: [top] var(--custom-app-top-bar-height) [titleBarEnd] var(--custom-channel-header-height) [headerBarEnd] min-content [noticeEnd] 1fr [pageEnd] var(--serverlist-offset) [hslEnd] min-content [end];
+						grid-template-columns: [start] calc(var(--custom-guild-sidebar-width) - var(--serverlist-offset)) [channelsEnd] 1fr [end];
+					}
+				}
+			}
+		}
+	}
+
+	:root {
+		--hsl-direction: column;
+		--hsl-alignment: flex-start;
+	}
+	// customisation stuff
+	@container style(--HSL-server-direction: right) or style(--HSL-server-direction: column-reverse) {
+		body {
+			--hsl-direction: column-reverse;
+		}
+	}
+	@container style(--HSL-server-direction: left) or style(--HSL-server-direction: column) {
+		body {
+			--hsl-direction: column;
+		}
+	}
+	@container style(--HSL-server-alignment: flex-start) or style(--HSL-server-alignment: left) or style(--HSL-server-alignment: start) {
+		body {
+			--hsl-alignment: flex-start;
+		}
+	}
+	@container style(--HSL-server-alignment: flex-end) or style(--HSL-server-alignment: right) or style(--HSL-server-alignment: end) {
+		body {
+			--hsl-alignment: flex-end;
+		}
+	}
+	@container style(--HSL-server-alignment: middle) or style(--HSL-server-alignment: center) {
+		body {
+			--hsl-alignment: center;
+		}
+	}
+	#{c(serverList folder stack)}#{c(serverList folder stack)} {
+		flex-direction: var(--hsl-direction,column);
+		justify-content: var(--hsl-alignment);
+	}
+
+
+	#{c(main content)} {
+		display: grid;
+		grid-column: start / end;
+		grid-row: top / end;
+		grid-template-columns: subgrid;
+		grid-template-rows: subgrid;
+	}
+	#{c(sidebar)} {
+		display: grid;
+		grid-column: start / channelsEnd;
+		grid-row: top / end;
+		grid-template-columns: subgrid;
+		grid-template-rows: subgrid;
+	}
+	#{c(sidebar)} > #{c(serverList wrapper)} { // same class as #{c(serverList)}
+		grid-row-start: hsl-start;
+		grid-row-end: hsl-end;
+		grid-column-start: start;
+		grid-column-end: end;
+		top: var(--serverlist-offset);
+	}
+
+	#{c(sidebar)} {
+		overflow: visible;
+	}
+	#{c(serverList)} {
+		transform-origin: top left;
+		rotate: -90deg;
+		height: 100vw;
+		bottom: unset;
+		position: absolute;
+		left: 0;
+
+		@debug "test for windows and mac pls future me";
+		:is(#{c(os linux)}, #{c(os web)}) &::before {
+			content: none;
+		}
+	}
+	#{c(serverList tree)} {
+		@debug "test for windows and mac pls future me";
+		:is(#{c(os linux)}, #{c(os web)}) & {
+			top: unset;
+			height: 100vw;
+			background: $header;
+		}
+	}
+	#{c(serverList scroller)} {
+		@debug "test for windows and mac pls future me";
+		:is(#{c(os linux)}, #{c(os web)}) & {
+			padding: var(--space-xs) 0 0 0;
+		}
+	}
+
+	#{c(sidebar private channels)} {
+		// 72px is for the server list, 36px for notices
+		max-height: calc(100vh - var(--serverlist-offset,72px) - 36px * var(--notice-count, 0));
+	}
+
+	// Rotate the icons back
+	#{c(serverList iconWrapper)},
+	#{c(serverList folder closedFolderIconWrapper)},
+	#{c(serverList folder expandedFolderIconWrapper)},
+	#{c(serverList lowerBadge)},
+	#{c(serverList upperBadge)},
+	#{c(serverList folder folderIcon)} {
+		rotate: 90deg;
+	}
+	#{c(serverList iconChildWrapper)} {
+		rotate: 0deg;
+	}
+
+	#{c(sidebar server header eclipseForeground)} { // it has funny blocks-the-servers-you-click-on effect
+		pointer-events: none;
+	}
+
+	// Notices
+	#{c(notice)} {
+		width: 100vw;
+	}
+
+	@mixin subgrid {
+		display: grid;
+		grid-template-rows: subgrid;
+		grid-template-columns: subgrid;
+	}
+
+	#{c(header)}, // in chat areas
+	#{c(sidebar server header container)}, // servers, contains name and invite icon
+	#{c(sidebar private searchBar)} { // private, contains big search button
+		grid-area: headerBar;
+	}
+	// other ones here use before and won't be fun.
+	// .pageWrapper_a3a4ce::before
+
+	// FIX #{c(header)}! (used in many places; fixed in private message, chat and friends list)
+	#{c(chat page)} {
+		@include subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+	}
+	#{c(chat page)} > div {
+		display: grid !important; // !important reason: inline style when no class exists
+		grid-template-rows: subgrid;
+		grid-template-columns: subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+	}
+	#{c(chat)} {
+		@include subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+	}
+	#{c(chat subtitleContainer)} {
+		@include subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+	}
+	#{c(chat chatContent)} { // fix chat~
+		grid-row-start: notice-end;
+		grid-row-end: span end;
+	}
+	// friends list stuff now
+	#{c(friends container)} {
+		@include subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+	}
+	#{c(friends tabBody)} {
+		grid-row-start: notice-end;
+		grid-row-end: span end;
+	}
+
+	// FIX #{c(sidebar server header container)}
+	#{c(sidebar list)} {
+		@include subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+		container: inline-size; // this was an absolute pain to debug!
+	}
+	#{c(sidebar server container)} {
+		@include subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+	}
+	// and if it has a banner
+	#{c(sidebar server header container)}#{c(sidebar server header hasBanner)} {
+		@include subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+		background: transparent;
+		#{c(sidebar server header header)} {
+			background: $header;
+			grid-area: headerBar;
+			border-radius: 0;
+		}
+		#{c(sidebar server header bannerContainer)} {
+			@include subgrid;
+			grid-row-start: headerBar-start;
+			grid-row-end: span end;
+			position: relative;
+			top: calc(36px * var(--notice-count,0));
+		}
+		#{c(sidebar server header bannerImage)} {
+			grid-row-start: notice-end;
+			grid-row-end: span end;
+		}
+	}
+
+	// FIX #{c(sidebar private searchBar)}!
+	#{c(sidebar private channels)} {
+		@include subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+	}
+	#{c(sidebar private scroller)} {
+		grid-row-start: notice-end;
+		grid-row-end: span end;
+	}
+
+	// FIX #{c(chat noChannel)}
+	#{c(chat noChannel)} {
+		@include subgrid;
+		grid-row-start: headerBar-start;
+		grid-row-end: span end;
+		&::before {
+			grid-area: headerBar;
+		}
+		&::after {
+			grid-row-start: notice-end;
+			grid-row-end: span end;
+		}
+		#{c(friends emptyWrapper)} {
+			grid-row-start: notice-end;
+			grid-row-end: span end;
+		}
+	}
+
+	// FIX discover area *yawn*
+	// later....
+
+
+	// BetterFolders - Vencord
+	@container style(--client-mod: vencord) or style(--client-mod: vcbd) {
+		#{c(vencord betterFolders grid)} {
+			#{c(vencord betterFolders sidebar)} {
+				height: var(--serverlist-offset);
+				grid-row-start: betterFoldersSidebar-start;
+				grid-row-end: betterFoldersSidebar-end;
+				top: var(--serverlist-offset);
+				position: relative;
+			}
+		}
+		// it'll break the animation but it'll unbreak the theme!
+		#{c(vencord betterFolders sidebar)}[style*="width"] {
+			width: unset !important; // !important reason: inline style
+		}
+		#{c(main container)}:has(>#{c(main base)}>#{c(main content)}>#{c(sidebar)}>#{c(serverList)}+#{c(vencord betterFolders sidebar)}) {
+			--hsl-vc-betterFoldersSidebarOut: true;
+		}
+		// @container style(--hsl-vc-betterFoldersSidebarOut: true) {
+		// }
+	}
+
+	// top only stuff
+	@container style(--hsl-position: top) {
+		// rotate some stuff
+		#{c(serverList lowerBadge)},
+		#{c(serverList upperBadge)} {
+			rotate: 90deg;
+		}
+	}
+
+	// and fix bottom stuff~
+	@container style(--hsl-position: bottom) {
+		// rotate something
+		#{c(serverList listItem)} {
+			&,
+			&>:not(#{c(serverList pillWrapper)}) {
+				rotate: 180deg;
+			}
+		}
+
+		#{c(chat page)} {
+			grid-row-end: pageEnd;
+		}
+		#{c(sidebar private channels)} {
+			grid-row-end: pageEnd;
+		}
+		#{c(sidebar list)} {
+			grid-row-end: pageEnd;
+		}
+
+		@container style(--client-mod: vencord) or style(--client-mod: vcbd) {
+			#{c(vencord betterFolders grid)} {
+				#{c(vencord betterFolders sidebar)} {
+					height: var(--serverlist-offset);
+					grid-row-start: hsl-end;
+					grid-row-end: span end;
+				}
+			}
+		}
+		#{c(sidebar panel panels)} {
+			bottom: var(--serverlist-offset);
+		}
+
+		@container style(--hsl-vc-betterFoldersSidebarOut: true) {
+			#{c(vencord betterFolders grid)} {
+				#{c(vencord betterFolders sidebar)} {
+					grid-row-start: betterFoldersSidebar-start;
+					grid-row-end: span end;
+				}
+			}
+			#{c(sidebar panel panels)} {
+				bottom: calc(2 * var(--serverlist-offset));
+			}
+		}
+	}
+
+	// small fixes (override existing css rules)
+	:is(:where(#bd-notices:not(:empty)), #{c(notice)}) {
+		top: unset;
+	}
+	#{c(main base)} :where(#bd-notices:not(:empty), #{c(notice)}) ~ #{c(main content)} {
+		--notice-count: 0;
+	}
+	#{c(chat noChannel)}::after {
+		top: 0;
+	}
+	// temp thing to partly hide the notice
+	#{c(notice)} {
+		background-color: rgb(from var(--custom-notice-background) r g b / 50%);
+	}
+
+}

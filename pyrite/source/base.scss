@@ -57,6 +57,8 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 	--rs-phone-visible: #{v(rs-phone-visible)}; /* Show phone indicator for mobile users. false to hide it. Default true. Accepted values: true | false */
 
 	/* forced by theme */
+	--font-display-marketing-header: #{v(font-headline)};
+	--font-display-marketing: #{v(font-primary)};
 	--font-headline: #{v(font-headline)}; // removes the ABC Ginto Nord font
 	--font-display: #{v(font-display)}; // display is used for headers
 	--font-code: #{v(font-code)};
