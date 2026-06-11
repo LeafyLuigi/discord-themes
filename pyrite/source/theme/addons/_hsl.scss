@@ -14,6 +14,26 @@
 	--serverlist-offset: var(--custom-guild-list-width);
 }
 
+// what's broken? [TESTED USING WEB]
+// discover (IT NEEDS REDOING!)
+// voice channels
+// stage channels
+// voice when split on narrower screens [BROKEN IN THEME ITSELF]
+// threads in split-chat mode
+// sidebar dragging thing shouldn't go to full height (top;bottom)
+// server guide page broken (top;bottom)
+// members page broken (top;bottom)
+// server boosts page broken (top;bottom)
+// vencord locked channel scrolls (top;bottom)
+// no chat scrolls (top; notice)
+// no chat background is fucked => use .page:has(>div>noChannel) for bg! (top;bottom)
+
+@mixin subgrid($r:null) {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	@if $r {grid-row: $r;}
+}
+
 @container style(--hsl-position: top) or style(--hsl-position: bottom) {
 
 	@container style(--hsl-position: top) {
@@ -27,6 +47,15 @@
 					"channelsList page";
 				grid-template-rows: [top] var(--serverlist-offset) [hslEnd] var(--custom-app-top-bar-height) [titleBarEnd] var(--custom-channel-header-height) [headerBarEnd] min-content [noticeEnd] 1fr [end];
 				grid-template-columns: [start] calc(var(--custom-guild-sidebar-width) - var(--serverlist-offset)) [channelsEnd] 1fr [end];
+
+				// // LET'S GET STUPID! - an attempt in making side-by-side stuff work
+				// grid-template-areas:
+				// 	"hsl hsl hsl"
+				// 	"titleBar titleBar titleBar"
+				// 	"headerBar headerBar headerBar"
+				// 	"notice notice notice"
+				// 	"channelsList page side";
+				// grid-template-columns: [start] calc(var(--custom-guild-sidebar-width) - var(--serverlist-offset)) [channelsEnd] 1fr [pageEnd] min-content [end];
 
 				// and for vencord's BetterFolders support...
 				@container style(--client-mod: vencord) or style(--client-mod: vcbd) {
@@ -113,23 +142,16 @@
 
 	#{c(main content)} {
 		display: grid;
-		grid-column: start / end;
-		grid-row: top / end;
-		grid-template-columns: subgrid;
-		grid-template-rows: subgrid;
+		grid-area: top / start / end / end;
+		grid-template: subgrid / subgrid;
 	}
 	#{c(sidebar)} {
 		display: grid;
-		grid-column: start / channelsEnd;
-		grid-row: top / end;
-		grid-template-columns: subgrid;
-		grid-template-rows: subgrid;
+		grid-area: top / start / end / channelsEnd;
+		grid-template: subgrid / subgrid;
 	}
 	#{c(sidebar)} > #{c(serverList wrapper)} { // same class as #{c(serverList)}
-		grid-row-start: hsl-start;
-		grid-row-end: hsl-end;
-		grid-column-start: start;
-		grid-column-end: end;
+		grid-area: hsl-start / start / hsl-end / end;
 		top: var(--serverlist-offset);
 	}
 
@@ -191,12 +213,6 @@
 		width: 100vw;
 	}
 
-	@mixin subgrid {
-		display: grid;
-		grid-template-rows: subgrid;
-		grid-template-columns: subgrid;
-	}
-
 	#{c(header)}, // in chat areas
 	#{c(sidebar server header container)}, // servers, contains name and invite icon
 	#{c(sidebar private searchBar)} { // private, contains big search button
@@ -207,59 +223,41 @@
 
 	// FIX #{c(header)}! (used in many places; fixed in private message, chat and friends list)
 	#{c(chat page)} {
-		@include subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
+		@include subgrid(headerBar-start / span end);
 	}
 	#{c(chat page)} > div {
 		display: grid !important; // !important reason: inline style when no class exists
-		grid-template-rows: subgrid;
-		grid-template-columns: subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
+		grid-template: subgrid / subgrid;
+		grid-row: headerBar-start / span end;
 	}
 	#{c(chat)} {
-		@include subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
+		@include subgrid(headerBar-start / span end);
 	}
 	#{c(chat subtitleContainer)} {
-		@include subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
+		@include subgrid(headerBar-start / span end);
 	}
 	#{c(chat chatContent)} { // fix chat~
-		grid-row-start: notice-end;
-		grid-row-end: span end;
+		grid-row: notice-end / span end;
 	}
 	// friends list stuff now
 	#{c(friends container)} {
-		@include subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
+		@include subgrid(headerBar-start / span end);
 	}
 	#{c(friends tabBody)} {
-		grid-row-start: notice-end;
-		grid-row-end: span end;
+		grid-row: notice-end / span end;
 	}
 
 	// FIX #{c(sidebar server header container)}
 	#{c(sidebar list)} {
-		@include subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
-		container: inline-size; // this was an absolute pain to debug!
+		@include subgrid(headerBar-start / span end);
+		container: inline-size; // this was an absolute pain to debug! it needs to be applied again in css for whatever reason
 	}
 	#{c(sidebar server container)} {
-		@include subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
+		@include subgrid(headerBar-start / span end);
 	}
 	// and if it has a banner
 	#{c(sidebar server header container)}#{c(sidebar server header hasBanner)} {
-		@include subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
+		@include subgrid(headerBar-start / span end);
 		background: transparent;
 		#{c(sidebar server header header)} {
 			background: $header;
@@ -267,44 +265,35 @@
 			border-radius: 0;
 		}
 		#{c(sidebar server header bannerContainer)} {
-			@include subgrid;
-			grid-row-start: headerBar-start;
-			grid-row-end: span end;
+			@include subgrid(headerBar-start / span end);
 			position: relative;
 			top: calc(36px * var(--notice-count,0));
 		}
 		#{c(sidebar server header bannerImage)} {
-			grid-row-start: notice-end;
-			grid-row-end: span end;
+			grid-row: notice-end / span end;
 		}
 	}
 
 	// FIX #{c(sidebar private searchBar)}!
 	#{c(sidebar private channels)} {
-		@include subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
+		@include subgrid(headerBar-start / span end);
 	}
 	#{c(sidebar private scroller)} {
-		grid-row-start: notice-end;
-		grid-row-end: span end;
+		grid-row: notice-end / span end;
 	}
 
 	// FIX #{c(chat noChannel)}
 	#{c(chat noChannel)} {
-		@include subgrid;
-		grid-row-start: headerBar-start;
-		grid-row-end: span end;
+		@include subgrid(headerBar-start / span end);
 		&::before {
 			grid-area: headerBar;
 		}
 		&::after {
-			grid-row-start: notice-end;
-			grid-row-end: span end;
+			grid-row: notice-end / span end;
+			height: calc(100vh - var(--serverlist-offset) - 48px);
 		}
 		#{c(friends emptyWrapper)} {
-			grid-row-start: notice-end;
-			grid-row-end: span end;
+			grid-row: notice-end / span end;
 		}
 	}
 
@@ -317,8 +306,7 @@
 		#{c(vencord betterFolders grid)} {
 			#{c(vencord betterFolders sidebar)} {
 				height: var(--serverlist-offset);
-				grid-row-start: betterFoldersSidebar-start;
-				grid-row-end: betterFoldersSidebar-end;
+				grid-row: betterFoldersSidebar-start / betterFoldersSidebar-end;
 				top: var(--serverlist-offset);
 				position: relative;
 			}
@@ -330,8 +318,13 @@
 		#{c(main container)}:has(>#{c(main base)}>#{c(main content)}>#{c(sidebar)}>#{c(serverList)}+#{c(vencord betterFolders sidebar)}) {
 			--hsl-vc-betterFoldersSidebarOut: true;
 		}
-		// @container style(--hsl-vc-betterFoldersSidebarOut: true) {
-		// }
+		@container style(--hsl-vc-betterFoldersSidebarOut: true) {
+			#{c(chat noChannel)} {
+				&::after {
+					height: calc(100vh - 2 * var(--serverlist-offset) - 48px);
+				}
+			}
+		}
 	}
 
 	// top only stuff
@@ -362,13 +355,17 @@
 		#{c(sidebar list)} {
 			grid-row-end: pageEnd;
 		}
+		#{c(chat noChannel)} {
+			&::after {
+				height: calc(100vh - var(--serverlist-offset) - 48px - 36px);
+			}
+		}
 
 		@container style(--client-mod: vencord) or style(--client-mod: vcbd) {
 			#{c(vencord betterFolders grid)} {
 				#{c(vencord betterFolders sidebar)} {
 					height: var(--serverlist-offset);
-					grid-row-start: hsl-end;
-					grid-row-end: span end;
+					grid-row: hsl-end / span end;
 				}
 			}
 		}
@@ -379,12 +376,17 @@
 		@container style(--hsl-vc-betterFoldersSidebarOut: true) {
 			#{c(vencord betterFolders grid)} {
 				#{c(vencord betterFolders sidebar)} {
-					grid-row-start: betterFoldersSidebar-start;
-					grid-row-end: span end;
+					grid-row: betterFoldersSidebar-start / span end;
 				}
 			}
 			#{c(sidebar panel panels)} {
 				bottom: calc(2 * var(--serverlist-offset));
+			}
+			#{c(chat noChannel)} {
+				&::after {
+					@debug "ensure notice check works";
+					height: calc(100vh - 2 * var(--serverlist-offset) - 48px - 36px);
+				}
 			}
 		}
 	}
@@ -398,10 +400,6 @@
 	}
 	#{c(chat noChannel)}::after {
 		top: 0;
-	}
-	// temp thing to partly hide the notice
-	#{c(notice)} {
-		background-color: rgb(from var(--custom-notice-background) r g b / 50%);
 	}
 
 }

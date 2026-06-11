@@ -839,32 +839,34 @@ html {
   border: none;
 }
 
-.page__5e434 {
-  max-height: calc(100vh - 36px * var(--notice-count, 0));
+@container style(--hsl-position: disabled) {
+  .page__5e434 {
+    max-height: calc(100vh - 36px * var(--notice-count, 0));
+  }
+  .privateChannels_e6b769 {
+    overflow: visible;
+    max-height: calc(100vh - 36px * var(--notice-count, 0));
+  }
+  .container__9293f,
+  .container_f37cb1,
+  .noChannel__01d5c::before,
+  .pageWrapper_a3a4ce::before,
+  .searchBar_e6b769 {
+    top: calc(-36px * var(--notice-count, 0));
+  }
+  :is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 :is(.container__133bf,
+  .page__5e434,
+  .chat_f75fb0,
+  .callContainer_cb9592,
+  .container__01ae2) {
+    overflow: unset;
+  }
+  :is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 .resizeHandle__01ae2 {
+    top: calc(-36px * var(--notice-count, 0));
+    height: 100vh;
+    position: relative;
+  }
 }
-
-.privateChannels_e6b769 {
-  overflow: visible;
-  max-height: calc(100vh - 36px * var(--notice-count, 0));
-}
-
-.container__9293f,
-.container_f37cb1,
-.noChannel__01d5c::before,
-.pageWrapper_a3a4ce::before,
-.searchBar_e6b769 {
-  top: calc(-36px * var(--notice-count, 0));
-}
-
-:is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 :is(.container__133bf, .page__5e434, .chat_f75fb0, .callContainer_cb9592, .container__01ae2) {
-  overflow: unset;
-}
-:is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 .resizeHandle__01ae2 {
-  top: calc(-36px * var(--notice-count, 0));
-  height: 100vh;
-  position: relative;
-}
-
 .notice__30f28,
 .notice_c9e42f,
 .notice_c5cd6a {
@@ -2265,23 +2267,16 @@ html {
   }
   .content__5e434 {
     display: grid;
-    grid-column: start/end;
-    grid-row: top/end;
-    grid-template-columns: subgrid;
-    grid-template-rows: subgrid;
+    grid-area: top/start/end/end;
+    grid-template: subgrid/subgrid;
   }
   .sidebar__5e434 {
     display: grid;
-    grid-column: start/channelsEnd;
-    grid-row: top/end;
-    grid-template-columns: subgrid;
-    grid-template-rows: subgrid;
+    grid-area: top/start/end/channelsEnd;
+    grid-template: subgrid/subgrid;
   }
   .sidebar__5e434 > .wrapper_ef3116 {
-    grid-row-start: hsl-start;
-    grid-row-end: hsl-end;
-    grid-column-start: start;
-    grid-column-end: end;
+    grid-area: hsl-start/start/hsl-end/end;
     top: var(--serverlist-offset);
   }
   .sidebar__5e434 {
@@ -2333,68 +2328,50 @@ html {
   }
   .page__5e434 {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
   }
   .page__5e434 > div {
     display: grid !important;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
   }
   .chat_f75fb0 {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
   }
   .subtitleContainer_f75fb0 {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
   }
   .content_f75fb0 {
-    grid-row-start: notice-end;
-    grid-row-end: span end;
+    grid-row: notice-end/span end;
   }
   .container__133bf {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
   }
   .tabBody__133bf {
-    grid-row-start: notice-end;
-    grid-row-end: span end;
+    grid-row: notice-end/span end;
   }
   .sidebarList__5e434 {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
     container: inline-size;
   }
   .container__2637a {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
   }
   .container_f37cb1.hasBanner_f37cb1 {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
     background: transparent;
   }
   .container_f37cb1.hasBanner_f37cb1 .header_f37cb1 {
@@ -2404,51 +2381,41 @@ html {
   }
   .container_f37cb1.hasBanner_f37cb1 .animatedContainer_f37cb1 {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
     position: relative;
     top: calc(36px * var(--notice-count, 0));
   }
   .container_f37cb1.hasBanner_f37cb1 .bannerImage_f37cb1 {
-    grid-row-start: notice-end;
-    grid-row-end: span end;
+    grid-row: notice-end/span end;
   }
   .privateChannels_e6b769 {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
   }
   .scroller__99e7c {
-    grid-row-start: notice-end;
-    grid-row-end: span end;
+    grid-row: notice-end/span end;
   }
   .noChannel__01d5c {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row-start: headerBar-start;
-    grid-row-end: span end;
+    grid-template: subgrid/subgrid;
+    grid-row: headerBar-start/span end;
   }
   .noChannel__01d5c::before {
     grid-area: headerBar;
   }
   .noChannel__01d5c::after {
-    grid-row-start: notice-end;
-    grid-row-end: span end;
+    grid-row: notice-end/span end;
+    height: calc(100vh - var(--serverlist-offset) - 48px);
   }
   .noChannel__01d5c .wrapper__33d12 {
-    grid-row-start: notice-end;
-    grid-row-end: span end;
+    grid-row: notice-end/span end;
   }
   @container style(--client-mod: vencord) or style(--client-mod: vcbd) {
     .vc-betterFolders-sidebar-grid .vc-betterFolders-sidebar {
       height: var(--serverlist-offset);
-      grid-row-start: betterFoldersSidebar-start;
-      grid-row-end: betterFoldersSidebar-end;
+      grid-row: betterFoldersSidebar-start/betterFoldersSidebar-end;
       top: var(--serverlist-offset);
       position: relative;
     }
@@ -2457,6 +2424,11 @@ html {
     }
     .container__5e434:has(> .base__5e434 > .content__5e434 > .sidebar__5e434 > .guilds__5e434 + .vc-betterFolders-sidebar) {
       --hsl-vc-betterFoldersSidebarOut: true;
+    }
+    @container style(--hsl-vc-betterFoldersSidebarOut: true) {
+      .noChannel__01d5c::after {
+        height: calc(100vh - 2 * var(--serverlist-offset) - 48px);
+      }
     }
   }
   @container style(--hsl-position: top) {
@@ -2478,11 +2450,13 @@ html {
     .sidebarList__5e434 {
       grid-row-end: pageEnd;
     }
+    .noChannel__01d5c::after {
+      height: calc(100vh - var(--serverlist-offset) - 48px - 36px);
+    }
     @container style(--client-mod: vencord) or style(--client-mod: vcbd) {
       .vc-betterFolders-sidebar-grid .vc-betterFolders-sidebar {
         height: var(--serverlist-offset);
-        grid-row-start: hsl-end;
-        grid-row-end: span end;
+        grid-row: hsl-end/span end;
       }
     }
     .panels__5e434 {
@@ -2490,11 +2464,13 @@ html {
     }
     @container style(--hsl-vc-betterFoldersSidebarOut: true) {
       .vc-betterFolders-sidebar-grid .vc-betterFolders-sidebar {
-        grid-row-start: betterFoldersSidebar-start;
-        grid-row-end: span end;
+        grid-row: betterFoldersSidebar-start/span end;
       }
       .panels__5e434 {
         bottom: calc(2 * var(--serverlist-offset));
+      }
+      .noChannel__01d5c::after {
+        height: calc(100vh - 2 * var(--serverlist-offset) - 48px - 36px);
       }
     }
   }
@@ -2506,9 +2482,6 @@ html {
   }
   .noChannel__01d5c::after {
     top: 0;
-  }
-  .notice__6e2b9 {
-    background-color: rgb(from var(--custom-notice-background) r g b/50%);
   }
 }
 /* Background attachment stuff */

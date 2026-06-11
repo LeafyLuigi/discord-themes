@@ -1,16 +1,183 @@
 @use "backend" as *;
 @if $lite != 1 {
 /* Begin Beta Branch */
-
-// Expect it to not work fully.
-// html[lang="en-GB"],
-// html[lang="fr"] {
-// 	//test colors lol
-// 	--green-color: green;
-// 	--yellow-color: yellow;
-// 	--red-color: red;
-// 	--link-color: cyan;
-// 	--offline-color: white;
+// @property --grid-layout {
+// 	inherits: true;
+// 	initial-value: false;
+// 	syntax: "true | false";
 // }
 
+// // Expect it to not work fully.
+// // html[lang="en-GB"],
+// // html[lang="fr"] {
+// // 	//test colors lol
+// // 	--green-color: green;
+// // 	--yellow-color: yellow;
+// // 	--red-color: red;
+// // 	--link-color: cyan;
+// // 	--offline-color: white;
+// // }
+// @container style(--grid-layout: true) {
+// // at this point i'm remaking the layout the way i like it >:D
+// .base__5e434 {
+// 	grid-template-areas:
+// 		"titleBar titleBar titleBar titleBar"
+// 		"headerBar headerBar headerBar headerBar"
+// 		"guildsList notice notice notice"
+// 		"guildsList channelsList page side"
+// 		"panel panel page side"
+// 	;
+// 	grid-template-rows: 
+// 		[top] var(--custom-app-top-bar-height)
+// 		[titleBarEnd] var(--custom-channel-header-height)
+// 		[headerBarEnd] min-content
+// 		[noticeEnd] 1fr 
+// 		// [noticeEnd] minmax(1fr, calc(100vh - var(--custom-app-top-bar-height) - var(--custom-channel-header-height) - var(--custom-app-panels-height)))
+// 		[sidebarHeightEnd] var(--custom-app-panels-height)
+// 	[end];
+// 	grid-template-columns: 
+// 		[start] 72px
+// 		[guildsEnd] calc(var(--custom-guild-sidebar-width) - 72px)
+// 		[channelsEnd] 1fr 
+// 		[pageEnd] min-content 
+// 	[end];
+// }
+// // page as a whole
+// .page__5e434 {
+// 	display: grid;
+// 	grid-area: headerBar / page / end / end;
+// 	grid-template: subgrid / subgrid;
+// }
+// // friends list
+// #{c(friends container)} {
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / page / end / end;
+// }
+// .container__9293f {
+// 	grid-area: headerBar / notice / headerBarEnd / notice;
+// }
+// #{c(friends tabBody)} {
+// 	grid-area: noticeEnd / page / end / end;
+// }
+// // private dms
+// #{c(chat page)} > div:not([class]) {
+// 	display: grid !important; // !important reason: inline style when no class exists
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / page / end / end;
+// }
+// .chat_f75fb0 {
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / page / end / end;
+// }
+// .subtitleContainer_f75fb0 {
+// 	grid-area: headerBar / notice / headerBarEnd / notice;
+// }
+// .content_f75fb0 {
+// 	grid-area: noticeEnd / page / end / end;
+// }
+// // server list
+// .sidebar__5e434 {
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / start / end / channelsEnd;
+// }
+// .wrapper_ef3116 {
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / start / end / guildsListEnd;
+// 	margin: 0;
+// 	&::before {
+// 		:is(.platform-linux, .platform-web) & {
+// 			// top: unset;
+// 			// right: unset;
+// 			// bottom: unset;
+// 			// left: unset;
+// 			height: 100%;
+// 		}
+// 		grid-area: headerBar / guildsList / headerBarEnd / guildsList;
+// 	}
+// }
+// // sidebar
+// .sidebarList__5e434 {
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / channelsList / sidebarHeightEnd / channelsList;
+// 	container: inline-size; // it needs to be reapplied
+// }
+// // private channels
+// .privateChannels_e6b769 {
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / channelsList / sidebarHeightEnd / channelsList;
+// }
+// .searchBar_e6b769 {
+// 	grid-area: headerBar / channelsList;
+// }
+// .scroller__99e7c {
+// 	grid-area: channelsList;
+// 	padding-bottom: 0;
+// 	margin-bottom: 0;
+// }
+// // server channels
+// .container__2637a {
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / channelsList / channelsList / channelsList;
+// 	padding-bottom: 0;
+// }
+// @debug "fix servers with banners. it also breaks art with notices";
+// // #{c(sidebar server header container)}#{c(sidebar server header hasBanner)} {
+// // 	display: grid;
+// // 	grid-template: subgrid / subgrid;
+// // 	grid-area: headerBar / channelsList / panels / channelsList;
+// // 	// grid-row: headerBar-start / span end;
+// // 	background: transparent;
+// // 	#{c(sidebar server header header)} {
+// // 		background: $header;
+// // 		grid-area: headerBar;
+// // 		border-radius: 0;
+// // 	}
+// // 	#{c(sidebar server header bannerContainer)} {
+// // 		display: grid;
+// // 		grid-template: subgrid / subgrid;
+// // 		grid-area: channelsList / channelsList / channelsList / channelsList;
+// // 		// grid-row: headerBar-start / span end;
+// // 		position: relative;
+// // 		top: calc(36px * var(--notice-count,0));
+// // 	}
+// // 	#{c(sidebar server header bannerImage)} {
+// // 		grid-row: notice-end / span end;
+// // 	}
+// // }
+
+// // panels
+// .panels__5e434 {
+// 	grid-area: panels;
+// }
+
+// // server voice chat
+// .chat_f75fb0 > .wrapper_cb9592 {
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / page / end / end;
+// }
+// .callContainer_cb9592 {
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / page / end / end;
+// }
+// @debug "server call still not complete";
+// .root_bfe55a { // has ::before that needs to live in headerBar
+// 	display: grid;
+// 	grid-template: subgrid / subgrid;
+// 	grid-area: headerBar / page / end / end;
+// }
+
+
+// // container style()
+// }
+
+// not lite
 }
