@@ -4805,6 +4805,12 @@ span):not(.spoilerContent__299eb) {
 }
 
 /* Start User Profile Panel */
+.aside_f58343 {
+  background: var(--hsl-side-shading);
+  --width: 320px;
+  --hide-var: var(--hide-profile-panel);
+}
+
 .user-profile-sidebar.custom-user-profile-theme .inner_c0bea0 {
   background: linear-gradient(var(--profile-gradient-primary-color), var(--profile-gradient-secondary-color));
 }
@@ -4822,12 +4828,6 @@ span):not(.spoilerContent__299eb) {
 
 .footerButton__272c7 {
   display: none;
-}
-
-.aside_f58343 {
-  background: var(--hsl-side-shading);
-  --width: 320px;
-  --hide-var: var(--hide-profile-panel);
 }
 
 /* Start Profile in Settings */
