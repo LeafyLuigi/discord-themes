@@ -221,7 +221,7 @@ body) {
   }
   .content_f75fb0 > .container_c8ffbb,
   .chatContent_f75fb0 + .membersWrap_c8ffbb,
-  .user-profile-sidebar,
+  .aside_f58343,
   .nowPlayingColumn__133bf {
     left: calc((var(--width, 240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled)));
     transition: var(--hide-speed, 0.5s) var(--hide-delay, 0s) transform ease-out, var(--hide-speed, 0.5s) var(--hide-delay, 0s) backdrop-filter ease-out;
@@ -234,7 +234,7 @@ body) {
   }
   .app-focused .content_f75fb0 > .container_c8ffbb:hover,
   .app-focused .chatContent_f75fb0 + .membersWrap_c8ffbb:hover,
-  .app-focused .user-profile-sidebar:hover,
+  .app-focused .aside_f58343:hover,
   .app-focused .nowPlayingColumn__133bf:hover {
     transform: translateX(calc(-1 * (var(--width, 240px) - 60px) * var(--hide-var, var(--hide-fallback-enabled))));
     backdrop-filter: blur(calc(var(--blur-intensity) * var(--hide-var, var(--hide-fallback-enabled)) * 3px));
@@ -831,40 +831,46 @@ html {
   box-shadow: none;
   max-height: 36px;
   padding: 0;
-  width: calc(100vw - 72px + 72px * var(--horizontal-server-list-enabled, 0));
-  top: 48px;
+}
+@container style(--grid-layout: false) {
+  :is(:where(#bd-notices:not(:empty)), .notice__6e2b9) {
+    width: calc(100vw - 72px + 72px * var(--horizontal-server-list-enabled, 0));
+    top: 48px;
+  }
 }
 
 .notice__6e2b9 {
   border: none;
 }
 
-@container style(--hsl-position: disabled) {
-  .page__5e434 {
-    max-height: calc(100vh - 36px * var(--notice-count, 0));
-  }
-  .privateChannels_e6b769 {
-    overflow: visible;
-    max-height: calc(100vh - 36px * var(--notice-count, 0));
-  }
-  .container__9293f,
-  .container_f37cb1,
-  .noChannel__01d5c::before,
-  .pageWrapper_a3a4ce::before,
-  .searchBar_e6b769 {
-    top: calc(-36px * var(--notice-count, 0));
-  }
-  :is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 :is(.container__133bf,
-  .page__5e434,
-  .chat_f75fb0,
-  .callContainer_cb9592,
-  .container__01ae2) {
-    overflow: unset;
-  }
-  :is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 .resizeHandle__01ae2 {
-    top: calc(-36px * var(--notice-count, 0));
-    height: 100vh;
-    position: relative;
+@container style(--grid-layout: false) {
+  @container style(--hsl-position: disabled) {
+    .page__5e434 {
+      max-height: calc(100vh - 36px * var(--notice-count, 0));
+    }
+    .privateChannels_e6b769 {
+      overflow: visible;
+      max-height: calc(100vh - 36px * var(--notice-count, 0));
+    }
+    .container__9293f,
+    .container_f37cb1,
+    .noChannel__01d5c::before,
+    .pageWrapper_a3a4ce::before,
+    .searchBar_e6b769 {
+      top: calc(-36px * var(--notice-count, 0));
+    }
+    :is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 :is(.container__133bf,
+    .page__5e434,
+    .chat_f75fb0,
+    .callContainer_cb9592,
+    .container__01ae2) {
+      overflow: unset;
+    }
+    :is(:where(#bd-notices:not(:empty)), .notice__6e2b9) ~ .content__5e434 .resizeHandle__01ae2 {
+      top: calc(-36px * var(--notice-count, 0));
+      height: 100vh;
+      position: relative;
+    }
   }
 }
 .notice__30f28,
@@ -1026,10 +1032,6 @@ html {
 }
 
 /* Start User Profile Panel */
-.user-profile-sidebar {
-  --width: 340px;
-  --hide-var: var(--hide-profile-panel);
-}
 .user-profile-sidebar.custom-user-profile-theme .inner_c0bea0 {
   background: linear-gradient(var(--profile-gradient-primary-color), var(--profile-gradient-secondary-color));
 }
@@ -1047,6 +1049,12 @@ html {
 
 .footerButton__272c7 {
   display: none;
+}
+
+.aside_f58343 {
+  background: var(--hsl-side-shading);
+  --width: 320px;
+  --hide-var: var(--hide-profile-panel);
 }
 
 /* Start Profile in Settings */

@@ -263,9 +263,11 @@ html, // because maybe?
 		}
 	}
 	// END CLAMPING
+	@warn "FIX TEMP CLASS!";
 	#{c(chat chatContent)} > #{c(memberList container)}, // member list sidebar, regular chat
 	#{c(chat chatContentInner)} + #{c(memberList wrap)}, // member list sidebar, forum post
-	#{c(profile panel)}, // dms with someone with profile theme
+	// #{c(profile panel parent)}, // dms with someone with profile theme
+	.aside_f58343, // dms with someone with profile theme
 	#{c(friends nowPlayingColumn)} // active now in friends list
 	{
 		left: calc( ( var(--width,240px) - 60px ) * var(--hide-var, var(--hide-fallback-enabled)));
@@ -280,9 +282,11 @@ html, // because maybe?
 			--profile-gradient-primary-color .15s ease,--profile-gradient-secondary-color .15s ease,--profile-gradient-modal-background-color .15s ease,--profile-gradient-overlay-color .15s ease;
 	}
 	#{c(main focused)} {
+		@warn "FIX TEMP CLASS!";
 		#{c(chat chatContent)} > #{c(memberList container)},
 		#{c(chat chatContentInner)} + #{c(memberList wrap)},
-		#{c(profile panel)},
+		// #{c(profile panel)},
+		.aside_f58343, // dms with someone with profile theme
 		#{c(friends nowPlayingColumn)} {
 			&:hover {
 			// &:is(:hover,:focus-within) {

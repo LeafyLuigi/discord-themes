@@ -1,8 +1,6 @@
 @use "backend" as *;
 /* Start User Profile Panel */
 #{c(profile panel)} {
-	--width: 340px;
-	--hide-var: var(--hide-profile-panel);
 	// background: $side;
 	&#{c(profile themed)} {
 		#{c(profile inner)} {
@@ -22,4 +20,12 @@
 // i couldn't be bothered moving classes around tonight
 #{c(experiments themesSidebarFooterButton)} {
 	display: none;
+}
+
+@warn "TEMP SHIT FIX THE CLASS";
+// #{c(profile panel parent)} {
+.aside_f58343 {
+	background: $side;
+	--width: 320px;
+	--hide-var: var(--hide-profile-panel);
 }
