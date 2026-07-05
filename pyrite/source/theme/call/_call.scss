@@ -27,10 +27,18 @@
 #{c(call avatarBorder)}#{c(call avatarSpeaking)} {
 	box-shadow: inset 0 0 10px 2px $primary;
 }
-#{c(call root)}#{c(call idle)} {
-	#{c(call topControls)} {
-		opacity: 1;
-		transform: none;
+:is(
+	html:not(#{c(main keyboardMode)}),
+	html#{c(main keyboardMode)}
+) {
+	#{c(call root)}#{c(call idle)}:not(:focus-within) {
+		:is(
+			#{c(call topControls)},
+			#{c(call bottomControls)}
+		) {
+			opacity: 1;
+			transform: none;
+		}
 	}
 }
 #{c(call container)},
@@ -82,19 +90,22 @@
 		content: none;
 	}
 }
-#{c(call root)} {
-	#{c(call videoControls)} {
-		#{c(call controlSection)} {
-			position: relative;
-			top: -48px;
-			&#{c(call bottomControls)} {
-				top: 0;
+@debug "remove grid layout container thing here when done thanks";
+@container style(--grid-layout: false) {
+	#{c(call root)} {
+		#{c(call videoControls)} {
+			#{c(call controlSection)} {
+				position: relative;
+				top: -48px;
+				&#{c(call bottomControls)} {
+					top: 0;
+				}
 			}
 		}
-		#{c(stage gradientContainer)} {
-			display: none;
-		}
 	}
+}
+#{c(stage gradientContainer)} {
+	display: none;
 }
 #{c(stage scroller)} {
 	background: transparent;

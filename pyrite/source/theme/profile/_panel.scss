@@ -1,8 +1,12 @@
 @use "backend" as *;
 /* Start User Profile Panel */
 #{c(profile panel parent)} {
+	--width: 300px;
+	--hide-var: var(--hide-profile-panel);
 	background: $side;
-	--width: 320px;
+}
+#{c(profile panel)}:not(#{c(profile panel redesign)}) {
+	--width: 340px;
 	--hide-var: var(--hide-profile-panel);
 }
 #{c(profile panel)} {
@@ -22,6 +26,38 @@
 #{c(profile panel overlayInnerContainer)} {
 	backdrop-filter: none; // for whatever reason this is put there.
 }
+
+// funny redesign stuff
+// see 2026-06-user-profile-sidebar-redesign
+#{c(profile panel parent)} {
+	padding: 0;
+}
+#{c(profile panel)}#{c(profile panel redesign)} {
+	&:where(#{c(profile outer)}):not(#{c(profile themed)}) {
+		background: none;
+	}
+	#{c(profile inner)} {
+		border-radius: 0;
+	}
+	&#{c(profile themed)} {
+		&:where(#{c(profile outer)}) {
+			border-radius: 0;
+		}
+		#{c(profile inner)} {
+			border-radius: 0;
+		}
+	}
+}
+#{c(profile panel redesign footer)} {
+	display: none;
+}
+#{c(profile panel redesign descriptionClamp)} {
+	-webkit-line-clamp: 6; // revert it back to what the pre-redesign was!
+}
+#{c(profile panel redesign maxBioHeight)} {
+	max-height: unset;
+}
+
 // i couldn't be bothered moving classes around tonight
 #{c(experiments themesSidebarFooterButton)} {
 	display: none;

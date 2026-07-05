@@ -134,7 +134,7 @@ html, // because maybe?
 
 // "Browse Channels" loading thing. Class could potentially be used elsewhere.
 #{c(main loader)} {
-	background: linear-gradient(to bottom, $header 48px, $middle 48px);
+	background: linear-gradient(to bottom, $header var(--custom-channel-header-height,48px), $middle var(--custom-channel-header-height,48px));
 }
 
 // OS stuff
@@ -145,15 +145,15 @@ html, // because maybe?
 		border-radius: 0;
 	}
 	#{c(serverList)} {
-		padding-top: 48px;
+		padding-top: var(--custom-channel-header-height,48px);
 		overflow: visible;
-		@include bg($z:1010,$bg:$header,$w:72px,$h:48px);
+		@include bg($z:1010,$bg:$header,$w:var(--custom-guild-list-width,72px),$h:var(--custom-channel-header-height,48px));
 	}
 	#{c(serverList)}::after {
 		content: none;
 	}
 	#{c(serverList unreadMentionsBar top)} {
-		top: 48px;
+		top: var(--custom-channel-header-height,48px);
 	}
 }
 #{c(os win type)} {
@@ -170,7 +170,7 @@ html, // because maybe?
 	width: var(--win-min-max-close-button-width);
 	position: relative;
 	top: 0;
-	height: 48px;
+	height: var(--custom-channel-header-height,48px);
 }
 #{c(os win buttonClose)}:hover {
 	background: $red;
@@ -180,9 +180,9 @@ html, // because maybe?
 // Mac
 #{c(os mac)} {
 	#{c(serverList wrapper)} {
-		margin-top: 48px;
+		margin-top: var(--custom-channel-header-height,48px);
 		overflow: visible;
-		@include bg($z:1050,$bg:$header,$w:72px,$h:48px,$top:-48px,$war:drag);
+		@include bg($z:1050,$bg:$header,$w:var(--custom-guild-list-width,72px),$h:var(--custom-channel-header-height,48px),$top:calc(-1px * var(--custom-channel-header-height,48px)),$war:drag);
 	}
 	#{c(serverList scroller)} {
 		padding-top: 4px;
@@ -206,15 +206,15 @@ html, // because maybe?
 		padding: 4px 0 0 0;
 	}
 	#{c(serverList)} {
-		@include bg($bg:$header,$w:100%,$h:48px,$z:1010);
+		@include bg($bg:$header,$w:100%,$h:var(--custom-channel-header-height,48px),$z:1010);
 	}
 	#{c(serverList tree)} {
-		top: 48px;
+		top: var(--custom-channel-header-height,48px);
 		position: relative;
-		height: calc(100vh - 48px - var(--custom-app-panels-height,0px));
+		height: calc(100vh - var(--custom-channel-header-height,48px) - var(--custom-app-panels-height,0px));
 	}
 	#{c(serverList unreadMentionsBar top)} {
-		top: 48px;
+		top: var(--custom-channel-header-height,48px);
 	}
 }
 
@@ -265,6 +265,7 @@ html, // because maybe?
 	// END CLAMPING
 	#{c(chat chatContent)} > #{c(memberList container)}, // member list sidebar, regular chat
 	#{c(chat chatContentInner)} + #{c(memberList wrap)}, // member list sidebar, forum post
+	#{c(profile panel)}:not(#{c(profile panel redesign)}),
 	#{c(profile panel parent)}, // dms with someone with profile theme
 	#{c(friends nowPlayingColumn)} // active now in friends list
 	{
@@ -282,6 +283,7 @@ html, // because maybe?
 	#{c(main focused)} {
 		#{c(chat chatContent)} > #{c(memberList container)},
 		#{c(chat chatContentInner)} + #{c(memberList wrap)},
+		#{c(profile panel)}:not(#{c(profile panel redesign)}),
 		#{c(profile panel parent)},
 		#{c(friends nowPlayingColumn)} {
 			&:hover {

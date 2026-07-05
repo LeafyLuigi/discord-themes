@@ -2,7 +2,6 @@
 /* Start Notices */
 // local variable
 $nc: var(--notice-count, 0);
-// @container style(--grid-layout: false) {
 
 #{c(main base)} :where(#{c(bd notices)}:not(:empty),#{c(notice)}) { // using :where() instead of :is() because specificity
 	~#{c(main content)} {
@@ -24,18 +23,22 @@ $nc: var(--notice-count, 0);
 	box-shadow: none;
 	max-height: 36px;
 	padding: 0;
-	// movement and width stuff
-	@debug "broken with hide channel list";
-	// 72px for server list, undo 72px for HSL addon
-	width: calc(100vw - 72px + (72px * var(--horizontal-server-list-enabled,0)));
-	// left: 240px; // move it over
-	top: 48px; // move it below header
+
+	@container style(--grid-layout: false) {
+		// movement and width stuff
+		@debug "broken with hide channel list";
+		// 72px for server list, undo 72px for HSL addon
+		width: calc(100vw - var(--custom-guild-list-width,72px) + (var(--custom-guild-list-width,72px) * var(--horizontal-server-list-enabled,0)));
+		// left: 240px; // move it over
+		top: var(--custom-channel-header-height,48px); // move it below header
+	}
 }
 
 #{c(notice)} {
 	border: none;
 }
 
+@container style(--grid-layout: false) {
 @container style(--hsl-position: disabled) {
 	
 	// It works somehow lol
@@ -76,9 +79,7 @@ $nc: var(--notice-count, 0);
 	}
 
 }
-
-// }
-
+}
 
 // specific notices
 #{c(notice completeSteps)},

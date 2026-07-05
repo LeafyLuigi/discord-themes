@@ -1,183 +1,458 @@
 @use "backend" as *;
 @if $lite != 1 {
 /* Begin Beta Branch */
-// @property --grid-layout {
-// 	inherits: true;
-// 	initial-value: false;
-// 	syntax: "true | false";
-// }
+@property --grid-layout {
+	inherits: true;
+	initial-value: false;
+	// initial-value: true;
+	syntax: "true | false";
+}
 
-// // Expect it to not work fully.
-// // html[lang="en-GB"],
-// // html[lang="fr"] {
-// // 	//test colors lol
-// // 	--green-color: green;
-// // 	--yellow-color: yellow;
-// // 	--red-color: red;
-// // 	--link-color: cyan;
-// // 	--offline-color: white;
-// // }
-// @container style(--grid-layout: true) {
-// // at this point i'm remaking the layout the way i like it >:D
-// .base__5e434 {
-// 	grid-template-areas:
-// 		"titleBar titleBar titleBar titleBar"
-// 		"headerBar headerBar headerBar headerBar"
-// 		"guildsList notice notice notice"
-// 		"guildsList channelsList page side"
-// 		"panel panel page side"
-// 	;
-// 	grid-template-rows: 
-// 		[top] var(--custom-app-top-bar-height)
-// 		[titleBarEnd] var(--custom-channel-header-height)
-// 		[headerBarEnd] min-content
-// 		[noticeEnd] 1fr 
-// 		// [noticeEnd] minmax(1fr, calc(100vh - var(--custom-app-top-bar-height) - var(--custom-channel-header-height) - var(--custom-app-panels-height)))
-// 		[sidebarHeightEnd] var(--custom-app-panels-height)
-// 	[end];
-// 	grid-template-columns: 
-// 		[start] 72px
-// 		[guildsEnd] calc(var(--custom-guild-sidebar-width) - 72px)
-// 		[channelsEnd] 1fr 
-// 		[pageEnd] min-content 
-// 	[end];
+// Expect it to not work fully.
+// html[lang="en-GB"],
+// html[lang="fr"] {
+// 	//test colors lol
+// 	--green-color: green;
+// 	--yellow-color: yellow;
+// 	--red-color: red;
+// 	--link-color: cyan;
+// 	--offline-color: white;
 // }
-// // page as a whole
-// .page__5e434 {
+@container style(--grid-layout: true) {
+// at this point i'm remaking the layout the way i like it >:D
+// Discord's own variables should be used (with fallbacks for default) for width/height stuff of certain elements.
+// var(--custom-channel-header-height,48px) = guildbar-avatar-size + space-xs
+// var(--custom-guild-list-width,72px) = guildbar-avatar-size + custom-guild-list-padding * 2
+// var(--custom-app-panels-height,0) = unknown intiial calculations other than it takes the height of the user panel and changes when you're in voice
+// var(--custom-app-top-bar-height,0) = 32; overwritten by ME. NOT windows = 0, windows with restore titlebar = 32.
+
+
+// for above, these may be required. all are in px unless specified
+// space-xxs = space-4 (default) | space-4 (compact) | space-4 (cozy)
+// space-xs = space-8 (default) | space-6 (compact) | space-10 (cozy)
+// space-sm = space-12 (default) | space-10 (compact) | space-16 (cozy)
+// space-md = space-16 (default) | space-12 (compact) | space-20 (cozy)
+// space-lg = space-20 (default) | space-16 (compact) | space-24 (cozy)
+// space-xl = space-24 (default) | space-20 (compact) | space-30 (cozy)
+// space-xxl = space-32 (default) | space-26 (compact) | space-40 (cozy)
+
+// custom-guild-list-padding = space-md
+// guildbar-avatar-size = 40
+// custom-guild-sidebar-width = 260; overwritten by <body style="">
+// custom-app-sidebar-target-width = custom-guild-sidebar-width + custom-guild-list-width
+// custom-rtc-account-height = 44
+// custom-app-top-bar-item-radius = 6
+// custom-member-list-width = 264
+// custom-channel-textarea-text-area-height: 56
+// custom-chat-aligned-icon-offset = `((var(--chat-avatar-size) - var(--chat-input-icon-size))/2)` (THERE IS NO CALC.)
+// custom-message-margin-horizontal = space-md
+
+////////
+/// KNOWN BROKEN AREAS:
+////////
+// home > nitro
+// home > shop
+// home > quests
+// -- reason for above is that they are hidden by default in the theme and are also unthemed. if it still exists, the library is also likely broken
+// server > guide
+// server > members
+// server > boosts page
+// server > server shop (found in discord previews; might hide it)
+// server > game servers (found in anime game modding group; might hide?)
+// -- weirdly enough server > browse channels isn't broken (check bfgteam, me)
+// voice channel with open chat (wide window) # KINDA FIXED?
+// voice channel with open chat (narrow window) # KINDA FIXED?
+// voice channel with closed chat # FIXED
+// stage channel with open chat (wide window)
+// stage channel with open chat (narrow window)
+// stage channel with closed chat
+// forum channel, list mode, thread open (wide window)
+// forum channel, list mode, thread open (narrow window)
+// forum channel, gallary mode, thread open (wide window)
+// forum channel, gallary mode, thread open (narrow window)
+// regular chat, creating thread
+// regular chat, thread open (wide window)
+// regular chat, thread open (narrow window)
+// empty chat (check senzawa)
+// -- i *think* that's it for server stuff
+// discover in its entirety. that whole thing needs to be redone anyway
+// -- discover should be done first tbh but i can't really be fucked lol
+// MAY FUCK UP FROM OTHER STUFF:
+// dm calls # SET TO FLEX RATHER THAN GRID. REQUIRES NOTICE COUNTING.
+// dm calls while streaming # SET TO FLEX RATHER THAN GRID, HAS OVERLAP ISSUE WITH NOTICE.
+// -- below are client mod stuff
+// **VENCORD** no access to channel; it scrolls
+.base__5e434 {
+	&[data-fullscreen=false] {
+		grid-template-areas:
+			"titleBar titleBar titleBar titleBar"
+			"headerBar headerBar headerBar headerBar"
+			"guildsList notice notice notice"
+			"guildsList channelsList page side"
+			"panel panel page side"
+		;
+		grid-template-rows: 
+			[top] var(--custom-app-top-bar-height)
+			[titleBarEnd] var(--custom-channel-header-height)
+			[headerBarEnd] min-content
+			[noticeEnd] 1fr 
+			// [noticeEnd] minmax(1fr, calc(100vh - var(--custom-app-top-bar-height) - var(--custom-channel-header-height) - var(--custom-app-panels-height)))
+			[sidebarHeightEnd] var(--custom-app-panels-height)
+		[end];
+		grid-template-columns: 
+			[start] var(--custom-guild-list-width,72px)
+			[guildsEnd] calc(var(--custom-guild-sidebar-width) - var(--custom-guild-list-width,72px))
+			[channelsEnd] 1fr 
+			[pageEnd] min-content 
+		[end];
+	}
+}
+// page as a whole
+.page__5e434 {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / page / end / end;
+}
+// friends list
+#{c(friends container)} {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / page / end / end;
+}
+.container__9293f {
+	grid-area: headerBar / notice / headerBarEnd / notice;
+}
+#{c(friends tabBody)} {
+	grid-area: noticeEnd / page / end / end;
+}
+// private dms
+#{c(chat page)} {
+	> div:not([class]) { // for getting chat to work properly
+		display: grid !important; // !important reason: inline style when no class exists
+		grid-template: subgrid / subgrid;
+		grid-area: headerBar / page / end / end;
+	}
+	> .page_c791b2.chat_f75fb0 { // for getting members page to work
+		display: grid; // !important reason: inline style when no class exists
+		grid-template: subgrid / subgrid;
+		grid-area: headerBar / page / end / end;
+	}
+}
+.chat_f75fb0 {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / page / end / end;
+}
+.subtitleContainer_f75fb0 {
+	grid-area: headerBar / notice / headerBar / notice;
+}
+.content_f75fb0 {
+	grid-area: noticeEnd / page / end / end;
+}
+// server list
+.sidebar__5e434 {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / start / end / channelsEnd;
+}
+.wrapper_ef3116 {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / start / end / guildsListEnd;
+	margin: 0;
+	&::before {
+		:is(.platform-linux, .platform-web) & {
+			// top: unset;
+			// right: unset;
+			// bottom: unset;
+			// left: unset;
+			height: 100%;
+		}
+		grid-area: headerBar / guildsList / headerBar / guildsList;
+	}
+}
+// sidebar
+.sidebarList__5e434 {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / channelsList / sidebarHeightEnd / channelsList;
+	container: inline-size; // it needs to be reapplied
+}
+// private channels
+.privateChannels_e6b769 {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / channelsList / sidebarHeightEnd / channelsList;
+}
+.searchBar_e6b769 {
+	grid-area: headerBar / channelsList;
+}
+.scroller__99e7c {
+	grid-area: channelsList;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+// server channels
+.container__2637a {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / channelsList / channelsList / channelsList;
+	padding-bottom: 0;
+}
+@debug "fix servers with banners. it also breaks art with notices";
+#{c(sidebar server header container)} {
+	grid-area: headerBar;
+}
+.positionedContainer__629e4 {
+	grid-area: channelsList;
+}
+// #{c(sidebar server header container)}#{c(sidebar server header hasBanner)} {
 // 	display: grid;
-// 	grid-area: headerBar / page / end / end;
 // 	grid-template: subgrid / subgrid;
-// }
-// // friends list
-// #{c(friends container)} {
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / page / end / end;
-// }
-// .container__9293f {
-// 	grid-area: headerBar / notice / headerBarEnd / notice;
-// }
-// #{c(friends tabBody)} {
-// 	grid-area: noticeEnd / page / end / end;
-// }
-// // private dms
-// #{c(chat page)} > div:not([class]) {
-// 	display: grid !important; // !important reason: inline style when no class exists
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / page / end / end;
-// }
-// .chat_f75fb0 {
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / page / end / end;
-// }
-// .subtitleContainer_f75fb0 {
-// 	grid-area: headerBar / notice / headerBarEnd / notice;
-// }
-// .content_f75fb0 {
-// 	grid-area: noticeEnd / page / end / end;
-// }
-// // server list
-// .sidebar__5e434 {
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / start / end / channelsEnd;
-// }
-// .wrapper_ef3116 {
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / start / end / guildsListEnd;
-// 	margin: 0;
-// 	&::before {
-// 		:is(.platform-linux, .platform-web) & {
-// 			// top: unset;
-// 			// right: unset;
-// 			// bottom: unset;
-// 			// left: unset;
-// 			height: 100%;
-// 		}
-// 		grid-area: headerBar / guildsList / headerBarEnd / guildsList;
+// 	grid-area: headerBar / channelsList / panels / channelsList;
+// 	// grid-row: headerBar-start / span end;
+// 	background: transparent;
+// 	#{c(sidebar server header header)} {
+// 		background: $header;
+// 		grid-area: headerBar;
+// 		border-radius: 0;
+// 	}
+// 	#{c(sidebar server header bannerContainer)} {
+// 		display: grid;
+// 		grid-template: subgrid / subgrid;
+// 		grid-area: channelsList / channelsList / channelsList / channelsList;
+// 		// grid-row: headerBar-start / span end;
+// 		position: relative;
+// 		top: calc(36px * var(--notice-count,0));
+// 	}
+// 	#{c(sidebar server header bannerImage)} {
+// 		grid-row: notice-end / span end;
 // 	}
 // }
-// // sidebar
-// .sidebarList__5e434 {
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / channelsList / sidebarHeightEnd / channelsList;
-// 	container: inline-size; // it needs to be reapplied
-// }
-// // private channels
-// .privateChannels_e6b769 {
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / channelsList / sidebarHeightEnd / channelsList;
-// }
-// .searchBar_e6b769 {
-// 	grid-area: headerBar / channelsList;
-// }
-// .scroller__99e7c {
-// 	grid-area: channelsList;
-// 	padding-bottom: 0;
-// 	margin-bottom: 0;
-// }
-// // server channels
-// .container__2637a {
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / channelsList / channelsList / channelsList;
-// 	padding-bottom: 0;
-// }
-// @debug "fix servers with banners. it also breaks art with notices";
-// // #{c(sidebar server header container)}#{c(sidebar server header hasBanner)} {
-// // 	display: grid;
-// // 	grid-template: subgrid / subgrid;
-// // 	grid-area: headerBar / channelsList / panels / channelsList;
-// // 	// grid-row: headerBar-start / span end;
-// // 	background: transparent;
-// // 	#{c(sidebar server header header)} {
-// // 		background: $header;
-// // 		grid-area: headerBar;
-// // 		border-radius: 0;
-// // 	}
-// // 	#{c(sidebar server header bannerContainer)} {
-// // 		display: grid;
-// // 		grid-template: subgrid / subgrid;
-// // 		grid-area: channelsList / channelsList / channelsList / channelsList;
-// // 		// grid-row: headerBar-start / span end;
-// // 		position: relative;
-// // 		top: calc(36px * var(--notice-count,0));
-// // 	}
-// // 	#{c(sidebar server header bannerImage)} {
-// // 		grid-row: notice-end / span end;
-// // 	}
-// // }
 
-// // panels
-// .panels__5e434 {
-// 	grid-area: panels;
+// // force it in (it no work)
+.scroller__629e4 {
+	grid-area: channelsList;
+}
+
+// panels
+.panels__5e434 {
+	grid-area: panels;
+}
+
+// members page
+#{c(membersPage page)} > .scrollerBase_d125d2 {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: noticeEnd / channelsList / end / channelsList;
+}
+
+// server voice chat -- SOME OF THESE CONFLICT WITH DM CALLS!
+.gradientBackground__41626, // hide all participents without camerea
+.pulseGradient__11664 { // no one in call
+	display: none;
+}
+// .chat_f75fb0 > .wrapper_cb9592:not(.minimum_cb9592) { // the :not(minimum) is to avoid dm calls
+.chat_f75fb0 > .wrapper_cb9592 {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / page / end / page;
+}
+.layerContainer__59d0d:has(> .chatLayerWrapper__01ae2) { // the layerContainer class is used for modals as well. pain.
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / side / end / end;
+	position: initial;
+	.chat_f75fb0 > & {
+		display: grid;
+		grid-template: subgrid / subgrid;
+		grid-area: headerBar / side / end / end;
+		z-index: 100;
+	}
+}
+.chatLayerWrapper__01ae2 {
+	display: grid;
+	grid-template: subgrid / subgrid;
+	grid-area: headerBar / side / end / end;
+	position: initial;
+}
+.resizeHandle__01ae2 {
+	grid-area: headerBar / side / end / end;
+	position: absolute;
+	left: calc(-1 * var(--chat-resize-handle-width));
+}
+.container__01ae2 {
+	width: 400px !important; // !important reason: inline style.
+	// it also doesn't seem to be changable once the grid layout is set in place.
+	// forced into floating or something.
+	// 400px used as that's the default width.
+	grid-area: headerBar / side / end / end;
+}
+
+// :where(.wrapper_cb9592:not(.minimum_cb9592)) { // <-- this is to ensure it doesn't hit dm calls
+	// due to this element having `#{c(main midnight)}` on it,
+	// descendents will have different colours for
+	// $header, $side, $middle and $card.
+	.callContainer_cb9592 {
+		display: grid;
+		grid-template: subgrid / subgrid;
+		grid-area: headerBar / page / end / side;
+	}
+	.root_bfe55a { // has ::before that needs to live in headerBar
+		display: grid;
+		grid-template: subgrid / subgrid;
+		grid-area: headerBar / page / end / end;
+		top: 0;
+		background: none;
+		&::before {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			height: unset;
+			grid-area: headerBar / start / headerBar / end;
+		}
+		// thing with the background
+		> div:not([class]) {
+			grid-area: notice-end / page / end / side;
+			background: $middle;
+		}
+	}
+	.videoControls_bfe55a {
+		// this has the top controls in it so it shouldn't be fucked with too much
+		display: grid;
+		grid-template: subgrid / subgrid;
+		grid-area: headerBar / page / end / end;
+		justify-content: unset;
+		top: unset;
+		bottom: unset;
+		inset-inline: unset;
+		padding: unset;
+		position: unset;
+	}
+	.topControls_bfe55a {
+		grid-area: headerBar / page / headerBar / span page;
+	}
+	.headerWrapper_cb9592 {
+		margin: unset;
+	}
+	.bottomControls_bfe55a {
+		grid-area: notice-end / page / end / end;
+		max-height: fit-content;
+		bottom: var(--space-lg); // 20px
+		position: absolute;
+		.edgeControls_bfe55a:first-child:not(:empty) {
+			padding-inline-start: var(--space-md);
+			margin-inline-end: 0;
+		}
+		.edgeControls_bfe55a:last-child:not(:empty) {
+			padding-inline-end: var(--space-md);
+			margin-inline-start: 0;
+		}
+	}
 // }
 
-// // server voice chat
+// // DM calls -- THIS REVERTS GRID STUFF!
+// .chat_f75fb0:has(>.wrapper_cb9592:not(.noChat_cb9592)) {
+// 	display: flex;
+// 	grid-template: unset;
+// 	grid-area: headerBar / page / end / end;
+// }
 // .chat_f75fb0 > .wrapper_cb9592 {
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / page / end / end;
+// 	&:not(.noChat_cb9592) { // MINIMUM TAG GETS REMOVED WHEN STREAMING/VIDEO CALLING
+// 		display: flex;
+// 		container-type: inline-size; // makes it resizable again lol
+// 		min-height: 300px !important; // !important reason: inline style
+
+// 		// grid-template-areas:
+// 		// 	"headerBar"
+// 		// 	"notice"
+// 		// 	"call"
+// 		// 	"resize"
+// 		// 	// "chat" // THIS ONE SHOULD ONLY EVER BE FILLED WITH THE EMPTY THING
+// 		// ;
+// 		// @debug needs check for notice count;
+// 		// grid-template-rows: 
+// 		// 	[top] var(--custom-channel-header-height)
+// 		// 	[headerBarEnd] calc(36px * var(--notice-count,0)) // THIS NEEDS CHECKING FOR NOTICES!!!
+// 		// 	[noticeEnd] minmax(min-content,1fr)
+// 		// 	[callEnd] 2px
+// 		// 	// [resizeEnd] 1fr
+// 		// [end];
+
+// 		// grid-area: headerBar / 1 / chat / 2;
+// 	}
+// 	&.normal_cb9592:not(.noChat_cb9592) {
+// 		.root_bfe55a>div:not([class]) {
+// 			background: none;
+// 		}
+// 	}
 // }
-// .callContainer_cb9592 {
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / page / end / end;
-// }
-// @debug "server call still not complete";
-// .root_bfe55a { // has ::before that needs to live in headerBar
-// 	display: grid;
-// 	grid-template: subgrid / subgrid;
-// 	grid-area: headerBar / page / end / end;
+// .wrapper_cb9592:not(.noChat_cb9592) {
+// 	.callContainer_cb9592 {
+// 		display: block;
+// 		// grid-area: headerBar / 1 / call / 2;
+// 	}
+// 	.root_bfe55a {
+// 		display: flex;
+// 		top: 48px;
+// 		background: $middle;
+// 		&::before {
+// 			top: -48px;
+// 			right: 0;
+// 			bottom: 0;
+// 			left: 0;
+// 			height: 48px;
+// 		}
+// 		// grid-area: headerBar / 1 / call / 2;
+// 		> div:not([class]) {
+// 			display: flex !important; // !important reason: override existing css within this file
+// 			// grid-area: call / 1 / call / 2;
+// 			background: none;
+// 		}
+// 	}
+// 	.videoControls_bfe55a {
+// 		display: flex;
+// 		grid-template: unset;
+// 		grid-area: unset;
+// 		justify-content: space-between;
+// 		padding: 0 0 var(--space-md);
+// 		inset-inline: 0;
+// 		position: absolute;
+// 		top: 0;
+// 		bottom: 0;
+// 	}
+// 	.subtitleContainer_f75fb0 {
+// 		top: -48px;
+// 	}
+// 	.bottomControls_bfe55a {
+// 		bottom: unset;
+// 		position: initial;
+// 	}
+// 	.resizeHandle__4b144 {
+// 		// grid-area: resize;
+// 		// bottom: 0;
+// 		// z-index: 1001; // make it usable
+// 	}
+// 	.channelChatWrapper_cb9592 {
+// 		display: flex;
+// 		// display: none;
+// 		// grid-area: chat;
+// 	}
 // }
 
 
-// // container style()
-// }
+// grid-template-areas:
+// 	"titleBar titleBar titleBar titleBar"
+// 	"headerBar headerBar headerBar headerBar"
+// 	"guildsList notice notice notice"
+// 	"guildsList channelsList page side"
+// 	"panel panel page side"
+// ;
+
+
+// container style()
+}
 
 // not lite
 }
