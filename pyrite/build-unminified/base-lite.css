@@ -614,7 +614,8 @@ html {
 .container__133bf .inviteToolbar__133bf,
 .header_a14595,
 .grid_a14595,
-.image__33d12 {
+.image__33d12,
+.wrapper__11054 {
   display: none;
 }
 
@@ -696,12 +697,12 @@ html {
   background: var(--hsl-card-background);
 }
 
-.bar_c38106 {
-  background: var(--hsl-header-shading);
+.trailing_c38106 a[href="https://support.discord.com"] {
+  display: none;
 }
 
-.trailing_c38106 .anchor_edefb8[href="https://support.discord.com"] {
-  display: none;
+.bar_c38106 {
+  background: var(--hsl-header-shading);
 }
 
 .base__5e434:has(> .bar_c38106 > .trailing_c38106 > .button__85643) {
