@@ -2054,799 +2054,1228 @@ span):not(.spoilerContent__299eb) {
 
 /* Start Codeblock langs */
 .\31 c {
+  --bg: #b18c21;
+  --col: #fff;
   --lang: "1C:Enterprise";
 }
 
 .abnf {
+  --bg: #5d6174;
+  --col: #fff;
   --lang: "ABNF";
 }
 
 .accesslog {
+  --bg: #4e5d6c;
+  --col: #fff;
   --lang: "Apache Access Log";
 }
 
 .actionscript, .as {
+  --bg: #882b0f;
+  --col: #fff;
   --lang: "ActionScript";
 }
 
 .ada {
+  --bg: #02f88d;
+  --col: #000;
   --lang: "Ada";
 }
 
 .angelscript, .asc {
+  --bg: #c78f13;
+  --col: #000;
   --lang: "AngelScript";
 }
 
 .ansi {
+  --bg: #333;
+  --col: #fff;
   --lang: "ANSI";
 }
 
 .apache, .apacheconf {
-  --lang: "Apache config";
+  --bg: #4e738a;
+  --col: #fff;
+  --lang: "Apache Config";
 }
 
 .applescript, .osascript {
+  --bg: #101010;
+  --col: #fff;
   --lang: "AppleScript";
 }
 
 .arcade {
+  --bg: #2f8e91;
+  --col: #fff;
   --lang: "ArcGIS Arcade";
 }
 
 .arduino, .ino {
+  --bg: #bd791e;
+  --col: #fff;
   --lang: "Arduino";
 }
 
 .armasm, .arm {
+  --bg: #5f3d82;
+  --col: #fff;
   --lang: "ARM Assembly";
 }
 
 .asciidoc, .adoc {
+  --bg: #187a41;
+  --col: #fff;
   --lang: "AsciiDoc";
 }
 
 .aspectj {
+  --bg: #195e7a;
+  --col: #fff;
   --lang: "AspectJ";
 }
 
 .autohotkey, .ahk {
+  --bg: #6121b0;
+  --col: #fff;
   --lang: "AutoHotKey";
 }
 
 .autoit {
+  --bg: #263385;
+  --col: #fff;
   --lang: "AutoIt";
 }
 
 .avrasm {
+  --bg: #7c22a3;
+  --col: #fff;
   --lang: "AVR Assembly";
 }
 
 .awk {
+  --bg: #1a8f60;
+  --col: #fff;
   --lang: "Awk";
 }
 
 .bash, .sh, .zsh {
+  --bg: #ab1663;
+  --col: #fff;
   --lang: "Bash";
 }
 
 .basic {
+  --bg: #2b1f8f;
+  --col: #fff;
   --lang: "BASIC";
 }
 
 .bnf {
+  --bg: #4a5c69;
+  --col: #fff;
   --lang: "BNF";
 }
 
 .brainfuck, .bf {
+  --bg: #2e7d32;
+  --col: #fff;
   --lang: "Brainfuck";
 }
 
 .c, .h {
+  --bg: #a9bacd;
+  --col: #000;
   --lang: "C";
 }
 
 .cal {
+  --bg: #1e5989;
+  --col: #fff;
   --lang: "C/AL";
 }
 
 .capnproto, .capnp {
+  --bg: #c2185b;
+  --col: #fff;
   --lang: "Cap’n Proto";
 }
 
 .ceylon {
+  --bg: #8e24aa;
+  --col: #fff;
   --lang: "Ceylon";
 }
 
 .clean, .icl, .dcl {
+  --bg: #00acc1;
+  --col: #fff;
   --lang: "Clean";
 }
 
 .clojure, .clj, .edn {
+  --bg: #588240;
+  --col: #fff;
   --lang: "Clojure";
 }
 
 .clojure-repl {
+  --bg: #3b5c2a;
+  --col: #fff;
   --lang: "Clojure REPL";
 }
 
 .cmake, .cmake\.in {
+  --bg: #0288d1;
+  --col: #fff;
   --lang: "CMake";
 }
 
 .coffeescript, .coffee, .cson, .iced {
+  --bg: #3a1b1b;
+  --col: #fff;
   --lang: "CoffeeScript";
 }
 
 .coq {
+  --bg: #7b1fa2;
+  --col: #fff;
   --lang: "Coq";
 }
 
 .cos, .cls {
+  --bg: #1565c0;
+  --col: #fff;
   --lang: "Caché Object Script";
 }
 
 .cpp, .cc, .c\+\+, .h\+\+, .hpp, .hh, .hxx, .cxx {
+  --bg: #00599c;
+  --col: #fff;
   --lang: "C++";
 }
 
 .crmsh, .crm, .pcmk {
+  --bg: #2b3a42;
+  --col: #fff;
   --lang: "crmsh";
 }
 
-.crystal, .cr, .c\# {
+.crystal, .cr {
+  --bg: #222;
+  --col: #fff;
   --lang: "Crystal";
 }
 
-.csharp, .cs {
+.csharp, .cs, .c\# {
+  --bg: #178600;
+  --col: #fff;
   --lang: "C#";
 }
 
 .csp {
+  --bg: #546e7a;
+  --col: #fff;
   --lang: "CSP";
 }
 
 .css {
+  --bg: rebeccapurple;
+  --col: #fff;
   --lang: "CSS";
 }
 
 .d {
+  --bg: #ba3939;
+  --col: #fff;
   --lang: "D";
 }
 
 .dart {
+  --bg: #00b4ab;
+  --col: #fff;
   --lang: "Dart";
 }
 
 .delphi, .dpr, .dfm, .pas, .pascal {
+  --bg: #b03a2e;
+  --col: #fff;
   --lang: "Delphi";
 }
 
 .diff, .patch {
+  --bg: #888;
+  --col: #fff;
   --lang: "Diff";
 }
 
 .django, .jinja {
+  --bg: #092e20;
+  --col: #fff;
   --lang: "Django";
 }
 
 .dns, .bind, .zone {
+  --bg: #37474f;
+  --col: #fff;
   --lang: "DNS Zone";
 }
 
 .dockerfile, .docker {
+  --bg: #2496ed;
+  --col: #fff;
   --lang: "Dockerfile";
 }
 
 .dos, .bat, .cmd {
-  --lang: "Batch file (DOS)";
+  --bg: #4d4d4d;
+  --col: #fff;
+  --lang: "Batch (DOS)";
 }
 
 .dsconfig {
+  --bg: #2c3e50;
+  --col: #fff;
   --lang: "dsconfig";
 }
 
 .dts {
+  --bg: #424242;
+  --col: #fff;
   --lang: "Device Tree";
 }
 
 .dust, .dst {
+  --bg: #9c27b0;
+  --col: #fff;
   --lang: "Dust";
 }
 
 .ebnf {
+  --bg: #37474f;
+  --col: #fff;
   --lang: "EBNF";
 }
 
 .elixir, .ex, .exs {
+  --bg: #6e4a7e;
+  --col: #fff;
   --lang: "Elixir";
 }
 
 .elm {
+  --bg: #60b5cc;
+  --col: #fff;
   --lang: "Elm";
 }
 
 .erb {
+  --bg: #701516;
+  --col: #fff;
   --lang: "eRuby";
 }
 
 .erlang-repl {
+  --bg: #501011;
+  --col: #fff;
   --lang: "Erlang REPL";
 }
 
 .erlang, .erl {
+  --bg: #a90036;
+  --col: #fff;
   --lang: "Erlang";
 }
 
 .excel, .xlsx, .xls {
+  --bg: #107c41;
+  --col: #fff;
   --lang: "Excel formulae";
 }
 
 .fix {
+  --bg: #3f51b5;
+  --col: #fff;
   --lang: "FIX";
 }
 
 .flix {
+  --bg: #e65100;
+  --col: #fff;
   --lang: "Flix";
 }
 
 .fortran, .f90, .f95 {
+  --bg: #4d41b1;
+  --col: #fff;
   --lang: "Fortran";
 }
 
 .fsharp, .fs, .f\# {
+  --bg: #b845fc;
+  --col: #fff;
   --lang: "F#";
 }
 
 .gams, .gms {
+  --bg: #1976d2;
+  --col: #fff;
   --lang: "GAMS";
 }
 
 .gauss, .gss {
+  --bg: #00796b;
+  --col: #fff;
   --lang: "GAUSS";
 }
 
 .gcode, .nc {
+  --bg: #d84315;
+  --col: #fff;
   --lang: "G-code (ISO 6983)";
 }
 
 .gherkin, .feature {
+  --bg: #208020;
+  --col: #fff;
   --lang: "Gherkin";
 }
 
 .glsl {
+  --bg: #558b2f;
+  --col: #fff;
   --lang: "OpenGL Shading";
 }
 
 .gml {
+  --bg: #ff5722;
+  --col: #fff;
   --lang: "GML";
 }
 
 .go, .golang {
+  --bg: #75cede;
+  --col: #fff;
   --lang: "Go";
 }
 
 .golo {
+  --bg: #880e4f;
+  --col: #fff;
   --lang: "Golo";
 }
 
 .gradle {
+  --bg: #02303a;
+  --col: #fff;
   --lang: "Gradle";
 }
 
 .graphql, .gql {
+  --bg: #e10098;
+  --col: #fff;
   --lang: "GraphQL";
 }
 
 .groovy {
+  --bg: #4298b8;
+  --col: #fff;
   --lang: "Groovy";
 }
 
 .haml {
+  --bg: #000;
+  --col: #fff;
   --lang: "HAML";
 }
 
 .handlebars, .hbs, .html\.hbs, .html\.handlebars, .htmlbars {
+  --bg: #f7931e;
+  --col: #000;
   --lang: "Handlebars";
 }
 
 .haskell, .hs {
+  --bg: #5e5086;
+  --col: #fff;
   --lang: "Haskell";
 }
 
 .haxe, .hx {
+  --bg: #df7900;
+  --col: #fff;
   --lang: "Haxe";
 }
 
 .hsp {
+  --bg: #00838f;
+  --col: #fff;
   --lang: "HSP";
 }
 
 .http, .https {
+  --bg: #618f10;
+  --col: #fff;
   --lang: "HTTP";
 }
 
 .hy, .hylang {
+  --bg: #77095e;
+  --col: #fff;
   --lang: "Hy";
 }
 
 .inform7, .i7 {
+  --bg: #3f51b5;
+  --col: #fff;
   --lang: "Inform 7";
 }
 
 .ini, .toml {
-  --lang: "TOML, also INI";
+  --bg: #5a75c0;
+  --col: #fff;
+  --lang: "INI / TOML";
 }
 
 .irpf90 {
+  --bg: #ad1457;
+  --col: #fff;
   --lang: "IRPF90";
 }
 
 .isbl {
+  --bg: #283593;
+  --col: #fff;
   --lang: "ISBL";
 }
 
 .java, .jsp {
+  --bg: #eb2d2f;
+  --col: #fff;
   --lang: "Java";
 }
 
 .jboss-cli, .wildfly-cli {
+  --bg: #00838f;
+  --col: #fff;
   --lang: "JBoss CLI";
 }
 
 .json, .jsonc {
+  --bg: #108f66;
+  --col: #fff;
   --lang: "JSON";
 }
 
 .julia, .jldoctest {
+  --bg: #a270ba;
+  --col: #fff;
   --lang: "Julia";
 }
 
 .julia-repl {
+  --bg: #6d4282;
+  --col: #fff;
   --lang: "Julia REPL";
 }
 
 .kotlin, .kt, .kts {
+  --bg: #a97bff;
+  --col: #fff;
   --lang: "Kotlin";
 }
 
-.lasso, .ls, .lassoscript {
+.lasso, .lassoscript {
+  --bg: #999;
+  --col: #fff;
   --lang: "Lasso";
 }
 
 .latex, .tex {
+  --bg: #3d6117;
+  --col: #fff;
   --lang: "LaTeX";
 }
 
 .ldif {
+  --bg: #37474f;
+  --col: #fff;
   --lang: "LDIF";
 }
 
 .leaf {
+  --bg: #2e7d32;
+  --col: #fff;
   --lang: "Leaf";
 }
 
 .less {
+  --bg: #1d365d;
+  --col: #fff;
   --lang: "Less";
 }
 
 .lisp {
+  --bg: #3f51b5;
+  --col: #fff;
   --lang: "Lisp";
 }
 
 .livecodeserver {
+  --bg: #009688;
+  --col: #fff;
   --lang: "LiveCode";
 }
 
 .livescript, .ls {
+  --bg: #49be25;
+  --col: #fff;
   --lang: "LiveScript";
 }
 
 .llvm {
+  --bg: #185619;
+  --col: #fff;
   --lang: "LLVM IR";
 }
 
 .lsl {
+  --bg: #00796b;
+  --col: #fff;
   --lang: "LSL";
 }
 
 .lua, .pluto {
+  --bg: #2ecc71;
+  --col: #000;
   --lang: "Lua";
 }
 
 .makefile, .mk, .mak, .make {
+  --bg: #8a2b0f;
+  --col: #fff;
   --lang: "Makefile";
 }
 
 .markdown, .md, .mkdown, .mkd {
+  --bg: #ab2e16;
+  --col: #fff;
   --lang: "Markdown";
 }
 
 .mathematica, .mma, .wl {
+  --bg: #d10;
+  --col: #fff;
   --lang: "Mathematica";
 }
 
 .matlab {
+  --bg: #e16737;
+  --col: #fff;
   --lang: "Matlab";
 }
 
 .maxima {
+  --bg: #00838f;
+  --col: #fff;
   --lang: "Maxima";
 }
 
 .mel {
+  --bg: #ad1457;
+  --col: #fff;
   --lang: "MEL";
 }
 
 .mercury, .m, .moo {
+  --bg: #006064;
+  --col: #fff;
   --lang: "Mercury";
 }
 
 .mipsasm, .mips {
+  --bg: #3f51b5;
+  --col: #fff;
   --lang: "MIPS Assembly";
 }
 
 .mizar {
+  --bg: #455a64;
+  --col: #fff;
   --lang: "Mizar";
 }
 
 .mojolicious {
+  --bg: #1976d2;
+  --col: #fff;
   --lang: "Mojolicious";
 }
 
 .monkey {
+  --bg: #8d6e63;
+  --col: #fff;
   --lang: "Monkey";
 }
 
 .moonscript, .moon {
+  --bg: #fa0;
+  --col: #000;
   --lang: "MoonScript";
 }
 
 .n1ql {
+  --bg: #e53935;
+  --col: #fff;
   --lang: "N1QL";
 }
 
 .nestedtext, .nt {
+  --bg: #558b2f;
+  --col: #fff;
   --lang: "Nested Text";
 }
 
 .nginx, .nginxconf {
+  --bg: #009639;
+  --col: #fff;
   --lang: "Nginx config";
 }
 
 .nim {
+  --bg: #37775b;
+  --col: #fff;
   --lang: "Nim";
 }
 
 .nix, .nixos {
+  --bg: #5277c3;
+  --col: #fff;
   --lang: "Nix";
 }
 
 .node-repl {
+  --bg: #2e7d32;
+  --col: #fff;
   --lang: "Node REPL";
 }
 
 .nsis {
+  --bg: #4e5d6c;
+  --col: #fff;
   --lang: "NSIS";
 }
 
 .objectivec, .mm, .objc, .obj-c, .obj-c\+\+, .objective-c\+\+ {
+  --bg: #438eff;
+  --col: #fff;
   --lang: "Objective-C";
 }
 
 .ocaml {
+  --bg: #3be133;
+  --col: #000;
   --lang: "OCaml";
 }
 
 .openscad, .scad {
+  --bg: #f57c00;
+  --col: #fff;
   --lang: "OpenSCAD";
 }
 
 .oxygene {
+  --bg: #c2185b;
+  --col: #fff;
   --lang: "Oxygene";
 }
 
 .parser3 {
+  --bg: #283593;
+  --col: #fff;
   --lang: "Parser3";
 }
 
 .perl, .pl, .pm {
+  --bg: #0298c3;
+  --col: #fff;
   --lang: "Perl";
 }
 
 .pf, .pf\.conf {
+  --bg: #37474f;
+  --col: #fff;
   --lang: "Packet Filter config";
 }
 
 .pgsql, .postgres, .postgresql {
+  --bg: #336791;
+  --col: #fff;
   --lang: "PostgreSQL";
 }
 
 .php {
+  --bg: #6e81b6;
+  --col: #fff;
   --lang: "PHP";
 }
 
 .php-template {
+  --bg: #4f5d84;
+  --col: #fff;
   --lang: "PHP template";
 }
 
 .plaintext, .text, .txt, .hljs[class$=hljs] {
+  --bg: #616161;
+  --col: #fff;
   --lang: var(--code-plain-text,"Plain Text");
 }
 
 .pony {
+  --bg: #1976d2;
+  --col: #fff;
   --lang: "Pony";
 }
 
 .powershell, .pwsh, .ps, .ps1 {
+  --bg: #012456;
+  --col: #fff;
   --lang: "PowerShell";
 }
 
 .processing, .pde {
+  --bg: #006699;
+  --col: #fff;
   --lang: "Processing";
 }
 
 .prolog {
+  --bg: #ef4d25;
+  --col: #fff;
   --lang: "Prolog";
 }
 
 .properties {
+  --bg: #4e5d6c;
+  --col: #fff;
   --lang: ".properties";
 }
 
 .protobuf, .proto {
+  --bg: #1565c0;
+  --col: #fff;
   --lang: "Protocol Buffers";
 }
 
 .puppet, .pp {
+  --bg: #ff2a00;
+  --col: #fff;
   --lang: "Puppet";
 }
 
 .purebasic, .pb, .pbi {
+  --bg: #263238;
+  --col: #fff;
   --lang: "PureBASIC";
 }
 
 .pycon {
+  --bg: #1565c0;
+  --col: #fff;
   --lang: "Pycon";
 }
 
 .python, .py, .gyp, .ipython {
+  --bg: #1622ab;
+  --col: #fff;
   --lang: "Python";
 }
 
 .python-repl {
+  --bg: #0e1670;
+  --col: #fff;
   --lang: "Python REPL";
 }
 
 .profile {
-  --lang: "Python profiler";
+  --bg: #2e7d32;
+  --col: #fff;
+  --lang: "Python Profiler";
 }
 
 .q, .k, .kdb {
+  --bg: #00bcd4;
+  --col: #fff;
   --lang: "Q";
 }
 
 .qml, .qt {
-  --lang: "QML";
+  --bg: #41cd52;
+  --col: #fff;
+  --lang: "QML (QT)";
 }
 
 .r {
+  --bg: #198ce7;
+  --col: #fff;
   --lang: "R";
 }
 
 .reasonml, .re {
+  --bg: #ff5847;
+  --col: #fff;
   --lang: "ReasonML";
 }
 
 .rib {
+  --bg: #37474f;
+  --col: #fff;
   --lang: "RenderMan RIB";
 }
 
 .roboconf, .graph, .instances {
+  --bg: #00838f;
+  --col: #fff;
   --lang: "Roboconf";
 }
 
 .routeros, .mikrotik {
+  --bg: #1a237e;
+  --col: #fff;
   --lang: "RouterOS";
 }
 
 .rsl {
+  --bg: #455a64;
+  --col: #fff;
   --lang: "RenderMan RSL";
 }
 
 .ruby, .rb, .gemspec, .podspec, .thor, .irb {
+  --bg: #e73e3e;
+  --col: #fff;
   --lang: "Ruby";
 }
 
 .ruleslanguage {
+  --bg: #ad1457;
+  --col: #fff;
   --lang: "Oracle Rules Language";
 }
 
 .rust, .rs {
+  --bg: #000;
+  --col: #fff;
   --lang: "Rust";
 }
 
 .sas {
+  --bg: #1e88e5;
+  --col: #fff;
   --lang: "SAS";
 }
 
 .scala {
+  --bg: #dc322f;
+  --col: #fff;
   --lang: "Scala";
 }
 
 .scheme, .scm {
+  --bg: #1e88e5;
+  --col: #fff;
   --lang: "Scheme";
 }
 
 .scilab, .sci {
+  --bg: #00838f;
+  --col: #fff;
   --lang: "Scilab";
 }
 
 .scss {
+  --bg: #c69;
+  --col: #fff;
   --lang: "SCSS";
 }
 
 .shell, .console, .shellsession {
+  --bg: #263238;
+  --col: #fff;
   --lang: "Shell Session";
 }
 
 .smali {
+  --bg: #558b2f;
+  --col: #fff;
   --lang: "Smali";
 }
 
 .smalltalk, .st {
+  --bg: linear-gradient(in oklch longer hue 90deg, red 0 100%);
+  --col: #fff;
   --lang: "Smalltalk";
 }
 
 .sml {
+  --bg: #283593;
+  --col: #fff;
   --lang: "SML";
 }
 
 .sqf {
+  --bg: #283593;
+  --col: #fff;
   --lang: "SQF";
 }
 
 .sql {
+  --bg: #4474ca;
+  --col: #fff;
   --lang: "SQL";
 }
 
 .stan, .stanfuncs {
+  --bg: #b71c1c;
+  --col: #fff;
   --lang: "Stan";
 }
 
 .stata, .do, .ado {
+  --bg: #1a237e;
+  --col: #fff;
   --lang: "Stata";
 }
 
 .step21, .p21, .step, .stp {
+  --bg: #37474f;
+  --col: #fff;
   --lang: "STEP Part 21";
 }
 
 .stylus, .styl {
+  --bg: #ffb300;
+  --col: #000;
   --lang: "Stylus";
 }
 
 .subunit {
+  --bg: #455a64;
+  --col: #fff;
   --lang: "SubUnit";
 }
 
 .swift {
+  --bg: #fd7837;
+  --col: #fff;
   --lang: "Swift";
 }
 
 .taggerscript {
+  --bg: #4a148c;
+  --col: #fff;
   --lang: "Tagger Script";
 }
 
 .tap {
+  --bg: #2e7d32;
+  --col: #fff;
   --lang: "TAP";
 }
 
 .tcl, .tk {
+  --bg: #141414;
+  --col: #fff;
   --lang: "Tcl";
 }
 
 .thrift {
+  --bg: #00838f;
+  --col: #fff;
   --lang: "Thrift";
 }
 
 .tp {
+  --bg: #3f51b5;
+  --col: #fff;
   --lang: "TP";
 }
 
 .twig, .craftcms {
+  --bg: #85ad00;
+  --col: #fff;
   --lang: "Twig";
 }
 
-.javascript, .js, .jsx, .mjs, .cjs {
+.javascript, .js, .jsx, .mjs {
+  --bg: #165eab;
+  --col: #fff;
   --lang: "JavaScript";
 }
 
+.cjs {
+  --bg: #165eab;
+  --col: #fff;
+  --lang: "CommonJS";
+}
+
 .typescript, .ts, .tsx, .cts {
+  --bg: #03324c;
+  --col: #fff;
   --lang: "TypeScript";
 }
 
 .vala {
+  --bg: #77613e;
+  --col: #fff;
   --lang: "Vala";
 }
 
 .vbnet, .vb {
+  --bg: #839700;
+  --col: #fff;
   --lang: "Visual Basic .NET";
 }
 
 .vbscript, .vbs {
+  --bg: #1565c0;
+  --col: #fff;
   --lang: "VBScript";
 }
 
 .vbscript-html {
+  --bg: #0d47a1;
+  --col: #fff;
   --lang: "VBScript in HTML";
 }
 
 .verilog, .v, .sv, .svh {
+  --bg: #008080;
+  --col: #fff;
   --lang: "Verilog";
 }
 
 .vhdl {
+  --bg: #543978;
+  --col: #fff;
   --lang: "VHDL";
 }
 
 .vim {
+  --bg: #019833;
+  --col: #fff;
   --lang: "Vim Script";
 }
 
 .wasm {
+  --bg: #654ff0;
+  --col: #fff;
   --lang: "WebAssembly";
 }
 
 .wren {
+  --bg: #382d2c;
+  --col: #fff;
   --lang: "Wren";
 }
 
 .axapta, .x\+\+ {
+  --bg: #002060;
+  --col: #fff;
   --lang: "X++";
 }
 
 .x86asm {
+  --bg: #4a5d6e;
+  --col: #fff;
   --lang: "x86 Assembly";
 }
 
 .xl, .tao {
-  --lang: "XL";
+  --bg: #4872a8;
+  --col: #fff;
+  --lang: "eXtensible Language";
 }
 
-.xml, .html, .xhtml, .rss, .atom, .xjb, .xsd, .xsl, .plist, .wsf, .svg {
-  --lang: "HTML/XML";
+.xml, .rss, .atom, .xjb, .xsd, .xsl, .plist, .wsf {
+  --bg: #8444af;
+  --col: #fff;
+  --lang: "XML";
+}
+
+.html, .xhtml {
+  --bg: #16ab6f;
+  --col: #000;
+  --lang: "HTML";
+}
+
+.svg {
+  --bg: #ffb13b;
+  --col: #000;
+  --lang: "SVG";
 }
 
 .xquery, .xpath, .xq, .xqm {
+  --bg: #1976d2;
+  --col: #fff;
   --lang: "XQuery";
 }
 
 .yaml, .yml {
+  --bg: #cb171e;
+  --col: #fff;
   --lang: "YAML";
 }
 
 .zephir, .zep {
+  --bg: #188688;
+  --col: #fff;
   --lang: "Zephir";
 }
 
 .ml {
+  --bg: linear-gradient(in oklab 135deg, #283593, #3be133);
+  --col: #fff;
   --lang: "OCaml / SML";
 }
 
-.textContainer__4d95d .hljs {
-  --lang: none;
-  transform: unset;
+.none {
+  --bg: #000;
+  --col: #fff;
+  --lang: "fucked";
 }
 
+.hljs {
+  padding: 0;
+  transform: unset;
+  border-radius: 4px;
+}
 .hljs::before {
-  content: var(--lang);
-  position: absolute;
-  top: 0.25rem;
-  right: 0.25rem;
-  font-size: 0.625rem;
-  line-height: 0.875rem;
-  color: var(--text-muted);
-  font-style: italic;
+  content: var(--lang, none);
+  background: var(--bg, #000);
+  color: var(--col, #fff);
+  width: 100%;
+  height: 16px;
+  position: relative;
+  display: block grid;
+  justify-content: center;
+  margin-top: 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom: 5px solid transparent;
+}
+
+.markup__75297 .codeContainer__75297 {
+  max-width: unset;
+}
+.markup__75297 .codeContainer__75297:hover .codeActions__75297 {
+  top: 29px;
+}
+
+.textContainer__4d95d .hljs {
+  transform: unset;
 }
 
 /* Start Error Page */
@@ -5143,19 +5572,21 @@ span):not(.spoilerContent__299eb) {
 }
 
 /* Begin Settings */
-.layer__960e4,
-.standardSidebarView__23e6b,
-.contentRegion__23e6b,
-.contentRegionScroller__23e6b .contentRegionScroller__23e6b {
-  background: none;
-}
-
 .sidebarRegionScroller__23e6b {
   background: var(--hsl-side-shading);
 }
 
-.contentRegionScroller__23e6b {
+.contentRegionScroller__23e6b,
+.contentRegion__23e6b:has(> .customColumn__23e6b) {
   background: var(--hsl-middle-shading);
+}
+
+.layer__960e4,
+.standardSidebarView__23e6b,
+.contentRegion__23e6b,
+.contentRegionScroller__23e6b .contentRegionScroller__23e6b,
+.customScroller__23e6b {
+  background: none;
 }
 
 .sidebar__23e6b .header_aa8da2 {

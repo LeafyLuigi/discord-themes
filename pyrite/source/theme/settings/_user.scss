@@ -1,0 +1,105 @@
+@use "backend" as *;
+@if $lite != 1 {
+/* Begin User Settings */
+#{c(main appContainer)}:has(
+	~#{c(main layerContainer)}>div>div>div>#{c(settings user outerContainer)}
+) {
+	// #{c(main content)} {
+		opacity: 0; // HIDE IT TO HOPEFULLY IMPROVE SOMETHING IDFK
+	// }
+}
+#{c(modals new scrim)}:has(+div:not(#{c(modals hidden)})>div>div>#{c(settings user outerContainer)}) {
+	backdrop-filter: none !important; // !important reason: override existing styles
+}
+// allow those using the regular windows titlebar to have their buttons back properly
+@container style((--restore-windows-titlebar: true) and (--platform: windows)) {
+	#{c(settings user outerContainer)} {
+		height: calc(100vh - var(--custom-app-top-bar-height));
+		top: var(--custom-app-top-bar-height);
+		position: relative;
+	}
+	#{c(topBar systemBar)} {
+		z-index: 3000;
+		height: var(--custom-app-top-bar-height);
+	}
+}
+// and fix it for windows users who aren't
+@warn "TODO: MAKE THE MIN/MAX/CLOSE BUTTONS APPEAR!!!";
+#{c(os win)} {
+	@container not style(--restore-windows-titlebar: true) {
+		#{c(topBar systemBar)}#{c(topBar show)} {
+			display: none;
+		}
+	}
+}
+#{c(settings user outerContainer)},
+#{c(settings user)} {
+	container: unset;
+	height: 100vh;
+}
+#{c(settings user)} {
+	max-width: unset;
+	width: 100%;
+}
+#{c(settings user outerContainer)} #{c(modals new container)} {
+	border-radius: unset;
+	border: unset;
+}
+
+#{c(settings user)},
+#{c(settings user content)},
+#{c(settings user sidebar)} {
+	background: none;
+}
+#{c(settings user contentHeader)} {
+	background: $header;
+	border-bottom: none;
+}
+#{c(settings user contentBody)} {
+	background: $middle;
+}
+#{c(settings user sidebar searchBarContainer)},
+#{c(settings user sidebar nav)},
+#{c(settings user sidebar emptySearchResultsContainer)} {
+	background: $side;
+}
+
+#{c(settings user contentHeader)} {
+	height: var(--custom-channel-header-height,48px);
+}
+#{c(settings user sidebar)} {
+	padding: unset;
+	border-inline-end: unset;
+}
+#{c(settings user sidebar fixedContent)} {
+	&,
+	& #{c(settings user sidebar section)},
+	& #{c(settings user sidebar item)} {
+		padding: unset;
+	}
+}
+#{c(settings user sidebar searchBarContainer)} {
+	padding: var(--space-xs) var(--space-xs) 0 var(--space-xs);
+}
+#{c(settings user sidebar fixedContent)} #{c(settings user sidebar item)} {
+	width: 100%;
+	max-width: 240px;
+	border-radius: 0;
+	background: $header;
+}
+#{c(settings user sidebar profileCustomizationTab)} {
+	height: var(--custom-channel-header-height,48px);
+}
+#{c(settings user sidebar profileCustomizationTab)} > #{c(avatar wrapper)} {
+	// why 40px? it fits on compact.
+	width: 40px !important; // !important reason: inline style
+	height: 40px !important; // !important reason: inline style
+	> svg {
+		width: 40px;
+		height: 40px;
+		padding-left: 4px;
+	}
+}
+
+
+}

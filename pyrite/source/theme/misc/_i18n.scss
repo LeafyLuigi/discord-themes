@@ -188,13 +188,11 @@ $tags: (
 }
 
 /* Version */
-#{c(settings sidebar info)} {
+#{c(settings sidebar info compact)}#{c(settings sidebar info clickable)} {
 	&::after {
 		content: var(--theme-name) string.insert($version, " - ", 0);
-		font-style: italic;
 		color: var(--text-muted);
-		font-size: 12px;
-		line-height: 16px;
+		font: italic 400 10px / 1.2 var(--font-primary);
 	}
 }
 

@@ -2,8 +2,14 @@
 @use "backend" as *;
 #{c(profile effects)},
 #{c(avatar decoration)},
-#{c(chat chatAvatarDecoration)} {
+#{c(chat chatAvatarDecoration)},
+#{c(profile frame container)} {
 	display: none;
+}
+#{c(profile frame custom)} {
+	--custom-profile-frame-scaled-overflow-horizontal: 0;
+	--custom-profile-frame-scaled-overflow-top: 0;
+	--custom-profile-frame-scaled-overflow-bottom: 0;
 }
 :root {
 	#{v(update-notice-var)}: none;
@@ -15,6 +21,7 @@
 	// --hsl-position: bottom;
 	// --HSL-server-direction: left;
 	// --HSL-server-alignment: middle;
+	// --restore-windows-titlebar: true;
 }
 // gotta have light theme shite separate lol
 // .theme-light {

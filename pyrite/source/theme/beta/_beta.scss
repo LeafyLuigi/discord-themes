@@ -1,4 +1,111 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:meta";
+@use "sass:string";
+@use "sass:map";
+@use "sass:math";
+@use "@sass-fairy/list" as listFairy;
 @use "backend" as *;
+// :root {
+// --neutral-1: hsl(0 0% 100%); // 98% white, 2% original
+// --neutral-50: hsl(234.545 6.509% 33.137%); // assume this one is the default one and scale from there. best use oklab since it's objectively the best colour space
+// --neutral-100: hsl(0 0% 0%); // 98% black, 2% original
+
+// // --blue-1: hsl(216.923 100% 94.902%);
+// // --blue-50: hsl(209.339 100% 44.51%);
+// // --blue-100: hsl(240 100% 1.373%);
+
+// }
+
+
+// $allColors: (
+// 	// the color must be a list of three SPACE SEPARATED numbers in the HSL space.
+// 	// it is assumed every colour has opacity unless the map has `opacity: false`.
+// 	// opacity variable name is taken from either the variable's name directly (with `opacity-` prefix OR is set as a string with `opacity: <string>`
+// 	"neutral": (
+// 		"color": hsl(234.545 6.509% 33.137%),
+// 	),
+// 	"blue-new": (
+// 		"color": hsl(209.339 100% 44.51%),
+// 		"opacity": "opacity-blue"
+// 	),
+// );
+// // because obviously you don't want to include `:root{}` if it's empty
+// @if list.length(map.keys($allColors)) > 0 {:root {
+
+// @each $var,$val in $allColors {
+// 	$i: 100;
+// 	$hasOpacity: false; // replaced by a string if true
+// 	$color: transparent;
+// 	@if map.has-key($val, "opacity") {
+// 		@if meta.type-of(map.get($val,"opacity")) != "bool" and meta.type-of(map.get($val,"opacity")) != "string" {
+// 			@error "Expected a boolean or string value for #{$var}'s opacity";
+// 		} 
+// 		@if map.get($val,"opacity") == false {
+// 			$hasOpacity: false;
+// 		} @else if map.get($val,"opacity") == true {
+// 			$hasOpacity: string.insert("opacity-",$var,-1);
+// 		} @else {
+// 			$hasOpacity: map.get($val,"opacity");
+// 		}
+// 	} @else {
+// 		$hasOpacity: string.insert("opacity-",$var,-1);
+// 	}
+// 	@if map.has-key($val, "color") {
+// 		@if meta.type-of(map.get($val,"color")) != "color" {
+// 			@error "Expected a color value for #{$var}";
+// 		} 
+// 		$color: map.get($val,"color");
+// 	}
+// 	// DARK SIDE
+// 	$hslBlack: hsl(0 0% 0%);
+// 	@while $i > 50 {
+// 		// @debug $i, $var, $color;
+// 		$blackPercentage: ($i - 50) * 2;
+
+// 		$mix: color.mix($hslBlack, $color, $weight: $blackPercentage, $method: oklch); // we use oklab because it's objectively the best right now
+		
+// 		$hue: color.channel($mix, "hue", $space: hsl);
+// 		$hue: math.div($hue, $hue * 0 + 1); // remove unit because discord's own variables do not use it.
+// 		$sat: color.channel($mix, "saturation", $space: hsl);
+// 		$light: color.channel($mix, "lightness", $space: hsl);
+
+// 		--#{$var}-#{$i}-hsl: #{$hue} calc(var(--saturation-factor,1) * #{$sat}) #{$light};
+// 		$i: $i - 1;
+// 	}
+// 	// BASE
+// 	$hue: color.channel($color, "hue", $space: hsl);
+// 	$hue: math.div($hue, $hue * 0 + 1); // remove unit because discord's own variables do not use it.
+// 	$sat: color.channel($color, "saturation", $space: hsl);
+// 	$light: color.channel($color, "lightness", $space: hsl);
+// 	--#{$var}-#{$i}-hsl: #{$hue} calc(var(--saturation-factor,1) * #{$sat}) #{$light};
+// 	// OPACITY (IF 50 ON THE DOT)
+// 	@if meta.type-of($hasOpacity) == string {
+// 		// deal with opacity here~
+// 	}
+// 	$i: $i - 1;
+// 	// LIGHT SIDE
+// 	$hslWhite: hsl(0 0% 100%);
+// 	@while $i > 0 {
+// 		$whitePercentage: $i * 2;
+// 		// @debug $whitePercentage, $i;
+// 		$mix: color.mix($color, $hslWhite, $weight: $whitePercentage, $method: oklch); // we use oklab because it's objectively the best right now
+		
+// 		$hue: color.channel($mix, "hue", $space: hsl);
+// 		$hue: math.div($hue, $hue * 0 + 1); // remove unit because discord's own variables do not use it.
+// 		$sat: color.channel($mix, "saturation", $space: hsl);
+// 		$light: color.channel($mix, "lightness", $space: hsl);
+// 		// @debug $i, $hue;
+
+// 		--#{$var}-#{$i}-hsl: #{$hue} calc(var(--saturation-factor,1) * #{$sat}) #{$light};
+// 		$i: $i - 1;
+// 	}
+// }
+
+// }}
+
+
+// @use "backend" as *;
 @if $lite != 1 {
 /* Begin Beta Branch */
 @property --grid-layout {

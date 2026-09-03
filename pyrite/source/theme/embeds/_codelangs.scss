@@ -1,6 +1,7 @@
 @use "sass:string";
 @use "sass:list";
 @use "sass:meta";
+@use "sass:map";
 @use "backend" as *;
 // file is skipped for lite
 @if $lite != 1 {
@@ -8,203 +9,815 @@
 // SO HERE I'VE RIPPED OUT THE ENTIRE LIST OF VALID LANGUAGES FOR DISCORD INCLUDING ALIASES
 // DO NOTE THAT STRINGS GET PARSED TWICE; YOU'LL NEED TO DOUBLE THE AMOUNT OF BACK SLASHES.
 $lang: (
-	"1C:Enterprise": ("\\31 c"), // "1c"
-	"ABNF": ("abnf"),
-	"Apache Access Log": ("accesslog"),
-	"ActionScript": ("actionscript", "as"),
-	"Ada": ("ada"),
-	"AngelScript": ("angelscript", "asc"),
-	"ANSI": ("ansi"),
-	"Apache config": ("apache", "apacheconf"),
-	"AppleScript": ("applescript", "osascript"),
-	"ArcGIS Arcade": ("arcade"),
-	"Arduino": ("arduino", "ino"),
-	"ARM Assembly": ("armasm", "arm"),
-	"AsciiDoc": ("asciidoc", "adoc"),
-	"AspectJ": ("aspectj"),
-	"AutoHotKey": ("autohotkey", "ahk"),
-	"AutoIt": ("autoit"),
-	"AVR Assembly": ("avrasm"),
-	"Awk": ("awk"),
-	"Bash": ("bash", "sh", "zsh"),
-	"BASIC": ("basic"),
-	"BNF": ("bnf"),
-	"Brainfuck": ("brainfuck", "bf"),
-	"C": ("c", "h"),
-	"C/AL": ("cal"),
-	"Cap’n Proto": ("capnproto", "capnp"),
-	"Ceylon": ("ceylon"),
-	"Clean": ("clean", "icl", "dcl"),
-	"Clojure": ("clojure", "clj", "edn"),
-	"Clojure REPL": ("clojure-repl"),
-	"CMake": ("cmake", "cmake\\.in"),
-	"CoffeeScript": ("coffeescript", "coffee", "cson", "iced"),
-	"Coq": ("coq"),
-	"Caché Object Script": ("cos", "cls"),
-	"C++": ("cpp", "cc", "c\\\+\\\+", "h\\\+\\\+", "hpp", "hh", "hxx", "cxx"),
-	"crmsh": ("crmsh", "crm", "pcmk"),
-	"Crystal": ("crystal", "cr", "c\\#"),
-	"C#": ("csharp", "cs"),
-	"CSP": ("csp"),
-	"CSS": ("css"),
-	"D": ("d"),
-	"Dart": ("dart"),
-	"Delphi": ("delphi", "dpr", "dfm", "pas", "pascal"),
-	"Diff": ("diff", "patch"),
-	"Django": ("django", "jinja"),
-	"DNS Zone": ("dns", "bind", "zone"),
-	"Dockerfile": ("dockerfile", "docker"),
-	"Batch file (DOS)": ("dos", "bat", "cmd"),
-	"dsconfig": ("dsconfig"),
-	"Device Tree": ("dts"),
-	"Dust": ("dust", "dst"),
-	"EBNF": ("ebnf"),
-	"Elixir": ("elixir", "ex", "exs"),
-	"Elm": ("elm"),
-	"eRuby": ("erb"),
-	"Erlang REPL": ("erlang-repl"),
-	"Erlang": ("erlang", "erl"),
-	"Excel formulae": ("excel", "xlsx", "xls"),
-	"FIX": ("fix"),
-	"Flix": ("flix"),
-	"Fortran": ("fortran", "f90", "f95"),
-	"F#": ("fsharp", "fs", "f\\#"),
-	"GAMS": ("gams", "gms"),
-	"GAUSS": ("gauss", "gss"),
-	"G-code (ISO 6983)": ("gcode", "nc"),
-	"Gherkin": ("gherkin", "feature"),
-	"OpenGL Shading": ("glsl"),
-	"GML": ("gml"),
-	"Go": ("go", "golang"),
-	"Golo": ("golo"),
-	"Gradle": ("gradle"),
-	"GraphQL": ("graphql", "gql"),
-	"Groovy": ("groovy"),
-	"HAML": ("haml"),
-	"Handlebars": ("handlebars", "hbs", "html\\.hbs", "html\\.handlebars", "htmlbars"),
-	"Haskell": ("haskell", "hs"),
-	"Haxe": ("haxe", "hx"),
-	"HSP": ("hsp"),
-	"HTTP": ("http", "https"),
-	"Hy": ("hy", "hylang"),
-	"Inform 7": ("inform7", "i7"),
-	"TOML, also INI": ("ini", "toml"),
-	"IRPF90": ("irpf90"),
-	"ISBL": ("isbl"),
-	"Java": ("java", "jsp"),
-	"JBoss CLI": ("jboss-cli", "wildfly-cli"),
-	"JSON": ("json", "jsonc"),
-	"Julia": ("julia", "jldoctest"),
-	"Julia REPL": ("julia-repl"),
-	"Kotlin": ("kotlin", "kt", "kts"),
-	"Lasso": ("lasso", "ls", "lassoscript"),
-	"LaTeX": ("latex", "tex"),
-	"LDIF": ("ldif"),
-	"Leaf": ("leaf"),
-	"Less": ("less"),
-	"Lisp": ("lisp"),
-	"LiveCode": ("livecodeserver"),
-	"LiveScript": ("livescript", "ls"),
-	"LLVM IR": ("llvm"),
-	"LSL": ("lsl"),
-	"Lua": ("lua", "pluto"),
-	"Makefile": ("makefile", "mk", "mak", "make"),
-	"Markdown": ("markdown", "md", "mkdown", "mkd"),
-	"Mathematica": ("mathematica", "mma", "wl"),
-	"Matlab": ("matlab"),
-	"Maxima": ("maxima"),
-	"MEL": ("mel"),
-	"Mercury": ("mercury", "m", "moo"),
-	"MIPS Assembly": ("mipsasm", "mips"),
-	"Mizar": ("mizar"),
-	"Mojolicious": ("mojolicious"),
-	"Monkey": ("monkey"),
-	"MoonScript": ("moonscript", "moon"),
-	"N1QL": ("n1ql"),
-	"Nested Text": ("nestedtext", "nt"),
-	"Nginx config": ("nginx", "nginxconf"),
-	"Nim": ("nim"),
-	"Nix": ("nix", "nixos"),
-	"Node REPL": ("node-repl"),
-	"NSIS": ("nsis"),
-	"Objective-C": ("objectivec", "mm", "objc", "obj-c", "obj-c\\\+\\\+", "objective-c\\\+\\\+"),
-	"OCaml": ("ocaml"), // uses shared "ml" as alias
-	"OpenSCAD": ("openscad", "scad"),
-	"Oxygene": ("oxygene"),
-	"Parser3": ("parser3"),
-	"Perl": ("perl", "pl", "pm"),
-	"Packet Filter config": ("pf", "pf\\.conf"),
-	"PostgreSQL": ("pgsql", "postgres", "postgresql"),
-	"PHP": ("php"),
-	"PHP template": ("php-template"),
-	// --code-plain-text is a variable used for i18n. The default value for en is Plain Text
-	"var(--code-plain-text,\"Plain Text\")": ("plaintext", "text", "txt", "hljs[class$=hljs]"),
-	"Pony": ("pony"),
-	"PowerShell": ("powershell", "pwsh", "ps", "ps1"),
-	"Processing": ("processing", "pde"),
-	"Prolog": ("prolog"),
-	".properties": ("properties"),
-	"Protocol Buffers": ("protobuf", "proto"),
-	"Puppet": ("puppet", "pp"),
-	"PureBASIC": ("purebasic", "pb", "pbi"),
-	"Pycon": ("pycon"),
-	"Python": ("python", "py", "gyp", "ipython"),
-	"Python REPL": ("python-repl"), // ????
-	"Python profiler": ("profile"),
-	"Q": ("q", "k", "kdb"),
-	"QML": ("qml", "qt"),
-	"R": ("r"),
-	"ReasonML": ("reasonml", "re"),
-	"RenderMan RIB": ("rib"),
-	"Roboconf": ("roboconf", "graph", "instances"),
-	"RouterOS": ("routeros", "mikrotik"),
-	"RenderMan RSL": ("rsl"),
-	"Ruby": ("ruby", "rb", "gemspec", "podspec", "thor", "irb"),
-	"Oracle Rules Language": ("ruleslanguage"),
-	"Rust": ("rust", "rs"),
-	"SAS": ("sas"),
-	"Scala": ("scala"),
-	"Scheme": ("scheme", "scm"),
-	"Scilab": ("scilab", "sci"),
-	"SCSS": ("scss"),
-	"Shell Session": ("shell", "console", "shellsession"),
-	"Smali": ("smali"),
-	"Smalltalk": ("smalltalk", "st"),
-	"SML": ("sml"), // uses shared "ml" as alias
-	"SQF": ("sqf"),
-	"SQL": ("sql"),
-	"Stan": ("stan", "stanfuncs"),
-	"Stata": ("stata", "do", "ado"),
-	"STEP Part 21": ("step21", "p21", "step", "stp"),
-	"Stylus": ("stylus", "styl"),
-	"SubUnit": ("subunit"),
-	"Swift": ("swift"),
-	"Tagger Script": ("taggerscript"),
-	"TAP": ("tap"),
-	"Tcl": ("tcl", "tk"),
-	"Thrift": ("thrift"),
-	"TP": ("tp"),
-	"Twig": ("twig", "craftcms"),
-	"JavaScript": ("javascript", "js", "jsx", "mjs", "cjs"),
-	"TypeScript": ("typescript", "ts", "tsx", "cts"),
-	"Vala": ("vala"),
-	"Visual Basic .NET": ("vbnet", "vb"),
-	"VBScript": ("vbscript", "vbs"),
-	"VBScript in HTML": ("vbscript-html"),
-	"Verilog": ("verilog", "v", "sv", "svh"),
-	"VHDL": ("vhdl"),
-	"Vim Script": ("vim"),
-	"WebAssembly": ("wasm"),
-	"Wren": ("wren"),
-	"X++": ("axapta", "x\\\+\\\+"),
-	"x86 Assembly": ("x86asm"),
-	"XL": ("xl", "tao"),
-	"HTML/XML": ("xml", "html", "xhtml", "rss", "atom", "xjb", "xsd", "xsl", "plist", "wsf", "svg"),
-	"XQuery": ("xquery", "xpath", "xq", "xqm"),
-	"YAML": ("yaml", "yml"),
-	"Zephir": ("zephir", "zep"),
+	"1C:Enterprise": (
+		classes: ("\\31 c"), // "1c"
+		background: #b18c21,
+	),
+	"ABNF": (
+		classes: ("abnf"),
+		background: #5d6174,
+	),
+	"Apache Access Log": (
+		classes: ("accesslog"),
+		background: #4e5d6c,
+	),
+	"ActionScript": (
+		classes: ("actionscript", "as"),
+		background: #882b0f,
+	),
+	"Ada": (
+		classes: ("ada"),
+		background: #02f88d,
+		color: #000,
+	),
+	"AngelScript": (
+		classes: ("angelscript", "asc"),
+		background: #c78f13,
+		color: #000,
+	),
+	"ANSI": (
+		classes: ("ansi"),
+		background: #333,
+	),
+	"Apache Config": (
+		classes: ("apache", "apacheconf"),
+		background: #4e738a,
+	),
+	"AppleScript": (
+		classes: ("applescript", "osascript"),
+		background: #101010,
+	),
+	"ArcGIS Arcade": (
+		classes: ("arcade"),
+		background: #2f8e91,
+	),
+	"Arduino": (
+		classes: ("arduino", "ino"),
+		background: #bd791e,
+	),
+	"ARM Assembly": (
+		classes: ("armasm", "arm"),
+		background: #5f3d82,
+	),
+	"AsciiDoc": (
+		classes: ("asciidoc", "adoc"),
+		background: #187a41,
+	),
+	"AspectJ": (
+		classes: ("aspectj"),
+		background: #195e7a,
+	),
+	"AutoHotKey": (
+		classes: ("autohotkey", "ahk"),
+		background: #6121b0,
+	),
+	"AutoIt": (
+		classes: ("autoit"),
+		background: #263385,
+	),
+	"AVR Assembly": (
+		classes: ("avrasm"),
+		background: #7c22a3,
+	),
+	"Awk": (
+		classes: ("awk"),
+		background: #1a8f60,
+	),
+	"Bash": (
+		classes: ("bash", "sh", "zsh"),
+		background: #ab1663,
+	),
+	"BASIC": (
+		classes: ("basic"),
+		background: #2b1f8f,
+	),
+	"BNF": (
+		classes: ("bnf"),
+		background: #4a5c69,
+	),
+	"Brainfuck": (
+		classes: ("brainfuck", "bf"),
+		background: #2e7d32,
+	),
+	"C": (
+		classes: ("c", "h"),
+		background: #a9bacd,
+		color: #000,
+	),
+	"C/AL": (
+		classes: ("cal"),
+		background: #1e5989,
+	),
+	"Cap’n Proto": (
+		classes: ("capnproto", "capnp"),
+		background: #c2185b,
+	),
+	"Ceylon": (
+		classes: ("ceylon"),
+		background: #8e24aa,
+	),
+	"Clean": (
+		classes: ("clean", "icl", "dcl"),
+		background: #00acc1,
+	),
+	"Clojure": (
+		classes: ("clojure", "clj", "edn"),
+		background: #588240,
+	),
+	"Clojure REPL": (
+		classes: ("clojure-repl"),
+		background: #3b5c2a,
+	),
+	"CMake": (
+		classes: ("cmake", "cmake\\.in"),
+		background: #0288d1,
+	),
+	"CoffeeScript": (
+		classes: ("coffeescript", "coffee", "cson", "iced"),
+		background: #3a1b1b,
+	),
+	"Coq": (
+		classes: ("coq"),
+		background: #7b1fa2,
+	),
+	"Caché Object Script": (
+		classes: ("cos", "cls"),
+		background: #1565c0,
+	),
+	"C++": ( // potentually uses same syntax highlighting as C
+		classes: ("cpp", "cc", "c\\\+\\\+", "h\\\+\\\+", "hpp", "hh", "hxx", "cxx"),
+		background: #00599c,
+	),
+	"crmsh": (
+		classes: ("crmsh", "crm", "pcmk"),
+		background: #2b3a42,
+	),
+	"Crystal": (
+		classes: ("crystal", "cr"),
+		background: #222,
+	),
+	"C#": (
+		classes: ("csharp", "cs", "c\\#"),
+		background: #178600,
+	),
+	"CSP": (
+		classes: ("csp"),
+		background: #546e7a,
+	),
+	"CSS": (
+		classes: ("css"),
+		background: "rebeccapurple",
+	),
+	"D": (
+		classes: ("d"),
+		background: #ba3939,
+	),
+	"Dart": (
+		classes: ("dart"),
+		background: #00b4ab,
+	),
+	"Delphi": (
+		classes: ("delphi", "dpr", "dfm", "pas", "pascal"),
+		background: #b03a2e,
+	),
+	"Diff": (
+		classes: ("diff", "patch"),
+		background: #888,
+	),
+	"Django": (
+		classes: ("django", "jinja"),
+		background: #092e20,
+	),
+	"DNS Zone": (
+		classes: ("dns", "bind", "zone"),
+		background: #37474f,
+	),
+	"Dockerfile": (
+		classes: ("dockerfile", "docker"),
+		background: #2496ed,
+	),
+	"Batch (DOS)": (
+		classes: ("dos", "bat", "cmd"),
+		background: #4d4d4d,
+	),
+	"dsconfig": (
+		classes: ("dsconfig"),
+		background: #2c3e50,
+	),
+	"Device Tree": (
+		classes: ("dts"),
+		background: #424242,
+	),
+	"Dust": (
+		classes: ("dust", "dst"),
+		background: #9c27b0,
+	),
+	"EBNF": (
+		classes: ("ebnf"),
+		background: #37474f,
+	),
+	"Elixir": (
+		classes: ("elixir", "ex", "exs"),
+		background: #6e4a7e,
+	),
+	"Elm": (
+		classes: ("elm"),
+		background: #60b5cc,
+	),
+	"eRuby": (
+		classes: ("erb"),
+		background: #701516,
+	),
+	"Erlang REPL": (
+		classes: ("erlang-repl"),
+		background: #501011,
+	),
+	"Erlang": (
+		classes: ("erlang", "erl"),
+		background: #a90036,
+	),
+	"Excel formulae": (
+		classes: ("excel", "xlsx", "xls"),
+		background: #107c41,
+	),
+	"FIX": (
+		classes: ("fix"),
+		background: #3f51b5,
+	),
+	"Flix": (
+		classes: ("flix"),
+		background: #e65100,
+	),
+	"Fortran": (
+		classes: ("fortran", "f90", "f95"),
+		background: #4d41b1,
+	),
+	"F#": (
+		classes: ("fsharp", "fs", "f\\#"),
+		background: #b845fc,
+	),
+	"GAMS": (
+		classes: ("gams", "gms"),
+		background: #1976d2,
+	),
+	"GAUSS": (
+		classes: ("gauss", "gss"),
+		background: #00796b,
+	),
+	"G-code (ISO 6983)": (
+		classes: ("gcode", "nc"),
+		background: #d84315,
+	),
+	"Gherkin": (
+		classes: ("gherkin", "feature"),
+		background: #208020,
+	),
+	"OpenGL Shading": (
+		classes: ("glsl"),
+		background: #558b2f,
+	),
+	"GML": (
+		classes: ("gml"),
+		background: #ff5722,
+	),
+	"Go": (
+		classes: ("go", "golang"),
+		background: #75cede,
+	),
+	"Golo": (
+		classes: ("golo"),
+		background: #880e4f,
+	),
+	"Gradle": (
+		classes: ("gradle"),
+		background: #02303a,
+	),
+	"GraphQL": (
+		classes: ("graphql", "gql"),
+		background: #e10098,
+	),
+	"Groovy": (
+		classes: ("groovy"),
+		background: #4298b8,
+	),
+	"HAML": (
+		classes: ("haml"),
+	),
+	"Handlebars": (
+		classes: ("handlebars", "hbs", "html\\.hbs", "html\\.handlebars", "htmlbars"),
+		background: #f7931e,
+		color: #000,
+	),
+	"Haskell": (
+		classes: ("haskell", "hs"),
+		background: #5e5086,
+	),
+	"Haxe": (
+		classes: ("haxe", "hx"),
+		background: #df7900,
+	),
+	"HSP": (
+		classes: ("hsp"),
+		background: #00838f,
+	),
+	"HTTP": (
+		classes: ("http", "https"),
+		background: #618f10,
+	),
+	"Hy": (
+		classes: ("hy", "hylang"),
+		background: #77095e,
+	),
+	"Inform 7": (
+		classes: ("inform7", "i7"),
+		background: #3f51b5,
+	),
+	"INI / TOML": (
+		classes: ("ini", "toml"),
+		background: #5a75c0,
+	),
+	"IRPF90": (
+		classes: ("irpf90"),
+		background: #ad1457,
+	),
+	"ISBL": (
+		classes: ("isbl"),
+		background: #283593,
+	),
+	"Java": (
+		classes: ("java", "jsp"),
+		background: #eb2d2f,
+	),
+	"JBoss CLI": (
+		classes: ("jboss-cli", "wildfly-cli"),
+		background: #00838f,
+	),
+	"JSON": (
+		classes: ("json", "jsonc"),
+		background: #108f66,
+	),
+	"Julia": (
+		classes: ("julia", "jldoctest"),
+		background: #a270ba,
+	),
+	"Julia REPL": (
+		classes: ("julia-repl"),
+		background: #6d4282,
+	),
+	"Kotlin": (
+		classes: ("kotlin", "kt", "kts"),
+		background: #a97bff,
+	),
+	"Lasso": (
+		classes: ("lasso", "lassoscript"), // `ls` is apparently valid for the lang but uses LiveScript syntax highlighting.
+		background: #999,
+	),
+	"LaTeX": (
+		classes: ("latex", "tex"),
+		background: #3d6117,
+	),
+	"LDIF": (
+		classes: ("ldif"),
+		background: #37474f,
+	),
+	"Leaf": (
+		classes: ("leaf"),
+		background: #2e7d32,
+	),
+	"Less": (
+		classes: ("less"),
+		background: #1d365d,
+	),
+	"Lisp": (
+		classes: ("lisp"),
+		background: #3f51b5,
+	),
+	"LiveCode": (
+		classes: ("livecodeserver"),
+		background: #009688,
+	),
+	"LiveScript": (
+		classes: ("livescript", "ls"),
+		background: #49be25,
+	),
+	"LLVM IR": (
+		classes: ("llvm"),
+		background: #185619,
+	),
+	"LSL": (
+		classes: ("lsl"),
+		background: #00796b,
+	),
+	"Lua": (
+		classes: ("lua", "pluto"),
+		background: #2ecc71,
+		color: #000,
+	),
+	"Makefile": (
+		classes: ("makefile", "mk", "mak", "make"),
+		background: #8a2b0f,
+	),
+	"Markdown": (
+		classes: ("markdown", "md", "mkdown", "mkd"),
+		background: #ab2e16,
+	),
+	"Mathematica": (
+		classes: ("mathematica", "mma", "wl"),
+		background: #d10,
+	),
+	"Matlab": (
+		classes: ("matlab"),
+		background: #e16737,
+	),
+	"Maxima": (
+		classes: ("maxima"),
+		background: #00838f,
+	),
+	"MEL": (
+		classes: ("mel"),
+		background: #ad1457,
+	),
+	"Mercury": (
+		classes: ("mercury", "m", "moo"),
+		background: #006064,
+	),
+	"MIPS Assembly": (
+		classes: ("mipsasm", "mips"),
+		background: #3f51b5,
+	),
+	"Mizar": (
+		classes: ("mizar"),
+		background: #455a64,
+	),
+	"Mojolicious": (
+		classes: ("mojolicious"),
+		background: #1976d2,
+	),
+	"Monkey": (
+		classes: ("monkey"),
+		background: #8d6e63,
+	),
+	"MoonScript": (
+		classes: ("moonscript", "moon"),
+		background: #fa0,
+		color: #000,
+	),
+	"N1QL": (
+		classes: ("n1ql"),
+		background: #e53935,
+	),
+	"Nested Text": (
+		classes: ("nestedtext", "nt"),
+		background: #558b2f,
+	),
+	"Nginx config": (
+		classes: ("nginx", "nginxconf"),
+		background: #009639,
+	),
+	"Nim": (
+		classes: ("nim"),
+		background: #37775b,
+	),
+	"Nix": (
+		classes: ("nix", "nixos"),
+		background: #5277c3,
+	),
+	"Node REPL": (
+		classes: ("node-repl"),
+		background: #2e7d32,
+	),
+	"NSIS": (
+		classes: ("nsis"),
+		background: #4e5d6c,
+	),
+	"Objective-C": (
+		classes: ("objectivec", "mm", "objc", "obj-c", "obj-c\\\+\\\+", "objective-c\\\+\\\+"),
+		background: #438eff,
+	),
+	"OCaml": ( // uses shared "ml" as alias
+		classes: ("ocaml"),
+		background: #3be133,
+		color: #000,
+	),
+	"OpenSCAD": (
+		classes: ("openscad", "scad"),
+		background: #f57c00,
+	),
+	"Oxygene": (
+		classes: ("oxygene"),
+		background: #c2185b,
+	),
+	"Parser3": (
+		classes: ("parser3"),
+		background: #283593,
+	),
+	"Perl": (
+		classes: ("perl", "pl", "pm"),
+		background: #0298c3,
+	),
+	"Packet Filter config": (
+		classes: ("pf", "pf\\.conf"),
+		background: #37474f,
+	),
+	"PostgreSQL": (
+		classes: ("pgsql", "postgres", "postgresql"),
+		background: #336791,
+	),
+	"PHP": (
+		classes: ("php"),
+		background: #6e81b6,
+	),
+	"PHP template": (
+		classes: ("php-template"),
+		background: #4f5d84,
+	),
+	// --code-plain-text is a variable used for i18n. The default value for en is `Plain Text`
+	"var(--code-plain-text,\"Plain Text\")": (
+		classes: ("plaintext", "text", "txt", "hljs[class$=hljs]"),
+		background: #616161,
+	),
+	"Pony": (
+		classes: ("pony"),
+		background: #1976d2,
+	),
+	"PowerShell": (
+		classes: ("powershell", "pwsh", "ps", "ps1"),
+		background: #012456,
+	),
+	"Processing": (
+		classes: ("processing", "pde"),
+		background: #006699,
+	),
+	"Prolog": (
+		classes: ("prolog"),
+		background: #ef4d25,
+	),
+	".properties": (
+		classes: ("properties"),
+		background: #4e5d6c,
+	),
+	"Protocol Buffers": (
+		classes: ("protobuf", "proto"),
+		background: #1565c0,
+	),
+	"Puppet": (
+		classes: ("puppet", "pp"),
+		background: #ff2a00,
+	),
+	"PureBASIC": (
+		classes: ("purebasic", "pb", "pbi"),
+		background: #263238,
+	),
+	"Pycon": (
+		classes: ("pycon"),
+		background: #1565c0,
+	),
+	"Python": (
+		classes: ("python", "py", "gyp", "ipython"),
+		background: #1622ab,
+	),
+	"Python REPL": ( // ????
+		classes: ("python-repl"),
+		background: #0e1670,
+	),
+	"Python Profiler": (
+		classes: ("profile"),
+		background: #2e7d32,
+	),
+	"Q": (
+		classes: ("q", "k", "kdb"),
+		background: #00bcd4,
+	),
+	"QML (QT)": (
+		classes: ("qml", "qt"),
+		background: #41cd52,
+	),
+	"R": (
+		classes: ("r"),
+		background: #198ce7,
+	),
+	"ReasonML": (
+		classes: ("reasonml", "re"),
+		background: #ff5847,
+	),
+	"RenderMan RIB": (
+		classes: ("rib"),
+		background: #37474f,
+	),
+	"Roboconf": (
+		classes: ("roboconf", "graph", "instances"),
+		background: #00838f,
+	),
+	"RouterOS": (
+		classes: ("routeros", "mikrotik"),
+		background: #1a237e,
+	),
+	"RenderMan RSL": (
+		classes: ("rsl"),
+		background: #455a64,
+	),
+	"Ruby": (
+		classes: ("ruby", "rb", "gemspec", "podspec", "thor", "irb"),
+		background: #e73e3e,
+	),
+	"Oracle Rules Language": (
+		classes: ("ruleslanguage"),
+		background: #ad1457,
+	),
+	"Rust": (
+		classes: ("rust", "rs"),
+	),
+	"SAS": (
+		classes: ("sas"),
+		background: #1e88e5,
+	),
+	"Scala": (
+		classes: ("scala"),
+		background: #dc322f,
+	),
+	"Scheme": (
+		classes: ("scheme", "scm"),
+		background: #1e88e5,
+	),
+	"Scilab": (
+		classes: ("scilab", "sci"),
+		background: #00838f,
+	),
+	"SCSS": (
+		classes: ("scss"),
+		background: #c69,
+	),
+	"Shell Session": (
+		classes: ("shell", "console", "shellsession"),
+		background: #263238,
+	),
+	"Smali": (
+		classes: ("smali"),
+		background: #558b2f,
+	),
+	"Smalltalk": (
+		classes: ("smalltalk", "st"),
+		background: linear-gradient(in oklch longer hue 90deg, red 0 100%),
+	),
+	"SML": ( // uses shared "ml" as alias
+		classes: ("sml"),
+		background: #283593,
+	),
+	"SQF": (
+		classes: ("sqf"),
+		background: #283593,
+	),
+	"SQL": (
+		classes: ("sql"),
+		background: #4474ca,
+	),
+	"Stan": (
+		classes: ("stan", "stanfuncs"),
+		background: #b71c1c,
+	),
+	"Stata": (
+		classes: ("stata", "do", "ado"),
+		background: #1a237e,
+	),
+	"STEP Part 21": (
+		classes: ("step21", "p21", "step", "stp"),
+		background: #37474f,
+	),
+	"Stylus": (
+		classes: ("stylus", "styl"),
+		background: #ffb300,
+		color: #000,
+	),
+	"SubUnit": (
+		classes: ("subunit"),
+		background: #455a64,
+	),
+	"Swift": (
+		classes: ("swift"),
+		background: #fd7837,
+	),
+	"Tagger Script": (
+		classes: ("taggerscript"),
+		background: #4a148c,
+	),
+	"TAP": (
+		classes: ("tap"),
+		background: #2e7d32,
+	),
+	"Tcl": (
+		classes: ("tcl", "tk"),
+		background: #141414,
+	),
+	"Thrift": (
+		classes: ("thrift"),
+		background: #00838f,
+	),
+	"TP": (
+		classes: ("tp"),
+		background: #3f51b5,
+	),
+	"Twig": (
+		classes: ("twig", "craftcms"),
+		background: #85ad00,
+	),
+	"JavaScript": (
+		classes: ("javascript", "js", "jsx", "mjs"),
+		background: #165eab,
+	),
+	"CommonJS": (
+		classes: ("cjs"),
+		background: #165eab,
+	),
+	"TypeScript": (
+		classes: ("typescript", "ts", "tsx", "cts"),
+		background: #03324c,
+	),
+	"Vala": (
+		classes: ("vala"),
+		background: #77613e,
+	),
+	"Visual Basic .NET": (
+		classes: ("vbnet", "vb"),
+		background: #839700,
+	),
+	"VBScript": (
+		classes: ("vbscript", "vbs"),
+		background: #1565c0,
+	),
+	"VBScript in HTML": (
+		classes: ("vbscript-html"),
+		background: #0d47a1,
+	),
+	"Verilog": (
+		classes: ("verilog", "v", "sv", "svh"),
+		background: #008080,
+	),
+	"VHDL": (
+		classes: ("vhdl"),
+		background: #543978,
+	),
+	"Vim Script": (
+		classes: ("vim"),
+		background: #019833,
+	),
+	"WebAssembly": (
+		classes: ("wasm"),
+		background: #654ff0,
+	),
+	"Wren": (
+		classes: ("wren"),
+		background: #382d2c,
+	),
+	"X++": (
+		classes: ("axapta", "x\\\+\\\+"),
+		background: #002060,
+	),
+	"x86 Assembly": (
+		classes: ("x86asm"),
+		background: #4a5d6e,
+	),
+	"eXtensible Language": (
+		classes: ("xl", "tao"),
+		background: #4872a8,
+	),
+	"XML": (
+		classes: ("xml", "rss", "atom", "xjb", "xsd", "xsl", "plist", "wsf"),
+		background: #8444af,
+	),
+	"HTML": (
+		classes: ("html", "xhtml"),
+		background: #16ab6f,
+		color: #000,
+	),
+	"SVG": (
+		classes: ("svg"),
+		background: #ffb13b,
+		color: #000,
+	),
+	"XQuery": (
+		classes: ("xquery", "xpath", "xq", "xqm"),
+		background: #1976d2,
+	),
+	"YAML": (
+		classes: ("yaml", "yml"),
+		background: #cb171e,
+	),
+	"Zephir": (
+		classes: ("zephir", "zep"),
+		background: #188688,
+	),
 	// as there's multiples for it, it's here too.
-	"OCaml / SML": ("ml"),
+	"OCaml / SML": (
+		classes: ("ml"),
+		background: linear-gradient(in oklab 135deg, #283593, #3be133),
+	),
+
+	// intentionally fucked
+	"fucked": (
+		classes: ("none"),
+		background: null,
+		// color: null,
+	),
 );
 
 
@@ -216,13 +829,41 @@ $lang: (
 /// For names being variables, the string returns unquoted. 
 //////////////////
 
-// ln = lang name, this text is the ::before content, thrown into a variable beforehand
-// alias = either a string or a list of valid aliases applied to that language
-// itm = an item in alias when it's a list
-// output --lang is the name, as above
-@each $ln, $alias in $lang {
+
+@each $ln, $submap in $lang {
 	// for lists
 	$k: "";
+	$alias: null; $bg: null; $col: null;
+	// check stuff exists.
+	@if not map.has-key($submap,"classes") {
+		@error "Missing `classes` list component.";
+	}
+	$alias: map.get($submap,"classes");
+
+	@if not map.has-key($submap,"background") {
+		// @debug "`background` for language " #{$ln} " is missing. Defaulting to #000.";
+		$bg: #000; // if missing force black
+	} @else {
+		// backgrounds allow for the following: color (default), string (expected for gradients and whatnot)
+		$bg: map.get($submap,"background");
+		@if not (meta.type-of($bg) == string or meta.type-of($bg) == color) {
+			@debug "`background` for language " #{$ln} " is invalid. Defaulting to #000.";
+			$bg: #000; // force black
+		}
+	}
+
+	@if not map.has-key($submap,"color") {
+		// @debug "`color` for language " #{$ln} " is missing. Defaulting to #fff.";
+		$col: #fff; // if missing force white
+	} @else {
+		// color should only ever be a color.
+		$col: map.get($submap,"color");
+		@if not meta.type-of($col) == color {
+			@debug "`color` for language " #{$ln} " is invalid. Defaulting to #fff.";
+			$col: #fff; // force white
+		}
+	}
+
 	@if meta.type-of($alias) == list {
 		@for $i from 1 through list.length($alias) {
 			$k: string.insert($k,"." + list.nth($alias,$i) + ",",-1);
@@ -234,27 +875,85 @@ $lang: (
 		$k: "."+$alias;
 	}
 	#{$k} {
+		--bg: #{$bg};
+		--col: #{$col};
 		@if string.index($ln, "--") == null {
-		--lang: "#{$ln}";
+		  --lang: "#{$ln}";
 		} @else {
 			--lang: #{$ln};
 		}
 	}
 }
-// big undo for embeded text files
+#{c(hljs)} {
+	padding: 0;
+	transform: unset;
+	border-radius: 4px;
+	&::before {
+		content: var(--lang,none); // if language isn't known, remove the box
+		background: var(--bg,#000);
+		color: var(--col,#fff);
+		width: 100%;
+		height: 16px;
+		position: relative;
+		display: block grid;
+		justify-content: center;
+		margin-top: 0px;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		border-bottom: 5px solid transparent;
+	}
+}
+#{c(chat markup)} #{c(chat codeContainer)} {
+	max-width: unset;
+	&:hover #{c(chat codeActions)} {
+		// MAKE IT CLICKABLE.
+		top: calc(8px + 16px + 5px);
+	}
+}
 #{c(embeds textContainer)} #{c(hljs)} {
-	--lang: none;
 	transform: unset;
 }
-#{c(hljs)}::before {
-	content: var(--lang);
-	position: absolute;
-	top: 0.25rem;
-	right: 0.25rem;
-	font-size: 0.625rem;
-	line-height: 0.875rem;
-	color: var(--text-muted);
-	font-style: italic;
-}
+
+
+// // ln = lang name, this text is the ::before content, thrown into a variable beforehand
+// // alias = either a string or a list of valid aliases applied to that language
+// // itm = an item in alias when it's a list
+// // output --lang is the name, as above
+// @each $ln, $alias in $lang {
+// 	// for lists
+// 	$k: "";
+// 	@if meta.type-of($alias) == list {
+// 		@for $i from 1 through list.length($alias) {
+// 			$k: string.insert($k,"." + list.nth($alias,$i) + ",",-1);
+// 		}
+// 		// remove extra comma
+// 		$k: string.slice($k,0,-2);
+// 	} @else {
+// 	// and for single strings
+// 		$k: "."+$alias;
+// 	}
+// 	#{$k} {
+// 		@if string.index($ln, "--") == null {
+// 		--lang: "#{$ln}";
+// 		} @else {
+// 			--lang: #{$ln};
+// 		}
+// 	}
+// }
+// // big undo for embeded text files
+// #{c(embeds textContainer)} #{c(hljs)} {
+// 	--lang: none;
+// 	transform: unset;
+// }
+// #{c(hljs)}::before {
+// 	content: var(--lang);
+// 	position: absolute;
+// 	top: 0.25rem;
+// 	right: 0.25rem;
+// 	font-size: 0.625rem;
+// 	line-height: 0.875rem;
+// 	color: var(--text-muted);
+// 	font-style: italic;
+// }
 
 }

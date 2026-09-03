@@ -24,7 +24,9 @@
 #{c(friends explorePublicHeader)},
 #{c(friends explorePublicGrid)},
 // remove stupid image when none online, no friends, none pending or none blocked
-#{c(friends emptyImage)} {
+#{c(friends emptyImage)},
+// sponsored quest in active now
+#{c(friends activeNow sponsored wrapper)} {
 	display: none;
 }
 #{c(friends peopleColumn)} {
@@ -135,6 +137,10 @@
 
 #{c(friends searchIcon)} {
 	z-index: 0; // messes with active now
+}
+
+#{c(friends addFriendWumpusWrapper)}>img {
+	display: none;
 }
 
 }

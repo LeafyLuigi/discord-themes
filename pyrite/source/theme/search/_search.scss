@@ -13,6 +13,7 @@
 	}
 }
 #{c(search header)} {
+	border-bottom: 1px solid $secondary;
 	background-color: $header;
 }
 #{c(search headerTabList)} {
@@ -58,6 +59,11 @@
 }
 #{c(search button)} {
 	background-color: $card;
+}
+
+#{c(search paginationDock)} {
+	border-top: 1px solid $secondary;
+	background: $side;
 }
 
 }

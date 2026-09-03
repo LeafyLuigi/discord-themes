@@ -1,24 +1,34 @@
 @use "backend" as *;
 @if $lite != 1 {
+
 #{c(modals pinned messageGroup)} {
 	margin: 0 0 16px;
-	background: transparent;
+	background: none;
 	border: none;
+	// &:is(
+	// 	:hover,
+	// 	:focus-within
+	// ) #{c(modals pinned actionButtons)} {
+	// 	display: flex;
+	// 	gap: var(--space-8);
+	// }
 }
-#{c(modals pinned jumpButton)} {
-	background-color: $card;
-}
+// #{c(modals pinned jumpButton)} {
+// 	background-color: $card;
+// }
 #{c(modals pinned actionButtons)} {
 	display: flex;
+	gap: var(--space-8);
 }
-#{c(modals pinned actionButtons)} #{c(modals pinned remove)} {
-	color: $primary;
-	&:hover {
-		color: $hover;
-	}
-}
+// #{c(modals pinned actionButtons)} #{c(modals pinned remove)} {
+// 	color: $primary;
+// 	&:hover {
+// 		color: $hover;
+// 	}
+// }
 #{c(modals pinned emptyImage)},
 #{c(modals pinned footer)} {
 	display: none;
 }
+
 }

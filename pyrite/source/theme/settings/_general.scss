@@ -1,0 +1,71 @@
+@use "backend" as *;
+@if $lite != 1 {
+/* Begin Settings */
+// This file is for shared stuff. Shared between Server and Channel unless otherwise specified.
+// Sidebar Background
+#{c(settings sidebar regionScroller)} {
+	background: $side;
+}
+// Main Content Background
+#{c(settings content regionScroller)},
+#{c(settings content)}:has(>#{c(settings content customColumn)}) {
+	background: $middle;
+}
+// Allow main app background to work
+#{c(main appLayer)},
+#{c(settings standardSidebarView)},
+#{c(settings content)},
+#{c(settings content regionScroller)} #{c(settings content regionScroller)},
+#{c(settings content customScroller)} {
+	background: none;
+}
+
+// Sidebar tab theming
+#{c(settings sidebar)} {
+	#{c(tab header)} {
+		color: var(--category-color);
+	}
+	#{c(tab item)}#{c(tab themed)} {
+		color: var(--read-channel-color);
+		&:is(
+			:hover,
+			:active
+		) {
+			background: var(--interactive-background-hover);
+		}
+		&#{c(tab selected)} {
+			color: var(--selected-channel-color);
+			background: var(--interactive-background-selected);
+		}
+	}
+}
+
+// ESC close icon
+#{c(settings tools container)} {
+	color: $primary;
+	&:hover,
+	&:active {
+		color: $hover;
+	}
+	#{c(settings tools closeButton)} {
+		border-color: currentColor;
+		&:hover,
+		&:active {
+			background: transparent;
+		}
+		&>svg>path {
+			fill: currentColor;
+		}
+	}
+	#{c(settings tools closeButton)}+#{c(settings tools keybind)},
+	#{c(settings tools closeButton)} {
+		color: currentColor;
+	}
+}
+
+// fix a few scrollers
+#{c(settings content customContainer)} {
+	inset: unset;
+}
+
+}

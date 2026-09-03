@@ -29,6 +29,9 @@
 
 // funny redesign stuff
 // see 2026-06-user-profile-sidebar-redesign
+:root #{c(profile themed)}#{c(profile panel)}#{c(profile panel redesign)} {
+	--custom-user-profile-theme-padding: 0;
+}
 #{c(profile panel parent)} {
 	padding: 0;
 }

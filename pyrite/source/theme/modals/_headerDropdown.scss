@@ -1,17 +1,19 @@
 @use "backend" as *;
-#{c(modals headerDropdown messagesPopoutWrap)},
-#{c(modals inbox unread popout)},
-#{c(modals inbox forYou container)} {
-	// only the top 4px is done for making sure that it doesn't clip into the header for lite
-	top: 4px;
-	@if $lite != 1 {
-		backdrop-filter: blur(calc($blur * 5px));
-		background: $modal;
-	}
-}
 @if $lite != 1 {
+	#{c(modals headerDropdown messagesPopoutWrap)}
+	// #{c(modals inbox unread popout)},
+	// #{c(modals inbox forYou container)} 
+	{
+		background: none;
+		backdrop-filter: blur(calc($blur * 5px));
+	}
 	#{c(modals headerDropdown header)} {
-		background: transparent;
+		background: $header;
+		border-bottom: none;
+	}
+	#{c(modals headerDropdown messagesPopout)} {
+		background: $modal;
+		padding: 0; // intentionally ignores padding-right applied via inline/scrollerBase
 	}
 	// it appears in there
 	#{c(modals inbox popout)} #{c(modals headerDropdown messagesPopoutWrap)} {

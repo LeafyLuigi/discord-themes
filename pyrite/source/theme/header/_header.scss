@@ -151,11 +151,11 @@
 }
 
 // Hide Help icon. Can be accessed by pressing F1.
+#{c(topBar trailing container)} a[href="https://support.discord.com"] {
+	display: none;
+}
 #{c(topBar bar)} {
 	background: $header;
-}
-#{c(topBar trailing container)} #{c(main anchorLink)}[href="https://support.discord.com"] {
-	display: none;
 }
 
 // extra button checkings
@@ -227,7 +227,7 @@
 		--custom-app-top-bar-height: 32px;
 	}
 	#{c(topBar trailing winButton)} {
-		height: 48px;
+		height: var(--custom-channel-header-height,48px);
 	}
 	#{c(topBar trailing winButton)} {
 		width: var(--win-min-max-close-button-width);
@@ -262,11 +262,11 @@
 	}
 }
 #{c(os mac)} :not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {
-	top: 24px;
+	top: calc(var(--custom-channel-header-height,48px) / 2);
 }
 // linux and web
 :is(#{c(os linux)}, #{c(os web)}) {
 	#{c(topBar trailing recentsIcon)} {
-		top: 24px;
+		top: calc(var(--custom-channel-header-height,48px) / 2);
 	}
 }

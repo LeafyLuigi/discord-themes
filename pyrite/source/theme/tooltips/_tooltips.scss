@@ -3,21 +3,35 @@
 #{c(main layerContainer)} {
 	z-index: 1100;
 }
-#{c(tooltips tooltip)} {
+
+// for whatever reason there's a second set of classes.
+
+#{c(tooltips)},
+#{c(tooltips sidebarHover)} {
 	z-index: 2000;
 }
-#{c(tooltips pointer)},
-#{c(tooltips inbox caretIcon)} {
+// this removes the little arrow
+#{c(tooltips caret)},
+#{c(tooltips inbox caretIcon)},
+#{c(tooltips sidebarHover pointer)} {
 	display: none !important; // !important reason: despite being display none, it still shows up for some reason.
 }
 #{c(tooltips brand)},
 #{c(tooltips grey)},
 #{c(tooltips primary)},
 #{c(media bubble)},
-#{c(tooltips inbox)} {
+#{c(tooltips inbox)},
+#{c(tooltips)},
+#{c(tooltips sidebarHover)},
+#{c(tooltips sidebarHover brand)},
+#{c(tooltips sidebarHover grey)},
+#{c(tooltips sidebarHover primary)} {
 	background: $tooltip;
 	color: var(--header-primary);
 }
 #{c(tooltips stageListenerPill)} {
 	background: $card;
+}
+#{c(tooltips sidebarHover)} {
+	border: none;
 }

@@ -1,4 +1,8 @@
-@forward "appSettings";
-@forward "channelSettings";
-@forward "serverSettings";
-@forward "userSettings";
+@forward "general"; // for some shared stuff
+@forward "user"; // 
+@forward "channel"; // 
+
+// @forward "old-appSettings";
+// @forward "old-channelSettings";
+// @forward "old-serverSettings";
+// @forward "old-userSettings";

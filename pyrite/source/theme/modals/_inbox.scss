@@ -1,5 +1,19 @@
 @use "backend" as *;
 @if $lite != 1 {
+#{c(modals inbox popout)} {
+	background: none;
+	top: 4px;
+	backdrop-filter: blur(calc($blur * 5px));
+}
+#{c(modals inbox header)} {
+	background: $header;
+}
+#{c(modals inbox unread scroller)},
+#{c(modals inbox mentions scroller)} {
+	background: $modal;
+	padding: 0; // intentionally ignores the padding-right applied via inline/scrollerBase
+}
+
 #{c(modals inbox guildIcon)} {
 	background-color: transparent;
 }

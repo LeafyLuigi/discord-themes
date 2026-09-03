@@ -27,7 +27,10 @@
 @debug "redo menu dropdown to use a variable for checks?";
 #{c(modals menus item)} {
 	// checkbox + radio
-	:is(#{c(modals menus checkbox)},#{c(modals menus radioSelection)}) {
+	:is(
+		#{c(modals menus checkbox)},
+		#{c(modals menus radioSelection)}
+	) {
 		color: $primary;
 	}
 	// colors
@@ -35,7 +38,11 @@
 		color: $primary;
 	}
 	// hover/active
-	&:is(#{c(modals menus itemFocused)},#{c(modals menus itemFocused)}:active,:active:not(#{c(modals menus itemHideInteraction)})) {
+	&:is(
+		#{c(modals menus itemFocused)},
+		#{c(modals menus itemFocused)}:active,
+		:active:not(#{c(modals menus itemHideInteraction)})
+	) {
 		background: $primary;
 		// colors
 		&#{c(modals menus colorDanger)} {
@@ -50,12 +57,25 @@
 			color: $primary;
 		}
 	}
-	// make block and remove friend red
-	&:is(#{c(modals menus colorDanger)},#user-context-block,#user-context-remove-friend) {
-		color: $red;
-		&:is(#{c(modals menus itemFocused)},:active:not(#{c(modals menus itemHideInteraction)}),:hover) {
-			color: var(--interactive-active);
+	// make block, ignore and remove friend red
+	&:is(
+		#{c(modals menus colorDanger)},
+		#user-context-block,
+		#user-context-remove-friend,
+		#user-context-ignore
+	) {
+		#{c(modals menus label)} {
+			color: $red;
+		}
+		&:is(
+			#{c(modals menus itemFocused)},
+			:active:not(#{c(modals menus itemHideInteraction)}),
+			:hover
+		) {
 			background: $red;
+			#{c(modals menus label)} {
+				color: var(--interactive-active);
+			}
 		}
 	}
 
