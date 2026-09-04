@@ -505,8 +505,6 @@ a[href^="http://"] {
 		#{c(embeds textContainerUp)} {
 			border: none;
 			background-color: transparent;
-		}
-		#{c(embeds textContainer)} {
 			@include bg($bgf: var(--local-image) center/ cover no-repeat);
 			@include bg2($bgf: var(--preview-overlay,url('https://leafyluigi.github.io/images/preview-overlay.png')) center/ cover no-repeat);
 		}
@@ -574,7 +572,7 @@ a[href^="http://"] {
 						--client-mod-image: url('https://leafyluigi.github.io/images/betterdiscord.png');
 					}
 				}
-				#{c(embeds textContainerUp)} {
+				#{c(embeds textContainer)} {
 					&::before {
 						content: "";
 						background: var(--client-mod-image,none) center/cover no-repeat;

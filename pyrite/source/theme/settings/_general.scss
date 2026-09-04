@@ -16,7 +16,8 @@
 #{c(settings standardSidebarView)},
 #{c(settings content)},
 #{c(settings content regionScroller)} #{c(settings content regionScroller)},
-#{c(settings content customScroller)} {
+#{c(settings content customScroller)},
+#{c(settings user modalContentInner)} {
 	background: none;
 }
 
@@ -63,9 +64,9 @@
 	}
 }
 
-// fix a few scrollers
-#{c(settings content customContainer)} {
-	inset: unset;
-}
+// // fix a few scrollers
+// #{c(settings content customContainer)} {
+// 	inset: unset;
+// }
 
 }

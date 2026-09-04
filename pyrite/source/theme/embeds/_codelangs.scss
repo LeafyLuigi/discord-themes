@@ -812,55 +812,56 @@ $lang: (
 		background: linear-gradient(in oklab 135deg, #283593, #3be133),
 	),
 
-	// intentionally fucked
-	"fucked": (
-		classes: ("none"),
-		background: null,
-		// color: null,
-	),
+	// // intentionally fucked
+	// "fucked": (
+	// 	classes: ("none"),
+	// 	background: null,
+	// 	// color: null,
+	// ),
 );
 
 
 //////////////////
 /// Function Below:
-/// From the list above, Name: [(shortcode1, shortcode2..)|shortcode],...
+/// From the list above, Name: (classes: ("stringList"), ?background:[str|col], ?color: color)
 /// For multiple shortcodes, each gets passed into a list with an appended full stop for class.
 /// For singular shortcode, a full stop is appended.
-/// For names being variables, the string returns unquoted. 
+/// For names being variables, the string returns unquoted.
+/// The optional `background` must be valid for `background-color` or `background-image`.
+/// The optional `color` must be a color.
 //////////////////
 
 
 @each $ln, $submap in $lang {
 	// for lists
 	$k: "";
-	$alias: null; $bg: null; $col: null;
+	$alias: null; $bg: null; $col: null; $isBGStr: false;
 	// check stuff exists.
 	@if not map.has-key($submap,"classes") {
 		@error "Missing `classes` list component.";
 	}
 	$alias: map.get($submap,"classes");
 
-	@if not map.has-key($submap,"background") {
-		// @debug "`background` for language " #{$ln} " is missing. Defaulting to #000.";
-		$bg: #000; // if missing force black
-	} @else {
+	@if map.has-key($submap,"background") {
 		// backgrounds allow for the following: color (default), string (expected for gradients and whatnot)
-		$bg: map.get($submap,"background");
-		@if not (meta.type-of($bg) == string or meta.type-of($bg) == color) {
+		@if not (meta.type-of(map.get($submap,"background")) == string or meta.type-of(map.get($submap,"background")) == color) {
 			@debug "`background` for language " #{$ln} " is invalid. Defaulting to #000.";
 			$bg: #000; // force black
+		} @else {
+			@if meta.type-of(map.get($submap,"background")) == string {
+				$isBGStr: true;
+			}
+			$bg: map.get($submap,"background");
 		}
 	}
 
-	@if not map.has-key($submap,"color") {
-		// @debug "`color` for language " #{$ln} " is missing. Defaulting to #fff.";
-		$col: #fff; // if missing force white
-	} @else {
+	@if map.has-key($submap,"color") {
 		// color should only ever be a color.
-		$col: map.get($submap,"color");
-		@if not meta.type-of($col) == color {
+		@if not meta.type-of(map.get($submap,"color")) == color {
 			@debug "`color` for language " #{$ln} " is invalid. Defaulting to #fff.";
 			$col: #fff; // force white
+		} @else {
+			$col: map.get($submap,"color");
 		}
 	}
 
@@ -875,8 +876,17 @@ $lang: (
 		$k: "."+$alias;
 	}
 	#{$k} {
-		--bg: #{$bg};
-		--col: #{$col};
+		@if $bg != null {
+			@if $isBGStr {
+				--bg: #{$bg};
+				&::before {
+					filter: saturate(var(--saturation-factor,1));
+				}
+			} @else {
+				--bg: hsl(from #{$bg} h calc(var(--saturation-factor,1) * s) l/alpha);
+			}
+		}
+		@if $col != null { --col: #{$col}; }
 		@if string.index($ln, "--") == null {
 		  --lang: "#{$ln}";
 		} @else {
@@ -886,8 +896,6 @@ $lang: (
 }
 #{c(hljs)} {
 	padding: 0;
-	transform: unset;
-	border-radius: 4px;
 	&::before {
 		content: var(--lang,none); // if language isn't known, remove the box
 		background: var(--bg,#000);
@@ -898,8 +906,7 @@ $lang: (
 		display: block grid;
 		justify-content: center;
 		margin-top: 0px;
-		border-top-left-radius: 3px;
-		border-top-right-radius: 3px;
+		border-radius: 3px 3px 0 0;
 		border-bottom: 5px solid transparent;
 	}
 }

@@ -101,5 +101,21 @@
 	}
 }
 
+// remove shadow in sidebar
+#{c(settings user sidebar fixedContent)}#{c(settings user sidebar withShadow)}::after {
+	content: none;
+}
+
+//// ACCOUNT
+
+/// ACCOUNT STANDING
+
+// ACCOUNT STANDING PAGE
+#{c(settings user account standing markerGroup marker)} {
+	background: $card;
+	#{c(settings user account standing markerGroup empty)} {
+		background: none;
+	}
+}
 
 }
