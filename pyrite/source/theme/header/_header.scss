@@ -183,7 +183,7 @@
 }
 
 // default fallbacks
-@container not style(--platform: windows) {
+@container not style(((--platform: windows) or (--platform: linux))) {
 	body {
 		--custom-app-top-bar-height: 0px;
 	}
@@ -204,7 +204,10 @@
 		height: 48px;
 	}
 	// windows fallback
-	#{c(os win)} {
+	:is(
+		#{c(os win)},
+		#{c(os linux)}
+	) {
 		#{c(topBar trailing recentsIcon)} {
 			width: var(--space-32);
 			height: var(--space-32);
@@ -222,7 +225,7 @@
 	}
 }
 // must be windows, must have restore titlebar enabled
-@container style((--platform: windows) and (--restore-windows-titlebar: true)) {
+@container style(((--platform: windows) or (--platform: linux)) and (--restore-windows-titlebar: true)) {
 	body {
 		--custom-app-top-bar-height: 32px;
 	}
@@ -237,7 +240,10 @@
 		height: var(--space-32);
 	}
 }
-#{c(os win)} {
+:is(
+	#{c(os win)},
+	#{c(os linux)}
+) {
 	#{c(topBar trailing winButtons)} {
 		gap: 0;
 		&::before {
@@ -245,8 +251,8 @@
 		}
 	}
 }
-// windows and mac
-:is(#{c(os win)}, #{c(os mac)}) {
+// windows, mac and linux
+:is(#{c(os win)}, #{c(os mac)}, #{c(os linux)}) {
 	#{c(topBar trailing container)} {
 		gap: 0;
 	}
@@ -264,9 +270,10 @@
 #{c(os mac)} :not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {
 	top: calc(var(--custom-channel-header-height,48px) / 2);
 }
-// linux and web
-:is(#{c(os linux)}, #{c(os web)}) {
-	#{c(topBar trailing recentsIcon)} {
-		top: calc(var(--custom-channel-header-height,48px) / 2);
+// web
+#{c(os web)} {
+	// the window buttons may exist. they may not. pain.
+	:not(#{c(topBar systemBar)})>#{c(topBar trailing container)} {
+		top: 24px;
 	}
 }

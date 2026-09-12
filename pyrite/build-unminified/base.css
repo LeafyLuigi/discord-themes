@@ -860,8 +860,8 @@ html {
   border-radius: 0;
 }
 
-.border_f910d0.speaking__2f4f7 {
-  box-shadow: inset 0 0 10px 2px var(--hsl-primary-color);
+.border_f910d0[style*="--status-speaking"] {
+  box-shadow: inset 0 0 10px 2px var(--hsl-primary-color) !important;
 }
 
 :is(html:not(.keyboard-mode),
@@ -3501,7 +3501,7 @@ span):not(.spoilerContent__299eb) {
   display: none;
 }
 
-@container not style(--platform: windows) {
+@container not style(((--platform: windows) or (--platform: linux))) {
   body {
     --custom-app-top-bar-height: 0px;
   }
@@ -3518,19 +3518,23 @@ span):not(.spoilerContent__299eb) {
     width: var(--win-min-max-close-button-width);
     height: 48px;
   }
-  .platform-win .clickable__81391 {
+  :is(.platform-win,
+  .platform-linux) .clickable__81391 {
     width: var(--space-32);
     height: var(--space-32);
   }
-  .platform-win .chatLayerWrapper__01ae2 .toolbar__9293f,
-  .platform-win .chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
+  :is(.platform-win,
+  .platform-linux) .chatLayerWrapper__01ae2 .toolbar__9293f,
+  :is(.platform-win,
+  .platform-linux) .chat_f75fb0:not(.threadSidebarOpen_f75fb0) .toolbar__9293f {
     margin-right: calc(3 * var(--space-xs) + var(--has-download-btn, 0) * var(--space-32) + var(--has-toolbox-btn, 0) * var(--space-32) + var(--has-vc-toolbox-btn, 0) * var(--space-32) + 3 * var(--win-min-max-close-button-width));
   }
-  .platform-win :not(.systemBar_c38106) > .trailing_c38106 {
+  :is(.platform-win,
+  .platform-linux) :not(.systemBar_c38106) > .trailing_c38106 {
     top: 24px;
   }
 }
-@container style((--platform: windows) and (--restore-windows-titlebar: true)) {
+@container style(((--platform: windows) or (--platform: linux)) and (--restore-windows-titlebar: true)) {
   body {
     --custom-app-top-bar-height: 32px;
   }
@@ -3545,17 +3549,19 @@ span):not(.spoilerContent__299eb) {
     height: var(--space-32);
   }
 }
-.platform-win .winButtons_c38106 {
+:is(.platform-win,
+.platform-linux) .winButtons_c38106 {
   gap: 0;
 }
-.platform-win .winButtons_c38106::before {
+:is(.platform-win,
+.platform-linux) .winButtons_c38106::before {
   content: none;
 }
 
-:is(.platform-win, .platform-osx) .trailing_c38106 {
+:is(.platform-win, .platform-osx, .platform-linux) .trailing_c38106 {
   gap: 0;
 }
-:is(.platform-win, .platform-osx) .bar_c38106::before {
+:is(.platform-win, .platform-osx, .platform-linux) .bar_c38106::before {
   content: "";
   top: 0;
   right: 0;
@@ -3566,7 +3572,7 @@ span):not(.spoilerContent__299eb) {
   height: 28px;
   -webkit-app-region: drag;
 }
-:is(.platform-win, .platform-osx) :is(.title__9293f,
+:is(.platform-win, .platform-osx, .platform-linux) :is(.title__9293f,
 .guildDropdown_f37cb1) {
   -webkit-app-region: no-drag;
 }
@@ -3575,8 +3581,8 @@ span):not(.spoilerContent__299eb) {
   top: calc(var(--custom-channel-header-height, 48px) / 2);
 }
 
-:is(.platform-linux, .platform-web) .clickable__81391 {
-  top: calc(var(--custom-channel-header-height, 48px) / 2);
+.platform-web :not(.systemBar_c38106) > .trailing_c38106 {
+  top: 24px;
 }
 
 /* Loading at launch */

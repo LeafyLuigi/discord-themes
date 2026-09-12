@@ -24,8 +24,9 @@
 		}
 	}
 }
-#{c(call avatarBorder)}#{c(call avatarSpeaking)} {
-	box-shadow: inset 0 0 10px 2px $primary;
+#{c(call avatarBorder)}[style*="--status-speaking"] {
+	box-shadow: inset 0 0 10px 2px $primary !important; // !important reason: inline style
+	// theoretically this could be done by setting `--status-speaking` to a different colour but it would still leave a slight grey border.
 }
 :is(
 	html:not(#{c(main keyboardMode)}),
