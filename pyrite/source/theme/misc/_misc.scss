@@ -152,9 +152,6 @@ html, // because maybe?
 	#{c(serverList)}::after {
 		content: none;
 	}
-	#{c(serverList tree)} {
-		padding-top: var(--size-xxs);
-	}
 	#{c(serverList unreadMentionsBar top)} {
 		top: var(--custom-channel-header-height,48px);
 	}
@@ -216,9 +213,6 @@ html, // because maybe?
 
 // Linux, Web
 :is(#{c(os linux)},#{c(os web)}) {
-	#{c(serverList scroller)} {
-		padding: 4px 0 0 0;
-	}
 	#{c(serverList)} {
 		@include bg($bg:$header,$w:100%,$h:var(--custom-channel-header-height,48px),$z:1010);
 	}
@@ -226,7 +220,6 @@ html, // because maybe?
 		top: var(--custom-channel-header-height,48px);
 		position: relative;
 		height: calc(100vh - var(--custom-channel-header-height,48px) - var(--custom-app-panels-height,0px));
-		padding-top: var(--size-xxs);
 	}
 	#{c(serverList unreadMentionsBar top)} {
 		top: var(--custom-channel-header-height,48px);

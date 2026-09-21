@@ -59,4 +59,8 @@
 	#{c(chat chatContent)}>#{c(scroller managedReactiveScroller)} {
 		background: $middle;
 	}
+	// margin issues.
+	#{c(vencord shc container)} {
+		margin: 0;
+	}
 }

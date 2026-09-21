@@ -49,6 +49,7 @@ html {
 		--css-gradient-colour-space-broken: "Gradients lack colour space support.\a";
 		--css-container-style: "@container style() for custom variables is not supported.\a";
 		--css-container-style-range-query: "@container style() lacks range queries.\a";
+		// --css-sibling-count-broken: "CSS sibling-count() does not work.\a";
 	
 		// Used within codelangs file for Codeblocks sans formatting or language
 		--code-plain-text: "Plain Text";
@@ -303,6 +304,15 @@ $tags: (
 			// cr 120 (full) / ff 117 / s 17.2 (full)
 			test: "selector(div &)"
 		// ),
+		// UNUSED RIGHT NOW SINCE IT DOESN'T WORK AS I INTENDED IT TO.
+		// "sibling-count": (
+		// 	// integer counter of sorts.
+		// 	// similar to counter() but it spits out an int rather than string
+		// 	// can be used for calculating how far away the toolbar should be from the right :)
+		// 	// IT WORKS WITH CALC.
+		// 	// cr 138 / ff 154 / s 26.2
+		// 	test: "sibling-count()"
+		// ),
 		// // THE FOLLOWING TWO DO NOT WORK AS THERE IS CURRENTLY NO WAY TO TEST FOR AT RULE SUPPORT USING @SUPPORTS
 		// "container-style": (
 		// 	// `@container style(--variable: value)` is used to enable/disable certain parts of the theme.
@@ -353,6 +363,7 @@ $tags: (
 				z-index: 2500;
 				opacity: 0;
 				transition: opacity 0.5s 10s;
+				pointer-events: none;
 			}
 			&::before {
 				content: #{$issueList};

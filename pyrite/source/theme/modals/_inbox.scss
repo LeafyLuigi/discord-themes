@@ -1,8 +1,8 @@
 @use "backend" as *;
 @if $lite != 1 {
-#{c(modals inbox popout)} {
+#{c(modals inbox)} {
 	background: none;
-	top: 4px;
+	top: 5px;
 	backdrop-filter: blur(calc($blur * 5px));
 }
 #{c(modals inbox header)} {
@@ -12,6 +12,12 @@
 #{c(modals inbox mentions scroller)} {
 	background: $modal;
 	padding: 0; // intentionally ignores the padding-right applied via inline/scrollerBase
+}
+
+#{c(modals inbox loading)} {
+	background: $modal;
+	margin: 0;
+	padding: var(--space-48);
 }
 
 #{c(modals inbox guildIcon)} {
@@ -75,27 +81,41 @@
 	background: $card;
 }
 
-
-#{c(modals inbox unread messages)} {
-	border-radius: unset;
-	background: transparent;
-	border: none;
+#{c(modals inbox unread box)} {
+	border-radius: 0;
+	background: none;
+	border: 0;
 }
-#{c(modals inbox unread mentionBadge)} {
-	background: $primary;
-}
-#{c(modals inbox unread collapseButton)} {
-	left: 0;
+#{c(modals inbox reminders status)},
+#{c(modals inbox unread box channelHeader)} {
+	background: none;
+	border: 0;
 }
 #{c(modals inbox unread divider)} {
-	margin: unset;
-	text-align: center;
+	display: none;
 }
 
-#{c(modals inbox tab)} {
-	background: transparent !important; // !important reason: parity with expressionPicker, also fuck discord
+// #{c(modals inbox tab)} {
+// 	background: transparent !important; // !important reason: parity with expressionPicker, also fuck discord
+// }
+// #{c(modals inbox tabActive)} {
+// 	background-color: $primary !important; // !important reason: parity with expressionPicker, also fuck discord
+// }
+
+// Empty stuff + upsell stuff
+#{c(modals inbox unread empty)},
+#{c(modals inbox reminders empty)},
+#{c(modals inbox scheduled empty)} {
+	background: $modal;
 }
-#{c(modals inbox tabActive)} {
-	background-color: $primary !important; // !important reason: parity with expressionPicker, also fuck discord
+#{c(modals inbox unread empty iconContainer)},
+#{c(modals inbox unread empty header)}+div,
+#{c(modals inbox bookmarks upsell)},
+#{c(modals inbox scheduled upsell)},
+#{c(modals inbox reminders empty upsellImage)},
+#{c(modals inbox reminders empty demo)},
+#{c(modals inbox scheduled empty upsellImage)},
+#{c(modals inbox scheduled empty demo)} {
+	display: none;
 }
 }

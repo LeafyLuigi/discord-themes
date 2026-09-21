@@ -161,8 +161,9 @@
 // home > shop
 // home > quests
 // -- reason for above is that they are hidden by default in the theme and are also unthemed. if it still exists, the library is also likely broken
-// server > guide
-// server > members
+// server > guide # FIXED BUT has slight issues when opening side channel
+// server > members # FIXED
+// server > channels&roles # FIXED BUT has slight issues when opening side channel
 // server > boosts page
 // server > server shop (found in discord previews; might hide it)
 // server > game servers (found in anime game modding group; might hide?)
@@ -180,7 +181,7 @@
 // regular chat, creating thread
 // regular chat, thread open (wide window)
 // regular chat, thread open (narrow window)
-// empty chat (check senzawa)
+// empty chat (check senzawa) # FIXED
 // -- i *think* that's it for server stuff
 // discover in its entirety. that whole thing needs to be redone anyway
 // -- discover should be done first tbh but i can't really be fucked lol
@@ -189,12 +190,13 @@
 // dm calls while streaming # SET TO FLEX RATHER THAN GRID, HAS OVERLAP ISSUE WITH NOTICE.
 // -- below are client mod stuff
 // **VENCORD** no access to channel; it scrolls
-.base__5e434 {
+#{c(main base)} {
 	&[data-fullscreen=false] {
 		grid-template-areas:
 			"titleBar titleBar titleBar titleBar"
 			"headerBar headerBar headerBar headerBar"
 			"guildsList notice notice notice"
+			"guildsList channelsList dmCall side"
 			"guildsList channelsList page side"
 			"panel panel page side"
 		;
@@ -202,8 +204,9 @@
 			[top] var(--custom-app-top-bar-height)
 			[titleBarEnd] var(--custom-channel-header-height)
 			[headerBarEnd] min-content
-			[noticeEnd] 1fr 
+			[noticeEnd] min-content
 			// [noticeEnd] minmax(1fr, calc(100vh - var(--custom-app-top-bar-height) - var(--custom-channel-header-height) - var(--custom-app-panels-height)))
+			[dmCallEnd] 1fr
 			[sidebarHeightEnd] var(--custom-app-panels-height)
 		[end];
 		grid-template-columns: 
@@ -215,10 +218,10 @@
 	}
 }
 // page as a whole
-.page__5e434 {
+#{c(chat page)} {
 	display: grid;
 	grid-template: subgrid / subgrid;
-	grid-area: headerBar / page / end / end;
+	grid-area: headerBar / dmCall / end / end;
 }
 // friends list
 #{c(friends container)} {
@@ -226,7 +229,7 @@
 	grid-template: subgrid / subgrid;
 	grid-area: headerBar / page / end / end;
 }
-.container__9293f {
+#{c(header)} {
 	grid-area: headerBar / notice / headerBarEnd / notice;
 }
 #{c(friends tabBody)} {
@@ -239,36 +242,39 @@
 		grid-template: subgrid / subgrid;
 		grid-area: headerBar / page / end / end;
 	}
-	> .page_c791b2.chat_f75fb0 { // for getting members page to work
+	> #{c(membersPage page)}#{c(chat)} { // for getting members page to work
 		display: grid; // !important reason: inline style when no class exists
 		grid-template: subgrid / subgrid;
 		grid-area: headerBar / page / end / end;
 	}
 }
-.chat_f75fb0 {
+#{c(chat)} {
 	display: grid;
 	grid-template: subgrid / subgrid;
 	grid-area: headerBar / page / end / end;
 }
-.subtitleContainer_f75fb0 {
+#{c(chat subtitleContainer)} {
 	grid-area: headerBar / notice / headerBar / notice;
 }
-.content_f75fb0 {
-	grid-area: noticeEnd / page / end / end;
+#{c(chat chatContent)} {
+	grid-area: page / page / end / end;
 }
 // server list
-.sidebar__5e434 {
+#{c(sidebar)} {
 	display: grid;
 	grid-template: subgrid / subgrid;
 	grid-area: headerBar / start / end / channelsEnd;
 }
-.wrapper_ef3116 {
+#{c(serverList wrapper)} {
 	display: grid;
 	grid-template: subgrid / subgrid;
 	grid-area: headerBar / start / end / guildsListEnd;
 	margin: 0;
 	&::before {
-		:is(.platform-linux, .platform-web) & {
+		:is(
+			#{c(os linux)},
+			#{c(os web)}
+		) & {
 			// top: unset;
 			// right: unset;
 			// bottom: unset;
@@ -279,28 +285,26 @@
 	}
 }
 // sidebar
-.sidebarList__5e434 {
+#{c(sidebar list)} {
 	display: grid;
 	grid-template: subgrid / subgrid;
 	grid-area: headerBar / channelsList / sidebarHeightEnd / channelsList;
 	container: inline-size; // it needs to be reapplied
 }
 // private channels
-.privateChannels_e6b769 {
-	display: grid;
-	grid-template: subgrid / subgrid;
+#{c(sidebar private channels)} {
 	grid-area: headerBar / channelsList / sidebarHeightEnd / channelsList;
 }
-.searchBar_e6b769 {
-	grid-area: headerBar / channelsList;
-}
-.scroller__99e7c {
-	grid-area: channelsList;
+// #{c(sidebar private searchBar)} {
+// 	grid-area: headerBar / channelsList;
+// }
+#{c(sidebar private scroller)} {
+	// grid-area: channelsList;
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
 // server channels
-.container__2637a {
+#{c(sidebar server container)} {
 	display: grid;
 	grid-template: subgrid / subgrid;
 	grid-area: headerBar / channelsList / channelsList / channelsList;
@@ -310,7 +314,7 @@
 #{c(sidebar server header container)} {
 	grid-area: headerBar;
 }
-.positionedContainer__629e4 {
+#{c(sidebar server unreadBar positionedContainer)} {
 	grid-area: channelsList;
 }
 // #{c(sidebar server header container)}#{c(sidebar server header hasBanner)} {
@@ -338,57 +342,57 @@
 // }
 
 // // force it in (it no work)
-.scroller__629e4 {
+#{c(sidebar server scroller)} {
 	grid-area: channelsList;
 }
 
 // panels
-.panels__5e434 {
+#{c(sidebar panel panels)} {
 	grid-area: panels;
 }
 
 // members page
-#{c(membersPage page)} > .scrollerBase_d125d2 {
+#{c(membersPage page)} > #{c(scroller base)} {
 	display: grid;
 	grid-template: subgrid / subgrid;
 	grid-area: noticeEnd / channelsList / end / channelsList;
 }
 
 // server voice chat -- SOME OF THESE CONFLICT WITH DM CALLS!
-.gradientBackground__41626, // hide all participents without camerea
-.pulseGradient__11664 { // no one in call
+#{c(call gradientBackground)}, // hide all participents without camerea
+#{c(call pulseGradient)} { // no one in call
 	display: none;
 }
-// .chat_f75fb0 > .wrapper_cb9592:not(.minimum_cb9592) { // the :not(minimum) is to avoid dm calls
-.chat_f75fb0 > .wrapper_cb9592 {
+#{c(chat)} > #{c(call wrapper)}:not(#{c(call verticalSplit)}) { // the :not(verticalSplit) is to avoid dm calls
+// #{c(chat)} > #{c(call wrapper)} {
 	display: grid;
 	grid-template: subgrid / subgrid;
 	grid-area: headerBar / page / end / page;
 }
-.layerContainer__59d0d:has(> .chatLayerWrapper__01ae2) { // the layerContainer class is used for modals as well. pain.
+#{c(main layerContainer)}:has(> #{c(chat layerWrapper)}) { // the layerContainer class is used for modals as well. pain.
 	display: grid;
 	grid-template: subgrid / subgrid;
 	grid-area: headerBar / side / end / end;
 	position: initial;
-	.chat_f75fb0 > & {
+	#{c(chat)} > & {
 		display: grid;
 		grid-template: subgrid / subgrid;
 		grid-area: headerBar / side / end / end;
 		z-index: 100;
 	}
 }
-.chatLayerWrapper__01ae2 {
+#{c(chat layerWrapper)} {
 	display: grid;
 	grid-template: subgrid / subgrid;
 	grid-area: headerBar / side / end / end;
 	position: initial;
 }
-.resizeHandle__01ae2 {
+#{c(threads resizeHandle)} {
 	grid-area: headerBar / side / end / end;
 	position: absolute;
 	left: calc(-1 * var(--chat-resize-handle-width));
 }
-.container__01ae2 {
+#{c(threads container)} {
 	width: 400px !important; // !important reason: inline style.
 	// it also doesn't seem to be changable once the grid layout is set in place.
 	// forced into floating or something.
@@ -396,16 +400,16 @@
 	grid-area: headerBar / side / end / end;
 }
 
-// :where(.wrapper_cb9592:not(.minimum_cb9592)) { // <-- this is to ensure it doesn't hit dm calls
+:where(#{c(call wrapper)}:not(#{c(call verticalSplit)})) { // <-- this is to ensure it doesn't hit dm calls
 	// due to this element having `#{c(main midnight)}` on it,
 	// descendents will have different colours for
 	// $header, $side, $middle and $card.
-	.callContainer_cb9592 {
+	#{c(call container)} {
 		display: grid;
 		grid-template: subgrid / subgrid;
 		grid-area: headerBar / page / end / side;
 	}
-	.root_bfe55a { // has ::before that needs to live in headerBar
+	#{c(call root)} { // has ::before that needs to live in headerBar
 		display: grid;
 		grid-template: subgrid / subgrid;
 		grid-area: headerBar / page / end / end;
@@ -425,7 +429,7 @@
 			background: $middle;
 		}
 	}
-	.videoControls_bfe55a {
+	#{c(call videoControls)} {
 		// this has the top controls in it so it shouldn't be fucked with too much
 		display: grid;
 		grid-template: subgrid / subgrid;
@@ -437,36 +441,100 @@
 		padding: unset;
 		position: unset;
 	}
-	.topControls_bfe55a {
+	#{c(call topControls)} {
 		grid-area: headerBar / page / headerBar / span page;
 	}
-	.headerWrapper_cb9592 {
+	#{c(call headerWrapper)} {
 		margin: unset;
 	}
-	.bottomControls_bfe55a {
+	#{c(call bottomControls)} {
 		grid-area: notice-end / page / end / end;
 		max-height: fit-content;
 		bottom: var(--space-lg); // 20px
 		position: absolute;
-		.edgeControls_bfe55a:first-child:not(:empty) {
+		#{c(call edgeControls)}:first-child:not(:empty) {
 			padding-inline-start: var(--space-md);
 			margin-inline-end: 0;
 		}
-		.edgeControls_bfe55a:last-child:not(:empty) {
+		#{c(call edgeControls)}:last-child:not(:empty) {
 			padding-inline-end: var(--space-md);
 			margin-inline-start: 0;
 		}
 	}
-// }
+}
+
+// DM Calls (attempt two)
+#{c(chat)} > #{c(call wrapper)}#{c(call verticalSplit)} {
+	display: grid;
+	grid-area: headerBar / page / dmCall / end;
+
+	grid-template-areas:
+		"titleBar"
+		"headerBar"
+		"notice"
+		"main"
+		"bottom"
+	;
+	grid-template-rows: 
+		[top] var(--custom-app-top-bar-height)
+		[titleBarEnd] var(--custom-channel-header-height)
+		[headerBarEnd] min-content
+		[noticeEnd] 1fr 
+		[mainEnd] min-content
+	[end];
+	grid-template-columns: [start] 1fr [end];
+
+
+	#{c(call container)} {
+		display: grid;
+		grid-template: subgrid / subgrid;
+		grid-area: headerBar / start / bottom / end;
+	}
+	#{c(call root)} {
+		top: unset;
+		height: 100%;
+		background: none;
+		// ^ revert a few things
+		display: grid;
+		grid-template: subgrid / subgrid;
+		grid-area: headerBar / start / bottom / end;
+		&::before {
+			content: none;
+		}
+		&>div[style]:not([class]) {
+			display: grid !important; // !important reason: inline style
+			grid-template: subgrid / subgrid;
+			grid-area: main / start / end / end;
+			background: $middle;
+		}
+	}
+
+	#{c(call videoControls)} {
+		display: grid;
+		grid-template: subgrid / subgrid;
+		grid-area: headerBar / start / bottom / end;
+		position: unset;
+		padding: 0;
+	}
+	#{c(call topControls)} {
+		grid-area: headerBar / start / headerBar / end;
+		background: $header;
+		padding: 0 var(--space-md) var(--space-md); // original padding from above
+	}
+	#{c(call bottomControls)} {
+		grid-area: bottom / start / end / end;
+		padding: 0 var(--space-md) var(--space-md); // original padding from above
+	}
+}
 
 // // DM calls -- THIS REVERTS GRID STUFF!
-// .chat_f75fb0:has(>.wrapper_cb9592:not(.noChat_cb9592)) {
+// #{c(chat)}:has(>#{c(call wrapper)}:not(#{c(call noChat)})) {
 // 	display: flex;
 // 	grid-template: unset;
 // 	grid-area: headerBar / page / end / end;
 // }
-// .chat_f75fb0 > .wrapper_cb9592 {
-// 	&:not(.noChat_cb9592) { // MINIMUM TAG GETS REMOVED WHEN STREAMING/VIDEO CALLING
+// #{c(chat)} > #{c(call wrapper)} {
+// 	&:not(#{c(call noChat)}) { // MINIMUM TAG GETS REMOVED WHEN STREAMING/VIDEO CALLING
 // 		display: flex;
 // 		container-type: inline-size; // makes it resizable again lol
 // 		min-height: 300px !important; // !important reason: inline style
@@ -489,18 +557,18 @@
 
 // 		// grid-area: headerBar / 1 / chat / 2;
 // 	}
-// 	&.normal_cb9592:not(.noChat_cb9592) {
-// 		.root_bfe55a>div:not([class]) {
+// 	&#{c(call normal)}:not(#{c(call noChat)}) {
+// 		#{c(call root)}>div:not([class]) {
 // 			background: none;
 // 		}
 // 	}
 // }
-// .wrapper_cb9592:not(.noChat_cb9592) {
-// 	.callContainer_cb9592 {
+// #{c(call wrapper)}:not(#{c(call noChat)}) {
+// 	#{c(call container)} {
 // 		display: block;
 // 		// grid-area: headerBar / 1 / call / 2;
 // 	}
-// 	.root_bfe55a {
+// 	#{c(call root)} {
 // 		display: flex;
 // 		top: 48px;
 // 		background: $middle;
@@ -518,7 +586,7 @@
 // 			background: none;
 // 		}
 // 	}
-// 	.videoControls_bfe55a {
+// 	#{c(call videoControls)} {
 // 		display: flex;
 // 		grid-template: unset;
 // 		grid-area: unset;
@@ -529,25 +597,34 @@
 // 		top: 0;
 // 		bottom: 0;
 // 	}
-// 	.subtitleContainer_f75fb0 {
+// 	#{c(chat subtitleContainer)} {
 // 		top: -48px;
 // 	}
-// 	.bottomControls_bfe55a {
+// 	#{c(call bottomControls)} {
 // 		bottom: unset;
 // 		position: initial;
 // 	}
-// 	.resizeHandle__4b144 {
+// 	#{c(call resizeHandle)} {
 // 		// grid-area: resize;
 // 		// bottom: 0;
 // 		// z-index: 1001; // make it usable
 // 	}
-// 	.channelChatWrapper_cb9592 {
+// 	#{c(call channelChatWrapper)} {
 // 		display: flex;
 // 		// display: none;
 // 		// grid-area: chat;
 // 	}
 // }
 
+// server guide area
+#{c(scroller base)}:has(>#{c(serverGuide homeContainer)}) {
+	grid-area: page;
+}
+
+// no chat
+#{c(chat noChannel)} {
+	grid-area: titleBar / page / end / end;
+}
 
 // grid-template-areas:
 // 	"titleBar titleBar titleBar titleBar"

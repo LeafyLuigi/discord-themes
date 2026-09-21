@@ -21,10 +21,7 @@ code,
 
 .appMount__51fd7::before {
   content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   position: absolute;
   z-index: -1;
   pointer-events: none;
@@ -78,10 +75,7 @@ body) {
 }
 .platform-win .guilds__5e434::before {
   content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   position: absolute;
   z-index: 1010;
   pointer-events: none;
@@ -91,9 +85,6 @@ body) {
 }
 .platform-win .guilds__5e434::after {
   content: none;
-}
-.platform-win .tree_ef3116 {
-  padding-top: var(--size-xxs);
 }
 .platform-win .unreadMentionsIndicatorTop_ef3116 {
   top: var(--custom-channel-header-height, 48px);
@@ -113,10 +104,7 @@ body) {
 }
 .typeWindows__421ed::before {
   content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   position: fixed;
   z-index: -1;
   pointer-events: none;
@@ -145,10 +133,7 @@ body) {
 }
 .platform-osx .wrapper_ef3116::before {
   content: "";
-  top: calc(-1px * var(--custom-channel-header-height, 48px));
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: calc(-1px * var(--custom-channel-header-height, 48px)) 0 0 0;
   position: absolute;
   z-index: 1050;
   pointer-events: none;
@@ -165,15 +150,9 @@ body) {
   top: calc(var(--custom-channel-header-height, 48px) / 2);
 }
 
-:is(.platform-linux, .platform-web) .scroller_ef3116 {
-  padding: 4px 0 0 0;
-}
 :is(.platform-linux, .platform-web) .guilds__5e434::before {
   content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   position: absolute;
   z-index: 1010;
   pointer-events: none;
@@ -185,7 +164,6 @@ body) {
   top: var(--custom-channel-header-height, 48px);
   position: relative;
   height: calc(100vh - var(--custom-channel-header-height, 48px) - var(--custom-app-panels-height, 0px));
-  padding-top: var(--size-xxs);
 }
 :is(.platform-linux, .platform-web) .unreadMentionsIndicatorTop_ef3116 {
   top: var(--custom-channel-header-height, 48px);
@@ -417,10 +395,7 @@ html {
 .popover_f84418.popover_f84418 .button_f7ecac::before,
 .wrapper_f7ecac .button_f7ecac::before {
   content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   position: absolute;
   z-index: -1;
   pointer-events: none;
@@ -662,10 +637,10 @@ html {
   background: var(--hsl-header-shading);
 }
 
-.input__4f074 {
+.input__62663 {
   color: var(--header-primary);
 }
-.input__4f074:focus {
+.input__62663:focus {
   background: transparent;
   text-shadow: none;
 }
@@ -693,8 +668,8 @@ html {
   order: 1;
 }
 
-.searchBar__97492 {
-  background: var(--hsl-card-background);
+.searchBar_c322aa {
+  background: none;
 }
 
 .trailing_c38106 a[href="https://support.discord.com"] {
@@ -705,7 +680,7 @@ html {
   background: var(--hsl-header-shading);
 }
 
-.base__5e434:has(> .bar_c38106 > .trailing_c38106 > .button__85643) {
+.base__5e434:has(> .bar_c38106 > .trailing_c38106 > .clickable__81391) {
   --has-download-btn: 1;
 }
 .base__5e434:has(> .bar_c38106 > .trailing_c38106 > div:not([class])) {
@@ -929,10 +904,7 @@ html {
 }
 .root__24502 .outer_c0bea0:not(.custom-user-profile-theme)::before {
   content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   position: absolute;
   z-index: -1;
   pointer-events: none;
@@ -1002,10 +974,7 @@ html {
 }
 .user-profile-popout:not(.custom-user-profile-theme)::before {
   content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   position: absolute;
   z-index: -1;
   pointer-events: none;
@@ -1115,7 +1084,7 @@ html {
 }
 
 /* Start Profile in Settings */
-.badgeList__1fed1:empty {
+.badgeList_a9178b:empty {
   background: transparent;
 }
 
@@ -1298,10 +1267,7 @@ html {
 }
 .container__3b43f::before {
   content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   position: absolute;
   z-index: -1;
   pointer-events: none;
@@ -1310,10 +1276,7 @@ html {
 }
 .container__3b43f::after {
   content: "";
-  top: 48px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 48px 0 0 0;
   position: absolute;
   z-index: -1;
   pointer-events: none;
@@ -1468,6 +1431,9 @@ html {
   }
   .content_f75fb0 > :is(.managedReactiveScroller__99f8c, .managedReactiveScroller_d125d2) {
     background: var(--hsl-middle-shading);
+  }
+  .vc-shc-container {
+    margin: 0;
   }
 }
 /* BetterDiscord */
@@ -1941,7 +1907,7 @@ html {
   .expandedFolderIconWrapper__48112,
   .lowerBadge_cc5dd2,
   .upperBadge_cc5dd2,
-  .folderIcon__48112 {
+  .folderHeader__48112 {
     rotate: 90deg;
   }
   .childWrapper__6e9f8 {

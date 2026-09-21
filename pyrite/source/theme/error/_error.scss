@@ -13,13 +13,13 @@
 		display: none;
 	}
 	#{c(error page)} {
-		#{c(button contents)} {
-			font-size: 0;
-			&::after {
-				content: var(--error-reload);
-				font-size: 14px;
-				top: 1px;
-				position: relative;
+		#{c(button filled children)} {
+			&>span {
+				font-size: 0;
+				&::after {
+					content: var(--error-reload);
+					font: 500 14px/1.2857142857142858 "Comic Sans MS", cursive;
+				}
 			}
 		}
 	}
@@ -43,7 +43,7 @@
 				&::after {
 					display: block;
 					color: #fff;
-					font-family: Comic Sans MS, cursive;
+					font-family: "Comic Sans MS", cursive;
 				}
 			}
 		}
@@ -63,8 +63,7 @@
 			text-align: left;
 			&::after {
 				content: ":(";
-				font-size: 14vw;
-				font-family: Comic Sans MS, cursive;
+				font: 14vw "Comic Sans MS", cursive;
 			}
 		}
 		#{c(error note)} p {
@@ -95,16 +94,15 @@
 		}
 		#{c(error title)} {
 			font-size: 0;
-			margin: 0 0 18px;;
+			margin: 0 0 18px;
 		}
 		#{c(error note)} p {
 			&::before,
 			&::after {
 				margin: 1em 0;
-				font-size: 10px;
 				max-width: 400px;
 				padding-left: 54px;
-				line-height: 15px;
+				font-family: 10px/15px "Comic Sans MS", cursive;
 			}
 			&:first-child {
 				&::after {

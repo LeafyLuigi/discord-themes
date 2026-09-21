@@ -108,7 +108,7 @@
 	order: 1;
 }
 #{c(header searchBar)} {
-	background: $card;
+	background: none;
 }
 
 // i got no idea how to get this
@@ -161,7 +161,7 @@
 // extra button checkings
 #{c(main base)} {
 	// check for download icon using :has because fuck me.
-	&:has(>#{c(topBar bar)}>#{c(topBar trailing container)}>#{c(topBar trailing button)}) {
+	&:has(>#{c(topBar bar)}>#{c(topBar trailing container)}>#{c(topBar trailing recentsIcon)}) {
 		--has-download-btn: 1;
 	}
 	// check for toolbox button using :has because fuck me. (this may be triggered by other buttons)
