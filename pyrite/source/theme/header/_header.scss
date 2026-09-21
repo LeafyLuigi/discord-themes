@@ -250,12 +250,12 @@
 			content: none;
 		}
 	}
-}
-// windows, mac and linux
-:is(#{c(os win)}, #{c(os mac)}, #{c(os linux)}) {
 	#{c(topBar trailing container)} {
 		gap: 0;
 	}
+}
+// windows, mac and linux
+:is(#{c(os win)}, #{c(os mac)}, #{c(os linux)}) {
 	#{c(topBar bar)} {
 		@include bg($top:0,$bottom:null,$right:0,$left:0,$h:28px,$war:drag,$z:2);
 	}
