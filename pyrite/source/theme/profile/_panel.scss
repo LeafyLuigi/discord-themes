@@ -38,6 +38,7 @@
 #{c(profile panel)}#{c(profile panel redesign)} {
 	&:where(#{c(profile outer)}):not(#{c(profile themed)}) {
 		background: none;
+		padding: 0;
 	}
 	#{c(profile inner)} {
 		border-radius: 0;
@@ -56,6 +57,7 @@
 }
 #{c(profile panel redesign descriptionClamp)} {
 	-webkit-line-clamp: 6; // revert it back to what the pre-redesign was!
+	// line-clamp: 6; // CURRENTLY NOT A THING!
 }
 #{c(profile panel redesign maxBioHeight)} {
 	max-height: unset;

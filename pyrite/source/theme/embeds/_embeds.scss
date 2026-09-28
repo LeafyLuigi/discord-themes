@@ -59,6 +59,9 @@
 #{c(embeds embedFull)} {
 	border-left-color: $primary;
 	background: $card;
+	#{c(main customTheme)} & {
+		background: $card;
+	}
 	#{c(embeds embedSuppressButton)} {
 		top: 0;
 		right: 0;

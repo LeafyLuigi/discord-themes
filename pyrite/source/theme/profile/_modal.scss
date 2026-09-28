@@ -1,148 +1,148 @@
 @use "backend" as *;
 /* Start User Modal */
-#{c(profile modal root)} {
+
+
+// skip all profiles in lite
+@if $lite != 1 {
+
+// user profiles
+#{c(profile modal user root)} {
+	--__br: var(--radius-lg);
+	// fuck about with a few of discord's own vars :)
+	--custom-modal-v2-gutter: 0;
 	&[style*="transform"] {
 		transform: unset !important; // !important reason: required to fix background attachment
-		z-index: 0; // used to further fix background stuff
+		z-index: 0; // used to fix background stuff
 	}
-	#{c(profile outer)}:not(#{c(profile themed)}) {
-		@include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter));
-		#{c(profile modal body)} {
-			gap: 0;
-		}
-		#{c(profile username container)} {
-			background: $card;
-			padding: 16px 16px 0 16px;
-			border-radius: 8px 8px 0 0;
-		}
-		#{c(profile overlay)} {
-			border-width: 1px 0 0;
-			border-radius: 0 0 8px 8px;
+	#{c(profile outer)} {
+		border: none;
+		&:not(#{c(profile themed)}) {
+			@include bg($br:var(--__br),$h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter));
+			outline: 2px solid $secondary;
 		}
 	}
 }
-
-#{c(profile themed)} #{c(profile inner)} {
-	--profile-gradient-start: color-mix(in oklab,
-		rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount, 0%),
-		var(--profile-gradient-primary-color)
-	);
-	--profile-gradient-end: color-mix(in oklab,
-		rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount, 0%),
-		var(--profile-gradient-secondary-color)
-	);
+:where(#{c(profile outer)})#{c(profile modal v2)} {
+	background: none;
 }
 
-#{c(profile modal)}:not(#{c(profile themed)}) {
-	background: transparent;
+#{c(profile modal user layout profile contentInner)} {
+	padding: var(--custom-modal-v2-private-banner-height,48px) 0 0;
+	#{c(profile outer)}:not(#{c(profile isPrivate)}) & {
+		padding: 0; // lol fuck ur layout discord :3
+	}
+}
+
+#{c(profile frame custom)} #{c(profile modal v2)} #{c(profile modal user private banner)} {
+	justify-content: center;
+	padding: 0;
+}
+
+#{c(profile modal v2)} {
+	#{c(profile modal user private banner)} {
+		border-radius: var(--__br) var(--__br) 0 0;
+	}
+	:is(
+		#{c(profile modal user layout profile header)},
+		:where(#{c(profile banner)})
+	) {
+		border-radius: var(--__br) 0 0 0;
+	}
+}
+#{c(profile banner)},
+#{c(profile modal user layout profile header)} {
+	#{c(profile isPrivate)} & {
+		border-top-left-radius: 0;
+	}
+}
+#{c(profile modal user layout profile)} {
+	border-radius: var(--__br) 0 0 var(--__br);
+	#{c(profile outer)}:not(#{c(profile themed)}) & {
+		background: $side;
+	}
+}
+#{c(profile modal user layout profile headerBannerContainer)} {
+	border-radius: unset;
+}
+#{c(profile modal user side)} {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	border-radius: 0 var(--__br) var(--__br) 0;
+	#{c(profile isPrivate)} & {
+		border-top-right-radius: 0;
+	}
+}
+#{c(profile modal user side tabListScroller)} {
+	padding: var(--space-md) 0 0 var(--space-8);
+	margin: 0;
+	border-radius: 0 var(--__br) 0 0;
+	> #{c(tab top)} {
+		max-width: calc(100% - (32px + 8px + 8px));
+		border-bottom: 1px solid transparent;
+	}
+	#{c(profile isPrivate)} & {
+		border-top-right-radius: 0;
+	}
+	#{c(profile outer)}:not(#{c(profile themed)}) & {
+		background: $header;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+#{c(tab top)} #{c(profile modal user side tabBarItem)}+#{c(profile modal user side tabBarItem)} {
+	margin-left: var(--space-md);
+}
+#{c(profile modal user side tabPanelScroller)} {
+	border-radius: 0 0 var(--__br) 0;
+	#{c(main hasWebkitScrollbar)} &,
+	& {
+		padding: var(--space-8) 0 var(--space-8) var(--space-8);
+	}
+}
+
+#{c(profile modal user side tabBarPanel)} {
+	#{c(profile outer)}:not(#{c(profile themed)}) & {
+		background: $middle;
+	}
+}
+
+#{c(profile modal user activity card)},
+#{c(profile modal user board sortable)} {
+	#{c(profile outer)}:not(#{c(profile themed)}) & {
+		@include card;
+	}
+}
+
+// BOT
+#{c(profile modal bot root)} {
+	@include bg($h:100%,$w:100%,$bgf:var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover,$f:var(--user-modal-filter));
+	&[style*="transform"] {
+		transform: unset !important; // !important reason: required to fix background attachment
+		z-index: 0; // used to fix background stuff
+	}
+	#{c(profile modal bot body)} {
+		gap: 0;
+	}
+	#{c(profile modal bot userInfo)} {
+		background: $card;
+		padding: 16px 0 0 16px;
+		border-radius: 8px 8px 0 0;
+	}
+	#{c(profile username container)} {
+		background: $card;
+		padding: 16px 16px 0 16px;
+		border-radius: 8px 8px 0 0;
+	}
 	#{c(profile overlay)} {
-		background: $card;
-	}
-	#{c(profile modal bodyContainer)} {
-		height: 100%;
+		border-width: 1px 0 0;
 		border-radius: 0 0 8px 8px;
-		background: $card;
-		margin: 0 16px 16px;
 	}
 }
 
-// #{c(profile modal premiumIconWrapper)} {
-// 	display: none;
-// }
-// // failed attempt at making border around avi
-// #{c(profile modal header)} {z-index: -1;}
-// #{c(profile modal header)}>div:not([class]):before {
-//   content: "";
-//   clip-path: circle(68px at center);
-//   // clip-path: path(evenodd,"M 0 68 A 68 68 90 0 1 136 68 A 68 68 90 0 1 0 68 Z M 7.9968 68 A 30.0016 30.0016 90 0 1 128.0032 68 A 30.0016 30.0016 90 0 1 7.9968 68 Z M 88.6576 110.3288 A 22.6576 22.6576 90 0 1 134 110.3288 A 22.6576 22.6576 90 0 1 88.6576 110.3288 Z");
-//   width: 136px;
-//   height: 136px;
-//   position: absolute;
-//   background-color: var(--profile-avatar-border-color);
-//   top: -76px;
-//   left: 14px;
-//   z-index: 1;
-// }
-// #{c(profile modal header)}>div:not([class]):after {
-//   content: "";
-//   clip-path: circle(20px at 108px 108px);
-//   // clip-path: path(evenodd,"M 0 68 A 68 68 90 0 1 136 68 A 68 68 90 0 1 0 68 Z M 7.9968 68 A 30.0016 30.0016 90 0 1 128.0032 68 A 30.0016 30.0016 90 0 1 7.9968 68 Z M 88.6576 110.3288 A 22.6576 22.6576 90 0 1 134 110.3288 A 22.6576 22.6576 90 0 1 88.6576 110.3288 Z");
-//   width: 136px;
-//   height: 136px;
-//   position: absolute;
-//   background-color: var(--profile-avatar-border-color);
-//   top: -76px;
-//   left: 14px;
-//   z-index: 1;
-// }
-
-// #{c(profile modal relationshipButtons)} {
-// 	padding: 4px;
-// 	background-color: var(--profile-body-background-color);
-// 	margin: -4px;
-// 	border-radius: 8px;
-// 	// literally just for self
-// 	&:empty {
-// 		display: none;
-// 	}
-// }
-// :not(#{c(profile modal pendingIncoming)})>#{c(profile modal actionButton)}:nth-last-child(2) {
-// 	margin-right: 8px;
-// }
-// #{c(profile modal additionalActionsIcon)} {
-// 	margin-left: 0;
-// }
-// #{c(profile modal tabBar)} {
-// 	gap: unset;
-// 	overflow-x: scroll; // scroll for languages with longer strings
-// 	@supports (scrollbar-width: none) {
-// 		scrollbar-width: none;
-// 	}
-// 	@supports selector(div::-webkit-scrollbar) {
-// 		&::-webkit-scrollbar {
-// 			display: none;
-// 		}
-// 	}
-// }
-// #{c(profile modal tabBarContainer)} {
-// 	margin-top: 18px;
-// 	padding-bottom: 2px;
-// }
-// #{c(profile modal tabBarItem)} {
-// 	--local-border: var(--primary-color);
-// 	padding: 0 10px;
-// 	margin: 0 4px;
-// 	height: unset;
-// 	border: 2px solid var(--local-border) !important; // !important reason: override tab bar line's removal of bottom border
-// 	border-radius: 5px;
-// 	z-index: 1;
-// 	@include bg($bg:transparent,$o:0.2,$br:5px);
-// 	&:is(:hover,:active) {
-// 		--local-border: var(--hover-color);
-// 		&:before {
-// 			background-color: $hover;
-// 		}
-// 	}
-// 	&#{c(tab selected)} {
-// 		--local-border: var(--hover-color);
-// 		&:before {
-// 			background-color: $primary;
-// 		}
-// 	}
-// }
-
-#{c(profile noteTextarea)} {
-	&,
-	&:focus {
-		background-color: transparent;
-	}
 }
-#{c(profile modal guildAvatarWithoutIcon)} {
-	background-color: $card;
-}
-#{c(profile modal connections container)} {
-	background-color: transparent;
-}
-#{c(avatar wrapper)}svg>foreignObject+:is(circle,rect:not(:last-child)) {
-	opacity: 0 !important; // !important reason: inline style
-}
+// leaving this commented if anything breaks relating to statuses uncomment this.
+// #{c(avatar wrapper)}svg>foreignObject+:is(circle,rect:not(:last-child)) {
+// 	opacity: 0 !important; // !important reason: inline style
+// }

@@ -501,12 +501,15 @@ html {
   background: none;
 }
 
+.gradientDefault__36d07 {
+  mask: none;
+}
+
 .wrapper__44df5 {
   border-width: 0;
   z-index: 0;
   backdrop-filter: blur(calc(var(--blur-intensity) * 2px));
-  border: 1px solid var(--hsl-secondary-color);
-  background-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   border: none;
 }
 .wrapper__44df5 .image__44df5 {
@@ -515,8 +518,7 @@ html {
 
 .channelTextArea__74017 {
   border-width: 0;
-  border: 1px solid var(--hsl-secondary-color);
-  background-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   border: none;
 }
 .channelTextArea__74017:focus-within {
@@ -551,6 +553,13 @@ html {
 .scrollableContainer__74017 {
   background: transparent;
   backdrop-filter: blur(calc(var(--blur-intensity) * 2px));
+}
+
+:is(.theme-dark,
+.theme-light).custom-theme-background :is(.threadSuggestionBar__841c8,
+.replyBar__841c8,
+.stackedBars__74017) {
+  background: transparent;
 }
 
 .upload_aa605f {
@@ -901,75 +910,11 @@ html {
   );
 }
 
+.inner_c0bea0 {
+  border-radius: 0;
+}
+
 /* Start User Modal */
-.root__24502[style*=transform] {
-  transform: unset !important;
-  z-index: 0;
-}
-.root__24502 .outer_c0bea0:not(.custom-user-profile-theme)::before {
-  content: "";
-  inset: 0;
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
-  height: 100%;
-  width: 100%;
-  filter: var(--user-modal-filter);
-  background: var(--user-modal-image) no-repeat var(--user-modal-attachment) center/cover;
-}
-.root__24502 .outer_c0bea0:not(.custom-user-profile-theme) .body__24502 {
-  gap: 0;
-}
-.root__24502 .outer_c0bea0:not(.custom-user-profile-theme) .container__63ed3 {
-  background: var(--hsl-card-background);
-  padding: 16px 16px 0 16px;
-  border-radius: 8px 8px 0 0;
-}
-.root__24502 .outer_c0bea0:not(.custom-user-profile-theme) .overlay_c0bea0 {
-  border-width: 1px 0 0;
-  border-radius: 0 0 8px 8px;
-}
-
-.custom-user-profile-theme .inner_c0bea0 {
-  --profile-gradient-start: color-mix(in oklab,
-  	rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount, 0%),
-  	var(--profile-gradient-primary-color)
-  );
-  --profile-gradient-end: color-mix(in oklab,
-  	rgb(from var(--profile-gradient-overlay-color) r g b / 1) var(--theme-base-color-amount, 0%),
-  	var(--profile-gradient-secondary-color)
-  );
-}
-
-.user-profile-modal:not(.custom-user-profile-theme) {
-  background: transparent;
-}
-.user-profile-modal:not(.custom-user-profile-theme) .overlay_c0bea0 {
-  background: var(--hsl-card-background);
-}
-.user-profile-modal:not(.custom-user-profile-theme) .container_d1d9f3 {
-  height: 100%;
-  border-radius: 0 0 8px 8px;
-  background: var(--hsl-card-background);
-  margin: 0 16px 16px;
-}
-
-.textarea_dde0a8, .textarea_dde0a8:focus {
-  background-color: transparent;
-}
-
-.guildAvatarWithoutIcon_aafe31 {
-  background-color: var(--hsl-card-background);
-}
-
-.connectedAccountContainer_e6abe8 {
-  background-color: transparent;
-}
-
-.wrapper__44b0csvg > foreignObject + :is(circle, rect:not(:last-child)) {
-  opacity: 0 !important;
-}
-
 /* Start User Popout */
 .user-profile-popout:not(.custom-user-profile-theme) {
   position: relative;
@@ -996,6 +941,7 @@ html {
   padding: 4px;
   margin: 0 12px;
   border-radius: 8px;
+  mask: none;
 }
 
 .actionButton__48c1c {
@@ -1006,18 +952,6 @@ html {
   color: var(--hsl-hover-color);
 }
 
-.custom-user-profile-theme .themeColor_fb7f94.button_fb7f94::before {
-  content: none;
-}
-.custom-user-profile-theme .themeColor_fb7f94.button_fb7f94:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--profile-gradient-button-color) 80%, transparent);
-}
-.custom-user-profile-theme .themeColor_fb7f94.button_fb7f94:active:not(:disabled) {
-  background: color-mix(in srgb, var(--profile-gradient-button-color) 90%, transparent);
-}
-.custom-user-profile-theme .themeColor_fb7f94.button_fb7f94:disabled {
-  background: var(--profile-gradient-button-color);
-}
 .custom-user-profile-theme :is(.scrollerBase__99f8c, .scrollerBase_d125d2) {
   --scrollbar-thin-thumb: var(--profile-primary-color);
   --scrollbar-auto-thumb: var(--profile-primary-color);
@@ -1060,6 +994,7 @@ html {
 
 .user-profile-sidebar.user-profile-sidebar-redesign:where(.outer_c0bea0):not(.custom-user-profile-theme) {
   background: none;
+  padding: 0;
 }
 .user-profile-sidebar.user-profile-sidebar-redesign .inner_c0bea0 {
   border-radius: 0;
@@ -1117,10 +1052,13 @@ html {
 }
 
 .tree_ef3116 {
-  background-color: var(--hsl-side-shading);
+  background: var(--hsl-side-shading);
 }
 .tree_ef3116:focus {
   outline: none;
+}
+.custom-theme-background .tree_ef3116 {
+  background: var(--hsl-side-shading);
 }
 
 @container not style(--home-icon: none) {
@@ -1419,7 +1357,7 @@ html {
   :is(.theme-dark,
   .theme-light) #vc-spotify-player {
     border-bottom-color: transparent;
-    background: transparent;
+    background: none;
   }
   .messagelogger-deleted .markup__75297 {
     color: var(--text-default);
@@ -1974,7 +1912,7 @@ html {
     display: grid;
     grid-template: subgrid/subgrid;
     grid-row: headerBar-start/span end;
-    background: transparent;
+    background: none;
   }
   .container_f37cb1.hasBanner_f37cb1 .header_f37cb1 {
     background: var(--hsl-header-shading);

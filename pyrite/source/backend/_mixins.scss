@@ -10,7 +10,11 @@
 		content: "";
 		@if $top and $right and $bottom and $left {
 			@if $top == $right and $right == $bottom and $bottom == $left {
-				inset: $top;
+				inset: $top; // all four match
+			} @else if $top == $bottom and $right == $left and $top != $right {
+				inset: $top $right; // two value test
+			} @else if $top != $bottom and $right == $left and $bottom != $right {
+				inset: $top $right $bottom; // three value test
 			} @else {
 				inset: $top $right $bottom $left;
 			}
@@ -43,7 +47,11 @@
 		content: "";
 		@if $top and $right and $bottom and $left {
 			@if $top == $right and $right == $bottom and $bottom == $left {
-				inset: $top;
+				inset: $top; // all four match
+			} @else if $top == $bottom and $right == $left and $top != $right {
+				inset: $top $right; // two value test
+			} @else if $top != $bottom and $right == $left and $bottom != $right {
+				inset: $top $right $bottom; // three value test
 			} @else {
 				inset: $top $right $bottom $left;
 			}

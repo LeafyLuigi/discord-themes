@@ -29,10 +29,6 @@
 #{c(search scroller)} {
 	background-color: $side;
 }
-#{c(search channelNameText)} {
-	background-color: transparent;
-	@include header-line;
-}
 #{c(search result)},
 #{c(search blocked)} {
 	@include card;

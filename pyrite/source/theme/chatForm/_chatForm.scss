@@ -12,12 +12,15 @@
 #{c(chat gradient notAtBottom)}	 {
 	background: none;
 }
+#{c(chat gradient default)} {
+	mask: none;
+}
 
 #{c(chatForm followWrapper)} {
 	border-width: 0;
 	z-index: 0; // messes with member list. set to 1 by discord
 	backdrop-filter: blur(calc($blur * 2px));
-	@include card-light;
+	background: rgba(255,255,255,0.05);
 	border: none;
 	#{c(chatForm followImage)} {
 		display: none;
@@ -26,7 +29,7 @@
 
 #{c(chatForm channelTextAreaBase)} {
 	border-width: 0;
-	@include card-light;
+	background: rgba(255,255,255,0.05);
 	border: none;
 	&:focus-within {
 		border-width: 0;
@@ -59,6 +62,18 @@
 #{c(chatForm scrollableContainer)} {
 	background: transparent;
 	backdrop-filter: blur(calc($blur * 2px));
+}
+:is(
+	#{c(chatForm threadSuggestionBar)},
+	#{c(chatForm replyBar)},
+	#{c(chatForm stackedBars)}
+) {
+	:is(
+		#{c(main dark)},
+		#{c(main light)}
+	)#{c(main customTheme)} & {
+		background: transparent;
+	}
 }
 @if $lite != 1 {
 	#{c(chatForm clipContainer)} {

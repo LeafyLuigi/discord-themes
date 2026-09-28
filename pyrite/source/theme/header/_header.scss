@@ -127,6 +127,7 @@
 
 	// add friend header bar button
 	#{c(header tabBar)} #{c(header tabBarItem)}#{c(header addFriend)}#{c(header addFriend)}#{c(header addFriend)} {
+		background: $primary;
 		&:hover {
 			background: $hover;
 		}

@@ -78,7 +78,7 @@ $active-filter: var(--active-filter);
 @mixin button-border($color: null) {
 	border-color: $color;
 	color: $color;
-	background: transparent;
+	background: none;
 	&:hover:not(:disabled) {
 		background: color-mix(in oklab, transparent 85%, $color);
 	}
@@ -89,7 +89,7 @@ $active-filter: var(--active-filter);
 
 @mixin button-link($color: null) {
 	color: $color;
-	background: transparent;
+	background: none;
 	&:hover:not(:disabled),
 	&:active:not(:disabled) {
 		>.contents__201d5 {

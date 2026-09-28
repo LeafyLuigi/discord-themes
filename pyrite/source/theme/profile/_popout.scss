@@ -22,6 +22,7 @@
 		padding: 4px;
 		margin: 0 12px;
 		border-radius: 8px;
+		mask: none;
 	}
 	// #{c(profile popout bitesize footer)} {
 	// }
@@ -35,23 +36,36 @@
 }
 // remove button ::before
 #{c(profile themed)} {
-	#{c(profile themeColor)}#{c(profile themeColor button)} {
-		&::before {
-			content: none;
-		}
-		// copy over existing css
-		&:hover:not(:disabled) {
-			background: color-mix(in srgb,var(--profile-gradient-button-color) 80%,transparent);
-		}
-		&:active:not(:disabled) {
-			background: color-mix(in srgb,var(--profile-gradient-button-color) 90%,transparent);
-		}
-		&:disabled {
-			background: var(--profile-gradient-button-color);
-		}
-	}
+	// #{c(profile themeColor)}#{c(profile themeColor button)} {
+	// 	&::before {
+	// 		content: none;
+	// 	}
+	// 	// copy over existing css
+	// 	&:hover:not(:disabled) {
+	// 		background: color-mix(in srgb,var(--profile-gradient-button-color) 80%,transparent);
+	// 	}
+	// 	&:active:not(:disabled) {
+	// 		background: color-mix(in srgb,var(--profile-gradient-button-color) 90%,transparent);
+	// 	}
+	// 	&:disabled {
+	// 		background: var(--profile-gradient-button-color);
+	// 	}
+	// }
 	#{c(scroller base)} {
 		--scrollbar-thin-thumb: var(--profile-primary-color);
 		--scrollbar-auto-thumb: var(--profile-primary-color);
 	}
+}
+
+
+@if $lite != 1 {
+// fix banner
+:where(#{c(profile banner)}) {
+	:not(#{c(profile themed)})#{c(profile popout)} & {
+		border-radius: 0;
+	}
+	&::before {
+		content: none;
+	}
+}
 }

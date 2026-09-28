@@ -322,7 +322,7 @@
 // 	grid-template: subgrid / subgrid;
 // 	grid-area: headerBar / channelsList / panels / channelsList;
 // 	// grid-row: headerBar-start / span end;
-// 	background: transparent;
+// 	background: none;
 // 	#{c(sidebar server header header)} {
 // 		background: $header;
 // 		grid-area: headerBar;

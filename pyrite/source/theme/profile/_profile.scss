@@ -11,3 +11,54 @@
 		var(--profile-gradient-secondary-color)
 	);
 }
+#{c(profile inner)} {
+	border-radius: 0;
+}
+
+// lite doesn't need this stuff
+@if $lite != 1 {
+// this breaks your own profile lol
+// #{c(profile statusBubble referenceContainer)} {
+// 	display: none;
+// }
+#{c(profile statusBubble outer)} {
+	&::before,
+	&::after {
+		content: none;
+	}
+}
+#{c(profile statusBubble outer)} {
+	background: $card;
+	:is(
+		#{c(main dark)},
+		#{c(main light)}
+	) & {
+		border: none;
+	}
+	#{c(profile themed)} & {
+		background: var(--profile-primary-color);
+	}
+	:is(
+		#{c(main dark)},
+		#{c(main light)}
+	)#{c(profile themed)} & {
+		border: none;
+	}
+}
+
+// no idea how to get this card but hoping it doesn't break anything
+#{c(profile statusBubble expandCollapseButton)} {
+	background: $card;
+}
+
+#{c(profile statusBubble inner)} {
+	background: none;
+}
+
+// #{c(profile statusBubble editOwnBar)} {
+// 	&#{c(chat buttonWrapper)} {
+// 		background: red;
+// 	}
+// }
+
+}

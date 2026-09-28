@@ -13,9 +13,12 @@
 }
 
 #{c(serverList tree)} {
-	background-color: $side;
+	background: $side;
 	&:focus {
 		outline: none;
+	}
+	#{c(main customTheme)} & {
+		background: $side;
 	}
 }
 @if $lite != 1 {

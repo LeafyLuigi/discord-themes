@@ -17,4 +17,22 @@
 	#{c(loading profilePopout avatar)} {
 		animation: none;
 	}
+	// fix colours
+	#{c(loading profilePopout)} {
+		@include bg($f:var(--user-popout-filter),$bgf:var(--user-popout-image) center/cover no-repeat var(--user-popout-attachment));
+		background: $modal;
+		border-radius: 0;
+	}
+	// give colour to things
+	#{c(loading profilePopout banner)} {
+		background: $card;
+	}
+	#{c(loading profilePopout avatar)} {
+		border-color: $primary;
+	}
+	#{c(loading profilePopout)} #{c(loading generic bar)},
+	#{c(loading profilePopout avatar)} {
+		background: $primary;
+		opacity: 0.12156862745098039;
+	}
 }

@@ -258,7 +258,7 @@
 	// and if it has a banner
 	#{c(sidebar server header container)}#{c(sidebar server header hasBanner)} {
 		@include subgrid(headerBar-start / span end);
-		background: transparent;
+		background: none;
 		#{c(sidebar server header header)} {
 			background: $header;
 			grid-area: headerBar;
