@@ -2,13 +2,234 @@
 @use "sass:list";
 @use "sass:meta";
 @use "sass:map";
+@use "sass:color";
 @use "backend" as *;
 // file is skipped for lite
 @if $lite != 1 {
 /* Start Codeblock langs */
 // SO HERE I'VE RIPPED OUT THE ENTIRE LIST OF VALID LANGUAGES FOR DISCORD INCLUDING ALIASES
 // DO NOTE THAT STRINGS GET PARSED TWICE; YOU'LL NEED TO DOUBLE THE AMOUNT OF BACK SLASHES.
+$useArborium: true; // discord swapped out HLJS for their own shit
 $lang: (
+	// new arborium-rt supported langs (excludes those previously supported under HLJS)
+	"Agda": (
+		// black on white is fine for this one
+		classes: ("agda"),
+		background: #fff,
+		color: #000,
+		isArborium: true,
+	),
+	"Caddy": (
+		classes: ("caddy"),
+		background: linear-gradient(in oklab 135deg, #23d93b, #77c4f7 33.33333333%, #0059d1 100%),
+		color: #000,
+		isArborium: true,
+	),
+	"Cedar": (
+		classes: ("cedar"),
+		background: #1a4d0a,
+		isArborium: true,
+	),
+	"Cedar Schema": (
+		classes: ("cedarschema"),
+		background: #284334,
+		isArborium: true,
+	),
+	"Common Lisp": (
+		classes: ("commonlisp", "lisp"),
+		background: #3f51b5,
+		isArborium: true,
+	),
+	"Devicetree": (
+		classes: ("devicetree", "dts"),
+		isArborium: true,
+	),
+	"Graphviz dot": (
+		classes: ("dot"),
+		background: #00f,
+		isArborium: true,
+	),
+	"Emacs Lisp": (
+		classes: ("elisp"),
+		background: linear-gradient(in oklab to right, #8381c5 0%, #7e55b3 56.639391%, #a52ecb 100%),
+		isArborium: true,
+	),
+	"Fish": (
+		classes: ("fish"),
+		background: #1eb100,
+		color: #000,
+		isArborium: true,
+	),
+	"Gleam": (
+		classes: ("gleam"),
+		background: #ffaff3,
+		color: #000,
+		isArborium: true,
+	),
+	"Terraform": (
+		classes: ("hcl", "tf", "tfvars"),
+		background: #7b42bc,
+		isArborium: true,
+	),
+	"High Level Shader Language": (
+		classes: ("hlsl"),
+		background: #00f,
+		isArborium: true,
+	),
+	"Idris": (
+		classes: ("idris"),
+		background: #a00,
+		isArborium: true,
+	),
+	"INI": (
+		classes: ("ini"),
+		background: #5a75c0,
+		isArborium: true,
+	),
+	"Jinja / Django": (
+		classes: ("jinja2", "django", "jinja"),
+		background: #092e20,
+		isArborium: true,
+	),
+	"JQ": (
+		classes: ("jq"),
+		// json processor it gets the json colour
+		background: #108f66,
+		isArborium: true,
+	),
+	"Lean": (
+		classes: ("lean"),
+		background: #b441e4, // only because of the name lol
+		isArborium: true,
+	),
+	"Markdown Inline": (
+		classes: ("markdown_inline"),
+		background: #ab2e16,
+		isArborium: true,
+	),
+	"Meson": (
+		classes: ("meson"),
+		background: #39207c,
+		isArborium: true,
+	),
+	"Ninja": (
+		classes: ("ninja"),
+		// white on black would fit this one better than whatever their logo is
+		isArborium: true,
+	),
+	"PostScript": (
+		classes: ("postscript"),
+		background: #cc2131,
+		isArborium: true,
+	),
+	"Query": (
+		classes: ("query"),
+		// i can't find anything about it so it gets the default scheme.
+		isArborium: true,
+	),
+	"Rego": (
+		// some ai agent language or some shit fuck this one
+		classes: ("rego"),
+		isArborium: true,
+	),
+	"Rescript": (
+		classes: ("rescript", "re", "reasonml"),
+		background: #e84f4f,
+		isArborium: true,
+	),
+	"Ron": (
+		classes: ("ron"),
+		background: #a62c00, // github's colour for it
+		isArborium: true,
+	),
+	"Solidity": (
+		// some crypto lang. bleh.
+		classes: ("solidity"),
+		isArborium: true,
+	),
+	"SPARQL": (
+		classes: ("sparql"),
+		background: #4f39f6,
+		isArborium: true,
+	),
+	"SSH Config": (
+		classes: ("ssh-config"),
+		background: #060934,
+		isArborium: true,
+	),
+	"Starlark": (
+		classes: ("starlark"),
+		background: #5ca9b3,
+		isArborium: true,
+	),
+	"Styx": (
+		// they removed brainfuck for this.
+		classes: ("styx"),
+		background: #2e7d32,
+		isArborium: true,
+	),
+	"Svelte": (
+		classes: ("svelte"),
+		background: #ff3e00,
+		isArborium: true,
+	),
+	"Textproto": (
+		// it's something for golang???
+		classes: ("textproto"),
+		background: #75cede,
+		isArborium: true,
+	),
+	"TLA+": (
+		classes: ("tlaplus"),
+		background: #4b0079, // github's colour
+		isArborium: true,
+	),
+	"TOML": (
+		classes: ("toml"),
+		background: #5a75c0,
+		isArborium: true,
+	),
+	"TypeSript (TSX)": (
+		classes: ("tsx"),
+		background: #03324c,
+		isArborium: true,
+	),
+	"Typst": (
+		classes: ("typst"),
+		background: #239dad,
+		isArborium: true,
+	),
+	"Vue": (
+		classes: ("vue"),
+		background: #41b883,
+		color: #34495e,
+		isArborium: true,
+	),
+	"Wit": (
+		// i cannot find what the hell this is so it gets nothing
+		classes: ("wit"),
+		isArborium: true,
+	),
+	"Yuri": (
+		classes: ("yuri"),
+		// take a wild fucking guess why i picked the colours
+		background: linear-gradient(to right, #d52d00 0% 20%, #e29688 20% 40%, #fff 40% 60%, #d27fa4 60% 80%, #a20262 80% 100%),
+		color: #000,
+		isArborium: true,
+	),
+	"Zig": (
+		classes: ("zig"),
+		background: #f7a41a,
+		color: #000,
+		isArborium: true,
+	),
+	"ZSH": (
+		classes: ("zsh"),
+		color: #f15a24,
+		isArborium: true,
+	),
+
+	// old HLJS ones
 	"1C:Enterprise": (
 		classes: ("\\31 c"), // "1c"
 		background: #b18c21,
@@ -29,6 +250,7 @@ $lang: (
 		classes: ("ada"),
 		background: #02f88d,
 		color: #000,
+		isArborium: true,
 	),
 	"AngelScript": (
 		classes: ("angelscript", "asc"),
@@ -52,16 +274,21 @@ $lang: (
 		background: #2f8e91,
 	),
 	"Arduino": (
+		// HALF MERGED INTO C++???
 		classes: ("arduino", "ino"),
 		background: #bd791e,
 	),
 	"ARM Assembly": (
-		classes: ("armasm", "arm"),
+		// MIPS was merged in for whatever fucking reason
+		classes: ("asm", "arm", "mips", "armasm", "mipsasm", "avrasm"),
+		old_classes: ("armasm", "arm"),
 		background: #5f3d82,
+		isArborium: true,
 	),
 	"AsciiDoc": (
 		classes: ("asciidoc", "adoc"),
 		background: #187a41,
+		isArborium: true,
 	),
 	"AspectJ": (
 		classes: ("aspectj"),
@@ -82,10 +309,13 @@ $lang: (
 	"Awk": (
 		classes: ("awk"),
 		background: #1a8f60,
+		isArborium: true,
 	),
 	"Bash": (
-		classes: ("bash", "sh", "zsh"),
+		classes: ("bash", "sh", "shell", "console", "shellsession"),
+		old_classes: ("bash", "sh", "zsh"),
 		background: #ab1663,
+		isArborium: true,
 	),
 	"BASIC": (
 		classes: ("basic"),
@@ -100,17 +330,20 @@ $lang: (
 		background: #2e7d32,
 	),
 	"C": (
-		classes: ("c", "h"),
+		classes: ("c"),
+		old_classes: ("c", "h"),
 		background: #a9bacd,
 		color: #000,
+		isArborium: true,
 	),
 	"C/AL": (
 		classes: ("cal"),
 		background: #1e5989,
 	),
 	"Cap’n Proto": (
-		classes: ("capnproto", "capnp"),
+		classes: ("capnp", "capnproto"),
 		background: #c2185b,
+		isArborium: true,
 	),
 	"Ceylon": (
 		classes: ("ceylon"),
@@ -123,6 +356,7 @@ $lang: (
 	"Clojure": (
 		classes: ("clojure", "clj", "edn"),
 		background: #588240,
+		isArborium: true,
 	),
 	"Clojure REPL": (
 		classes: ("clojure-repl"),
@@ -131,6 +365,7 @@ $lang: (
 	"CMake": (
 		classes: ("cmake", "cmake\\.in"),
 		background: #0288d1,
+		isArborium: true,
 	),
 	"CoffeeScript": (
 		classes: ("coffeescript", "coffee", "cson", "iced"),
@@ -145,8 +380,10 @@ $lang: (
 		background: #1565c0,
 	),
 	"C++": ( // potentually uses same syntax highlighting as C
-		classes: ("cpp", "cc", "c\\\+\\\+", "h\\\+\\\+", "hpp", "hh", "hxx", "cxx"),
+		classes: ("cpp", "h", "hpp", "cc", "cxx", "c\\\+\\\+", "hxx", "h\\\+\\\+", "hh", "arduino"),
+		old_classes: ("cpp", "cc", "c\\\+\\\+", "h\\\+\\\+", "hpp", "hh", "hxx", "cxx"),
 		background: #00599c,
+		isArborium: true,
 	),
 	"crmsh": (
 		classes: ("crmsh", "crm", "pcmk"),
@@ -165,16 +402,21 @@ $lang: (
 		background: #546e7a,
 	),
 	"CSS": (
-		classes: ("css"),
-		background: "rebeccapurple",
+		// they merged LESS in for whatever fucking reason
+		classes: ("css", "less"),
+		old_classes: ("css"),
+		background: #663399,
+		isArborium: true,
 	),
 	"D": (
 		classes: ("d"),
 		background: #ba3939,
+		isArborium: true,
 	),
 	"Dart": (
 		classes: ("dart"),
 		background: #00b4ab,
+		isArborium: true,
 	),
 	"Delphi": (
 		classes: ("delphi", "dpr", "dfm", "pas", "pascal"),
@@ -183,6 +425,7 @@ $lang: (
 	"Diff": (
 		classes: ("diff", "patch"),
 		background: #888,
+		isArborium: true,
 	),
 	"Django": (
 		classes: ("django", "jinja"),
@@ -195,10 +438,13 @@ $lang: (
 	"Dockerfile": (
 		classes: ("dockerfile", "docker"),
 		background: #2496ed,
+		isArborium: true,
 	),
 	"Batch (DOS)": (
-		classes: ("dos", "bat", "cmd"),
+		classes: ("batch", "dos", "bat", "cmd"),
+		old_classes: ("dos", "bat", "cmd"),
 		background: #4d4d4d,
+		isArborium: true,
 	),
 	"dsconfig": (
 		classes: ("dsconfig"),
@@ -219,10 +465,12 @@ $lang: (
 	"Elixir": (
 		classes: ("elixir", "ex", "exs"),
 		background: #6e4a7e,
+		isArborium: true,
 	),
 	"Elm": (
 		classes: ("elm"),
 		background: #60b5cc,
+		isArborium: true,
 	),
 	"eRuby": (
 		classes: ("erb"),
@@ -235,6 +483,7 @@ $lang: (
 	"Erlang": (
 		classes: ("erlang", "erl"),
 		background: #a90036,
+		isArborium: true,
 	),
 	"Excel formulae": (
 		classes: ("excel", "xlsx", "xls"),
@@ -255,6 +504,7 @@ $lang: (
 	"F#": (
 		classes: ("fsharp", "fs", "f\\#"),
 		background: #b845fc,
+		isArborium: true,
 	),
 	"GAMS": (
 		classes: ("gams", "gms"),
@@ -275,6 +525,7 @@ $lang: (
 	"OpenGL Shading": (
 		classes: ("glsl"),
 		background: #558b2f,
+		isArborium: true,
 	),
 	"GML": (
 		classes: ("gml"),
@@ -283,22 +534,27 @@ $lang: (
 	"Go": (
 		classes: ("go", "golang"),
 		background: #75cede,
+		isArborium: true,
 	),
 	"Golo": (
 		classes: ("golo"),
 		background: #880e4f,
 	),
 	"Gradle": (
+		// merged into groovy for whatever reason
 		classes: ("gradle"),
 		background: #02303a,
 	),
 	"GraphQL": (
 		classes: ("graphql", "gql"),
 		background: #e10098,
+		isArborium: true,
 	),
 	"Groovy": (
-		classes: ("groovy"),
+		classes: ("groovy", "gradle"),
+		old_classes: ("groovy"),
 		background: #4298b8,
+		isArborium: true,
 	),
 	"HAML": (
 		classes: ("haml"),
@@ -311,6 +567,7 @@ $lang: (
 	"Haskell": (
 		classes: ("haskell", "hs"),
 		background: #5e5086,
+		isArborium: true,
 	),
 	"Haxe": (
 		classes: ("haxe", "hx"),
@@ -347,6 +604,7 @@ $lang: (
 	"Java": (
 		classes: ("java", "jsp"),
 		background: #eb2d2f,
+		isArborium: true,
 	),
 	"JBoss CLI": (
 		classes: ("jboss-cli", "wildfly-cli"),
@@ -355,18 +613,23 @@ $lang: (
 	"JSON": (
 		classes: ("json", "jsonc"),
 		background: #108f66,
+		isArborium: true,
 	),
 	"Julia": (
-		classes: ("julia", "jldoctest"),
+		classes: ("julia", "jldoctest", "julia-repl"),
+		old_classes: ("julia", "jldoctest"),
 		background: #a270ba,
+		isArborium: true,
 	),
 	"Julia REPL": (
+		// merged into julia for whatever reason
 		classes: ("julia-repl"),
 		background: #6d4282,
 	),
 	"Kotlin": (
 		classes: ("kotlin", "kt", "kts"),
 		background: #a97bff,
+		isArborium: true,
 	),
 	"Lasso": (
 		classes: ("lasso", "lassoscript"), // `ls` is apparently valid for the lang but uses LiveScript syntax highlighting.
@@ -409,9 +672,11 @@ $lang: (
 		background: #00796b,
 	),
 	"Lua": (
-		classes: ("lua", "pluto"),
+		classes: ("lua"),
+		old_classes: ("lua", "pluto"),
 		background: #2ecc71,
 		color: #000,
+		isArborium: true,
 	),
 	"Makefile": (
 		classes: ("makefile", "mk", "mak", "make"),
@@ -420,6 +685,7 @@ $lang: (
 	"Markdown": (
 		classes: ("markdown", "md", "mkdown", "mkd"),
 		background: #ab2e16,
+		isArborium: true,
 	),
 	"Mathematica": (
 		classes: ("mathematica", "mma", "wl"),
@@ -428,6 +694,7 @@ $lang: (
 	"Matlab": (
 		classes: ("matlab"),
 		background: #e16737,
+		isArborium: true,
 	),
 	"Maxima": (
 		classes: ("maxima"),
@@ -481,6 +748,7 @@ $lang: (
 	"Nix": (
 		classes: ("nix", "nixos"),
 		background: #5277c3,
+		isArborium: true,
 	),
 	"Node REPL": (
 		classes: ("node-repl"),
@@ -491,13 +759,16 @@ $lang: (
 		background: #4e5d6c,
 	),
 	"Objective-C": (
-		classes: ("objectivec", "mm", "objc", "obj-c", "obj-c\\\+\\\+", "objective-c\\\+\\\+"),
+		classes: ("objc", "objectivec", "mm", "obj-c", "obj-c\\\+\\\+", "objective-c\\\+\\\+"),
 		background: #438eff,
+		isArborium: true,
 	),
 	"OCaml": ( // uses shared "ml" as alias
-		classes: ("ocaml"),
+		classes: ("ocaml", "ml", "mli", "sml"),
+		old_classes: ("ocaml"),
 		background: #3be133,
 		color: #000,
+		isArborium: true,
 	),
 	"OpenSCAD": (
 		classes: ("openscad", "scad"),
@@ -514,6 +785,7 @@ $lang: (
 	"Perl": (
 		classes: ("perl", "pl", "pm"),
 		background: #0298c3,
+		isArborium: true,
 	),
 	"Packet Filter config": (
 		classes: ("pf", "pf\\.conf"),
@@ -524,8 +796,10 @@ $lang: (
 		background: #336791,
 	),
 	"PHP": (
-		classes: ("php"),
+		classes: ("php", "php-template"),
+		old_classes: ("php"),
 		background: #6e81b6,
+		isArborium: true,
 	),
 	"PHP template": (
 		classes: ("php-template"),
@@ -533,16 +807,19 @@ $lang: (
 	),
 	// --code-plain-text is a variable used for i18n. The default value for en is `Plain Text`
 	"var(--code-plain-text,\"Plain Text\")": (
-		classes: ("plaintext", "text", "txt", "hljs[class$=hljs]"),
+		classes: ("hljs[class$=hljs]", "plaintext", "text", "txt"),
 		background: #616161,
+		isArborium: true,
 	),
 	"Pony": (
 		classes: ("pony"),
 		background: #1976d2,
 	),
 	"PowerShell": (
-		classes: ("powershell", "pwsh", "ps", "ps1"),
+		classes: ("powershell", "pwsh", "ps", "ps1", "psm1", "psd1"),
+		old_classes: ("powershell", "pwsh", "ps", "ps1"),
 		background: #012456,
+		isArborium: true,
 	),
 	"Processing": (
 		classes: ("processing", "pde"),
@@ -551,6 +828,7 @@ $lang: (
 	"Prolog": (
 		classes: ("prolog"),
 		background: #ef4d25,
+		isArborium: true,
 	),
 	".properties": (
 		classes: ("properties"),
@@ -573,8 +851,10 @@ $lang: (
 		background: #1565c0,
 	),
 	"Python": (
-		classes: ("python", "py", "gyp", "ipython"),
+		classes: ("python", "py", "gyp", "ipython", "pycon", "python-repl"),
+		old_classes: ("python", "py", "gyp", "ipython"),
 		background: #1622ab,
+		isArborium: true,
 	),
 	"Python REPL": ( // ????
 		classes: ("python-repl"),
@@ -595,6 +875,7 @@ $lang: (
 	"R": (
 		classes: ("r"),
 		background: #198ce7,
+		isArborium: true,
 	),
 	"ReasonML": (
 		classes: ("reasonml", "re"),
@@ -617,8 +898,10 @@ $lang: (
 		background: #455a64,
 	),
 	"Ruby": (
-		classes: ("ruby", "rb", "gemspec", "podspec", "thor", "irb"),
+		classes: ("ruby", "rb", "cr", "crystal", "gemspec", "podspec", "thor", "irb"),
+		old_classes: ("ruby", "rb", "gemspec", "podspec", "thor", "irb"),
 		background: #e73e3e,
+		isArborium: true,
 	),
 	"Oracle Rules Language": (
 		classes: ("ruleslanguage"),
@@ -626,6 +909,7 @@ $lang: (
 	),
 	"Rust": (
 		classes: ("rust", "rs"),
+		isArborium: true,
 	),
 	"SAS": (
 		classes: ("sas"),
@@ -634,10 +918,13 @@ $lang: (
 	"Scala": (
 		classes: ("scala"),
 		background: #dc322f,
+		isArborium: true,
 	),
 	"Scheme": (
-		classes: ("scheme", "scm"),
+		classes: ("scheme", "scm", "rkt"),
+		old_classes: ("scheme", "scm"),
 		background: #1e88e5,
+		isArborium: true,
 	),
 	"Scilab": (
 		classes: ("scilab", "sci"),
@@ -646,6 +933,7 @@ $lang: (
 	"SCSS": (
 		classes: ("scss"),
 		background: #c69,
+		isArborium: true,
 	),
 	"Shell Session": (
 		classes: ("shell", "console", "shellsession"),
@@ -668,8 +956,10 @@ $lang: (
 		background: #283593,
 	),
 	"SQL": (
-		classes: ("sql"),
+		classes: ("sql", "pgsql", "postgres", "postgresql", "n1q1"),
+		old_classes: ("sql"),
 		background: #4474ca,
+		isArborium: true,
 	),
 	"Stan": (
 		classes: ("stan", "stanfuncs"),
@@ -695,6 +985,7 @@ $lang: (
 	"Swift": (
 		classes: ("swift"),
 		background: #fd7837,
+		isArborium: true,
 	),
 	"Tagger Script": (
 		classes: ("taggerscript"),
@@ -711,6 +1002,7 @@ $lang: (
 	"Thrift": (
 		classes: ("thrift"),
 		background: #00838f,
+		isArborium: true,
 	),
 	"TP": (
 		classes: ("tp"),
@@ -729,8 +1021,10 @@ $lang: (
 		background: #165eab,
 	),
 	"TypeScript": (
-		classes: ("typescript", "ts", "tsx", "cts"),
+		classes: ("typescript", "mts", "ts", "cts"),
+		old_classes: ("typescript", "ts", "tsx", "cts"),
 		background: #03324c,
+		isArborium: true,
 	),
 	"Vala": (
 		classes: ("vala"),
@@ -751,14 +1045,17 @@ $lang: (
 	"Verilog": (
 		classes: ("verilog", "v", "sv", "svh"),
 		background: #008080,
+		isArborium: true,
 	),
 	"VHDL": (
 		classes: ("vhdl"),
 		background: #543978,
+		isArborium: true,
 	),
 	"Vim Script": (
 		classes: ("vim"),
 		background: #019833,
+		isArborium: true,
 	),
 	"WebAssembly": (
 		classes: ("wasm"),
@@ -775,19 +1072,26 @@ $lang: (
 	"x86 Assembly": (
 		classes: ("x86asm"),
 		background: #4a5d6e,
+		isArborium: true,
 	),
 	"eXtensible Language": (
 		classes: ("xl", "tao"),
 		background: #4872a8,
 	),
 	"XML": (
-		classes: ("xml", "rss", "atom", "xjb", "xsd", "xsl", "plist", "wsf"),
+		// look how they massacred my boy
+		classes: ("xml", "xsl", "rss", "atom", "xsd", "plist", "svg", "mathml", "xjb", "wsf"),
+		oldclasses: ("xml", "rss", "atom", "xjb", "xsd", "xsl", "plist", "wsf"),
 		background: #8444af,
+		isArborium: true,
 	),
 	"HTML": (
-		classes: ("html", "xhtml"),
+		// look how they massacred my boy
+		classes: ("html", "hbs", "htm", "xhtml", "handlebars", "html\\.hbs", "html\\.handlebars", "htmlbars", "erb", "twig", "craftcms"),
+		old_classes: ("html", "xhtml"),
 		background: #16ab6f,
 		color: #000,
+		isArborium: true,
 	),
 	"SVG": (
 		classes: ("svg"),
@@ -801,6 +1105,7 @@ $lang: (
 	"YAML": (
 		classes: ("yaml", "yml"),
 		background: #cb171e,
+		isArborium: true,
 	),
 	"Zephir": (
 		classes: ("zephir", "zep"),
@@ -820,80 +1125,165 @@ $lang: (
 	// ),
 );
 
-
 //////////////////
 /// Function Below:
-/// From the list above, Name: (classes: ("stringList"), ?background:[str|col], ?color: color)
+/// From the list above, Name: (classes: ("stringList"), ?background:[str|col], ?color: color, ?isArborium: true)
+/// if isArborium is not set to true, skip.
 /// For multiple shortcodes, each gets passed into a list with an appended full stop for class.
 /// For singular shortcode, a full stop is appended.
 /// For names being variables, the string returns unquoted.
 /// The optional `background` must be valid for `background-color` or `background-image`.
 /// The optional `color` must be a color.
 //////////////////
-
-
 @each $ln, $submap in $lang {
 	// for lists
 	$k: "";
 	$alias: null; $bg: null; $col: null; $isBGStr: false;
 	// check stuff exists.
-	@if not map.has-key($submap,"classes") {
-		@error "Missing `classes` list component.";
-	}
-	$alias: map.get($submap,"classes");
-
-	@if map.has-key($submap,"background") {
-		// backgrounds allow for the following: color (default), string (expected for gradients and whatnot)
-		@if not (meta.type-of(map.get($submap,"background")) == string or meta.type-of(map.get($submap,"background")) == color) {
-			@debug "`background` for language " #{$ln} " is invalid. Defaulting to #000.";
-			$bg: #000; // force black
-		} @else {
-			@if meta.type-of(map.get($submap,"background")) == string {
-				$isBGStr: true;
-			}
-			$bg: map.get($submap,"background");
-		}
-	}
-
-	@if map.has-key($submap,"color") {
-		// color should only ever be a color.
-		@if not meta.type-of(map.get($submap,"color")) == color {
-			@debug "`color` for language " #{$ln} " is invalid. Defaulting to #fff.";
-			$col: #fff; // force white
-		} @else {
-			$col: map.get($submap,"color");
-		}
-	}
-
-	@if meta.type-of($alias) == list {
-		@for $i from 1 through list.length($alias) {
-			$k: string.insert($k,"." + list.nth($alias,$i) + ",",-1);
-		}
-		// remove extra comma
-		$k: string.slice($k,0,-2);
+	@if not map.has-key($submap,"isArborium") {
+		// DO NOTHING.
+	} @else if map.get($submap,"isArborium") != true {
+		// DO NOTHING AGAIN.
 	} @else {
-	// and for single strings
-		$k: "."+$alias;
-	}
-	#{$k} {
-		@if $bg != null {
-			@if $isBGStr {
-				--bg: #{$bg};
-				&::before {
-					filter: saturate(var(--saturation-factor,1));
-				}
+		// THE REST SHOULD BE FINE.
+		
+		// it needs ONE at the minimum.
+		@if not map.has-key($submap,"classes") {
+			@error "Missing `classes` list component.";
+		}
+		$alias: map.get($submap,"classes");
+		
+		@if map.has-key($submap,"background") {
+			// backgrounds allow for the following: color (default), string (expected for gradients and whatnot)
+			@if not (meta.type-of(map.get($submap,"background")) == string or meta.type-of(map.get($submap,"background")) == color) {
+				@debug "`background` for language " #{$ln} " is invalid. Defaulting to #000.";
+				$bg: #000; // force black
 			} @else {
-				--bg: hsl(from #{$bg} h calc(var(--saturation-factor,1) * s) l/alpha);
+				@if meta.type-of(map.get($submap,"background")) == string {
+					$isBGStr: true;
+				}
+				$bg: map.get($submap,"background");
 			}
 		}
-		@if $col != null { --col: #{$col}; }
-		@if string.index($ln, "--") == null {
-		  --lang: "#{$ln}";
-		} @else {
-			--lang: #{$ln};
+		
+		@if map.has-key($submap,"color") {
+			// color should only ever be a color.
+			@if not meta.type-of(map.get($submap,"color")) == color {
+				@debug "`color` for language " #{$ln} " is invalid. Defaulting to #fff.";
+				$col: #fff; // force white
+			} @else {
+				$col: map.get($submap,"color");
+			}
 		}
+	
+		@if meta.type-of($alias) == list {
+			@if list.nth($alias,1) == "hljs[class$=hljs]" {
+				$k: ".hljs[class$=hljs]";
+			} @else {
+				$k: ".language-"+list.nth($alias,1);
+			}
+		} @else {
+		// and for single strings
+			$k: ".language-"+$alias;
+		}
+
+		#{$k} {
+			@if $bg != null {
+				@if $isBGStr {
+					--bg: #{$bg};
+					&::before {
+						filter: saturate(var(--saturation-factor,1));
+					}
+				} @else if $bg == color.change($bg,$saturation:0,$space:hsl) {
+					--bg: #{$bg};
+				} @else {
+					--bg: hsl(from #{$bg} h calc(var(--saturation-factor,1) * s) l/alpha);
+				}
+			}
+			@if $col != null {
+				@if $col == color.change($col,$saturation:0,$space:hsl) {
+					--col: #{$col};
+				} @else {
+					--col: hsl(from #{$col} h calc(var(--saturation-factor,1) * s) l/alpha); 
+				}
+			}
+			@if string.index($ln, "--") == null {
+				--lang: "#{$ln}";
+			} @else {
+				--lang: #{$ln};
+			}
+		}
+
 	}
 }
+// //////////////////
+// /// OLD Function Below:
+// /// From the list above, Name: (classes: ("stringList"), ?background:[str|col], ?color: color)
+// /// For multiple shortcodes, each gets passed into a list with an appended full stop for class.
+// /// For singular shortcode, a full stop is appended.
+// /// For names being variables, the string returns unquoted.
+// /// The optional `background` must be valid for `background-color` or `background-image`.
+// /// The optional `color` must be a color.
+// //////////////////
+// @each $ln, $submap in $lang {
+// 	// for lists
+// 	$k: "";
+// 	$alias: null; $bg: null; $col: null; $isBGStr: false;
+// 	// check stuff exists.
+// 	@if not map.has-key($submap,"classes") {
+// 		@error "Missing `classes` list component.";
+// 	}
+// 	$alias: map.get($submap,"classes");
+// 	@if map.has-key($submap,"background") {
+// 		// backgrounds allow for the following: color (default), string (expected for gradients and whatnot)
+// 		@if not (meta.type-of(map.get($submap,"background")) == string or meta.type-of(map.get($submap,"background")) == color) {
+// 			@debug "`background` for language " #{$ln} " is invalid. Defaulting to #000.";
+// 			$bg: #000; // force black
+// 		} @else {
+// 			@if meta.type-of(map.get($submap,"background")) == string {
+// 				$isBGStr: true;
+// 			}
+// 			$bg: map.get($submap,"background");
+// 		}
+// 	}
+// 	@if map.has-key($submap,"color") {
+// 		// color should only ever be a color.
+// 		@if not meta.type-of(map.get($submap,"color")) == color {
+// 			@debug "`color` for language " #{$ln} " is invalid. Defaulting to #fff.";
+// 			$col: #fff; // force white
+// 		} @else {
+// 			$col: map.get($submap,"color");
+// 		}
+// 	}
+// 	@if meta.type-of($alias) == list {
+// 		@for $i from 1 through list.length($alias) {
+// 			$k: string.insert($k,"." + list.nth($alias,$i) + ",",-1);
+// 		}
+// 		// remove extra comma
+// 		$k: string.slice($k,0,-2);
+// 	} @else {
+// 	// and for single strings
+// 		$k: "."+$alias;
+// 	}
+// 	#{$k} {
+// 		@if $bg != null {
+// 			@if $isBGStr {
+// 				--bg: #{$bg};
+// 				&::before {
+// 					filter: saturate(var(--saturation-factor,1));
+// 				}
+// 			} @else {
+// 				--bg: hsl(from #{$bg} h calc(var(--saturation-factor,1) * s) l/alpha);
+// 			}
+// 		}
+// 		@if $col != null { --col: #{$col}; }
+// 		@if string.index($ln, "--") == null {
+// 		  --lang: "#{$ln}";
+// 		} @else {
+// 			--lang: #{$ln};
+// 		}
+// 	}
+// }
 #{c(hljs)} {
 	padding: 0;
 	&::before {

@@ -2041,1011 +2041,513 @@ span):not(.spoilerContent__299eb) {
 }
 
 /* Start Codeblock langs */
-.\31 c {
-  --bg: hsl(from #b18c21 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "1C:Enterprise";
+.language-agda {
+  --bg: #fff;
+  --col: #000;
+  --lang: "Agda";
 }
 
-.abnf {
-  --bg: hsl(from #5d6174 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "ABNF";
+.language-caddy {
+  --bg: linear-gradient(in oklab 135deg, #23d93b, #77c4f7 33.33333333%, #0059d1 100%);
+  --col: #000;
+  --lang: "Caddy";
+}
+.language-caddy::before {
+  filter: saturate(var(--saturation-factor, 1));
 }
 
-.accesslog {
-  --bg: hsl(from #4e5d6c h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Apache Access Log";
+.language-cedar {
+  --bg: hsl(from #1a4d0a h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Cedar";
 }
 
-.actionscript, .as {
-  --bg: hsl(from #882b0f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "ActionScript";
+.language-cedarschema {
+  --bg: hsl(from #284334 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Cedar Schema";
 }
 
-.ada {
+.language-commonlisp {
+  --bg: hsl(from #3f51b5 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Common Lisp";
+}
+
+.language-devicetree {
+  --lang: "Devicetree";
+}
+
+.language-dot {
+  --bg: hsl(from #00f h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Graphviz dot";
+}
+
+.language-elisp {
+  --bg: linear-gradient(in oklab to right, #8381c5 0%, #7e55b3 56.639391%, #a52ecb 100%);
+  --lang: "Emacs Lisp";
+}
+.language-elisp::before {
+  filter: saturate(var(--saturation-factor, 1));
+}
+
+.language-fish {
+  --bg: hsl(from #1eb100 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --col: #000;
+  --lang: "Fish";
+}
+
+.language-gleam {
+  --bg: hsl(from #ffaff3 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --col: #000;
+  --lang: "Gleam";
+}
+
+.language-hcl {
+  --bg: hsl(from #7b42bc h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Terraform";
+}
+
+.language-hlsl {
+  --bg: hsl(from #00f h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "High Level Shader Language";
+}
+
+.language-idris {
+  --bg: hsl(from #a00 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Idris";
+}
+
+.language-ini {
+  --bg: hsl(from #5a75c0 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "INI";
+}
+
+.language-jinja2 {
+  --bg: hsl(from #092e20 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Jinja / Django";
+}
+
+.language-jq {
+  --bg: hsl(from #108f66 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "JQ";
+}
+
+.language-lean {
+  --bg: hsl(from #b441e4 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Lean";
+}
+
+.language-markdown_inline {
+  --bg: hsl(from #ab2e16 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Markdown Inline";
+}
+
+.language-meson {
+  --bg: hsl(from #39207c h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Meson";
+}
+
+.language-ninja {
+  --lang: "Ninja";
+}
+
+.language-postscript {
+  --bg: hsl(from #cc2131 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "PostScript";
+}
+
+.language-query {
+  --lang: "Query";
+}
+
+.language-rego {
+  --lang: "Rego";
+}
+
+.language-rescript {
+  --bg: hsl(from #e84f4f h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Rescript";
+}
+
+.language-ron {
+  --bg: hsl(from #a62c00 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Ron";
+}
+
+.language-solidity {
+  --lang: "Solidity";
+}
+
+.language-sparql {
+  --bg: hsl(from #4f39f6 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "SPARQL";
+}
+
+.language-ssh-config {
+  --bg: hsl(from #060934 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "SSH Config";
+}
+
+.language-starlark {
+  --bg: hsl(from #5ca9b3 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Starlark";
+}
+
+.language-styx {
+  --bg: hsl(from #2e7d32 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Styx";
+}
+
+.language-svelte {
+  --bg: hsl(from #ff3e00 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Svelte";
+}
+
+.language-textproto {
+  --bg: hsl(from #75cede h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Textproto";
+}
+
+.language-tlaplus {
+  --bg: hsl(from #4b0079 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "TLA+";
+}
+
+.language-toml {
+  --bg: hsl(from #5a75c0 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "TOML";
+}
+
+.language-tsx {
+  --bg: hsl(from #03324c h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "TypeSript (TSX)";
+}
+
+.language-typst {
+  --bg: hsl(from #239dad h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Typst";
+}
+
+.language-vue {
+  --bg: hsl(from #41b883 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --col: hsl(from #34495e h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "Vue";
+}
+
+.language-wit {
+  --lang: "Wit";
+}
+
+.language-yuri {
+  --bg: linear-gradient(to right, #d52d00 0% 20%, #e29688 20% 40%, #fff 40% 60%, #d27fa4 60% 80%, #a20262 80% 100%);
+  --col: #000;
+  --lang: "Yuri";
+}
+.language-yuri::before {
+  filter: saturate(var(--saturation-factor, 1));
+}
+
+.language-zig {
+  --bg: hsl(from #f7a41a h calc(var(--saturation-factor,1) * s) l/alpha);
+  --col: #000;
+  --lang: "Zig";
+}
+
+.language-zsh {
+  --col: hsl(from #f15a24 h calc(var(--saturation-factor,1) * s) l/alpha);
+  --lang: "ZSH";
+}
+
+.language-ada {
   --bg: hsl(from #02f88d h calc(var(--saturation-factor,1) * s) l/alpha);
   --col: #000;
   --lang: "Ada";
 }
 
-.angelscript, .asc {
-  --bg: hsl(from #c78f13 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --col: #000;
-  --lang: "AngelScript";
-}
-
-.ansi {
-  --bg: hsl(from #333 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "ANSI";
-}
-
-.apache, .apacheconf {
-  --bg: hsl(from #4e738a h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Apache Config";
-}
-
-.applescript, .osascript {
-  --bg: hsl(from #101010 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "AppleScript";
-}
-
-.arcade {
-  --bg: hsl(from #2f8e91 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "ArcGIS Arcade";
-}
-
-.arduino, .ino {
-  --bg: hsl(from #bd791e h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Arduino";
-}
-
-.armasm, .arm {
+.language-asm {
   --bg: hsl(from #5f3d82 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "ARM Assembly";
 }
 
-.asciidoc, .adoc {
+.language-asciidoc {
   --bg: hsl(from #187a41 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "AsciiDoc";
 }
 
-.aspectj {
-  --bg: hsl(from #195e7a h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "AspectJ";
-}
-
-.autohotkey, .ahk {
-  --bg: hsl(from #6121b0 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "AutoHotKey";
-}
-
-.autoit {
-  --bg: hsl(from #263385 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "AutoIt";
-}
-
-.avrasm {
-  --bg: hsl(from #7c22a3 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "AVR Assembly";
-}
-
-.awk {
+.language-awk {
   --bg: hsl(from #1a8f60 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Awk";
 }
 
-.bash, .sh, .zsh {
+.language-bash {
   --bg: hsl(from #ab1663 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Bash";
 }
 
-.basic {
-  --bg: hsl(from #2b1f8f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "BASIC";
-}
-
-.bnf {
-  --bg: hsl(from #4a5c69 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "BNF";
-}
-
-.brainfuck, .bf {
-  --bg: hsl(from #2e7d32 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Brainfuck";
-}
-
-.c, .h {
+.language-c {
   --bg: hsl(from #a9bacd h calc(var(--saturation-factor,1) * s) l/alpha);
   --col: #000;
   --lang: "C";
 }
 
-.cal {
-  --bg: hsl(from #1e5989 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "C/AL";
-}
-
-.capnproto, .capnp {
+.language-capnp {
   --bg: hsl(from #c2185b h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Cap’n Proto";
 }
 
-.ceylon {
-  --bg: hsl(from #8e24aa h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Ceylon";
-}
-
-.clean, .icl, .dcl {
-  --bg: hsl(from #00acc1 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Clean";
-}
-
-.clojure, .clj, .edn {
+.language-clojure {
   --bg: hsl(from #588240 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Clojure";
 }
 
-.clojure-repl {
-  --bg: hsl(from #3b5c2a h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Clojure REPL";
-}
-
-.cmake, .cmake\.in {
+.language-cmake {
   --bg: hsl(from #0288d1 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "CMake";
 }
 
-.coffeescript, .coffee, .cson, .iced {
-  --bg: hsl(from #3a1b1b h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "CoffeeScript";
-}
-
-.coq {
-  --bg: hsl(from #7b1fa2 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Coq";
-}
-
-.cos, .cls {
-  --bg: hsl(from #1565c0 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Caché Object Script";
-}
-
-.cpp, .cc, .c\+\+, .h\+\+, .hpp, .hh, .hxx, .cxx {
+.language-cpp {
   --bg: hsl(from #00599c h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "C++";
 }
 
-.crmsh, .crm, .pcmk {
-  --bg: hsl(from #2b3a42 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "crmsh";
-}
-
-.crystal, .cr {
-  --bg: hsl(from #222 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Crystal";
-}
-
-.csharp, .cs, .c\# {
-  --bg: hsl(from #178600 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "C#";
-}
-
-.csp {
-  --bg: hsl(from #546e7a h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "CSP";
-}
-
-.css {
-  --bg: rebeccapurple;
+.language-css {
+  --bg: hsl(from #663399 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "CSS";
 }
-.css::before {
-  filter: saturate(var(--saturation-factor, 1));
-}
 
-.d {
+.language-d {
   --bg: hsl(from #ba3939 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "D";
 }
 
-.dart {
+.language-dart {
   --bg: hsl(from #00b4ab h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Dart";
 }
 
-.delphi, .dpr, .dfm, .pas, .pascal {
-  --bg: hsl(from #b03a2e h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Delphi";
-}
-
-.diff, .patch {
-  --bg: hsl(from #888 h calc(var(--saturation-factor,1) * s) l/alpha);
+.language-diff {
+  --bg: #888;
   --lang: "Diff";
 }
 
-.django, .jinja {
-  --bg: hsl(from #092e20 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Django";
-}
-
-.dns, .bind, .zone {
-  --bg: hsl(from #37474f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "DNS Zone";
-}
-
-.dockerfile, .docker {
+.language-dockerfile {
   --bg: hsl(from #2496ed h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Dockerfile";
 }
 
-.dos, .bat, .cmd {
-  --bg: hsl(from #4d4d4d h calc(var(--saturation-factor,1) * s) l/alpha);
+.language-batch {
+  --bg: #4d4d4d;
   --lang: "Batch (DOS)";
 }
 
-.dsconfig {
-  --bg: hsl(from #2c3e50 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "dsconfig";
-}
-
-.dts {
-  --bg: hsl(from #424242 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Device Tree";
-}
-
-.dust, .dst {
-  --bg: hsl(from #9c27b0 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Dust";
-}
-
-.ebnf {
-  --bg: hsl(from #37474f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "EBNF";
-}
-
-.elixir, .ex, .exs {
+.language-elixir {
   --bg: hsl(from #6e4a7e h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Elixir";
 }
 
-.elm {
+.language-elm {
   --bg: hsl(from #60b5cc h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Elm";
 }
 
-.erb {
-  --bg: hsl(from #701516 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "eRuby";
-}
-
-.erlang-repl {
-  --bg: hsl(from #501011 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Erlang REPL";
-}
-
-.erlang, .erl {
+.language-erlang {
   --bg: hsl(from #a90036 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Erlang";
 }
 
-.excel, .xlsx, .xls {
-  --bg: hsl(from #107c41 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Excel formulae";
-}
-
-.fix {
-  --bg: hsl(from #3f51b5 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "FIX";
-}
-
-.flix {
-  --bg: hsl(from #e65100 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Flix";
-}
-
-.fortran, .f90, .f95 {
-  --bg: hsl(from #4d41b1 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Fortran";
-}
-
-.fsharp, .fs, .f\# {
+.language-fsharp {
   --bg: hsl(from #b845fc h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "F#";
 }
 
-.gams, .gms {
-  --bg: hsl(from #1976d2 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "GAMS";
-}
-
-.gauss, .gss {
-  --bg: hsl(from #00796b h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "GAUSS";
-}
-
-.gcode, .nc {
-  --bg: hsl(from #d84315 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "G-code (ISO 6983)";
-}
-
-.gherkin, .feature {
-  --bg: hsl(from #208020 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Gherkin";
-}
-
-.glsl {
+.language-glsl {
   --bg: hsl(from #558b2f h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "OpenGL Shading";
 }
 
-.gml {
-  --bg: hsl(from #ff5722 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "GML";
-}
-
-.go, .golang {
+.language-go {
   --bg: hsl(from #75cede h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Go";
 }
 
-.golo {
-  --bg: hsl(from #880e4f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Golo";
-}
-
-.gradle {
-  --bg: hsl(from #02303a h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Gradle";
-}
-
-.graphql, .gql {
+.language-graphql {
   --bg: hsl(from #e10098 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "GraphQL";
 }
 
-.groovy {
+.language-groovy {
   --bg: hsl(from #4298b8 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Groovy";
 }
 
-.haml {
-  --lang: "HAML";
-}
-
-.handlebars, .hbs, .html\.hbs, .html\.handlebars, .htmlbars {
-  --bg: hsl(from #f7931e h calc(var(--saturation-factor,1) * s) l/alpha);
-  --col: #000;
-  --lang: "Handlebars";
-}
-
-.haskell, .hs {
+.language-haskell {
   --bg: hsl(from #5e5086 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Haskell";
 }
 
-.haxe, .hx {
-  --bg: hsl(from #df7900 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Haxe";
-}
-
-.hsp {
-  --bg: hsl(from #00838f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "HSP";
-}
-
-.http, .https {
-  --bg: hsl(from #618f10 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "HTTP";
-}
-
-.hy, .hylang {
-  --bg: hsl(from #77095e h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Hy";
-}
-
-.inform7, .i7 {
-  --bg: hsl(from #3f51b5 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Inform 7";
-}
-
-.ini, .toml {
-  --bg: hsl(from #5a75c0 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "INI / TOML";
-}
-
-.irpf90 {
-  --bg: hsl(from #ad1457 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "IRPF90";
-}
-
-.isbl {
-  --bg: hsl(from #283593 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "ISBL";
-}
-
-.java, .jsp {
+.language-java {
   --bg: hsl(from #eb2d2f h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Java";
 }
 
-.jboss-cli, .wildfly-cli {
-  --bg: hsl(from #00838f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "JBoss CLI";
-}
-
-.json, .jsonc {
+.language-json {
   --bg: hsl(from #108f66 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "JSON";
 }
 
-.julia, .jldoctest {
+.language-julia {
   --bg: hsl(from #a270ba h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Julia";
 }
 
-.julia-repl {
-  --bg: hsl(from #6d4282 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Julia REPL";
-}
-
-.kotlin, .kt, .kts {
+.language-kotlin {
   --bg: hsl(from #a97bff h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Kotlin";
 }
 
-.lasso, .lassoscript {
-  --bg: hsl(from #999 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Lasso";
-}
-
-.latex, .tex {
-  --bg: hsl(from #3d6117 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "LaTeX";
-}
-
-.ldif {
-  --bg: hsl(from #37474f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "LDIF";
-}
-
-.leaf {
-  --bg: hsl(from #2e7d32 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Leaf";
-}
-
-.less {
-  --bg: hsl(from #1d365d h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Less";
-}
-
-.lisp {
-  --bg: hsl(from #3f51b5 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Lisp";
-}
-
-.livecodeserver {
-  --bg: hsl(from #009688 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "LiveCode";
-}
-
-.livescript, .ls {
-  --bg: hsl(from #49be25 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "LiveScript";
-}
-
-.llvm {
-  --bg: hsl(from #185619 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "LLVM IR";
-}
-
-.lsl {
-  --bg: hsl(from #00796b h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "LSL";
-}
-
-.lua, .pluto {
+.language-lua {
   --bg: hsl(from #2ecc71 h calc(var(--saturation-factor,1) * s) l/alpha);
   --col: #000;
   --lang: "Lua";
 }
 
-.makefile, .mk, .mak, .make {
-  --bg: hsl(from #8a2b0f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Makefile";
-}
-
-.markdown, .md, .mkdown, .mkd {
+.language-markdown {
   --bg: hsl(from #ab2e16 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Markdown";
 }
 
-.mathematica, .mma, .wl {
-  --bg: hsl(from #d10 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Mathematica";
-}
-
-.matlab {
+.language-matlab {
   --bg: hsl(from #e16737 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Matlab";
 }
 
-.maxima {
-  --bg: hsl(from #00838f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Maxima";
-}
-
-.mel {
-  --bg: hsl(from #ad1457 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "MEL";
-}
-
-.mercury, .m, .moo {
-  --bg: hsl(from #006064 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Mercury";
-}
-
-.mipsasm, .mips {
-  --bg: hsl(from #3f51b5 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "MIPS Assembly";
-}
-
-.mizar {
-  --bg: hsl(from #455a64 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Mizar";
-}
-
-.mojolicious {
-  --bg: hsl(from #1976d2 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Mojolicious";
-}
-
-.monkey {
-  --bg: hsl(from #8d6e63 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Monkey";
-}
-
-.moonscript, .moon {
-  --bg: hsl(from #fa0 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --col: #000;
-  --lang: "MoonScript";
-}
-
-.n1ql {
-  --bg: hsl(from #e53935 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "N1QL";
-}
-
-.nestedtext, .nt {
-  --bg: hsl(from #558b2f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Nested Text";
-}
-
-.nginx, .nginxconf {
-  --bg: hsl(from #009639 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Nginx config";
-}
-
-.nim {
-  --bg: hsl(from #37775b h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Nim";
-}
-
-.nix, .nixos {
+.language-nix {
   --bg: hsl(from #5277c3 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Nix";
 }
 
-.node-repl {
-  --bg: hsl(from #2e7d32 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Node REPL";
-}
-
-.nsis {
-  --bg: hsl(from #4e5d6c h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "NSIS";
-}
-
-.objectivec, .mm, .objc, .obj-c, .obj-c\+\+, .objective-c\+\+ {
+.language-objc {
   --bg: hsl(from #438eff h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Objective-C";
 }
 
-.ocaml {
+.language-ocaml {
   --bg: hsl(from #3be133 h calc(var(--saturation-factor,1) * s) l/alpha);
   --col: #000;
   --lang: "OCaml";
 }
 
-.openscad, .scad {
-  --bg: hsl(from #f57c00 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "OpenSCAD";
-}
-
-.oxygene {
-  --bg: hsl(from #c2185b h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Oxygene";
-}
-
-.parser3 {
-  --bg: hsl(from #283593 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Parser3";
-}
-
-.perl, .pl, .pm {
+.language-perl {
   --bg: hsl(from #0298c3 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Perl";
 }
 
-.pf, .pf\.conf {
-  --bg: hsl(from #37474f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Packet Filter config";
-}
-
-.pgsql, .postgres, .postgresql {
-  --bg: hsl(from #336791 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "PostgreSQL";
-}
-
-.php {
+.language-php {
   --bg: hsl(from #6e81b6 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "PHP";
 }
 
-.php-template {
-  --bg: hsl(from #4f5d84 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "PHP template";
-}
-
-.plaintext, .text, .txt, .hljs[class$=hljs] {
-  --bg: hsl(from #616161 h calc(var(--saturation-factor,1) * s) l/alpha);
+.hljs[class$=hljs] {
+  --bg: #616161;
   --lang: var(--code-plain-text,"Plain Text");
 }
 
-.pony {
-  --bg: hsl(from #1976d2 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Pony";
-}
-
-.powershell, .pwsh, .ps, .ps1 {
+.language-powershell {
   --bg: hsl(from #012456 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "PowerShell";
 }
 
-.processing, .pde {
-  --bg: hsl(from #006699 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Processing";
-}
-
-.prolog {
+.language-prolog {
   --bg: hsl(from #ef4d25 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Prolog";
 }
 
-.properties {
-  --bg: hsl(from #4e5d6c h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: ".properties";
-}
-
-.protobuf, .proto {
-  --bg: hsl(from #1565c0 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Protocol Buffers";
-}
-
-.puppet, .pp {
-  --bg: hsl(from #ff2a00 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Puppet";
-}
-
-.purebasic, .pb, .pbi {
-  --bg: hsl(from #263238 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "PureBASIC";
-}
-
-.pycon {
-  --bg: hsl(from #1565c0 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Pycon";
-}
-
-.python, .py, .gyp, .ipython {
+.language-python {
   --bg: hsl(from #1622ab h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Python";
 }
 
-.python-repl {
-  --bg: hsl(from #0e1670 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Python REPL";
-}
-
-.profile {
-  --bg: hsl(from #2e7d32 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Python Profiler";
-}
-
-.q, .k, .kdb {
-  --bg: hsl(from #00bcd4 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Q";
-}
-
-.qml, .qt {
-  --bg: hsl(from #41cd52 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "QML (QT)";
-}
-
-.r {
+.language-r {
   --bg: hsl(from #198ce7 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "R";
 }
 
-.reasonml, .re {
-  --bg: hsl(from #ff5847 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "ReasonML";
-}
-
-.rib {
-  --bg: hsl(from #37474f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "RenderMan RIB";
-}
-
-.roboconf, .graph, .instances {
-  --bg: hsl(from #00838f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Roboconf";
-}
-
-.routeros, .mikrotik {
-  --bg: hsl(from #1a237e h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "RouterOS";
-}
-
-.rsl {
-  --bg: hsl(from #455a64 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "RenderMan RSL";
-}
-
-.ruby, .rb, .gemspec, .podspec, .thor, .irb {
+.language-ruby {
   --bg: hsl(from #e73e3e h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Ruby";
 }
 
-.ruleslanguage {
-  --bg: hsl(from #ad1457 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Oracle Rules Language";
-}
-
-.rust, .rs {
+.language-rust {
   --lang: "Rust";
 }
 
-.sas {
-  --bg: hsl(from #1e88e5 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "SAS";
-}
-
-.scala {
+.language-scala {
   --bg: hsl(from #dc322f h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Scala";
 }
 
-.scheme, .scm {
+.language-scheme {
   --bg: hsl(from #1e88e5 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Scheme";
 }
 
-.scilab, .sci {
-  --bg: hsl(from #00838f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Scilab";
-}
-
-.scss {
+.language-scss {
   --bg: hsl(from #c69 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "SCSS";
 }
 
-.shell, .console, .shellsession {
-  --bg: hsl(from #263238 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Shell Session";
-}
-
-.smali {
-  --bg: hsl(from #558b2f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Smali";
-}
-
-.smalltalk, .st {
-  --bg: linear-gradient(in oklch longer hue 90deg, red 0 100%);
-  --lang: "Smalltalk";
-}
-.smalltalk::before, .st::before {
-  filter: saturate(var(--saturation-factor, 1));
-}
-
-.sml {
-  --bg: hsl(from #283593 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "SML";
-}
-
-.sqf {
-  --bg: hsl(from #283593 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "SQF";
-}
-
-.sql {
+.language-sql {
   --bg: hsl(from #4474ca h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "SQL";
 }
 
-.stan, .stanfuncs {
-  --bg: hsl(from #b71c1c h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Stan";
-}
-
-.stata, .do, .ado {
-  --bg: hsl(from #1a237e h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Stata";
-}
-
-.step21, .p21, .step, .stp {
-  --bg: hsl(from #37474f h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "STEP Part 21";
-}
-
-.stylus, .styl {
-  --bg: hsl(from #ffb300 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --col: #000;
-  --lang: "Stylus";
-}
-
-.subunit {
-  --bg: hsl(from #455a64 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "SubUnit";
-}
-
-.swift {
+.language-swift {
   --bg: hsl(from #fd7837 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Swift";
 }
 
-.taggerscript {
-  --bg: hsl(from #4a148c h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Tagger Script";
-}
-
-.tap {
-  --bg: hsl(from #2e7d32 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "TAP";
-}
-
-.tcl, .tk {
-  --bg: hsl(from #141414 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Tcl";
-}
-
-.thrift {
+.language-thrift {
   --bg: hsl(from #00838f h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Thrift";
 }
 
-.tp {
-  --bg: hsl(from #3f51b5 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "TP";
-}
-
-.twig, .craftcms {
-  --bg: hsl(from #85ad00 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Twig";
-}
-
-.javascript, .js, .jsx, .mjs {
-  --bg: hsl(from #165eab h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "JavaScript";
-}
-
-.cjs {
-  --bg: hsl(from #165eab h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "CommonJS";
-}
-
-.typescript, .ts, .tsx, .cts {
+.language-typescript {
   --bg: hsl(from #03324c h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "TypeScript";
 }
 
-.vala {
-  --bg: hsl(from #77613e h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Vala";
-}
-
-.vbnet, .vb {
-  --bg: hsl(from #839700 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Visual Basic .NET";
-}
-
-.vbscript, .vbs {
-  --bg: hsl(from #1565c0 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "VBScript";
-}
-
-.vbscript-html {
-  --bg: hsl(from #0d47a1 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "VBScript in HTML";
-}
-
-.verilog, .v, .sv, .svh {
+.language-verilog {
   --bg: hsl(from #008080 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Verilog";
 }
 
-.vhdl {
+.language-vhdl {
   --bg: hsl(from #543978 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "VHDL";
 }
 
-.vim {
+.language-vim {
   --bg: hsl(from #019833 h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "Vim Script";
 }
 
-.wasm {
-  --bg: hsl(from #654ff0 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "WebAssembly";
-}
-
-.wren {
-  --bg: hsl(from #382d2c h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Wren";
-}
-
-.axapta, .x\+\+ {
-  --bg: hsl(from #002060 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "X++";
-}
-
-.x86asm {
+.language-x86asm {
   --bg: hsl(from #4a5d6e h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "x86 Assembly";
 }
 
-.xl, .tao {
-  --bg: hsl(from #4872a8 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "eXtensible Language";
-}
-
-.xml, .rss, .atom, .xjb, .xsd, .xsl, .plist, .wsf {
+.language-xml {
   --bg: hsl(from #8444af h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "XML";
 }
 
-.html, .xhtml {
+.language-html {
   --bg: hsl(from #16ab6f h calc(var(--saturation-factor,1) * s) l/alpha);
   --col: #000;
   --lang: "HTML";
 }
 
-.svg {
-  --bg: hsl(from #ffb13b h calc(var(--saturation-factor,1) * s) l/alpha);
-  --col: #000;
-  --lang: "SVG";
-}
-
-.xquery, .xpath, .xq, .xqm {
-  --bg: hsl(from #1976d2 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "XQuery";
-}
-
-.yaml, .yml {
+.language-yaml {
   --bg: hsl(from #cb171e h calc(var(--saturation-factor,1) * s) l/alpha);
   --lang: "YAML";
-}
-
-.zephir, .zep {
-  --bg: hsl(from #188688 h calc(var(--saturation-factor,1) * s) l/alpha);
-  --lang: "Zephir";
-}
-
-.ml {
-  --bg: linear-gradient(in oklab 135deg, #283593, #3be133);
-  --lang: "OCaml / SML";
-}
-.ml::before {
-  filter: saturate(var(--saturation-factor, 1));
 }
 
 .hljs {
