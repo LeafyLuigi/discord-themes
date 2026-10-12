@@ -1099,7 +1099,7 @@ html.keyboard-mode) .root_bfe55a.idle_bfe55a:not(:focus-within) :is(.topControls
   z-index: -1;
   pointer-events: none;
   opacity: 0.6;
-  background-color: var(--profile-primary-color, var(--hsl-primary-color));
+  background-color: var(--profile-gradient-primary-color, var(--hsl-primary-color));
 }
 .popover_f84418.popover_f84418 .button_f7ecac:hover,
 .wrapper_f7ecac .button_f7ecac:hover {
@@ -1107,7 +1107,7 @@ html.keyboard-mode) .root_bfe55a.idle_bfe55a:not(:focus-within) :is(.topControls
 }
 .popover_f84418.popover_f84418 .button_f7ecac:hover::before,
 .wrapper_f7ecac .button_f7ecac:hover::before {
-  background-color: var(--profile-secondary-color, var(--hsl-hover-color));
+  background-color: var(--profile-gradient-secondary-color, var(--hsl-hover-color));
 }
 .popover_f84418.popover_f84418 > span:first-child > .button_f7ecac::before,
 .wrapper_f7ecac > span:first-child > .button_f7ecac::before {
@@ -1816,7 +1816,7 @@ span):not(.spoilerContent__299eb) {
 }
 .channelTextArea__74017:focus-within {
   border-width: 0;
-  box-shadow: 0 0 2px 2px var(--profile-primary-color, var(--hsl-primary-color));
+  box-shadow: 0 0 2px 2px var(--profile-gradient-primary-color, var(--hsl-primary-color));
 }
 
 .base_b88801 {
@@ -4982,17 +4982,6 @@ span):not(.spoilerContent__299eb) {
 }
 
 /* Start Profile */
-.custom-user-profile-theme {
-  --profile-primary-color: color-mix(in oklab,
-  	var(--profile-gradient-primary-color) 80%,
-  	var(--profile-gradient-secondary-color)
-  );
-  --profile-secondary-color: color-mix(in oklab,
-  	var(--profile-gradient-primary-color) 20%,
-  	var(--profile-gradient-secondary-color)
-  );
-}
-
 .inner_c0bea0 {
   border-radius: 0;
 }
@@ -5009,7 +4998,7 @@ span):not(.spoilerContent__299eb) {
   border: none;
 }
 .custom-user-profile-theme .outer_ab8609 {
-  background: var(--profile-primary-color);
+  background: var(--profile-gradient-primary-color);
 }
 :is(.theme-dark,
 .theme-light).custom-user-profile-theme .outer_ab8609 {
@@ -5213,8 +5202,8 @@ span):not(.spoilerContent__299eb) {
 }
 
 .custom-user-profile-theme :is(.scrollerBase__99f8c, .scrollerBase_d125d2) {
-  --scrollbar-thin-thumb: var(--profile-primary-color);
-  --scrollbar-auto-thumb: var(--profile-primary-color);
+  --scrollbar-thin-thumb: var(--profile-gradient-primary-color);
+  --scrollbar-auto-thumb: var(--profile-gradient-primary-color);
 }
 
 :not(.custom-user-profile-theme).user-profile-popout :where(.banner__68edb) {
@@ -5234,10 +5223,6 @@ span):not(.spoilerContent__299eb) {
 .user-profile-sidebar:not(.user-profile-sidebar-redesign) {
   --width: 340px;
   --hide-var: var(--hide-profile-panel);
-}
-
-.user-profile-sidebar.custom-user-profile-theme .inner_c0bea0 {
-  background: linear-gradient(var(--profile-gradient-primary-color), var(--profile-gradient-secondary-color));
 }
 
 .user-profile-sidebar:not(.custom-user-profile-theme) {

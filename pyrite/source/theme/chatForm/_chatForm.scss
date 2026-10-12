@@ -33,7 +33,7 @@
 	border: none;
 	&:focus-within {
 		border-width: 0;
-		box-shadow: 0 0 2px 2px var(--profile-primary-color, $primary);
+		box-shadow: 0 0 2px 2px var(--profile-gradient-primary-color, $primary);
 	}
 }
 

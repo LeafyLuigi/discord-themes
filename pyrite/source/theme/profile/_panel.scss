@@ -9,14 +9,6 @@
 	--width: 340px;
 	--hide-var: var(--hide-profile-panel);
 }
-#{c(profile panel)} {
-	// background: $side;
-	&#{c(profile themed)} {
-		#{c(profile inner)} {
-			background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-secondary-color));
-		}
-	}
-}
 #{c(profile panel)}:not(#{c(profile themed)}) {
 	background: $side; // this rule should technically be under `:where(#{c(profile outer)})`
 	#{c(profile panel colorOverlay)} {

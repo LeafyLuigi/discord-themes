@@ -72,12 +72,12 @@
 		border: none;
 	}
 	#{c(chat button)} {
-		@include bg($bg:var(--profile-primary-color,$primary),$o:0.6);
+		@include bg($bg:var(--profile-gradient-primary-color,$primary),$o:0.6);
 		&:hover {
 			background-color: transparent;
 		}
 		&:hover::before {
-			background-color: var(--profile-secondary-color,$hover);
+			background-color: var(--profile-gradient-secondary-color,$hover);
 		}
 	}
 	>span:first-child>#{c(chat button)}::before {

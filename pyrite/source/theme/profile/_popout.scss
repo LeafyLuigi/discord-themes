@@ -52,8 +52,8 @@
 	// 	}
 	// }
 	#{c(scroller base)} {
-		--scrollbar-thin-thumb: var(--profile-primary-color);
-		--scrollbar-auto-thumb: var(--profile-primary-color);
+		--scrollbar-thin-thumb: var(--profile-gradient-primary-color);
+		--scrollbar-auto-thumb: var(--profile-gradient-primary-color);
 	}
 }
 

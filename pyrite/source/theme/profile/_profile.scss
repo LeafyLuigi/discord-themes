@@ -1,16 +1,6 @@
 @use "backend" as *;
 /* Start Profile */
 // add some extra variables to themed profiles
-#{c(profile themed)} {
-	--profile-primary-color: color-mix(in oklab,
-		var(--profile-gradient-primary-color) 80%,
-		var(--profile-gradient-secondary-color)
-	);
-	--profile-secondary-color: color-mix(in oklab,
-		var(--profile-gradient-primary-color) 20%,
-		var(--profile-gradient-secondary-color)
-	);
-}
 #{c(profile inner)} {
 	border-radius: 0;
 }
@@ -36,7 +26,7 @@
 		border: none;
 	}
 	#{c(profile themed)} & {
-		background: var(--profile-primary-color);
+		background: var(--profile-gradient-primary-color);
 	}
 	:is(
 		#{c(main dark)},
