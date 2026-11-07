@@ -1,5 +1,7 @@
 # Pyrite is semi-EOL. Discord are rewriting the client and client mods will not work. The theme MIGHT return properly in the future.
 
+A more neuanced and verbose message is found in the [Support Server](https://discord.gg/EeQQTWbTf5).
+
 # Pyrite Theme
 
 Pyrite is a Discord Theme inspired by ClearVision and is built off the core of a stale branch.
