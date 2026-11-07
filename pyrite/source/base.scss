@@ -16,7 +16,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 // Vars labeled with a dagger (†) have a HSL variable available and should be used instead of the raw value. Example: --primary-color => --hsl-primary-color.
 // Vars labeled with a double dagger (‡) get overridden by .visual-refresh.theme :(
 :root {
-	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	/* fallbacks from the property file, allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
 	--background-image: #{v(background-image)}; // <color> | <image> | none
 	--user-modal-image: #{v(user-modal-image)}; // <color> | <image> | none
 	--user-popout-image: #{v(user-popout-image)}; // <color> | <image> | none
@@ -135,7 +135,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 
 .theme-dark,
 .theme-dark :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
-	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	/* fallbacks from the property file, allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
 	--card-background: #{v(dark-card-background)}; // † -- <color>
 	--side-shading: #{v(dark-side-shading)}; // † -- <color>
 	--middle-shading: #{v(dark-middle-shading)}; // † -- <color>
@@ -155,7 +155,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 }
 .theme-darker,
 .theme-darker :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
-	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	/* fallbacks from the property file, allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
 	--card-background: #{v(darker-card-background)}; // † -- <color>
 	--side-shading: #{v(darker-side-shading)}; // † -- <color>
 	--middle-shading: #{v(darker-middle-shading)}; // † -- <color>
@@ -175,7 +175,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 }
 .theme-midnight,
 .theme-midnight :not(div[class*=previewContainer_]) .theme-light:not(#{$blacklist-theme-dark-classes}) {
-	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	/* fallbacks from the property file, allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
 	--card-background: #{v(midnight-card-background)}; // † -- <color>
 	--side-shading: #{v(midnight-side-shading)}; // † -- <color>
 	--middle-shading: #{v(midnight-middle-shading)}; // † -- <color>
@@ -197,7 +197,7 @@ $hslColor: h calc(var(--saturation-factor,1) * s) l / alpha;
 // sidebar, guilds and sidebarregion all have a toggle-dark-sidebar option in discord's settings
 .theme-light,
 .theme-light :not(div[class*=previewContainer_]) .theme-dark:not(#{$blacklist-theme-light-classes}) {
-	/* fallbacks from the property file; allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
+	/* fallbacks from the property file, allowed values in comments. check https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax for shit in chevrons */
 	--card-background: #{v(light-card-background)}; // † -- <color>
 	--side-shading: #{v(light-side-shading)}; // † -- <color>
 	--middle-shading: #{v(light-middle-shading)}; // † -- <color>

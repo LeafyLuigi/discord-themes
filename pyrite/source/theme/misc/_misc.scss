@@ -96,14 +96,10 @@ code,
 
 // Transparency to allow the background to work.
 html, // because maybe?
-#{c(main appInner)} {
-	background: transparent;
-}
-:is(
-	#{c(main appMount)},
-	#{c(main bg)},
-	body // this one is here for transparency in bd to work
-) {
+body, // might be needed for transparency in bd
+#{c(main appInner)},
+#{c(main appMount)},
+#{c(main bg)} {
 	background: transparent;
 }
 // NEW EXPERIMENT. THANKS DISCORD.
@@ -236,6 +232,7 @@ html, // because maybe?
 /* show/hide for side-panels */
 @container style(--allow-element-hiding: true) {
 	// START CLAMPING
+	// vscodium likes to have a hissy fit over the syntax here. ignore it.
 	@container style(0s > --hide-speed) {
 		body {
 			--hide-speed: #{v(hide-speed)};
@@ -387,12 +384,6 @@ html, // because maybe?
 // insecure links
 a[href^="http://"] {
 	color: $red;
-}
-
-/* HLJS */
-#{c(hljs comment)},
-#{c(hljs quote)} {
-	font-style: italic;
 }
 
 /* A few blurs */

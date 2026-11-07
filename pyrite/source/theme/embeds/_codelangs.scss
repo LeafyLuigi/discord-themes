@@ -1015,6 +1015,7 @@ $lang: (
 	"JavaScript": (
 		classes: ("javascript", "js", "jsx", "mjs"),
 		background: #165eab,
+		isArborium: true,
 	),
 	"CommonJS": (
 		classes: ("cjs"),
@@ -1194,14 +1195,14 @@ $lang: (
 					&::before {
 						filter: saturate(var(--saturation-factor,1));
 					}
-				} @else if $bg == color.change($bg,$saturation:0,$space:hsl) {
+				} @else if $bg == color.change($bg,$saturation:0%,$space:hsl) {
 					--bg: #{$bg};
 				} @else {
 					--bg: hsl(from #{$bg} h calc(var(--saturation-factor,1) * s) l/alpha);
 				}
 			}
 			@if $col != null {
-				@if $col == color.change($col,$saturation:0,$space:hsl) {
+				@if $col == color.change($col,$saturation:0%,$space:hsl) {
 					--col: #{$col};
 				} @else {
 					--col: hsl(from #{$col} h calc(var(--saturation-factor,1) * s) l/alpha); 
@@ -1352,5 +1353,4 @@ $lang: (
 // 	color: var(--text-muted);
 // 	font-style: italic;
 // }
-
 }

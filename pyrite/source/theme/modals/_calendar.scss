@@ -5,12 +5,10 @@
 		#{c(modals calendar react datePicker)},
 		#{c(modals calendar react header)},
 		#{c(modals calendar react dayDisabled)},
-		#{c(modals calendar react dayOutsideMonth)},
-		#{c(modals calendar react day)}:is(
-			#{c(modals calendar react dayDisabled)},
-			#{c(modals calendar react dayDisabled)}:hover
-		)
-	) {
+		#{c(modals calendar react dayOutsideMonth)}
+	),
+	#{c(modals calendar react day)}#{c(modals calendar react dayDisabled)},
+	#{c(modals calendar react day)}#{c(modals calendar react dayDisabled)}:hover {
 		background: transparent;
 	}
 }
